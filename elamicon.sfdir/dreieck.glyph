@@ -1,0 +1,26 @@
+StartChar: dreieck
+Encoding: 57345 57345 2
+Width: 1000
+VWidth: 0
+Flags: W
+HStem: 362.645 70.3555<169.655 826.812>
+LayerCount: 2
+Fore
+SplineSet
+500 433 m 1
+ 900 431.355 l 1
+ 935.355 396 l 1
+ 900 360.645 l 1
+ 488 -35.3555 l 1
+ 452.645 0 l 1
+ 64.6445 396 l 1
+ 100 431.355 l 1
+ 500 433 l 1
+500 362.645 m 1
+ 169.655 360.993 l 1
+ 488.368 35.709 l 1
+ 826.812 361.011 l 1
+ 500 362.645 l 1
+EndSplineSet
+Validated: 524289
+EndChar
