@@ -2,7 +2,7 @@ StartChar: uniE040
 Encoding: 57408 57408 11
 Width: 774
 VWidth: 0
-Flags: HW
+Flags: W
 LayerCount: 2
 Back
 SplineSet
@@ -57,5 +57,5 @@ SplineSet
  450.426 404.354 411.418 336.449 357.383 246.002 c 1
  473.712 13.3447 l 1
 EndSplineSet
-Validated: 524289
+Validated: 1
 EndChar
