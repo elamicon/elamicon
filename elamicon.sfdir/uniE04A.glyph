@@ -2,7 +2,7 @@ StartChar: uniE04A
 Encoding: 57418 57418 18
 Width: 845
 VWidth: 0
-Flags: HWO
+Flags: HW
 HStem: 280.845 50.1221<281.102 562.309> 375 50<188.831 385.949 440.949 655.335>
 VStem: 385.949 55<425 636.293>
 LayerCount: 2
@@ -53,4 +53,5 @@ SplineSet
  422 729 429 726 434 721 c 6
  738 417 l 6
 EndSplineSet
+Validated: 1
 EndChar
