@@ -1,28 +1,30 @@
-StartChar: uniE002
-Encoding: 57346 57346 20
+StartChar: uniE003
+Encoding: 57347 57347 40
 Width: 413
 VWidth: 0
 Flags: HW
 HStem: 0 21G<100.5 155.5 258 313>
 VStem: 100 55<0 800> 258 55<0 332 468 800>
 LayerCount: 2
+Back
+SplineSet
+285.25 800 m 29
+ 285.25 0 l 29
+127.25 800 m 29
+ 127.25 0 l 29
+EndSplineSet
 Fore
 SplineSet
 258 800 m 1
  313 800 l 1
- 313 468 l 1
- 258 468 l 1
- 258 800 l 1
-313 0 m 1
- 258 0 l 1
- 258 332 l 1
- 313 332 l 1
  313 0 l 1
-155 0 m 1
- 100 0 l 1
- 100 800 l 1
+ 258 0 l 1
+ 258 800 l 1
+100 800 m 1
  155 800 l 1
  155 0 l 1
+ 100 0 l 1
+ 100 800 l 1
 EndSplineSet
 Validated: 1
 EndChar

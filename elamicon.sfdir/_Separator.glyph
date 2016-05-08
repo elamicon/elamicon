@@ -2,7 +2,7 @@ StartChar: Separator
 Encoding: 57344 57344 0
 Width: 255
 VWidth: 0
-Flags: W
+Flags: HW
 VStem: 100 55<-99 903>
 LayerCount: 2
 Back
