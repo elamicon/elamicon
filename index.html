@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     Array.from(document.getElementsByClassName("letter")).forEach(function(letter) {
         letter.addEventListener('click', function(event) {
             var playground = document.getElementById('playground');
-            playground.value = playground.value + event.target.textContent;
+            playground.value = playground.value + event.target.textContent.trim();
         });
     });
 
@@ -242,10 +242,21 @@ document.addEventListener('DOMContentLoaded', function() {
     </li>
 </ol>
 
+<h2>Spezielle Zeichen</h2>
+<dl class="alphabet">
+
+	<dt class="letter elam"></dt>
+	<dd>Platzhalter für unbekannte Zeichen.</dd>
+
+	<dt class="letter elam">&nbsp;&nbsp;</dt>
+	<dd>Dieses Zeichen kann angefügt werden um ein anderes Zeichen als schlecht lesbar zu markieren.</dd>
+</dl>
+
 
 <h2>Spielplatz</h2>
+Wenn du oben auf ein Zeichen klickst wird es hier angefügt.
 <textarea class="elam" id="playground">
-
+ 
 </textarea>
 
 
