@@ -9,8 +9,28 @@
 }
 .elam {
 	font-family: elamicon;
-	font-size: 200%;
+	unicode-bidi: bidi-override;
 }
+
+.letter {
+	font-size: 300%;
+}
+
+.fragment {
+	font-size: 200%;
+
+}
+
+.line {
+	border-top: 0.2ex solid black;
+	border-bottom: 0.2ex solid black;
+	line-height: 1ex;
+}
+
+.rtl { direction: rtl; }
+.ltr { direction: ltr; }
+.rtl-override { direction: rtl; }
+.ltr-override { direction: ltr; }
 
 h2 {
 	clear: both;
@@ -22,36 +42,76 @@ h2 {
 }
 
 .alphabet li {
-	padding: 0.5em;
-	float: left;
+	margin: 0.1em;
+	display: inline-block;
 }
 
 .alphabet div {
-	padding: 0.5em;
-	font-size: 400%;
+	padding: 0.3em;
 
-        color: rgba(100, 100, 100, 0.8);
-        background-color: #ddd;
+    color: rgba(100, 100, 100, 0.8);
+    background-color: #ddd;
 	text-shadow: #ddd 0.03ex 0.03ex 0.05ex, #000 0 0 0;
-
 }
+
+#select-direction {
+	display: none; /* grace */
+}
+
+#playground {
+	width: 100%;
+	height: 5ex;
+	font-size: 200%;
+}
+
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    /* clicks on letters on the alphabet add them to playground */
+    /* Clicks to letters in the alphabet add them to playground */
     Array.from(document.getElementsByClassName("letter")).forEach(function(letter) {
         letter.addEventListener('click', function(event) {
             var playground = document.getElementById('playground');
             playground.value = playground.value + event.target.textContent;
         });
     });
+
+    var select_direction = document.getElementById('select-direction');
+    select_direction.style.display = 'block';
+
+    var update_direction = function() {
+		var dir = form.direction.value;
+		Array.from(document.getElementsByClassName("elam")).forEach(function(elm) {
+			elm.classList.remove('rtl-override');
+			elm.classList.remove('ltr-override');
+			if (dir == "rtl") elm.classList.add('rtl-override');
+			if (dir == "ltr") elm.classList.add('ltr-override');
+		});
+    };
+
+    var form = select_direction.children[0];
+    form.addEventListener('change', update_direction);
+    update_direction();
 });
 </script>
 </head>
 <body>
-<h1>Korpus Elamischer Zeichen</h1>
+<h1>Elamische Zeichensammlung</h1>
+
+<div id="select-direction">
+	<form>
+		<label>
+			Schreibrichtung
+			<select name="direction">
+				<option value="" selected>urpsrünglich ⇔</option>
+				<option value="ltr">von links ⇒ nach rechts</option>
+				<option value="rtl">nach links ⇐ von rechts</option>
+			</select>
+		</label>
+	</form>
+</div>
+
 <h2>Die Zeichen</h2>
-<ol class="alphabet">
+<ol class="alphabet elam">
 	<li class="letter">
 		<div class="elam"></div>
 	</li>
@@ -192,14 +252,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <h2>Textfragmente</h2>
 <h3>A</h3>
-<div class="elam" style="direction: rtl; unicode-bidi: bidi-override;">
-&rlm;
-<br>
-
+<div class="fragment elam rtl">
+	<span class="line"></span>
+	<br>
+	<span class="line"></span>
 </div>
 <h3>Q</h3>
-<div class="elam">
-&#x200b;&#x200b;&#x200b;&#x200b;
+<div class="fragment elam ltr">
+	<span class="line">
+	&#x200b;&#x200b;&#x200b;&#x200b;
+	</span>
 </div>
 </body>
 </html>
