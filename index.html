@@ -36,114 +36,170 @@ h2 {
 
 }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    /* clicks on letters on the alphabet add them to playground */
+    Array.from(document.getElementsByClassName("letter")).forEach(function(letter) {
+        letter.addEventListener('click', function(event) {
+            var playground = document.getElementById('playground');
+            playground.value = playground.value + event.target.textContent;
+        });
+    });
+});
+</script>
 </head>
 <body>
 <h1>Korpus Elamischer Zeichen</h1>
 <h2>Die Zeichen</h2>
 <ol class="alphabet">
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
-		<div class="elam"></div>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+	<li class="letter">
+		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
-		<div class="elam"></div>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+	<li class="letter">
+		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
-		<div class="elam"></div>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+	<li class="letter">
+		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
-	<li>
+	<li class="letter">
 		<div class="elam"></div>
 	</li>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
+    <li class="letter">
+        <div class="elam"></div>
+    </li>
 </ol>
+
+
+<h2>Spielplatz</h2>
+<textarea class="elam" id="playground">
+
+</textarea>
+
+
 <h2>Textfragmente</h2>
+<h3>A</h3>
+<div class="elam" style="direction: rtl; unicode-bidi: bidi-override;">
+&rlm;
+<br>
+
+</div>
 <h3>Q</h3>
 <div class="elam">
 &#x200b;&#x200b;&#x200b;&#x200b;
 </div>
-
-<h2>Spielplatz</h2>
-<textarea class="elam">
-
-</textarea>
 </body>
 </html>
