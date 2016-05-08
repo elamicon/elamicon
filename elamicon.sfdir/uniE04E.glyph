@@ -1,8 +1,8 @@
 StartChar: uniE04E
-Encoding: 57422 57422 28
+Encoding: 57422 57422 27
 Width: 845
 VWidth: 0
-Flags: HW
+Flags: W
 HStem: 295 30<376 464> 385 143<301 334.719 503.281 537> 385 30<336 384 455 502>
 VStem: 301 35<415 469> 386 55<714 814> 502 35<415 468>
 LayerCount: 2
