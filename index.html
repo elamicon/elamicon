@@ -74,16 +74,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+	/* The font has two characters (  and ) that are used to mark the
+	 * preceding character as a guess. The reason there are two of them is
+	 * that the font does not see text direction (maybe this can be fixed)
+	 * so the guess-mark would overlay the character on the wrong side when the direction is changed. So when changing text direction we have to replace that char as well. */
     var select_direction = document.getElementById('select-direction');
     select_direction.style.display = 'block';
 
     var update_direction = function() {
 		var dir = form.direction.value;
-		Array.from(document.getElementsByClassName("elam")).forEach(function(elm) {
+		Array.from(document.getElementsByClassName("dir")).forEach(function(elm) {
 			elm.classList.remove('rtl-override');
 			elm.classList.remove('ltr-override');
 			if (dir == "rtl") elm.classList.add('rtl-override');
 			if (dir == "ltr") elm.classList.add('ltr-override');
+
+			var effectiveDir = dir || (elm.classList.contains('rtl') ? 'rtl' : 'ltr');
+			var wrongDir = (effectiveDir === 'ltr' ? //g : //g);
+			var rightDir = (effectiveDir === 'ltr' ? '' : '')
+			var textWalker = document.createTreeWalker(elm, NodeFilter.SHOW_TEXT);
+			while (textWalker.nextNode()) {
+				var textNode = textWalker.currentNode;
+				textNode.nodeValue = textNode.nodeValue.replace(wrongDir, rightDir);
+			}
+
+			/* special case for the textarea */
+			if (elm.value) elm.value = elm.value.replace(wrongDir, rightDir);
 		});
     };
 
@@ -109,8 +125,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	</form>
 </div>
 
-<h2>Die Zeichen</h2>
-<ol class="alphabet elam">
+<h2>Die Buchstaben</h2>
+<ol class="alphabet dir ltr">
 	<li class="letter">
 		<div class="elam"></div>
 	</li>
@@ -243,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </ol>
 
 <h2>Spezielle Zeichen</h2>
-<dl class="alphabet">
+<dl class="alphabet dir ltr">
 
 	<dt class="letter elam"></dt>
 	<dd>Platzhalter für unbekannte Zeichen.</dd>
@@ -254,21 +270,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <h2>Spielplatz</h2>
-Wenn du oben auf ein Zeichen klickst wird es hier angefügt.
-<textarea class="elam" id="playground">
+Wenn du oben auf einen Buchstaben klickst wird er hier angefügt.
+<textarea class="elam dir ltr" id="playground">
  
 </textarea>
 
 
 <h2>Textfragmente</h2>
 <h3>A</h3>
-<div class="fragment elam rtl">
-	<span class="line"></span>
-	<br>
-	<span class="line"></span>
+<div class="fragment elam dir rtl">
+	<span class="line"></span><br>
+	<span class="line"></span><br>
+	<span class="line"></span><br>
+	<span class="line"></span>
 </div>
 <h3>Q</h3>
-<div class="fragment elam ltr">
+<div class="fragment elam dir ltr">
 	<span class="line">
 	&#x200b;&#x200b;&#x200b;&#x200b;
 	</span>

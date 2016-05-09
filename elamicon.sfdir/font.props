@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1461436948
-ModificationTime: 1462742227
+ModificationTime: 1462748442
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -43,7 +43,7 @@ NameList: Adobe Glyph List
 DisplaySize: -96
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 64 8 9
+WinInfo: 57528 8 7
 BeginPrivate: 0
 EndPrivate
 Grid
