@@ -16,9 +16,16 @@
 	font-size: 300%;
 }
 
+.plate {
+	vertical-align: top;
+	padding: 0 1em;
+	display: inline-block;
+}
+
 .fragment {
 	font-size: 200%;
 	line-height: 1.05em;
+	display: inline-block;
 }
 
 .line {
@@ -272,6 +279,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="elam"></div>
     </li>
     <li class="letter">
+        <div class="elam"></div>
+    </li>
+    <li class="letter">
         <div class="elam"></div>
     </li>
     <li class="letter">
@@ -303,7 +313,10 @@ Wenn du oben auf einen Buchstaben klickst wird er hier angefügt.
 </textarea>
 
 
+
 <h2>Textfragmente</h2>
+<div class="dir">
+<div class="plate">
 <h3>A</h3>
 <div class="fragment elam dir rtl">
 	<span class="line"></span><br>
@@ -312,11 +325,35 @@ Wenn du oben auf einen Buchstaben klickst wird er hier angefügt.
 	<span class="line"><span><br>
 	<span class="line"></span>
 </div>
+</div>
+
+<div class="plate">
+<h3>B</h3>
+<div class="fragment elam dir ltr">
+	<span class="line"><span><br>
+	<span class="line"><span><br>
+	<span class="line"></span><br>
+</div>
+</div>
+
+<div class="plate">
+<h3>C</h3>
+<div class="fragment elam dir rtl">
+	<span class="line"><span><br>
+	<span class="line"><span><br>
+	<span class="line"><span><br>
+	<span class="line"><span><br>
+</div>
+</div>
+
+<div class="plate">
 <h3>Q</h3>
 <div class="fragment elam dir ltr">
 	<span class="line">
 	&#x200b;&#x200b;&#x200b;&#x200b;
 	</span>
+</div>
+</div>
 </div>
 </body>
 </html>
