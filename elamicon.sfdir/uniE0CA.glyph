@@ -1,13 +1,24 @@
 StartChar: uniE0CA
-Encoding: 57546 57546 51
-Width: 1000
+Encoding: 57546 57546 52
+Width: 478
 VWidth: 0
-Flags: H
+Flags: HW
 LayerCount: 2
 Back
 SplineSet
-100 100 m 5
- 230 100 325 231 323 400 c 5
- 325 560 219 703 100 703 c 5
+100 100 m 1
+ 230 100 323 228 323 400 c 1
+ 323 560 219 703 100 703 c 1
 EndSplineSet
+Fore
+SplineSet
+100 678 m 1
+ 100 728 l 1
+ 244 728 350 565 350 400 c 0
+ 350 223 254 75 100 75 c 1
+ 100 125 l 1
+ 206 125 296 233 296 400 c 0
+ 296 555 194 678 100 678 c 1
+EndSplineSet
+Validated: 1
 EndChar
