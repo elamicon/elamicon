@@ -1,0 +1,23 @@
+StartChar: uniE0CB
+Encoding: 57547 57547 55
+Width: 450
+VWidth: 0
+Flags: HWO
+LayerCount: 2
+Back
+SplineSet
+350 100 m 5
+ 220 100 127 228 127 400 c 5
+ 127 560 231 703 350 703 c 5
+EndSplineSet
+Fore
+SplineSet
+350 728 m 1
+ 350 678 l 1
+ 256 678 154 555 154 400 c 0
+ 154 233 244 125 350 125 c 1
+ 350 75 l 1
+ 196 75 99 223 99 400 c 0
+ 99 565 206 728 350 728 c 1
+EndSplineSet
+EndChar
