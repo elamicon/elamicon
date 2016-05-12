@@ -70,9 +70,93 @@ h2 {
 	font-size: 200%;
 }
 
+.highlight {
+	background-color: yellow;
+}
+
+.highlight-neighbor {
+	background-color: #ffa;
+}
+
 </style>
 <script>
+"use strict";
+
 document.addEventListener('DOMContentLoaded', function() {
+	/* Create a lookup table over all characters */
+	var char_map = {};
+	var chars = [];
+
+	Array.from(document.getElementsByClassName("elam")).forEach(function(elm) {
+		var last = false;
+		var rm = [];
+
+		var text_walker = document.createTreeWalker(elm, NodeFilter.SHOW_TEXT);
+		while (text_walker.nextNode()) {
+			var text_node = text_walker.currentNode;
+			text_node.nodeValue.split('').forEach(function(char) {
+				if (char === '' || char === '') {
+					if (last) {
+						last.elm.appendChild(document.createTextNode(char));
+						return;
+					}
+				}
+
+				var elm = document.createElement('span');
+				elm.appendChild(document.createTextNode(char));
+				text_node.parentNode.insertBefore(elm, text_node);
+				var char_info = {
+					char: char,
+					prev: last,
+					elm: elm,
+					visit_neighbors: function(distance, quest, direction) {
+						if (direction) quest(this);
+						if (distance > 0) {
+							if ((!direction || direction === 'prev') && this.prev) this.prev.visit_neighbors(distance-1, quest, 'prev');
+							if ((!direction || direction === 'next') && this.next) this.next.visit_neighbors(distance-1, quest, 'next');
+						}
+					}
+				}
+				if (last) {
+					last.next = char_info;
+				}
+				last = char_info;
+
+				if (char_map[char] === undefined) {
+					char_map[char] = [];
+				}
+				char_map[char].push(char_info);
+				chars.push(char_info);
+
+				elm.addEventListener('click', function() {
+					var neighboring_chars = [];
+					char_info.visit_neighbors(3, function(neigh) {
+						neighboring_chars.push(neigh.char);
+					});
+
+					var neighboring = neighboring_chars.join('');
+					chars.forEach(function(char_info) {
+						char_info.elm.classList.remove('highlight');
+						char_info.elm.classList.remove('highlight-neighbor');
+					});
+					char_map[char].forEach(function(neigh_info) {
+						neigh_info.elm.classList.add('highlight')
+						neigh_info.visit_neighbors(3, function(neigh) {
+							if (neighboring.indexOf(neigh.char) >= 0) {
+								neigh.elm.classList.add('highlight-neighbor');
+							}
+						});
+					});
+				});
+			});
+			rm.push(text_node);
+		}
+
+		rm.forEach(function(rmelm) {
+			rmelm.parentNode.removeChild(rmelm);
+		});
+	});
+
     /* Clicks to letters in the alphabet add them to playground */
     Array.from(document.getElementsByClassName("letter")).forEach(function(letter) {
         letter.addEventListener('click', function(event) {
@@ -84,7 +168,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	/* The font has two characters (  and ) that are used to mark the
 	 * preceding character as a guess. The reason there are two of them is
 	 * that the font does not see text direction (maybe this can be fixed)
-	 * so the guess-mark would overlay the character on the wrong side when the direction is changed. So when changing text direction we have to replace that char as well. */
+	 * so the guess-mark would overlay the character on the wrong side when the
+	 * direction is changed. So when changing text direction we have to replace
+	 * that char as well. */
     var select_direction = document.getElementById('select-direction');
     select_direction.style.display = 'block';
 
