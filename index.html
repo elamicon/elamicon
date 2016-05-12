@@ -70,12 +70,12 @@ h2 {
 	font-size: 200%;
 }
 
-.highlight {
-	background-color: yellow;
-}
-
 .highlight-neighbor {
 	background-color: #ffa;
+}
+
+.highlight {
+	background-color: yellow;
 }
 
 </style>
@@ -83,11 +83,19 @@ h2 {
 "use strict";
 
 document.addEventListener('DOMContentLoaded', function() {
+	var char_equivs = function(char) {
+		var char_equiv_lines = document.getElementById('char-equiv').value.trim();
+		for (let line of char_equiv_lines.split('\n')) {
+			if (line.indexOf(char) >= 0) return line.split('');
+		};
+		return [char];
+	};
+
 	/* Create a lookup table over all characters */
 	var char_map = {};
 	var chars = [];
 
-	Array.from(document.getElementsByClassName("elam")).forEach(function(elm) {
+	Array.from(document.getElementsByClassName("fragment")).forEach(function(elm) {
 		var last = false;
 		var rm = [];
 
@@ -95,11 +103,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		while (text_walker.nextNode()) {
 			var text_node = text_walker.currentNode;
 			text_node.nodeValue.split('').forEach(function(char) {
+				if (char.match(/\s/)) {
+					return;
+				}
 				if (char === '' || char === '') {
 					if (last) {
 						last.elm.appendChild(document.createTextNode(char));
-						return;
 					}
+					return;
 				}
 
 				var elm = document.createElement('span');
@@ -130,8 +141,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				elm.addEventListener('click', function() {
 					var neighboring_chars = [];
-					char_info.visit_neighbors(3, function(neigh) {
-						neighboring_chars.push(neigh.char);
+					char_info.visit_neighbors(5, function(neigh) {
+						Array.prototype.push.apply(neighboring_chars, char_equivs(neigh.char));
 					});
 
 					var neighboring = neighboring_chars.join('');
@@ -139,14 +150,18 @@ document.addEventListener('DOMContentLoaded', function() {
 						char_info.elm.classList.remove('highlight');
 						char_info.elm.classList.remove('highlight-neighbor');
 					});
-					char_map[char].forEach(function(neigh_info) {
-						neigh_info.elm.classList.add('highlight')
-						neigh_info.visit_neighbors(3, function(neigh) {
-							if (neighboring.indexOf(neigh.char) >= 0) {
-								neigh.elm.classList.add('highlight-neighbor');
-							}
-						});
-					});
+					for (let equiv_char of char_equivs(char)) {
+						var occurences = char_map[equiv_char];
+						if (!occurences) continue; // This happens when the equiv-chars table has chars that don't show up in the fragments
+						for (let occurence of occurences) {
+							occurence.elm.classList.add('highlight');
+							occurence.visit_neighbors(5, function(neigh) {
+								if (neighboring.indexOf(neigh.char) >= 0) {
+									neigh.elm.classList.add('highlight-neighbor');
+								}
+							});
+						};
+					}
 				});
 			});
 			rm.push(text_node);
@@ -396,6 +411,19 @@ document.addEventListener('DOMContentLoaded', function() {
 Wenn du oben auf einen Buchstaben klickst wird er hier angefügt.
 <textarea class="elam dir ltr" id="playground">
  
+</textarea>
+
+<h2>Äquivalente Zeichen</h2>
+Zeichen auf der gleichen Zeile werden als gleichwertig interpretiert.
+<textarea class="elam dir ltr" id="char-equiv">
+
+
+
+
+
+
+
+
 </textarea>
 
 
