@@ -81,6 +81,11 @@ h2 {
 	background-color: yellow;
 }
 
+.selected {
+	margin: -1px;
+	border: 1px dotted gray;
+}
+
 </style>
 <script>
 "use strict";
@@ -155,7 +160,9 @@ document.addEventListener('DOMContentLoaded', function() {
 					chars.forEach(function(char_info) {
 						char_info.elm.classList.remove('highlight');
 						char_info.elm.classList.remove('highlight-neighbor');
+						char_info.elm.classList.remove('selected');
 					});
+					char_info.elm.classList.add('selected');
 					for (let equiv_char of char_equivs(char)) {
 						var occurences = char_map[equiv_char];
 						if (!occurences) continue; // This happens when the equiv-chars table has chars that don't show up in the fragments
