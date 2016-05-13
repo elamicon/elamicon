@@ -31,6 +31,9 @@
 .line {
 	border-top: 0.05em solid black;
 	border-bottom: 0.05em solid black;
+	display: block;
+	margin: 0;
+	padding: 0;
 }
 
 .rtl { direction: rtl; }
@@ -193,6 +196,11 @@ document.addEventListener('DOMContentLoaded', function() {
     select_direction.style.display = 'block';
 
     var update_direction = function() {
+		var linebreaks = form.linebreaks.checked;
+		Array.from(document.getElementsByClassName("line")).forEach(function(elm) {
+			elm.style.display = linebreaks ? 'block' : 'inline';
+		});
+
 		var dir = form.direction.value;
 		Array.from(document.getElementsByClassName("dir")).forEach(function(elm) {
 			elm.classList.remove('rtl-override');
@@ -232,6 +240,10 @@ document.addEventListener('DOMContentLoaded', function() {
 				<option value="ltr">von links ⇒ nach rechts</option>
 				<option value="rtl">nach links ⇐ von rechts</option>
 			</select>
+		</label>
+		<br>
+		<label>
+			Zeilenumbrüche <input type="checkbox" name="linebreaks" value="yes" checked> immer machen.
 		</label>
 	</form>
 </div>
@@ -428,30 +440,30 @@ Diese Zeichen werden als gleichwertig interpretiert, mit Kommas getrennt:
 <div class="plate">
 <h3>A</h3>
 <div class="fragment elam dir rtl">
-	<span class="line"></span><br>
-	<span class="line"></span><br>
-	<span class="line"></span><br>
-	<span class="line"><span><br>
-	<span class="line"></span>
+	<span class="line">&#x200b;</span>
+	<span class="line">&#x200b;</span>
+	<span class="line">&#x200b;</span>
+	<span class="line">&#x200b;</span>
+	<span class="line">&#x200b;</span>
 </div>
 </div>
 
 <div class="plate">
 <h3>B</h3>
 <div class="fragment elam dir ltr">
-	<span class="line"><span><br>
-	<span class="line"><span><br>
-	<span class="line"></span><br>
+	<span class="line">&#x200b;</span>
+	<span class="line">&#x200b;</span>
+	<span class="line">&#x200b;</span>
 </div>
 </div>
 
 <div class="plate">
 <h3>C</h3>
 <div class="fragment elam dir rtl">
-	<span class="line"><span><br>
-	<span class="line"><span><br>
-	<span class="line"><span><br>
-	<span class="line"><span><br>
+	<span class="line">&#x200b;</span>
+	<span class="line">&#x200b;</span>
+	<span class="line">&#x200b;</span>
+	<span class="line">&#x200b;</span>
 </div>
 </div>
 
