@@ -83,10 +83,13 @@ h2 {
 "use strict";
 
 document.addEventListener('DOMContentLoaded', function() {
+	/* Get the list of characters that are considered equivalent to the given character
+	 * The returned list includes the original character.
+	 */
 	var char_equivs = function(char) {
-		var char_equiv_lines = document.getElementById('char-equiv').value.trim();
-		for (let line of char_equiv_lines.split('\n')) {
-			if (line.indexOf(char) >= 0) return line.split('');
+		var char_equivs = document.getElementById('char-equiv').value.trim();
+		for (let group of char_equivs.split(',')) {
+			if (group.trim().indexOf(char) >= 0) return group.split('');
 		};
 		return [char];
 	};
@@ -103,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		while (text_walker.nextNode()) {
 			var text_node = text_walker.currentNode;
 			text_node.nodeValue.split('').forEach(function(char) {
-				if (char.match(/\s/)) {
+				if (char.match(/\s|\u200B/)) { // 200B is the zero-width space
 					return;
 				}
 				if (char === '' || char === '') {
@@ -414,18 +417,10 @@ Wenn du oben auf einen Buchstaben klickst wird er hier angefügt.
 </textarea>
 
 <h2>Äquivalente Zeichen</h2>
-Zeichen auf der gleichen Zeile werden als gleichwertig interpretiert.
-<textarea class="elam dir ltr" id="char-equiv">
-
-
-
-
-
-
-
-
-</textarea>
-
+<label>
+Diese Zeichen werden als gleichwertig interpretiert, mit Kommas getrennt:
+<input class="elam dir ltr" id="char-equiv" value=", , , , , , , , ">
+</label>
 
 
 <h2>Textfragmente</h2>
