@@ -109,6 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	 * The returned list includes the original character.
 	 */
 	var char_equivs = function(char) {
+		// The missing-char marker is not even equivalent to itself
+		if (char === '') return [];
+
 		var char_equivs = document.getElementById('char-equiv').value.trim();
 		for (let group of char_equivs.split(',')) {
 			if (group.trim().indexOf(char) >= 0) return group.split('');
@@ -310,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	</li>
 	<li class="letter">
 		<div class="elam"></div>
-		<div class="syl">en (?) / im (?)</div>
+		<div class="syl">en (?) oder im (?)</div>
 	</li>
 	<li class="letter">
 		<div class="elam"></div>
@@ -407,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </li>
     <li class="letter">
         <div class="elam"></div>
-		<div class="syl">še (?) / si (?)</div>
+		<div class="syl">še (?) oder si (?)</div>
     </li>
     <li class="letter">
         <div class="elam"></div>
