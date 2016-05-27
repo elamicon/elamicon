@@ -15,7 +15,7 @@
 
 .alphabet .letter {
 	text-align: center;
-	height: 8em;
+	height: 10em;
 	vertical-align: top;
 }
 
@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			var text_node = text_walker.currentNode;
 			text_node.nodeValue.split('').forEach(function(char) {
 				if (char.match(/\s|\u200B/)) { // 200B is the zero-width space
+					text_node.parentNode.insertBefore(document.createTextNode(char), text_node);
 					return;
 				}
 				if (char === '' || char === '') {
@@ -220,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
     select_direction.style.display = 'block';
 
     var update_direction = function() {
-		var linebreaks = form.linebreaks.checked;
+		var linebreaks = form.linebreaks.value === "original";
 		Array.from(document.getElementsByClassName("line")).forEach(function(elm) {
 			elm.style.display = linebreaks ? 'block' : 'inline';
 		});
@@ -267,7 +268,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		</label>
 		<br>
 		<label>
-			Zeilenumbrüche <input type="checkbox" name="linebreaks" value="yes" checked> immer machen.
+			Zeilenumbrüche
+			<select name="linebreaks">
+				<option value="original" selected>wie original</option>
+				<option value="remove">entfernen</option>
+			</select>
 		</label>
 	</form>
 </div>
@@ -467,9 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <h2>Spielplatz</h2>
 Wenn du oben auf einen Buchstaben klickst wird er hier angefügt.
-<textarea class="elam dir ltr" id="playground">
- 
-</textarea>
+<textarea class="elam dir ltr" id="playground"></textarea>
 
 <h2>Äquivalente Zeichen</h2>
 <label>
