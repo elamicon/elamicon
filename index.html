@@ -256,27 +256,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <body>
 <h1>Elamische Zeichensammlung</h1>
 
-<div id="select-direction">
-	<form>
-		<label>
-			Schreibrichtung
-			<select name="direction">
-				<option value="" selected>urpsrünglich ⇔</option>
-				<option value="ltr">von links ⇒ nach rechts</option>
-				<option value="rtl">nach links ⇐ von rechts</option>
-			</select>
-		</label>
-		<br>
-		<label>
-			Zeilenumbrüche
-			<select name="linebreaks">
-				<option value="original" selected>wie original</option>
-				<option value="remove">entfernen</option>
-			</select>
-		</label>
-	</form>
-</div>
-
 <h2>Die Buchstaben</h2>
 <ol class="alphabet dir ltr">
 	<li class="letter">
@@ -318,7 +297,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	</li>
 	<li class="letter">
 		<div class="elam"></div>
-		<div class="syl">en (?) oder im (?)</div>
+		<div class="syl">en (?)</div>
+		<div class="syl">im (?)</div>
 	</li>
 	<li class="letter">
 		<div class="elam"></div>
@@ -368,7 +348,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	</li>
 	<li class="letter">
 		<div class="elam"></div>
-		<div class="syl">iš / uš (?)</div>
+		<div class="syl">iš (?)</div>
+		<div class="syl">uš (?)</div>
 	</li>
 	<li class="letter">
 		<div class="elam"></div>
@@ -415,11 +396,13 @@ document.addEventListener('DOMContentLoaded', function() {
     </li>
     <li class="letter">
         <div class="elam"></div>
-		<div class="syl">še (?) oder si (?)</div>
+		<div class="syl">še (?)</div>
+		<div class="syl">si (?)</div>
     </li>
     <li class="letter">
         <div class="elam"></div>
-		<div class="syl">ak / ik</div>
+		<div class="syl">ak</div>
+		<div class="syl">ik</div>
     </li>
     <li class="letter">
         <div class="elam"></div>
@@ -474,7 +457,29 @@ document.addEventListener('DOMContentLoaded', function() {
 Wenn du oben auf einen Buchstaben klickst wird er hier angefügt.
 <textarea class="elam dir ltr" id="playground"></textarea>
 
-<h2>Äquivalente Zeichen</h2>
+<h2>Einstellungen</h2>
+
+<div id="select-direction">
+    <form>
+        <label>
+            Schreibrichtung
+            <select name="direction">
+                <option value="" selected>urpsrünglich ⇔</option>
+                <option value="ltr">von links ⇒ nach rechts</option>
+                <option value="rtl">nach links ⇐ von rechts</option>
+            </select>
+        </label>
+        <br>
+        <label>
+            Zeilenumbrüche
+            <select name="linebreaks">
+                <option value="original" selected>wie original</option>
+                <option value="remove">entfernen</option>
+            </select>
+        </label>
+    </form>
+</div>
+<br>
 <label>
 Diese Zeichen werden als gleichwertig interpretiert:
 <input class="elam dir ltr" id="char-equiv" value=", , , , , , , , " size="40"> (die Gruppen sind mit Kommas getrennt)
