@@ -118,9 +118,25 @@ view model =
     let effectiveDir original = if model.dir == Original then original else model.dir
         dirAttr original = dir (dirStr (effectiveDir original))
 
+        alphabet =
+            [ h2 [] [ text "Die Buchstaben" ]
+            , ol [ dirAttr LTR, classList [ ("alphabet", True), ("dir", True) ] ] (List.map alphabetEntry model.grouping)
+            ]
+
+        alphabetEntry (main, ext) =
+            let
+                info = Maybe.withDefault { char = '?', syllable = [] } (Dict.get main letterMap)
+                syllableEntry = \syl -> div [ class "syl" ] [ text syl ]
+            in
+                li [ class "letter", onClick (AddChar (String.fromChar main)) ] (
+                div [ class "elam" ] [ text (String.fromChar main) ]
+                :: (map syllableEntry info.syllable))
+
+
         -- HACK horrid workaround to throw off the differ.
         -- otherwise the textarea is not updated (this way it is recreated)
         updateTextareaWorkaround = List.repeat (String.length model.sandbox) (textarea [ Html.Attributes.style [ ("display", "none") ] ] [])
+
 
         playground =
             [ h2 [] [ text "Spielplatz" ]
@@ -132,6 +148,19 @@ view model =
                 ] [ text model.sandbox ]
             ] ++ updateTextareaWorkaround
 
+
+        settings =
+            [ h2 [] [ text "Einstellungen" ]
+            , label []
+                [ text "Schreibrichtung"
+                , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
+                    [ option [ value "Original" ] [ text "urpsrünglich ⇔" ]
+                    , option [ value "LTR" ] [ text "von links ⇒ nach rechts" ]
+                    , option [ value "RTL" ] [ text "nach links ⇐ von rechts" ]
+                    ]
+                ]
+            ]
+
         fragmentView fragment =
             let fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text line ] ]
             in div [ class "plate" ]
@@ -142,32 +171,11 @@ view model =
         div []
             ([ style
             , h1 [] [ text "Elamische Zeichensammlung" ]
-            , h2 [] [ text "Die Buchstaben" ]
-            , ol [ dirAttr LTR, classList [ ("alphabet", True), ("dir", True) ] ] (List.map alphabetEntry model.grouping)
-            ] ++ playground ++
-
-            [ h2 [] [ text "Einstellungen" ]
-            , label []
-                [ text "Schreibrichtung"
-                , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
-                    [ option [ value "Original" ] [ text "urpsrünglich ⇔" ]
-                    , option [ value "LTR" ] [ text "von links ⇒ nach rechts" ]
-                    , option [ value "RTL" ] [ text "nach links ⇐ von rechts" ]
-                    ]
-                ]
-            , h2 [] [ text "Textfragmente" ]
+            ] ++ alphabet
+              ++ playground
+              ++ settings ++
+            [ h2 [] [ text "Textfragmente" ]
             ] ++ (List.map fragmentView fragments))
-
-alphabetEntry : (Char, List Char) -> Html.Html Msg
-alphabetEntry (main, ext) =
-    let
-        info = Maybe.withDefault { char = '?', syllable = [] } (Dict.get main letterMap)
-        syllableEntry = \syl -> div [ class "syl" ] [ text syl ]
-    in
-        li [ class "letter", onClick (AddChar (String.fromChar main)) ] (
-        div [ class "elam" ] [ text (String.fromChar main) ]
-        :: (map syllableEntry info.syllable))
-
 
 
 
