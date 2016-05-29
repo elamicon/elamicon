@@ -1,9 +1,10 @@
-import Html exposing (Html, h1, h2, div, text, ol, ul, li, node)
+import Html exposing (..)
 import Html.App as Html
-import Html.Events exposing (onClick)
-import Html.Attributes as Attrs exposing (class, classList, href)
+import Html.Events exposing (on, onClick, targetValue)
+import Html.Attributes as Attrs exposing (..)
 import Dict
 import String
+import Json.Decode
 import List exposing (map)
 
 letters =
@@ -88,34 +89,55 @@ type alias Pos = (String, Int, Int)
 type alias Model = { dir : Dir, selected : Maybe Pos, grouping : List (Char, List Char) }
 model = { dir = Original, selected = Nothing, grouping = grouping }
 
-type Msg = Select (String, Int, Int)
+type Msg = Select (String, Int, Int) | SetDir Dir
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        Select pos ->
-            { model | selected = Just pos }
+        Select pos -> { model | selected = Just pos }
+        SetDir dir -> { model | dir = dir }
 
 
-effectiveDir original selected = if selected == Original then original else selected
 dirStr dir = case dir of
     LTR -> "LTR"
     _ -> "RTL"
-dirAttr original selected = Attrs.dir (dirStr (effectiveDir original selected))
 
+dirDecoder : Json.Decode.Decoder Dir
+dirDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valStr of
+    "Original" -> Json.Decode.succeed Original
+    "LTR" -> Json.Decode.succeed LTR
+    "RTL" -> Json.Decode.succeed RTL
+    _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
 
 
 view : Model -> Html Msg
 view model =
-    div []
-    [ style
-    , h1 [] [ text "Elamische Zeichensammlung" ]
-    , h2 [] [ text "Die Buchstaben" ]
-    , ol [ dirAttr LTR model.dir, classList [ ("alphabet", True), ("dir", True) ] ] (List.map alphabetEntry model.grouping)
-    , h1 [] [ text "Textfragmente" ]
-    , ul [] (List.map fragmentView fragments)
-    ]
+    let effectiveDir original = if model.dir == Original then original else model.dir
+        dirAttr original = Attrs.dir (dirStr (effectiveDir original))
+        fragmentView fragment =
+            let fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text line ] ]
+            in div [ class "plate" ]
+                [ h3 [] [ text fragment.id ]
+                , ol [ Attrs.type' "I", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
+                ]
+    in
+        div []
+            ([ style
+            , h1 [] [ text "Elamische Zeichensammlung" ]
+            , h2 [] [ text "Die Buchstaben" ]
+            , ol [ dirAttr LTR, classList [ ("alphabet", True), ("dir", True) ] ] (List.map alphabetEntry model.grouping)
+            , h2 [] [ text "Einstellungen" ]
+            , label []
+                [ text "Schreibrichtung"
+                , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
+                    [ option [ value "Original" ] [ text "urpsrünglich ⇔" ]
+                    , option [ value "LTR" ] [ text "von links ⇒ nach rechts" ]
+                    , option [ value "RTL" ] [ text "nach links ⇐ von rechts" ]
+                    ]
+                ]
+            , h2 [] [ text "Textfragmente" ]
+            ] ++ (List.map fragmentView fragments))
 
 alphabetEntry : (Char, List Char) -> Html.Html a
 alphabetEntry (main, ext) =
@@ -127,11 +149,6 @@ alphabetEntry (main, ext) =
         div [ class "elam" ] [ text (String.fromChar main) ]
         :: (map syllableEntry info.syllable))
 
-fragmentView fragment = li []
-    [ text fragment.id
-    , ol [ Attrs.type' "I" ] (List.indexedMap fragmentLine fragment.lines)
-    ]
-fragmentLine nr line = li [ class "elam" ] [ text line ]
 
 
 
@@ -148,6 +165,11 @@ fragmentLine nr line = li [ class "elam" ] [ text line ]
 
 style = Html.node "style" [Attrs.type' "text/css"]
     [ Html.text "
+
+body {
+    padding: 1em;
+}
+
 @font-face {
     font-family: 'elamicon';
     src: url('elamicon.ttf');
@@ -165,6 +187,7 @@ style = Html.node "style" [Attrs.type' "text/css"]
 }
 
 .elam {
+    line-height: 1em;
     font-size: 300%;
 }
 
@@ -181,19 +204,13 @@ style = Html.node "style" [Attrs.type' "text/css"]
 }
 
 .line {
-    display: block;
     unicode-bidi: bidi-override; /* not inherited through display: block */
-    border-top: 0.05em solid black;
-    border-bottom: 0.05em solid black;
-    margin: -0.025em 0; /* collapse the borders */
-    padding: 0;
+    border-top: 0.1em solid black;
+    border-bottom: 0.1em solid black;
+    margin: -0.05em 0; /* collapse the borders */
+    padding: 0 0.5em;
     cursor: pointer;
 }
-
-.rtl { direction: rtl; }
-.ltr { direction: ltr; }
-.rtl-override { direction: rtl; }
-.ltr-override { direction: ltr; }
 
 h2 {
     clear: both;
