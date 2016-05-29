@@ -1,7 +1,7 @@
 import Html exposing (..)
 import Html.App as Html
 import Html.Events exposing (on, onClick, targetValue)
-import Html.Attributes as Attrs exposing (..)
+import Html.Attributes exposing (..)
 import Dict
 import String
 import Json.Decode
@@ -86,15 +86,17 @@ fragments =
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
 type alias Pos = (String, Int, Int)
-type alias Model = { dir : Dir, selected : Maybe Pos, grouping : List (Char, List Char) }
-model = { dir = Original, selected = Nothing, grouping = grouping }
+type alias Model = { dir : Dir, selected : Maybe Pos, grouping : List (Char, List Char) , sandbox: String }
+model = { dir = Original, selected = Nothing, grouping = grouping, sandbox = "" }
 
-type Msg = Select (String, Int, Int) | SetDir Dir
+type Msg = Select (String, Int, Int) | SetDir Dir | SetSandbox String | AddChar String
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
+        SetSandbox str -> { model | sandbox = str }
+        AddChar char -> { model | sandbox = model.sandbox ++ char }
         Select pos -> { model | selected = Just pos }
         SetDir dir -> { model | dir = dir }
 
@@ -114,12 +116,27 @@ dirDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valS
 view : Model -> Html Msg
 view model =
     let effectiveDir original = if model.dir == Original then original else model.dir
-        dirAttr original = Attrs.dir (dirStr (effectiveDir original))
+        dirAttr original = dir (dirStr (effectiveDir original))
+
+        -- HACK horrid workaround to throw off the differ.
+        -- otherwise the textarea is not updated (this way it is recreated)
+        updateTextareaWorkaround = List.repeat (String.length model.sandbox) (textarea [ Html.Attributes.style [ ("display", "none") ] ] [])
+
+        playground =
+            [ h2 [] [ text "Spielplatz" ]
+            ] ++ updateTextareaWorkaround ++
+            [ textarea
+                [ class "elam"
+                , id "playground"
+                , on "change" (Json.Decode.map SetSandbox Html.Events.targetValue)
+                ] [ text model.sandbox ]
+            ] ++ updateTextareaWorkaround
+
         fragmentView fragment =
             let fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text line ] ]
             in div [ class "plate" ]
                 [ h3 [] [ text fragment.id ]
-                , ol [ Attrs.type' "I", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
+                , ol [ type' "I", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
                 ]
     in
         div []
@@ -127,7 +144,9 @@ view model =
             , h1 [] [ text "Elamische Zeichensammlung" ]
             , h2 [] [ text "Die Buchstaben" ]
             , ol [ dirAttr LTR, classList [ ("alphabet", True), ("dir", True) ] ] (List.map alphabetEntry model.grouping)
-            , h2 [] [ text "Einstellungen" ]
+            ] ++ playground ++
+
+            [ h2 [] [ text "Einstellungen" ]
             , label []
                 [ text "Schreibrichtung"
                 , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
@@ -139,13 +158,13 @@ view model =
             , h2 [] [ text "Textfragmente" ]
             ] ++ (List.map fragmentView fragments))
 
-alphabetEntry : (Char, List Char) -> Html.Html a
+alphabetEntry : (Char, List Char) -> Html.Html Msg
 alphabetEntry (main, ext) =
     let
         info = Maybe.withDefault { char = '?', syllable = [] } (Dict.get main letterMap)
         syllableEntry = \syl -> div [ class "syl" ] [ text syl ]
     in
-        li [ class "letter" ] (
+        li [ class "letter", onClick (AddChar (String.fromChar main)) ] (
         div [ class "elam" ] [ text (String.fromChar main) ]
         :: (map syllableEntry info.syllable))
 
@@ -163,7 +182,7 @@ alphabetEntry (main, ext) =
 
 
 
-style = Html.node "style" [Attrs.type' "text/css"]
+style = Html.node "style" [type' "text/css"]
     [ Html.text "
 
 body {
