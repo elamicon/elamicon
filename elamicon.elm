@@ -4,6 +4,7 @@ import Html.Events exposing (on, onClick, targetValue)
 import Html.Attributes exposing (..)
 import Dict
 import String
+import Regex
 import Json.Decode
 import List exposing (map)
 
@@ -196,7 +197,11 @@ view model =
             ]
 
         fragmentView fragment =
-            let fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text line ] ]
+            -- Insert a zero-width space after the "" separator so that long
+            -- lines can be broken
+            let zeroWidthSpace = "​"
+                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
+                fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text (breakAfterSeparator line) ] ]
             in div [ class "plate" ]
                 [ h3 [] [ text fragment.id ]
                 , ol [ type' "I", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
