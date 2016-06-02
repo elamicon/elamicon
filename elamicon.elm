@@ -67,9 +67,14 @@ letters =
 alphabet = List.map .char letters
 letterMap = Dict.fromList (List.map2 (,) alphabet letters)
 
+
 grouping = List.map2 (,) alphabet (List.repeat (List.length alphabet) [])
 
+-- Linear Elam texts may be written left-to-right (LTR) and right-to-left (RTL).
+-- The majority is written RTL. We display them in their original direction, but
+-- allow coercing the direction to one of the two for all panels.
 type Dir = Original | LTR | RTL
+
 
 fragments =
     [ { id = "A", dir = RTL, lines =
@@ -118,10 +123,13 @@ fragments =
       }
     ]
 
+
+
+
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
 type alias Pos = (String, Int, Int)
-type alias Model = { dir : Dir, selected : Maybe Pos, grouping : List (Char, List Char) , sandbox: String }
+type alias Model = { dir : Dir, selected : Maybe Pos, grouping : List (Char, List Char), sandbox: String }
 model = { dir = Original, selected = Nothing, grouping = grouping, sandbox = "" }
 
 type Msg = Select (String, Int, Int) | SetDir Dir | SetSandbox String | AddChar String
