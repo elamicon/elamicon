@@ -206,13 +206,13 @@ view model =
 
         fragmentView fragment =
             -- Insert a zero-width space after the "" separator so that long
-            -- lines can be broken
+            -- lines can be broken by the browser
             let zeroWidthSpace = "​"
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
                 fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text (breakAfterSeparator line) ] ]
             in div [ class "plate" ]
                 [ h3 [] [ text fragment.id ]
-                , ol [ type' "I", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
+                , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
                 ]
     in
         div []
@@ -254,37 +254,74 @@ body {
 }
 
 
-.alphabet .letter {
+.letter {
     text-align: center;
     height: 10em;
     vertical-align: top;
+    cursor: pointer;
 }
 
-.elam {
-    line-height: 1em;
+.letter div.elam {
     font-size: 300%;
 }
 
 .plate {
     vertical-align: top;
-    padding: 0 1em;
+    margin: 0 1em;
     display: inline-block;
 }
 
 .fragment {
     font-size: 200%;
-    line-height: 1em;
-    display: inline-block;
+    margin-top: 0;
+
+    /* horizontal rules between the lines */
+    background: -moz-linear-gradient(top, #000 0%, #000 5%, #fff 5%) 0 0;
+    background: linear-gradient(top, #000 0%, #000 5%, #fff 5%) 0 0;
+    background-size: 100% 1.05em;
+    padding: 0.05em 0; /* top and bottom offset to align the rule */
+
+    /* custom line counter */
+    position: relative;
+    list-style: none;
+    counter-reset: lines;
 }
+
+.fragment[dir=LTR] {
+    /* custom line counter */
+    margin-left: 1em;
+}
+
+.fragment[dir=RTL] {
+    /* custom line counter */
+    margin-right: 1em;
+}
+
+
 
 .line {
     unicode-bidi: bidi-override; /* not inherited through display: block */
-    border-top: 0.1em solid black;
-    border-bottom: 0.1em solid black;
-    margin: -0.05em 0; /* collapse the borders */
-    padding: 0 0.5em;
-    cursor: pointer;
+    line-height: 1em;
+    counter-increment: lines;
 }
+
+/* custom line counter */
+.line:before {
+    content: counter(lines, upper-roman);
+    position: absolute;
+    font-size: 50%;
+}
+
+.fragment[dir=LTR] .line:before {
+    text-align: right;
+    left: -1.6em;
+}
+
+.fragment[dir=RTL] .line:before {
+    text-align: left;
+    right: -1.6em;
+}
+
 
 h2 {
     clear: both;
