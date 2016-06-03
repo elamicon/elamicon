@@ -361,27 +361,10 @@ h2 {
     text-shadow: #ddd 0.03ex 0.03ex 0.05ex, #000 0 0 0;
 }
 
-#playground {
+textarea {
     width: 100%;
     height: 5em;
     font-size: 200%;
 }
 
-#char-equiv {
-    width: 100%;
-    font-size: 150%;
-}
-
-.highlight-neighbor {
-    background-color: #ffa;
-}
-
-.highlight {
-    background-color: yellow;
-}
-
-.selected {
-    margin: -1px;
-    border: 1px dotted gray;
-}
     "]
