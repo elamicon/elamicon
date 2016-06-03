@@ -134,10 +134,10 @@ fragments =
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
 type alias Pos = (String, Int, Int)
-type alias Model = { dir : Dir, selected : Maybe Pos, grouping : List (Char, List Char), sandbox: String }
-model = { dir = Original, selected = Nothing, grouping = grouping, sandbox = "" }
+type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, grouping : List (Char, List Char), sandbox: String }
+model = { dir = Original, fixedBreak = True, selected = Nothing, grouping = grouping, sandbox = "" }
 
-type Msg = Select (String, Int, Int) | SetDir Dir | SetSandbox String | AddChar String
+type Msg = Select (String, Int, Int) | SetBreaking Bool | SetDir Dir | SetSandbox String | AddChar String
 
 
 update : Msg -> Model -> Model
@@ -146,6 +146,7 @@ update msg model =
         SetSandbox str -> { model | sandbox = str }
         AddChar char -> { model | sandbox = model.sandbox ++ char }
         Select pos -> { model | selected = Just pos }
+        SetBreaking breaking -> { model | fixedBreak = breaking }
         SetDir dir -> { model | dir = dir }
 
 
@@ -158,6 +159,12 @@ dirDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valS
     "Original" -> Json.Decode.succeed Original
     "LTR" -> Json.Decode.succeed LTR
     "RTL" -> Json.Decode.succeed RTL
+    _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
+
+breakingDecoder : Json.Decode.Decoder Bool
+breakingDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valStr of
+    "true" -> Json.Decode.succeed True
+    "false" -> Json.Decode.succeed False
     _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
 
 
@@ -208,16 +215,25 @@ view model =
 
 
         settings =
-            [ h2 [] [ text "Einstellungen" ]
-            , label []
-                [ text "Schreibrichtung"
-                , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
-                    [ option [ value "Original" ] [ text "urpsrünglich ⇔" ]
-                    , option [ value "LTR" ] [ text "von links ⇒ nach rechts" ]
-                    , option [ value "RTL" ] [ text "nach links ⇐ von rechts" ]
+            let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
+                breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
+            in  [ h2 [] [ text "Einstellungen" ]
+                , label []
+                    [ text "Schreibrichtung"
+                    , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
+                        [ option (dirOptAttrs "Original" Original) [ text "ursprünglich ⇔" ]
+                        , option (dirOptAttrs "LTR" LTR) [ text "von links ⇒ nach rechts" ]
+                        , option (dirOptAttrs "RTL" RTL) [ text "nach links ⇐ von rechts" ]
+                        ]
+                    ]
+                , label []
+                    [ text "Zeilenumbrüche"
+                    , Html.select [ on "change" (Json.Decode.map SetBreaking breakingDecoder) ]
+                        [ option (breakOptAttrs "true" True) [ text "ursprünglich" ]
+                        , option (breakOptAttrs "false" False) [ text "automatisch" ]
+                        ]
                     ]
                 ]
-            ]
 
         fragmentView fragment =
             -- Insert a zero-width space after the "" separator so that long
@@ -226,7 +242,7 @@ view model =
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
                 textMod = breakAfterSeparator >> guessmarkDir fragment.dir
                 fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text (textMod line) ] ]
-            in div [ class "plate" ]
+            in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak) ] ]
                 [ h3 [] [ text fragment.id ]
                 , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
                 ]
@@ -283,7 +299,7 @@ body {
 
 .plate {
     vertical-align: top;
-    margin: 0 1em;
+    margin: 0 3em;
     display: inline-block;
 }
 
@@ -292,23 +308,26 @@ body {
     margin-top: 0;
 
     /* horizontal rules between the lines */
+    line-height: 1em;
     background: -moz-linear-gradient(top, #000 0%, #000 5%, #fff 5%) 0 0;
     background: linear-gradient(top, #000 0%, #000 5%, #fff 5%) 0 0;
     background-size: 100% 1.05em;
     padding: 0.05em 0; /* top and bottom offset to align the rule */
+}
 
+.fixedBreak {
     /* custom line counter */
     position: relative;
     list-style: none;
     counter-reset: lines;
 }
 
-.fragment[dir=LTR] {
+.fixedBreak[dir=LTR] {
     /* custom line counter */
     margin-left: 1em;
 }
 
-.fragment[dir=RTL] {
+.fixedBreak[dir=RTL] {
     /* custom line counter */
     margin-right: 1em;
 }
@@ -319,21 +338,26 @@ body {
     unicode-bidi: bidi-override; /* not inherited through display: block */
     line-height: 1em;
     counter-increment: lines;
+    display: inline;
+}
+
+.fixedBreak .line {
+    display: block;
 }
 
 /* custom line counter */
-.line:before {
+.fixedBreak .line:before {
     content: counter(lines, upper-roman);
     position: absolute;
     font-size: 50%;
 }
 
-.fragment[dir=LTR] .line:before {
+.fixedBreak .fragment[dir=LTR] .line:before {
     text-align: right;
     left: -1.6em;
 }
 
-.fragment[dir=RTL] .line:before {
+.fixedBreak .fragment[dir=RTL] .line:before {
     text-align: left;
     right: -1.6em;
 }
@@ -365,6 +389,10 @@ textarea {
     width: 100%;
     height: 5em;
     font-size: 200%;
+}
+
+label {
+    display: block;
 }
 
     "]
