@@ -64,6 +64,11 @@ letters =
     , { char = '', syllable = [] }
     ]
 
+specialChars =
+    [ { displayChar = "", char = '', description = "Platzhalter für unbekannte Zeichen" }
+    , { displayChar = "", char = '', description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
+    ]
+
 alphabet = List.map .char letters
 letterMap = Dict.fromList (List.map2 (,) alphabet letters)
 
@@ -161,9 +166,15 @@ view model =
     let effectiveDir original = if model.dir == Original then original else model.dir
         dirAttr original = dir (dirStr (effectiveDir original))
 
+        -- There are two "guess" marker characters that are used depending on direction
+        guessmarkDir original = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if effectiveDir original == LTR then "" else "")
+
         alphabet =
             [ h2 [] [ text "Die Buchstaben" ]
-            , ol [ dirAttr LTR, classList [ ("alphabet", True), ("dir", True) ] ] (List.map alphabetEntry model.grouping)
+            , ol [ dirAttr LTR, classList [ ("alphabet", True) ] ]
+                ( List.map alphabetEntry model.grouping
+                ++ List.map specialEntry specialChars
+                )
             ]
 
         alphabetEntry (main, ext) =
@@ -174,6 +185,10 @@ view model =
                 li [ class "letter", onClick (AddChar (String.fromChar main)) ] (
                 div [ class "elam" ] [ text (String.fromChar main) ]
                 :: (map syllableEntry info.syllable))
+
+        specialEntry { displayChar, char, description } =
+            li [ class "letter", onClick (AddChar (String.fromChar char)) ]
+                [ div [ class "elam", title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
 
 
         -- HACK horrid workaround to throw off the differ.
@@ -186,9 +201,9 @@ view model =
             ] ++ updateTextareaWorkaround ++
             [ textarea
                 [ class "elam"
-                , id "playground"
+                , dirAttr LTR
                 , on "change" (Json.Decode.map SetSandbox Html.Events.targetValue)
-                ] [ text model.sandbox ]
+                ] [ text ((guessmarkDir LTR) model.sandbox) ]
             ] ++ updateTextareaWorkaround
 
 
@@ -209,7 +224,8 @@ view model =
             -- lines can be broken by the browser
             let zeroWidthSpace = "​"
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
-                fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text (breakAfterSeparator line) ] ]
+                textMod = breakAfterSeparator >> guessmarkDir fragment.dir
+                fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text (textMod line) ] ]
             in div [ class "plate" ]
                 [ h3 [] [ text fragment.id ]
                 , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
