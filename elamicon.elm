@@ -1,12 +1,13 @@
 import Html exposing (..)
 import Html.App as Html
-import Html.Events exposing (on, onClick, targetValue)
+import Html.Events exposing (on, onClick, onInput, targetValue)
 import Html.Attributes exposing (..)
 import Dict
 import String
 import Regex
 import Json.Decode
 import List exposing (map)
+import Set
 
 
 -- List of letters found in Linear-Elam writings
@@ -22,7 +23,7 @@ import List exposing (map)
 --
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
--- font.
+-- font. They are listed here in codepoint order.
 letters =
     [ { char = '', syllable = [] }
     , { char = '', syllable = [ "na" ] }
@@ -101,11 +102,42 @@ specialChars =
 letterList = List.map .char letters
 letterMap = Dict.fromList (List.map2 (,) letterList letters)
 
+
 -- The many letter variants are grouped into an alphabet with one letter
 -- chosen as representative of the whole group. We want to make changes to
 -- the alphabet a cheap operation, so the interpretation of which letters
 -- mean the same thing can be changed quickly.
-alphabet = List.map2 (,) letterList (List.repeat (List.length letterList) [])
+alphabetPreset = "                                   "
+alphabetList alphabet =
+    let
+        letterGroup letterString =
+            case (String.toList letterString) of
+                main :: ext -> (main, ext)
+                _ -> ('?', []) -- should not be reachable?
+    in
+        map letterGroup (String.words alphabet)
+
+-- Sanitize the alphabet string to include all Elam letters but no duplicates
+completeAlphabet alphabet =
+    let
+        allLetters = Set.fromList letterList
+        dedup letter (seen, dedupAlphabet) =
+            if Set.member letter seen
+            then
+                (seen, dedupAlphabet)
+            else
+                if Set.member letter allLetters
+                then
+                    (Set.insert letter seen, dedupAlphabet ++ String.fromChar letter)
+                else
+                    (seen, dedupAlphabet ++ String.fromChar letter)
+
+        (presentLetters, dedupedAlphabet) = List.foldl dedup (Set.empty, "") (String.toList alphabet)
+        missingLetters = Set.diff allLetters presentLetters
+    in
+        dedupedAlphabet
+        ++ " "
+        ++ String.join " " (map String.fromChar (Set.toList missingLetters))
 
 -- Linear Elam texts are written left-to-right (LTR) and right-to-left (RTL).
 -- The majority is written RTL. We display them in their original direction, but
@@ -166,10 +198,16 @@ fragments =
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
 type alias Pos = (String, Int, Int)
-type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, alphabet : List (Char, List Char), sandbox: String }
-model = { dir = Original, fixedBreak = True, selected = Nothing, alphabet = alphabet, sandbox = "" }
+type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, alphabet : String, sandbox: String }
+model = { dir = Original, fixedBreak = True, selected = Nothing, alphabet = alphabetPreset, sandbox = "" }
 
-type Msg = Select (String, Int, Int) | SetBreaking Bool | SetDir Dir | SetSandbox String | AddChar String
+type Msg
+    = Select (String, Int, Int)
+    | SetBreaking Bool
+    | SetDir Dir
+    | SetSandbox String
+    | SetAlphabet String
+    | AddChar String
 
 
 update : Msg -> Model -> Model
@@ -180,6 +218,7 @@ update msg model =
         Select pos -> { model | selected = Just pos }
         SetBreaking breaking -> { model | fixedBreak = breaking }
         SetDir dir -> { model | dir = dir }
+        SetAlphabet new -> { model | alphabet = completeAlphabet new }
 
 
 dirStr dir = case dir of
@@ -208,10 +247,12 @@ view model =
         -- There are two "guess" marker characters that are used depending on direction
         guessmarkDir original = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if effectiveDir original == LTR then "" else "")
 
+        letterCounter letters = String.toList >> List.filter (\candidate -> Set.member candidate (Set.fromList letters)) >> List.length
+
         alphabet =
             [ h2 [] [ text "Die Buchstaben" ]
             , ol [ dirAttr LTR, classList [ ("alphabet", True) ] ]
-                ( List.map alphabetEntry model.alphabet
+                ( List.map alphabetEntry (alphabetList model.alphabet)
                 ++ List.map specialEntry specialChars
                 )
             ]
@@ -219,15 +260,22 @@ view model =
         alphabetEntry (main, ext) =
             let
                 info = Maybe.withDefault { char = '?', syllable = [] } (Dict.get main letterMap)
-                syllableEntry = \syl -> div [ class "syl" ] [ text syl ]
+                letterEntry entryClass char = div [ classList [("elam", True), (entryClass, True)], onClick (AddChar (String.fromChar char)) ] [ text (String.fromChar char) ]
+                syllableEntry syl = div [ class "syl" ] [ text syl ]
+                letterCount = letterCounter (main :: ext) model.sandbox
             in
-                li [ class "letter", onClick (AddChar (String.fromChar main)) ] (
-                div [ class "elam" ] [ text (String.fromChar main) ]
-                :: (map syllableEntry info.syllable))
+                li [ class "letter" ]
+                    ( (if letterCount > 0 then [ div [ class "counter" ] [ text (toString letterCount) ] ] else [] )
+                    ++ [ letterEntry "main" main ]
+                    ++ (if ext /= [] then [ div [class "menu"] (map (letterEntry "ext") ext) ] else [])
+                    ++ (map (letterEntry "ext") ext)
+                    ++ [ div [ class "clear" ] [] ]
+                    ++ (map syllableEntry info.syllable)
+                    )
 
         specialEntry { displayChar, char, description } =
-            li [ class "letter", onClick (AddChar (String.fromChar char)) ]
-                [ div [ class "elam", title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
+            li [ class "letter" ]
+                [ div [ classList [("elam", True), ("main", True)], onClick (AddChar (String.fromChar char)), title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
 
 
         -- HACK horrid workaround to throw off the differ.
@@ -242,6 +290,7 @@ view model =
                 [ class "elam"
                 , dirAttr LTR
                 , on "change" (Json.Decode.map SetSandbox Html.Events.targetValue)
+                , onInput SetSandbox
                 ] [ text ((guessmarkDir LTR) model.sandbox) ]
             ] ++ updateTextareaWorkaround
 
@@ -264,6 +313,10 @@ view model =
                         [ option (breakOptAttrs "true" True) [ text "ursprünglich" ]
                         , option (breakOptAttrs "false" False) [ text "automatisch" ]
                         ]
+                    ]
+                , label []
+                    [ text "Alphabet"
+                    , Html.input [ class "elam", value model.alphabet, onInput SetAlphabet ] []
                     ]
                 ]
 
@@ -317,17 +370,76 @@ body {
     unicode-bidi: bidi-override;
 }
 
+.alphabet {
+    padding: 0;
+    list-style-type: none;
+}
+
+.alphabet li {
+    margin: 0.1em;
+    display: inline-block;
+    background-color: #ddd;
+}
+
+.alphabet div {
+    padding: 0.3em;
+
+    color: rgba(100, 100, 100, 0.8);
+    text-shadow: #ddd 0.03ex 0.03ex 0.05ex, #000 0 0 0;
+}
 
 .letter {
     text-align: center;
     height: 10em;
     vertical-align: top;
+    position: relative;
+}
+
+.letter .counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: small;
+    font-weight: bold;
+}
+
+.letter .main {
+    font-size: 300%;
     cursor: pointer;
 }
 
-.letter div.elam {
-    font-size: 300%;
+
+.letter .ext {
+    font-size: 80%;
+    display: inline;
 }
+
+.letter .menu {
+    float: left;
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+.letter .menu .ext {
+    float: left;
+}
+
+.letter .menu {
+    display: none;
+}
+
+.letter:hover .menu {
+    display: block;
+    position: absolute;
+
+    font-size: 200%;
+}
+
+
+input {
+    width: 80em;
+}
+
 
 .plate {
     vertical-align: top;
@@ -403,23 +515,6 @@ h2 {
     clear: both;
 }
 
-.alphabet {
-    padding: 0;
-    list-style-type: none;
-}
-
-.alphabet li {
-    margin: 0.1em;
-    display: inline-block;
-}
-
-.alphabet div {
-    padding: 0.3em;
-
-    color: rgba(100, 100, 100, 0.8);
-    background-color: #ddd;
-    text-shadow: #ddd 0.03ex 0.03ex 0.05ex, #000 0 0 0;
-}
 
 textarea {
     width: 100%;
@@ -429,6 +524,10 @@ textarea {
 
 label {
     display: block;
+}
+
+.clear {
+    clear: both;
 }
 
     "]
