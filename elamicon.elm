@@ -274,7 +274,7 @@ view model =
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
                 textMod = breakAfterSeparator >> guessmarkDir fragment.dir
                 fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text (textMod line) ] ]
-            in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak) ] ]
+            in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak) ], dirAttr fragment.dir ]
                 [ h3 [] [ text fragment.id ]
                 , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
                 ]
@@ -286,7 +286,7 @@ view model =
               ++ playground
               ++ settings ++
             [ h2 [] [ text "Textfragmente" ]
-            ] ++ (List.map fragmentView fragments))
+            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView fragments) ])
 
 
 
@@ -331,7 +331,7 @@ body {
 
 .plate {
     vertical-align: top;
-    margin: 0 3em;
+    margin: 0 2em;
     display: inline-block;
 }
 
@@ -342,9 +342,13 @@ body {
     /* horizontal rules between the lines */
     line-height: 1em;
     background: -moz-linear-gradient(top, #000 0%, #000 5%, #fff 5%) 0 0;
-    background: linear-gradient(top, #000 0%, #000 5%, #fff 5%) 0 0;
-    background-size: 100% 1.05em;
-    padding: 0.05em 0; /* top and bottom offset to align the rule */
+    background: linear-gradient(top, #000 0%, #000 6%, #fff 6%) 0 0;
+    background-size: 100% 1.055em;
+    padding: 0.07em 0; /* top and bottom offset to align the rule */
+}
+
+.fragment[dir=RTL] {
+    text-align: right;
 }
 
 .fixedBreak {
@@ -356,12 +360,12 @@ body {
 
 .fixedBreak[dir=LTR] {
     /* custom line counter */
-    margin-left: 1em;
+    margin-left: 3em;
 }
 
 .fixedBreak[dir=RTL] {
     /* custom line counter */
-    margin-right: 1em;
+    margin-right: 3em;
 }
 
 
@@ -370,7 +374,7 @@ body {
     unicode-bidi: bidi-override; /* not inherited through display: block */
     line-height: 1em;
     counter-increment: lines;
-    display: inline;
+    display: inline-block;
 }
 
 .fixedBreak .line {
@@ -386,12 +390,12 @@ body {
 
 .fixedBreak .fragment[dir=LTR] .line:before {
     text-align: right;
-    left: -1.6em;
+    left: -2em;
 }
 
 .fixedBreak .fragment[dir=RTL] .line:before {
     text-align: left;
-    right: -1.6em;
+    right: -2em;
 }
 
 
