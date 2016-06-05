@@ -8,13 +8,28 @@ import Regex
 import Json.Decode
 import List exposing (map)
 
+
+-- List of letters found in Linear-Elam writings
+--
+-- Many letters are present in variations that only differ in small details.
+-- Most of these variations are likely style differences as the writing
+-- developed over the centuries. The differences may also be ornamental or
+-- idiosyncratic. There are not enough samples to decide, maybe there never will
+-- be.
+--
+-- We were very conservative when it came to lumping glyphs into letters and
+-- many variants are preserved to allow alternate interpretations.
+--
+-- Note that the letters are encoded in the Unicode private-use area and will
+-- not show their intended form unless you use the specially crafted "elamicon"
+-- font.
 letters =
     [ { char = '', syllable = [] }
     , { char = '', syllable = [ "na" ] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
-    , { char = '', syllable = [ "uk ?" ] }
+    , { char = '', syllable = [ "uk ?" ] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
@@ -34,6 +49,12 @@ letters =
     , { char = '', syllable = [ "in" ] }
     , { char = '', syllable = [ "ki" ] }
     , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "iš ?", "uš ?" ] }
     , { char = '', syllable = [ "tu ?" ] }
@@ -44,6 +65,7 @@ letters =
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "hu ?"] }
     , { char = '', syllable = [ "me ?" ] }
+    , { char = '', syllable = [ "me ?" ] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
@@ -54,6 +76,7 @@ letters =
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "hal ?" ] }
+    , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "ú" ] }
     , { char = '', syllable = [ "ni ?" ] }
@@ -64,18 +87,27 @@ letters =
     , { char = '', syllable = [] }
     ]
 
+-- List of "special" characters
+--
+-- Most of the artifacts did not make it through time in mint condition. The
+-- "special" characters can be used to mark glyphs that are unreadable or
+--  are guesses.
 specialChars =
     [ { displayChar = "", char = '', description = "Platzhalter für unbekannte Zeichen" }
     , { displayChar = "", char = '', description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
     ]
 
-alphabet = List.map .char letters
-letterMap = Dict.fromList (List.map2 (,) alphabet letters)
+-- We're nowhere near establishing a meaningful order to the letters.
+letterList = List.map .char letters
+letterMap = Dict.fromList (List.map2 (,) letterList letters)
 
+-- The many letter variants are grouped into an alphabet with one letter
+-- chosen as representative of the whole group. We want to make changes to
+-- the alphabet a cheap operation, so the interpretation of which letters
+-- mean the same thing can be changed quickly.
+alphabet = List.map2 (,) letterList (List.repeat (List.length letterList) [])
 
-grouping = List.map2 (,) alphabet (List.repeat (List.length alphabet) [])
-
--- Linear Elam texts may be written left-to-right (LTR) and right-to-left (RTL).
+-- Linear Elam texts are written left-to-right (LTR) and right-to-left (RTL).
 -- The majority is written RTL. We display them in their original direction, but
 -- allow coercing the direction to one of the two for all panels.
 type Dir = Original | LTR | RTL
@@ -134,8 +166,8 @@ fragments =
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
 type alias Pos = (String, Int, Int)
-type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, grouping : List (Char, List Char), sandbox: String }
-model = { dir = Original, fixedBreak = True, selected = Nothing, grouping = grouping, sandbox = "" }
+type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, alphabet : List (Char, List Char), sandbox: String }
+model = { dir = Original, fixedBreak = True, selected = Nothing, alphabet = alphabet, sandbox = "" }
 
 type Msg = Select (String, Int, Int) | SetBreaking Bool | SetDir Dir | SetSandbox String | AddChar String
 
@@ -179,7 +211,7 @@ view model =
         alphabet =
             [ h2 [] [ text "Die Buchstaben" ]
             , ol [ dirAttr LTR, classList [ ("alphabet", True) ] ]
-                ( List.map alphabetEntry model.grouping
+                ( List.map alphabetEntry model.alphabet
                 ++ List.map specialEntry specialChars
                 )
             ]
