@@ -103,11 +103,16 @@ letterList = List.map .char letters
 letterMap = Dict.fromList (List.map2 (,) letterList letters)
 
 
+-- Alphabet definition
+--
 -- The many letter variants are grouped into an alphabet with one letter
 -- chosen as representative of the whole group. We want to make changes to
 -- the alphabet a cheap operation, so the interpretation of which letters
 -- mean the same thing can be changed quickly.
-alphabetPreset = "                                   "
+--
+-- Letter are separated by spaces, letters following another letter without
+-- a space are grouped with that letter
+alphabetPreset = "                                   "
 alphabetList alphabet =
     let
         letterGroup letterString =
