@@ -438,6 +438,7 @@ body {
     position: absolute;
 
     font-size: 200%;
+    z-index: 1;
 }
 
 
