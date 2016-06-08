@@ -2,7 +2,7 @@ StartChar: uniE050
 Encoding: 57424 57424 12
 Width: 564
 VWidth: 0
-Flags: HMWO
+Flags: HMW
 VStem: 100 55<164 375 425 639> 381 55<163 375 425 639>
 LayerCount: 2
 Back
@@ -65,5 +65,4 @@ SplineSet
  154 654 l 1
  154 642 l 1
 EndSplineSet
-Validated: 524289
 EndChar
