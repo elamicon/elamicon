@@ -1,8 +1,10 @@
 StartChar: uniE057
 Encoding: 57431 57431 63
-Width: 536
+Width: 564
 VWidth: 0
-Flags: HWO
+Flags: W
+HStem: 375 50<154 410>
+VStem: 99 55<154 375 425 651> 410 54<152 375 425 650>
 LayerCount: 2
 Back
 SplineSet
@@ -65,4 +67,5 @@ SplineSet
  410 375 l 1
  154 375 l 1
 EndSplineSet
+Validated: 1
 EndChar

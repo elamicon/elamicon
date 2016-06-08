@@ -1,8 +1,10 @@
 StartChar: uniE054
 Encoding: 57428 57428 60
-Width: 536
+Width: 564
 VWidth: 0
-Flags: HW
+Flags: W
+HStem: 137 88<240.897 321.103> 356 88<240.897 321.103> 573 88<240.897 321.103>
+VStem: 99 55<151 654> 234 94<143.905 218.095 362.905 437.095 579.905 654.095> 410 54<149 653>
 LayerCount: 2
 Back
 SplineSet
@@ -73,4 +75,5 @@ SplineSet
  328 159 309 137 281 137 c 0
  253 137 234 159 234 181 c 0
 EndSplineSet
+Validated: 524289
 EndChar
