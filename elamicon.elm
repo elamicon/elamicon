@@ -227,8 +227,8 @@ fragments =
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
 type alias Pos = (String, Int, Int)
-type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, alphabet : String, sandbox: String }
-model = { dir = Original, fixedBreak = True, selected = Nothing, alphabet = alphabetPreset, sandbox = "" }
+type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, alphabet : String, sandbox: String, sandboxWorkaround: Int }
+model = { dir = Original, fixedBreak = True, selected = Nothing, alphabet = alphabetPreset, sandbox = "", sandboxWorkaround = 0 }
 
 type Msg
     = Select (String, Int, Int)
@@ -243,7 +243,7 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         SetSandbox str -> { model | sandbox = str }
-        AddChar char -> { model | sandbox = model.sandbox ++ char }
+        AddChar char -> { model | sandbox = model.sandbox ++ char, sandboxWorkaround = (model.sandboxWorkaround + 1) % 2 }
         Select pos -> { model | selected = Just pos }
         SetBreaking breaking -> { model | fixedBreak = breaking }
         SetDir dir -> { model | dir = dir }
@@ -309,7 +309,7 @@ view model =
 
         -- HACK horrid workaround to throw off the differ.
         -- otherwise the textarea is not updated (this way it is recreated)
-        updateTextareaWorkaround = List.repeat (String.length model.sandbox) (textarea [ Html.Attributes.style [ ("display", "none") ] ] [])
+        updateTextareaWorkaround = List.repeat model.sandboxWorkaround (textarea [ Html.Attributes.style [ ("display", "none") ] ] [])
 
 
         playground =
