@@ -1,6 +1,6 @@
 StartChar: uniE088
 Encoding: 57480 57480 25
-Width: 520
+Width: 324
 VWidth: 0
 Flags: HW
 VStem: 100 95<-41.1925 40.5262 359.474 440.526 759.474 841.193> 120 55<0.658409 399.342 400.658 799.342>
@@ -45,5 +45,4 @@ SplineSet
  134 744 l 1
  112 755 98 777 98 800 c 0
 EndSplineSet
-Validated: 8388609
 EndChar
