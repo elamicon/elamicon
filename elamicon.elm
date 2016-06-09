@@ -65,6 +65,11 @@ letters =
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "hu ?"] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
     , { char = '', syllable = [ "me ?" ] }
     , { char = '', syllable = [ "me ?" ] }
     , { char = '', syllable = [] }
@@ -81,12 +86,28 @@ letters =
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "ú" ] }
     , { char = '', syllable = [ "ni ?" ] }
-    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }   , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "piš ?" ] }
     , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
     ]
+
 
 -- List of "special" characters
 --

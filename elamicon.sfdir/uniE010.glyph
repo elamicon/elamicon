@@ -2,9 +2,19 @@ StartChar: uniE010
 Encoding: 57360 57360 4
 Width: 954
 VWidth: 0
-Flags: W
+Flags: HW
 VStem: 205 114<22.0606 105.391> 635 114<23.708 105.483>
 LayerCount: 2
+Back
+SplineSet
+477 658 m 29
+ 130 266 l 29
+ 261 100 l 29
+ 475 306 l 29
+ 693 100 l 29
+ 823 265 l 29
+ 477 658 l 29
+EndSplineSet
 Fore
 SplineSet
 265 139 m 1
