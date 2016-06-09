@@ -296,10 +296,12 @@ view model =
                 li [ class "letter" ]
                     ( (if letterCount > 0 then [ div [ class "counter" ] [ text (toString letterCount) ] ] else [] )
                     ++ [ letterEntry "main" main ]
-                    ++ (if ext /= [] then [ div [class "menu"] (map (letterEntry "ext") ext) ] else [])
+                    ++ ( if ext /= [] || List.length info.syllable > 0
+                         then [ div [class "menu"] (map (letterEntry "ext") ext ++ map syllableEntry info.syllable) ]
+                         else []
+                       )
                     ++ (map (letterEntry "ext") ext)
                     ++ [ div [ class "clear" ] [] ]
-                    ++ (map syllableEntry info.syllable)
                     )
 
         specialEntry { displayChar, char, description } =
@@ -390,6 +392,10 @@ body {
     padding: 1em;
 }
 
+body {
+    background-color: #eed;
+}
+
 @font-face {
     font-family: 'elamicon';
     src: url('elamicon.ttf');
@@ -405,21 +411,24 @@ body {
 }
 
 .alphabet li {
-    margin: 0.1em;
+    margin: 0.2em;
     display: inline-block;
-    background-color: #ddd;
+    background-color: #eed;
+    border-right: 0.3em solid rgba(200,180,50,1);
+    border-bottom: 0.3em solid rgba(200,180,50,1);
+    border-left: 0.3em solid rgba(240,210,80,1);
+    border-top: 0.3em solid rgba(240,210,80,1);
 }
 
 .alphabet div {
     padding: 0.3em;
 
     color: rgba(100, 100, 100, 0.8);
-    text-shadow: #ddd 0.03ex 0.03ex 0.05ex, #000 0 0 0;
+    text-shadow: #eed 0.03ex 0.03ex 0.05ex, #000 0 0 0;
 }
 
 .letter {
     text-align: center;
-    height: 10em;
     vertical-align: top;
     position: relative;
 }
@@ -445,25 +454,31 @@ body {
 
 .letter .menu {
     float: left;
-    cursor: pointer;
-    background-color: #ddd;
-}
+    text-align: center;
 
-.letter .menu .ext {
-    float: left;
-}
-
-.letter .menu {
     display: none;
 }
 
 .letter:hover .menu {
     display: block;
     position: absolute;
+    left: -0.3em;
+    right: -0.3em;
 
-    font-size: 200%;
     z-index: 1;
+    background-color: #eed;
+    border-right: 0.3em solid rgba(200,180,50,1);
+    border-bottom: 0.3em solid rgba(200,180,50,1);
+    border-left: 0.3em solid rgba(240,210,80,1);
 }
+
+.letter .menu .ext {
+    display: inline-block;
+    font-size: 200%;
+
+    cursor: pointer;
+}
+
 
 
 input {
@@ -477,16 +492,22 @@ input {
     display: inline-block;
 }
 
+h2 {
+    margin-top: 2em;
+}
+
+h1, h2, .fragment {
+    /* horizontal rules between the lines */
+    line-height: 1em;
+    background: -moz-linear-gradient(top, #000 0%, #000 5%, transparent 5%) 0 0;
+    background: linear-gradient(top, #000 0%, #000 6%, #ffffe8 6%) 0 0;
+    background-size: 100% 1.055em;
+    padding: 0.07em 0; /* top and bottom offset to align the rule */
+}
+
 .fragment {
     font-size: 200%;
     margin-top: 0;
-
-    /* horizontal rules between the lines */
-    line-height: 1em;
-    background: -moz-linear-gradient(top, #000 0%, #000 5%, #fff 5%) 0 0;
-    background: linear-gradient(top, #000 0%, #000 6%, #fff 6%) 0 0;
-    background-size: 100% 1.055em;
-    padding: 0.07em 0; /* top and bottom offset to align the rule */
 }
 
 .fragment[dir=RTL] {
