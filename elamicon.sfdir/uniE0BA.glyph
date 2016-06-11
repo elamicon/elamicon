@@ -1,8 +1,10 @@
 StartChar: uniE0BA
 Encoding: 57530 57530 98
-Width: 807
+Width: 738
 VWidth: 0
-Flags: HW
+Flags: W
+HStem: 0 21G<100 154 340 395 583 638> 341 50<180 340 395 556> 681 50<181 340 395 557>
+VStem: 100 54<0 287 390 629 731 797> 340 55<0 51 137 341 479 681 731 796> 583 55<0 289 391 628 731 797>
 LayerCount: 2
 Back
 SplineSet
@@ -57,7 +59,6 @@ SplineSet
 583 391 m 1
  583 628 l 1
  395 391 l 1
- 395 391 l 1
  583 391 l 1
 340 341 m 1
  287 341 233 340 180 340 c 1
@@ -76,4 +77,5 @@ SplineSet
  287 681 234 681 181 681 c 1
  340 479 l 1
 EndSplineSet
+Validated: 1
 EndChar
