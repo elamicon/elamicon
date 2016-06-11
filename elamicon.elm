@@ -159,8 +159,11 @@ letterMap = Dict.fromList (List.map2 (,) letterList letters)
 -- Letter are separated by spaces, letters following another letter without
 -- a space are grouped with that letter
 alphabetPreset = "
-                        
-                                "
+              
+           
+              
+     
+"
 
 alphabetList alphabet =
     let
