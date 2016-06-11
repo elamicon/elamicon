@@ -385,8 +385,8 @@ view model =
             let zeroWidthSpace = "​"
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
                 textMod = breakAfterSeparator >> guessmarkDir fragment.dir
-                fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text (textMod line) ] ]
-            in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak) ], dirAttr fragment.dir ]
+                fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [] [ text (textMod line) ] ]
+            in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
                 [ h3 [] [ text fragment.id ]
                 , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
                 ]
@@ -530,7 +530,7 @@ h1, h2, .fragment {
     background: -moz-linear-gradient(top, #000 0%, #000 5%, transparent 5%) 0 0;
     background: linear-gradient(top, #000 0%, #000 6%, #ffffe8 6%) 0 0;
     background-size: 100% 1.07em;
-    padding: 0.07em 0 0.1em 0; /* top and bottom offset to align the rule */
+    padding: 0.05em 0 0.1em 0; /* top and bottom offset to align the rule */
 }
 
 .fragment {
@@ -563,7 +563,6 @@ h1, h2, .fragment {
 
 .line {
     unicode-bidi: bidi-override; /* not inherited through display: block */
-    line-height: 1em;
     counter-increment: lines;
     display: inline-block;
 }
