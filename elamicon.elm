@@ -59,12 +59,18 @@ letters =
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "iš ?", "uš ?" ] }
     , { char = '', syllable = [ "tu ?" ] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
     , { char = '', syllable = [ "hu ?"] }
+    , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
@@ -74,12 +80,25 @@ letters =
     , { char = '', syllable = [ "me ?" ] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "ši" ] }
     , { char = '', syllable = [ "še ?", "si ?" ] }
     , { char = '', syllable = [ "ak", "ik"] }
     , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [ "hal ?" ] }
     , { char = '', syllable = [] }
@@ -106,6 +125,12 @@ letters =
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
     , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
+    , { char = '', syllable = [] }
     ]
 
 
