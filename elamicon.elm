@@ -551,12 +551,12 @@ h1, h2, .fragment {
 
 .fixedBreak[dir=LTR] {
     /* custom line counter */
-    margin-left: 3em;
+    margin-left: 4em;
 }
 
 .fixedBreak[dir=RTL] {
     /* custom line counter */
-    margin-right: 3em;
+    margin-right: 4em;
 }
 
 
