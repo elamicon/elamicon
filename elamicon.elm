@@ -526,11 +526,11 @@ h2 {
 
 h1, h2, .fragment {
     /* horizontal rules between the lines */
-    line-height: 1em;
+    line-height: 1.07em;
     background: -moz-linear-gradient(top, #000 0%, #000 5%, transparent 5%) 0 0;
     background: linear-gradient(top, #000 0%, #000 6%, #ffffe8 6%) 0 0;
-    background-size: 100% 1.055em;
-    padding: 0.07em 0; /* top and bottom offset to align the rule */
+    background-size: 100% 1.07em;
+    padding: 0.07em 0 0.1em 0; /* top and bottom offset to align the rule */
 }
 
 .fragment {
