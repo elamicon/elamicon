@@ -2,7 +2,8 @@ StartChar: uniE120
 Encoding: 57632 57632 111
 Width: 1000
 VWidth: 0
-Flags: H
+HStem: 75 50<154 674> 678 50<154 674>
+VStem: 100 54<125 678> 674 54<125 678>
 LayerCount: 2
 Back
 SplineSet

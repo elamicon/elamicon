@@ -1,8 +1,8 @@
 StartChar: uniE080
 Encoding: 57472 57472 24
-Width: 845
+Width: 839
 VWidth: 0
-Flags: HW
+Flags: W
 HStem: -4 129<380.614 462.359> 675 50<350.332 486.673>
 VStem: 100 55<336.096 463.948> 362 115<7.38784 78.5774> 684 55<384 420.672>
 CounterMasks: 1 38

@@ -2,7 +2,7 @@ StartChar: guessmark.right
 Encoding: 57562 57562 45
 Width: 0
 VWidth: 0
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -48,7 +48,7 @@ SplineSet
  34 -31 40 -8 31 0 c 0
  29 2 27 2 25 2 c 0
  18 2 9 -3 4 -3 c 0
- 1 -3 0 -2 -0 2 c 0
+ 1 -3 0 -2 0 2 c 0
  0 7 3 18 11 38 c 9
  139 142 l 25
 153 50 m 25
@@ -97,5 +97,4 @@ SplineSet
  226 589 219 580 199 562 c 9
  53 498 l 25
 EndSplineSet
-Validated: 1
 EndChar
