@@ -1,8 +1,8 @@
 StartChar: uniE12C
 Encoding: 57644 57644 124
-Width: 967
+Width: 860
 VWidth: 0
-Flags: HW
+Flags: W
 LayerCount: 2
 Back
 SplineSet
@@ -67,4 +67,5 @@ SplineSet
  386 400 l 1
  349 353 l 1
 EndSplineSet
+Validated: 1
 EndChar

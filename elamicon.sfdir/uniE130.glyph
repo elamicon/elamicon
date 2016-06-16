@@ -2,7 +2,8 @@ StartChar: uniE130
 Encoding: 57648 57648 128
 Width: 663
 VWidth: 0
-Flags: HW
+Flags: W
+HStem: 353 90<106.866 182.667 481.332 554.607> 373 50<146.839 288 383 516.207>
 LayerCount: 2
 Back
 SplineSet
@@ -25,9 +26,9 @@ SplineSet
 EndSplineSet
 Fore
 SplineSet
-145 353 m 0
+145 353 m 0x80
  115 353 100 377 100 398 c 0
- 100 418 116 443 146 443 c 0
+ 100 418 116 443 146 443 c 0x80
  164 443 176 434 183 423 c 1
  291 423 l 1
  135 692 l 1
@@ -48,7 +49,8 @@ SplineSet
  177 89 l 1
  129 113 l 1
  288 373 l 1
- 183 373 l 1
- 176 362 163 353 145 353 c 0
+ 183 373 l 1x40
+ 176 362 163 353 145 353 c 0x80
 EndSplineSet
+Validated: 1
 EndChar
