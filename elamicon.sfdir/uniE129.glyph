@@ -1,6 +1,6 @@
 StartChar: uniE129
 Encoding: 57641 57641 121
-Width: 649
+Width: 849
 VWidth: 0
 Flags: W
 HStem: 220 50<430 749> 375 50<134 457> 536 50<430 749>
@@ -53,4 +53,5 @@ SplineSet
  617.5 703 l 1
  617.5 100 l 1
 EndSplineSet
+Validated: 37
 EndChar

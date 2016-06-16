@@ -2,7 +2,7 @@ StartChar: uniE131
 Encoding: 57649 57649 133
 Width: 645
 VWidth: 0
-Flags: WO
+Flags: W
 LayerCount: 2
 Back
 SplineSet
@@ -27,4 +27,5 @@ SplineSet
  307.46 448.634 l 5
  467.727 714.965 l 1
 EndSplineSet
+Validated: 1
 EndChar
