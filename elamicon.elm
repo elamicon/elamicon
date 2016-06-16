@@ -159,8 +159,11 @@ letterMap = Dict.fromList (List.map2 (,) letterList letters)
 -- Letter are separated by spaces, letters following another letter without
 -- a space are grouped with that letter
 alphabetPreset = "
-                        
-                                "
+              
+           
+              
+     
+"
 
 alphabetList alphabet =
     let
@@ -382,8 +385,8 @@ view model =
             let zeroWidthSpace = "​"
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
                 textMod = breakAfterSeparator >> guessmarkDir fragment.dir
-                fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [ class "elam" ] [ text (textMod line) ] ]
-            in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak) ], dirAttr fragment.dir ]
+                fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [] [ text (textMod line) ] ]
+            in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
                 [ h3 [] [ text fragment.id ]
                 , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
                 ]
@@ -523,11 +526,11 @@ h2 {
 
 h1, h2, .fragment {
     /* horizontal rules between the lines */
-    line-height: 1em;
+    line-height: 1.07em;
     background: -moz-linear-gradient(top, #000 0%, #000 5%, transparent 5%) 0 0;
     background: linear-gradient(top, #000 0%, #000 6%, #ffffe8 6%) 0 0;
-    background-size: 100% 1.055em;
-    padding: 0.07em 0; /* top and bottom offset to align the rule */
+    background-size: 100% 1.07em;
+    padding: 0.05em 0 0.1em 0; /* top and bottom offset to align the rule */
 }
 
 .fragment {
@@ -548,19 +551,18 @@ h1, h2, .fragment {
 
 .fixedBreak[dir=LTR] {
     /* custom line counter */
-    margin-left: 3em;
+    margin-left: 4em;
 }
 
 .fixedBreak[dir=RTL] {
     /* custom line counter */
-    margin-right: 3em;
+    margin-right: 4em;
 }
 
 
 
 .line {
     unicode-bidi: bidi-override; /* not inherited through display: block */
-    line-height: 1em;
     counter-increment: lines;
     display: inline-block;
 }
