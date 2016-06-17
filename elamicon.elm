@@ -24,141 +24,34 @@ import Set
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
-letters =
-    [ { char = '', syllable = [] }
-    , { char = '', syllable = [ "na" ] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "uk ?" ] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "NAP"] }
-    , { char = '', syllable = [ "NAP" ] }
-    , { char = '', syllable = [ "en ?", "im ?"] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "šu" ] }
-    , { char = '', syllable = [ "ša ?" ] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "in" ] }
-    , { char = '', syllable = [ "ki" ] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "iš ?", "uš ?" ] }
-    , { char = '', syllable = [ "tu ?" ] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "hu ?"] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "me ?" ] }
-    , { char = '', syllable = [ "me ?" ] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "ši" ] }
-    , { char = '', syllable = [ "še ?", "si ?" ] }
-    , { char = '', syllable = [ "ak", "ik"] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "hal ?" ] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "ú" ] }
-    , { char = '', syllable = [ "ni ?" ] }
-    , { char = '', syllable = [] }   , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [ "piš ?" ] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
-    , { char = '', syllable = [] }
+letters = String.toList ""
+
+
+-- The syllable mapping is short as of now and will likely never become
+-- comprehensive. All of this is guesswork.
+syllables : Dict.Dict Char (List String)
+syllables = Dict.fromList
+    [ ( '', [ "na" ] )
+    , ( '', [ "uk ?" ] )
+    , ( '', [ "NAP"] )
+    , ( '', [ "NAP"] )
+    , ( '', [ "en ?", "im ?"] )
+    , ( '', [ "šu" ] )
+    , ( '', [ "ša ?" ] )
+    , ( '', [ "in" ] )
+    , ( '', [ "ki" ] )
+    , ( '', [ "iš ?", "uš ?" ] )
+    , ( '', [ "tu ?" ] )
+    , ( '', [ "hu ?"] )
+    , ( '', [ "me ?" ] )
+    , ( '', [ "me ?" ] )
+    , ( '', [ "ši" ] )
+    , ( '', [ "še ?", "si ?" ] )
+    , ( '', [ "ak", "ik"] )
+    , ( '', [ "hal ?" ] )
+    , ( '', [ "ú" ] )
+    , ( '', [ "ni ?" ] )
+    , ( '', [ "piš ?" ] )
     ]
 
 
@@ -172,10 +65,6 @@ specialChars =
     , { displayChar = "", char = '', description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
     ]
 
--- We're nowhere near establishing a meaningful order to the letters.
-letterList = List.map .char letters
-letterMap = Dict.fromList (List.map2 (,) letterList letters)
-
 
 -- Alphabet definition
 --
@@ -186,12 +75,10 @@ letterMap = Dict.fromList (List.map2 (,) letterList letters)
 --
 -- Letter are separated by spaces, letters following another letter without
 -- a space are grouped with that letter
-alphabetPreset = "            
-        
-
-              
-           
+alphabetPreset = "
+                                                  
 "
+
 
 alphabetList alphabet =
     let
@@ -205,7 +92,7 @@ alphabetList alphabet =
 -- Sanitize the alphabet string to include all Elam letters but no duplicates
 completeAlphabet alphabet =
     let
-        allLetters = Set.fromList letterList
+        allLetters = Set.fromList letters
         dedup letter (seen, dedupAlphabet) =
             if Set.member letter seen
             then
@@ -344,7 +231,7 @@ view model =
 
         alphabetEntry (main, ext) =
             let
-                info = Maybe.withDefault { char = '?', syllable = [] } (Dict.get main letterMap)
+                syls = Maybe.withDefault [] (Dict.get main syllables)
                 letterEntry entryClass char = div [ classList [("elam", True), (entryClass, True)], onClick (AddChar (String.fromChar char)) ] [ text (String.fromChar char) ]
                 syllableEntry syl = div [ class "syl" ] [ text syl ]
                 letterCount = letterCounter (main :: ext) model.sandbox
@@ -352,8 +239,8 @@ view model =
                 li [ class "letter" ]
                     ( (if letterCount > 0 then [ div [ class "counter" ] [ text (toString letterCount) ] ] else [] )
                     ++ [ letterEntry "main" main ]
-                    ++ ( if ext /= [] || List.length info.syllable > 0
-                         then [ div [class "menu"] (map (letterEntry "ext") ext ++ map syllableEntry info.syllable) ]
+                    ++ ( if ext /= [] || List.length syls > 0
+                         then [ div [class "menu"] (map (letterEntry "ext") ext ++ map syllableEntry syls) ]
                          else []
                        )
                     ++ (map (letterEntry "ext") ext)
