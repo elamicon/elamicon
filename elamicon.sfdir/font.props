@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1461436948
-ModificationTime: 1466102124
+ModificationTime: 1466188559
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -44,17 +44,17 @@ NameList: Adobe Glyph List
 DisplaySize: -72
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 57310 22 11
+WinInfo: 57568 16 12
 BeginPrivate: 0
 EndPrivate
 Grid
--1000 703 m 0
- 2000 703 l 0
--1000 100 m 0
- 2000 100 l 0
--1000 400 m 0
- 2000 400 l 0
--1000 800 m 0
- 2000 800 l 0
+-1000 703 m 4
+ 2000 703 l 4
+-1000 100 m 4
+ 2000 100 l 4
+-1000 400 m 4
+ 2000 400 l 4
+-1000 800 m 4
+ 2000 800 l 4
 EndSplineSet
 EndSplineFont

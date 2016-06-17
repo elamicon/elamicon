@@ -1,5 +1,5 @@
 StartChar: uniE112
-Encoding: 57618 57618 106
+Encoding: 57618 57618 105
 Width: 682
 VWidth: 0
 Flags: W
@@ -22,11 +22,11 @@ SplineSet
 551 343 m 25
  224 345 l 25
  224 237 l 25
-128 101 m 25
- 128 702 l 17
- 249 703 435 705 553 704 c 9
- 555 101 l 17
- 128 101 l 25
+128 101 m 29
+ 128 702 l 21
+ 249 703 435 705 553 704 c 13
+ 555 101 l 21
+ 128 101 l 29
 EndSplineSet
 Fore
 SplineSet
