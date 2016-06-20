@@ -79,7 +79,7 @@ alphabetPreset = "
                                                   
 "
 
-
+alphabetList : String -> List (Char, List Char)
 alphabetList alphabet =
     let
         letterGroup letterString =
@@ -110,6 +110,30 @@ completeAlphabet alphabet =
         dedupedAlphabet
         ++ " "
         ++ String.join " " (map String.fromChar (Set.toList missingLetters))
+
+lumpLetters : String -> String -> String
+lumpLetters alphabet =
+    let
+        lumped : List String
+        lumped = String.words alphabet
+        replace letter group =
+            if String.contains (String.fromChar letter) group
+            then String.uncons group
+            else Nothing
+        mapAny : List String -> Char -> Char
+        mapAny groups letter =
+            case groups of
+                group :: rest ->
+                    case replace letter group of
+                        Just (main, _) -> main
+                        Nothing -> mapAny rest letter
+                [] ->
+                    letter
+        lump : List Char -> List Char
+        lump = map (mapAny lumped)
+    in
+        String.toList >> lump >> String.fromList
+
 
 -- Linear Elam texts are written left-to-right (LTR) and right-to-left (RTL).
 -- The majority is written RTL. We display them in their original direction, but
@@ -170,13 +194,14 @@ fragments =
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
 type alias Pos = (String, Int, Int)
-type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, alphabet : String, sandbox: String, sandboxWorkaround: Int }
-model = { dir = Original, fixedBreak = True, selected = Nothing, alphabet = alphabetPreset, sandbox = "", sandboxWorkaround = 0 }
+type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, alphabet : String, sandbox: String, sandboxWorkaround: Int, lumping : Bool }
+model = { dir = Original, fixedBreak = True, selected = Nothing, alphabet = alphabetPreset, sandbox = "", sandboxWorkaround = 0, lumping = False }
 
 type Msg
     = Select (String, Int, Int)
     | SetBreaking Bool
     | SetDir Dir
+    | SetLumping Bool
     | SetSandbox String
     | SetAlphabet String
     | AddChar String
@@ -189,6 +214,7 @@ update msg model =
         AddChar char -> { model | sandbox = model.sandbox ++ char, sandboxWorkaround = (model.sandboxWorkaround + 1) % 2 }
         Select pos -> { model | selected = Just pos }
         SetBreaking breaking -> { model | fixedBreak = breaking }
+        SetLumping lumping -> { model | lumping = lumping }
         SetDir dir -> { model | dir = dir }
         SetAlphabet new -> { model | alphabet = completeAlphabet new }
 
@@ -204,12 +230,11 @@ dirDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valS
     "RTL" -> Json.Decode.succeed RTL
     _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
 
-breakingDecoder : Json.Decode.Decoder Bool
-breakingDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valStr of
+boolDecoder : Json.Decode.Decoder Bool
+boolDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valStr of
     "true" -> Json.Decode.succeed True
     "false" -> Json.Decode.succeed False
     _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
-
 
 view : Model -> Html Msg
 view model =
@@ -231,6 +256,7 @@ view model =
 
         alphabetEntry (main, ext) =
             let
+                shownExt = if model.lumping then [] else ext
                 syls = Maybe.withDefault [] (Dict.get main syllables)
                 letterEntry entryClass char = div [ classList [("elam", True), (entryClass, True)], onClick (AddChar (String.fromChar char)) ] [ text (String.fromChar char) ]
                 syllableEntry syl = div [ class "syl" ] [ text syl ]
@@ -239,11 +265,11 @@ view model =
                 li [ class "letter" ]
                     ( (if letterCount > 0 then [ div [ class "counter" ] [ text (toString letterCount) ] ] else [] )
                     ++ [ letterEntry "main" main ]
-                    ++ ( if ext /= [] || List.length syls > 0
-                         then [ div [class "menu"] (map (letterEntry "ext") ext ++ map syllableEntry syls) ]
+                    ++ ( if shownExt /= [] || List.length syls > 0
+                         then [ div [class "menu"] (map (letterEntry "ext") shownExt ++ map syllableEntry syls) ]
                          else []
                        )
-                    ++ (map (letterEntry "ext") ext)
+                    ++ (map (letterEntry "ext") shownExt)
                     ++ [ div [ class "clear" ] [] ]
                     )
 
@@ -272,6 +298,7 @@ view model =
         settings =
             let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
+                lumpingOptAttrs val lumping = [ value val, selected (lumping == model.lumping) ]
             in  [ h2 [] [ text "Einstellungen" ]
                 , label []
                     [ text "Schreibrichtung"
@@ -283,7 +310,7 @@ view model =
                     ]
                 , label []
                     [ text "Zeilenumbrüche"
-                    , Html.select [ on "change" (Json.Decode.map SetBreaking breakingDecoder) ]
+                    , Html.select [ on "change" (Json.Decode.map SetBreaking boolDecoder) ]
                         [ option (breakOptAttrs "true" True) [ text "ursprünglich" ]
                         , option (breakOptAttrs "false" False) [ text "automatisch" ]
                         ]
@@ -292,6 +319,13 @@ view model =
                     [ text "Alphabet"
                     , Html.input [ class "elam", value model.alphabet, onInput SetAlphabet ] []
                     ]
+                , label []
+                    [ text "Zeichen vereinheitlichen"
+                    , Html.select [ on "change" (Json.Decode.map SetLumping boolDecoder) ]
+                        [ option (lumpingOptAttrs "false" False) [ text "ursprünglich" ]
+                        , option (lumpingOptAttrs "true" True) [ text "nach Gruppen" ]
+                        ]
+                    ]
                 ]
 
         fragmentView fragment =
@@ -299,7 +333,11 @@ view model =
             -- lines can be broken by the browser
             let zeroWidthSpace = "​"
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
-                textMod = breakAfterSeparator >> guessmarkDir fragment.dir
+                lumping text =
+                    if model.lumping
+                    then lumpLetters model.alphabet text
+                    else text
+                textMod = lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
                 fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [] [ text (textMod line) ] ]
             in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
                 [ h3 [] [ text fragment.id ]
