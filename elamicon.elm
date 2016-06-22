@@ -278,21 +278,16 @@ view model =
                 [ div [ classList [("elam", True), ("main", True)], onClick (AddChar (String.fromChar char)), title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
 
 
-        -- HACK horrid workaround to throw off the differ.
-        -- otherwise the textarea is not updated (this way it is recreated)
-        updateTextareaWorkaround = List.repeat model.sandboxWorkaround (textarea [ Html.Attributes.style [ ("display", "none") ] ] [])
-
-
         playground =
             [ h2 [] [ text "Spielplatz" ]
-            ] ++ updateTextareaWorkaround ++
-            [ textarea
+            , textarea
                 [ class "elam"
                 , dirAttr LTR
                 , on "change" (Json.Decode.map SetSandbox Html.Events.targetValue)
                 , onInput SetSandbox
-                ] [ text ((guessmarkDir LTR) model.sandbox) ]
-            ] ++ updateTextareaWorkaround
+                , value ((guessmarkDir LTR) model.sandbox)
+                ] []
+            ]
 
 
         settings =
