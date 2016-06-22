@@ -174,9 +174,9 @@ fragments =
         [ ""
         ]
       }
-    , { id = "neuE", dir = RTL, lines =
-        [ "XXXXXXXXXXXX"
-        , "XXXXXXXXX"
+    , { id = "neuA", dir = RTL, lines =
+        [ "XXXX"
+        , "XXX"
         , "XXXXXXX"
         , "XXXXXXXXX"
         , "XXXXXXXXXX"
