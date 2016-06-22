@@ -283,7 +283,7 @@ view model =
             , textarea
                 [ class "elam"
                 , dirAttr LTR
-                , on "change" (Json.Decode.map SetSandbox Html.Events.targetValue)
+                , on "input" (Json.Decode.map SetSandbox Html.Events.targetValue)
                 , onInput SetSandbox
                 , value ((guessmarkDir LTR) model.sandbox)
                 ] []
