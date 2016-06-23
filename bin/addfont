@@ -1,0 +1,24 @@
+#!/usr/bin/python
+
+# Merge glyphs from two fonts and write to third file
+# Example:
+# addfont fonts.original/LiberationSerif-Regular.ttf elamicon.sfdir fonts/ElamiconLiberationSerif-Regular.ttf
+
+import fontforge
+import sys
+import os
+
+basefont = sys.argv[1]
+addfont = sys.argv[2]
+outfont = sys.argv[3]
+
+fontname = os.path.splitext(os.path.basename(outfont))[0]
+family, style = fontname.split('-')
+
+f = fontforge.open(basefont)
+f.fullname = "%s %s" % (family, style)
+f.familyname = family
+f.fontname = fontname
+f.mergeFonts(addfont)
+f.generate(outfont)
+f.close()
