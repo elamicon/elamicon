@@ -363,18 +363,37 @@ style = Html.node "style" [type' "text/css"]
 
 body {
     padding: 1em;
+    background-color: #eed;
 }
 
 body {
-    background-color: #eed;
+    font-family: elamicon;
+}
+
+input, textarea {
+    font-family: elamiconmono;
+}
+
+body {
 }
 
 @font-face {
     font-family: 'elamicon';
-    src: url('elamicon.ttf');
+    src: url('/fonts/ElamiconLiberationSerif-Regular.ttf');
 }
+
+@font-face {
+    font-family: 'elamicon';
+    src: url('/fonts/ElamiconLiberationSerif-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'elamiconmono';
+    src: url('/fonts/ElamiconLiberationMono-Regular.ttf');
+}
+
 .elam {
-    font-family: elamicon;
     unicode-bidi: bidi-override;
 }
 
