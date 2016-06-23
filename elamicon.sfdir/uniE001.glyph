@@ -1,30 +1,29 @@
 StartChar: uniE001
 Encoding: 57345 57345 1
-Width: 255
+Width: 522
 VWidth: 0
-Flags: W
-HStem: 0 21G<100 155>
-VStem: 100 55<0 332 468 800>
+Flags: HW
+HStem: 0 43G<205 317>
+VStem: 205 113<0 680 958 1638>
 LayerCount: 3
 Back
 SplineSet
-127 0 m 21
- 127 332 l 13
-127 800 m 21
- 127 468 l 13
+260.096 0 m 21
+ 260.096 679.936 l 13
+260.096 1638.4 m 21
+ 260.096 958.464 l 13
 EndSplineSet
 Fore
 SplineSet
-100 800 m 1
- 155 800 l 1
- 155 468 l 1
- 100 468 l 1
- 100 800 l 1
-155 0 m 1
- 100 0 l 1
- 100 332 l 1
- 155 332 l 1
- 155 0 l 1
+205 1638 m 1
+ 317 1638 l 1
+ 317 958 l 1
+ 205 958 l 1
+ 205 1638 l 1
+317 0 m 1
+ 205 0 l 1
+ 205 680 l 1
+ 317 680 l 1
+ 317 0 l 1
 EndSplineSet
-Validated: 1
 EndChar
