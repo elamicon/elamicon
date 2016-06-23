@@ -244,7 +244,7 @@ view model =
         letterCounter letters = String.toList >> List.filter (\candidate -> Set.member candidate (Set.fromList letters)) >> List.length
 
         alphabet =
-            [ h2 [] [ text "Die Buchstaben" ]
+            [ h2 [] [ text " Die Buchstaben " ]
             , ol [ dirAttr LTR, classList [ ("alphabet", True) ] ]
                 ( List.map alphabetEntry (alphabetList model.alphabet)
                 ++ List.map specialEntry specialChars
@@ -276,7 +276,7 @@ view model =
 
 
         playground =
-            [ h2 [] [ text "Spielplatz" ]
+            [ h2 [] [ text " Spielplatz " ]
             , textarea
                 [ class "elam"
                 , dirAttr LTR
@@ -291,7 +291,7 @@ view model =
             let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
                 lumpingOptAttrs val lumping = [ value val, selected (lumping == model.lumping) ]
-            in  [ h2 [] [ text "Einstellungen" ]
+            in  [ h2 [] [ text " Einstellungen " ]
                 , label []
                     [ text "Schreibrichtung"
                     , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
@@ -336,9 +336,9 @@ view model =
                 , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
                 ]
     in
-        div []
-            ([ style
-            , h1 [] [ text "Elamische Zeichensammlung" ]
+        div [] (
+            [ style
+            , h1 [] [ text " Elamische Zeichensammlung " ]
             ] ++ alphabet
               ++ playground
               ++ settings ++
@@ -374,7 +374,8 @@ input, textarea {
     font-family: elamiconmono;
 }
 
-body {
+h1, h2 {
+    text-align: center
 }
 
 @font-face {
