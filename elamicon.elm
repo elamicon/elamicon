@@ -379,18 +379,18 @@ body {
 
 @font-face {
     font-family: 'elamicon';
-    src: url('/fonts/ElamiconLiberationSerif-Regular.ttf');
+    src: url('fonts/ElamiconLiberationSerif-Regular.ttf');
 }
 
 @font-face {
     font-family: 'elamicon';
-    src: url('/fonts/ElamiconLiberationSerif-Bold.ttf');
+    src: url('fonts/ElamiconLiberationSerif-Bold.ttf');
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'elamiconmono';
-    src: url('/fonts/ElamiconLiberationMono-Regular.ttf');
+    src: url('fonts/ElamiconLiberationMono-Regular.ttf');
 }
 
 .elam {
