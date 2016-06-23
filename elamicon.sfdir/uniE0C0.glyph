@@ -5,17 +5,17 @@ VWidth: 0
 Flags: W
 HStem: 0 21G<394 448>
 VStem: 394 54<0 184>
-LayerCount: 2
+LayerCount: 3
 Back
 SplineSet
-415 194 m 25
- 415 0 l 25
-407 798 m 25
-121 494 m 25
- 415 194 l 25
- 711 494 l 25
- 407 798 l 25
- 121 494 l 25
+415 194 m 29
+ 415 0 l 29
+407 798 m 29
+121 494 m 29
+ 415 194 l 29
+ 711 494 l 29
+ 407 798 l 29
+ 121 494 l 29
 EndSplineSet
 Fore
 SplineSet

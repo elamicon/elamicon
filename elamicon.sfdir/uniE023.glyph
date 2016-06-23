@@ -1,11 +1,11 @@
 StartChar: uniE023
-Encoding: 57379 57379 156
+Encoding: 57379 57379 155
 Width: 699
 VWidth: 0
 Flags: W
 HStem: 98 86<298.47 381.53> 359 86<298.47 381.53> 611 86<294.47 377.53>
 VStem: 292 96<105.277 176.723 366.277 437.723 620.738 687.262>
-LayerCount: 2
+LayerCount: 3
 Back
 SplineSet
 127 0 m 29

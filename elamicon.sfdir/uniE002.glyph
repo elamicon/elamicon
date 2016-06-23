@@ -5,7 +5,7 @@ VWidth: 0
 Flags: W
 HStem: 0 21G<100 155 258 313>
 VStem: 100 55<0 800> 258 55<0 332 468 800>
-LayerCount: 2
+LayerCount: 3
 Fore
 SplineSet
 258 800 m 1

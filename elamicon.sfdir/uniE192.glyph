@@ -1,0 +1,21 @@
+StartChar: uniE192
+Encoding: 57746 57746 186
+Width: 306
+VWidth: 0
+Flags: W
+LayerCount: 3
+Back
+SplineSet
+127 100 m 29
+ 231 703 l 29
+ 325 100 l 29
+ 127 100 l 29
+EndSplineSet
+Fore
+SplineSet
+99.585 100 m 29
+ 156.005 703 l 29
+ 207 100 l 29
+ 99.585 100 l 29
+EndSplineSet
+EndChar

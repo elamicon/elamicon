@@ -12,16 +12,17 @@ UnderlinePosition: -100
 UnderlineWidth: 50
 Ascent: 900
 Descent: 100
-LayerCount: 2
+LayerCount: 3
 Layer: 0 0 "Back"  1
 Layer: 1 0 "Fore"  0
+Layer: 2 0 "small"  1
 XUID: [1021 38 2135915415 1003049]
 FSType: 0
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1461436948
-ModificationTime: 1466188559
+ModificationTime: 1466644398
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -35,15 +36,16 @@ HheadAscent: 0
 HheadAOffset: 1
 HheadDescent: 0
 HheadDOffset: 1
+OS2Vendor: 'PfEd'
 MarkAttachClasses: 1
 DEI: 91125
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: Adobe Glyph List
-DisplaySize: -48
+DisplaySize: -72
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 0 26 17
+WinInfo: 57680 16 10
 BeginPrivate: 0
 EndPrivate
 Grid

@@ -5,7 +5,7 @@ VWidth: 0
 Flags: W
 HStem: 76 50<154 525> 251 30<154 223 355 425>
 VStem: 100 54<126 251 281 703> 272 36<380.282 662> 525 55<125 703>
-LayerCount: 2
+LayerCount: 3
 Back
 SplineSet
 290 662 m 29
