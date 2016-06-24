@@ -475,7 +475,7 @@ h1, h2 {
 
 
 input {
-    width: 80em;
+    width: 100%;
 }
 
 
