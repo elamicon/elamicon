@@ -335,6 +335,21 @@ view model =
                 [ h3 [] [ text fragment.id ]
                 , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
                 ]
+
+        footer = div [ class "footer" ]
+                [ text "Diese Seite wurde produziert mit "
+                , a [ href "https://fontforge.github.io/en-US/" ]
+                    [ text "FontForge" ]
+                , text ", "
+                , a [ href "http://elm-lang.org/" ]
+                    [ text "Elm" ]
+                , text " und ♥. "
+                , a [ href "fonts/ElamiconLiberationSerif-Regular.ttf" ]
+                    [ text "Elamicon-Schrift installieren" ]
+                , text ". "
+                , a [ href "https://github.com/sbalmer/elamicon/" ]
+                    [ text "Das Projekt auf Github" ]
+                ]
     in
         div [] (
             [ style
@@ -342,8 +357,11 @@ view model =
             ] ++ alphabet
               ++ playground
               ++ settings ++
-            [ h2 [] [ text "Textfragmente" ]
-            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView fragments) ])
+            [ h2 [] [ text " Textfragmente " ]
+            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView fragments) ]
+              ++ [ footer ]
+        )
+
 
 
 
@@ -571,6 +589,11 @@ label {
 
 .clear {
     clear: both;
+}
+
+.footer {
+    padding: 1em;
+    text-align: center;
 }
 
     "]
