@@ -22,7 +22,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1461436948
-ModificationTime: 1466788328
+ModificationTime: 1467244551
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -42,10 +42,10 @@ DEI: 91125
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: Adobe Glyph List
-DisplaySize: -72
+DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 57564 26 12
+WinInfo: 57312 32 14
 BeginPrivate: 0
 EndPrivate
 Grid
