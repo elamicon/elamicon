@@ -1,0 +1,20 @@
+StartChar: uniE005
+Encoding: 57349 57349 265
+Width: 520
+VWidth: 0
+Flags: HW
+LayerCount: 3
+Back
+SplineSet
+260 1638 m 25
+ 260 0 l 25
+EndSplineSet
+Fore
+SplineSet
+205 1638 m 1
+ 315 1638 l 1
+ 315 0 l 1
+ 205 0 l 1
+ 205 1638 l 1
+EndSplineSet
+EndChar
