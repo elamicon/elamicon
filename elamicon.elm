@@ -24,7 +24,7 @@ import Set
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
-letters = String.toList ""
+letters = String.toList ""
 
 -- The syllable mapping is short as of now and will likely never become
 -- comprehensive. All of this is guesswork.
@@ -75,7 +75,8 @@ specialChars =
 -- Letter are separated by spaces, letters following another letter without
 -- a space are grouped with that letter
 alphabetPreset = "
-                                                                             "
+                                                                                         
+"
 
 alphabetList : String -> List (Char, List Char)
 alphabetList alphabet =
