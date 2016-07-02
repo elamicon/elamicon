@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+# Output all defined characters in font as unicode string
+#
+# Example:
+# charlist elamicon.sfdir
+
+from __future__ import print_function
+import sys
+import fontforge
+
+f = fontforge.open(sys.argv[1])
+for glyph in f.glyphs():
+    print(unichr(glyph.unicode), end="")
+print()
+f.close()
