@@ -110,28 +110,27 @@ completeAlphabet alphabet =
         ++ " "
         ++ String.join " " (map String.fromChar (Set.toList missingLetters))
 
-lumpLetters : String -> String -> String
-lumpLetters alphabet =
+
+-- When searching the corpus and optionally when displaying it) we want to treat all
+-- characters in an alphabet group as the same character. This function builds a
+-- dictionary that maps all alternate versions of a letter to the main letter.
+normalization : String -> Dict.Dict Char Char
+normalization alphabet =
+    let allLetters = Set.fromList letters
+        ins group dict =
+            case (String.toList group) of
+                main :: extras -> List.foldl (insLetter main) (Dict.insert main main dict) extras
+                _ -> dict
+        insLetter main ext dict = Dict.insert ext main dict
+    in List.foldl ins Dict.empty (String.words alphabet)
+
+
+normalizer: Dict.Dict Char Char -> String -> String
+normalizer normalization =
     let
-        lumped : List String
-        lumped = String.words alphabet
-        replace letter group =
-            if String.contains (String.fromChar letter) group
-            then String.uncons group
-            else Nothing
-        mapAny : List String -> Char -> Char
-        mapAny groups letter =
-            case groups of
-                group :: rest ->
-                    case replace letter group of
-                        Just (main, _) -> main
-                        Nothing -> mapAny rest letter
-                [] ->
-                    letter
-        lump : List Char -> List Char
-        lump = map (mapAny lumped)
-    in
-        String.toList >> lump >> String.fromList
+        repl: Char -> Char
+        repl letter = Maybe.withDefault letter (Dict.get letter normalization)
+    in String.toList >> List.map repl >> String.fromList
 
 
 -- Linear Elam texts are written left-to-right (LTR) and right-to-left (RTL).
@@ -204,8 +203,25 @@ fragments =
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
 type alias Pos = (String, Int, Int)
-type alias Model = { dir : Dir, fixedBreak: Bool, selected : Maybe Pos, alphabet : String, sandbox: String, sandboxWorkaround: Int, lumping : Bool }
-model = { dir = Original, fixedBreak = True, selected = Nothing, alphabet = alphabetPreset, sandbox = "", sandboxWorkaround = 0, lumping = False }
+type alias Model =
+    { dir : Dir
+    , fixedBreak: Bool
+    , selected : Maybe Pos
+    , alphabet : String
+    , normalizer: String -> String
+    , sandbox: String
+    , lumping : Bool
+    }
+
+model =
+    { dir = Original
+    , fixedBreak = True
+    , selected = Nothing
+    , alphabet = alphabetPreset
+    , normalizer = normalizer (normalization alphabetPreset)
+    , sandbox = ""
+    , lumping = False
+    }
 
 type Msg
     = Select (String, Int, Int)
@@ -221,12 +237,14 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         SetSandbox str -> { model | sandbox = str }
-        AddChar char -> { model | sandbox = model.sandbox ++ char, sandboxWorkaround = (model.sandboxWorkaround + 1) % 2 }
+        AddChar char -> { model | sandbox = model.sandbox ++ char }
         Select pos -> { model | selected = Just pos }
         SetBreaking breaking -> { model | fixedBreak = breaking }
         SetLumping lumping -> { model | lumping = lumping }
         SetDir dir -> { model | dir = dir }
-        SetAlphabet new -> { model | alphabet = completeAlphabet new }
+        SetAlphabet new ->
+            let newAlphabet = completeAlphabet new
+            in { model | alphabet = newAlphabet, normalizer = normalizer (normalization newAlphabet) }
 
 
 dirStr dir = case dir of
@@ -340,7 +358,7 @@ view model =
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
                 lumping text =
                     if model.lumping
-                    then lumpLetters model.alphabet text
+                    then model.normalizer text
                     else text
                 textMod = lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
                 fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [] [ text (textMod line) ] ]
