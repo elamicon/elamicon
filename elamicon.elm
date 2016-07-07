@@ -140,60 +140,67 @@ type Dir = Original | LTR | RTL
 
 
 fragments =
-    [ { id = "A", dir = RTL, lines =
-        [ ""
-        , ""
-        , ""
-        , ""
-        , ""
-        ]
+    [ { id = "A", dir = RTL, text =
+        """
+            
+            
+            
+            
+            
+        """
       }
-    , { id = "B", dir = LTR, lines =
-        [ ""
-        , ""
-        , ""
-        ]
+    , { id = "B", dir = LTR, text =
+        """
+            
+            
+            
+        """
       }
-    , { id = "C", dir = RTL, lines =
-        [ ""
-        , ""
-        , ""
-        , ""
-        ]
+    , { id = "C", dir = RTL, text =
+        """
+            
+            
+            
+            
+        """
       }
-    , { id = "E", dir = LTR, lines =
-        [ ""
-        , ""
-        , ""
-        , ""
-        ]
+    , { id = "E", dir = LTR, text =
+        """
+            
+            
+            
+            
+        """
       }
-    , { id = "O", dir = RTL, lines =
-        [ "XX"
-        , "XX"
-        , "X"
-        , "XXXX"
-        , "XXX"
-        , "X"
-        , "XX"
-        , "XX"
-        ]
+    , { id = "O", dir = RTL, text =
+        """
+            XX
+            XX
+            X
+            XXXX
+            XXX
+            X
+            XX
+            XX
+        """
       }
-    , { id = "Q", dir = LTR, lines =
-        [ ""
-        ]
+    , { id = "Q", dir = LTR, text =
+        """
+            
+        """
       }
-    , { id = "neuA", dir = RTL, lines =
-        [ "XXXX"
-        , "XX"
-        , "X"
-        , "XXXXX"
-        , "XX"
-        , "XXXXXX"
-        , "XXXXXXXXXX"
-        , "XXXXXXXXXX"
-        , "XXXXXXXXXXXX"
-        ]
+    , { id = "neuA", dir = RTL, text =
+        """
+            XXXX
+            XX
+            X
+            XXXXX
+            XX
+            XXXXXX
+            XXXXXXXXXX
+            XXXXXXXXXX
+            XXXXXXXXXXXX
+        """
       }
     ]
 
@@ -364,7 +371,7 @@ view model =
                 fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [] [ text (textMod line) ] ]
             in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
                 [ h3 [] [ text fragment.id ]
-                , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine fragment.lines)
+                , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine (String.lines (String.trim fragment.text)))
                 ]
 
         footer = div [ class "footer" ]
