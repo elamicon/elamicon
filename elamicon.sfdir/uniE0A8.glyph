@@ -1,5 +1,5 @@
 StartChar: uniE0A8
-Encoding: 57512 57512 29
+Encoding: 57512 57512 27
 Width: 1177
 VWidth: 0
 Flags: HW
@@ -7,12 +7,12 @@ HStem: 768 102<352 827>
 LayerCount: 3
 Back
 SplineSet
-655.36 819.2 m 25
- 0 819.2 l 25
- 327.68 1433.6 l 25
- 655.36 819.2 l 25
- 327.68 204.8 l 25
- 0 819.2 l 25
+655.36 819.2 m 29
+ 0 819.2 l 29
+ 327.68 1433.6 l 29
+ 655.36 819.2 l 29
+ 327.68 204.8 l 29
+ 0 819.2 l 29
 EndSplineSet
 Fore
 SplineSet

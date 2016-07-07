@@ -15,14 +15,14 @@ Descent: 205
 LayerCount: 3
 Layer: 0 0 "Back"  1
 Layer: 1 0 "Fore"  0
-Layer: 2 0 "small"  0
+Layer: 2 0 "small"  1
 XUID: [1021 38 2135915415 1003049]
 FSType: 0
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1461436948
-ModificationTime: 1467380143
+ModificationTime: 1467854688
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -42,13 +42,15 @@ DEI: 91125
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: Adobe Glyph List
-DisplaySize: -96
+DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 57328 16 7
+WinInfo: 57856 32 13
 BeginPrivate: 0
 EndPrivate
 Grid
+-359 2867 m 0
+ -359 -1229 l 0
 -2048 1439.74 m 4
  4096 1439.74 l 4
 -2048 204.8 m 4
