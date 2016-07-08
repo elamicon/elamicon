@@ -2,14 +2,10 @@ OFONTS = $(wildcard fonts/original/*.ttf)
 MFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
 
 
-all: index.html fonts $(MFONTS)
+all: index.html $(MFONTS)
 
 index.html: elamicon.elm
 	elm-make elamicon.elm --output index.html
-
-fonts:
-	mkdir fonts
-
 
 fonts/ElamiconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf elamicon.sfdir
 	bin/addfont $^ "$@"
