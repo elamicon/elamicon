@@ -1,9 +1,9 @@
 StartChar: uniE1A2
 Encoding: 57762 57762 191
-Width: 1806
+Width: 1807
 VWidth: -205
-Flags: HW
-VStem: 840 111<-21 102 233 358 493 608 751 1007>
+Flags: W
+VStem: 840 110<-21 102 233 358 493 608 751 1007>
 LayerCount: 3
 Back
 SplineSet
