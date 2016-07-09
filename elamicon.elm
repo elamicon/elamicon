@@ -449,7 +449,7 @@ view model =
                 ]
     in
         div [] (
-            [ Html.node "style" [type' "text/css"] [ text "@import '/css/main.css'" ]
+            [ Html.node "style" [type' "text/css"] [ text "@import 'css/main.css'" ]
             , h1 [] [ text " Elamische Zeichensammlung " ]
             ] ++ alphabet
               ++ playground
