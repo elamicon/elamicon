@@ -45,10 +45,10 @@ h1, h2 {
     margin: 0.2em;
     display: inline-block;
     background-color: #eed;
-    border-right: 0.3em solid rgba(200,180,50,1);
-    border-bottom: 0.3em solid rgba(200,180,50,1);
-    border-left: 0.3em solid rgba(240,210,80,1);
-    border-top: 0.3em solid rgba(240,210,80,1);
+    border-left: 0.3em solid #ffffe8;
+    border-top: 0.3em solid #ffffe8;
+    border-right: 0.3em solid #d0d0c8;
+    border-bottom: 0.3em solid #d0d0c8;
 }
 
 .alphabet div {
@@ -98,9 +98,9 @@ h1, h2 {
 
     z-index: 1;
     background-color: #eed;
-    border-right: 0.3em solid rgba(200,180,50,1);
-    border-bottom: 0.3em solid rgba(200,180,50,1);
-    border-left: 0.3em solid rgba(240,210,80,1);
+    border-left: 0.3em solid #ffffe8;
+    border-right: 0.3em solid #d0d0c8;
+    border-bottom: 0.3em solid #d0d0c8;
 }
 
 .letter .menu .ext {
