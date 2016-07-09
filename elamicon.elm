@@ -135,7 +135,7 @@ normalizer normalization =
     let
         repl: Char -> Char
         repl letter = Maybe.withDefault letter (Dict.get letter normalization)
-    in String.toList >> List.map repl >> String.fromList
+    in String.map repl
 
 
 -- Linear Elam texts are written left-to-right (LTR) and right-to-left (RTL).
