@@ -8,10 +8,10 @@ UComments: "2016-4-23: Created."
 Version: 001.000
 StrokeWidth: 50
 ItalicAngle: 0
-UnderlinePosition: -204.8
-UnderlineWidth: 102.4
-Ascent: 1843
-Descent: 205
+UnderlinePosition: -204
+UnderlineWidth: 102
+Ascent: 1638
+Descent: 410
 LayerCount: 3
 Layer: 0 0 "Back"  1
 Layer: 1 0 "Fore"  0
@@ -22,7 +22,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1461436948
-ModificationTime: 1467854688
+ModificationTime: 1468073397
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -45,19 +45,19 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 57856 32 13
+WinInfo: 57216 32 12
 BeginPrivate: 0
 EndPrivate
 Grid
--359 2867 m 0
- -359 -1229 l 0
--2048 1439.74 m 4
- 4096 1439.74 l 4
--2048 204.8 m 4
- 4096 204.8 l 4
--2048 819.2 m 4
- 4096 819.2 l 4
--2048 1638.4 m 4
- 4096 1638.4 l 4
+-359 2662 m 0
+ -359 -1434 l 0
+-2048 1234.74 m 4
+ 4096 1234.74 l 4
+-2048 -0.200195 m 4
+ 4096 -0.200195 l 4
+-2048 614.2 m 4
+ 4096 614.2 l 4
+-2048 1433.4 m 4
+ 4096 1433.4 l 4
 EndSplineSet
 EndSplineFont

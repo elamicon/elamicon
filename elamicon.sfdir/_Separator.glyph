@@ -1,21 +1,21 @@
 StartChar: Separator
 Encoding: 57344 57344 0
 Width: 522
-VWidth: 0
+VWidth: -205
 Flags: HW
-VStem: 205 113<-203 1849>
+VStem: 205 113<-408 1644>
 LayerCount: 3
 Back
 SplineSet
-0 -202.752 m 25
- 0 1849.34 l 29
+0 -407.752 m 25
+ 0 1644.34 l 29
 EndSplineSet
 Fore
 SplineSet
-317 -203 m 1
- 205 -203 l 1
- 205 1849 l 1
- 317 1849 l 1
- 317 -203 l 1
+317 -408 m 1
+ 205 -408 l 1
+ 205 1644 l 1
+ 317 1644 l 1
+ 317 -408 l 1
 EndSplineSet
 EndChar
