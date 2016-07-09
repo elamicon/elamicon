@@ -375,14 +375,20 @@ view model =
                 ]
 
 
-
+        zeroWidthSpace = "​"
         searchRegex =
             let
-                cleaned = model.normalizer (String.trim model.search)
+                -- When copying strings from the fragments into the search field, irrelevant whitespace might
+                -- get copied as well, we remove that from the search pattern
+                cleaned = Regex.replace Regex.All (Regex.regex ("\\s|"++zeroWidthSpace)) (\_ -> "") (String.trim model.search)
+
+                -- We want the regex to match all letters of a group, so both the pattern and the fragments
+                -- are normalized before matching
+                normalized = model.normalizer cleaned
             in
-                if String.length cleaned == 0
+                if String.length normalized == 0
                 then Nothing
-                else RegexMaybe.regex cleaned
+                else RegexMaybe.regex normalized
 
 
         fragmentView fragment =
@@ -395,7 +401,6 @@ view model =
 
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
-                zeroWidthSpace = "​"
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
                 textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
 
