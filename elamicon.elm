@@ -441,11 +441,11 @@ view model =
                 , a [ href "http://elm-lang.org/" ]
                     [ text "Elm" ]
                 , text " und ♥. "
-                , a [ href "fonts/ElamiconLiberationSerif-Regular.ttf" ]
-                    [ text "Elamicon-Schrift installieren" ]
-                , text ". "
+                , a [ href "fonts/Elamicon-Fonts.zip" ]
+                    [ text "Elamicon-Schriften installieren."]
+                , text " "
                 , a [ href "https://github.com/sbalmer/elamicon/" ]
-                    [ text "Das Projekt auf Github" ]
+                    [ text "Das Projekt auf Github." ]
                 ]
     in
         div [] (
