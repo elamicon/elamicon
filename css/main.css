@@ -132,7 +132,7 @@ h1, h2, .fragment {
     line-height: 1em;
     background: linear-gradient(to bottom, #000 0%, #000 6%, #ffffe8 6%) 0 0;
     background-size: 100% 1em;
-    padding-bottom: 0.05em; /* so the bottom rule is visible */
+    padding-bottom: 0.06em; /* so the bottom rule is visible */
 }
 
 .fragment {
@@ -172,7 +172,12 @@ h1, h2, .fragment {
 }
 
 .highlight {
-    background: yellow;
+    height: 1em;
+    display: inline-block;
+    color: #c2bfc4;
+    background: #685771; /* fallback */
+    background: linear-gradient(to bottom, #000 0%, #000 6%, #685771 6%) 0 0;
+
 }
 
 .fixedBreak .line {
