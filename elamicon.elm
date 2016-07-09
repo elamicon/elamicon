@@ -5,6 +5,7 @@ import Html.Attributes exposing (..)
 import Dict
 import String
 import Regex
+import RegexMaybe
 import Json.Decode
 import List exposing (map)
 import Set
@@ -25,6 +26,11 @@ import Set
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
 letters = String.toList ""
+
+-- These letters are counted as character positions
+-- Letter 'X' is used in places where the character has not been mapped yet.
+indexedLetters = Set.fromList ([ '', 'X' ] ++ letters)
+
 
 -- The syllable mapping is short as of now and will likely never become
 -- comprehensive. All of this is guesswork.
@@ -91,28 +97,27 @@ alphabetList alphabet =
 -- Sanitize the alphabet string to include all Elam letters but no duplicates
 completeAlphabet alphabet =
     let
-        allLetters = Set.fromList letters
         dedup letter (seen, dedupAlphabet) =
             if Set.member letter seen
             then
                 (seen, dedupAlphabet)
             else
-                if Set.member letter allLetters
+                if Set.member letter indexedLetters
                 then
                     (Set.insert letter seen, dedupAlphabet ++ String.fromChar letter)
                 else
                     (seen, dedupAlphabet ++ String.fromChar letter)
 
         (presentLetters, dedupedAlphabet) = List.foldl dedup (Set.empty, "") (String.toList alphabet)
-        missingLetters = Set.diff allLetters presentLetters
+        missingLetters = Set.diff indexedLetters presentLetters
     in
         dedupedAlphabet
         ++ " "
         ++ String.join " " (map String.fromChar (Set.toList missingLetters))
 
 
--- When searching the corpus and optionally when displaying it) we want to treat all
--- characters in an alphabet group as the same character. This function builds a
+-- When searching the corpus (and optionally when displaying it) we want to treat all
+-- characters in an letter group as the same character. This function builds a
 -- dictionary that maps all alternate versions of a letter to the main letter.
 normalization : String -> Dict.Dict Char Char
 normalization alphabet =
@@ -218,6 +223,7 @@ type alias Model =
     , normalizer: String -> String
     , sandbox: String
     , lumping : Bool
+    , search: String
     }
 
 model =
@@ -228,6 +234,7 @@ model =
     , normalizer = normalizer (normalization alphabetPreset)
     , sandbox = ""
     , lumping = False
+    , search = ""
     }
 
 type Msg
@@ -238,6 +245,7 @@ type Msg
     | SetSandbox String
     | SetAlphabet String
     | AddChar String
+    | SetSearch String
 
 
 update : Msg -> Model -> Model
@@ -252,7 +260,8 @@ update msg model =
         SetAlphabet new ->
             let newAlphabet = completeAlphabet new
             in { model | alphabet = newAlphabet, normalizer = normalizer (normalization newAlphabet) }
-
+        SetSearch new ->
+            { model | search = new }
 
 dirStr dir = case dir of
     LTR -> "LTR"
@@ -356,22 +365,69 @@ view model =
                         , option (lumpingOptAttrs "true" True) [ text "nach Gruppen" ]
                         ]
                     ]
+                , label []
+                    [ text "Suche"
+                    , Html.input [ class "elam", value model.search, onInput SetSearch ] []
+                    ]
                 ]
 
+
+
+        searchRegex =
+            let
+                cleaned = model.normalizer (String.trim model.search)
+            in
+                if String.length cleaned == 0
+                then Nothing
+                else RegexMaybe.regex cleaned
+
+
         fragmentView fragment =
-            -- Insert a zero-width space after the "" separator so that long
-            -- lines can be broken by the browser
-            let zeroWidthSpace = "​"
-                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
+            let
+                -- Normalize letters if this is enabled
                 lumping text =
                     if model.lumping
                     then model.normalizer text
                     else text
-                textMod = lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
-                fragmentLine nr line = li [ class "line", dirAttr fragment.dir ] [ span [] [ text (textMod line) ] ]
-            in div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
+
+                -- Insert a zero-width space after the "" separator so that long
+                -- lines can be broken by the browser
+                zeroWidthSpace = "​"
+                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
+                textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
+
+                -- Find matches in the fragment
+                onlyLetters = String.filter (\lt -> Set.member lt indexedLetters)
+                matches =
+                    case searchRegex of
+                        Just regex -> Regex.find Regex.All regex (model.normalizer (onlyLetters fragment.text))
+                        Nothing -> []
+
+                highlight idx =
+                    let
+                        within match = idx >= match.index && idx < match.index + String.length match.match
+                    in
+                        List.any within matches
+
+                charPos char (elems, idx) =
+                    if
+                        Set.member char indexedLetters
+                    then
+                        ((span (if highlight idx then [ class "highlight" ] else []) [ text (String.fromChar char) ]) :: elems, idx+1)
+                    else
+                        ((text (String.fromChar char)) :: elems, idx)
+
+                line text (lines, idx) =
+                    let
+                        (elems, endIdx) = String.foldl charPos ([], idx) text
+                        elemLine = li [ class "line", dirAttr fragment.dir ] (List.reverse elems)
+                    in
+                        (elemLine :: lines, endIdx)
+                lines = List.reverse (fst (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
+            in
+                div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
                 [ h3 [] [ text fragment.id ]
-                , ol [ class "fragment", dirAttr fragment.dir ] (List.indexedMap fragmentLine (String.lines (String.trim fragment.text)))
+                , ol [ class "fragment", dirAttr fragment.dir ] lines
                 ]
 
         footer = div [ class "footer" ]
@@ -586,6 +642,10 @@ h1, h2, .fragment {
     unicode-bidi: bidi-override; /* not inherited through display: block */
     counter-increment: lines;
     display: inline-block;
+}
+
+.highlight {
+    background: yellow;
 }
 
 .fixedBreak .line {
