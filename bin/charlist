@@ -11,6 +11,6 @@ import fontforge
 
 f = fontforge.open(sys.argv[1])
 for glyph in f.glyphs():
-    print(unichr(glyph.unicode), end="")
+    print(unichr(glyph.unicode).encode('utf-8'), end="")
 print()
 f.close()
