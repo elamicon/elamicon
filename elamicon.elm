@@ -26,6 +26,7 @@ import Set
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
 letters = String.toList ""
+elamLetters = Set.fromList letters
 
 -- These letters are counted as character positions
 -- Letter 'X' is used in places where the character has not been mapped yet.
@@ -109,7 +110,7 @@ completeAlphabet alphabet =
                     (seen, dedupAlphabet ++ String.fromChar letter)
 
         (presentLetters, dedupedAlphabet) = List.foldl dedup (Set.empty, "") (String.toList alphabet)
-        missingLetters = Set.diff indexedLetters presentLetters
+        missingLetters = Set.diff elamLetters presentLetters
     in
         dedupedAlphabet
         ++ " "
