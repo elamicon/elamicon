@@ -367,7 +367,7 @@ view model =
                     ]
                 , label []
                     [ text "Suche"
-                    , Html.input [ class "elam", value model.search, onInput SetSearch ] []
+                    , Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
                     ]
                 ]
 
