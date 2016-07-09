@@ -10,7 +10,8 @@ import sys
 import fontforge
 
 f = fontforge.open(sys.argv[1])
-for glyph in f.glyphs():
+glyphs = sorted(f.glyphs(), key=lambda g: g.unicode)
+for glyph in glyphs:
     print(unichr(glyph.unicode).encode('utf-8'), end="")
 print()
 f.close()
