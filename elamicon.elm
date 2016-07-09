@@ -458,18 +458,3 @@ view model =
             ] ++ [ div [ dirAttr LTR ] (List.map fragmentView fragments) ]
               ++ [ footer ]
         )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
