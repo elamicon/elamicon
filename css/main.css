@@ -138,6 +138,8 @@ h1, h2, .fragment {
 .fragment {
     font-size: 200%;
     margin-top: 0;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
 }
 
 .fragment[dir=RTL] {
