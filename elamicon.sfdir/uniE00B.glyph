@@ -1,5 +1,5 @@
-StartChar: uniE08B
-Encoding: 57483 57483 185
+StartChar: uniE00B
+Encoding: 57355 57355 348
 Width: 663
 VWidth: -205
 Flags: HW
@@ -16,7 +16,7 @@ SplineSet
 EndSplineSet
 Fore
 SplineSet
-385 0 m 1
+385 -0 m 1
  275 0 l 1
  276 502 l 1
  232 524 206 569 206 615 c 0
@@ -26,6 +26,6 @@ SplineSet
  386 728 l 1
  431 707 457 661 457 615 c 0
  457 569 431 522 386 501 c 1
- 386 334 385 167 385 0 c 1
+ 385 -0 l 1
 EndSplineSet
 EndChar
