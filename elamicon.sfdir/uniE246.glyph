@@ -1,5 +1,5 @@
 StartChar: uniE246
-Encoding: 57926 57926 232
+Encoding: 57926 57926 220
 Width: 1939
 VWidth: -205
 Flags: W
@@ -8,14 +8,14 @@ VStem: 634 90<96 412> 920 90<509 841> 1183 90<93 412>
 LayerCount: 3
 Back
 SplineSet
-1310 759 m 29
- 1255 1365 l 29
- 964 1147 l 29
-540.5 0 m 13
- 260 338.5 l 29
- 964 1147 l 29
- 1679 339.245 l 29
- 1416.4 0 l 29
+1310 759 m 25
+ 1255 1365 l 25
+ 964 1147 l 25
+540.5 0 m 9
+ 260 338.5 l 25
+ 964 1147 l 25
+ 1679 339.245 l 25
+ 1416.4 0 l 25
 EndSplineSet
 Fore
 SplineSet
@@ -63,8 +63,8 @@ SplineSet
 EndSplineSet
 Layer: 2
 SplineSet
-964 841 m 29
- 965 509 l 29
+964 841 m 25
+ 965 509 l 25
 1229 412 m 29
  1228 93 l 29
 680 412 m 29

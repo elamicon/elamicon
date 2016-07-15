@@ -1,0 +1,34 @@
+StartChar: uniE1D0
+Encoding: 57808 57808 340
+Width: 1387
+VWidth: -205
+Flags: HW
+LayerCount: 3
+Back
+SplineSet
+260 -32 m 29
+ 753 443.74 l 29
+387 -186 m 29
+ 891 324 l 29
+522 -363 m 29
+ 1103 192 l 29
+EndSplineSet
+Fore
+SplineSet
+300 -66 m 1
+ 220 2 l 1
+ 713 478 l 1
+ 793 409 l 1
+ 300 -66 l 1
+428 -219 m 1
+ 346 -153 l 1
+ 850 357 l 1
+ 932 291 l 1
+ 428 -219 l 1
+562 -397 m 1
+ 482 -329 l 1
+ 1063 226 l 1
+ 1143 158 l 1
+ 562 -397 l 1
+EndSplineSet
+EndChar
