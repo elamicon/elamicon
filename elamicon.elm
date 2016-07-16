@@ -209,7 +209,8 @@ fragments =
             XXXXXXXXXX
             XXXXXXXXXXXX
         """
-      }    , { id = "neuE", dir = RTL, text =
+      }
+    , { id = "neuE", dir = RTL, text =
         """
             
             X
@@ -219,6 +220,27 @@ fragments =
             X
             
             X
+        """
+      }
+    , { id = "neuI.a", dir = RTL, text =
+        """
+            Y
+            Y
+        """
+      }
+    , { id = "neuI.b", dir = RTL, text =
+        """
+
+        """
+      }
+    , { id = "neuI.c", dir = RTL, text =
+        """
+
+        """
+      }
+    , { id = "neuI.d", dir = RTL, text =
+        """
+
         """
       }
     ]
