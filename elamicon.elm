@@ -230,17 +230,22 @@ fragments =
       }
     , { id = "neuI.b", dir = RTL, text =
         """
+            
+            YXY
+            YY
 
         """
       }
     , { id = "neuI.c", dir = RTL, text =
         """
-
+            YY
+            YY
         """
       }
     , { id = "neuI.d", dir = RTL, text =
         """
-
+            Y
+            YY
         """
       }
     ]
