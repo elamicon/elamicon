@@ -210,11 +210,17 @@ fragments =
 X
         """
       }
-    , { id = "neuB", dir = RTL, text =
+     , { id = "neuB", dir = RTL, text =
         """
 kkk
 
 X
+        """
+      }   , { id = "neuB", dir = RTL, text =
+        """
+XXX
+        X
+           
         """
       }
     , { id = "neuD", dir = RTL, text =
@@ -240,23 +246,36 @@ XX
       }
     , { id = "neuI.a", dir = RTL, text =
         """
+Y
+Y
+XXY
+XY
+        """
+      }
+    , { id = "neuI.a", dir = RTL, text =
+        """
             Y
             Y
         """
       }
     , { id = "neuI.b", dir = RTL, text =
         """
+
+YXY
+YY
 
         """
       }
     , { id = "neuI.c", dir = RTL, text =
         """
-
+YY
+YY
         """
       }
     , { id = "neuI.d", dir = RTL, text =
         """
-
+Y
+YY
         """
       }
     ]
@@ -450,7 +469,7 @@ view model =
 
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
-                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
+                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\_ -> "" ++ zeroWidthSpace)
                 textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
 
                 -- Find matches in the fragment
