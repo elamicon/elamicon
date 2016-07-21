@@ -199,15 +199,37 @@ fragments =
       }
     , { id = "neuA", dir = RTL, text =
         """
-            XXXX
-            XX
-            X
-            XXXXX
-            XX
-            XXXXXX
-            XXXXXXXXXX
-            XXXXXXXXXX
-            XXXXXXXXXXXX
+XXX​
+​​
+​​
+X​​k 
+X ​
+​ 
+X 
+X​XXXXY
+X
+        """
+      }
+     , { id = "neuB", dir = RTL, text =
+        """
+kkk
+
+X
+        """
+      }   , { id = "neuB", dir = RTL, text =
+        """
+XXX
+        X
+           
+        """
+      }
+    , { id = "neuD", dir = RTL, text =
+        """
+XX
+XXX
+
+XX
+X
         """
       }
     , { id = "neuE", dir = RTL, text =
@@ -224,6 +246,14 @@ fragments =
       }
     , { id = "neuI.a", dir = RTL, text =
         """
+Y
+Y
+XXY
+XY
+        """
+      }
+    , { id = "neuI.a", dir = RTL, text =
+        """
             Y
             Y
         """
@@ -233,7 +263,6 @@ fragments =
             
             YXY
             YY
-
         """
       }
     , { id = "neuI.c", dir = RTL, text =
@@ -439,7 +468,7 @@ view model =
 
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
-                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "") (\_ -> "" ++ zeroWidthSpace)
+                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\_ -> "" ++ zeroWidthSpace)
                 textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
 
                 -- Find matches in the fragment

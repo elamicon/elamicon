@@ -169,16 +169,13 @@ h1, h2, .fragment {
     unicode-bidi: bidi-override; /* not inherited through display: block */
     counter-increment: lines;
     display: inline-block;
-    height: 1em;
+    line-height: 1em;
 }
 
 .highlight {
-    display: inline-block;
     color: #c2bfc4;
     background: #685771; /* fallback */
-    background: linear-gradient(to bottom,  #c2bfc4 0%,  #c2bfc4 6%, #685771 6%) 0 0;
-    background-size: 100% 1em;
-    height: 1.06em;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 6%, #c2bfc4 6%,  #c2bfc4 12%, #685771 12%) 0 0;
 }
 
 .fixedBreak .line {
