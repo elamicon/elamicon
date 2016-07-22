@@ -33,6 +33,7 @@ elamLetters = Set.fromList letters
 -- These letters are counted as character positions
 -- Letter 'X' is used in places where the character has not been mapped yet.
 indexedLetters = Set.fromList ([ '', 'X' ] ++ letters)
+indexed char = Set.member char indexedLetters
 
 
 -- The syllable mapping is short as of now and will likely never become
@@ -417,6 +418,10 @@ boolDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case val
     "false" -> Json.Decode.succeed False
     _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
 
+type SearchPattern = None
+    | Invalid
+    | Pattern Regex.Regex
+
 view : Model -> Html Msg
 view model =
     let effectiveDir original = if model.dir == Original then original else model.dir
@@ -502,19 +507,27 @@ view model =
                         , option (lumpingOptAttrs "true" True) [ text "vereinheitlichen nach Gruppen" ]
                         ]
                     ]
-                , div []
-                    [ text "Suche"
-                    , Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
-                    , label [ class "inline" ]
-                        [ input [ type' "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
-                        , text "auch in Gegenrichtung suchen"
-                        ]
-                    ]
                 ]
 
+        -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
+        -- The first slot does not contain an indexed letter but may contain other characters. All other
+        -- slots start with an indexed letter and may contain further characters which are not indexed.
+        letterSplit : String -> List String
+        letterSplit text =
+            let addChar char result = case result of
+                [] ->
+                    [String.fromChar char]
+                head :: tail ->
+                    if
+                        indexed char
+                    then
+                        "" :: (String.cons char head) :: tail
+                    else
+                        (String.cons char head) :: tail
+            in
+                String.foldr addChar [""] text
 
-        zeroWidthSpace = "​"
-        searchMatches text  =
+        searchPattern =
             let
                 -- When copying strings from the fragments into the search field, irrelevant whitespace might
                 -- get copied as well, we remove that from the search pattern
@@ -523,33 +536,74 @@ view model =
                 -- We want the regex to match all letters of a group, so both the pattern and the fragments
                 -- are normalized before matching
                 normalized = model.normalizer cleaned
-                maybeSearch =
-                    if
-                        String.length normalized == 0
-                    then
-                        Nothing
-                    else
-                        RegexMaybe.regex normalized
-                onlyLetters = String.filter (\lt -> Set.member lt indexedLetters)
             in
-                case maybeSearch of
-                    Just pattern ->
-                        let
-                            find = Regex.find Regex.All pattern
-                            matchText = model.normalizer (onlyLetters text)
-                            matches = find matchText
-                            matchTextLen = String.length matchText
-                            revertMatch match = { match | index = matchTextLen - match.index - (String.length match.match) }
-                            reverseMatches =
-                                if
-                                    model.reverseSearch
-                                then
-                                    List.map revertMatch (find (String.reverse matchText))
-                                else
-                                    []
-                        in
-                            reverseMatches ++ matches
-                    Nothing -> []
+                if
+                    String.length normalized == 0
+                then
+                    None
+                else
+                    case RegexMaybe.regex normalized of
+                        Just pattern -> Pattern pattern
+                        Nothing -> Invalid
+
+
+
+        zeroWidthSpace = "​"
+        searchMatches : String -> List (Int, Int)
+        searchMatches text  =
+            case searchPattern of
+                Pattern pat ->
+                    let
+                        find = Regex.find Regex.All pat
+                        matchText = model.normalizer (String.filter indexed text)
+                        matches = find matchText
+                        matchTextLen = String.length matchText
+                        revertMatch match =
+                            let
+                                matchLen = String.length match.match
+                            in
+                                (matchTextLen - match.index - matchLen, matchLen)
+
+                        reverseMatches =
+                            if
+                                model.reverseSearch
+                            then
+                                List.map revertMatch (find (String.reverse matchText))
+                            else
+                                []
+
+                        allMatches = reverseMatches ++ map (\m -> (m.index, String.length m.match)) matches
+
+                    in
+                        List.sortBy fst (Set.toList (Set.fromList allMatches))
+                _ -> []
+
+
+        searchView =
+            let
+                addMatches fragment results =
+                    let
+                        letterSlots = letterSplit fragment.text
+                        matches = searchMatches fragment.text
+                        result (index, length) = li [] [ text (String.concat (List.take (length+6) (List.drop (index-3) letterSlots))) ]
+                    in
+                        map result matches ++ results
+
+            in
+                [ h2 [] [ text " Suche " ]
+                , label []
+                    ([ text "Suchmuster"
+                    , Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
+                    , label [ class "inline" ]
+                        [ input [ type' "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
+                        , text "auch in Gegenrichtung suchen"
+                        ]
+
+                    ] ++ if searchPattern == Invalid then [ text "Ungültiges Suchmuster" ] else [])
+                ]
+                ++ case searchPattern of
+                    Pattern pat -> [ ul [] (List.foldr addMatches [] fragments ) ]
+                    _ -> []
 
 
         fragmentView fragment =
@@ -562,7 +616,7 @@ view model =
 
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
-                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
+                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
                 textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
 
                 -- Find matches in the fragment
@@ -570,13 +624,13 @@ view model =
 
                 highlight idx =
                     let
-                        within match = idx >= match.index && idx < match.index + String.length match.match
+                        within (index, length) = (idx >= index) && (idx < index + length)
                     in
                         List.any within matches
 
                 charPos char (elems, idx) =
                     if
-                        Set.member char indexedLetters
+                        indexed char
                     then
                         ((span (if highlight idx then [ class "highlight" ] else []) [ text (String.fromChar char) ]) :: elems, idx+1)
                     else
@@ -615,7 +669,8 @@ view model =
             , h1 [] [ text " Elamische Zeichensammlung " ]
             ] ++ alphabet
               ++ playground
-              ++ settings ++
+              ++ settings
+              ++ searchView ++
             [ h2 [] [ text " Textfragmente " ]
             ] ++ [ div [ dirAttr LTR ] (List.map fragmentView fragments) ]
               ++ [ footer ]
