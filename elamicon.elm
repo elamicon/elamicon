@@ -592,10 +592,13 @@ view model =
                                 matchText = String.concat (List.take length (List.drop slotIndex letterSlots))
                                 afterText = String.concat (List.take 3 (List.drop (slotIndex+length) letterSlots))
                             in
-                                li []
-                                    [ text beforeText
-                                    , span [ class "highlight" ] [ text matchText ]
-                                    , text afterText
+                                li [ class "result" ]
+                                    [ div [ class "id" ] [ text fragment.id ]
+                                    , div [ class "match"]
+                                        [ span [ class "before" ] [ text beforeText ]
+                                        , span [ class "highlight" ] [ text matchText ]
+                                        , span [ class "after" ] [ text afterText ]
+                                        ]
                                     ]
                     in
                         map result matches ++ results
@@ -612,7 +615,7 @@ view model =
                     ] ++ if searchPattern == Invalid then [ text "Ungültiges Suchmuster" ] else [])
                 ]
                 ++ case searchPattern of
-                    Pattern pat -> [ ul [] (List.foldr addMatches [] fragments ) ]
+                    Pattern pat -> [ ol [ class "search" ] (List.foldr addMatches [] fragments ) ]
                     _ -> []
 
 
