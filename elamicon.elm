@@ -585,10 +585,20 @@ view model =
                     let
                         letterSlots = letterSplit fragment.text
                         matches = searchMatches fragment.text
-                        result (index, length) = li [] [ text (String.concat (List.take (length+6) (List.drop (index-3) letterSlots))) ]
+                        result (index, length) =
+                            let
+                                slotIndex = index + 1
+                                beforeText = String.concat (List.take 3 (List.drop (slotIndex-3) letterSlots))
+                                matchText = String.concat (List.take length (List.drop slotIndex letterSlots))
+                                afterText = String.concat (List.take 3 (List.drop (slotIndex+length) letterSlots))
+                            in
+                                li []
+                                    [ text beforeText
+                                    , span [ class "highlight" ] [ text matchText ]
+                                    , text afterText
+                                    ]
                     in
                         map result matches ++ results
-
             in
                 [ h2 [] [ text " Suche " ]
                 , label []
