@@ -514,7 +514,7 @@ view model =
 
 
         zeroWidthSpace = "​"
-        searchRegex =
+        searchMatches text  =
             let
                 -- When copying strings from the fragments into the search field, irrelevant whitespace might
                 -- get copied as well, we remove that from the search pattern
@@ -523,10 +523,33 @@ view model =
                 -- We want the regex to match all letters of a group, so both the pattern and the fragments
                 -- are normalized before matching
                 normalized = model.normalizer cleaned
+                maybeSearch =
+                    if
+                        String.length normalized == 0
+                    then
+                        Nothing
+                    else
+                        RegexMaybe.regex normalized
+                onlyLetters = String.filter (\lt -> Set.member lt indexedLetters)
             in
-                if String.length normalized == 0
-                then Nothing
-                else RegexMaybe.regex normalized
+                case maybeSearch of
+                    Just pattern ->
+                        let
+                            find = Regex.find Regex.All pattern
+                            matchText = model.normalizer (onlyLetters text)
+                            matches = find matchText
+                            matchTextLen = String.length matchText
+                            revertMatch match = { match | index = matchTextLen - match.index - (String.length match.match) }
+                            reverseMatches =
+                                if
+                                    model.reverseSearch
+                                then
+                                    List.map revertMatch (find (String.reverse matchText))
+                                else
+                                    []
+                        in
+                            reverseMatches ++ matches
+                    Nothing -> []
 
 
         fragmentView fragment =
@@ -543,26 +566,7 @@ view model =
                 textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
 
                 -- Find matches in the fragment
-                onlyLetters = String.filter (\lt -> Set.member lt indexedLetters)
-                matches =
-                    case searchRegex of
-                        Just pattern ->
-                            let
-                                find = Regex.find Regex.All pattern
-                                matchText = model.normalizer (onlyLetters fragment.text)
-                                matches = find matchText
-                                matchTextLen = String.length matchText
-                                revertMatch match = { match | index = matchTextLen - match.index - (String.length match.match) }
-                                reverseMatches =
-                                    if
-                                        model.reverseSearch
-                                    then
-                                        List.map revertMatch (find (String.reverse matchText))
-                                    else
-                                        []
-                            in
-                                reverseMatches ++ matches
-                        Nothing -> []
+                matches = searchMatches fragment.text
 
                 highlight idx =
                     let
