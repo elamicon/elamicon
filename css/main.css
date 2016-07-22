@@ -112,8 +112,12 @@ h1, h2 {
 
 
 
-input {
+input[type=text] {
     width: 100%;
+}
+
+.inline {
+    display: inline;
 }
 
 

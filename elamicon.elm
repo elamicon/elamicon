@@ -356,6 +356,7 @@ type alias Model =
     , sandbox: String
     , lumping : Bool
     , search: String
+    , reverseSearch: Bool
     }
 
 model =
@@ -367,6 +368,7 @@ model =
     , sandbox = ""
     , lumping = False
     , search = ""
+    , reverseSearch = True
     }
 
 type Msg
@@ -378,6 +380,7 @@ type Msg
     | SetAlphabet String
     | AddChar String
     | SetSearch String
+    | ReverseSearch Bool
 
 
 update : Msg -> Model -> Model
@@ -394,6 +397,8 @@ update msg model =
             in { model | alphabet = newAlphabet, normalizer = normalizer (normalization newAlphabet) }
         SetSearch new ->
             { model | search = new }
+        ReverseSearch new ->
+            { model | reverseSearch = new }
 
 dirStr dir = case dir of
     LTR -> "LTR"
@@ -423,7 +428,7 @@ view model =
         letterCounter letters = String.toList >> List.filter (\candidate -> Set.member candidate (Set.fromList letters)) >> List.length
 
         alphabet =
-            [ h2 [] [ text " Die Buchstaben " ]
+            [ h2 [] [ text " Die Buchstaben " ]
             , ol [ dirAttr LTR, classList [ ("alphabet", True) ] ]
                 ( List.map alphabetEntry (alphabetList model.alphabet)
                 ++ List.map specialEntry specialChars
@@ -472,34 +477,38 @@ view model =
                 lumpingOptAttrs val lumping = [ value val, selected (lumping == model.lumping) ]
             in  [ h2 [] [ text " Einstellungen " ]
                 , label []
-                    [ text "Schreibrichtung"
+                    [ text "Schreibrichtung "
                     , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
                         [ option (dirOptAttrs "Original" Original) [ text "ursprünglich ⇔" ]
-                        , option (dirOptAttrs "LTR" LTR) [ text "von links ⇒ nach rechts" ]
-                        , option (dirOptAttrs "RTL" RTL) [ text "nach links ⇐ von rechts" ]
+                        , option (dirOptAttrs "LTR" LTR) [ text "alles ⇒ von links ⇒ nach rechts" ]
+                        , option (dirOptAttrs "RTL" RTL) [ text "alles ⇐ nach links ⇐ von rechts" ]
                         ]
                     ]
                 , label []
-                    [ text "Zeilenumbrüche"
+                    [ text "Zeilenumbrüche "
                     , Html.select [ on "change" (Json.Decode.map SetBreaking boolDecoder) ]
                         [ option (breakOptAttrs "true" True) [ text "ursprünglich" ]
-                        , option (breakOptAttrs "false" False) [ text "automatisch" ]
+                        , option (breakOptAttrs "false" False) [ text "entfernen" ]
                         ]
                     ]
                 , label []
                     [ text "Alphabet"
-                    , Html.input [ class "elam", value model.alphabet, onInput SetAlphabet ] []
+                    , Html.input [ class "elam", type' "text", value model.alphabet, onInput SetAlphabet ] []
                     ]
                 , label []
-                    [ text "Zeichen vereinheitlichen"
+                    [ text "Alternative Zeichen "
                     , Html.select [ on "change" (Json.Decode.map SetLumping boolDecoder) ]
-                        [ option (lumpingOptAttrs "false" False) [ text "ursprünglich" ]
-                        , option (lumpingOptAttrs "true" True) [ text "nach Gruppen" ]
+                        [ option (lumpingOptAttrs "false" False) [ text "belassen" ]
+                        , option (lumpingOptAttrs "true" True) [ text "vereinheitlichen nach Gruppen" ]
                         ]
                     ]
-                , label []
+                , div []
                     [ text "Suche"
                     , Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
+                    , label [ class "inline" ]
+                        [ input [ type' "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
+                        , text "auch in Gegenrichtung suchen"
+                        ]
                     ]
                 ]
 
@@ -530,14 +539,29 @@ view model =
 
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
-                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\_ -> "" ++ zeroWidthSpace)
+                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
                 textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
 
                 -- Find matches in the fragment
                 onlyLetters = String.filter (\lt -> Set.member lt indexedLetters)
                 matches =
                     case searchRegex of
-                        Just regex -> Regex.find Regex.All regex (model.normalizer (onlyLetters fragment.text))
+                        Just pattern ->
+                            let
+                                find = Regex.find Regex.All pattern
+                                matchText = model.normalizer (onlyLetters fragment.text)
+                                matches = find matchText
+                                matchTextLen = String.length matchText
+                                revertMatch match = { match | index = matchTextLen - match.index - (String.length match.match) }
+                                reverseMatches =
+                                    if
+                                        model.reverseSearch
+                                    then
+                                        List.map revertMatch (find (String.reverse matchText))
+                                    else
+                                        []
+                            in
+                                reverseMatches ++ matches
                         Nothing -> []
 
                 highlight idx =
