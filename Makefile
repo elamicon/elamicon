@@ -23,3 +23,6 @@ clean:
 	rm -f elamicon.js
 	rm -f fonts/*.ttf
 	rm -f fonts/*.zip
+
+live: $(MFONTS)
+	elm-live elamicon.elm --output elamicon.js --open
