@@ -661,7 +661,9 @@ view model =
                 , text ", "
                 , a [ href "http://elm-lang.org/" ]
                     [ text "Elm" ]
-                , text " und ♥.  "
+                , text " und "
+                , a [ href "https://unicode.org" ] [ text "♥" ]
+                , text ".  "
                 , a [ href "fonts/Elamicon-Fonts.zip" ]
                     [ text "Elamicon-Schriften installieren."]
                 , text " "
