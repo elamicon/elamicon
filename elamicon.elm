@@ -672,7 +672,7 @@ view model =
                 ]
     in
         div [] (
-            , h1 [] [ text " Elamische Zeichensammlung " ]
+            [ h1 [] [ text " Elamische Zeichensammlung " ]
             ] ++ alphabet
               ++ playground
               ++ settings
