@@ -580,9 +580,12 @@ view model =
                         result (index, length) =
                             let
                                 slotIndex = index + 1
-                                beforeText = String.concat (List.take 3 (List.drop (slotIndex-3) letterSlots))
+                                contextLen = 3
+                                beforeStart = Basics.max 0 (slotIndex - contextLen)
+                                beforeLen = Basics.min slotIndex contextLen
+                                beforeText = String.concat (List.take beforeLen (List.drop beforeStart letterSlots))
                                 matchText = String.concat (List.take length (List.drop slotIndex letterSlots))
-                                afterText = String.concat (List.take 3 (List.drop (slotIndex+length) letterSlots))
+                                afterText = String.concat (List.take contextLen (List.drop (slotIndex+length) letterSlots))
                             in
                                 li [ class "result" ]
                                     [ div [ class "id" ] [ text fragment.id ]
