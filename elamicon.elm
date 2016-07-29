@@ -683,8 +683,21 @@ view model =
                                 beforeStart = Basics.max 0 (slotIndex - contextLen)
                                 beforeLen = Basics.min slotIndex contextLen
                                 beforeText = String.concat (List.take beforeLen (List.drop beforeStart letterSlots))
-                                matchText = String.concat (List.take length (List.drop slotIndex letterSlots))
-                                afterText = String.concat (List.take contextLen (List.drop (slotIndex+length) letterSlots))
+                                -- The last slot of the match may contain appended characters which should not
+                                -- be shown as part of the match, instead we prepend them to the context
+                                -- following the match
+                                matchReversed = List.reverse (List.take length (List.drop slotIndex letterSlots))
+                                matchLast =
+                                    case (List.head matchReversed) of
+                                    Just s -> s
+                                    Nothing -> ""
+                                (matchLastLetter, matchAppended) =
+                                    case (String.uncons matchLast) of
+                                        Just (l, a) -> (String.fromChar l, a)
+                                        Nothing -> ("", "")
+                                matchText = String.concat (List.reverse (matchLastLetter :: List.drop 1 matchReversed))
+
+                                afterText = String.concat (matchAppended :: List.take contextLen (List.drop (slotIndex+length) letterSlots))
                             in
                                 li [ class "result" ]
                                     [ div [ class "id" ] [ text fragment.id ]
