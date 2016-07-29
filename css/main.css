@@ -2,9 +2,6 @@ body {
     padding: 1em;
     background-color: #eed;
     font-size: large;
-}
-
-body {
     font-family: elamicon;
 }
 
@@ -14,6 +11,10 @@ input, textarea {
 
 h1, h2 {
     text-align: center
+}
+
+body, h1, h2, label, input, select {
+    color: #445;
 }
 
 @font-face {
@@ -153,7 +154,7 @@ h2 {
 h1, h2, .fragment {
     /* horizontal rules between the lines */
     line-height: 1em;
-    background: linear-gradient(to bottom, #000 0%, #000 6%, #ffffe8 6%) 0 0;
+    background: linear-gradient(to bottom, #445 0%, #445 6%, #ffffe8 6%) 0 0;
     background-size: 100% 1em;
     padding-bottom: 0.06em; /* so the bottom rule is visible */
 }
@@ -236,6 +237,10 @@ textarea {
 
 label {
     display: block;
+}
+
+select {
+    background-color: #ffffe8;
 }
 
 .clear {
