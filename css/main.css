@@ -131,15 +131,15 @@ input[type=text] {
 .search .match {
     margin: 0 3em;
     display: inline-block;
+    unicode-bidi: bidi-override;
 }
 
 .search .before {
     display: inline-block;
     text-align: right;
-    width: 3em;
-    margin-left: -3em;
+    width: 6em;
+    margin-left: -6em;
 }
-
 
 .plate {
     vertical-align: top;
