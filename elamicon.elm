@@ -148,6 +148,7 @@ normalizer normalization =
 type Dir = Original | LTR | RTL
 
 
+-- Linear Elam body as read by us. The writing direction is only a guess for most fragments.
 fragments =
     [ { id = "A", dir = RTL, text =
         """
