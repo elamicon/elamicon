@@ -901,7 +901,7 @@ view model =
                 , a [ href "fonts/Elamicon-Fonts.zip" ]
                     [ text "Elamicon-Schriften installieren."]
                 , text " "
-                , a [ href "https://github.com/sbalmer/elamicon/" ]
+                , a [ href "https://github.com/elamicon/elamicon/" ]
                     [ text "Das Projekt auf Github." ]
                 ]
     in
