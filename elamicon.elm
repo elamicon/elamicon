@@ -76,49 +76,49 @@ specialChars =
     ]
 
 
--- Alphabet definition
+-- Syllabary definition
 --
--- The many letter variants are grouped into an alphabet with one letter
+-- The many letter variants are grouped into a syllabary with one letter
 -- chosen as representative of the whole group. We want to make changes to
--- the alphabet a cheap operation, so the interpretation of which letters
+-- the syllabary a cheap operation, so the interpretation of which letters
 -- mean the same thing can be changed quickly.
 --
 -- Letter are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
-alphabetPreset = "
+syllabaryPreset = "
                              
                                                                                                                                                                                                                         
           
 "
 
-alphabetList : String -> List (Char, List Char)
-alphabetList alphabet =
+syllabaryList : String -> List (Char, List Char)
+syllabaryList syllabary =
     let
         letterGroup letterString =
             case (String.toList letterString) of
                 main :: ext -> (main, ext)
                 _ -> ('?', []) -- should not be reachable?
     in
-        map letterGroup (String.words alphabet)
+        map letterGroup (String.words syllabary)
 
--- Sanitize the alphabet string to include all Elam letters but no duplicates
-completeAlphabet alphabet =
+-- Sanitize the syllabary string to include all Elam letters but no duplicates
+completeSyllabary syllabary =
     let
-        dedup letter (seen, dedupAlphabet) =
+        dedup letter (seen, dedupSyllabary) =
             if Set.member letter seen
             then
-                (seen, dedupAlphabet)
+                (seen, dedupSyllabary)
             else
                 if Set.member letter indexedLetters
                 then
-                    (Set.insert letter seen, dedupAlphabet ++ String.fromChar letter)
+                    (Set.insert letter seen, dedupSyllabary ++ String.fromChar letter)
                 else
-                    (seen, dedupAlphabet ++ String.fromChar letter)
+                    (seen, dedupSyllabary ++ String.fromChar letter)
 
-        (presentLetters, dedupedAlphabet) = List.foldl dedup (Set.empty, "") (String.toList alphabet)
+        (presentLetters, dedupedSyllabary) = List.foldl dedup (Set.empty, "") (String.toList syllabary)
         missingLetters = Set.diff elamLetters presentLetters
     in
-        dedupedAlphabet
+        dedupedSyllabary
         ++ " "
         ++ String.join " " (map String.fromChar (Set.toList missingLetters))
 
@@ -127,14 +127,14 @@ completeAlphabet alphabet =
 -- characters in an letter group as the same character. This function builds a
 -- dictionary that maps all alternate versions of a letter to the main letter.
 normalization : String -> Dict.Dict Char Char
-normalization alphabet =
+normalization syllabary =
     let allLetters = Set.fromList letters
         ins group dict =
             case (String.toList group) of
                 main :: extras -> List.foldl (insLetter main) (Dict.insert main main dict) extras
                 _ -> dict
         insLetter main ext dict = Dict.insert ext main dict
-    in List.foldl ins Dict.empty (String.words alphabet)
+    in List.foldl ins Dict.empty (String.words syllabary)
 
 
 normalizer: Dict.Dict Char Char -> String -> String
@@ -539,7 +539,7 @@ type alias Model =
     { dir : Dir
     , fixedBreak: Bool
     , selected : Maybe Pos
-    , alphabet : String
+    , syllabary : String
     , normalizer: String -> String
     , sandbox: String
     , lumping : Bool
@@ -551,8 +551,8 @@ model =
     { dir = Original
     , fixedBreak = True
     , selected = Nothing
-    , alphabet = alphabetPreset
-    , normalizer = normalizer (normalization alphabetPreset)
+    , syllabary = syllabaryPreset
+    , normalizer = normalizer (normalization syllabaryPreset)
     , sandbox = ""
     , lumping = False
     , search = ""
@@ -565,7 +565,7 @@ type Msg
     | SetDir Dir
     | SetLumping Bool
     | SetSandbox String
-    | SetAlphabet String
+    | SetSyllabary String
     | AddChar String
     | SetSearch String
     | ReverseSearch Bool
@@ -580,9 +580,9 @@ update msg model =
         SetBreaking breaking -> { model | fixedBreak = breaking }
         SetLumping lumping -> { model | lumping = lumping }
         SetDir dir -> { model | dir = dir }
-        SetAlphabet new ->
-            let newAlphabet = completeAlphabet new
-            in { model | alphabet = newAlphabet, normalizer = normalizer (normalization newAlphabet) }
+        SetSyllabary new ->
+            let newSyllabary = completeSyllabary new
+            in { model | syllabary = newSyllabary, normalizer = normalizer (normalization newSyllabary) }
         SetSearch new ->
             { model | search = new }
         ReverseSearch new ->
@@ -619,15 +619,15 @@ view model =
 
         letterCounter letters = String.toList >> List.filter (\candidate -> Set.member candidate (Set.fromList letters)) >> List.length
 
-        alphabet =
+        syllabary =
             [ h2 [] [ text " Die Buchstaben " ]
-            , ol [ dirAttr LTR, classList [ ("alphabet", True) ] ]
-                ( List.map alphabetEntry (alphabetList model.alphabet)
+            , ol [ dirAttr LTR, classList [ ("syllabary", True) ] ]
+                ( List.map syllabaryEntry (syllabaryList model.syllabary)
                 ++ List.map specialEntry specialChars
                 )
             ]
 
-        alphabetEntry (main, ext) =
+        syllabaryEntry (main, ext) =
             let
                 shownExt = if model.lumping then [] else ext
                 syls = Maybe.withDefault [] (Dict.get main syllables)
@@ -684,8 +684,8 @@ view model =
                         ]
                     ]
                 , label []
-                    [ text "Alphabet"
-                    , Html.input [ class "elam", type' "text", value model.alphabet, onInput SetAlphabet ] []
+                    [ text "Syllabar"
+                    , Html.input [ class "elam", type' "text", value model.syllabary, onInput SetSyllabary ] []
                     ]
                 , label []
                     [ text "Alternative Zeichen "
@@ -884,7 +884,7 @@ view model =
     in
         div [] (
             [ h1 [] [ text " Elamische Zeichensammlung " ]
-            ] ++ alphabet
+            ] ++ syllabary
               ++ playground
               ++ settings
               ++ searchView ++

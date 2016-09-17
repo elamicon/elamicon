@@ -37,12 +37,12 @@ body, h1, h2, label, input, select {
     unicode-bidi: bidi-override;
 }
 
-.alphabet {
+.syllabary {
     padding: 0;
     list-style-type: none;
 }
 
-.alphabet li {
+.syllabary li {
     margin: 0.2em;
     display: inline-block;
     background-color: #eed;
@@ -52,7 +52,7 @@ body, h1, h2, label, input, select {
     border-bottom: 0.3em solid #d0d0c8;
 }
 
-.alphabet div {
+.syllabary div {
     padding: 0.3em;
 
     color: rgba(100, 100, 100, 0.8);
