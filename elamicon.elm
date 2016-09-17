@@ -805,21 +805,44 @@ view model =
                                     ]
                     in
                         map result matches ++ results
+
+                results = List.foldr addMatches [] fragments
+
             in
                 [ h2 [] [ text " Suche " ]
                 , label []
-                    ([ text "Suchmuster"
-                    , Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
+                    [ text "Suchmuster "
+                    , div [ class "searchInput"]
+                        ([ Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
+                        ] ++ if searchPattern == Invalid
+                            then [ div [ class "invalidPattern" ] [ text "Ungültiges Suchmuster" ] ]
+                            else []
+                        )
                     , label [ class "inline" ]
                         [ input [ type' "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
                         , text "auch in Gegenrichtung suchen"
                         ]
-
-                    ] ++ if searchPattern == Invalid then [ text "Ungültiges Suchmuster" ] else [])
+                    ]
                 ]
                 ++ case searchPattern of
-                    Pattern pat -> [ ol [ class "search" ] (List.foldr addMatches [] fragments ) ]
-                    _ -> []
+                    Pattern pat -> if List.length results == 0
+                                    then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
+                                    else [ ol [ class "result" ] results ]
+                    _ -> [ div [ class "searchExamples" ]
+                        [ h3 [] [ text "Suchbeispiele" ]
+                        , dl []
+                            [ dt [] [ text "" ]
+                            , dd [] [ text "Suche nach 
+ (in-ŝu-ŝi-na-ak)" ]
+                            , dt [] [ text "([^])\\1" ]
+                            , dd [] [ text "suche nach Silbenwiederholungen wie " ]
+                            , dt [] [ text "([^]).\\1" ]
+                            , dd [] [ text "Silbenwiederholungen mit einem beliebigen Zeichen dazwischen ()" ]
+                            , dt [] [ text "[^]+" ]
+                            , dd [] [ text "\"Worte\" wenn wir den vertikalen Strich als Worttrenner annehmen" ]
+                            ]
+                        ]
+                    ]
 
 
         fragmentView fragment =
