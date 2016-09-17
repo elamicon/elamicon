@@ -83,10 +83,12 @@ specialChars =
 -- the alphabet a cheap operation, so the interpretation of which letters
 -- mean the same thing can be changed quickly.
 --
--- Letter are separated by spaces, letters following another letter without
+-- Letter are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
 alphabetPreset = "
-                                                                                                                       
+                             
+                                                                                                                                                                                                                        
+          
 "
 
 alphabetList : String -> List (Char, List Char)
