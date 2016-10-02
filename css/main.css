@@ -37,12 +37,12 @@ body, h1, h2, label, input, select {
     unicode-bidi: bidi-override;
 }
 
-.alphabet {
+.syllabary {
     padding: 0;
     list-style-type: none;
 }
 
-.alphabet li {
+.syllabary li {
     margin: 0.2em;
     display: inline-block;
     background-color: #eed;
@@ -52,7 +52,7 @@ body, h1, h2, label, input, select {
     border-bottom: 0.3em solid #d0d0c8;
 }
 
-.alphabet div {
+.syllabary div {
     padding: 0.3em;
 
     color: rgba(100, 100, 100, 0.8);
@@ -121,20 +121,52 @@ input[type=text] {
     display: inline;
 }
 
+.searchInput {
+    display: inline-block;
+    position: relative;
+}
 
-.search .id {
+.invalidPattern {
+    position: absolute;
+    bottom: -1.1em;
+    background-color: #ffffe8;
+}
+
+.searchExamples dl {
+    margin-left: 5em;
+    position: relative;
+}
+
+.searchExamples dt {
+    padding: 0.2em;
+    border: 0.06em solid black;
+    background-color: #ffffe8;
+    position: absolute;
+    left: -5em;
+}
+
+.searchExamples dd {
+    padding: 0.4em;
+    background-color: #ffffe8;
+}
+
+.noresult {
+    margin: 1em;
+}
+
+.result .id {
     width: 3em;
     display: inline-block;
 }
 
 
-.search .match {
+.result .match {
     margin: 0 3em;
     display: inline-block;
     unicode-bidi: bidi-override;
 }
 
-.search .before {
+.result .before {
     display: inline-block;
     text-align: right;
     width: 6em;

@@ -26,7 +26,7 @@ import Set
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
 letters = String.toList (String.trim "
-
+
 ")
 elamLetters = Set.fromList letters
 
@@ -72,50 +72,53 @@ syllables = Dict.fromList
 specialChars =
     [ { displayChar = "", char = '', description = "Platzhalter für unbekannte Zeichen" }
     , { displayChar = "", char = '', description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
+    , { displayChar = "", char = '', description = "Markiert Bruchstellen" }
     ]
 
 
--- Alphabet definition
+-- Syllabary definition
 --
--- The many letter variants are grouped into an alphabet with one letter
+-- The many letter variants are grouped into a syllabary with one letter
 -- chosen as representative of the whole group. We want to make changes to
--- the alphabet a cheap operation, so the interpretation of which letters
+-- the syllabary a cheap operation, so the interpretation of which letters
 -- mean the same thing can be changed quickly.
 --
--- Letter are separated by spaces, letters following another letter without
+-- Letter are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
-alphabetPreset = "
-                                                                                                                       
+syllabaryPreset = "
+                                                                                                                                                                                                                                                                         
+
+          
 "
 
-alphabetList : String -> List (Char, List Char)
-alphabetList alphabet =
+syllabaryList : String -> List (Char, List Char)
+syllabaryList syllabary =
     let
         letterGroup letterString =
             case (String.toList letterString) of
                 main :: ext -> (main, ext)
                 _ -> ('?', []) -- should not be reachable?
     in
-        map letterGroup (String.words alphabet)
+        map letterGroup (String.words syllabary)
 
--- Sanitize the alphabet string to include all Elam letters but no duplicates
-completeAlphabet alphabet =
+-- Sanitize the syllabary string to include all Elam letters but no duplicates
+completeSyllabary syllabary =
     let
-        dedup letter (seen, dedupAlphabet) =
+        dedup letter (seen, dedupSyllabary) =
             if Set.member letter seen
             then
-                (seen, dedupAlphabet)
+                (seen, dedupSyllabary)
             else
                 if Set.member letter indexedLetters
                 then
-                    (Set.insert letter seen, dedupAlphabet ++ String.fromChar letter)
+                    (Set.insert letter seen, dedupSyllabary ++ String.fromChar letter)
                 else
-                    (seen, dedupAlphabet ++ String.fromChar letter)
+                    (seen, dedupSyllabary ++ String.fromChar letter)
 
-        (presentLetters, dedupedAlphabet) = List.foldl dedup (Set.empty, "") (String.toList alphabet)
+        (presentLetters, dedupedSyllabary) = List.foldl dedup (Set.empty, "") (String.toList syllabary)
         missingLetters = Set.diff elamLetters presentLetters
     in
-        dedupedAlphabet
+        dedupedSyllabary
         ++ " "
         ++ String.join " " (map String.fromChar (Set.toList missingLetters))
 
@@ -124,14 +127,14 @@ completeAlphabet alphabet =
 -- characters in an letter group as the same character. This function builds a
 -- dictionary that maps all alternate versions of a letter to the main letter.
 normalization : String -> Dict.Dict Char Char
-normalization alphabet =
+normalization syllabary =
     let allLetters = Set.fromList letters
         ins group dict =
             case (String.toList group) of
                 main :: extras -> List.foldl (insLetter main) (Dict.insert main main dict) extras
                 _ -> dict
         insLetter main ext dict = Dict.insert ext main dict
-    in List.foldl ins Dict.empty (String.words alphabet)
+    in List.foldl ins Dict.empty (String.words syllabary)
 
 
 normalizer: Dict.Dict Char Char -> String -> String
@@ -161,9 +164,9 @@ fragments =
       }
     , { id = "B", dir = LTR, text =
         """
-Y
-​Y
-Y
+
+​
+
         """
       }
     , { id = "C", dir = RTL, text =
@@ -172,8 +175,8 @@ fragments =
 ​
 ​
 ​
-Y
-YY
+
+
         """
       }
     , { id = "D", dir = RTL, text =
@@ -187,9 +190,9 @@ YY
     , { id = "E", dir = RTL, text =
         """
 
-Y
-Y
-Y
+
+
+
         """
       }
     , { id = "F", dir = RTL, text =
@@ -204,7 +207,7 @@ Y
         """
 
 X
-Y
+
         """
       }
     , { id = "H", dir = RTL, text =
@@ -232,43 +235,43 @@ Y
     , { id = "K", dir = RTL, text =
         """
 
-Y
-YX
-YX
-Y
-YX
+
+X
+X
+
+X
         """
       }
     , { id = "L", dir = RTL, text =
         """
-Y
-YY
-YY
-Y
+
+
+
+
         """
       }
     , { id = "M", dir = RTL, text =
         """
-Y
-Y
-Y
+
+
+
 
 X
         """
       }
     , { id = "N", dir = RTL, text =
         """
-YY
-YY
-YY
-YY
-YY
-YY
+
+
+
+
+
+
         """
       }
     , { id = "O", dir = RTL, text =
         """
-Y
+
 
 
 
@@ -312,13 +315,13 @@ X
       }
     , { id = "T", dir = RTL, text =
         """
-Y
+
         """
       }
     , { id = "U", dir = RTL, text =
         """
-Y
-Y
+
+
         """
       }
     , { id = "V", dir = RTL, text =
@@ -332,18 +335,48 @@ Y
 
         """
       }
-    , { id = "KS", dir = RTL, text =
+    , { id = "KS1", dir = LTR, text =
         """
-
-
-
-
-X
+
+
+
+
+X
         """
       }
-    , { id = "KS.rs", dir = RTL, text =
+    , { id = "KS2", dir = LTR, text =
+        """
+
+
+
+
+
+        """
+      }
+    , { id = "KS2.rs", dir = LTR, text =
         """
 
+        """
+      }
+    , { id = "KS3", dir = LTR, text =
+        """
+
+
+
+
+
+
+        """
+      }
+    , { id = "KS3.rs", dir = LTR, text =
+        """
+
+        """
+      }
+    , { id = "KS4", dir = RTL, text =
+        """
+XX
+X
         """
       }
     , { id = "neuA", dir = RTL, text =
@@ -355,7 +388,7 @@ Y
             X ​
             ​ 
             X 
-            X​XXXXY
+            X​XXXX
             X
         """
       }
@@ -401,87 +434,87 @@ Y
       }
     , { id = "neuF", dir = RTL, text =
         """
-            Y
-            Y
-            XXY
-            XY
+            
+            
+            XX
+            X
         """
       }
     , { id = "neuG", dir = RTL, text =
         """
-            Y
-            YY
+            
+            
         """
       }
     , { id = "neuH", dir = RTL, text =
         """
-            YXY
-            YY
+            X
+            
         """
       }
     , { id = "neuI.a", dir = RTL, text =
         """
-            Y
-            Y
+            
+            
         """
       }
     , { id = "neuI.b", dir = RTL, text =
         """
             
-            YXY
-            YY
+            X
+            
         """
       }
     , { id = "neuI.c", dir = RTL, text =
         """
-            YY
-            YY
+            
+            
         """
       }
     , { id = "neuI.d", dir = RTL, text =
         """
-            Y
-            YY
+            
+            
         """
       }
     , { id = "neuJ.a", dir = RTL, text =
         """
-            YY
+            
         """
       }
     , { id = "neuJ.b", dir = RTL, text =
         """
-            YY
+            
         """
       }
     , { id = "neuJ.c", dir = RTL, text =
         """
-            YY
-            YY
+            
+            
         """
       }
     , { id = "neuJ.d", dir = RTL, text =
         """
-            YY
-            YY
+            
+            
         """
       }
     , { id = "neuK.a", dir = LTR, text =
         """
-            YY
+            
         """
       }
     , { id = "neuK.b", dir = LTR, text =
         """
-            YY
-            YX​XY
-            Y
+            
+            X​X
+            
         """
       }
     , { id = "neuK.c", dir = LTR, text =
         """
-            YX
-            YX
+            X
+            X
             
 
         """
@@ -502,7 +535,7 @@ type alias Model =
     { dir : Dir
     , fixedBreak: Bool
     , selected : Maybe Pos
-    , alphabet : String
+    , syllabary : String
     , normalizer: String -> String
     , sandbox: String
     , lumping : Bool
@@ -514,8 +547,8 @@ model =
     { dir = Original
     , fixedBreak = True
     , selected = Nothing
-    , alphabet = alphabetPreset
-    , normalizer = normalizer (normalization alphabetPreset)
+    , syllabary = syllabaryPreset
+    , normalizer = normalizer (normalization syllabaryPreset)
     , sandbox = ""
     , lumping = False
     , search = ""
@@ -528,7 +561,7 @@ type Msg
     | SetDir Dir
     | SetLumping Bool
     | SetSandbox String
-    | SetAlphabet String
+    | SetSyllabary String
     | AddChar String
     | SetSearch String
     | ReverseSearch Bool
@@ -543,9 +576,9 @@ update msg model =
         SetBreaking breaking -> { model | fixedBreak = breaking }
         SetLumping lumping -> { model | lumping = lumping }
         SetDir dir -> { model | dir = dir }
-        SetAlphabet new ->
-            let newAlphabet = completeAlphabet new
-            in { model | alphabet = newAlphabet, normalizer = normalizer (normalization newAlphabet) }
+        SetSyllabary new ->
+            let newSyllabary = completeSyllabary new
+            in { model | syllabary = newSyllabary, normalizer = normalizer (normalization newSyllabary) }
         SetSearch new ->
             { model | search = new }
         ReverseSearch new ->
@@ -582,15 +615,15 @@ view model =
 
         letterCounter letters = String.toList >> List.filter (\candidate -> Set.member candidate (Set.fromList letters)) >> List.length
 
-        alphabet =
+        syllabary =
             [ h2 [] [ text " Die Buchstaben " ]
-            , ol [ dirAttr LTR, classList [ ("alphabet", True) ] ]
-                ( List.map alphabetEntry (alphabetList model.alphabet)
+            , ol [ dirAttr LTR, classList [ ("syllabary", True) ] ]
+                ( List.map syllabaryEntry (syllabaryList model.syllabary)
                 ++ List.map specialEntry specialChars
                 )
             ]
 
-        alphabetEntry (main, ext) =
+        syllabaryEntry (main, ext) =
             let
                 shownExt = if model.lumping then [] else ext
                 syls = Maybe.withDefault [] (Dict.get main syllables)
@@ -647,8 +680,8 @@ view model =
                         ]
                     ]
                 , label []
-                    [ text "Alphabet"
-                    , Html.input [ class "elam", type' "text", value model.alphabet, onInput SetAlphabet ] []
+                    [ text "Syllabar"
+                    , Html.input [ class "elam", type' "text", value model.syllabary, onInput SetSyllabary ] []
                     ]
                 , label []
                     [ text "Alternative Zeichen "
@@ -768,21 +801,47 @@ view model =
                                     ]
                     in
                         map result matches ++ results
+
+                results = List.foldr addMatches [] fragments
+
             in
                 [ h2 [] [ text " Suche " ]
                 , label []
-                    ([ text "Suchmuster"
-                    , Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
+                    [ text "Suchmuster "
+                    , div [ class "searchInput"]
+                        ([ Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
+                        ] ++ if searchPattern == Invalid
+                            then [ div [ class "invalidPattern" ] [ text "Ungültiges Suchmuster" ] ]
+                            else []
+                        )
                     , label [ class "inline" ]
                         [ input [ type' "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
                         , text "auch in Gegenrichtung suchen"
                         ]
-
-                    ] ++ if searchPattern == Invalid then [ text "Ungültiges Suchmuster" ] else [])
+                    ]
                 ]
                 ++ case searchPattern of
-                    Pattern pat -> [ ol [ class "search" ] (List.foldr addMatches [] fragments ) ]
-                    _ -> []
+                    Pattern pat -> if List.length results == 0
+                                    then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
+                                    else [ ol [ class "result" ] results ]
+                    _ -> [ div [ class "searchExamples" ]
+                        [ h3 [] [ text "Suchbeispiele" ]
+                        , dl []
+                            [ dt [] [ text "[]?[]" ]
+                            , dd [] [ text "Suche nach Varianten von  (in-šu mit optionalem NAP)" ]
+                            , dt [] [ text "[][]" ]
+                            , dd [] [ text "Suche nach Varianten von  und erlaube auch Platzhalter" ]
+                            , dt [] [ text "([^])\\1" ]
+                            , dd [] [ text "Suche nach Silbenwiederholungen wie " ]
+                            , dt [] [ text "([^]).\\1" ]
+                            , dd [] [ text "Silbenwiederholungen mit einem beliebigen Zeichen dazwischen ()" ]
+                            , dt [] [ text "[^]+" ]
+                            , dd [] [ text "\"Worte\", wenn wir den vertikalen Strich als Worttrenner annehmen" ]
+                            , dt [] [ text "[]" ]
+                            , dd [] [ text "Alle Stellen anzeigen, wo  oder  steht" ]
+                            ]
+                        ]
+                    ]
 
 
         fragmentView fragment =
@@ -841,13 +900,13 @@ view model =
                 , a [ href "fonts/Elamicon-Fonts.zip" ]
                     [ text "Elamicon-Schriften installieren."]
                 , text " "
-                , a [ href "https://github.com/sbalmer/elamicon/" ]
+                , a [ href "https://github.com/elamicon/elamicon/" ]
                     [ text "Das Projekt auf Github." ]
                 ]
     in
         div [] (
             [ h1 [] [ text " Elamische Zeichensammlung " ]
-            ] ++ alphabet
+            ] ++ syllabary
               ++ playground
               ++ settings
               ++ searchView ++

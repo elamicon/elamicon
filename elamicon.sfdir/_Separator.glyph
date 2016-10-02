@@ -12,10 +12,10 @@ SplineSet
 EndSplineSet
 Fore
 SplineSet
-317 -408 m 1
- 205 -408 l 1
- 205 1644 l 1
- 317 1644 l 1
- 317 -408 l 1
+317 -408 m 5
+ 205 -408 l 5
+ 205 1644 l 5
+ 317 1644 l 5
+ 317 -408 l 5
 EndSplineSet
 EndChar
