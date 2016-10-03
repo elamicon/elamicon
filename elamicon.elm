@@ -20,7 +20,7 @@ import Set
 -- be.
 --
 -- We were very conservative when it came to lumping glyphs into letters and
--- many variants are preserved to allow alternate interpretations.
+-- many variants are preserved to allow alternative interpretations.
 --
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
@@ -519,11 +519,6 @@ XX
 
         """
       }
-    , { id = "", dir = RTL, text =
-        """
-
-        """
-      }
     ]
 
 
@@ -889,7 +884,7 @@ view model =
 
         footer = div [ class "footer" ]
                 [ text "Diese Seite wurde produziert mit "
-                , a [ href "https://fontforge.github.io/en-US/" ]
+                , a [ href "https://fontforge.github.io/" ]
                     [ text "FontForge" ]
                 , text ", "
                 , a [ href "http://elm-lang.org/" ]
