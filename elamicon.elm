@@ -7,7 +7,7 @@ import String
 import Regex
 import RegexMaybe
 import Json.Decode
-import List exposing (map)
+import List
 import Set
 import Elam exposing (Dir(..))
 
@@ -118,10 +118,10 @@ view model =
                     ( (if letterCount > 0 then [ div [ class "counter" ] [ text (toString letterCount) ] ] else [] )
                     ++ [ letterEntry "main" main ]
                     ++ ( if shownExt /= [] || List.length syls > 0
-                         then [ div [class "menu"] (map (letterEntry "ext") shownExt ++ map syllableEntry syls) ]
+                         then [ div [class "menu"] (List.map (letterEntry "ext") shownExt ++ List.map syllableEntry syls) ]
                          else []
                        )
-                    ++ (map (letterEntry "ext") shownExt)
+                    ++ (List.map (letterEntry "ext") shownExt)
                     ++ [ div [ class "clear" ] [] ]
                     )
 
