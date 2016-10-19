@@ -97,8 +97,6 @@ view model =
         -- There are two "guess" marker characters that are used depending on direction
         guessmarkDir original = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if effectiveDir original == LTR then "" else "")
 
-        letterCounter letters = String.toList >> List.filter (\candidate -> Set.member candidate (Set.fromList letters)) >> List.length
-
         syllabary =
             [ h2 [] [ text " Die Buchstaben " ]
             , ol [ dirAttr LTR, classList [ ("syllabary", True) ] ]
@@ -113,11 +111,9 @@ view model =
                 syls = Maybe.withDefault [] (Dict.get main Elam.syllables)
                 letterEntry entryClass char = div [ classList [("elam", True), (entryClass, True)], onClick (AddChar (String.fromChar char)) ] [ text (String.fromChar char) ]
                 syllableEntry syl = div [ class "syl" ] [ text syl ]
-                letterCount = letterCounter (main :: ext) model.sandbox
             in
                 li [ class "letter" ]
-                    ( (if letterCount > 0 then [ div [ class "counter" ] [ text (toString letterCount) ] ] else [] )
-                    ++ [ letterEntry "main" main ]
+                    (  [ letterEntry "main" main ]
                     ++ ( if shownExt /= [] || List.length syls > 0
                          then [ div [class "menu"] (List.map (letterEntry "ext") shownExt ++ List.map syllableEntry syls) ]
                          else []
@@ -133,7 +129,7 @@ view model =
         gramStats string =
             let
                 cleanedString = String.filter Elam.indexed <| model.normalizer string
-                tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 6 cleanedString
+                tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 cleanedString
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
                     let

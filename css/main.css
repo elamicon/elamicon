@@ -69,14 +69,6 @@ body, h1, h2, label, input, select {
     position: relative;
 }
 
-.letter .counter {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: small;
-    font-weight: bold;
-}
-
 .letter .main {
     font-size: 300%;
     cursor: pointer;
