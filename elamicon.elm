@@ -10,6 +10,7 @@ import Json.Decode
 import List
 import Set
 import Elam exposing (Dir(..))
+import Grams
 
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
@@ -129,6 +130,21 @@ view model =
             li [ class "letter" ]
                 [ div [ classList [("elam", True), ("main", True)], onClick (AddChar (String.fromChar char)), title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
 
+        gramStats string =
+            let
+                cleanedString = String.filter Elam.indexed <| model.normalizer string
+                tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 4 cleanedString
+                tallyEntry gram ts = 
+                    [ dt [] [ text <| toString gram.count ] 
+                    , dd [] [ text gram.seq ]
+                    ] ++ ts
+                ntally n tallyGram =
+                    li [] 
+                        [ h4 [] [ text <| (toString (n + 1)) ++ " Zeichen" ]
+                        , dl [] <| List.foldr tallyEntry [] tallyGram 
+                        ]
+            in ul [ class "tallyGrams" ]
+                (List.indexedMap ntally tallyGrams)
 
         playground =
             [ h2 [] [ text " Spielplatz " ]
@@ -139,6 +155,7 @@ view model =
                 , onInput SetSandbox
                 , value ((guessmarkDir LTR) model.sandbox)
                 ] []
+            , gramStats model.sandbox
             ]
 
 

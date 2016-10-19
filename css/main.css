@@ -121,6 +121,32 @@ input[type=text] {
     display: inline;
 }
 
+
+.tallyGrams {
+    list-style: none;
+}
+
+.tallyGrams ul {
+    list-style: none;
+}
+
+.tallyGrams li {
+    float: left;
+    margin: 1em;
+}
+
+.tallyGrams dl {
+    height: 15em;
+    overflow-y: scroll;
+}
+
+.tallyGrams dt {
+    width: 1em;
+    float: left;
+    text-align: right;
+}
+
+
 .searchInput {
     display: inline-block;
     position: relative;
