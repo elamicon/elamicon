@@ -13,6 +13,10 @@ h1, h2 {
     text-align: center
 }
 
+h3, h4 {
+    margin: 1em 0;
+}
+
 body, h1, h2, label, input, select {
     color: #445;
 }
@@ -124,15 +128,13 @@ input[type=text] {
 
 .tallyGrams {
     list-style: none;
-}
-
-.tallyGrams ul {
-    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .tallyGrams li {
     float: left;
-    margin: 1em;
+    margin: 0 1em;
 }
 
 .tallyGrams dl {
@@ -144,6 +146,10 @@ input[type=text] {
     width: 1em;
     float: left;
     text-align: right;
+}
+
+.tallyGrams dl .boring {
+    color: gray;
 }
 
 

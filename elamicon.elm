@@ -133,18 +133,27 @@ view model =
         gramStats string =
             let
                 cleanedString = String.filter Elam.indexed <| model.normalizer string
-                tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 4 cleanedString
-                tallyEntry gram ts = 
-                    [ dt [] [ text <| toString gram.count ] 
-                    , dd [] [ text gram.seq ]
-                    ] ++ ts
+                tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 6 cleanedString
+                boringClass count = if count < 2 then [ class "boring" ] else []
+                tallyEntry gram ts =
+                    let
+                        boringClass = if gram.count < 2 then [ class "boring" ] else []
+                    in
+                        [ dt boringClass [ text <| toString gram.count ] 
+                        , dd boringClass [ text gram.seq ]
+                        ] ++ ts
                 ntally n tallyGram =
                     li [] 
                         [ h4 [] [ text <| (toString (n + 1)) ++ " Zeichen" ]
                         , dl [] <| List.foldr tallyEntry [] tallyGram 
                         ]
-            in ul [ class "tallyGrams" ]
-                (List.indexedMap ntally tallyGrams)
+            in 
+                if List.isEmpty tallyGrams
+                then div [] []
+                else div [] 
+                    [ h3 [] [ text "Statistik der Buchstabenfolgen" ]
+                    ,ul [ class "tallyGrams" ] (List.indexedMap ntally tallyGrams)
+                    ]
 
         playground =
             [ h2 [] [ text " Spielplatz " ]
