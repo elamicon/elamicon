@@ -143,10 +143,7 @@ view model =
                         , dd boringClass [ text gram.seq ]
                         ] ++ ts
                 ntally n tallyGram =
-                    li [] 
-                        [ h4 [] [ text <| (toString (n + 1)) ++ " Zeichen" ]
-                        , dl [] <| List.foldr tallyEntry [] tallyGram 
-                        ]
+                    li [] [ dl [] <| List.foldr tallyEntry [] tallyGram ]
             in 
                 if List.isEmpty tallyGrams
                 then div [] []
