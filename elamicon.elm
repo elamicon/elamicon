@@ -126,10 +126,10 @@ view model =
             li [ class "letter" ]
                 [ div [ classList [("elam", True), ("main", True)], onClick (AddChar (String.fromChar char)), title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
 
-        gramStats string =
+        gramStats strings =
             let
-                cleanedString = String.filter Elam.indexed <| model.normalizer string
-                tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 cleanedString
+                cleanse = model.normalizer >> String.filter Elam.indexed
+                tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 <| List.map cleanse strings
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
                     let
@@ -157,7 +157,7 @@ view model =
                 , onInput SetSandbox
                 , value ((guessmarkDir LTR) model.sandbox)
                 ] []
-            , gramStats model.sandbox
+            , gramStats [model.sandbox]
             ]
 
 
@@ -270,7 +270,7 @@ view model =
                     let
                         letterSlots = letterSplit fragment.text
                         matches = searchMatches fragment.text
-                        result (index, length) =
+                        addMatch (index, length) results =
                             let
                                 slotIndex = index + 1
                                 contextLen = 3
@@ -292,8 +292,7 @@ view model =
                                 matchText = String.concat (List.reverse (matchLastLetter :: List.drop 1 matchReversed))
 
                                 afterText = String.concat (matchAppended :: List.take contextLen (List.drop (slotIndex+length) letterSlots))
-                            in
-                                li [ class "result" ]
+                                item = li [ class "result" ]
                                     [ div [ class "id" ] [ text fragment.id ]
                                     , div [ class "match"]
                                         [ span [ class "before" ] [ text beforeText ]
@@ -301,10 +300,13 @@ view model =
                                         , span [ class "after" ] [ text afterText ]
                                         ]
                                     ]
+                            in
+                                { items = item :: results.items, raw = matchText :: results.raw }
                     in
-                        List.map result matches ++ results
+                        List.foldr addMatch results matches
 
-                results = List.foldr addMatches [] Elam.fragments
+                results = List.foldr addMatches {items=[], raw=[]} Elam.fragments
+                stats = gramStats results.raw
 
             in
                 [ h2 [] [ text " Suche " ]
@@ -323,9 +325,12 @@ view model =
                     ]
                 ]
                 ++ case searchPattern of
-                    Pattern pat -> if List.length results == 0
+                    Pattern pat -> if List.length results.items == 0
                                     then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
-                                    else [ ol [ class "result" ] results ]
+                                    else
+                                        [ ol [ class "result" ] results.items,
+                                          stats
+                                        ]
                     _ -> [ div [ class "searchExamples" ]
                         [ h3 [] [ text "Suchbeispiele" ]
                         , dl []

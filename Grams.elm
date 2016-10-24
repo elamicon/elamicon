@@ -5,6 +5,8 @@ import String
 
 type alias Grams = Dict String Int
 
+empty = Dict.empty
+
 registerInc seq inc grams =
     let oneMore entry =
         case entry of
@@ -22,13 +24,11 @@ tally grams =
         }
     in List.reverse (List.sortBy .count (List.map rec (Dict.toList grams)))
 
-merge =
-    Dict.foldl registerInc
-
-read max seq =
-    let last = String.length seq
-        addGrams n =
-            let reg i result =
-                register (String.slice i (i+n) seq) result
-            in List.foldl reg Dict.empty [0..(last - n)]
+read max seqs =
+    let addGrams n =
+            let readSeq seq grams =
+                    let last = String.length seq
+                        reg i result = register (String.slice i (i+n) seq) result
+                    in List.foldl reg grams [0..(String.length seq - n)]
+            in List.foldl readSeq empty seqs
     in List.map addGrams [1..(max)]
