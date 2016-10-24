@@ -212,6 +212,8 @@ view model =
             in
                 String.foldr addChar [""] text
 
+        zeroWidthSpace = "​"
+
         searchPattern =
             let
                 -- When copying strings from the fragments into the search field, irrelevant whitespace might
@@ -233,7 +235,6 @@ view model =
 
 
 
-        zeroWidthSpace = "​"
         searchMatches : String -> List (Int, Int)
         searchMatches text  =
             case searchPattern of
