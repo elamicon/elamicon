@@ -20,9 +20,11 @@ import Set
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
-letters = String.toList (String.trim "
-
+allChars = String.toList (String.trim "
+
 ")
+ignoreChars = Set.fromList <| String.toList ""
+letters = List.filter (\c -> not (Set.member c ignoreChars)) allChars
 elamLetters = Set.fromList letters
 
 -- These letters are counted as character positions
