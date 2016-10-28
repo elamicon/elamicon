@@ -321,16 +321,16 @@ X
       }
     , { id = "V", dir = RTL, text =
         """
+
+        """
+      }
+    , { id = "F'", dir = RTL, text =
+        """
 
 X
         """
       }
-    , { id = "W", dir = RTL, text =
-        """
-
-        """
-      }
-    , { id = "KS1", dir = LTR, text =
+    , { id = "D'", dir = LTR, text =
         """
 
 
@@ -339,7 +339,7 @@ X
 X
         """
       }
-    , { id = "KS2", dir = LTR, text =
+    , { id = "B'", dir = LTR, text =
         """
 
 
@@ -348,12 +348,12 @@ X
 
         """
       }
-    , { id = "KS2.rs", dir = LTR, text =
+    , { id = "B'", dir = LTR, text =
         """
 
         """
       }
-    , { id = "KS3", dir = LTR, text =
+    , { id = "C'", dir = LTR, text =
         """
 
 
@@ -363,18 +363,18 @@ X
 
         """
       }
-    , { id = "KS3.rs", dir = LTR, text =
+    , { id = "C'r", dir = LTR, text =
         """
 
         """
       }
-    , { id = "KS4", dir = RTL, text =
+    , { id = "E'", dir = RTL, text =
         """
 XX
 X
         """
       }
-    , { id = "neuA", dir = RTL, text =
+    , { id = "Z", dir = RTL, text =
         """
             XX​
             ​​
@@ -387,26 +387,26 @@ XX
             X
         """
       }
-     , { id = "neuB", dir = RTL, text =
+     , { id = "X", dir = RTL, text =
         """
             kkk
             
             X
         """
       }
-    , { id = "neuC", dir = RTL, text =
+    , { id = "Y", dir = RTL, text =
         """
             XXX
                     X
                        
         """
       }
-    , { id = "neuC.2", dir = LTR, text =
+    , { id = "Y.2", dir = LTR, text =
         """
         
         """
       }
-    , { id = "neuD", dir = RTL, text =
+    , { id = "A'", dir = RTL, text =
         """
             XX
             XXX
@@ -415,7 +415,7 @@ XX
             X
         """
       }
-    , { id = "neuE", dir = RTL, text =
+    , { id = "W", dir = RTL, text =
         """
             
             X
@@ -427,7 +427,7 @@ XX
             X
         """
       }
-    , { id = "neuF", dir = RTL, text =
+    , { id = "H'a", dir = RTL, text =
         """
             
             
@@ -435,60 +435,60 @@ XX
             X
         """
       }
-    , { id = "neuG", dir = RTL, text =
+    , { id = "H'b", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "neuH", dir = RTL, text =
+    , { id = "J'", dir = RTL, text =
         """
             X
             
         """
       }
-    , { id = "neuI.a", dir = RTL, text =
+    , { id = "K'", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "neuI.b", dir = RTL, text =
+    , { id = "K'.b", dir = RTL, text =
         """
             
             X
             
         """
       }
-    , { id = "neuI.c", dir = RTL, text =
+    , { id = "K'.c", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "neuI.d", dir = RTL, text =
+    , { id = "K'.d", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "neuJ.a", dir = RTL, text =
+    , { id = "L'.a", dir = RTL, text =
         """
             
         """
       }
-    , { id = "neuJ.b", dir = RTL, text =
+    , { id = "L'.b", dir = RTL, text =
         """
             
         """
       }
-    , { id = "neuJ.c", dir = RTL, text =
+    , { id = "L'.c", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "neuJ.d", dir = RTL, text =
+    , { id = "L'.d", dir = RTL, text =
         """
             
             
