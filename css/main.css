@@ -132,6 +132,11 @@ input[type=text] {
 .tallyGrams dl {
     height: 15em;
     overflow-y: scroll;
+    border-left: 0.3em solid #ffffe8;
+    border-top: 0.3em solid #ffffe8;
+    border-right: 0.3em solid #d0d0c8;
+    border-bottom: 0.3em solid #d0d0c8;
+    margin-bottom: 1em;
 }
 
 .tallyGrams dt {
