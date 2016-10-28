@@ -4,7 +4,7 @@ MFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
 
 all: elamicon.js $(MFONTS) fonts/Elamicon-Fonts.zip
 
-elamicon.js: elamicon.elm
+elamicon.js: elamicon.elm Elam.elm Grams.elm
 	elm-make elamicon.elm --output elamicon.js
 
 fonts/ElamiconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf elamicon.sfdir
