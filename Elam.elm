@@ -326,13 +326,13 @@ fragments =
 
         """
       }
-    , { id = "F'", dir = RTL, text =
+    , { id = "F′", dir = RTL, text =
         """
 
 
         """
       }
-    , { id = "D'", dir = LTR, text =
+    , { id = "D′", dir = LTR, text =
         """
 
 
@@ -341,7 +341,7 @@ fragments =
 
         """
       }
-    , { id = "B'", dir = LTR, text =
+    , { id = "B′", dir = LTR, text =
         """
 
 
@@ -350,12 +350,12 @@ fragments =
 
         """
       }
-    , { id = "B'", dir = LTR, text =
+    , { id = "B′", dir = LTR, text =
         """
 
         """
       }
-    , { id = "C'", dir = LTR, text =
+    , { id = "C′", dir = LTR, text =
         """
 
 
@@ -365,12 +365,12 @@ fragments =
 
         """
       }
-    , { id = "C'r", dir = LTR, text =
+    , { id = "C′r", dir = LTR, text =
         """
 
         """
       }
-    , { id = "E'", dir = RTL, text =
+    , { id = "E′", dir = RTL, text =
         """
 
 
@@ -408,7 +408,7 @@ fragments =
         
         """
       }
-    , { id = "A'", dir = RTL, text =
+    , { id = "A′", dir = RTL, text =
         """
             
             
@@ -429,7 +429,7 @@ fragments =
             
         """
       }
-    , { id = "H'a", dir = RTL, text =
+    , { id = "H′a", dir = RTL, text =
         """
             
             
@@ -437,60 +437,60 @@ fragments =
             
         """
       }
-    , { id = "H'b", dir = RTL, text =
+    , { id = "H′b", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "J'", dir = RTL, text =
+    , { id = "J′", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K'", dir = RTL, text =
+    , { id = "K′", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K'.b", dir = RTL, text =
+    , { id = "K′.b", dir = RTL, text =
         """
             
             
             
         """
       }
-    , { id = "K'.c", dir = RTL, text =
+    , { id = "K′.c", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K'.d", dir = RTL, text =
+    , { id = "K′.d", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "L'.a", dir = RTL, text =
+    , { id = "L′.a", dir = RTL, text =
         """
             
         """
       }
-    , { id = "L'.b", dir = RTL, text =
+    , { id = "L′.b", dir = RTL, text =
         """
             
         """
       }
-    , { id = "L'.c", dir = RTL, text =
+    , { id = "L′.c", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "L'.d", dir = RTL, text =
+    , { id = "L′.d", dir = RTL, text =
         """
             
             
