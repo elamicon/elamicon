@@ -366,6 +366,8 @@ view model =
                             , dd [] [ text "\"Worte\", wenn wir den vertikalen Strich als Worttrenner annehmen" ]
                             , dt [] [ text "[]" ]
                             , dd [] [ text "Alle Stellen anzeigen, wo  oder  steht" ]
+                            , dt [] [ text ".*" ]
+                            , dd [] [ text "Alles finden, nützlich zur Frequenzanalyse" ]
                             ]
                         ]
                     ]
