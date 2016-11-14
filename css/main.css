@@ -184,10 +184,19 @@ input[type=text] {
 }
 
 .result .id {
-    width: 3em;
+    margin-left: 1.2em;
+    width: 1.5em;
     display: inline-block;
+    position: relative;
 }
 
+.result .id sup {
+    right: 2.1em;
+    position: absolute;
+    vertical-align: super;
+    font-size: 0.7em;
+    font-variant: small-caps;
+}
 
 .result .match {
     margin: 0 3em;

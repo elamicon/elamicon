@@ -25,6 +25,7 @@ type alias Model =
     , lumping : Bool
     , search: String
     , reverseSearch: Bool
+    , selectedGroups: Set.Set String
     }
 
 model =
@@ -37,6 +38,7 @@ model =
     , lumping = False
     , search = ""
     , reverseSearch = True
+    , selectedGroups = Set.fromList (List.map .short Elam.groups)
     }
 
 type Msg
@@ -49,6 +51,7 @@ type Msg
     | AddChar String
     | SetSearch String
     | ReverseSearch Bool
+    | SelectGroup String Bool
 
 
 update : Msg -> Model -> Model
@@ -67,6 +70,9 @@ update msg model =
             { model | search = new }
         ReverseSearch new ->
             { model | reverseSearch = new }
+        SelectGroup group include ->
+            { model | selectedGroups = (if include then Set.insert else Set.remove) group model.selectedGroups
+            }
 
 dirStr dir = case dir of
     LTR -> "LTR"
@@ -89,6 +95,8 @@ type SearchPattern = None
     | Invalid
     | Pattern Regex.Regex
 
+
+
 view : Model -> Html Msg
 view model =
     let effectiveDir original = if model.dir == Original then original else model.dir
@@ -96,6 +104,7 @@ view model =
 
         -- There are two "guess" marker characters that are used depending on direction
         guessmarkDir original = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if effectiveDir original == LTR then "" else "")
+        selectedFragments = List.filter (\f -> Set.member f.group model.selectedGroups) Elam.fragments
 
         syllabary =
             [ h2 [] [ text " Die Buchstaben " ]
@@ -165,6 +174,11 @@ view model =
             let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
                 lumpingOptAttrs val lumping = [ value val, selected (lumping == model.lumping) ]
+                groupSelectionEntry group = label []
+                    [ input [ type' "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
+                    , text group.name
+                    ]
+                groupSelection = List.map groupSelectionEntry Elam.groups
             in  [ h2 [] [ text " Einstellungen " ]
                 , label []
                     [ text "Schreibrichtung "
@@ -183,7 +197,7 @@ view model =
                     ]
                 , label []
                     [ text "Syllabar"
-                    , Html.input [ class "elam", type' "text", value model.syllabary, onInput SetSyllabary ] []
+                    , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
                     ]
                 , label []
                     [ text "Alternative Zeichen "
@@ -192,6 +206,8 @@ view model =
                         , option (lumpingOptAttrs "true" True) [ text "vereinheitlichen nach Gruppen" ]
                         ]
                     ]
+                , div []
+                    ( text "Gruppen" :: groupSelection )
                 ]
 
         -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
@@ -294,7 +310,10 @@ view model =
 
                                 afterText = String.concat (matchAppended :: List.take contextLen (List.drop (slotIndex+length) letterSlots))
                                 item = li [ class "result" ]
-                                    [ div [ class "id" ] [ text fragment.id ]
+                                    [ div [ class "id" ]
+                                        [ Html.sup [ class "group" ] [ text fragment.group ]
+                                        , text fragment.id
+                                        ]
                                     , div [ class "match"]
                                         [ span [ class "before" ] [ text beforeText ]
                                         , span [ class "highlight" ] [ text matchText ]
@@ -306,7 +325,7 @@ view model =
                     in
                         List.foldr addMatch results matches
 
-                results = List.foldr addMatches {items=[], raw=[]} Elam.fragments
+                results = List.foldr addMatches {items=[], raw=[]} selectedFragments
                 stats = gramStats results.raw
 
             in
@@ -419,7 +438,7 @@ view model =
               ++ settings
               ++ searchView ++
             [ h2 [] [ text " Textfragmente " ]
-            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView Elam.fragments) ]
+            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView selectedFragments) ]
               ++ [ footer ]
         )
 

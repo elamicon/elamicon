@@ -148,6 +148,20 @@ normalizer normalization =
 type Dir = Original | LTR | RTL
 
 
+-- We grouped the fragments according to where they were found
+-- Recorded means that there is a sound archaelogical paper trail
+groups =
+    [ { short = "Susa", name = "Susa", recorded = True }
+    , { short = "Sha", name = "Shahdad", recorded = True }
+    , { short = "Mahb", name = "Mahboubian", recorded = False }
+    , { short = "Pers", name = "Persepolis", recorded = False }
+    , { short = "Liga", name = "Ligabue", recorded = False }
+    , { short = "Schø", name = "Schøyen", recorded = False }
+    , { short = "Phoe", name = "Phoenix", recorded = False }
+    , { short = "Jir", name = "Jiroft", recorded = False }
+    , { short = "Div", name = "Divers", recorded = False }
+    ]
+
 -- Linear Elam body as read by us. The writing direction is only a guess for most fragments.
 fragments =
     [ { id = "A", group = "Susa", dir = RTL, text =
@@ -288,7 +302,7 @@ fragments =
 
         """
       }
-    , { id = "Q", group = "Fars", dir = RTL, text =
+    , { id = "Q", group = "Pers", dir = RTL, text =
         """
 ​k​​​
         """
@@ -379,7 +393,7 @@ fragments =
             
         """
       }
-    , { id = "B'", group = "Jiroft", dir = LTR, text =
+    , { id = "B'", group = "Jir", dir = LTR, text =
         """
 
 
@@ -393,7 +407,7 @@ fragments =
 
         """
       }
-    , { id = "C'", group = "Jiroft", dir = LTR, text =
+    , { id = "C'", group = "Jir", dir = LTR, text =
         """
 
 
@@ -403,12 +417,12 @@ fragments =
 
         """
       }
-    , { id = "C'r", group = "Jiroft", dir = LTR, text =
+    , { id = "C'r", group = "Jir", dir = LTR, text =
         """
 
         """
       }
-    , { id = "D'", group = "Jiroft", dir = LTR, text =
+    , { id = "D'", group = "Jir", dir = LTR, text =
         """
 
 
@@ -417,13 +431,13 @@ fragments =
 
         """
       }
-    , { id = "E'", group = "Jiroft", dir = RTL, text =
+    , { id = "E'", group = "Jir", dir = RTL, text =
         """
 
 
         """
       }
-    , { id = "F'", group = "Schøyen", dir = RTL, text =
+    , { id = "F'", group = "Schø", dir = RTL, text =
         """
 
 
@@ -517,3 +531,4 @@ fragments =
         """
       }
     ]
+
