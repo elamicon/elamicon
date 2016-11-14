@@ -412,7 +412,7 @@ view model =
                 lines = List.reverse (fst (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
             in
                 div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
-                [ h3 [] [ text fragment.id ]
+                [ h3 [] [ sup [ class "group" ] [ text fragment.group ], span [ dir "LTR" ] [ text fragment.id ] ]
                 , ol [ class "fragment", dirAttr fragment.dir ] lines
                 ]
 

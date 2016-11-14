@@ -184,15 +184,13 @@ input[type=text] {
 }
 
 .result .id {
-    margin-left: 1.2em;
     width: 1.5em;
     display: inline-block;
-    position: relative;
 }
 
-.result .id sup {
-    right: 2.1em;
-    position: absolute;
+sup.group {
+    width: 3em;
+    text-align: right;
     vertical-align: super;
     font-size: 0.7em;
     font-variant: small-caps;
