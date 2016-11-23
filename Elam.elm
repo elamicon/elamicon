@@ -457,24 +457,23 @@ fragments =
             
         """
       }
-    , { id = "I'a", group = "Mahb", dir = LTR, text =
+    , { id = "I'a", group = "Mahb", dir = RTL, text =
         """
-            
-        """
-      }
-    , { id = "I'b", group = "Mahb", dir = LTR, text =
-        """
-            
-            ​
-            
+
         """
       }
-    , { id = "I'c", group = "Mahb", dir = LTR, text =
+    , { id = "I'b", group = "Mahb", dir = RTL, text =
         """
-            
-            
-            
-
+
+​
+
+        """
+      }
+    , { id = "I'c", group = "Mahb", dir = RTL, text =
+        """
+
+
+
         """
       }
     , { id = "J'", group = "Mahb", dir = RTL, text =
