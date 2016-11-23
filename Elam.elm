@@ -158,7 +158,7 @@ groups =
     , { short = "Liga", name = "Ligabue", recorded = False }
     , { short = "Schø", name = "Schøyen", recorded = False }
     , { short = "Phoe", name = "Phoenix", recorded = False }
-    , { short = "Jir", name = "Jiroft", recorded = False }
+    , { short = "Jir", name = "Jiroft (Konar Sandal)", recorded = False }
     , { short = "Div", name = "Divers", recorded = False }
     ]
 
@@ -402,7 +402,7 @@ fragments =
 
         """
       }
-    , { id = "B'r", group = "Mahb", dir = LTR, text =
+    , { id = "B'r", group = "Jir", dir = LTR, text =
         """
 
         """
