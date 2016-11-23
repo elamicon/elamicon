@@ -324,12 +324,16 @@ view model =
                                 { items = item :: results.items, raw = matchText :: results.raw }
                     in
                         List.foldr addMatch results matches
-
+                searching = case searchPattern of
+                                Pattern pat -> True
+                                _ -> False
                 results = List.foldr addMatches {items=[], raw=[]} selectedFragments
-                stats = gramStats results.raw
+                stats = gramStats (if searching then results.raw else List.map .text selectedFragments)
 
             in
-                [ h2 [] [ text " Suche " ]
+                [ h2 [] [ text " Frequenzanalyse " ]
+                , stats
+                , h2 [] [ text " Suche " ]
                 , label []
                     [ text "Suchmuster "
                     , div [ class "searchInput"]
@@ -347,10 +351,7 @@ view model =
                 ++ case searchPattern of
                     Pattern pat -> if List.length results.items == 0
                                     then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
-                                    else
-                                        [ ol [ class "result" ] results.items,
-                                          stats
-                                        ]
+                                    else [ ol [ class "result" ] results.items ]
                     _ -> [ div [ class "searchExamples" ]
                         [ h3 [] [ text "Suchbeispiele" ]
                         , dl []
@@ -365,8 +366,6 @@ view model =
                             , dt [] [ text "[^]+" ]
                             , dd [] [ text "\"Worte\", wenn wir den vertikalen Strich als Worttrenner annehmen" ]
                             , dt [] [ text "[]" ]
-                            , dd [] [ text "Alle Stellen anzeigen, wo  oder  steht" ]
-                            , dt [] [ text ".*" ]
                             , dd [] [ text "Alles finden, nützlich zur Frequenzanalyse" ]
                             ]
                         ]
