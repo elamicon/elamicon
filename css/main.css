@@ -2,11 +2,11 @@ body {
     padding: 1em;
     background-color: #eed;
     font-size: large;
-    font-family: elamicon;
+    font-family: ElamiconLiberationSerif;
 }
 
 input, textarea {
-    font-family: elamiconmono;
+    font-family: ElamiconLiberationMono;
 }
 
 h1, h2 {
@@ -22,18 +22,18 @@ body, h1, h2, label, input, select {
 }
 
 @font-face {
-    font-family: 'elamicon';
+    font-family: 'ElamiconLiberationSerif';
     src: url('../fonts/ElamiconLiberationSerif-Regular.ttf');
 }
 
 @font-face {
-    font-family: 'elamicon';
+    font-family: 'ElamiconLiberationSerif';
     src: url('../fonts/ElamiconLiberationSerif-Bold.ttf');
     font-weight: bold;
 }
 
 @font-face {
-    font-family: 'elamiconmono';
+    font-family: 'ElamiconLiberationMono';
     src: url('../fonts/ElamiconLiberationMono-Regular.ttf');
 }
 
