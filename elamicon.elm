@@ -103,7 +103,7 @@ view model =
         dirAttr original = dir (dirStr (effectiveDir original))
 
         -- There are two "guess" marker characters that are used depending on direction
-        guessmarkDir original = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if effectiveDir original == LTR then "" else "")
+        guessmarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
         selectedFragments = List.filter (\f -> Set.member f.group model.selectedGroups) Elam.fragments
 
         syllabary =
@@ -232,9 +232,9 @@ view model =
 
         searchPattern =
             let
-                -- When copying strings from the fragments into the search field, irrelevant whitespace might
-                -- get copied as well, we remove that from the search pattern
-                cleaned = Regex.replace Regex.All (Regex.regex ("\\s|"++zeroWidthSpace)) (\_ -> "") (String.trim model.search)
+                -- When copying strings from the fragments into the search field, irrelevant whitespace
+                -- and markers might get copied as well, we remove those from the search pattern.
+                cleaned = Regex.replace Regex.All (Regex.regex ("[\\s"++zeroWidthSpace++"]")) (\_ -> "") (String.trim model.search)
 
                 -- We want the regex to match all letters of a group, so both the pattern and the fragments
                 -- are normalized before matching
@@ -289,6 +289,7 @@ view model =
                         matches = searchMatches fragment.text
                         addMatch (index, length) results =
                             let
+                                guessmarkLTR = guessmarkDir LTR
                                 slotIndex = index + 1
                                 contextLen = 3
                                 beforeStart = Basics.max 0 (slotIndex - contextLen)
@@ -315,9 +316,9 @@ view model =
                                         , text fragment.id
                                         ]
                                     , div [ class "match"]
-                                        [ span [ class "before" ] [ text beforeText ]
-                                        , span [ class "highlight" ] [ text matchText ]
-                                        , span [ class "after" ] [ text afterText ]
+                                        [ span [ class "before" ] [ text (guessmarkLTR beforeText) ]
+                                        , span [ class "highlight" ] [ text (guessmarkLTR matchText) ]
+                                        , span [ class "after" ] [ text (guessmarkLTR afterText) ]
                                         ]
                                     ]
                             in
@@ -384,7 +385,7 @@ view model =
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
-                textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
+                textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
                 matches = searchMatches fragment.text
