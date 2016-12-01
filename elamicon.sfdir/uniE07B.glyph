@@ -1,6 +1,6 @@
 StartChar: uniE07B
 Encoding: 57467 57467 225
-Width: 1356
+Width: 1246
 VWidth: -205
 Flags: HW
 LayerCount: 3
@@ -13,18 +13,18 @@ SplineSet
 EndSplineSet
 Fore
 SplineSet
-1096 665 m 1
- 1096 565 l 1
- 716 565 l 1
- 716 173 l 1
- 606 173 l 1
- 606 565 l 1
- 260 565 l 1
- 260 665 l 1
- 606 665 l 1
- 606 1058 l 1
- 716 1058 l 1
- 716 665 l 1
- 1096 665 l 1
+1041 665 m 1
+ 1041 565 l 1
+ 661 565 l 1
+ 661 173 l 1
+ 551 173 l 1
+ 551 565 l 1
+ 205 565 l 1
+ 205 665 l 1
+ 551 665 l 1
+ 551 1058 l 1
+ 661 1058 l 1
+ 661 665 l 1
+ 1041 665 l 1
 EndSplineSet
 EndChar
