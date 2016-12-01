@@ -1,8 +1,8 @@
 StartChar: uniE1CA
-Encoding: 57802 57802 312
-Width: 2048
+Encoding: 57802 57802 311
+Width: 2011
 VWidth: 0
-Flags: H
+Flags: HW
 LayerCount: 3
 Back
 SplineSet

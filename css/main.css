@@ -2,11 +2,11 @@ body {
     padding: 1em;
     background-color: #eed;
     font-size: large;
-    font-family: elamicon;
+    font-family: ElamiconLiberationSerif;
 }
 
 input, textarea {
-    font-family: elamiconmono;
+    font-family: ElamiconLiberationMono;
 }
 
 h1, h2 {
@@ -22,18 +22,18 @@ body, h1, h2, label, input, select {
 }
 
 @font-face {
-    font-family: 'elamicon';
+    font-family: 'ElamiconLiberationSerif';
     src: url('../fonts/ElamiconLiberationSerif-Regular.ttf');
 }
 
 @font-face {
-    font-family: 'elamicon';
+    font-family: 'ElamiconLiberationSerif';
     src: url('../fonts/ElamiconLiberationSerif-Bold.ttf');
     font-weight: bold;
 }
 
 @font-face {
-    font-family: 'elamiconmono';
+    font-family: 'ElamiconLiberationMono';
     src: url('../fonts/ElamiconLiberationMono-Regular.ttf');
 }
 
@@ -118,18 +118,15 @@ input[type=text] {
 }
 
 
-.tallyGrams {
+ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.tallyGrams li {
+.tallyGrams > li {
     float: left;
     margin: 0 1em;
-}
-
-.tallyGrams dl {
     height: 15em;
     overflow-y: scroll;
     border-left: 0.3em solid #ffffe8;
@@ -139,16 +136,20 @@ input[type=text] {
     margin-bottom: 1em;
 }
 
-.tallyGrams dt {
-    width: 1em;
-    float: left;
+.tallyGram ul {
+}
+
+.tallyGram li {
+    margin-left: 2em;
+    position: relative;
+}
+
+.tallyGram .count {
+    position: absolute;
+    left: -2em;
+    width: 1.7em;
     text-align: right;
 }
-
-.tallyGrams dl .boring {
-    color: gray;
-}
-
 
 .searchInput {
     display: inline-block;
@@ -184,10 +185,17 @@ input[type=text] {
 }
 
 .result .id {
-    width: 3em;
+    width: 2em;
     display: inline-block;
 }
 
+sup.group {
+    width: 3em;
+    text-align: right;
+    vertical-align: super;
+    font-size: 0.7em;
+    font-variant: small-caps;
+}
 
 .result .match {
     margin: 0 3em;

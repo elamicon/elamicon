@@ -83,9 +83,13 @@ specialChars =
 -- Letter are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
 syllabaryPreset = "
-                                                                                                                                                                                                                                                                       
-            
-     
+     
+          
+      
+                                 
+                                                                                                                                                                                    
+      
+     
 "
 
 syllabaryList : String -> List (Char, List Char)
@@ -148,9 +152,23 @@ normalizer normalization =
 type Dir = Original | LTR | RTL
 
 
+-- We grouped the fragments according to where they were found
+-- Recorded means that there is a sound archaelogical paper trail
+groups =
+    [ { short = "Susa", name = "Susa", recorded = True }
+    , { short = "Sha", name = "Shahdad", recorded = True }
+    , { short = "Mahb", name = "Mahboubian", recorded = False }
+    , { short = "Pers", name = "Persepolis", recorded = False }
+    , { short = "Liga", name = "Ligabue", recorded = False }
+    , { short = "Schø", name = "Schøyen", recorded = False }
+    , { short = "Phoe", name = "Phoenix", recorded = False }
+    , { short = "Jir", name = "Jiroft (Konar Sandal)", recorded = False }
+    , { short = "Div", name = "Divers", recorded = False }
+    ]
+
 -- Linear Elam body as read by us. The writing direction is only a guess for most fragments.
 fragments =
-    [ { id = "A", dir = RTL, text =
+    [ { id = "A", group = "Susa", dir = RTL, text =
         """
 
 ​
@@ -159,14 +177,14 @@ fragments =
 
         """
       }
-    , { id = "B", dir = LTR, text =
+    , { id = "B", group = "Susa", dir = LTR, text =
         """
 
 ​
 
         """
       }
-    , { id = "C", dir = RTL, text =
+    , { id = "C", group = "Susa", dir = RTL, text =
         """
 ​
 ​
@@ -176,7 +194,7 @@ fragments =
 
         """
       }
-    , { id = "D", dir = RTL, text =
+    , { id = "D", group = "Susa", dir = RTL, text =
         """
 
 
@@ -184,7 +202,7 @@ fragments =
 k
         """
       }
-    , { id = "E", dir = RTL, text =
+    , { id = "E", group = "Susa", dir = RTL, text =
         """
 
 
@@ -192,7 +210,7 @@ fragments =
 
         """
       }
-    , { id = "F", dir = RTL, text =
+    , { id = "F", group = "Susa", dir = RTL, text =
         """
 
 
@@ -200,14 +218,14 @@ fragments =
 
         """
       }
-    , { id = "G", dir = RTL, text =
+    , { id = "G", group = "Susa", dir = RTL, text =
         """
 
 
 
         """
       }
-    , { id = "H", dir = RTL, text =
+    , { id = "H", group = "Susa", dir = RTL, text =
         """
 
 
@@ -215,7 +233,7 @@ fragments =
 
         """
       }
-    , { id = "I", dir = RTL, text =
+    , { id = "I", group = "Susa", dir = RTL, text =
         """
 
 
@@ -223,13 +241,13 @@ fragments =
 
         """
       }
-    , { id = "J", dir = RTL, text =
+    , { id = "J", group = "Susa", dir = RTL, text =
         """
 
 
         """
       }
-    , { id = "K", dir = RTL, text =
+    , { id = "K", group = "Susa", dir = RTL, text =
         """
 
 
@@ -239,7 +257,7 @@ fragments =
 
         """
       }
-    , { id = "L", dir = RTL, text =
+    , { id = "L", group = "Susa", dir = RTL, text =
         """
 
 
@@ -247,7 +265,7 @@ fragments =
 
         """
       }
-    , { id = "M", dir = RTL, text =
+    , { id = "M", group = "Susa", dir = RTL, text =
         """
 
 
@@ -256,7 +274,7 @@ fragments =
 
         """
       }
-    , { id = "N", dir = RTL, text =
+    , { id = "N", group = "Susa", dir = RTL, text =
         """
 
 
@@ -266,7 +284,7 @@ fragments =
 
         """
       }
-    , { id = "O", dir = RTL, text =
+    , { id = "O", group = "Divers", dir = RTL, text =
         """
 
 
@@ -278,105 +296,86 @@ fragments =
 
         """
       }
-    , { id = "O.rs", dir = RTL, text =
+    , { id = "Or", group = "Divers", dir = RTL, text =
         """
 
         """
       }
-    , { id = "P", dir = LTR, text =
+    , { id = "P", group = "Susa", dir = LTR, text =
         """
 
         """
       }
-    , { id = "Q", dir = RTL, text =
+    , { id = "Q", group = "Pers", dir = RTL, text =
         """
 ​k​​​
         """
       }
-    , { id = "R", dir = RTL, text =
+    , { id = "R", group = "Susa", dir = RTL, text =
         """
 
 
 
         """
       }
-    , { id = "R.rs", dir = RTL, text =
+    , { id = "Rr", group = "Susa", dir = RTL, text =
         """
 
         """
       }
-    , { id = "S", dir = RTL, text =
+    , { id = "S", group = "Sha", dir = RTL, text =
         """
 
         """
       }
-    , { id = "T", dir = RTL, text =
+    , { id = "T", group = "Susa", dir = RTL, text =
         """
 
         """
       }
-    , { id = "U", dir = RTL, text =
+    , { id = "U", group = "Susa", dir = RTL, text =
         """
 
 
         """
       }
-    , { id = "V", dir = RTL, text =
+    , { id = "V", group = "Liga", dir = RTL, text =
         """
 
         """
       }
-    , { id = "F′", dir = RTL, text =
+    , { id = "W", group = "Phoe", dir = RTL, text =
         """
-
-
-        """
-      }
-    , { id = "D′", dir = LTR, text =
-        """
-
-
-
-
-
+            
+            
+            
+            
+            
+            
+            
+            
         """
       }
-    , { id = "B′", dir = LTR, text =
+     , { id = "X", group = "Mahb", dir = RTL, text =
         """
-
-
-
-
-
+            kkk
+            
+            
         """
       }
-    , { id = "B′", dir = LTR, text =
+    , { id = "Y", group = "Mahb", dir = RTL, text =
         """
-
-        """
-      }
-    , { id = "C′", dir = LTR, text =
-        """
-
-
-
-
-
-
+            
+                    
+                       
         """
       }
-    , { id = "C′r", dir = LTR, text =
+    , { id = "Yb", group = "Mahb", dir = LTR, text =
         """
-
-        """
-      }
-    , { id = "E′", dir = RTL, text =
-        """
-
-
+        
         """
       }
-    , { id = "Z", dir = RTL, text =
+    , { id = "Z", group = "Mahb", dir = RTL, text =
         """
             ​
             ​​
@@ -389,131 +388,150 @@ fragments =
             
         """
       }
-     , { id = "X", dir = RTL, text =
+    , { id = "A'", group = "Phoe", dir = RTL, text =
         """
-            kkk
-            
-            
-        """
-      }
-    , { id = "Y", dir = RTL, text =
-        """
-            
-                    
-                       
-        """
-      }
-    , { id = "Y.2", dir = LTR, text =
-        """
-        
-        """
-      }
-    , { id = "A′", dir = RTL, text =
-        """
-            
+            
             
             
             
             
         """
       }
-    , { id = "W", dir = RTL, text =
+    , { id = "B'", group = "Jir", dir = LTR, text =
         """
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
         """
       }
-    , { id = "H′a", dir = RTL, text =
+    , { id = "B'r", group = "Jir", dir = LTR, text =
         """
-            
+
+        """
+      }
+    , { id = "C'", group = "Jir", dir = LTR, text =
+        """
+
+
+
+
+
+
+        """
+      }
+    , { id = "C'r", group = "Jir", dir = LTR, text =
+        """
+
+        """
+      }
+    , { id = "D'", group = "Jir", dir = LTR, text =
+        """
+
+
+
+
+
+        """
+      }
+    , { id = "E'", group = "Jir", dir = RTL, text =
+        """
+
+
+        """
+      }
+    , { id = "F'", group = "Schø", dir = RTL, text =
+        """
+
+
+        """
+      }
+    , { id = "H'a", group = "Mahb", dir = RTL, text =
+        """
+            
             
             
             
         """
       }
-    , { id = "H′b", dir = RTL, text =
+    , { id = "H'b", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "J′", dir = RTL, text =
+    , { id = "I'a", group = "Mahb", dir = RTL, text =
+        """
+
+        """
+      }
+    , { id = "I'b", group = "Mahb", dir = RTL, text =
+        """
+
+​
+
+        """
+      }
+    , { id = "I'c", group = "Mahb", dir = RTL, text =
+        """
+
+
+
+        """
+      }
+    , { id = "J'", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K′", dir = RTL, text =
+    , { id = "K'", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K′.b", dir = RTL, text =
+    , { id = "K'b", group = "Mahb", dir = RTL, text =
         """
             
             
             
         """
       }
-    , { id = "K′.c", dir = RTL, text =
+    , { id = "K'c", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K′.d", dir = RTL, text =
+    , { id = "K'd", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "L′.a", dir = RTL, text =
+    , { id = "L'a", group = "Mahb", dir = RTL, text =
         """
             
         """
       }
-    , { id = "L′.b", dir = RTL, text =
+    , { id = "L'b", group = "Mahb", dir = RTL, text =
         """
             
         """
       }
-    , { id = "L′.c", dir = RTL, text =
+    , { id = "L'c", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "L′.d", dir = RTL, text =
+    , { id = "L'd", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "neuK.a", dir = LTR, text =
-        """
-            
-        """
-      }
-    , { id = "neuK.b", dir = LTR, text =
-        """
-            
-            ​
-            
-        """
-      }
-    , { id = "neuK.c", dir = LTR, text =
-        """
-            
-            
-            
-
-        """
-      }
     ]
+

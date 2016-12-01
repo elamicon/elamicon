@@ -25,6 +25,7 @@ type alias Model =
     , lumping : Bool
     , search: String
     , reverseSearch: Bool
+    , selectedGroups: Set.Set String
     }
 
 model =
@@ -37,6 +38,7 @@ model =
     , lumping = False
     , search = ""
     , reverseSearch = True
+    , selectedGroups = Set.fromList (List.map .short Elam.groups)
     }
 
 type Msg
@@ -49,6 +51,7 @@ type Msg
     | AddChar String
     | SetSearch String
     | ReverseSearch Bool
+    | SelectGroup String Bool
 
 
 update : Msg -> Model -> Model
@@ -67,6 +70,9 @@ update msg model =
             { model | search = new }
         ReverseSearch new ->
             { model | reverseSearch = new }
+        SelectGroup group include ->
+            { model | selectedGroups = (if include then Set.insert else Set.remove) group model.selectedGroups
+            }
 
 dirStr dir = case dir of
     LTR -> "LTR"
@@ -89,13 +95,16 @@ type SearchPattern = None
     | Invalid
     | Pattern Regex.Regex
 
+
+
 view : Model -> Html Msg
 view model =
     let effectiveDir original = if model.dir == Original then original else model.dir
         dirAttr original = dir (dirStr (effectiveDir original))
 
         -- There are two "guess" marker characters that are used depending on direction
-        guessmarkDir original = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if effectiveDir original == LTR then "" else "")
+        guessmarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
+        selectedFragments = List.filter (\f -> Set.member f.group model.selectedGroups) Elam.fragments
 
         syllabary =
             [ h2 [] [ text " Die Buchstaben " ]
@@ -133,19 +142,24 @@ view model =
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
                     let
-                        boringClass = if gram.count < 2 then [ class "boring" ] else []
+                        boring = gram.count < 2
                     in
-                        [ dt boringClass [ text <| toString gram.count ] 
-                        , dd boringClass [ text gram.seq ]
-                        ] ++ ts
+                        if boring
+                        then ts
+                        else li []
+                            -- Use a span so that when the text is copied it
+                            -- doesn't cause a new line like a div would.
+                            [ span [ class "count" ] [ text <| toString gram.count ]
+                            , text gram.seq
+                            ] :: ts
                 ntally n tallyGram =
-                    li [] [ dl [] <| List.foldr tallyEntry [] tallyGram ]
+                    li [] [ ul [ class "tallyGram" ] (List.foldr tallyEntry [] tallyGram) ]
             in 
                 if List.isEmpty tallyGrams
                 then div [] []
                 else div [] 
                     [ h3 [] [ text "Statistik der Buchstabenfolgen" ]
-                    ,ul [ class "tallyGrams" ] (List.indexedMap ntally tallyGrams)
+                    , ul [ class "tallyGrams" ] (List.indexedMap ntally tallyGrams)
                     ]
 
         playground =
@@ -165,6 +179,11 @@ view model =
             let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
                 lumpingOptAttrs val lumping = [ value val, selected (lumping == model.lumping) ]
+                groupSelectionEntry group = label []
+                    [ input [ type' "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
+                    , text group.name
+                    ]
+                groupSelection = List.map groupSelectionEntry Elam.groups
             in  [ h2 [] [ text " Einstellungen " ]
                 , label []
                     [ text "Schreibrichtung "
@@ -183,7 +202,7 @@ view model =
                     ]
                 , label []
                     [ text "Syllabar"
-                    , Html.input [ class "elam", type' "text", value model.syllabary, onInput SetSyllabary ] []
+                    , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
                     ]
                 , label []
                     [ text "Alternative Zeichen "
@@ -192,6 +211,8 @@ view model =
                         , option (lumpingOptAttrs "true" True) [ text "vereinheitlichen nach Gruppen" ]
                         ]
                     ]
+                , div []
+                    ( text "Gruppen" :: groupSelection )
                 ]
 
         -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
@@ -216,9 +237,9 @@ view model =
 
         searchPattern =
             let
-                -- When copying strings from the fragments into the search field, irrelevant whitespace might
-                -- get copied as well, we remove that from the search pattern
-                cleaned = Regex.replace Regex.All (Regex.regex ("\\s|"++zeroWidthSpace)) (\_ -> "") (String.trim model.search)
+                -- When copying strings from the fragments into the search field, irrelevant whitespace
+                -- and markers might get copied as well, we remove those from the search pattern.
+                cleaned = Regex.replace Regex.All (Regex.regex ("[\\s"++zeroWidthSpace++"]")) (\_ -> "") (String.trim model.search)
 
                 -- We want the regex to match all letters of a group, so both the pattern and the fragments
                 -- are normalized before matching
@@ -273,6 +294,7 @@ view model =
                         matches = searchMatches fragment.text
                         addMatch (index, length) results =
                             let
+                                guessmarkLTR = guessmarkDir LTR
                                 slotIndex = index + 1
                                 contextLen = 3
                                 beforeStart = Basics.max 0 (slotIndex - contextLen)
@@ -294,23 +316,30 @@ view model =
 
                                 afterText = String.concat (matchAppended :: List.take contextLen (List.drop (slotIndex+length) letterSlots))
                                 item = li [ class "result" ]
-                                    [ div [ class "id" ] [ text fragment.id ]
+                                    [ div [ class "id" ]
+                                        [ Html.sup [ class "group" ] [ text fragment.group ]
+                                        , text fragment.id
+                                        ]
                                     , div [ class "match"]
-                                        [ span [ class "before" ] [ text beforeText ]
-                                        , span [ class "highlight" ] [ text matchText ]
-                                        , span [ class "after" ] [ text afterText ]
+                                        [ span [ class "before" ] [ text (guessmarkLTR beforeText) ]
+                                        , span [ class "highlight" ] [ text (guessmarkLTR matchText) ]
+                                        , span [ class "after" ] [ text (guessmarkLTR afterText) ]
                                         ]
                                     ]
                             in
                                 { items = item :: results.items, raw = matchText :: results.raw }
                     in
                         List.foldr addMatch results matches
-
-                results = List.foldr addMatches {items=[], raw=[]} Elam.fragments
-                stats = gramStats results.raw
+                searching = case searchPattern of
+                                Pattern pat -> True
+                                _ -> False
+                results = List.foldr addMatches {items=[], raw=[]} selectedFragments
+                stats = gramStats (if searching then results.raw else List.map .text selectedFragments)
 
             in
-                [ h2 [] [ text " Suche " ]
+                [ h2 [] [ text " Frequenzanalyse " ]
+                , stats
+                , h2 [] [ text " Suche " ]
                 , label []
                     [ text "Suchmuster "
                     , div [ class "searchInput"]
@@ -328,10 +357,7 @@ view model =
                 ++ case searchPattern of
                     Pattern pat -> if List.length results.items == 0
                                     then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
-                                    else
-                                        [ ol [ class "result" ] results.items,
-                                          stats
-                                        ]
+                                    else [ ol [ class "result" ] results.items ]
                     _ -> [ div [ class "searchExamples" ]
                         [ h3 [] [ text "Suchbeispiele" ]
                         , dl []
@@ -346,7 +372,7 @@ view model =
                             , dt [] [ text "[^]+" ]
                             , dd [] [ text "\"Worte\", wenn wir den vertikalen Strich als Worttrenner annehmen" ]
                             , dt [] [ text "[]" ]
-                            , dd [] [ text "Alle Stellen anzeigen, wo  oder  steht" ]
+                            , dd [] [ text "Alles finden, nützlich zur Frequenzanalyse" ]
                             ]
                         ]
                     ]
@@ -363,7 +389,7 @@ view model =
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
-                textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir fragment.dir
+                textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
                 matches = searchMatches fragment.text
@@ -391,7 +417,7 @@ view model =
                 lines = List.reverse (fst (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
             in
                 div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
-                [ h3 [] [ text fragment.id ]
+                [ h3 [] [ sup [ class "group" ] [ text fragment.group ], span [ dir "LTR" ] [ text fragment.id ] ]
                 , ol [ class "fragment", dirAttr fragment.dir ] lines
                 ]
 
@@ -419,7 +445,7 @@ view model =
               ++ settings
               ++ searchView ++
             [ h2 [] [ text " Textfragmente " ]
-            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView Elam.fragments) ]
+            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView selectedFragments) ]
               ++ [ footer ]
         )
 
