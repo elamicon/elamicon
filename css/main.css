@@ -118,18 +118,15 @@ input[type=text] {
 }
 
 
-.tallyGrams {
+ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.tallyGrams li {
+.tallyGrams > li {
     float: left;
     margin: 0 1em;
-}
-
-.tallyGrams dl {
     height: 15em;
     overflow-y: scroll;
     border-left: 0.3em solid #ffffe8;
@@ -139,9 +136,18 @@ input[type=text] {
     margin-bottom: 1em;
 }
 
-.tallyGrams dt {
-    width: 1em;
-    float: left;
+.tallyGram ul {
+}
+
+.tallyGram li {
+    margin-left: 2em;
+    position: relative;
+}
+
+.tallyGram .count {
+    position: absolute;
+    left: -2em;
+    width: 1.7em;
     text-align: right;
 }
 

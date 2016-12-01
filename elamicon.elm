@@ -146,17 +146,20 @@ view model =
                     in
                         if boring
                         then ts
-                        else [ dt [] [ text <| toString gram.count ]
-                             , dd [] [ text gram.seq ]
-                             ] ++ ts
+                        else li []
+                            -- Use a span so that when the text is copied it
+                            -- doesn't cause a new line like a div would.
+                            [ span [ class "count" ] [ text <| toString gram.count ]
+                            , text gram.seq
+                            ] :: ts
                 ntally n tallyGram =
-                    li [] [ dl [] <| List.foldr tallyEntry [] tallyGram ]
+                    li [] [ ul [ class "tallyGram" ] (List.foldr tallyEntry [] tallyGram) ]
             in 
                 if List.isEmpty tallyGrams
                 then div [] []
                 else div [] 
                     [ h3 [] [ text "Statistik der Buchstabenfolgen" ]
-                    ,ul [ class "tallyGrams" ] (List.indexedMap ntally tallyGrams)
+                    , ul [ class "tallyGrams" ] (List.indexedMap ntally tallyGrams)
                     ]
 
         playground =
