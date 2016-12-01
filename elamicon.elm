@@ -142,11 +142,13 @@ view model =
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
                     let
-                        boringClass = if gram.count < 2 then [ class "boring" ] else []
+                        boring = gram.count < 2
                     in
-                        [ dt boringClass [ text <| toString gram.count ] 
-                        , dd boringClass [ text gram.seq ]
-                        ] ++ ts
+                        if boring
+                        then ts
+                        else [ dt [] [ text <| toString gram.count ]
+                             , dd [] [ text gram.seq ]
+                             ] ++ ts
                 ntally n tallyGram =
                     li [] [ dl [] <| List.foldr tallyEntry [] tallyGram ]
             in 
