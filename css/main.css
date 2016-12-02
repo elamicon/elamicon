@@ -122,11 +122,6 @@ input[type=text] {
     left: -1em;
 }
 
-.inline {
-    display: inline;
-}
-
-
 ul {
     list-style: none;
     margin: 0;
@@ -311,10 +306,6 @@ textarea {
     width: 100%;
     height: 5em;
     font-size: 200%;
-}
-
-label {
-    display: block;
 }
 
 select {

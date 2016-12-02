@@ -179,43 +179,43 @@ view model =
             let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
                 lumpingOptAttrs val lumping = [ value val, selected (lumping == model.lumping) ]
-                groupSelectionEntry group = label [] (
+                groupSelectionEntry group = div [] [ label [] (
                     [ input [ type' "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
                     , text group.name
                     ] ++ if group.recorded then [] else
-                        [ span [ class "recordWarn", title "Undokumentierte Funde" ] [ text " ⚠" ] ])
+                        [ span [ class "recordWarn", title "Undokumentierte Funde" ] [ text "⚠" ] ]) ]
                         
                 groupSelection = List.map groupSelectionEntry Elam.groups
             in  [ h2 [] [ text " Einstellungen " ]
-                , label []
+                , div [] [ label []
                     [ text "Schreibrichtung "
                     , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
                         [ option (dirOptAttrs "Original" Original) [ text "ursprünglich ⇔" ]
                         , option (dirOptAttrs "LTR" LTR) [ text "alles ⇒ von links ⇒ nach rechts" ]
                         , option (dirOptAttrs "RTL" RTL) [ text "alles ⇐ nach links ⇐ von rechts" ]
                         ]
-                    ]
-                , label []
+                    ] ]
+                , div [] [ label []
                     [ text "Zeilenumbrüche "
                     , Html.select [ on "change" (Json.Decode.map SetBreaking boolDecoder) ]
                         [ option (breakOptAttrs "true" True) [ text "ursprünglich" ]
                         , option (breakOptAttrs "false" False) [ text "entfernen" ]
                         ]
-                    ]
-                , label []
+                    ] ]
+                , div [] [ label []
                     [ text "Alternative Zeichen "
                     , Html.select [ on "change" (Json.Decode.map SetLumping boolDecoder) ]
                         [ option (lumpingOptAttrs "false" False) [ text "belassen" ]
                         , option (lumpingOptAttrs "true" True) [ text "vereinheitlichen nach Gruppen" ]
                         ]
-                    ]
-                , label []
-                    [ text "Syllabar"
+                    ] ]
+                , div [] [ label []
+                    [ h4 [] [ text "Syllabar" ]
                     , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
                     ]
                 , div [ class "groups" ]
-                    ( text "Gruppen" :: groupSelection )
-                ]
+                    ( h4 [] [ text "Gruppen" ] :: groupSelection )
+                ] ]
 
         -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
         -- The first slot does not contain an indexed letter but may contain other characters. All other
@@ -350,7 +350,7 @@ view model =
                             then [ div [ class "invalidPattern" ] [ text "Ungültiges Suchmuster" ] ]
                             else []
                         )
-                    , label [ class "inline" ]
+                    , label []
                         [ input [ type' "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
                         , text "auch in Gegenrichtung suchen"
                         ]
