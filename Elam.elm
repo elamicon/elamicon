@@ -388,7 +388,7 @@ fragments =
             
         """
       }
-    , { id = "A'", group = "Phoe", dir = RTL, text =
+    , { id = "A′", group = "Phoe", dir = RTL, text =
         """
             
             
@@ -397,7 +397,7 @@ fragments =
             
         """
       }
-    , { id = "B'", group = "Jir", dir = LTR, text =
+    , { id = "B′", group = "Jir", dir = LTR, text =
         """
 
 
@@ -406,12 +406,12 @@ fragments =
 
         """
       }
-    , { id = "B'r", group = "Jir", dir = LTR, text =
+    , { id = "B′r", group = "Jir", dir = LTR, text =
         """
 
         """
       }
-    , { id = "C'", group = "Jir", dir = LTR, text =
+    , { id = "C′", group = "Jir", dir = LTR, text =
         """
 
 
@@ -421,12 +421,12 @@ fragments =
 
         """
       }
-    , { id = "C'r", group = "Jir", dir = LTR, text =
+    , { id = "C′r", group = "Jir", dir = LTR, text =
         """
 
         """
       }
-    , { id = "D'", group = "Jir", dir = LTR, text =
+    , { id = "D′", group = "Jir", dir = LTR, text =
         """
 
 
@@ -435,19 +435,19 @@ fragments =
 
         """
       }
-    , { id = "E'", group = "Jir", dir = RTL, text =
+    , { id = "E′", group = "Jir", dir = RTL, text =
         """
 
 
         """
       }
-    , { id = "F'", group = "Schø", dir = RTL, text =
+    , { id = "F′", group = "Schø", dir = RTL, text =
         """
 
 
         """
       }
-    , { id = "H'a", group = "Mahb", dir = RTL, text =
+    , { id = "H′a", group = "Mahb", dir = RTL, text =
         """
             
             
@@ -455,79 +455,79 @@ fragments =
             
         """
       }
-    , { id = "H'b", group = "Mahb", dir = RTL, text =
+    , { id = "H′b", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "I'a", group = "Mahb", dir = RTL, text =
+    , { id = "I′a", group = "Mahb", dir = RTL, text =
         """
 
         """
       }
-    , { id = "I'b", group = "Mahb", dir = RTL, text =
+    , { id = "I′b", group = "Mahb", dir = RTL, text =
         """
 
 ​
 
         """
       }
-    , { id = "I'c", group = "Mahb", dir = RTL, text =
+    , { id = "I′c", group = "Mahb", dir = RTL, text =
         """
 
 
 
         """
       }
-    , { id = "J'", group = "Mahb", dir = RTL, text =
+    , { id = "J′", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K'", group = "Mahb", dir = RTL, text =
+    , { id = "K′", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K'b", group = "Mahb", dir = RTL, text =
+    , { id = "K′b", group = "Mahb", dir = RTL, text =
         """
             
             
             
         """
       }
-    , { id = "K'c", group = "Mahb", dir = RTL, text =
+    , { id = "K′c", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K'd", group = "Mahb", dir = RTL, text =
+    , { id = "K′d", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "L'a", group = "Mahb", dir = RTL, text =
+    , { id = "L′a", group = "Mahb", dir = RTL, text =
         """
             
         """
       }
-    , { id = "L'b", group = "Mahb", dir = RTL, text =
+    , { id = "L′b", group = "Mahb", dir = RTL, text =
         """
             
         """
       }
-    , { id = "L'c", group = "Mahb", dir = RTL, text =
+    , { id = "L′c", group = "Mahb", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "L'd", group = "Mahb", dir = RTL, text =
+    , { id = "L′d", group = "Mahb", dir = RTL, text =
         """
             
             
