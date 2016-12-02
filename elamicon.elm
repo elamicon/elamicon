@@ -38,7 +38,7 @@ model =
     , lumping = False
     , search = ""
     , reverseSearch = True
-    , selectedGroups = Set.fromList (List.map .short Elam.groups)
+    , selectedGroups = Set.fromList ["Susa", "Sha"]
     }
 
 type Msg
@@ -179,10 +179,12 @@ view model =
             let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
                 lumpingOptAttrs val lumping = [ value val, selected (lumping == model.lumping) ]
-                groupSelectionEntry group = label []
+                groupSelectionEntry group = label [] (
                     [ input [ type' "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
                     , text group.name
-                    ]
+                    ] ++ if group.recorded then [] else
+                        [ span [ class "recordWarn", title "Undokumentierte Funde" ] [ text " ⚠" ] ])
+                        
                 groupSelection = List.map groupSelectionEntry Elam.groups
             in  [ h2 [] [ text " Einstellungen " ]
                 , label []
@@ -201,17 +203,17 @@ view model =
                         ]
                     ]
                 , label []
-                    [ text "Syllabar"
-                    , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
-                    ]
-                , label []
                     [ text "Alternative Zeichen "
                     , Html.select [ on "change" (Json.Decode.map SetLumping boolDecoder) ]
                         [ option (lumpingOptAttrs "false" False) [ text "belassen" ]
                         , option (lumpingOptAttrs "true" True) [ text "vereinheitlichen nach Gruppen" ]
                         ]
                     ]
-                , div []
+                , label []
+                    [ text "Syllabar"
+                    , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
+                    ]
+                , div [ class "groups" ]
                     ( text "Gruppen" :: groupSelection )
                 ]
 

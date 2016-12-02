@@ -113,6 +113,15 @@ input[type=text] {
     width: 100%;
 }
 
+.groups label {
+    position: relative;
+}
+
+.groups .recordWarn {
+    position: absolute;
+    left: -1em;
+}
+
 .inline {
     display: inline;
 }
