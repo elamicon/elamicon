@@ -10,9 +10,9 @@ SplineSet
  260 1434 l 9
  750 928 l 25
  1250 1434 l 17
- 1250 -205 l 1
+ 1250 -205 l 1025
 751 1463 m 25
- 751 -205 l 25
+ 751 -205 l 1049
 EndSplineSet
 Fore
 SplineSet

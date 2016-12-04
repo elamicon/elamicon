@@ -7,14 +7,14 @@ LayerCount: 3
 Back
 SplineSet
 906 456 m 29
- 1166 204 l 29
+ 1166 204 l 1053
 260 765 m 29
  736 1226 l 29
  1218 765 l 29
  736 297 l 29
  260 765 l 29
 995 42 m 29
- 736 297 l 29
+ 736 297 l 1053
 EndSplineSet
 Fore
 SplineSet

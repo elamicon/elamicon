@@ -10,12 +10,12 @@ Back
 SplineSet
 1310 759 m 25
  1255 1365 l 25
- 964 1147 l 25
+ 964 1147 l 1049
 540.5 0 m 9
  260 338.5 l 25
  964 1147 l 25
  1679 339.245 l 25
- 1416.4 0 l 25
+ 1416.4 0 l 1049
 EndSplineSet
 Fore
 SplineSet
@@ -64,10 +64,10 @@ EndSplineSet
 Layer: 2
 SplineSet
 964 841 m 25
- 965 509 l 25
+ 965 509 l 1049
 1229 412 m 29
- 1228 93 l 29
+ 1228 93 l 1053
 680 412 m 29
- 679 96 l 29
+ 679 96 l 1053
 EndSplineSet
 EndChar

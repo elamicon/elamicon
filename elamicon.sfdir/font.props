@@ -4,7 +4,7 @@ FullName: elamicon
 FamilyName: elamicon
 Weight: Medium
 Copyright: Created by sb,,, with FontForge 2.0 (http://fontforge.sf.net)
-UComments: "2016-4-23: Created." 
+UComments: "2016-4-23: Created."
 Version: 001.000
 StrokeWidth: 50
 ItalicAngle: 0
@@ -12,17 +12,18 @@ UnderlinePosition: -204
 UnderlineWidth: 102
 Ascent: 1638
 Descent: 410
+InvalidEm: 0
 LayerCount: 3
-Layer: 0 0 "Back"  1
-Layer: 1 0 "Fore"  0
-Layer: 2 0 "small"  1
+Layer: 0 0 "Back" 1
+Layer: 1 0 "Fore" 0
+Layer: 2 0 "small" 1
 XUID: [1021 38 2135915415 1003049]
 FSType: 0
 OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1461436948
-ModificationTime: 1480369831
+ModificationTime: 1480847077
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -45,19 +46,19 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 57996 27 10
+WinInfo: 57402 27 9
 BeginPrivate: 0
 EndPrivate
 Grid
 -359 2662 m 0
- -359 -1434 l 0
+ -359 -1434 l 1024
 -2048 1234.74 m 4
- 4096 1234.74 l 4
+ 4096 1234.74 l 1028
 -2048 -0.200195 m 4
- 4096 -0.200195 l 4
+ 4096 -0.200195 l 1028
 -2048 614.2 m 4
- 4096 614.2 l 4
+ 4096 614.2 l 1028
 -2048 1433.4 m 4
- 4096 1433.4 l 4
+ 4096 1433.4 l 1028
 EndSplineSet
 EndSplineFont
