@@ -38,7 +38,7 @@ model =
     , lumping = False
     , search = ""
     , reverseSearch = True
-    , selectedGroups = Set.fromList ["Susa", "Sha"]
+    , selectedGroups = Set.fromList (List.map .short Elam.groups)
     }
 
 type Msg
