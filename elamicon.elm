@@ -418,7 +418,7 @@ view model =
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
-                textMod = String.trim >> normalize >> syllabize >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
+                textMod = String.trim >> normalize >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
                 matches = searchMatches fragment.text
@@ -433,9 +433,9 @@ view model =
                     if
                         Elam.indexed char
                     then
-                        ((span (if highlight idx then [ class "highlight" ] else []) [ text (String.fromChar char) ]) :: elems, idx+1)
+                        ((span (if highlight idx then [ class "highlight" ] else []) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
                     else
-                        ((text (String.fromChar char)) :: elems, idx)
+                        ((text (syllabize <| String.fromChar char)) :: elems, idx)
 
                 line text (lines, idx) =
                     let
