@@ -59,6 +59,42 @@ syllables = Dict.fromList
     , ( '', [ "ni ?" ] )
     , ( '', [ "piš ?" ] )
     ]
+    
+syllableMap = String.trim "
+in 
+šu 
+ši 
+na 
+ak 
+"
+
+sylDict strMap = 
+    let
+        lines = String.lines strMap
+        addRepl : String -> Char -> (Dict.Dict Char String) -> (Dict.Dict Char String)
+        addRepl target source state =
+            Dict.insert source target state
+        addLine line state =
+            let
+                sylls = String.words line 
+                target = Maybe.withDefault "" (List.head sylls)
+                sources = List.concat <| List.map String.toList (Maybe.withDefault [] (List.tail sylls)) 
+            in
+                if List.isEmpty sylls
+                then state
+                else List.foldr 
+                    (addRepl target)
+                    state
+                    sources
+    in
+        List.foldl addLine Dict.empty lines
+
+
+syllabizer strMap =
+    let
+        map = sylDict strMap
+        replacer char = Maybe.withDefault (String.fromChar char) (Dict.get char map)
+    in String.foldr (replacer >> (++)) ""
 
 
 -- List of "special" characters

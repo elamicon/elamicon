@@ -20,9 +20,12 @@ type alias Model =
     , fixedBreak: Bool
     , selected : Maybe Pos
     , syllabary : String
+    , syllableMap : String
+    , syllabizer : String -> String
+    , syllabize: Bool
     , normalizer: String -> String
+    , normalize : Bool
     , sandbox: String
-    , lumping : Bool
     , search: String
     , reverseSearch: Bool
     , selectedGroups: Set.Set String
@@ -32,10 +35,13 @@ model =
     { dir = Original
     , fixedBreak = True
     , selected = Nothing
-    , syllabary = Elam.syllabaryPreset
     , normalizer = Elam.normalizer (Elam.normalization Elam.syllabaryPreset)
+    , normalize = False
+    , syllabary = Elam.syllabaryPreset
+    , syllableMap = Elam.syllableMap
+    , syllabizer = Elam.syllabizer Elam.syllableMap
+    , syllabize = False
     , sandbox = ""
-    , lumping = False
     , search = ""
     , reverseSearch = True
     , selectedGroups = Set.fromList (List.map .short Elam.groups)
@@ -45,9 +51,11 @@ type Msg
     = Select (String, Int, Int)
     | SetBreaking Bool
     | SetDir Dir
-    | SetLumping Bool
+    | SetNormalize Bool
     | SetSandbox String
     | SetSyllabary String
+    | SetSyllableMap String
+    | SetSyllabize Bool
     | AddChar String
     | SetSearch String
     | ReverseSearch Bool
@@ -61,11 +69,14 @@ update msg model =
         AddChar char -> { model | sandbox = model.sandbox ++ char }
         Select pos -> { model | selected = Just pos }
         SetBreaking breaking -> { model | fixedBreak = breaking }
-        SetLumping lumping -> { model | lumping = lumping }
+        SetNormalize normalize -> { model | normalize = normalize }
         SetDir dir -> { model | dir = dir }
         SetSyllabary new ->
             let newSyllabary = Elam.completeSyllabary new
             in { model | syllabary = newSyllabary, normalizer = Elam.normalizer (Elam.normalization newSyllabary) }
+        SetSyllableMap new ->
+            { model | syllableMap = new, syllabizer = Elam.syllabizer new }
+        SetSyllabize syllabize -> { model | syllabize = syllabize }
         SetSearch new ->
             { model | search = new }
         ReverseSearch new ->
@@ -116,7 +127,7 @@ view model =
 
         syllabaryEntry (main, ext) =
             let
-                shownExt = if model.lumping then [] else ext
+                shownExt = if model.normalize then [] else ext
                 syls = Maybe.withDefault [] (Dict.get main Elam.syllables)
                 letterEntry entryClass char = div [ classList [("elam", True), (entryClass, True)], onClick (AddChar (String.fromChar char)) ] [ text (String.fromChar char) ]
                 syllableEntry syl = div [ class "syl" ] [ text syl ]
@@ -178,7 +189,7 @@ view model =
         settings =
             let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
-                lumpingOptAttrs val lumping = [ value val, selected (lumping == model.lumping) ]
+                boolOptAttrs val sel = [ value val, selected sel ]
                 groupSelectionEntry group = div [] [ label [] (
                     [ input [ type' "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
                     , text group.name
@@ -203,19 +214,30 @@ view model =
                         ]
                     ] ]
                 , div [] [ label []
-                    [ text "Alternative Zeichen "
-                    , Html.select [ on "change" (Json.Decode.map SetLumping boolDecoder) ]
-                        [ option (lumpingOptAttrs "false" False) [ text "belassen" ]
-                        , option (lumpingOptAttrs "true" True) [ text "vereinheitlichen nach Gruppen" ]
+                    [ text "Zeichen "
+                    , Html.select [ on "change" (Json.Decode.map SetNormalize boolDecoder) ]
+                        [ option (boolOptAttrs "false" (not model.normalize)) [ text "belassen wie im Original" ]
+                        , option (boolOptAttrs "true" model.normalize) [ text "normalisieren nach Syllabar" ]
+                        ]
+                    ] ]
+                , div [] [ label []
+                    [ text "Bekannte Zeichen "
+                    , Html.select [ on "change" (Json.Decode.map SetSyllabize boolDecoder) ]
+                        [ option (boolOptAttrs "false" (not model.syllabize)) [ text "belassen wie im Original" ]
+                        , option (boolOptAttrs "true" model.syllabize) [ text "ersetzen durch Silbenlautwert" ]
                         ]
                     ] ]
                 , div [] [ label []
                     [ h4 [] [ text "Syllabar" ]
                     , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
-                    ]
+                    ] ]
+                , div [] [ label []
+                    [ h4 [] [ text "Bekannte Silbenlautwerte" ]
+                    , Html.textarea [ class "elam", value model.syllableMap, onInput SetSyllableMap ] []
+                    ] ]
                 , div [ class "groups" ]
                     ( h4 [] [ text "Gruppen" ] :: groupSelection )
-                ] ]
+                ]
 
         -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
         -- The first slot does not contain an indexed letter but may contain other characters. All other
@@ -383,15 +405,20 @@ view model =
         fragmentView fragment =
             let
                 -- Normalize letters if this is enabled
-                lumping text =
-                    if model.lumping
-                    then model.normalizer text
-                    else text
+                normalize =
+                    if model.normalize
+                    then model.normalizer
+                    else identity
+
+                syllabize =
+                    if model.syllabize
+                    then model.syllabizer 
+                    else identity
 
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
-                textMod = String.trim >> lumping >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
+                textMod = String.trim >> normalize >> syllabize >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
                 matches = searchMatches fragment.text
