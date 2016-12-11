@@ -118,7 +118,7 @@ specialChars =
 --
 -- Letter are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
-syllabaryPreset = "
+syllabaryPreset = String.trim "
      
     
         
