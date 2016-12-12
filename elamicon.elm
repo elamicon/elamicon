@@ -12,7 +12,12 @@ import Set
 import Elam exposing (Dir(..))
 import Grams
 
-main = Html.beginnerProgram { model = model, view = view, update = update }
+main = Html.program 
+    { init = (initialModel, Cmd.none)
+    , view = view
+    , update = update
+    , subscriptions = \_ -> Sub.none
+    }
 
 type alias Pos = (String, Int, Int)
 type alias Model =
@@ -31,7 +36,7 @@ type alias Model =
     , selectedGroups: Set.Set String
     }
 
-model =
+initialModel =
     { dir = Original
     , fixedBreak = True
     , selected = Nothing
@@ -62,9 +67,9 @@ type Msg
     | SelectGroup String Bool
 
 
-update : Msg -> Model -> Model
+update : Msg -> Model -> (Model, Cmd msg)
 update msg model =
-    case msg of
+    (case msg of
         SetSandbox str -> { model | sandbox = str }
         AddChar char -> { model | sandbox = model.sandbox ++ char }
         Select pos -> { model | selected = Just pos }
@@ -84,6 +89,8 @@ update msg model =
         SelectGroup group include ->
             { model | selectedGroups = (if include then Set.insert else Set.remove) group model.selectedGroups
             }
+    , Cmd.none
+    )
 
 dirStr dir = case dir of
     LTR -> "LTR"
