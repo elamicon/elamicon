@@ -214,14 +214,14 @@ view model =
                         ]
                     ] ]
                 , div [] [ label []
-                    [ text "Zeichen "
+                    [ text "Alternative Zeichen "
                     , Html.select [ on "change" (Json.Decode.map SetNormalize boolDecoder) ]
                         [ option (boolOptAttrs "false" (not model.normalize)) [ text "belassen wie im Original" ]
                         , option (boolOptAttrs "true" model.normalize) [ text "normalisieren nach Syllabar" ]
                         ]
                     ] ]
                 , div [] [ label []
-                    [ text "Bekannte Zeichen "
+                    [ text "Silben mit angenommenem Lautwert "
                     , Html.select [ on "change" (Json.Decode.map SetSyllabize boolDecoder) ]
                         [ option (boolOptAttrs "false" (not model.syllabize)) [ text "belassen wie im Original" ]
                         , option (boolOptAttrs "true" model.syllabize) [ text "ersetzen durch Silbenlautwert" ]
@@ -232,7 +232,7 @@ view model =
                     , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
                     ] ]
                 , div [] [ label []
-                    [ h4 [] [ text "Bekannte Silbenlautwerte" ]
+                    [ h4 [] [ text "Angenommene Silbenlautwerte" ]
                     , Html.textarea [ class "elam", value model.syllableMap, onInput SetSyllableMap ] []
                     ] ]
                 , div [ class "groups" ]
