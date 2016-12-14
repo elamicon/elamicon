@@ -61,11 +61,12 @@ syllables = Dict.fromList
     ]
     
 syllableMap = String.trim "
-in 
-šu 
-ši 
-na 
-ak 
+in 
+šu 
+ši 
+na 
+ak 
+uš 
 "
 
 sylDict strMap = 
