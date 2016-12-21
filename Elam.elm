@@ -188,7 +188,13 @@ normalizer normalization =
 -- Linear Elam texts are written left-to-right (LTR) and right-to-left (RTL).
 -- The majority is written RTL. We display them in their original direction, but
 -- allow coercing the direction to one of the two for all panels.
-type Dir = Original | LTR | RTL
+-- There is speculation that at least one of the fragemnts is written in
+-- boustrophedon meaning alternating writing direction per line.
+type Dir
+    = Original  -- No choice made yet
+    | LTR       -- assumed to be written left-to-right
+    | RTL       -- assumed to be written right-to-left
+    | BoustroR  -- assumed to be written boustrophedon, first line right-to-left
 
 
 -- We grouped the fragments according to where they were found
@@ -465,13 +471,13 @@ fragments =
 
         """
       }
-    , { id = "D′", group = "Jir", dir = LTR, text =
+    , { id = "D′", group = "Jir", dir = BoustroR, text =
         """
-
+
 
-
+
 
-
+
         """
       }
     , { id = "E′", group = "Jir", dir = RTL, text =

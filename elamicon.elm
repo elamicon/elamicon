@@ -118,7 +118,13 @@ type SearchPattern = None
 view : Model -> Html Msg
 view model =
     let effectiveDir original = if model.dir == Original then original else model.dir
-        dirAttr original = dir (dirStr (effectiveDir original))
+        lineDirAttr nr original =
+            Html.Attributes.dir (dirStr (
+                case effectiveDir original of
+                    BoustroR -> if nr % 2 == 0 then RTL else LTR
+                    _ ->  effectiveDir original
+            ))
+        dirAttr original = lineDirAttr 0 original
 
         -- There are two "guess" marker characters that are used depending on direction
         guessmarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
@@ -444,12 +450,19 @@ view model =
                     else
                         ((text (syllabize <| String.fromChar char)) :: elems, idx)
 
+                -- Fold helper building a list element from a text line
+                -- The tricky bit here is to keep indexed character position so
+                -- we can track highlighted searches which may span across
+                -- lines.
                 line text (lines, idx) =
                     let
+                        lineIdx = List.length lines
                         (elems, endIdx) = String.foldl charPos ([], idx) text
-                        elemLine = li [ class "line", dirAttr fragment.dir ] (List.reverse elems)
+                        elemLine = li [ class "line", lineDirAttr lineIdx fragment.dir ] (List.reverse elems)
                     in
                         (elemLine :: lines, endIdx)
+
+                -- Build line entries from text
                 lines = List.reverse (fst (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
             in
                 div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
