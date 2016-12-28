@@ -166,11 +166,9 @@ view model =
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
                     let
-                        boring = gram.count < 2
+                        boringClass = if gram.count < 2 then [ class "boring" ] else []
                     in
-                        if boring
-                        then ts
-                        else li []
+                        li boringClass
                             -- Use a span so that when the text is copied it
                             -- doesn't cause a new line like a div would.
                             [ span [ class "count" ] [ text <| toString gram.count ]

@@ -155,6 +155,11 @@ ul {
     text-align: right;
 }
 
+.tallyGrams .boring {
+    color: gray;
+}
+
+
 .searchInput {
     display: inline-block;
     position: relative;
