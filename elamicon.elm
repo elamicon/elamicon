@@ -11,6 +11,7 @@ import List
 import Set
 import Elam exposing (Dir(..))
 import Grams
+import Levenshtein
 
 main = Html.program 
     { init = (initialModel, Cmd.none)
@@ -31,6 +32,7 @@ type alias Model =
     , normalizer: String -> String
     , normalize : Bool
     , sandbox: String
+    , fuzzy: Bool
     , search: String
     , reverseSearch: Bool
     , selectedGroups: Set.Set String
@@ -47,6 +49,7 @@ initialModel =
     , syllabizer = Elam.syllabizer Elam.syllableMap
     , syllabize = False
     , sandbox = ""
+    , fuzzy = True
     , search = ""
     , reverseSearch = True
     , selectedGroups = Set.fromList (List.map .short Elam.groups)
@@ -62,6 +65,7 @@ type Msg
     | SetSyllableMap String
     | SetSyllabize Bool
     | AddChar String
+    | SetFuzzy Bool
     | SetSearch String
     | ReverseSearch Bool
     | SelectGroup String Bool
@@ -82,6 +86,8 @@ update msg model =
         SetSyllableMap new ->
             { model | syllableMap = new, syllabizer = Elam.syllabizer new }
         SetSyllabize syllabize -> { model | syllabize = syllabize }
+        SetFuzzy new ->
+            { model | fuzzy = new }
         SetSearch new ->
             { model | search = new }
         ReverseSearch new ->
@@ -112,6 +118,7 @@ boolDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case val
 type SearchPattern = None
     | Invalid
     | Pattern Regex.Regex
+    | Fuzzy String
 
 
 
@@ -281,9 +288,14 @@ view model =
                 then
                     None
                 else
-                    case RegexMaybe.regex normalized of
-                        Just pattern -> Pattern pattern
-                        Nothing -> Invalid
+                    if
+                        model.fuzzy
+                    then
+                        Fuzzy normalized
+                    else
+                        case RegexMaybe.regex normalized of
+                            Just pattern -> Pattern pattern
+                            Nothing -> Invalid
 
 
 
@@ -314,6 +326,28 @@ view model =
 
                     in
                         List.sortBy fst (Set.toList (Set.fromList allMatches))
+                Fuzzy needle ->
+                    let
+                        distMap = Levenshtein.distMap needle matchText
+                        matchText = model.normalizer (String.filter Elam.indexed text)
+                        needleLen = String.length needle
+                        extendRange (pos, dist) state =
+                            let
+                                (reserve, ranges) = state 
+                                (rangePos, rangeLen) = Maybe.withDefault (pos, 0) (List.head ranges)
+                                newReserve = if dist < 2 then needleLen else reserve - 1
+                            in
+                                if
+                                    newReserve < 1
+                                then
+                                    state
+                                else
+                                    if rangePos > pos + 1
+                                    then (newReserve, (pos, 1) :: ranges)
+                                    else (newReserve, (pos, rangeLen + 1) :: Maybe.withDefault [] (List.tail ranges))
+                        matches = snd (List.foldr extendRange (0, []) (List.indexedMap (,) distMap))
+                    in
+                        List.sortBy fst (Set.toList (Set.fromList matches))
                 _ -> []
 
 
