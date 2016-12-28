@@ -168,14 +168,14 @@ view model =
                     let
                         boringClass = if gram.count < 2 then [ class "boring" ] else []
                     in
-                        li boringClass
+                        tr boringClass
                             -- Use a span so that when the text is copied it
                             -- doesn't cause a new line like a div would.
-                            [ span [ class "count" ] [ text <| toString gram.count ]
-                            , text gram.seq
+                            [ td [ class "count" ] [ text <| toString gram.count ]
+                            , td [] [ text gram.seq ]
                             ] :: ts
                 ntally n tallyGram =
-                    li [] [ ul [ class "tallyGram" ] (List.foldr tallyEntry [] tallyGram) ]
+                    li [] [ table [ class "tallyGram" ] (List.foldr tallyEntry [] tallyGram) ]
             in 
                 if List.isEmpty tallyGrams
                 then div [] []

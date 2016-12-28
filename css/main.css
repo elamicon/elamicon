@@ -143,7 +143,7 @@ ul {
 .tallyGram ul {
 }
 
-.tallyGram li {
+.tallyGram {
     margin-left: 2em;
     position: relative;
 }
