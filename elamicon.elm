@@ -125,7 +125,13 @@ type SearchPattern = None
 view : Model -> Html Msg
 view model =
     let effectiveDir original = if model.dir == Original then original else model.dir
-        dirAttr original = dir (dirStr (effectiveDir original))
+        lineDirAttr nr original =
+            Html.Attributes.dir (dirStr (
+                case effectiveDir original of
+                    BoustroR -> if nr % 2 == 0 then RTL else LTR
+                    _ ->  effectiveDir original
+            ))
+        dirAttr original = lineDirAttr 0 original
 
         -- There are two "guess" marker characters that are used depending on direction
         guessmarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
@@ -167,18 +173,16 @@ view model =
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
                     let
-                        boring = gram.count < 2
+                        boringClass = if gram.count < 2 then [ class "boring" ] else []
                     in
-                        if boring
-                        then ts
-                        else li []
+                        tr boringClass
                             -- Use a span so that when the text is copied it
                             -- doesn't cause a new line like a div would.
-                            [ span [ class "count" ] [ text <| toString gram.count ]
-                            , text gram.seq
+                            [ td [ class "count" ] [ text <| toString gram.count ]
+                            , td [] [ text gram.seq ]
                             ] :: ts
                 ntally n tallyGram =
-                    li [] [ ul [ class "tallyGram" ] (List.foldr tallyEntry [] tallyGram) ]
+                    li [] [ table [ class "tallyGram" ] (List.foldr tallyEntry [] tallyGram) ]
             in 
                 if List.isEmpty tallyGrams
                 then div [] []
@@ -464,26 +468,42 @@ view model =
                 -- Find matches in the fragment
                 matches = searchMatches fragment.text
 
-                highlight idx =
+                highlightClass idx =
                     let
                         within (index, length) = (idx >= index) && (idx < index + length)
                     in
-                        List.any within matches
+                        if List.any within matches
+                        then [ class "highlight" ]
+                        else []
+                        
+                guessmarkClass char = 
+                    if Set.member char (Set.fromList ['', ''])
+                    then [ class "guessmark" ]
+                    else []
+                    
+                titleAttr lineIdx charIdx =
+                    [ title (String.concat [toString (lineIdx+1), ".", toString (charIdx+1)]) ] 
 
-                charPos char (elems, idx) =
-                    if
-                        Elam.indexed char
-                    then
-                        ((span (if highlight idx then [ class "highlight" ] else []) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
-                    else
-                        ((text (syllabize <| String.fromChar char)) :: elems, idx)
-
-                line text (lines, idx) =
+                -- Fold helper building a list element from a text line
+                -- The tricky bit here is to keep indexed character position so
+                -- we can track highlighted searches which may span across
+                -- lines.
+                line chars (lines, lineIdx) =
                     let
-                        (elems, endIdx) = String.foldl charPos ([], idx) text
-                        elemLine = li [ class "line", dirAttr fragment.dir ] (List.reverse elems)
+                        lineNr = List.length lines
+                        charPos char (elems, idx) =
+                            if
+                                Elam.indexed char
+                            then
+                                ((span (highlightClass idx ++ titleAttr lineNr (idx-lineIdx)) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
+                            else
+                                ((span (guessmarkClass char) [ text (String.fromChar char) ]) :: elems, idx)
+                        (elems, endIdx) = String.foldl charPos ([], lineIdx) chars
+                        elemLine = li [ class "line", lineDirAttr lineNr fragment.dir ] (List.reverse elems)
                     in
                         (elemLine :: lines, endIdx)
+
+                -- Build line entries from text
                 lines = List.reverse (fst (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
             in
                 div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
