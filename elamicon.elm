@@ -330,16 +330,17 @@ view model =
 
                     in
                         List.sortBy fst (Set.toList (Set.fromList allMatches))
+
                 Fuzzy needle ->
                     let
-                        distMap = Levenshtein.distMap needle matchText
                         matchText = model.normalizer (String.filter Elam.indexed text)
+                        distMap = Levenshtein.distMap needle
                         needleLen = String.length needle
                         extendRange (pos, dist) state =
                             let
                                 (reserve, ranges) = state 
                                 (rangePos, rangeLen) = Maybe.withDefault (pos, 0) (List.head ranges)
-                                newReserve = if dist < 2 then needleLen else reserve - 1
+                                newReserve = if dist < 2 then (needleLen - 1) else reserve - 1
                             in
                                 if
                                     newReserve < 1
@@ -349,9 +350,16 @@ view model =
                                     if rangePos > pos + 1
                                     then (newReserve, (pos, 1) :: ranges)
                                     else (newReserve, (pos, rangeLen + 1) :: Maybe.withDefault [] (List.tail ranges))
-                        matches = snd (List.foldr extendRange (0, []) (List.indexedMap (,) distMap))
+                        find matchText = snd (List.foldr extendRange (0, []) (List.indexedMap (,) (distMap matchText)))
+                        matchTextLen = String.length matchText
+                        revertMatch (idx, len) = (matchTextLen - idx - len, len)
+                        matches = 
+                            if model.reverseSearch
+                            then List.concat [find matchText, List.map revertMatch (find (String.reverse matchText))]
+                            else find matchText
                     in
                         List.sortBy fst (Set.toList (Set.fromList matches))
+
                 _ -> []
 
 
@@ -401,6 +409,7 @@ view model =
                         List.foldr addMatch results matches
                 searching = case searchPattern of
                                 Pattern pat -> True
+                                Fuzzy needle -> True
                                 _ -> False
                 results = List.foldr addMatches {items=[], raw=[]} selectedFragments
                 stats = gramStats (if searching then results.raw else List.map .text selectedFragments)
