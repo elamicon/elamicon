@@ -434,29 +434,38 @@ view model =
                 -- Find matches in the fragment
                 matches = searchMatches fragment.text
 
-                highlight idx =
+                highlightClass idx =
                     let
                         within (index, length) = (idx >= index) && (idx < index + length)
                     in
-                        List.any within matches
-
-                charPos char (elems, idx) =
-                    if
-                        Elam.indexed char
-                    then
-                        ((span (if highlight idx then [ class "highlight" ] else []) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
-                    else
-                        ((text (syllabize <| String.fromChar char)) :: elems, idx)
+                        if List.any within matches
+                        then [ class "highlight" ]
+                        else []
+                        
+                guessmarkClass char = 
+                    if Set.member char (Set.fromList ['', ''])
+                    then [ class "guessmark" ]
+                    else []
+                    
+                titleAttr lineIdx charIdx =
+                    [ title (String.concat [toString (lineIdx+1), ".", toString (charIdx+1)]) ] 
 
                 -- Fold helper building a list element from a text line
                 -- The tricky bit here is to keep indexed character position so
                 -- we can track highlighted searches which may span across
                 -- lines.
-                line text (lines, idx) =
+                line chars (lines, lineIdx) =
                     let
-                        lineIdx = List.length lines
-                        (elems, endIdx) = String.foldl charPos ([], idx) text
-                        elemLine = li [ class "line", lineDirAttr lineIdx fragment.dir ] (List.reverse elems)
+                        lineNr = List.length lines
+                        charPos char (elems, idx) =
+                            if
+                                Elam.indexed char
+                            then
+                                ((span (highlightClass idx ++ titleAttr lineNr (idx-lineIdx)) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
+                            else
+                                ((span (guessmarkClass char) [ text (String.fromChar char) ]) :: elems, idx)
+                        (elems, endIdx) = String.foldl charPos ([], lineIdx) chars
+                        elemLine = li [ class "line", lineDirAttr lineNr fragment.dir ] (List.reverse elems)
                     in
                         (elemLine :: lines, endIdx)
 
