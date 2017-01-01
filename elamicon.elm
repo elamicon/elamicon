@@ -411,6 +411,10 @@ view model =
                                 Pattern pat -> True
                                 Fuzzy needle -> True
                                 _ -> False
+                searchingWithRegex = case searchPattern of
+                                Pattern pat -> True
+                                _ -> False
+
                 results = List.foldr addMatches {items=[], raw=[]} selectedFragments
                 stats = gramStats (if searching then results.raw else List.map .text selectedFragments)
 
@@ -432,28 +436,34 @@ view model =
                         ]
                     ]
                 ]
-                ++ case searchPattern of
-                    Pattern pat -> if List.length results.items == 0
+                ++  if searching
+                    then if List.length results.items == 0
                                     then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
                                     else [ ol [ class "result" ] results.items ]
-                    _ -> [ div [ class "searchExamples" ]
-                        [ h3 [] [ text "Suchbeispiele" ]
-                        , dl []
-                            [ dt [] [ text "[]?[]" ]
-                            , dd [] [ text "Suche nach Varianten von  (in-šu mit optionalem NAP)" ]
-                            , dt [] [ text "[][]" ]
-                            , dd [] [ text "Suche nach Varianten von  und erlaube auch Platzhalter" ]
-                            , dt [] [ text "([^])\\1" ]
-                            , dd [] [ text "Suche nach Silbenwiederholungen wie " ]
-                            , dt [] [ text "([^]).\\1" ]
-                            , dd [] [ text "Silbenwiederholungen mit einem beliebigen Zeichen dazwischen ()" ]
-                            , dt [] [ text "[^]+" ]
-                            , dd [] [ text "\"Worte\", wenn wir den vertikalen Strich als Worttrenner annehmen" ]
-                            , dt [] [ text "[]" ]
-                            , dd [] [ text "Alle Stellen anzeigen, wo  oder  steht" ]
+                    
+                    else 
+                        if
+                            searchingWithRegex 
+                        then 
+                            [ div [ class "searchExamples" ]
+                                [ h3 [] [ text "Suchbeispiele" ]
+                                , dl []
+                                    [ dt [] [ text "[]?[]" ]
+                                    , dd [] [ text "Suche nach Varianten von  (in-šu mit optionalem NAP)" ]
+                                    , dt [] [ text "[][]" ]
+                                    , dd [] [ text "Suche nach Varianten von  und erlaube auch Platzhalter" ]
+                                    , dt [] [ text "([^])\\1" ]
+                                    , dd [] [ text "Suche nach Silbenwiederholungen wie " ]
+                                    , dt [] [ text "([^]).\\1" ]
+                                    , dd [] [ text "Silbenwiederholungen mit einem beliebigen Zeichen dazwischen ()" ]
+                                    , dt [] [ text "[^]+" ]
+                                    , dd [] [ text "\"Worte\", wenn wir den vertikalen Strich als Worttrenner annehmen" ]
+                                    , dt [] [ text "[]" ]
+                                    , dd [] [ text "Alle Stellen anzeigen, wo  oder  steht" ]
+                                    ]
+                                ]
                             ]
-                        ]
-                    ]
+                        else []
 
 
         fragmentView fragment =
