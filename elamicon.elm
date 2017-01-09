@@ -1,5 +1,4 @@
 import Html exposing (..)
-import Html.App as Html
 import Html.Events exposing (on, onClick, onInput, targetValue)
 import Html.Attributes exposing (..)
 import Dict
@@ -116,14 +115,14 @@ dirStr dir = case dir of
     _ -> "RTL"
 
 dirDecoder : Json.Decode.Decoder Dir
-dirDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valStr of
+dirDecoder = Html.Events.targetValue |> Json.Decode.andThen (\valStr -> case valStr of
     "Original" -> Json.Decode.succeed Original
     "LTR" -> Json.Decode.succeed LTR
     "RTL" -> Json.Decode.succeed RTL
     _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
 
 boolDecoder : Json.Decode.Decoder Bool
-boolDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valStr of
+boolDecoder = Html.Events.targetValue |> Json.Decode.andThen (\valStr -> case valStr of
     "true" -> Json.Decode.succeed True
     "false" -> Json.Decode.succeed False
     _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
@@ -245,7 +244,7 @@ view model =
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
                 boolOptAttrs val sel = [ value val, selected sel ]
                 groupSelectionEntry group = div [] [ label [] (
-                    [ input [ type' "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
+                    [ input [ type_ "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
                     , text group.name
                     ] ++ if group.recorded then [] else
                         [ span [ class "recordWarn", title "Undokumentierte Funde" ] [ text "⚠" ] ]) ]
@@ -361,7 +360,7 @@ view model =
                         allMatches = reverseMatches ++ List.map (\m -> (m.index, String.length m.match)) matches
 
                     in
-                        List.sortBy fst (Set.toList (Set.fromList allMatches))
+                        List.sortBy Tuple.first (Set.toList (Set.fromList allMatches))
                 _ -> []
 
 
@@ -462,7 +461,7 @@ view model =
                             else []
                         )
                     , label []
-                        [ input [ type' "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
+                        [ input [ type_ "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
                         , text "auch in Gegenrichtung suchen"
                         ]
                     ]
@@ -476,7 +475,7 @@ view model =
                                             if results.more 
                                             then 
                                                 [ text (String.concat [ "Nur ", toString maxResults, " von ", toString (List.length results.raw), " Resultaten werden angezeigt. "])
-                                                , button [ type' "button", onClick ShowAllResults ] [ text "Alle Resultate anzeigen!" ]
+                                                , button [ type_ "button", onClick ShowAllResults ] [ text "Alle Resultate anzeigen!" ]
                                                 ]
                                             else []
                     _ -> [ div [ class "searchExamples" ]
@@ -558,7 +557,7 @@ view model =
                         (elemLine :: lines, endIdx)
 
                 -- Build line entries from text
-                lines = List.reverse (fst (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
+                lines = List.reverse (Tuple.first (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
             in
                 div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
                 [ h3 [] [ sup [ class "group" ] [ text fragment.group ], span [ dir "LTR" ] [ text fragment.id ] ]
