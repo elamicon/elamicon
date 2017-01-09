@@ -364,6 +364,7 @@ view model =
     
                                 unique = Set.toList << Set.fromList
                                 matchTitle = title <| String.join "–" <| posString slotIndex :: if length > 1 then [ posString lastSlotIndex ] else []
+                                ref = href <| String.concat [ "#", fragment.id, toString index ]
 
                                 afterText = String.concat (matchAppended :: List.take contextLen (List.drop (lastSlotIndex + 1) letterSlots))
                                 item = li [ class "result" ]
@@ -373,7 +374,7 @@ view model =
                                         ]
                                     , div [ class "match"]
                                         [ span [ class "before" ] [ text (guessmarkLTR beforeText) ]
-                                        , span [ class "highlight", matchTitle ] [ text (guessmarkLTR matchText) ]
+                                        , a [ class "highlight", matchTitle, ref ] [ text (guessmarkLTR matchText) ]
                                         , span [ class "after" ] [ text (guessmarkLTR afterText) ]
                                         ]
                                     ]
@@ -450,22 +451,13 @@ view model =
                 -- Find matches in the fragment
                 matches = searchMatches fragment.text
 
-                highlightClass idx =
-                    let
-                        within (index, length) = (idx >= index) && (idx < index + length)
-                    in
-                        if List.any within matches
-                        then [ class "highlight" ]
-                        else []
+
                         
                 guessmarkClass char = 
                     if Set.member char (Set.fromList ['', ''])
                     then [ class "guessmark" ]
                     else []
                     
-                titleAttr lineIdx charIdx =
-                    [ title (String.concat [toString (lineIdx+1), ".", toString (charIdx+1)]) ] 
-
                 -- Fold helper building a list element from a text line
                 -- The tricky bit here is to keep indexed character position so
                 -- we can track highlighted searches which may span across
@@ -474,12 +466,23 @@ view model =
                     let
                         lineNr = List.length lines
                         charPos char (elems, idx) =
-                            if
-                                Elam.indexed char
-                            then
-                                ((span (highlightClass idx ++ titleAttr lineNr (idx-lineIdx)) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
-                            else
-                                ((span (guessmarkClass char) [ text (String.fromChar char) ]) :: elems, idx)
+                            let
+                                within (index, length) = (idx >= index) && (idx < index + length)
+                                highlightClass =
+                                      if List.any within matches
+                                      then [ class "highlight" ]
+                                      else []
+                                titleAttr =
+                                    [ title (String.concat [toString (lineNr+1), ".", toString (idx-lineIdx+1)]) ] 
+                                idAttr =
+                                    [ id <| String.concat [ fragment.id, toString idx ] ]
+                            in
+                                if
+                                    Elam.indexed char
+                                then
+                                    ((a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
+                                else
+                                    ((span (guessmarkClass char) [ text (String.fromChar char) ]) :: elems, idx)
                         (elems, endIdx) = String.foldl charPos ([], lineIdx) chars
                         elemLine = li [ class "line", lineDirAttr lineNr fragment.dir ] (List.reverse elems)
                     in
