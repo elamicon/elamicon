@@ -212,9 +212,20 @@ ul {
     margin: 1em;
 }
 
+.result {
+    position: relative;
+}
+
 .result .id {
-    width: 2em;
+    width: 5em;
     display: inline-block;
+}
+
+.result .pos {
+    position: absolute;
+    left: 4.5em;
+    font-size: small;
+    bottom: 0;
 }
 
 sup.group {

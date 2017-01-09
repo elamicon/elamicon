@@ -8,6 +8,7 @@ import Regex
 import RegexMaybe
 import Json.Decode
 import List
+import Array
 import Set
 import Elam exposing (Dir(..))
 import Grams
@@ -127,6 +128,10 @@ type SearchPattern = None
     | Invalid
     | Pattern Regex.Regex
 
+
+-- Twelve numerals ought to be enough for everybody
+romanNumerals = Array.fromList [ "", "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ", "Ⅹ", "Ⅺ", "Ⅻ" ]
+roman num = Maybe.withDefault "" <| Array.get num romanNumerals
 
 
 view : Model -> Html Msg
@@ -387,18 +392,31 @@ view model =
                                 
                                 -- Finding the line nr of the match is somewhat involved because the
                                 -- linebreaks are buried in the slots
-                                posString atSlot =
+                                pos atSlot =
                                     let
-                                        countLines slotStr (lc, cc) =
-                                            if Debug.log (toString slotStr) <| String.contains "\n" slotStr
-                                            then Debug.log "lc" (lc+1, 1)
-                                            else Debug.log "cc" (lc, cc+1)
-                                        (lineNr, charNr) = List.foldl countLines (1, 1) <| List.take atSlot letterSlots
+                                        countLines slotStr (lc, cc) = 
+                                            if String.contains "\n" slotStr
+                                            then (lc+1, 1)
+                                            else (lc, cc+1)
                                     in
-                                        String.concat [ toString lineNr, ".", toString charNr ]
+                                        List.foldl countLines (1, 1) <| List.take atSlot letterSlots
     
                                 unique = Set.toList << Set.fromList
-                                matchTitle = title <| String.join "–" <| posString slotIndex :: if length > 1 then [ posString lastSlotIndex ] else []
+                                (startLineNr, startCharNr) = pos slotIndex
+                                (endLineNr, endCharNr) = pos lastSlotIndex
+                                matchTitle = String.concat <|
+                                    [ roman startLineNr
+                                    , " "
+                                    , toString startCharNr
+                                    ] ++
+                                    if startLineNr /= endLineNr || startCharNr /= endCharNr
+                                    then 
+                                        (if startLineNr /= endLineNr
+                                        then [ " – ", roman endLineNr, " " ]
+                                        else ["–"]) ++
+                                        [ toString endCharNr ]
+                                    else []
+                                    
                                 ref = href <| String.concat [ "#", fragment.id, toString index ]
 
                                 afterText = String.concat (matchAppended :: List.take contextLen (List.drop (lastSlotIndex + 1) letterSlots))
@@ -406,10 +424,11 @@ view model =
                                     [ div [ class "id" ]
                                         [ Html.sup [ class "group" ] [ text fragment.group ]
                                         , text fragment.id
+                                        , span [ class "pos"] [ text matchTitle ]
                                         ]
                                     , div [ class "match"]
                                         [ span [ class "before" ] [ text (guessmarkLTR beforeText) ]
-                                        , a [ class "highlight", matchTitle, ref ] [ text (guessmarkLTR matchText) ]
+                                        , a [ class "highlight", ref ] [ text (guessmarkLTR matchText) ]
                                         , span [ class "after" ] [ text (guessmarkLTR afterText) ]
                                         ]
                                     ]
