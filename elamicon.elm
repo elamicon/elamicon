@@ -73,7 +73,7 @@ type Msg
     | Toggle String
 
 
-update : Msg -> Model -> (Model, Cmd msg)
+update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     (case msg of
         SetSandbox str -> { model | sandbox = str }
