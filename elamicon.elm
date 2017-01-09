@@ -34,6 +34,7 @@ type alias Model =
     , search: String
     , reverseSearch: Bool
     , selectedGroups: Set.Set String
+    , collapsed: Set.Set String
     }
 
 initialModel =
@@ -50,6 +51,7 @@ initialModel =
     , search = ""
     , reverseSearch = True
     , selectedGroups = Set.fromList (List.map .short Elam.groups)
+    , collapsed = Set.fromList [ "gramStats", "syllabary", "playground", "settings", "search" ]
     }
 
 type Msg
@@ -65,13 +67,18 @@ type Msg
     | SetSearch String
     | ReverseSearch Bool
     | SelectGroup String Bool
+    | Toggle String
 
 
 update : Msg -> Model -> (Model, Cmd msg)
 update msg model =
     (case msg of
         SetSandbox str -> { model | sandbox = str }
-        AddChar char -> { model | sandbox = model.sandbox ++ char }
+        AddChar char -> 
+            { model
+            | sandbox = model.sandbox ++ char
+            ,collapsed = Set.remove "playground" model.collapsed
+            }
         Select pos -> { model | selected = Just pos }
         SetBreaking breaking -> { model | fixedBreak = breaking }
         SetNormalize normalize -> { model | normalize = normalize }
@@ -88,6 +95,13 @@ update msg model =
             { model | reverseSearch = new }
         SelectGroup group include ->
             { model | selectedGroups = (if include then Set.insert else Set.remove) group model.selectedGroups
+            }
+        Toggle section ->
+            { model | collapsed = 
+                (if Set.member section model.collapsed 
+                then Set.remove else Set.insert)
+                    section
+                    model.collapsed
             }
     , Cmd.none
     )
@@ -129,14 +143,33 @@ view model =
         -- There are two "guess" marker characters that are used depending on direction
         guessmarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
         selectedFragments = List.filter (\f -> Set.member f.group model.selectedGroups) Elam.fragments
+        
+        collapsible section =
+            [ classList
+                [ ("collapsible", True)
+                , ("collapsed", Set.member section model.collapsed)
+                ]
+            , onClick (Toggle section)
+            ]
+        
+        -- build is called lazily when the section is expanded
+        ifExpanded : String -> (() -> List a) -> List a
+        ifExpanded section build =
+            if Set.member section model.collapsed
+            then []
+            else build ()
 
         syllabary =
-            [ h2 [] [ text " Die Buchstaben " ]
-            , ol [ dirAttr LTR, classList [ ("syllabary", True) ] ]
-                ( List.map syllabaryEntry (Elam.syllabaryList model.syllabary)
-                ++ List.map specialEntry Elam.specialChars
-                )
-            ]
+            [ h2 (collapsible "syllabary") [ text " Die Buchstaben " ] 
+            ] ++ ifExpanded "syllabary" syllabaryView
+        
+        syllabaryView = 
+            \_ ->
+                [ ol [ dirAttr LTR, classList [ ("syllabary", True) ] ]
+                    ( List.map syllabaryEntry (Elam.syllabaryList model.syllabary)
+                    ++ List.map specialEntry Elam.specialChars
+                    )
+                ]
 
         syllabaryEntry (main, ext) =
             let
@@ -185,8 +218,9 @@ view model =
                     ]
 
         playground =
-            [ h2 [] [ text " Spielplatz " ]
-            , textarea
+            [ h2 (collapsible "playground") [ text " Spielplatz " ]
+            ] ++ ifExpanded "playground" (\_ -> 
+            [ textarea
                 [ class "elam"
                 , dirAttr LTR
                 , on "input" (Json.Decode.map SetSandbox Html.Events.targetValue)
@@ -194,7 +228,7 @@ view model =
                 , value ((guessmarkDir LTR) model.sandbox)
                 ] []
             , gramStats [model.sandbox]
-            ]
+            ])
 
 
         settings =
@@ -208,8 +242,9 @@ view model =
                         [ span [ class "recordWarn", title "Undokumentierte Funde" ] [ text "⚠" ] ]) ]
                         
                 groupSelection = List.map groupSelectionEntry Elam.groups
-            in  [ h2 [] [ text " Einstellungen " ]
-                , div [] [ label []
+            in  [ h2 (collapsible "settings") [ text " Einstellungen " ]
+                ] ++ ifExpanded "settings" (\_ -> 
+                [ div [] [ label []
                     [ text "Schreibrichtung "
                     , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
                         [ option (dirOptAttrs "Original" Original) [ text "ursprünglich ⇔" ]
@@ -248,7 +283,7 @@ view model =
                     ] ]
                 , div [ class "groups" ]
                     ( h4 [] [ text "Gruppen" ] :: groupSelection )
-                ]
+                ])
 
         -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
         -- The first slot does not contain an indexed letter but may contain other characters. All other
@@ -386,13 +421,13 @@ view model =
                                 Pattern pat -> True
                                 _ -> False
                 results = List.foldr addMatches {items=[], raw=[]} selectedFragments
-                stats = gramStats (if searching then results.raw else List.map .text selectedFragments)
+                stats = \_ -> [ (gramStats (if searching then results.raw else List.map .text selectedFragments)) ]
 
             in
-                [ h2 [] [ text " Frequenzanalyse " ]
-                , stats
-                , h2 [] [ text " Suche " ]
-                , label []
+                [ h2 (collapsible "gramStats") [ text " Frequenzanalyse " ]
+                ] ++ ifExpanded "gramStats" stats ++
+                [ h2 (collapsible "search") [ text " Suche " ]
+                ] ++ ifExpanded "search" (\_ -> [ label []
                     [ text "Suchmuster "
                     , div [ class "searchInput"]
                         ([ Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
@@ -428,7 +463,7 @@ view model =
                             ]
                         ]
                     ]
-
+                )
 
         fragmentView fragment =
             let
