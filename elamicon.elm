@@ -427,7 +427,7 @@ view model =
                                 item = \_ -> li [ class "result" ]
                                     [ div [ class "id" ]
                                         [ Html.sup [ class "group" ] [ text fragment.group ]
-                                        , text fragment.id
+                                        , text (fragment.id ++ " ")
                                         , span [ class "pos"] [ text matchTitle ]
                                         ]
                                     , div [ class "match"]
