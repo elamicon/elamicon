@@ -36,6 +36,7 @@ type alias Model =
     , reverseSearch: Bool
     , selectedGroups: Set.Set String
     , collapsed: Set.Set String
+    , showAllResults: Bool
     }
 
 initialModel =
@@ -50,6 +51,7 @@ initialModel =
     , syllabize = False
     , sandbox = ""
     , search = ""
+    , showAllResults = False
     , reverseSearch = True
     , selectedGroups = Set.fromList (List.map .short Elam.groups)
     , collapsed = Set.fromList [ "gramStats", "syllabary", "playground", "settings", "search" ]
@@ -66,6 +68,7 @@ type Msg
     | SetSyllabize Bool
     | AddChar String
     | SetSearch String
+    | ShowAllResults
     | ReverseSearch Bool
     | SelectGroup String Bool
     | Toggle String
@@ -91,7 +94,8 @@ update msg model =
             { model | syllableMap = new, syllabizer = Elam.syllabizer new }
         SetSyllabize syllabize -> { model | syllabize = syllabize }
         SetSearch new ->
-            { model | search = new }
+            { model | search = new, showAllResults = False }
+        ShowAllResults -> { model | showAllResults = True }
         ReverseSearch new ->
             { model | reverseSearch = new }
         SelectGroup group include ->
@@ -363,6 +367,7 @@ view model =
 
         searchView =
             let
+                maxResults = 100
                 addMatches fragment results =
                     let
                         letterSlots = letterSplit fragment.text
@@ -420,7 +425,7 @@ view model =
                                 ref = href <| String.concat [ "#", fragment.id, toString index ]
 
                                 afterText = String.concat (matchAppended :: List.take contextLen (List.drop (lastSlotIndex + 1) letterSlots))
-                                item = li [ class "result" ]
+                                item = \_ -> li [ class "result" ]
                                     [ div [ class "id" ]
                                         [ Html.sup [ class "group" ] [ text fragment.group ]
                                         , text fragment.id
@@ -433,13 +438,15 @@ view model =
                                         ]
                                     ]
                             in
-                                { items = item :: results.items, raw = matchText :: results.raw }
+                                if List.length results.items >= maxResults && not model.showAllResults
+                                then { results | more = True, raw = matchText :: results.raw }
+                                else { results | items = item () :: results.items, raw = matchText :: results.raw }
                     in
                         List.foldr addMatch results matches
                 searching = case searchPattern of
                                 Pattern pat -> True
                                 _ -> False
-                results = List.foldr addMatches {items=[], raw=[]} selectedFragments
+                results = List.foldr addMatches {items=[], raw=[], more=False} selectedFragments
                 stats = \_ -> [ (gramStats (if searching then results.raw else List.map .text selectedFragments)) ]
 
             in
@@ -463,7 +470,15 @@ view model =
                 ++ case searchPattern of
                     Pattern pat -> if List.length results.items == 0
                                     then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
-                                    else [ ol [ class "result" ] results.items ]
+                                    else 
+                                        [ ol [ class "result" ] results.items ]
+                                        ++ 
+                                            if results.more 
+                                            then 
+                                                [ text (String.concat [ "Nur ", toString maxResults, " von ", toString (List.length results.raw), " Resultaten werden angezeigt. "])
+                                                , button [ type' "button", onClick ShowAllResults ] [ text "Alle Resultate anzeigen!" ]
+                                                ]
+                                            else []
                     _ -> [ div [ class "searchExamples" ]
                         [ h3 [] [ text "Suchbeispiele" ]
                         , dl []
