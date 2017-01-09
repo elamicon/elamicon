@@ -331,6 +331,7 @@ view model =
                             let
                                 guessmarkLTR = guessmarkDir LTR
                                 slotIndex = index + 1
+                                lastSlotIndex = index + length
                                 contextLen = 3
                                 beforeStart = Basics.max 0 (slotIndex - contextLen)
                                 beforeLen = Basics.min slotIndex contextLen
@@ -348,8 +349,23 @@ view model =
                                         Just (l, a) -> (String.fromChar l, a)
                                         Nothing -> ("", "")
                                 matchText = String.concat (List.reverse (matchLastLetter :: List.drop 1 matchReversed))
+                                
+                                -- Finding the line nr of the match is somewhat involved because the
+                                -- linebreaks are buried in the slots
+                                posString atSlot =
+                                    let
+                                        countLines slotStr (lc, cc) =
+                                            if Debug.log (toString slotStr) <| String.contains "\n" slotStr
+                                            then Debug.log "lc" (lc+1, 1)
+                                            else Debug.log "cc" (lc, cc+1)
+                                        (lineNr, charNr) = List.foldl countLines (1, 1) <| List.take atSlot letterSlots
+                                    in
+                                        String.concat [ toString lineNr, ".", toString charNr ]
+    
+                                unique = Set.toList << Set.fromList
+                                matchTitle = title <| String.join "–" <| posString slotIndex :: if length > 1 then [ posString lastSlotIndex ] else []
 
-                                afterText = String.concat (matchAppended :: List.take contextLen (List.drop (slotIndex+length) letterSlots))
+                                afterText = String.concat (matchAppended :: List.take contextLen (List.drop (lastSlotIndex + 1) letterSlots))
                                 item = li [ class "result" ]
                                     [ div [ class "id" ]
                                         [ Html.sup [ class "group" ] [ text fragment.group ]
@@ -357,7 +373,7 @@ view model =
                                         ]
                                     , div [ class "match"]
                                         [ span [ class "before" ] [ text (guessmarkLTR beforeText) ]
-                                        , span [ class "highlight" ] [ text (guessmarkLTR matchText) ]
+                                        , span [ class "highlight", matchTitle ] [ text (guessmarkLTR matchText) ]
                                         , span [ class "after" ] [ text (guessmarkLTR afterText) ]
                                         ]
                                     ]
