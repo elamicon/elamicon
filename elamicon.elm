@@ -406,13 +406,13 @@ view model =
                                 (endLineNr, endCharNr) = pos lastSlotIndex
                                 matchTitle = String.concat <|
                                     [ roman startLineNr
-                                    , " "
+                                    , " "
                                     , toString startCharNr
                                     ] ++
                                     if startLineNr /= endLineNr || startCharNr /= endCharNr
                                     then 
                                         (if startLineNr /= endLineNr
-                                        then [ " – ", roman endLineNr, " " ]
+                                        then [ " – ", roman endLineNr, " " ]
                                         else ["–"]) ++
                                         [ toString endCharNr ]
                                     else []
