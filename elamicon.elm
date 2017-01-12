@@ -26,6 +26,7 @@ type alias Model =
     , fixedBreak: Bool
     , selected : Maybe Pos
     , syllabary : String
+    , missingSyllabaryChars: String
     , syllableMap : String
     , syllabizer : String -> String
     , syllabize: Bool
@@ -39,13 +40,14 @@ type alias Model =
     , showAllResults: Bool
     }
 
-initialModel =
+(initialModel, _) = update (SetSyllabary Elam.syllabaryPreset)
     { dir = Original
     , fixedBreak = True
     , selected = Nothing
     , normalizer = Elam.normalizer (Elam.normalization Elam.syllabaryPreset)
     , normalize = False
-    , syllabary = Elam.syllabaryPreset
+    , syllabary = ""
+    , missingSyllabaryChars = ""
     , syllableMap = Elam.syllableMap
     , syllabizer = Elam.syllabizer Elam.syllableMap
     , syllabize = False
@@ -88,8 +90,10 @@ update msg model =
         SetNormalize normalize -> { model | normalize = normalize }
         SetDir dir -> { model | dir = dir }
         SetSyllabary new ->
-            let newSyllabary = Elam.completeSyllabary new
-            in { model | syllabary = newSyllabary, normalizer = Elam.normalizer (Elam.normalization newSyllabary) }
+            let 
+                (deduped, missing) = Elam.dedupe new
+                newNormalizer = Elam.normalizer (Elam.normalization deduped)
+            in { model | syllabary = deduped, normalizer = newNormalizer, missingSyllabaryChars = missing }
         SetSyllableMap new ->
             { model | syllableMap = new, syllabizer = Elam.syllabizer new }
         SetSyllabize syllabize -> { model | syllabize = syllabize }
@@ -282,10 +286,16 @@ view model =
                         , option (boolOptAttrs "true" model.syllabize) [ text "ersetzen durch Silbenlautwert" ]
                         ]
                     ] ]
-                , div [] [ label []
-                    [ h4 [] [ text "Syllabar" ]
-                    , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
-                    ] ]
+                , div [] 
+                    ([ label [] 
+                        [ h4 [] [ text "Syllabar" ]
+                        , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
+                        ] 
+                    ] 
+                    ++ if not (String.isEmpty model.missingSyllabaryChars) 
+                        then [ div [] [ text "Die folgenden Zeichen sind nicht im Syllabar aufgeführt: ", text model.missingSyllabaryChars ] ]
+                        else []
+                    )
                 , div [] [ label []
                     [ h4 [] [ text "Angenommene Silbenlautwerte" ]
                     , Html.textarea [ class "elam", value model.syllableMap, onInput SetSyllableMap ] []

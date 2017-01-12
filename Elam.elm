@@ -142,7 +142,8 @@ syllabaryList syllabary =
         List.map letterGroup (String.words syllabary)
 
 -- Sanitize the syllabary string to include all Elam letters but no duplicates
-completeSyllabary syllabary =
+dedupe : String -> (String, String)
+dedupe syllabary =
     let
         dedup letter (seen, dedupSyllabary) =
             if Set.member letter seen
@@ -158,9 +159,7 @@ completeSyllabary syllabary =
         (presentLetters, dedupedSyllabary) = List.foldl dedup (Set.empty, "") (String.toList syllabary)
         missingLetters = Set.diff elamLetters presentLetters
     in
-        dedupedSyllabary
-        ++ " "
-        ++ String.join " " (List.map String.fromChar (Set.toList missingLetters))
+        (dedupedSyllabary, String.join " " (List.map String.fromChar (Set.toList missingLetters)))
 
 
 -- When searching the corpus (and optionally when displaying it) we want to treat all
