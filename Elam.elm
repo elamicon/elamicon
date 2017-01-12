@@ -211,7 +211,10 @@ groups =
     , { short = "Div", name = "Divers", recorded = False }
     ]
 
+
 -- Linear Elam body as read by us. The writing direction is only a guess for most fragments.
+type alias Fragment = { id : String, group : String, dir : Dir, text : String }
+fragments : List Fragment
 fragments = List.map (\f -> { f | text = String.trim f.text })
     [ { id = "A", group = "Susa", dir = RTL, text =
         """

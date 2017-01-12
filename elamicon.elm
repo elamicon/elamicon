@@ -10,6 +10,7 @@ import List
 import Array
 import Set
 import Elam exposing (Dir(..))
+import ElamSearch
 import Grams
 
 main = Html.program 
@@ -293,23 +294,6 @@ view model =
                     ( h4 [] [ text "Gruppen" ] :: groupSelection )
                 ])
 
-        -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
-        -- The first slot does not contain an indexed letter but may contain other characters. All other
-        -- slots start with an indexed letter and may contain further characters which are not indexed.
-        letterSplit : String -> List String
-        letterSplit text =
-            let addChar char result = case result of
-                [] ->
-                    [String.fromChar char]
-                head :: tail ->
-                    if
-                        Elam.indexed char
-                    then
-                        "" :: (String.cons char head) :: tail
-                    else
-                        (String.cons char head) :: tail
-            in
-                String.foldr addChar [""] text
 
         zeroWidthSpace = "​"
 
@@ -332,121 +316,61 @@ view model =
                         Just pattern -> Pattern pattern
                         Nothing -> Invalid
 
-
-
-        searchMatches : String -> List (Int, Int)
-        searchMatches text  =
+        search =
             case searchPattern of
-                Pattern pat ->
-                    let
-                        find = Regex.find Regex.All pat
-                        matchText = model.normalizer (String.filter Elam.indexed text)
-                        matches = find matchText
-                        matchTextLen = String.length matchText
-                        revertMatch match =
-                            let
-                                matchLen = String.length match.match
-                            in
-                                (matchTextLen - match.index - matchLen, matchLen)
-
-                        reverseMatches =
-                            if
-                                model.reverseSearch
-                            then
-                                List.map revertMatch (find (String.reverse matchText))
-                            else
-                                []
-
-                        allMatches = reverseMatches ++ List.map (\m -> (m.index, String.length m.match)) matches
-
-                    in
-                        List.sortBy Tuple.first (Set.toList (Set.fromList allMatches))
-                _ -> []
-
+                Pattern pat -> Just <| model.normalizer >> ElamSearch.regex model.reverseSearch pat
+                _           -> Nothing
 
         searchView =
             let
                 maxResults = 100
-                addMatches fragment results =
-                    let
-                        letterSlots = letterSplit fragment.text
-                        matches = searchMatches fragment.text
-                        addMatch (index, length) results =
-                            let
-                                guessmarkLTR = guessmarkDir LTR
-                                slotIndex = index + 1
-                                lastSlotIndex = index + length
-                                contextLen = 3
-                                beforeStart = Basics.max 0 (slotIndex - contextLen)
-                                beforeLen = Basics.min slotIndex contextLen
-                                beforeText = String.concat (List.take beforeLen (List.drop beforeStart letterSlots))
-                                -- The last slot of the match may contain appended characters which should not
-                                -- be shown as part of the match, instead we prepend them to the context
-                                -- following the match
-                                matchReversed = List.reverse (List.take length (List.drop slotIndex letterSlots))
-                                matchLast =
-                                    case (List.head matchReversed) of
-                                    Just s -> s
-                                    Nothing -> ""
-                                (matchLastLetter, matchAppended) =
-                                    case (String.uncons matchLast) of
-                                        Just (l, a) -> (String.fromChar l, a)
-                                        Nothing -> ("", "")
-                                matchText = String.concat (List.reverse (matchLastLetter :: List.drop 1 matchReversed))
-                                
-                                -- Finding the line nr of the match is somewhat involved because the
-                                -- linebreaks are buried in the slots
-                                pos atSlot =
-                                    let
-                                        countLines slotStr (lc, cc) = 
-                                            if String.contains "\n" slotStr
-                                            then (lc+1, 1)
-                                            else (lc, cc+1)
-                                    in
-                                        List.foldl countLines (1, 1) <| List.take atSlot letterSlots
-    
-                                unique = Set.toList << Set.fromList
-                                (startLineNr, startCharNr) = pos slotIndex
-                                (endLineNr, endCharNr) = pos lastSlotIndex
-                                matchTitle = String.concat <|
-                                    [ roman startLineNr
-                                    , " "
-                                    , toString startCharNr
-                                    ] ++
-                                    if startLineNr /= endLineNr || startCharNr /= endCharNr
-                                    then 
-                                        (if startLineNr /= endLineNr
-                                        then [ " – ", roman endLineNr, " " ]
-                                        else ["–"]) ++
-                                        [ toString endCharNr ]
-                                    else []
-                                    
-                                ref = href <| String.concat [ "#", fragment.id, toString index ]
+                contextLen = 3
+                results = Maybe.map (ElamSearch.extract maxResults contextLen selectedFragments) search
 
-                                afterText = String.concat (matchAppended :: List.take contextLen (List.drop (lastSlotIndex + 1) letterSlots))
-                                item = \_ -> li [ class "result" ]
-                                    [ div [ class "id" ]
-                                        [ Html.sup [ class "group" ] [ text fragment.group ]
-                                        , text (fragment.id ++ " ")
-                                        , span [ class "pos"] [ text matchTitle ]
-                                        ]
-                                    , div [ class "match"]
-                                        [ span [ class "before" ] [ text (guessmarkLTR beforeText) ]
-                                        , a [ class "highlight", ref ] [ text (guessmarkLTR matchText) ]
-                                        , span [ class "after" ] [ text (guessmarkLTR afterText) ]
-                                        ]
-                                    ]
-                            in
-                                if List.length results.items >= maxResults && not model.showAllResults
-                                then { results | more = True, raw = matchText :: results.raw }
-                                else { results | items = item () :: results.items, raw = matchText :: results.raw }
+                buildResultLine result =
+                    let
+                        (startLineNr, startCharNr) = result.start
+                        (endLineNr, endCharNr) = result.end
+                        matchTitle = String.concat <|
+                            [ roman startLineNr
+                            , " "
+                            , toString startCharNr
+                            ] ++
+                            if startLineNr /= endLineNr || startCharNr /= endCharNr
+                            then
+                                (if startLineNr /= endLineNr
+                                then [ " – ", roman endLineNr, " " ]
+                                else ["–"]) ++
+                                [ toString endCharNr ]
+                            else []
+
+                        fragment = result.fragment
+                        index = Tuple.first result.location
+                        ref = href <| String.concat [ "#", fragment.id, toString index ]
+                        guessmarkLTR = guessmarkDir LTR
                     in
-                        List.foldr addMatch results matches
-                searching = case searchPattern of
-                                Pattern pat -> True
-                                _ -> False
-                results = List.foldr addMatches {items=[], raw=[], more=False} selectedFragments
-                stats = \_ -> [ (gramStats (if searching then results.raw else List.map .text selectedFragments)) ]
+                        li [ class "result" ]
+                            [ div [ class "id" ]
+                                [ Html.sup [ class "group" ] [ text fragment.group ]
+                                , text (fragment.id ++ " ")
+                                , span [ class "pos"] [ text matchTitle ]
+                                ]
+                            , div [ class "match"]
+                                [ span [ class "before" ] [ text (guessmarkLTR result.before) ]
+                                , a [ class "highlight", ref ] [ text (guessmarkLTR result.match) ]
+                                , span [ class "after" ] [ text (guessmarkLTR result.after) ]
+                                ]
+                            ]
+                resultLines : List (Html Msg)
+                resultLines =
+                    case results of
+                        Just res -> List.map buildResultLine res.items
+                        Nothing  -> []
+                statsBase = \_ ->
+                    case results of
+                        Just res -> res.raw
+                        Nothing  -> List.map .text selectedFragments
+                stats = \_ -> [ gramStats (statsBase ()) ]
 
             in
                 [ h2 (collapsible "gramStats") [ text " Frequenzanalyse " ]
@@ -466,19 +390,20 @@ view model =
                         ]
                     ]
                 ]
-                ++ case searchPattern of
-                    Pattern pat -> if List.length results.items == 0
-                                    then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
-                                    else 
-                                        [ ol [ class "result" ] results.items ]
-                                        ++ 
-                                            if results.more 
-                                            then 
-                                                [ text (String.concat [ "Nur ", toString maxResults, " von ", toString (List.length results.raw), " Resultaten werden angezeigt. "])
-                                                , button [ type_ "button", onClick ShowAllResults ] [ text "Alle Resultate anzeigen!" ]
-                                                ]
-                                            else []
-                    _ -> [ div [ class "searchExamples" ]
+                ++ case results of
+                    Just res ->
+                        if List.length res.items == 0
+                        then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
+                        else
+                            [ ol [ class "result" ] resultLines ]
+                            ++
+                                if res.more
+                                then
+                                    [ text (String.concat [ "Nur ", toString maxResults, " von ", toString (List.length res.raw), " Resultaten werden angezeigt. "])
+                                    , button [ type_ "button", onClick ShowAllResults ] [ text "Alle Resultate anzeigen!" ]
+                                    ]
+                                else []
+                    Nothing -> [ div [ class "searchExamples" ]
                         [ h3 [] [ text "Suchbeispiele" ]
                         , dl []
                             [ dt [] [ text "[]?[]" ]
@@ -517,12 +442,14 @@ view model =
                 textMod = String.trim >> normalize >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
-                matches = searchMatches fragment.text
+                matches =
+                    case search of
+                        Just s -> s fragment.text
+                        Nothing -> []
 
-
-                        
+                guessmarks = Set.fromList ['', '']
                 guessmarkClass char = 
-                    if Set.member char (Set.fromList ['', ''])
+                    if Set.member char guessmarks
                     then [ class "guessmark" ]
                     else []
                     
