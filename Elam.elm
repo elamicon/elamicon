@@ -111,7 +111,7 @@ specialChars =
     ]
 
 
--- Syllabary definition
+-- Syllabary definitions
 --
 -- The many letter variants are grouped into a syllabary with one letter
 -- chosen as representative of the whole group. We want to make changes to
@@ -120,7 +120,10 @@ specialChars =
 --
 -- Letter are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
-syllabaryPreset = String.trim """
+syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
+    [ { id = "lumping", name = "Breit zusammenfassen für die Suche"
+      , syllabary = String.trim
+            """
            
     
         
@@ -128,9 +131,90 @@ syllabaryPreset = String.trim """
                       
           
            
-
-"""
+            """
+      }
+    , { id = "realistic", name = "Nach akutellem Kenntnisstand gruppiert"
+      , syllabary = String.trim
+            """
+
+   
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+           
+            """
+      }
+    , { id = "splitting", name = "Jedes Zeichen einzeln"
+      , syllabary = String.join " " <| List.map String.fromChar letters
+      }
+    ]
 
+
+-- List of letter groupings made from a syllabary string.
 syllabaryList : String -> List (Char, List Char)
 syllabaryList syllabary =
     let

@@ -127,6 +127,32 @@ body, h1, h2, label, input, select {
 }
 
 
+.syllabarySelection {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.syllabarySelection li {
+    float: left;
+}
+
+.syllabarySelection button {
+    background-color: #eed;
+    border-left: 0.3em solid #ffffe8;
+    border-top: 0.3em solid #ffffe8;
+    border-right: 0.3em solid #d0d0c8;
+    border-bottom: 0.3em solid #d0d0c8;
+}
+
+.syllabarySelection button.active, .syllabarySelection button:active {
+    background-color: #e0e0d0;
+    border-left: 0.3em solid #d0d0c8;
+    border-top: 0.3em solid #d0d0c8;
+    border-right: 0.3em solid #ffffe8;
+    border-bottom: 0.3em solid #ffffe8;
+}
+
 
 input[type=text] {
     width: 100%;

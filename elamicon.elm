@@ -25,6 +25,7 @@ type alias Model =
     { dir : Dir
     , fixedBreak: Bool
     , selected : Maybe Pos
+    , syllabaryId : Maybe String
     , syllabary : String
     , missingSyllabaryChars: String
     , syllableMap : String
@@ -39,13 +40,14 @@ type alias Model =
     , collapsed: Set.Set String
     , showAllResults: Bool
     }
-
-(initialModel, _) = update (SetSyllabary Elam.syllabaryPreset)
+    
+(initialModel, _) = update (ChooseSyllabary "lumping")
     { dir = Original
     , fixedBreak = True
     , selected = Nothing
-    , normalizer = Elam.normalizer (Elam.normalization Elam.syllabaryPreset)
+    , normalizer = identity
     , normalize = False
+    , syllabaryId = Nothing
     , syllabary = ""
     , missingSyllabaryChars = ""
     , syllableMap = Elam.syllableMap
@@ -65,6 +67,7 @@ type Msg
     | SetDir Dir
     | SetNormalize Bool
     | SetSandbox String
+    | ChooseSyllabary String
     | SetSyllabary String
     | SetSyllableMap String
     | SetSyllabize Bool
@@ -75,6 +78,16 @@ type Msg
     | SelectGroup String Bool
     | Toggle String
 
+updateSyllabary model new newId =
+    let
+        (deduped, missing) = Elam.dedupe new
+        newNormalizer = Elam.normalizer (Elam.normalization deduped)
+    in { model 
+        | syllabary = deduped
+        , normalizer = newNormalizer
+        , missingSyllabaryChars = missing
+        , syllabaryId = newId
+        }
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
@@ -89,11 +102,11 @@ update msg model =
         SetBreaking breaking -> { model | fixedBreak = breaking }
         SetNormalize normalize -> { model | normalize = normalize }
         SetDir dir -> { model | dir = dir }
-        SetSyllabary new ->
-            let 
-                (deduped, missing) = Elam.dedupe new
-                newNormalizer = Elam.normalizer (Elam.normalization deduped)
-            in { model | syllabary = deduped, normalizer = newNormalizer, missingSyllabaryChars = missing }
+        ChooseSyllabary id ->
+            case Dict.get id Elam.syllabaries of
+                Just syl -> updateSyllabary model syl.syllabary (Just id)
+                Nothing -> model
+        SetSyllabary new -> updateSyllabary model new Nothing
         SetSyllableMap new ->
             { model | syllableMap = new, syllabizer = Elam.syllabizer new }
         SetSyllabize syllabize -> { model | syllabize = syllabize }
@@ -248,6 +261,14 @@ view model =
             let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
                 boolOptAttrs val sel = [ value val, selected sel ]
+                syllabaryButton syl =
+                    let
+                        classes = classList [("active", Just syl.id == model.syllabaryId)]
+                        handler = onClick (ChooseSyllabary syl.id)
+                        attrs = [ type_ "button", handler, classes ]
+                    in
+                        li [] [ button attrs [ text syl.name ] ]
+                syllabarySelection = ol [ class "syllabarySelection" ] (List.map syllabaryButton (Dict.values Elam.syllabaries))
                 groupSelectionEntry group = div [] [ label [] (
                     [ input [ type_ "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
                     , text group.name
@@ -286,11 +307,10 @@ view model =
                         , option (boolOptAttrs "true" model.syllabize) [ text "ersetzen durch Silbenlautwert" ]
                         ]
                     ] ]
-                , div [] 
-                    ([ label [] 
-                        [ h4 [] [ text "Syllabar" ]
-                        , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
-                        ] 
+                , div [] (
+                    [ h4 [] [ text "Syllabar" ]
+                    , syllabarySelection
+                    , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
                     ] 
                     ++ if not (String.isEmpty model.missingSyllabaryChars) 
                         then [ div [] [ text "Die folgenden Zeichen sind nicht im Syllabar aufgeführt: ", text model.missingSyllabaryChars ] ]
