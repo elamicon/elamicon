@@ -351,6 +351,7 @@ h1, h2, .fragment {
     content: counter(lines, upper-roman);
     position: absolute;
     font-size: 50%;
+    user-select: none;
 }
 
 .fixedBreak .fragment[dir=LTR] .line:before {
