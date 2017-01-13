@@ -243,24 +243,30 @@ ul {
 }
 
 .result .id {
-    width: 5em;
+    position: relative;
+    margin-left: 1.8em;
+    width: 3.2em;
     display: inline-block;
 }
 
-.result .pos {
-    position: absolute;
-    left: 4.5em;
-    font-size: small;
-    bottom: 0;
-}
-
 sup.group {
-    width: 3em;
+    position: absolute;
+    left: -4em;
+    width: 4em;
     text-align: right;
     vertical-align: super;
     font-size: 0.7em;
     font-variant: small-caps;
 }
+
+.result .pos {
+    position: absolute;
+    left: 2.1em;
+    width: 6em;
+    font-size: small;
+    bottom: 0;
+}
+
 
 .result .match {
     margin: 0 4em;
