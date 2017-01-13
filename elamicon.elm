@@ -196,7 +196,7 @@ view model =
         charFilter = String.filter keepChar 
     
         -- Process fragment text for display
-        cleanse = String.trim >> charFilter >> normalize
+        cleanse = String.trim >> normalize >> charFilter
         cleanedFragments = List.map (\f -> { f | text = cleanse f.text }) selectedFragments
         
         
