@@ -80,7 +80,7 @@ extract limit contextLen fragments search =
         addMatches fragment results =
             let
                 letterSlots = letterSplit fragment.text
-                matches = search fragment.text
+                matches = search fragment.text |> uniqueSort
                 addMatch (index, length) results =
                     let
                         -- Slot zero contains prepended dross, the first indexed letter is in slot one
