@@ -33,6 +33,7 @@ type alias Model =
     , syllabize: Bool
     , normalizer: String -> String
     , normalize : Bool
+    , removeChars : String
     , sandbox: String
     , search: String
     , reverseSearch: Bool
@@ -47,6 +48,7 @@ type alias Model =
     , selected = Nothing
     , normalizer = identity
     , normalize = False
+    , removeChars = ""
     , syllabaryId = Nothing
     , syllabary = ""
     , missingSyllabaryChars = ""
@@ -71,6 +73,7 @@ type Msg
     | SetSyllabary String
     | SetSyllableMap String
     | SetSyllabize Bool
+    | SetRemoveChars String
     | AddChar String
     | SetSearch String
     | ShowAllResults
@@ -89,6 +92,8 @@ updateSyllabary model new newId =
         , syllabaryId = newId
         }
 
+zeroWidthSpace = "​"
+
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     (case msg of
@@ -101,6 +106,7 @@ update msg model =
         Select pos -> { model | selected = Just pos }
         SetBreaking breaking -> { model | fixedBreak = breaking }
         SetNormalize normalize -> { model | normalize = normalize }
+        SetRemoveChars chars -> { model | removeChars = chars }
         SetDir dir -> { model | dir = dir }
         ChooseSyllabary id ->
             case Dict.get id Elam.syllabaries of
@@ -110,8 +116,16 @@ update msg model =
         SetSyllableMap new ->
             { model | syllableMap = new, syllabizer = Elam.syllabizer new }
         SetSyllabize syllabize -> { model | syllabize = syllabize }
+
         SetSearch new ->
-            { model | search = new, showAllResults = False }
+            let
+                -- When copying strings from the fragments into the search field, irrelevant whitespace
+                -- and markers might get copied as well, we remove those from the search pattern.
+                unwanted = Regex.regex ("[\\s"++zeroWidthSpace++"]")
+                cleanSearch =  Regex.replace Regex.All unwanted (\_ -> "") new
+            in
+                { model | search = cleanSearch, showAllResults = False }
+
         ShowAllResults -> { model | showAllResults = True }
         ReverseSearch new ->
             { model | reverseSearch = new }
@@ -150,7 +164,7 @@ type SearchPattern = None
     | Pattern Regex.Regex
 
 
--- Twelve numerals ought to be enough for everybody
+-- Twelve numerals ought to be enough for everybody (Marcus Licinius Crassus)
 romanNumerals = Array.fromList [ "", "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ", "Ⅹ", "Ⅺ", "Ⅻ" ]
 roman num = Maybe.withDefault "" <| Array.get num romanNumerals
 
@@ -169,6 +183,22 @@ view model =
         -- There are two "guess" marker characters that are used depending on direction
         guessmarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
         selectedFragments = List.filter (\f -> Set.member f.group model.selectedGroups) Elam.fragments
+        
+        -- Normalize letters if this is enabled
+        normalize =
+            if model.normalize
+            then model.normalizer
+            else identity
+
+        -- Build filter that removes undesired chars
+        removeCharSet = Set.fromList <| String.toList model.removeChars
+        keepChar c = Set.member c removeCharSet |> not
+        charFilter = String.filter keepChar 
+    
+        -- Process fragment text for display
+        cleanse = String.trim >> charFilter >> normalize
+        cleanedFragments = List.map (\f -> { f | text = cleanse f.text }) selectedFragments
+        
         
         collapsible section =
             [ classList
@@ -192,7 +222,7 @@ view model =
         syllabaryView = 
             \_ ->
                 [ ol [ dirAttr LTR, classList [ ("syllabary", True) ] ]
-                    ( List.map syllabaryEntry (Elam.syllabaryList model.syllabary)
+                    ( List.map syllabaryEntry (Elam.syllabaryList (charFilter model.syllabary))
                     ++ List.map specialEntry Elam.specialChars
                     )
                 ]
@@ -220,7 +250,7 @@ view model =
 
         gramStats strings =
             let
-                cleanse = model.normalizer >> String.filter Elam.indexed
+                cleanse = charFilter >> model.normalizer >> String.filter Elam.indexed
                 tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 <| List.map cleanse strings
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
@@ -307,6 +337,16 @@ view model =
                         , option (boolOptAttrs "true" model.syllabize) [ text "ersetzen durch Silbenlautwert" ]
                         ]
                     ] ]
+                , div [] [ label [] (
+                    [ text "Diese Zeichen "
+                    , Html.input [ class "elam", value model.removeChars, onInput SetRemoveChars ] []
+                    , text " aus dem Textkorpus entfernen."
+                    ] 
+                    ++ 
+                    if not (String.isEmpty model.removeChars)
+                    then [ small [] [ text "Vorsicht: Wenn Zeichen entfernt werden, verschiebt sich die Nummerierung innerhalb der Zeilen." ] ]
+                    else []
+                    )]
                 , div [] (
                     [ h4 [] [ text "Syllabar" ]
                     , syllabarySelection
@@ -325,17 +365,11 @@ view model =
                 ])
 
 
-        zeroWidthSpace = "​"
-
+        -- We want the regex to match all letters of a group, so both the pattern
+        -- and the fragments are normalized before matching
         searchPattern =
             let
-                -- When copying strings from the fragments into the search field, irrelevant whitespace
-                -- and markers might get copied as well, we remove those from the search pattern.
-                cleaned = Regex.replace Regex.All (Regex.regex ("[\\s"++zeroWidthSpace++"]")) (\_ -> "") (String.trim model.search)
-
-                -- We want the regex to match all letters of a group, so both the pattern and the fragments
-                -- are normalized before matching
-                normalized = model.normalizer cleaned
+                normalized = model.normalizer model.search
             in
                 if
                     String.length normalized == 0
@@ -355,7 +389,7 @@ view model =
             let
                 maxResults = 100
                 contextLen = 3
-                results = Maybe.map (ElamSearch.extract maxResults contextLen selectedFragments) search
+                results = Maybe.map (ElamSearch.extract maxResults contextLen cleanedFragments) search
 
                 buildResultLine result =
                     let
@@ -455,12 +489,6 @@ view model =
 
         fragmentView fragment =
             let
-                -- Normalize letters if this is enabled
-                normalize =
-                    if model.normalize
-                    then model.normalizer
-                    else identity
-
                 syllabize =
                     if model.syllabize
                     then model.syllabizer 
@@ -469,7 +497,7 @@ view model =
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
-                textMod = String.trim >> normalize >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
+                textMod = String.trim >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
                 matches =
@@ -545,7 +573,7 @@ view model =
               ++ settings
               ++ searchView ++
             [ h2 [] [ text " Textfragmente " ]
-            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView selectedFragments) ]
+            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments) ]
               ++ [ footer ]
         )
 
