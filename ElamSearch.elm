@@ -133,6 +133,6 @@ extract limit contextLen fragments search =
                         then { results | more = True, raw = matchText :: results.raw }
                         else { results | items = result () :: results.items, raw = matchText :: results.raw }
             in
-                List.foldr addMatch results matches
+                List.foldl addMatch results matches
     in
-        List.foldr addMatches {items=[], raw=[], more=False} fragments
+        List.foldl addMatches {items=[], raw=[], more=False} fragments |>  \r -> { r | items = List.reverse r.items }
