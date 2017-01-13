@@ -393,17 +393,19 @@ view model =
 
                 buildResultLine result =
                     let
+                        hwspace = " " -- half-width space
+                        hwnbspace = " " -- half-width non-breaking space
                         (startLineNr, startCharNr) = result.start
                         (endLineNr, endCharNr) = result.end
                         matchTitle = String.concat <|
                             [ roman startLineNr
-                            , " "
+                            , hwnbspace
                             , toString startCharNr
                             ] ++
                             if startLineNr /= endLineNr || startCharNr /= endCharNr
                             then
                                 (if startLineNr /= endLineNr
-                                then [ " – ", roman endLineNr, " " ]
+                                then [ hwnbspace, "–", hwspace, roman endLineNr, hwnbspace ]
                                 else ["–"]) ++
                                 [ toString endCharNr ]
                             else []
@@ -411,7 +413,9 @@ view model =
                         fragment = result.fragment
                         index = Tuple.first result.location
                         ref = href <| String.concat [ "#", fragment.id, toString index ]
-                        guessmarkLTR = guessmarkDir LTR
+                        
+                        -- Remove spaces and ensure the guessmarks are oriented left
+                        typeset = String.words >> String.concat >> guessmarkDir LTR
                     in
                         li [ class "result" ]
                             [ div [ class "id" ]
@@ -420,9 +424,9 @@ view model =
                                 , span [ class "pos"] [ text matchTitle ]
                                 ]
                             , div [ class "match"]
-                                [ span [ class "before" ] [ text (guessmarkLTR result.before) ]
-                                , a [ class "highlight", ref ] [ text (guessmarkLTR result.match) ]
-                                , span [ class "after" ] [ text (guessmarkLTR result.after) ]
+                                [ span [ class "before" ] [ text (typeset result.before) ]
+                                , a [ class "highlight", ref ] [ text (typeset result.match) ]
+                                , span [ class "after" ] [ text (typeset result.after) ]
                                 ]
                             ]
                 resultLines : List (Html Msg)
