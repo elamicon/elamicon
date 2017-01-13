@@ -387,7 +387,7 @@ view model =
 
         searchView =
             let
-                maxResults = 100
+                maxResults = if model.showAllResults then 0 else 100
                 contextLen = 3
                 results = Maybe.map (ElamSearch.extract maxResults contextLen cleanedFragments) search
 
