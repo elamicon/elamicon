@@ -36,7 +36,7 @@ type alias Model =
     , removeChars : String
     , sandbox: String
     , search: String
-    , reverseSearch: Bool
+    , bidirectionalSearch: Bool
     , selectedGroups: Set.Set String
     , collapsed: Set.Set String
     , showAllResults: Bool
@@ -58,7 +58,7 @@ type alias Model =
     , sandbox = ""
     , search = ""
     , showAllResults = False
-    , reverseSearch = True
+    , bidirectionalSearch = True
     , selectedGroups = Set.fromList (List.map .short Elam.groups)
     , collapsed = Set.fromList [ "gramStats", "syllabary", "playground", "settings", "search" ]
     }
@@ -77,7 +77,7 @@ type Msg
     | AddChar String
     | SetSearch String
     | ShowAllResults
-    | ReverseSearch Bool
+    | BidirectionalSearch Bool
     | SelectGroup String Bool
     | Toggle String
 
@@ -127,8 +127,8 @@ update msg model =
                 { model | search = cleanSearch, showAllResults = False }
 
         ShowAllResults -> { model | showAllResults = True }
-        ReverseSearch new ->
-            { model | reverseSearch = new }
+        BidirectionalSearch new ->
+            { model | bidirectionalSearch = new }
         SelectGroup group include ->
             { model | selectedGroups = (if include then Set.insert else Set.remove) group model.selectedGroups
             }
@@ -381,9 +381,12 @@ view model =
                         Nothing -> Invalid
 
         search =
-            case searchPattern of
-                Pattern pat -> Just <| model.normalizer >> ElamSearch.regex model.reverseSearch pat
-                _           -> Nothing
+            let
+                applyBidirectional = if model.bidirectionalSearch then ElamSearch.bidirectional else identity
+            in
+                case searchPattern of
+                    Pattern pat -> Just <| model.normalizer >> applyBidirectional (ElamSearch.regex pat)
+                    _           -> Nothing
 
         searchView =
             let
@@ -453,7 +456,7 @@ view model =
                             else []
                         )
                     , label []
-                        [ input [ type_ "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
+                        [ input [ type_ "checkbox", checked model.bidirectionalSearch, Html.Events.onCheck BidirectionalSearch ] []
                         , text "auch in Gegenrichtung suchen"
                         ]
                     ]

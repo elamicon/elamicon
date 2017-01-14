@@ -5,43 +5,32 @@ import Set
 import Elam
 
 type alias MatchLoc = (Int, Int)
+type alias Search = String -> List MatchLoc
 
 uniqueSort = Set.toList << Set.fromList
 
-regex : Bool -> Regex.Regex -> String -> List MatchLoc
-regex reverseToo pat text =
+-- Build a regex search
+regex : Regex.Regex -> Search
+regex pat text =
     let
         find = Regex.find Regex.All pat
-
-        -- We're matching against the indexed Elam chars only.
-        -- This means all whitespace, guess marks, and other letters are removed.
-        matchText = String.filter Elam.indexed text
-        matchTextLen = String.length matchText
-
-
-        fromStraight match =
-            let
-                matchLen = String.length match.match
-            in
-                (match.index, matchLen)
-
-        matches = List.map fromStraight <| find matchText
-
-        fromReverse match =
-            let
-                matchLen = String.length match.match
-            in
-                (matchTextLen - match.index - matchLen, matchLen)
-
-        reverseMatches =
-            if
-                reverseToo
-            then
-                List.map fromReverse <| find (String.reverse matchText)
-            else
-                []
+        len  = String.length text 
+        extractIndex match = (match.index, String.length match.match)
     in
-        uniqueSort matches ++ reverseMatches
+        find text |> List.map extractIndex
+
+
+-- Turn a search into a bidirectional search by running the search against
+-- the original and the reverted text and combining the results.
+bidirectional : Search -> Search
+bidirectional search text =
+    let
+        len = String.length text
+        matches = search text
+        reverseIndex (matchIndex, matchLen) = (len - matchIndex - matchLen, matchLen) 
+        reverseMatches = search (String.reverse text) |> List.map reverseIndex
+    in
+        uniqueSort (reverseMatches ++ matches)
 
 
 -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
@@ -79,8 +68,11 @@ extract limit contextLen fragments search =
     let
         addMatches fragment results =
             let
+                -- We're matching against the indexed Elam chars only.
+                -- This means all whitespace, guess marks, and other letters are removed.
+                matchText = String.filter Elam.indexed fragment.text
+                matches = search matchText |> uniqueSort
                 letterSlots = letterSplit fragment.text
-                matches = search fragment.text |> uniqueSort
                 addMatch (index, length) results =
                     let
                         -- Slot zero contains prepended dross, the first indexed letter is in slot one
