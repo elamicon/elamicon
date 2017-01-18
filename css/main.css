@@ -249,10 +249,13 @@ ul {
     display: inline-block;
 }
 
-sup.group {
+.result sup.group {
     position: absolute;
     left: -4em;
     width: 4em;
+}
+
+sup.group {
     text-align: right;
     vertical-align: super;
     font-size: 0.7em;
