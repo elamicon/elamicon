@@ -20,9 +20,10 @@ import Set
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
-allChars = String.toList (String.trim "
+allChars = String.toList <| String.trim """
 
-")
+"""
+
 ignoreChars = Set.fromList <| String.toList ""
 letters = List.filter (\c -> not (Set.member c ignoreChars)) allChars
 elamLetters = Set.fromList letters
@@ -60,14 +61,14 @@ syllables = Dict.fromList
     , ( '', [ "piš ?" ] )
     ]
     
-syllableMap = String.trim "
+syllableMap = String.trim """
 in 
 šu 
 ši 
 na 
 ak 
 uš 
-"
+"""
 
 sylDict strMap = 
     let
@@ -110,7 +111,7 @@ specialChars =
     ]
 
 
--- Syllabary definition
+-- Syllabary definitions
 --
 -- The many letter variants are grouped into a syllabary with one letter
 -- chosen as representative of the whole group. We want to make changes to
@@ -119,17 +120,101 @@ specialChars =
 --
 -- Letter are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
-syllabaryPreset = String.trim "
-         
+syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
+    [ { id = "lumping", name = "Breit zusammenfassen für die Suche"
+      , syllabary = String.trim
+            """
+           
     
         
       
-                     
+                      
           
            
-
-"
+            """
+      }
+    , { id = "realistic", name = "Nach akutellem Kenntnisstand gruppiert"
+      , syllabary = String.trim
+            """
+
+   
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+           
+            """
+      }
+    , { id = "splitting", name = "Jedes Zeichen einzeln"
+      , syllabary = String.join " " <| List.map String.fromChar letters
+      }
+    ]
 
+
+-- List of letter groupings made from a syllabary string.
 syllabaryList : String -> List (Char, List Char)
 syllabaryList syllabary =
     let
@@ -141,7 +226,8 @@ syllabaryList syllabary =
         List.map letterGroup (String.words syllabary)
 
 -- Sanitize the syllabary string to include all Elam letters but no duplicates
-completeSyllabary syllabary =
+dedupe : String -> (String, String)
+dedupe syllabary =
     let
         dedup letter (seen, dedupSyllabary) =
             if Set.member letter seen
@@ -157,9 +243,7 @@ completeSyllabary syllabary =
         (presentLetters, dedupedSyllabary) = List.foldl dedup (Set.empty, "") (String.toList syllabary)
         missingLetters = Set.diff elamLetters presentLetters
     in
-        dedupedSyllabary
-        ++ " "
-        ++ String.join " " (List.map String.fromChar (Set.toList missingLetters))
+        (dedupedSyllabary, String.join " " (List.map String.fromChar (Set.toList missingLetters)))
 
 
 -- When searching the corpus (and optionally when displaying it) we want to treat all
@@ -210,8 +294,11 @@ groups =
     , { short = "Div", name = "Divers", recorded = False }
     ]
 
+
 -- Linear Elam body as read by us. The writing direction is only a guess for most fragments.
-fragments =
+type alias Fragment = { id : String, group : String, dir : Dir, text : String }
+fragments : List Fragment
+fragments = List.map (\f -> { f | text = String.trim f.text })
     [ { id = "A", group = "Susa", dir = RTL, text =
         """
 
@@ -410,8 +497,8 @@ fragments =
     , { id = "Y", group = "Mahb", dir = RTL, text =
         """
             
-                    
-                       
+                 
+                  
         """
       }
     , { id = "Yb", group = "Mahb", dir = LTR, text =

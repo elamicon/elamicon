@@ -29,6 +29,6 @@ read max seqs =
             let readSeq seq grams =
                     let last = String.length seq
                         reg i result = register (String.slice i (i+n) seq) result
-                    in List.foldl reg grams [0..(String.length seq - n)]
+                    in List.foldl reg grams <| List.range 0 (String.length seq - n)
             in List.foldl readSeq empty seqs
-    in List.map addGrams [1..(max)]
+                    in List.map addGrams <| List.range 1 max

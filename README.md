@@ -15,12 +15,12 @@ we've developed so far.
 
 - Catalog all glyphs found in Linear Elamite fragments (complete)
 - Create a digital font from the glyphs (complete)
-- Transcribe all known fragments of Linear Elamite into a text corpus (in progress)
-- Offer basic tools that help in analyzing the corpus (in progress)
+- Transcribe all known fragments of Linear Elamite into a text corpus (complete)
+- Offer basic tools that help in analyzing the corpus (complete)
 
 We are hopeful that new fragments will be discovered. In this case we will
 extend the corpus to include the new material. Visit the
-[Elamicon catalog](https://elamicon.github.io/) to explore what we've developed so far.
+[Elamicon catalog](https://elamicon.github.io/) to explore the text corpus.
 
 
 
