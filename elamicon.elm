@@ -509,9 +509,9 @@ view model =
                 textMod = String.trim >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
-                matches =
+                matches = 
                     case search of
-                        Just s -> s fragment.text
+                        Just s -> s (String.filter Elam.indexed fragment.text)
                         Nothing -> []
 
                 guessmarks = Set.fromList ['', '']

@@ -127,13 +127,15 @@ extract limit contextLen fragments search =
                         -- linebreaks are buried in the slots
                         pos atSlot =
                             let
+                                -- first slot in the list doesn't count
+                                slotsBefore = List.drop 1 <| List.take atSlot letterSlots
                                 countLines slotStr (lc, cc) =
                                     -- This assumes there is only one linebreak per slot, a safe assumption for our corpus
                                     if String.contains "\n" slotStr
                                     then (lc+1, 1)
                                     else (lc, cc+1)
                             in
-                                List.foldl countLines (1, 1) <| List.take atSlot letterSlots
+                                List.foldl countLines (1, 1) slotsBefore
 
 
                         -- Try to be lazy about it

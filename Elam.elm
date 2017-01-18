@@ -124,7 +124,7 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
     [ { id = "lumping", name = "Breit zusammenfassen für die Suche"
       , syllabary = String.trim
             """
-           
+          
     
         
       
@@ -133,15 +133,15 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
            
             """
       }
-    , { id = "realistic", name = "Nach akutellem Kenntnisstand gruppiert"
+    , { id = "realistic", name = "Nach aktuellem Kenntnisstand gruppiert"
       , syllabary = String.trim
             """
 
-   
+  
 
-
+
 
-
+
 
  
 
@@ -312,7 +312,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
         """
 
 ​
-
+
         """
       }
     , { id = "C", group = "Susa", dir = RTL, text =
@@ -338,12 +338,12 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
 
 
-
+
         """
       }
     , { id = "F", group = "Susa", dir = RTL, text =
         """
-
+
 
 
 
@@ -353,7 +353,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
         """
 
 
-
+
         """
       }
     , { id = "H", group = "Susa", dir = RTL, text =
@@ -366,7 +366,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "I", group = "Susa", dir = RTL, text =
         """
-
+
 
 
 
@@ -600,7 +600,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
     , { id = "I′b", group = "Mahb", dir = RTL, text =
         """
 
-​
+​​
 
         """
       }
@@ -608,7 +608,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
         """
 
 
-
+
         """
       }
     , { id = "J′", group = "Mahb", dir = RTL, text =
@@ -627,7 +627,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
         """
             
             
-            
+            
         """
       }
     , { id = "K′c", group = "Mahb", dir = RTL, text =

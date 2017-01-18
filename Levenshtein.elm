@@ -28,7 +28,7 @@ distMap needle haystack =
                             calcRow remainingChars remainingDists (currentDist :: collectedDists)
                     
             in
-                Debug.log "lolz" (calcRow haystackChars rowDists [startCost])
+                calcRow haystackChars rowDists [startCost]
         initialRow = (List.repeat (String.length haystack + 1) 0)
     in
         List.drop 1 (String.foldl descend initialRow needle) 
