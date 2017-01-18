@@ -124,7 +124,7 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
     [ { id = "lumping", name = "Breit zusammenfassen für die Suche"
       , syllabary = String.trim
             """
-           
+          
     
         
       
@@ -133,15 +133,15 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
            
             """
       }
-    , { id = "realistic", name = "Nach akutellem Kenntnisstand gruppiert"
+    , { id = "realistic", name = "Nach aktuellem Kenntnisstand gruppiert"
       , syllabary = String.trim
             """
 
-   
+  
 
-
+
 
-
+
 
  
 
