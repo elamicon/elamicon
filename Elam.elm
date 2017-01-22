@@ -24,7 +24,30 @@ allChars = String.toList <| String.trim """
 
 """
 
-ignoreChars = Set.fromList <| String.toList ""
+-- List of "special" characters
+--
+-- Most of the artifacts did not make it through time in mint condition. The
+-- "special" characters can be used to mark glyphs that are unreadable or
+--  are guesses.
+specialChars =
+    [ { displayChar = "", char = '', description = "Platzhalter für unbekannte Zeichen" }
+    , { displayChar = "", char = '', description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
+    , { displayChar = "", char = '', description = "Markiert Bruchstellen" }
+    ]
+
+-- Characters that are hard to read on the originals are marked with "guessmarkers".
+-- Guessmarkers are zero-width and overlap the previous charachter. There are two
+-- markers because here are two writing directions.
+guessMarkers = ""
+
+-- Unreadable signs are represented by this special character 
+missingChar = ""
+
+-- To mark places where we assume the writing continues but is missing, we use
+-- the fracture mark.
+fractureMarker = ""
+
+ignoreChars = Set.fromList <| String.toList (guessMarkers ++ missingChar ++ fractureMarker)
 letters = List.filter (\c -> not (Set.member c ignoreChars)) allChars
 elamLetters = Set.fromList letters
 
@@ -61,6 +84,8 @@ syllables = Dict.fromList
     , ( '', [ "piš ?" ] )
     ]
     
+-- This is our best guess at the syllable mapping for letters where it makes sense
+-- to try. 
 syllableMap = String.trim """
 in 
 šu 
@@ -99,16 +124,6 @@ syllabizer strMap =
     in String.foldr (replacer >> (++)) ""
 
 
--- List of "special" characters
---
--- Most of the artifacts did not make it through time in mint condition. The
--- "special" characters can be used to mark glyphs that are unreadable or
---  are guesses.
-specialChars =
-    [ { displayChar = "", char = '', description = "Platzhalter für unbekannte Zeichen" }
-    , { displayChar = "", char = '', description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
-    , { displayChar = "", char = '', description = "Markiert Bruchstellen" }
-    ]
 
 
 -- Syllabary definitions
@@ -128,7 +143,7 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
     
         
       
-                     
+                    
           
            
             """
