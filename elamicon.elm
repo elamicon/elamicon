@@ -1,5 +1,4 @@
 import Html exposing (..)
-import Html.App as Html
 import Html.Events exposing (on, onClick, onInput, targetValue)
 import Html.Attributes exposing (..)
 import Dict
@@ -8,8 +7,10 @@ import Regex
 import RegexMaybe
 import Json.Decode
 import List
+import Array
 import Set
 import Elam exposing (Dir(..))
+import ElamSearch
 import Grams
 
 main = Html.program 
@@ -24,32 +25,42 @@ type alias Model =
     { dir : Dir
     , fixedBreak: Bool
     , selected : Maybe Pos
+    , syllabaryId : Maybe String
     , syllabary : String
+    , missingSyllabaryChars: String
     , syllableMap : String
     , syllabizer : String -> String
     , syllabize: Bool
     , normalizer: String -> String
     , normalize : Bool
+    , removeChars : String
     , sandbox: String
     , search: String
-    , reverseSearch: Bool
+    , bidirectionalSearch: Bool
     , selectedGroups: Set.Set String
+    , collapsed: Set.Set String
+    , showAllResults: Bool
     }
-
-initialModel =
+    
+(initialModel, _) = update (ChooseSyllabary "lumping")
     { dir = Original
     , fixedBreak = True
     , selected = Nothing
-    , normalizer = Elam.normalizer (Elam.normalization Elam.syllabaryPreset)
+    , normalizer = identity
     , normalize = False
-    , syllabary = Elam.syllabaryPreset
+    , removeChars = ""
+    , syllabaryId = Nothing
+    , syllabary = ""
+    , missingSyllabaryChars = ""
     , syllableMap = Elam.syllableMap
     , syllabizer = Elam.syllabizer Elam.syllableMap
     , syllabize = False
     , sandbox = ""
     , search = ""
-    , reverseSearch = True
+    , showAllResults = False
+    , bidirectionalSearch = True
     , selectedGroups = Set.fromList (List.map .short Elam.groups)
+    , collapsed = Set.fromList [ "gramStats", "syllabary", "playground", "settings", "search" ]
     }
 
 type Msg
@@ -58,36 +69,75 @@ type Msg
     | SetDir Dir
     | SetNormalize Bool
     | SetSandbox String
+    | ChooseSyllabary String
     | SetSyllabary String
     | SetSyllableMap String
     | SetSyllabize Bool
+    | SetRemoveChars String
     | AddChar String
     | SetSearch String
-    | ReverseSearch Bool
+    | ShowAllResults
+    | BidirectionalSearch Bool
     | SelectGroup String Bool
+    | Toggle String
 
+updateSyllabary model new newId =
+    let
+        (deduped, missing) = Elam.dedupe new
+        newNormalizer = Elam.normalizer (Elam.normalization deduped)
+    in { model 
+        | syllabary = deduped
+        , normalizer = newNormalizer
+        , missingSyllabaryChars = missing
+        , syllabaryId = newId
+        }
 
-update : Msg -> Model -> (Model, Cmd msg)
+zeroWidthSpace = "​"
+
+update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     (case msg of
         SetSandbox str -> { model | sandbox = str }
-        AddChar char -> { model | sandbox = model.sandbox ++ char }
+        AddChar char -> 
+            { model
+            | sandbox = model.sandbox ++ char
+            ,collapsed = Set.remove "playground" model.collapsed
+            }
         Select pos -> { model | selected = Just pos }
         SetBreaking breaking -> { model | fixedBreak = breaking }
         SetNormalize normalize -> { model | normalize = normalize }
+        SetRemoveChars chars -> { model | removeChars = chars }
         SetDir dir -> { model | dir = dir }
-        SetSyllabary new ->
-            let newSyllabary = Elam.completeSyllabary new
-            in { model | syllabary = newSyllabary, normalizer = Elam.normalizer (Elam.normalization newSyllabary) }
+        ChooseSyllabary id ->
+            case Dict.get id Elam.syllabaries of
+                Just syl -> updateSyllabary model syl.syllabary (Just id)
+                Nothing -> model
+        SetSyllabary new -> updateSyllabary model new Nothing
         SetSyllableMap new ->
             { model | syllableMap = new, syllabizer = Elam.syllabizer new }
         SetSyllabize syllabize -> { model | syllabize = syllabize }
+
         SetSearch new ->
-            { model | search = new }
-        ReverseSearch new ->
-            { model | reverseSearch = new }
+            let
+                -- When copying strings from the fragments into the search field, irrelevant whitespace
+                -- and markers might get copied as well, we remove those from the search pattern.
+                unwanted = Regex.regex ("[\\s"++zeroWidthSpace++"]")
+                cleanSearch =  Regex.replace Regex.All unwanted (\_ -> "") new
+            in
+                { model | search = cleanSearch, showAllResults = False }
+
+        ShowAllResults -> { model | showAllResults = True }
+        BidirectionalSearch new ->
+            { model | bidirectionalSearch = new }
         SelectGroup group include ->
             { model | selectedGroups = (if include then Set.insert else Set.remove) group model.selectedGroups
+            }
+        Toggle section ->
+            { model | collapsed = 
+                (if Set.member section model.collapsed 
+                then Set.remove else Set.insert)
+                    section
+                    model.collapsed
             }
     , Cmd.none
     )
@@ -97,14 +147,14 @@ dirStr dir = case dir of
     _ -> "RTL"
 
 dirDecoder : Json.Decode.Decoder Dir
-dirDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valStr of
+dirDecoder = Html.Events.targetValue |> Json.Decode.andThen (\valStr -> case valStr of
     "Original" -> Json.Decode.succeed Original
     "LTR" -> Json.Decode.succeed LTR
     "RTL" -> Json.Decode.succeed RTL
     _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
 
 boolDecoder : Json.Decode.Decoder Bool
-boolDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case valStr of
+boolDecoder = Html.Events.targetValue |> Json.Decode.andThen (\valStr -> case valStr of
     "true" -> Json.Decode.succeed True
     "false" -> Json.Decode.succeed False
     _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
@@ -112,7 +162,12 @@ boolDecoder = Html.Events.targetValue `Json.Decode.andThen` (\valStr -> case val
 type SearchPattern = None
     | Invalid
     | Pattern Regex.Regex
+    | Fuzzy Int String
 
+
+-- Twelve numerals ought to be enough for everybody (Marcus Licinius Crassus)
+romanNumerals = Array.fromList [ "", "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ", "Ⅹ", "Ⅺ", "Ⅻ" ]
+roman num = Maybe.withDefault "" <| Array.get num romanNumerals
 
 
 view : Model -> Html Msg
@@ -129,14 +184,49 @@ view model =
         -- There are two "guess" marker characters that are used depending on direction
         guessmarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
         selectedFragments = List.filter (\f -> Set.member f.group model.selectedGroups) Elam.fragments
+        
+        -- Normalize letters if this is enabled
+        normalize =
+            if model.normalize
+            then model.normalizer
+            else identity
+
+        -- Build filter that removes undesired chars
+        removeCharSet = Set.fromList <| String.toList model.removeChars
+        keepChar c = Set.member c removeCharSet |> not
+        charFilter = String.filter keepChar 
+    
+        -- Process fragment text for display
+        cleanse = String.trim >> normalize >> charFilter
+        cleanedFragments = List.map (\f -> { f | text = cleanse f.text }) selectedFragments
+        
+        
+        collapsible section =
+            [ classList
+                [ ("collapsible", True)
+                , ("collapsed", Set.member section model.collapsed)
+                ]
+            , onClick (Toggle section)
+            ]
+        
+        -- build is called lazily when the section is expanded
+        ifExpanded : String -> (() -> List a) -> List a
+        ifExpanded section build =
+            if Set.member section model.collapsed
+            then []
+            else build ()
 
         syllabary =
-            [ h2 [] [ text " Die Buchstaben " ]
-            , ol [ dirAttr LTR, classList [ ("syllabary", True) ] ]
-                ( List.map syllabaryEntry (Elam.syllabaryList model.syllabary)
-                ++ List.map specialEntry Elam.specialChars
-                )
-            ]
+            [ h2 (collapsible "syllabary") [ text " Die Buchstaben " ] 
+            ] ++ ifExpanded "syllabary" syllabaryView
+        
+        syllabaryView = 
+            \_ ->
+                [ ol [ dirAttr LTR, classList [ ("syllabary", True) ] ]
+                    ( List.map syllabaryEntry (Elam.syllabaryList (charFilter model.syllabary))
+                    ++ List.map specialEntry Elam.specialChars
+                    )
+                ]
 
         syllabaryEntry (main, ext) =
             let
@@ -161,7 +251,7 @@ view model =
 
         gramStats strings =
             let
-                cleanse = model.normalizer >> String.filter Elam.indexed
+                cleanse = charFilter >> model.normalizer >> String.filter Elam.indexed
                 tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 <| List.map cleanse strings
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
@@ -185,8 +275,9 @@ view model =
                     ]
 
         playground =
-            [ h2 [] [ text " Spielplatz " ]
-            , textarea
+            [ h2 (collapsible "playground") [ text " Spielplatz " ]
+            ] ++ ifExpanded "playground" (\_ -> 
+            [ textarea
                 [ class "elam"
                 , dirAttr LTR
                 , on "input" (Json.Decode.map SetSandbox Html.Events.targetValue)
@@ -194,22 +285,31 @@ view model =
                 , value ((guessmarkDir LTR) model.sandbox)
                 ] []
             , gramStats [model.sandbox]
-            ]
+            ])
 
 
         settings =
             let dirOptAttrs val dir = [ value val, selected (dir == model.dir) ]
                 breakOptAttrs val break = [ value val, selected (break == model.fixedBreak) ]
                 boolOptAttrs val sel = [ value val, selected sel ]
+                syllabaryButton syl =
+                    let
+                        classes = classList [("active", Just syl.id == model.syllabaryId)]
+                        handler = onClick (ChooseSyllabary syl.id)
+                        attrs = [ type_ "button", handler, classes ]
+                    in
+                        li [] [ button attrs [ text syl.name ] ]
+                syllabarySelection = ol [ class "syllabarySelection" ] (List.map syllabaryButton (Dict.values Elam.syllabaries))
                 groupSelectionEntry group = div [] [ label [] (
-                    [ input [ type' "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
+                    [ input [ type_ "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
                     , text group.name
                     ] ++ if group.recorded then [] else
                         [ span [ class "recordWarn", title "Undokumentierte Funde" ] [ text "⚠" ] ]) ]
                         
                 groupSelection = List.map groupSelectionEntry Elam.groups
-            in  [ h2 [] [ text " Einstellungen " ]
-                , div [] [ label []
+            in  [ h2 (collapsible "settings") [ text " Einstellungen " ]
+                ] ++ ifExpanded "settings" (\_ -> 
+                [ div [] [ label []
                     [ text "Schreibrichtung "
                     , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
                         [ option (dirOptAttrs "Original" Original) [ text "ursprünglich ⇔" ]
@@ -238,144 +338,118 @@ view model =
                         , option (boolOptAttrs "true" model.syllabize) [ text "ersetzen durch Silbenlautwert" ]
                         ]
                     ] ]
-                , div [] [ label []
+                , div [] [ label [] (
+                    [ text "Diese Zeichen "
+                    , Html.input [ class "elam", value model.removeChars, onInput SetRemoveChars ] []
+                    , text " aus dem Textkorpus entfernen."
+                    ] 
+                    ++ 
+                    if not (String.isEmpty model.removeChars)
+                    then [ small [] [ text "Vorsicht: Wenn Zeichen entfernt werden, verschiebt sich die Nummerierung innerhalb der Zeilen." ] ]
+                    else []
+                    )]
+                , div [] (
                     [ h4 [] [ text "Syllabar" ]
+                    , syllabarySelection
                     , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
-                    ] ]
+                    ] 
+                    ++ if not (String.isEmpty model.missingSyllabaryChars) 
+                        then [ div [] [ text "Die folgenden Zeichen sind nicht im Syllabar aufgeführt: ", text model.missingSyllabaryChars ] ]
+                        else []
+                    )
                 , div [] [ label []
                     [ h4 [] [ text "Angenommene Silbenlautwerte" ]
                     , Html.textarea [ class "elam", value model.syllableMap, onInput SetSyllableMap ] []
                     ] ]
                 , div [ class "groups" ]
                     ( h4 [] [ text "Gruppen" ] :: groupSelection )
-                ]
+                ])
 
-        -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
-        -- The first slot does not contain an indexed letter but may contain other characters. All other
-        -- slots start with an indexed letter and may contain further characters which are not indexed.
-        letterSplit : String -> List String
-        letterSplit text =
-            let addChar char result = case result of
-                [] ->
-                    [String.fromChar char]
-                head :: tail ->
-                    if
-                        Elam.indexed char
-                    then
-                        "" :: (String.cons char head) :: tail
-                    else
-                        (String.cons char head) :: tail
-            in
-                String.foldr addChar [""] text
 
-        zeroWidthSpace = "​"
-
+        -- We want the regex to match all letters of a group, so both the pattern
+        -- and the fragments are normalized before matching
         searchPattern =
             let
-                -- When copying strings from the fragments into the search field, irrelevant whitespace
-                -- and markers might get copied as well, we remove those from the search pattern.
-                cleaned = Regex.replace Regex.All (Regex.regex ("[\\s"++zeroWidthSpace++"]")) (\_ -> "") (String.trim model.search)
-
-                -- We want the regex to match all letters of a group, so both the pattern and the fragments
-                -- are normalized before matching
-                normalized = model.normalizer cleaned
+                normalized = model.normalizer model.search
+                fuzziness = String.uncons normalized
             in
-                if
-                    String.length normalized == 0
-                then
-                    None
-                else
-                    case RegexMaybe.regex normalized of
-                        Just pattern -> Pattern pattern
-                        Nothing -> Invalid
+                case fuzziness of
+                    Nothing -> None
+                    Just (head, tail) ->
+                        case head |> String.fromChar |> String.toInt of
+                            Ok fuzz -> Fuzzy fuzz tail
+                            Err _ -> case RegexMaybe.regex normalized of
+                                Just pattern -> Pattern pattern
+                                Nothing -> Invalid
 
-
-
-        searchMatches : String -> List (Int, Int)
-        searchMatches text  =
-            case searchPattern of
-                Pattern pat ->
-                    let
-                        find = Regex.find Regex.All pat
-                        matchText = model.normalizer (String.filter Elam.indexed text)
-                        matches = find matchText
-                        matchTextLen = String.length matchText
-                        revertMatch match =
-                            let
-                                matchLen = String.length match.match
-                            in
-                                (matchTextLen - match.index - matchLen, matchLen)
-
-                        reverseMatches =
-                            if
-                                model.reverseSearch
-                            then
-                                List.map revertMatch (find (String.reverse matchText))
-                            else
-                                []
-
-                        allMatches = reverseMatches ++ List.map (\m -> (m.index, String.length m.match)) matches
-
-                    in
-                        List.sortBy fst (Set.toList (Set.fromList allMatches))
-                _ -> []
-
+        search =
+            let
+                applyBidirectional = if model.bidirectionalSearch then ElamSearch.bidirectional else identity
+            in
+                case searchPattern of
+                    Pattern pat -> Just <| model.normalizer >> applyBidirectional (ElamSearch.regex pat)
+                    Fuzzy fuzz query -> Just <| model.normalizer >> applyBidirectional (ElamSearch.fuzzy fuzz query)
+                    _           -> Nothing
 
         searchView =
             let
-                addMatches fragment results =
+                maxResults = if model.showAllResults then 0 else 100
+                contextLen = 3
+                results = Maybe.map (ElamSearch.extract maxResults contextLen cleanedFragments) search
+
+                buildResultLine result =
                     let
-                        letterSlots = letterSplit fragment.text
-                        matches = searchMatches fragment.text
-                        addMatch (index, length) results =
-                            let
-                                guessmarkLTR = guessmarkDir LTR
-                                slotIndex = index + 1
-                                contextLen = 3
-                                beforeStart = Basics.max 0 (slotIndex - contextLen)
-                                beforeLen = Basics.min slotIndex contextLen
-                                beforeText = String.concat (List.take beforeLen (List.drop beforeStart letterSlots))
-                                -- The last slot of the match may contain appended characters which should not
-                                -- be shown as part of the match, instead we prepend them to the context
-                                -- following the match
-                                matchReversed = List.reverse (List.take length (List.drop slotIndex letterSlots))
-                                matchLast =
-                                    case (List.head matchReversed) of
-                                    Just s -> s
-                                    Nothing -> ""
-                                (matchLastLetter, matchAppended) =
-                                    case (String.uncons matchLast) of
-                                        Just (l, a) -> (String.fromChar l, a)
-                                        Nothing -> ("", "")
-                                matchText = String.concat (List.reverse (matchLastLetter :: List.drop 1 matchReversed))
+                        hwspace = " " -- half-width space
+                        hwnbspace = " " -- half-width non-breaking space
+                        (startLineNr, startCharNr) = result.start
+                        (endLineNr, endCharNr) = result.end
+                        matchTitle = String.concat <|
+                            [ roman startLineNr
+                            , hwnbspace
+                            , toString startCharNr
+                            ] ++
+                            if startLineNr /= endLineNr || startCharNr /= endCharNr
+                            then
+                                (if startLineNr /= endLineNr
+                                then [ hwnbspace, "–", hwspace, roman endLineNr, hwnbspace ]
+                                else ["–"]) ++
+                                [ toString endCharNr ]
+                            else []
 
-                                afterText = String.concat (matchAppended :: List.take contextLen (List.drop (slotIndex+length) letterSlots))
-                                item = li [ class "result" ]
-                                    [ div [ class "id" ]
-                                        [ Html.sup [ class "group" ] [ text fragment.group ]
-                                        , text fragment.id
-                                        ]
-                                    , div [ class "match"]
-                                        [ span [ class "before" ] [ text (guessmarkLTR beforeText) ]
-                                        , span [ class "highlight" ] [ text (guessmarkLTR matchText) ]
-                                        , span [ class "after" ] [ text (guessmarkLTR afterText) ]
-                                        ]
-                                    ]
-                            in
-                                { items = item :: results.items, raw = matchText :: results.raw }
+                        fragment = result.fragment
+                        index = Tuple.first result.location
+                        ref = href <| String.concat [ "#", fragment.id, toString index ]
+                        
+                        -- Remove spaces and ensure the guessmarks are oriented left
+                        typeset = String.words >> String.concat >> guessmarkDir LTR
                     in
-                        List.foldr addMatch results matches
-                searching = case searchPattern of
-                                Pattern pat -> True
-                                _ -> False
-                results = List.foldr addMatches {items=[], raw=[]} selectedFragments
-                stats = gramStats (if searching then results.raw else List.map .text selectedFragments)
-
+                        li [ class "result" ]
+                            [ div [ class "id" ]
+                                [ Html.sup [ class "group" ] [ text fragment.group ]
+                                , text (fragment.id ++ " ")
+                                , span [ class "pos"] [ text matchTitle ]
+                                ]
+                            , div [ class "match"]
+                                [ span [ class "before" ] [ text (typeset result.before) ]
+                                , a [ class "highlight", ref ] [ text (typeset result.match) ]
+                                , span [ class "after" ] [ text (typeset result.after) ]
+                                ]
+                            ]
+                resultLines : List (Html Msg)
+                resultLines =
+                    case results of
+                        Just res -> List.map buildResultLine res.items
+                        Nothing  -> []
+                statsBase = \_ ->
+                    case results of
+                        Just res -> res.raw
+                        Nothing  -> List.map .text selectedFragments
+                stats = \_ -> [ gramStats (statsBase ()) ]
             in
-                [ h2 [] [ text " Frequenzanalyse " ]
-                , stats
-                , h2 [] [ text " Suche " ]
-                , label []
+                [ h2 (collapsible "gramStats") [ text " Frequenzanalyse " ]
+                ] ++ ifExpanded "gramStats" stats ++
+                [ h2 (collapsible "search") [ text " Suche " ]
+                ] ++ ifExpanded "search" (\_ -> [ label []
                     [ text "Suchmuster "
                     , div [ class "searchInput"]
                         ([ Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
@@ -384,43 +458,46 @@ view model =
                             else []
                         )
                     , label []
-                        [ input [ type' "checkbox", checked model.reverseSearch, Html.Events.onCheck ReverseSearch ] []
+                        [ input [ type_ "checkbox", checked model.bidirectionalSearch, Html.Events.onCheck BidirectionalSearch ] []
                         , text "auch in Gegenrichtung suchen"
                         ]
                     ]
                 ]
-                ++ case searchPattern of
-                    Pattern pat -> if List.length results.items == 0
-                                    then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
-                                    else [ ol [ class "result" ] results.items ]
-                    _ -> [ div [ class "searchExamples" ]
+                ++ case results of
+                    Just res ->
+                        if List.length res.items == 0
+                        then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
+                        else
+                            [ ol [ class "result" ] resultLines ]
+                            ++
+                                if res.more
+                                then
+                                    [ text (String.concat [ "Nur ", toString maxResults, " von ", toString (List.length res.raw), " Resultaten werden angezeigt. "])
+                                    , button [ type_ "button", onClick ShowAllResults ] [ text "Alle Resultate anzeigen!" ]
+                                    ]
+                                else []
+                    Nothing -> [ div [ class "searchExamples" ]
                         [ h3 [] [ text "Suchbeispiele" ]
                         , dl []
-                            [ dt [] [ text "[]?[]" ]
-                            , dd [] [ text "Suche nach Varianten von  (in-šu mit optionalem NAP)" ]
-                            , dt [] [ text "[][]" ]
-                            , dd [] [ text "Suche nach Varianten von  und erlaube auch Platzhalter" ]
+                            [ dt [] [ text "?[]" ]
+                            , dd [] [ text "Suche nach Varianten von  (in-šu-uš oder in-šu-ši mit optionalem NAP)" ]
+                            , dt [] [ text "[]" ]
+                            , dd [] [ text "Suche nach  und erlaube einen Platzhalter anstelle des NAP" ]
                             , dt [] [ text "([^])\\1" ]
                             , dd [] [ text "Suche nach Silbenwiederholungen wie " ]
                             , dt [] [ text "([^]).\\1" ]
                             , dd [] [ text "Silbenwiederholungen mit einem beliebigen Zeichen dazwischen ()" ]
                             , dt [] [ text "[^]+" ]
                             , dd [] [ text "\"Worte\", wenn wir den vertikalen Strich als Worttrenner annehmen" ]
-                            , dt [] [ text "[]" ]
-                            , dd [] [ text "Alle Stellen anzeigen, wo  oder  steht" ]
+                            , dt [] [ text "[]" ]
+                            , dd [] [ text "Alle Stellen anzeigen, wo  oder  steht" ]
                             ]
                         ]
                     ]
-
+                )
 
         fragmentView fragment =
             let
-                -- Normalize letters if this is enabled
-                normalize =
-                    if model.normalize
-                    then model.normalizer
-                    else identity
-
                 syllabize =
                     if model.syllabize
                     then model.syllabizer 
@@ -429,39 +506,52 @@ view model =
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
                 breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
-                textMod = String.trim >> normalize >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
+                textMod = String.trim >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
-                matches = searchMatches fragment.text
+                matches = 
+                    case search of
+                        Just s -> s (String.filter Elam.indexed fragment.text)
+                        Nothing -> []
 
-                highlight idx =
-                    let
-                        within (index, length) = (idx >= index) && (idx < index + length)
-                    in
-                        List.any within matches
-
-                charPos char (elems, idx) =
-                    if
-                        Elam.indexed char
-                    then
-                        ((span (if highlight idx then [ class "highlight" ] else []) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
-                    else
-                        ((text (syllabize <| String.fromChar char)) :: elems, idx)
-
+                guessmarks = Set.fromList ['', '']
+                guessmarkClass char = 
+                    if Set.member char guessmarks
+                    then [ class "guessmark" ]
+                    else []
+                    
                 -- Fold helper building a list element from a text line
                 -- The tricky bit here is to keep indexed character position so
                 -- we can track highlighted searches which may span across
                 -- lines.
-                line text (lines, idx) =
+                line chars (lines, lineIdx) =
                     let
-                        lineIdx = List.length lines
-                        (elems, endIdx) = String.foldl charPos ([], idx) text
-                        elemLine = li [ class "line", lineDirAttr lineIdx fragment.dir ] (List.reverse elems)
+                        lineNr = List.length lines
+                        charPos char (elems, idx) =
+                            let
+                                within (index, length) = (idx >= index) && (idx < index + length)
+                                highlightClass =
+                                      if List.any within matches
+                                      then [ class "highlight" ]
+                                      else []
+                                titleAttr =
+                                    [ title (String.concat [toString (lineNr+1), ".", toString (idx-lineIdx+1)]) ] 
+                                idAttr =
+                                    [ id <| String.concat [ fragment.id, toString idx ] ]
+                            in
+                                if
+                                    Elam.indexed char
+                                then
+                                    ((a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
+                                else
+                                    ((span (guessmarkClass char) [ text (String.fromChar char) ]) :: elems, idx)
+                        (elems, endIdx) = String.foldl charPos ([], lineIdx) chars
+                        elemLine = li [ class "line", lineDirAttr lineNr fragment.dir ] (List.reverse elems)
                     in
                         (elemLine :: lines, endIdx)
 
                 -- Build line entries from text
-                lines = List.reverse (fst (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
+                lines = List.reverse (Tuple.first (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
             in
                 div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
                 [ h3 [] [ sup [ class "group" ] [ text fragment.group ], span [ dir "LTR" ] [ text fragment.id ] ]
@@ -492,7 +582,7 @@ view model =
               ++ settings
               ++ searchView ++
             [ h2 [] [ text " Textfragmente " ]
-            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView selectedFragments) ]
+            ] ++ [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments) ]
               ++ [ footer ]
         )
 
