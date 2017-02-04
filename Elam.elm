@@ -332,7 +332,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
     , { id = "C", group = "Susa", dir = RTL, text =
         """
 ​
-​
+​
 ​
 ​
 
