@@ -165,7 +165,7 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
 
 
 
- 
+
 
  
  
@@ -182,7 +182,7 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
 
 
 
- 
+
 
 
  
@@ -215,13 +215,13 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
 
 
 
-
+
 
 
 
 
-
-
+
+
 
 
 
@@ -239,9 +239,9 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
 
 
 
-
+
+
 
-
            
             """
       }
