@@ -617,7 +617,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "H′a", group = "Mahb", dir = RTL, text =
         """
-            
+            
             
             
             
@@ -636,7 +636,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "I′b", group = "Mahb", dir = RTL, text =
         """
-
+
 ​​
 
         """
@@ -644,7 +644,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
     , { id = "I′c", group = "Mahb", dir = RTL, text =
         """
 
-
+
 
         """
       }
