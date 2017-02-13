@@ -7,7 +7,7 @@ is unlikely that we will ever develop a comprehensive understanding of the
 inscriptions unless a substantially bigger body of inscriptions is discovered.
 
 You can visit the
-[Elamicon catalog page](https://elamicon.github.io/) to see the corpus
+[Elamicon catalog page](https://elamicon.org/) to see the corpus
 we've developed so far.
 
 
