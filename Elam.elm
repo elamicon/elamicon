@@ -361,11 +361,11 @@ fragments : List Fragment
 fragments = List.map (\f -> { f | text = String.trim f.text })
     [ { id = "A", group = "Susa", dir = RTL, text =
         """
-
+
 ​
 
 
-
+
         """
       }
     , { id = "B", group = "Susa", dir = LTR, text =
