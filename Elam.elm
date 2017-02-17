@@ -349,7 +349,8 @@ groups =
     , { short = "Pers", name = "Persepolis", recorded = False }
     , { short = "Liga", name = "Ligabue", recorded = False }
     , { short = "Schø", name = "Schøyen", recorded = False }
-    , { short = "Phoe", name = "Phoenix", recorded = False }
+    , { short = "Phoe1", name = "Phoenix 1", recorded = False }
+    , { short = "Phoe2", name = "Phoenix 2", recorded = False }
     , { short = "Jir", name = "Jiroft (Konar Sandal)", recorded = False }
     , { short = "Div", name = "Divers", recorded = False }
     ]
@@ -535,7 +536,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "W", group = "Phoe", dir = RTL, text =
+    , { id = "W", group = "Phoe1", dir = RTL, text =
         """
             
             
@@ -579,7 +580,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
             
         """
       }
-    , { id = "A′", group = "Phoe", dir = RTL, text =
+    , { id = "A′", group = "Phoe2", dir = RTL, text =
         """
             
             
