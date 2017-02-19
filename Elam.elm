@@ -498,7 +498,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "Q", group = "Pers", dir = RTL, text =
         """
-​​​​
+​​​
         """
       }
     , { id = "R", group = "Susa", dir = RTL, text =
