@@ -33,13 +33,13 @@ fonts/Elamicon_Times_New_Roman.zip: fonts/Elamicon_Times_New_Roman_Bold_Italic.t
 	zip -r fonts/Elamicon_Times_New_Roman.zip $^
 
 fonts/Elamicon_Times_New_Roman_Bold_Italic.ttf: elamicon.sfdir
-	bin/addfont "Elamicon " $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
+	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
 
 fonts/Elamicon_Times_New_Roman_Italic.ttf: elamicon.sfdir
-	bin/addfont "Elamicon " $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
+	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
 
 fonts/Elamicon_Times_New_Roman_Bold.ttf: elamicon.sfdir
-	bin/addfont "Elamicon " $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
+	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
 
 fonts/Elamicon_Times_New_Roman.ttf: elamicon.sfdir
-	bin/addfont "Elamicon " $(TIMESPATH)Times_New_Roman.ttf $^ $@
+	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
