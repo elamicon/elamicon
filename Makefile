@@ -36,7 +36,7 @@ fonts/Elamicon_Times_New_Roman_Bold_Italic.ttf: elamicon.sfdir
 	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
 
 fonts/Elamicon_Times_New_Roman_Italic.ttf: elamicon.sfdir
-	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
+	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Italic.ttf $^ $@
 
 fonts/Elamicon_Times_New_Roman_Bold.ttf: elamicon.sfdir
 	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
