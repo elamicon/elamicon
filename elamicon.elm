@@ -558,6 +558,14 @@ view model =
                 , ol [ class "fragment", dirAttr fragment.dir ] lines
                 ]
 
+        contact = div [ class "footer" ]
+                [ h2 [] [ text "Kontakt mit dem Forschungsteam" ]
+                , text "Für detaillierte Informationen zum Elamicon Webtool, Hintergründe und Möglichkeiten zur Zusammenarbeit mit dem Entzifferungsteam der Universität Bern wendet euch bitte an " 
+                , strong [] [ text "michael.maeder[ätt]isw.unibe.ch" ], text ". "
+                , text "Wir können euch Tipps geben, wie ihr zur Entzifferung der elamischen Strichschrift (Linear Elamite) beitragen könnt und auch sagen, was wir bisher herausgefunden haben."
+                , br [] [], br [] [], text " Herzlichen Dank fürs Interesse und viel Spass beim Tüfteln. Euer Team vom \"Linear Elamite Decipherment Project\", Institut für Sprachwissenschaft der Universität Bern."
+                ]
+ 
         footer = div [ class "footer" ]
                 [ text "Diese Seite wurde produziert mit "
                 , a [ href "https://fontforge.github.io/" ]
@@ -567,10 +575,10 @@ view model =
                     [ text "Elm" ]
                 , text " und "
                 , a [ href "https://unicode.org" ] [ text "♥" ]
-                , text ".  "
+                , text ".  ", br [] []
                 , a [ href "fonts/Elamicon-Fonts.zip" ]
                     [ text "Elamicon-Schriften installieren."]
-                , text " "
+                , text " ", br [] []
                 , a [ href "https://github.com/elamicon/elamicon/" ]
                     [ text "Das Projekt auf Github." ]
                 ]
@@ -583,6 +591,6 @@ view model =
               ++ searchView ++
             [ h2 [] [ text " Textfragmente " ]
             ] ++ [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments) ]
-              ++ [ footer ]
+              ++ [ contact, small [] [ footer ] ]
         )
 
