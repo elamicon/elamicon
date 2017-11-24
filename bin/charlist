@@ -12,6 +12,8 @@ import fontforge
 f = fontforge.open(sys.argv[1])
 glyphs = sorted(f.glyphs(), key=lambda g: g.unicode)
 for glyph in glyphs:
-    print(unichr(glyph.unicode).encode('utf-8'), end="")
+    codepoint = glyph.unicode
+    if codepoint > 0:
+        print(unichr(codepoint).encode('utf-8'), end="")
 print()
 f.close()
