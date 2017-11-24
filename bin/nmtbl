@@ -1,0 +1,12 @@
+#!/usr/bin/python
+
+# Print font name strings 
+
+import fontforge
+import sys
+
+fnt=fontforge.open(sys.argv[1])
+nametbl= fnt.sfnt_names
+for N in nametbl:
+    print "%-20s %-20s %s" % (N[0], N[1]+":", N[2])
+
