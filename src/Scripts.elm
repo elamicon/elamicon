@@ -6,15 +6,16 @@ import List
 import Set exposing (Set)
 
 import Elam as Elam
+import Cypro as Cypro
 
 import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 
 
 scripts : List Script
-scripts = [ Elam.elam ]
+scripts = [ Elam.elam, Cypro.cypro ]
 
-initialScript = Elam.elam
+initialScript = Cypro.cypro
 
 
 -- Digest the mapping from letters to "spoken sound" into a dictionary

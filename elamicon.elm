@@ -48,7 +48,7 @@ type alias Model =
 
 initialScript = Scripts.initialScript
 
-initialModel = updateSyllabary initialScript.initialSyllabary
+initialModel = updateScript initialScript
     { script = initialScript
     , dir = Nothing
     , fixedBreak = True
@@ -66,7 +66,7 @@ initialModel = updateSyllabary initialScript.initialSyllabary
     , search = ""
     , showAllResults = False
     , bidirectionalSearch = True
-    , selectedGroups = Set.fromList (List.map .short initialScript.groups)
+    , selectedGroups = Set.empty
     , collapsed = Set.fromList [ "gramStats", "syllabary", "playground", "settings", "search" ]
     }
 
@@ -89,9 +89,16 @@ type Msg
     | SelectGroup String Bool
     | Toggle String
 
-updateScript : Model -> Script -> Model
-updateScript model new =
-    updateSyllabary new.initialSyllabary { model | script = new }
+updateScript : Script -> Model -> Model
+updateScript new model =
+    let
+        selectedGroups = Set.fromList (List.map .short new.groups)
+    in
+        updateSyllabary new.initialSyllabary
+            { model
+            | script = new
+            , selectedGroups = selectedGroups
+            }
 
 
 updateSyllabary : SyllabaryDef -> Model -> Model
@@ -112,7 +119,7 @@ zeroWidthSpace = "​"
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     (case msg of
-        SetScript script -> updateScript model script
+        SetScript script -> updateScript script model
         SetSandbox str -> { model | sandbox = str }
         AddChar char ->
             { model
