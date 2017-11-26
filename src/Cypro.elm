@@ -164,14 +164,14 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 -- The writing direction is only a guess for many fragments.
 fragments : List FragmentDef
 fragments = List.map (\f -> { f | text = String.trim f.text })
-    [ { id = "##001", group = "ENKO Atab", dir = UNKNOWN, text =
+    [ { id = "##001.A", group = "ENKO Atab", dir = UNKNOWN, text =
         """
 󱀀󱀁󱀂󱀃󱀄󱀅󱀆󱀈
 󱀊󱀋󱀌󱀍󱀎󱀏󱀐
 󱀑󱀒󱀓󱀔󱀕󱀖
         """
       }
-    , { id = "##001r", group = "ENKO Atab", dir = UNKNOWN, text =
+    , { id = "##001.B", group = "ENKO Atab", dir = UNKNOWN, text =
         """
 󱀇󱀉
         """
@@ -246,22 +246,22 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 󱀛󱂄󱁵󱀼󿊀󿊀
         """
       }
-    , { id = "##016", group = "ENKO Abou", dir = UNKNOWN, text =
+    , { id = "##016.A", group = "ENKO Abou", dir = UNKNOWN, text =
         """
 󱇍󱁮󱀛󱇀󱉖󿊀󱇸
         """
       }
-    , { id = "##016r", group = "ENKO Abou", dir = UNKNOWN, text =
+    , { id = "##016.B", group = "ENKO Abou", dir = UNKNOWN, text =
         """
 󿊀󱂧󿊀
         """
       }
-    , { id = "##018", group = "ENKO Abou", dir = UNKNOWN, text =
+    , { id = "##018.A", group = "ENKO Abou", dir = UNKNOWN, text =
         """
 󱅹󱀾󱀳󱂧󱅒
         """
       }
-    , { id = "##018r", group = "ENKO Abou", dir = UNKNOWN, text =
+    , { id = "##018.B", group = "ENKO Abou", dir = UNKNOWN, text =
         """
 󿊀
         """
@@ -976,12 +976,12 @@ neu schreib
 󱉟󱁋󱉠
         """
       }
-  , { id = "##146", group = "KITI Avas", dir = UNKNOWN, text =
+  , { id = "##146.A", group = "KITI Avas", dir = UNKNOWN, text =
         """
 󿊀󱀴
         """
       }
-  , { id = "##146r", group = "KITI Avas", dir = UNKNOWN, text =
+  , { id = "##146.B", group = "KITI Avas", dir = UNKNOWN, text =
         """
 neu schreib
         """
@@ -1073,12 +1073,12 @@ neu schreib󱀵
 󱀵󱂆󱂌󱂦󱀵plus numeralia
         """
       }
- , { id = "##163", group = "KITI Ipla", dir = UNKNOWN, text =
+ , { id = "##163.A", group = "KITI Ipla", dir = UNKNOWN, text =
         """
 󱆱󱇬󱇤󱆙󱁭invert
         """
       }
- , { id = "##163r", group = "KITI Ipla", dir = UNKNOWN, text =
+ , { id = "##163.B", group = "KITI Ipla", dir = UNKNOWN, text =
         """
 󱇓󱁺󱂧󱂐󱁮󱀚󱉦󱀵
         """
@@ -1202,38 +1202,639 @@ neu schreib
         """
 󱁷󱀞󱁷󱆻󱀵zweites
         """
-    }
-  , { id = "##187", group = "ENKO Pblo", dir = UNKNOWN, text =
+      }
+ , { id = "##187", group = "ENKO Pblo", dir = UNKNOWN, text =
         """
 󱅎󱀮󿊀󿊀󿊀󱀻ergaenzen
         """
-    }
-  , { id = "##188", group = "KITI Pblo", dir = UNKNOWN, text =
+      }
+ , { id = "##188", group = "KITI Pblo", dir = UNKNOWN, text =
         """
 󱂅󱀿󿊀
         """
-    }
-  , { id = "##189", group = "PPAP Pblo", dir = UNKNOWN, text =
+      }
+ , { id = "##189", group = "PPAP Pblo", dir = UNKNOWN, text =
         """
 󱂐󱂧󱂒change
         """
-    }
-  , { id = "##190", group = "PPAP Pblo", dir = UNKNOWN, text =
+      }
+ , { id = "##190", group = "PPAP Pblo", dir = UNKNOWN, text =
         """
 󱇥󱉖󱀵check
         """
-    }
-  , { id = "##191", group = "KALA Ppla", dir = UNKNOWN, text =
+      }
+ , { id = "##191", group = "KALA Ppla", dir = UNKNOWN, text =
         """
 󱉖󱂡
         """
-    }
-  , { id = "##192", group = "KALA Ppla", dir = UNKNOWN, text =
+      }
+ , { id = "##192", group = "KALA Ppla", dir = UNKNOWN, text =
         """
 󱂛󱆊󱇮zweites
         """
+      }
+ , { id = "##193", group = "CYPR? Psce", dir = UNKNOWN, text =
+        """
+󱁵󱀸󱁵󱂧󱁫󱁩󱀵checken
+        """
+      }
+ , { id = "##194", group = "CYPR? Psce", dir = UNKNOWN, text =
+        """
+󱁧󱀨󱉖󱉊󱉋
+        """
+      }
+ , { id = "##195", group = "CYPR? Psce", dir = UNKNOWN, text =
+        """
+󱂑
+󱀚 turn both
+        """
+      }
+ , { id = "##196", group = "CYPR? Psce", dir = UNKNOWN, text =
+        """
+󱉌󱉍󱁦󱀜check and turn
+        """
+      }
+ , { id = "##197", group = "CYPR? Psce", dir = UNKNOWN, text =
+        """
+󱇷󱂙󱇋󱀵󱇶
+        """
+      }
+ , { id = "##198", group = "CYPR? Psce", dir = UNKNOWN, text =
+        """
+󱀵󱆠󱉎󱉎mut zur luecke
+        """
+      }
+ , { id = "##199", group = "ENKO Psce", dir = UNKNOWN, text =
+        """
+󱀵󱆪󱆫
+󱅱
+        """
+      }
+ , { id = "##200", group = "ENKO? Psce", dir = UNKNOWN, text =
+        """
+󱀞󱀵
+        """
+      }
+ , { id = "##201", group = "HALA Psce ", dir = UNKNOWN, text =
+        """
+󱁘󱁿󱁁󱁵󿊀checken
+        """
+      }
+ , { id = "##202", group = "KOUR Psce", dir = UNKNOWN, text =
+        """
+󱉏󱀬󱇯󱂊󱀵
+        """
+      }
+ , { id = "##203", group = "PARA Psce", dir = UNKNOWN, text =
+        """
+󱁑󱀚󱅂󱁩
+        """
+      }
+ , { id = "##204", group = "PYLA Psce", dir = UNKNOWN, text =
+        """
+󱀵󱆑󱆽󱁀
+        """
+      }
+ , { id = "##205", group = "SALA Psce", dir = UNKNOWN, text =
+        """
+󱉐󱇯
+        """
+      }
+ , { id = "##206", group = "PPAP Vsce", dir = UNKNOWN, text =
+        """
+󱇘󿊀
+        """
+      }
+ , { id = "##207.A.left", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱂷󱂯󱃯
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃒󱃐󱃝󱃯󱂺󱃊
+󿊀󿊀󱃙󱃏󱃍󱂸󱃯󱈃󱂪󱃯󱂫󱃆󱂹󱃯󱃃󱂹
+󱈄󱂬󱃟󱃯󱂳󱃩󱃯󱃜󱂯󱂲󱃙󱃯󱂺󱈂󱂴󱃯󱂶󱂸
+󱃟󱃩󱃇󱃯󱃃󱃚󱃯󱃮󱃏󱃯󱃬󱃔󱃇󱃯󱈂󱈂󱂱󱃇
+󱃭󱂲󱃠󱃯󱃃󱃚󱃘󱃯󱈃󱃎󱂭󱂴󱃯󱃮󱃇󱂴󱃯󱃃󱂾󱃇
+󱃫󱃙󱂫󱃉󱃯󱃋󱃙󱃩󱂵󱃯󱃏󱂾󱃧󱃏󱃯󱂵󱂯󱃍󱃋󱃙󱃰
+󱂶󱂬󱃙󱃯󱃜󱃖󱃯󱂱󱃩󱂵󱃯󱃙󱃠󱃋󱃋󱃯󱃜󱂾󱂾󱂬
+󱂻󱂴󱂶󱃯󱂪󱂼󱃭󱃡󱃯󱂾󱃖󱃠󱃯󱃂󱃐󱃉󱃐󱃖
+󿊀󱂾󱃮󱃯󱂷󱃇󱃑󱃯󱃫󱂫󱃯󱂸󱂾󱃮󱈅
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃭󱃛󱂬󱈑󱃯󱃏󱃚󱃯󿊀󱂽󱃩󱃇󱂵󱃯󱂶󱃒󱂯
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃠󱈒󱃡󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂭󱃢󱃯󱃝󱂶󱈆
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱂺󱂻󱃢󱃯󱂾󱃎󱃉󱃐󱃔
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱈡󱃙󱃯󱃮󱂽󱂵󱃯󱃏󱂵󱃇󱃎󱃦
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂪󱃯󱂹󱃂󱂻󱃯󱃃󱃟󱃎󱃦
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂺󱃯󱃜󱂪󱃌󱃯󱃅󱂾󱈍󱂯󱃔
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃙󱂽󱃯󱃮󱃟󱂴󱃯󱃊󱂷󱃢󱃙󿊀
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃔󱃯󱂶󱃛󱃩󱂵󱃯󱃉󱃐󱂻󱃡
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂫󱃀󱃔󱃯󱃃󱃮󱂯󱃯󱃏󱃣󱃔
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃫󱃙󱃛󱃯󱃜󱂬󱃎󱃦nonver?
+        """
+      }
+ , { id = "##207.A.right", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀
+󱃄
+󱃄󱃙󱂯
+󱂺󱃦󱃯󱂹
+󱂫󱃙󱃯󱃅
+󱃭󱃇󱃯󱃠
+󱃔󱃖󱃐󱃯󱂳
+󱃃󱃟󱃯󱂻󱃇
+󱂻󱈇󱃮󿊀󿊀󿊀󱃗
+󱃈󱂾󱃯󱈈󱂯󱃅
+󱃛󱂬󱃖󱃯󱃟
+󱃫󱂻󱃟󱃯󱃜nonver?
+        """
+      }
+ , { id = "##207.B.left", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃬󱂲󱂹󱃯󱂷󱃐󱂻󱃝󱃯󱃫󱃀󱃙󱃟
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂽󱂷󱃤󱃩󱃯󱃫󱂺󱂴󱃯󱃫󱃙󱂻󱃔
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃠󱃙󱃯󱃃󱂵󱂵󱃯󱃭󱂿󱃗󱂻
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃄󱃙󱃯󱃇󱂿󱃅󱃆󱃙
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃜󱃘󱃐󱃙󱃯󱂶󱃔󱂵󱃯󱃏󱃖󱃯󱂯󱃭
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃬󱃠󱃟󱃯󱃅󱂾󱃭󱂯󱃔
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃖󱃯󱂳󱈍󱂻󱃯󱂾󱂵󱂵󱃯󱃟󱂽󱃩󱃯󱃜󱈉󱃐󱃔
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂻󱃡󱃯󱂬󱃮󱂻󱃯󱃂󱃔󱃁󱃯󱂻󱃠󱂻
+󱃜󿊀󱃙󱃯󱃫󱂴󱃯󱃅󱃓󱈊󱃯󱃃󱃠󱃠󱃅󱃦󱃯󱃜󱃚󱂪
+󱃜󱃖󱂱󱃙󱂯󱃭󱃯󱃭󱂲󱃠󱃯󱂺󱂫󱂯󱃯󱃛󱂺󱂫󱃙󱃰
+󱂯󱃝󱃅󱃯󱃂󱃩󱃯󱃫󱃇󱃯󱃜󱂼󱃇󱃯󱂺󱃉󱂾󱈒
+󱃜󱂻󱃯󱃠󱃒󱂼󱃭󱃁󱃯󱃫󱃀󱂻󱃯󱂻󱂻󱃯󱂾
+󱃛󱃧󱃝󱃯󱂺󱈂󱃟󱃯󱃃󱂳󱃩󱂵󱃯
+󱃜󱂯󱃄󱃖󱃯󱃟󱃅󱃇󱃯󱃫󱂴󱃯󱃫
+󱂶󱃅󱃖󱃯󱃟󱂽󱃩󱃯󱂭󱂺󱃯
+󱂶󱂫󱃛󱃯󱃫󱃀󱃧󱃯󱃫󱃚
+󱃜󱂵󱂴
+
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃟󱂴󱃚
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃈󱃯󱂬󱃭󱃦󱃯󱂷󱃂
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃈󱃖󱃯󱃫󱂺󱃙󱃯󱈌󱂬
+󱃃󱃠󱃠󱂻󱃯󱃃󱃠󱂴󱃯󱃠󱃦󱃙󱃯󱂸󱃔󱂻
+󱈋󱃟󱃙󱃯󱂻󱂻󱃯󱂺󱃢󱂭󱃠󱃯󱂻󱂯󱃢󱃯󱃟󱃖
+󱃮󱃂󱂶󱂵󱂷󱃯󱃫󱃀󱃠󱃖󱃯󱃬󱃠󱃟󱃯󱂫
+󱂻󱂯󱃯󱃭󱂳󱂿󱂺󱃯󱃬󱂯󱃚󱃬󱃖󱂻󱂶󱃯
+󱃏󱃙󱂿󱃯󿊀󱃢󱃔󱃯nonver?
+        """
+      }
+ , { id = "##207.B.right", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱂫󱂴󱃯
+󱃜󱃁
+󱃞󱂱󱂳
+󱃘󱃅
+󱃃󱃧
+󱃞󱈒󱃯
+󱃅󱃭
+󱃮󱃇
+󱃬󱈂󱃡󿊀nonver?
+        """
+      }
+ , { id = "##208.A", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱃬󱃍󱂿󱃯󱂹󱃖󱃯󱃈󱂾󱂶󱃯󱃊
+󱃫󱃙󱃉󱃯󱃫󱂽󱂵󱂵󱃯󱃠󱃢󱃄
+󱃜󱃂󱃟󱃩󱃯󱂺󱂯󱃆󱂼󱃦󱃯󱃖󱃒󱃖󱃛
+󱃫󱃙󱃯󱂭󱃆󱂿󱃀󱃉󱃯󱂾󱂶󱂬󱃙󱃐󱃯
+󱃫󱂼󱃉󱃯󱃃󱂿󱃇󱃯󱃃󱂿󱃯󱂫󱂺󱃇󱂴󱃯󱂵
+󿊀󱃘󱃠󱃯󱃬󱂷󱃯󱃜󱃈󱃐󱃙󱃯󱂶󱃀󱃯󱂾󱂶󱃧
+󿊀󱂯󱂻󱃔󱃯󱃫󱂫󱃙󱃯󱈏󱂱󱃇󱂴󱃯󱃃󱃩󱃧󿊀
+󿊀󿊀󱃯󱃈󱂾󱈏󱂴󱃯󱃃󱂿󱃇󱃯󱂫󱂺󱃯󱈏󱃧󱃔󱃟
+󿊀󿊀󱃩󱃩󱃯󱃜󱃊󱃆󱃉󱃯󱂶󱃧󱃔󱃐󱃯󱂷󱃂󱂻
+󱃫󱃙󱃯󱂺󱈎󱃆󱂼󱃦󱃯󱃮󱃍󱃯󱂼󱂶󱂵󱃯󱃏󱂬󱃍󱃉
+󱃗󱃉󱃯󱃃󱂿󱃇󱃯󱃮󱃛󱂴󱃯󱃫󱃙󱂫󱃯󱃅󱃧󱂻󱃔
+󱂷󱃏󱂵󱃯󱃠󱃇󱈎󱃟󱃯󱃊󱂯󱃯󱃫󱃙󱃉󱃯󱂫󱂺󱃘󱃉
+󱃠󱃊󱃯󱂺󱃠󱃋󱃡󱃯󱃜󱃊󱃯󱃅󱂵󱃩󱂵󱃯󱂺󱂻󱃔󱈎󱃔
+󱂫󱂺󱃘󱃦󱃯󱃟󱃠󱃯󱃮󱃘󱂶󱃯󱃫󱃙󱂫󱃯󱃅󱂿󱃉
+󱂾󱃈󱂬󱃯󱃫󱂺󱃙󱃯󱃮󱃚󱃖󱃯󱃒󱂺󱃩󱂵󱃯󱂾󱂭󱂫󱃙
+󱃒󱃏󱂯󱃯󱃏󱃐󱃯󱃃󱃚󱃯󱂺󱂭󱃐󱃯󱃫󱃏󱃟
+󱃉󱃚󱂿󱃯󱃃󱂹󱃝󱃯󱃫󱃀󱃧󱃯󱂻󱃕󱂵󱃯󱃖󱂻󱂬󱃎󱃦
+󱃊󱃧󱃄󱃯󱃫󱃙󱃯󱃮󱃀󱂬󱂵󱃯󱃭󱃙󱃙󱃯󱃫󱃟󱃂󱂬
+󱃭󱂾󱃦󱃯󱃭󱂵󱃙󱂴󱃯󱃃󱂿󱃇󱂴󱃯󱂫󱃨󱃯󱂻󱃇
+󱃭󱃟󱃟󱃯󱂺󱃢󱃯󱃬󱃊󱂬󱃯󱃠󱃗󱃯󱃄󱃙󱂿󱃰
+󿊀󱃢󱂷󱃝󿊀󿊀󿊀󱃯󱃜󱂴󱃯󱂶󱃗󱃨󱃯󱃟󱂯󱃭󱂵
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂿󱃛󱃯󱃫󱃀󱃟
+        """
+      }
+ , { id = "##208.B", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀󿊀󿊀󱃯󱃫󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃉
+󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃠󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃏󱃟󱃯󱂷󱂯󱃍󱃋
+󿊀󿊀󱃚󱂶󱂵󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂻󱃯󿊀󿊀󿊀󿊀󱃯󱃜󱃦󱃯󱃟󱃠
+󿊀󱃅󱂶󱃯󱃫󿊀󿊀󿊀󿊀󿊀󱃉󱃙󱃯󱃭󱃊󱃔󱃯󱃟󱃢󱃯󱃭󿊀
+󱂶󱂴󱃯󱃧󱂴󱃯󱃬󱃂󱃟󱂯󱃯󱃮󱃛󱃯󱃠󱂷󱃯󱃜󱃉
+󱃫󱂯󱃉󱃗󱂵󱃯󱃫󱃧󱃏󱃯󱂺󱂫󱃙󱃯󱂸󱃢󱂿󱂻
+󱃫󱃊󱂿󱂻󱃯󱂲󱂶󱃯󱂫󱃙󱂽󱃯󱃫󱃟󱂴󱃯󱃅󱂻󱃔
+󱃃󱃟󱃯󱃈󱂾󱂶󱂴󱃯󱃭󱃍󱃯󱃭󱂲󱃠󱃯󱃫󱃦󱃯
+󱂶󱃅󱃖󱃯󱂶󱂯󱃔󱂷󱃯󱃫󱃀󱃧󱃯󱂷󱃍󱂶
+󱃮󱂫󱃯󱂻󱂾󱃈󱃯󱂾󱂳󱂵󱃯
+󱂹󱂯󱃯󱂶󱈐󱃡󱂵󱃯󱃬
+󱃬󱃊󱂴󱃯󱂫󱃙󱃯󱃫
+󱃃󱂻󱃯󱂳󱃎󱃏󱃯󱃖
+󱂭󱂶󱃯󱃧󱃀󱃯󱂭󱃊󱃯󱃄
+󿊀󿊀󱃫󱃉󱃙󱃟󱃯󱃮󱂭
+󿊀󿊀󿊀󱃛󱃙󱃙󱃯󱃮󱃏󱃟
+        """
+      }
+ , { id = "##209.A.top", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱂺󱂶󱂮󱃯󱂫󱃟󱃯󱂻󱃇󱃯󱃒󱂺󱃧nonver
+        """
+      }
+ , { id = "##209.A.left.1", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀󿊀󿊀󱃮󱈑󱃯󱂻󿊀
+󿊀󿊀󱂿󱃦󿊀󿊀󿊀󿊀
+󱃃󱃐󱃯󱃜󱃂󱃭󱃯󱂾󱃄󱂿󱃖nonver
+        """
+      }
+ , { id = "##209.A.left.2", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱃫󱃃󱃦󱃇󱃯󱂫󿊀󿊀󱃯󱂻󱂻
+󱃒󱃟󱂼󱃦󱃯󱃃󱃐󱃯󱃜󱃂󱃭
+󱂾󱃄󱂿󱃖nonver
+        """
+      }
+ , { id = "##209.A.left.3", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱃫󱃒󱃦󿊀󿊀󿊀󱃧󱃯󱃃󱃒󱃧
+󱂾󱃄󱂿󱃖󱃯󱃃󱃐󱃯󱃜󱃂󱃭nonver
+        """
+      }
+ , { id = "##209.A.left.4", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱂷󱂯󱂻󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃬󱃮󱃦
+󱃃󱃐󱃯󱃜󱃂󱃭󱃯󱂾󱃄󱂿󱃖nonver
+        """
+      }
+ , { id = "##209.A.left.5", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱃃󱂺󿊀󿊀󱂽󱃐󱃯󱂳󱃥󱃃
+󱃒󱃟󱂼󱃦󱃯󱂾󱃄󱂿󱃖󱃯󱃃󱃐
+󱃜󱃂󱃭nonver
+        """
+      }
+ , { id = "##209.A.left.6", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀󱃭󱃟󱃯󱃏󱃐󱃯󱃒󱃟󱂼󱃦
+󱂾󱃄󱂿󱃖󱃯󱃃󱃐󱃯󱃜󱃂󱃭nonver
+        """
+      }
+ , { id = "##209.A.left.7", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀󿊀󿊀󿊀󱃯󱂯󱃠󱃎󱃯󱃟󱃅󱃖󿊀
+󱂾󱃄󱂿󱃖󱃯󱃃󱃐󱃜󱃂󱃭nonver
+        """
+      }
+ , { id = "##209.A.left.8", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂾󱃦󱃯󱃟󱂸󿊀
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃬nonver
+        """
+      }
+ , { id = "##209.A.right.1", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃬󿊀󿊀
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃅󱃦󱃎󿊀
+󱃬󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃮󱃛󿊀
+󱂾󱃄󱂿󱈑󱃯󱃃󱃐nonver
+        """
+      }
+ , { id = "##209.A.right.2", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱃎󱃋󿊀󿊀󿊀󿊀󱃯󱃮󿊀
+󿊀󿊀󿊀󿊀󿊀󱃐󱃯󱃒󱃟󱂼󱃦
+󱂾󱃄󱂿󱃖󱃯󱃃nonver
+        """
+      }
+ , { id = "##209.A.right.3", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱂾󱃭󱃖󱃟󱃯󿊀󱃂
+󱈋󱃩󱃯󱂾󱃄󱂿
+󱃜󱃂󱃭nonver
+        """
+      }
+ , { id = "##209.A.right.4", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀󿊀󿊀󱃋󱃎󱂹󱃯
+󿊀󿊀󿊀󱃂󱃐󱃯󱃃
+󱂾󱃄󱂿󱃖nonver
+        """
+      }
+ , { id = "##209.A.right.5", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󱃒󱂯󱃔󱃋
+󿊀󿊀󿊀󿊀󿊀󱃖󿊀
+󿊀󿊀nonver
+        """
+      }
+ , { id = "##209.B", group = "ENKO Atab", dir = UNKNOWN, text =
+        """
+󿊀
+󱂭󱂭󱃟󱃯󱂭󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃉󱃯󱃒󱂺
+󱂭󱂭󱃟󱃯󱂭󱂯󱂭󱃭󱃯󱃬󱂹󱃯󱃏󱃚󿊀
+󱂭󱂭󱃟󱃯󱂭󱂯󱂭󱃭󱃯󱃬󱂹󱃯󱂭󱂭󱃛
+󱃫󱃐󱂹󱃯󱃬󱃥󱂯󱃍󱃋
+󱃟󱂹󱃔󱃯󱃬󱃤󱂯󱃍󱃋󱃯󱂼󱃮
+󱂭󱂭󱃟󱃯󱃜󱂯󱃉󱃭󱃯󱃃󱂹󱃯󱃉󱃋
+󱃙󱃚󱃘󱃯󱃅󱃅󱃍󱃋󱃯󱃫󱃖󿊀󿊀
+󱃫󱂺󱃙󱃧󱃯󱃡󱂹󱃯󱂾󱃖󱂵󱂷󱃯󱃫
+󱂺󱂺󱃯󱃬󱂯󱃢󱃯󱃮󱃛󱂸󱃯󱂭󱂭󱃯󱃭
+󱃒󱂺󱃩󱃯󿊀󿊀󿊀󱃉󱂬󱃍󱃢󱃯󱃫󱃟󱃭󱃛
+󱃫󱂴󱂴󱃯󱃒󱂺󱃙󱃯󱃟󱂷󱃯󱃫󱃎󱂶󿊀
+󱃟󱂺󱃙󱃋󱃯󱃂󱃐󱃇󱃯󱃏󱂶󱂹󱃉
+󱃭󱂭󱂭󱃢󱂴󱃯󱃫󱈓󱃝󱃯󱃅󱃖󱃯󱂫
+󱃟󱂺󱃙󱃋󱃯󱃃󱂵󱃯󱃃󱂳󱃩󱃯󱃟󱂬󱂹󿊀
+󱃫󱃚󱃀󱃯󱃛󱃦󱂿󱃀󱃯󱃃󱂵󱃋
+󱃃󱃎󱃄󱃀󱃯󱃃󱂵󱃏󱃯󱃫󱃍󱂻󱃯󱃦
+󱃫󱃚󱂽󱂴󱃯󱃒󱂺󱂿󱂺󱃯󱃫󱃠󱃋
+󱂺󱂭󱂫󱃯󱃄󱃅󱃦󱃙󱃯󱂫󱃙󱃀󱃯󱃆󱃄
+󱂾󱃖󱃐󱃯󱃫󿊀󿊀󿊀󿊀󱂵󱃦󱂬󱂻󱃭
+󱂺󱂭󱂫󱃯󱃄󱃅󱃦󱃙󱃯󱂫󱃙󱃀󱃯󱃊󱃅
+󱃫󱂫󱃠󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃦󱃯󱂫󱃚󱃉󱃐󱃯󱃉
+󱂶󱃛󱃇󱃯󱃄󱃎󱂯󱃯󱂺󱃉󱃅󱃍󱃋󱃯󱃄󱃛nonver
+        """
+      }
+ , { id = "##210", group = "RASH Aéti", dir = UNKNOWN, text =
+        """
+󱄪󱄁
+        """
+      }
+ , { id = "##211", group = "RASH? Aéti", dir = UNKNOWN, text =
+        """
+󱉑󱉒󱉓nonver
+        """
+      }
+ , { id = "##212.A", group = "RASH Atab", dir = UNKNOWN, text =
+        """
+󱄬󱄄󱄡󱄴󱄋󱃲
+󱃴󱃵󱄇󱄪󱄴󱄁󱄦
+󱄁󱄲󱄬󱄆󱄁󱄲󱃵󱄔
+󱄁󱄢󱃾󱄲󱄆󱃼󱃳󱄲
+󱄲󱃶󱄂󱄲󱄋󱃵󱈔󱄞󱄲
+󱈞󱄋󱄲󱈥check drittletzte zeile
+󿊀
+        """
+      }
+ , { id = "##212.B.side", group = "RASH Atab", dir = UNKNOWN, text =
+        """
+ 󱄁󱄭󱄥󱃳󱄞
+        """
+      }
+ , { id = "##212.B.face", group = "RASH Atab", dir = UNKNOWN, text =
+        """
+󱃺󿊀
+󱄊󱄲
+󱈕󱄊
+󱄲󱃵󱃺󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃼
+󱄢󱄯󱄞󱄁󱄲󱄞󱃳󱄁
+󱄲󱄂󱄋󱄊󱈖
+󿊀󿊀󱄗󱃾󱄲󿊀󱄃󱄉change
+        """
+      }
+ , { id = "##213", group = "RASH Atab", dir = UNKNOWN, text =
+        """
+󿊀󿊀󿊀󱄲󿊀
+󱃷󱉣󱈤󱃳󱄰
+󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃵
+󿊀󿊀󿊀󿊀󿊀󿊀󱄲󱄁
+        """
+      }
+ , { id = "##214", group = "RASH Atab", dir = UNKNOWN, text =
+        """
+󱄱󱄉󱃴󱃿󱈗󱄳󱄧󿊀󿊀󱃷󱄎󱄃󱄚
+󿊀󱈤󱈙󱄵󱄚󱄛󱄁󿊀󿊀󿊀󿊀󿊀
+󱄱󱉗
+󿊀󱄮󿊀󿊀󿊀󿊀󿊀󱃷󿊀󿊀󿊀󿊀󿊀󱃷󱄰󱄳󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱄚etwas󱄅change
+󿊀󿊀󿊀󱄁
+󿊀󱄀
+󱄅
+
+        """
+      }
+ , { id = "##215.A", group = "RASH Atab", dir = UNKNOWN, text =
+        """
+󱄪󱄂󱄝󱄲󱄍󱄄󱄲󱄏󱈢󱄶
+󱄪󱄁󱄍󱄄󱄲󱄪󱄙󱄜󱄍󱄲󱄶
+󱄬󱈣󱃵󱃹󱄲󱄶
+󱄪󱃲󱄨󱄲󱄏󱄂󱄍󱄊󱄶
+󱄪󱈙󱈙󱄤󱄲󱄍󱄄󱄲󱈙󱄕󱄩󱄶
+󱈘󱄕󱃵󱄁󱄲󱄍󱄄󱄲󱄉󱄭󱄁󱄑󱄶
+󱄍󱄄󱄲󱄉󱄅󱄩󱄲󱄶
+󱄫󱄅󱄜󱄍󱄲󱄍󱄄󱄲󱄂󱄍󱃹󱄶
+󱄈󱈙󱄨󱄶󱄲󱈘󱃹󱄕󱄨󱄲󱄈󱄕󱄨󱄊󱄶
+󱈙󱃸󱄨󱄲󱄍󱄄󱄲󱈘󱃹󱈙󱄏󱄤󱄶
+󱄪󱃲󱄕󱄨󱄲󱄍󱄄󱄲󱄠󱄄󱄣󱄨󱄶
+        """
+      }
+ , { id = "##215.B", group = "RASH Atab", dir = UNKNOWN, text =
+        """
+󱃽󱄝󱈚󱄤󱄲󱄁󱄂󱃵󱄩󱄊󱄶
+󱄀󱄜󱄚󱄍󱄶
+󱈘󱃹󱄏󱃹󱄓󱄲󱄍󱄄󱄲󱃽󱄞󱄘󱄁󱄶
+󱄪󱄂󱈛󱄍󱄲󱄍󱄄󱄲󱄏󱄓󱄶
+󱄉󱃱󱈙󱄜󱃹󱄲󱄪󱈜󱄍󱄏󱄜󱄀󱃹󱄶
+󱄪󱄙󱈜󱄍󱄲󱈝󱄒󱄲󱄏󱄓󿊀󱃵󱄤󱄈
+󱄘󱈞󱄨󱄲󱄍󱄄󱄲󱄏󱄓󱄶
+󱄜󱄑󱄏󱃹󱄓󱄲󱈞󱃻󱄤󱄲󱃵󱄶
+        """
+      }
+ , { id = "##216", group = "RASH Mvas", dir = UNKNOWN, text =
+        """
+󱄟󱄲󱈟󱈠
+        """
+      }
+ , { id = "##217", group = "SYRI Psce", dir = UNKNOWN, text =
+        """
+󱄖󱄌󱃴󱄐
+        """
+      }
+ , { id = "##218", group = "PARA Psce", dir = UNKNOWN, text =
+        """
+󱅍󱀵
+        """
+      }
+ , { id = "##219", group = "APLI Psce", dir = UNKNOWN, text =
+        """
+󱂑
+        """
+      }
+ , { id = "##220", group = "CYPR Psce", dir = UNKNOWN, text =
+        """
+󱀗󱁩󱅍󱄦
+        """
+      }
+ , { id = "##221", group = "DHEN Avas", dir = UNKNOWN, text =
+        """
+󱀜󱇶󱀜
+        """
+      }
+ , { id = "##222", group = "ENKO Apes", dir = UNKNOWN, text =
+        """
+󱂊nonver
+        """
+      }
+ , { id = "##223", group = "ENKO Apes", dir = UNKNOWN, text =
+        """
+󱂐nonver
+        """
+      }
+ , { id = "##224", group = "ENKO Pblo 002", dir = UNKNOWN, text =
+        """
+󿊀󱇶󱀜󱀡change
+        """
+      }
+ , { id = "##225", group = "ENKO Psce", dir = UNKNOWN, text =
+        """
+󱁵󱇆󱀵󱀠erstes change
+        """
+      }
+ , { id = "##226", group = "ENKO Psce", dir = UNKNOWN, text =
+        """
+󿊀nonver
+        """
+      }
+ , { id = "##227", group = "ENKO Psce", dir = UNKNOWN, text =
+        """
+󱆺󱀿erstes change
+        """
+      }
+ , { id = "##228", group = "ENKO Mins", dir = UNKNOWN, text =
+        """
+󿊀nonver
+        """
+      }
+ , { id = "##229", group = "ENKO Mins", dir = UNKNOWN, text =
+        """
+󱀛󱀻󱂋change
+        """
+      }
+ , { id = "##230", group = "ENKO Mins", dir = UNKNOWN, text =
+        """
+󱀵󱂓nonver
+        """
+      }
+ , { id = "##231", group = "KLAV Avas", dir = UNKNOWN, text =
+        """
+󱉔󱉕
+        """
+      }
+ , { id = "##232", group = "IDAL Psce", dir = UNKNOWN, text =
+        """
+󿊀
+        """
+      }
+ , { id = "##233", group = "IDAL Avas", dir = UNKNOWN, text =
+        """
+󿊀󱀡󿊀󱀻ergaenz
+        """
+      }
+ , { id = "##234", group = "IDAL Pfus", dir = UNKNOWN, text =
+        """
+󱀜󱀠󱀵nonver source Ferrara 2013:121
+        """
+      }
+ , { id = "##235", group = "KALO Avas", dir = UNKNOWN, text =
+        """
+󿊀󱂏󿊀󱇷change
+        """
+      }
+ , { id = "##236", group = "KITI Avas", dir = UNKNOWN, text =
+        """
+󱇷󱀵eliminate
+        """
+      }
+ , { id = "##237", group = "ITI Avas", dir = UNKNOWN, text =
+        """
+󱀵
+󱀞change
+        """
+      }
+ , { id = "##238", group = "MAAP Avas", dir = UNKNOWN, text =
+        """
+󱁟󱂏change
+        """
+      }
+ , { id = "##239", group = "MARO Avas", dir = UNKNOWN, text =
+        """
+󱁵󱂃󱀵change
+        """
+      }
+ , { id = "##240", group = "MARO Avas", dir = UNKNOWN, text =
+        """
+󱀵󱀧󿊀󱃅change
+        """
+      }
+ , { id = "##241", group = "MARO Avas", dir = UNKNOWN, text =
+        """
+󱂃󱂅change willkuer
+        """
+      }
+ , { id = "##242", group = "SANI Avas", dir = UNKNOWN, text =
+        """
+󱀵󱁵󱂓change upsidedown
+        """
+      }
+ , { id = "##243", group = "RASH Avas", dir = UNKNOWN, text =
+        """
+unspecified
+        """
+      }
+ , { id = "##244", group = "TIRY Abou", dir = UNKNOWN, text =
+        """
+󱅹󱅹󱂊abfolge unklar
+        """
+      }
+ , { id = "##245", group = "TIRY Avas", dir = UNKNOWN, text =
+        """
+󱀸󱁾nonver Source Douros
+        """
+      }
+ , { id = "##246", group = "TIRY Avas", dir = UNKNOWN, text =
+        """
+󱁿󱁖󱀜󱇸nonver Source Brent, Maran & Wirhova 2014
+        """
+      }
+ , { id = "##247", group = "ENKO Abou", dir = UNKNOWN, text =
+        """
+󱂐󱁿󱇝󱇃󱂦󱀚nonver Source Valerio 2014?
+        """
+      }
+ , { id = "##248", group = "KOUR Avas", dir = UNKNOWN, text =
+        """
+󱂑󱄼nonver Source Valerio 2014?
+        """
+      }
+ , { id = "##249", group = "KOUR Avas", dir = UNKNOWN, text =
+        """
+󱀜󱁷󱀜nonver Source Valerio 2014?
+        """
+      }
+ , { id = "##250", group = "KOUR Avas", dir = UNKNOWN, text =
+        """
+󱈩󱀸󱀵nonver Source Valerio 2014?
+        """
+      }
+ , { id = "##251", group = "RASH Avas", dir = UNKNOWN, text =
+        """
+󱄻󱂉nonver Source Valerio 2014?
+        """
+      }
+ , { id = "##252", group = "CYPR? Psce", dir = UNKNOWN, text =
+        """
+ 󱂐󱁎󱁓nonver Source Valerio 2014?
+        """
+      }
+  , { id = "##253", group = "PPAP Psce", dir = UNKNOWN, text =
+        """
+󱂐󱁭nonver Source Valerio 2014?
+        """
+    }
+  , { id = "##254", group = "Mvas", dir = UNKNOWN, text =
+        """
+noch einfuegen Source Egetmeyer 2016
+        """
     }
   ]
+
 
 cypro : Script
 cypro =
