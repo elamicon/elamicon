@@ -19,8 +19,8 @@ regex : Regex.Regex -> Search
 regex pat text =
     let
         find = Regex.find Regex.All pat
-        len  = String.length text
-        extractIndex match = (match.index, String.length match.match)
+        len  = AstralString.length text
+        extractIndex match = (match.index, AstralString.length match.match)
     in
         find text |> List.map extractIndex
 
@@ -29,7 +29,7 @@ fuzzy : Int -> String -> Search
 fuzzy fuzz query =
     let
         distMap = Levenshtein.distMap query
-        needleLen = String.length query
+        needleLen = AstralString.length query
         maxDist = Basics.min fuzz (needleLen - 1)
 
         extendRange (pos, dist) state =
@@ -55,10 +55,10 @@ fuzzy fuzz query =
 bidirectional : Search -> Search
 bidirectional search text =
     let
-        len = String.length text
+        len = AstralString.length text
         matches = search text
         reverseIndex (matchIndex, matchLen) = (len - matchIndex - matchLen, matchLen)
-        reverseMatches = search (String.reverse text) |> List.map reverseIndex
+        reverseMatches = search (AstralString.reverse text) |> List.map reverseIndex
     in
         uniqueSort (reverseMatches ++ matches)
 
