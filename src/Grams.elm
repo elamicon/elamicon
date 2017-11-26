@@ -3,9 +3,9 @@ module Grams exposing (..)
 import Dict exposing (Dict)
 import String
 
-type alias Grams = Dict String Int
+import AstralString
 
-empty = Dict.empty
+type alias Grams = Dict String Int
 
 registerInc seq inc grams =
     let oneMore entry =
@@ -24,11 +24,21 @@ tally grams =
         }
     in List.reverse (List.sortBy .count (List.map rec (Dict.toList grams)))
 
+-- Build gram stats by adding all grams of max length <max> found in list of
+-- strings <seqs>
+read : Int -> List String -> List Grams
 read max seqs =
-    let addGrams n =
-            let readSeq seq grams =
-                    let last = String.length seq
-                        reg i result = register (String.slice i (i+n) seq) result
-                    in List.foldl reg grams <| List.range 0 (String.length seq - n)
-            in List.foldl readSeq empty seqs
-                    in List.map addGrams <| List.range 1 max
+    let
+        tokenSeqs = List.map AstralString.toList seqs
+        addGrams n =
+            let
+                readSeqs seq grams =
+                    if List.length seq >= n
+                    then
+                        readSeqs (List.drop 1 seq) (register (List.take n seq |> AstralString.fromList) grams)
+                    else
+                        grams
+            in
+                List.foldl readSeqs Dict.empty tokenSeqs
+    in
+        List.map addGrams <| List.range 1 max
