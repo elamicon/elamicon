@@ -94,23 +94,34 @@ updateScript new model =
     let
         selectedGroups = Set.fromList (List.map .short new.groups)
     in
-        updateSyllabary new.initialSyllabary
+        switchSyllabary new.initialSyllabary
             { model
             | script = new
             , selectedGroups = selectedGroups
             }
 
 
-updateSyllabary : SyllabaryDef -> Model -> Model
-updateSyllabary new model =
+
+setSyllabary : String -> Model -> Model
+setSyllabary new model =
     let
-        (deduped, missing) = Scripts.dedupe model.script.tokens model.script.indexed new.syllabary
+        (deduped, missing) = Scripts.dedupe model.script.tokens model.script.indexed new
         newNormalizer = Scripts.normalizer (Scripts.normalization model.script.tokens deduped)
-    in { model
+    in  { model
         | syllabary = deduped
         , normalizer = newNormalizer
         , missingSyllabaryChars = missing
-        , syllabaryId = Just new.id
+        }
+
+
+switchSyllabary : SyllabaryDef -> Model -> Model
+switchSyllabary new model =
+    let
+        (deduped, missing) = Scripts.dedupe model.script.tokens model.script.indexed new.syllabary
+        newNormalizer = Scripts.normalizer (Scripts.normalization model.script.tokens deduped)
+        updated = setSyllabary new.syllabary model
+    in  { updated
+        | syllabaryId = Just new.id
         }
 
 
@@ -133,9 +144,9 @@ update msg model =
         SetDir dir -> { model | dir = dir }
         ChooseSyllabary id ->
             case List.head <| List.filter (.id >> (==) id) model.script.syllabaries of
-                Just syl -> updateSyllabary syl model
+                Just syl -> switchSyllabary syl model
                 Nothing -> model
-        SetSyllabary new -> { model | syllabary = new }
+        SetSyllabary new -> setSyllabary new model
         SetSyllableMap new ->
             { model | syllableMap = new, syllabizer = Scripts.syllabizer new }
         SetSyllabize syllabize -> { model | syllabize = syllabize }
