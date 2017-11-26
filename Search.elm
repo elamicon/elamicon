@@ -19,8 +19,11 @@ regex : Regex.Regex -> Search
 regex pat text =
     let
         find = Regex.find Regex.All pat
-        len  = AstralString.length text
-        extractIndex match = (match.index, AstralString.length match.match)
+        -- The returned match index miscounts astral chars
+        extractIndex match =
+            ( AstralString.length (String.slice 0 match.index text)
+            , AstralString.length match.match
+            )
     in
         find text |> List.map extractIndex
 
@@ -118,14 +121,12 @@ extract script limit contextLen fragments search =
                         -- be shown as part of the match, instead we prepend them to the context
                         -- following the match
                         matchReversed = List.reverse (List.take length (List.drop slotIndex letterSlots))
-                        matchLast =
-                            case (List.head matchReversed) of
-                            Just s -> s
-                            Nothing -> ""
                         (matchLastLetter, matchAppended) =
-                            case (String.uncons matchLast) of
-                                Just (l, a) -> (String.fromChar l, a)
-                                Nothing -> ("", "")
+                            case (List.head matchReversed) of
+                                Just s -> case AstralString.toList s of
+                                    (headChar :: rest) -> (headChar, AstralString.fromList rest)
+                                    _ -> ("", "")
+                                _ -> ("", "")
                         matchText = String.concat (List.reverse (matchLastLetter :: List.drop 1 matchReversed))
                         afterText = String.concat (matchAppended :: List.take contextLen (List.drop (lastSlotIndex + 1) letterSlots))
 
