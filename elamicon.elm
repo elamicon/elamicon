@@ -166,8 +166,8 @@ update msg model =
     )
 
 dirStr dir = case dir of
-    LTR -> "LTR"
-    _ -> "RTL"
+    RTL -> "RTL"
+    _ -> "LTR"
 
 scriptDecoder : Json.Decode.Decoder Script
 scriptDecoder = Html.Events.targetValue |> Json.Decode.andThen (\valStr ->
