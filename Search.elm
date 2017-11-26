@@ -1,8 +1,9 @@
-module ElamSearch exposing (..)
+module Search exposing (..)
 
 import Regex
 import Set
-import Elam
+import Scripts exposing (..)
+import ScriptDefs exposing (..)
 import Levenshtein
 
 type alias MatchLoc = (Int, Int)
@@ -15,7 +16,7 @@ regex : Regex.Regex -> Search
 regex pat text =
     let
         find = Regex.find Regex.All pat
-        len  = String.length text 
+        len  = String.length text
         extractIndex match = (match.index, String.length match.match)
     in
         find text |> List.map extractIndex
@@ -27,10 +28,10 @@ fuzzy fuzz query =
         distMap = Levenshtein.distMap query
         needleLen = String.length query
         maxDist = Basics.min fuzz (needleLen - 1)
-               
+
         extendRange (pos, dist) state =
             let
-                (reserve, ranges) = state 
+                (reserve, ranges) = state
                 (rangePos, rangeLen) = Maybe.withDefault (pos, 0) (List.head ranges)
                 newReserve = if dist < maxDist then (needleLen - 1) else reserve - 1
             in
@@ -43,7 +44,7 @@ fuzzy fuzz query =
                     then (newReserve, (pos, 1) :: ranges)
                     else (newReserve, (pos, rangeLen + 1) :: Maybe.withDefault [] (List.tail ranges))
     in
-        distMap >> List.indexedMap (,) >> List.foldr extendRange (0, []) >> Tuple.second 
+        distMap >> List.indexedMap (,) >> List.foldr extendRange (0, []) >> Tuple.second
 
 
 -- Turn a search into a bidirectional search by running the search against
@@ -53,32 +54,15 @@ bidirectional search text =
     let
         len = String.length text
         matches = search text
-        reverseIndex (matchIndex, matchLen) = (len - matchIndex - matchLen, matchLen) 
+        reverseIndex (matchIndex, matchLen) = (len - matchIndex - matchLen, matchLen)
         reverseMatches = search (String.reverse text) |> List.map reverseIndex
     in
         uniqueSort (reverseMatches ++ matches)
 
 
--- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
--- The first slot does not contain an indexed letter but may contain other characters. All other
--- slots start with an indexed letter and may contain further characters which are not indexed.
-letterSplit : String -> List String
-letterSplit text =
-    let addChar char result = case result of
-        [] ->
-            [String.fromChar char]
-        head :: tail ->
-            if
-                Elam.indexed char
-            then
-                "" :: (String.cons char head) :: tail
-            else
-                (String.cons char head) :: tail
-    in
-        String.foldr addChar [""] text
 
 type alias MatchContext =
-    { fragment : Elam.Fragment
+    { fragment : FragmentDef
     , location : MatchLoc, start : (Int, Int), end : (Int, Int)
     , before : String, match : String, after : String
     }
@@ -89,14 +73,32 @@ type alias MatchResults =
     , more : Bool
     }
 
-extract : Int -> Int -> List Elam.Fragment -> (String -> List MatchLoc) -> MatchResults
-extract limit contextLen fragments search =
+extract : Script -> Int -> Int -> List FragmentDef -> (String -> List MatchLoc) -> MatchResults
+extract script limit contextLen fragments search =
     let
+        -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
+        -- The first slot does not contain an indexed letter but may contain other characters. All other
+        -- slots start with an indexed letter and may contain further characters which are not indexed.
+        letterSplit : String -> List String
+        letterSplit text =
+            let addChar char result = case result of
+                [] ->
+                    [String.fromChar char]
+                head :: tail ->
+                    if
+                        script.indexed char
+                    then
+                        "" :: (String.cons char head) :: tail
+                    else
+                        (String.cons char head) :: tail
+            in
+                String.foldr addChar [""] text
+
         addMatches fragment results =
             let
-                -- We're matching against the indexed Elam chars only.
+                -- We're matching against the indexed chars only.
                 -- This means all whitespace, guess marks, and other letters are removed.
-                matchText = String.filter Elam.indexed fragment.text
+                matchText = String.filter script.indexed fragment.text
                 matches = search matchText |> uniqueSort
                 letterSlots = letterSplit fragment.text
                 addMatch (index, length) results =

@@ -4,7 +4,8 @@
     "repository": "https://github.com/sbalmer/elamicon.git",
     "license": "in progress",
     "source-directories": [
-        "."
+        ".",
+        "src"
     ],
     "exposed-modules": [],
     "native-modules": true,
