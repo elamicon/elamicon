@@ -100,6 +100,7 @@ updateScript new model =
             { model
             | script = new
             , selectedGroups = selectedGroups
+            , search = ""
             }
 
 
