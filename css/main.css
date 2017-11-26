@@ -56,8 +56,18 @@ body, h1, h2, label, input, select {
     src: url('../fonts/ElamiconLiberationMono-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'CMinoan';
+    src: url('../scripts/cypro-minoan/CMinoanHinted.ttf');
+}
+
+
 .elam {
     unicode-bidi: bidi-override;
+}
+
+.cypro {
+    font-family: 'CMinoan';
 }
 
 .syllabary {
