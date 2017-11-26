@@ -5,11 +5,13 @@ import String
 import List
 import Set
 
+import AstralString
+
 import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 
 -- Glyphs courtesy Douros
-rawTokens = String.toList <| String.trim """
+rawTokens = AstralString.toList <| String.trim """
 󱀀󱀁󱀂󱀃󱀄󱀅󱀆󱀇󱀈󱀉󱀊󱀋󱀌󱀍󱀎󱀏󱀐󱀑󱀒󱀓󱀔󱀕󱀖󱀗󱀘󱀙󱀚󱀛󱀜󱀝󱀞󱀟󱀠󱀡󱀢󱀣󱀤󱀥󱀦󱀧󱀨󱀩󱀪󱀫󱀬󱀭󱀮󱀯󱀰󱀱󱀲󱀳󱀴󱀵󱀶󱀷󱀸󱀹󱀺󱀻󱀼󱀽󱀾󱀿󱁀󱁁󱁂󱁃󱁄󱁅󱁆󱁇󱁈󱁉󱁊󱁋󱁌󱁍󱁎󱁏󱁐󱁑󱁒󱁓󱁕󱁖󱁗󱁘󱁙󱁚󱁛󱁜󱁝󱁞󱁟󱁠󱁡󱁢󱁣󱁤󱁥󱁦󱁧󱁨󱁩󱁪󱁫󱁬󱁭󱁮󱁯󱁰󱁱󱁲󱁳󱁴󱁵󱁶󱁷󱁸󱁹󱁺󱁻󱁼󱁽󱁾󱁿󱂀󱂁󱂂󱂃󱂄󱂅󱂆󱂇󱂈󱂉󱂊󱂋󱂌󱂍󱂎󱂏󱂐󱂑󱂒󱂓󱂔󱂕󱂖󱂗󱂘󱂙󱂚󱂛󱂜󱂝󱂞󱂟󱂠󱂡󱂢󱂣󱂤󱂦󱂧󱂨󱂩󱂪󱂫󱂬󱂭󱂮󱂯󱂰󱂱󱂲󱂳󱂴󱂵󱂶󱂷󱂸󱂹󱂺󱂻󱂼󱂽󱂾󱂿󱃀󱃁󱃂󱃃󱃄󱃅󱃆󱃇󱃈󱃉󱃊󱃋󱃌󱃍󱃎󱃏󱃐󱃑󱃒󱃓󱃔󱃕󱃖󱃗󱃘󱃙󱃚󱃛󱃜󱃝󱃞󱃟󱃠󱃡󱃢󱃣󱃤󱃥󱃦󱃧󱃨󱃩󱃫󱃬󱃭󱃮󱃯󱃰󱃱󱃲󱃳󱃴󱃵󱃶󱃷󱃸󱃹󱃺󱃻󱃼󱃽󱃾󱃿󱄀󱄁󱄂󱄃󱄄󱄅󱄆󱄇󱄈󱄉󱄊󱄋󱄌󱄍󱄎󱄏󱄐󱄑󱄒󱄓󱄔󱄕󱄖󱄗󱄘󱄙󱄚󱄛󱄜󱄝󱄞󱄟󱄠󱄡󱄢󱄣󱄤󱄥󱄦󱄧󱄨󱄩󱄪󱄫󱄬󱄭󱄮󱄯󱄰󱄱󱄲󱄳󱄴󱄵󱄶󱄷󱄸󱄹󱄺󱄻󱄼󱄽󱄾󱄿󱅀󱅁󱅂󱅃󱅄󱅅󱅆󱅇󱅈󱅍󱅎󱅏󱅐󱅑󱅒󱅓󱅔󱅕󱅖󱅗󱅘󱅙󱅚󱅛󱅜󱅝󱅞󱅟󱅠󱅡󱅢󱅣󱅤󱅥󱅦󱅧󱅨󱅩󱅪󱅫󱅬󱅭󱅮󱅯󱅰󱅱󱅲󱅳󱅴󱅵󱅶󱅷󱅸󱅹󱅺󱅻󱅼󱅽󱅾󱅿󱆀󱆁󱆂󱆃󱆄󱆅󱆆󱆇󱆈󱆉󱆊󱆋󱆌󱆍󱆎󱆏󱆐󱆑󱆒󱆓󱆔󱆕󱆖󱆗󱆘󱆙󱆚󱆛󱆜󱆝󱆞󱆟󱆠󱆡󱆢󱆣󱆤󱆥󱆦󱆧󱆨󱆩󱆪󱆫󱆬󱆭󱆮󱆯󱆰󱆱󱆲󱆳󱆴󱆵󱆶󱆷󱆸󱆹󱆺󱆻󱆼󱆽󱆾󱆿󱇀󱇁󱇂󱇃󱇄󱇅󱇆󱇇󱇈󱇉󱇊󱇋󱇌󱇍󱇎󱇏󱇐󱇑󱇒󱇓󱇔󱇕󱇖󱇗󱇘󱇙󱇚󱇛󱇜󱇝󱇞󱇟󱇠󱇡󱇢󱇣󱇤󱇥󱇦󱇧󱇨󱇩󱇪󱇫󱇬󱇭󱇮󱇯󱇰󱇱󱇲󱇳󱇴󱇶󱇷󱇸󱇺󱇻󱇼󱇽󱇾󱇿󱈀󱈁󱈂󱈃󱈄󱈅󱈆󱈇󱈈󱈉󱈊󱈋󱈌󱈍󱈎󱈏󱈐󱈑󱈒󱈓󱈔󱈕󱈖󱈗󱈘󱈙󱈚󱈛󱈜󱈝󱈞󱈟󱈠󱈡󱈢󱈣󱈤󱈥󱈦󱈧󱈨󱈩󱈪󱈫󱈬󱈭󱈮󱈯󱈰󱈱󱈲󱈳󱈴󱈵󱈶󱈷󱈸󱈹󱈺󱈻󱈼󱈽󱈾󱈿󱉀󱉁󱉂󱉃󱉄󱉅󱉆󱉇󱉈󱉉󱉊󱉋󱉌󱉍󱉎󱉏󱉐󱉑󱉒󱉓󱉔󱉕󱉖󱉗󱉘󱉙󱉚󱉛󱉜󱉝󱉞󱉟󱉠󱉡󱉢󱉣󱉤󱉥󱉦󱉧󱉩󱉪󱉫󱉬󱉭󱉮󿊀
 """
 
@@ -18,7 +20,7 @@ rawTokens = String.toList <| String.trim """
 -- Most of the artifacts did not make it through time in mint condition. The
 -- "special" characters can be used to mark glyphs that are unreadable or
 --  are guesses.
-specialChars = [ { displayChar = "󿊀", char = '󿊀', description = "Platzhalter für unbekannte Zeichen" }]
+specialChars = [ { displayChar = "󿊀", char = "󿊀", description = "Platzhalter für unbekannte Zeichen" }]
 
 ignoreChars = Set.fromList <| List.map .char specialChars
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -26,13 +28,13 @@ tokenSet = Set.fromList tokens
 
 -- These letters are counted as character positions
 -- Letter 'X' is used in places where the character has not been mapped yet.
-indexedTokens = Set.fromList ([ 'X' ] ++ tokens)
+indexedTokens = Set.fromList ([ "X" ] ++ tokens)
 indexed char = Set.member char indexedTokens
 
 
 -- The syllable mapping is short as of now and will likely never become
 -- comprehensive. All of this is guesswork.
-syllables : Dict.Dict Char (List String)
+syllables : Dict.Dict String (List String)
 syllables = Dict.fromList []
 
 -- This is our best guess at the syllable mapping for letters where it makes sense
@@ -146,7 +148,7 @@ syllabaries : List SyllabaryDef
 syllabaries =
     [ initialSyllabary
     , { id = "splitting", name = "Jedes Zeichen einzeln"
-      , syllabary = String.join " " <| List.map String.fromChar tokens
+      , syllabary = String.join " " tokens
       }
     ]
 
@@ -1239,6 +1241,7 @@ cypro =
     , name = "Kypro-Minoisch"
     , tokens = tokens
     , specialChars = specialChars
+    , guessMarkers = ""
     , indexed = indexed
     , syllables = syllables
     , syllableMap = syllableMap

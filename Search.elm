@@ -2,9 +2,12 @@ module Search exposing (..)
 
 import Regex
 import Set
+
+import Levenshtein
+import AstralString
+
 import Scripts exposing (..)
 import ScriptDefs exposing (..)
-import Levenshtein
 
 type alias MatchLoc = (Int, Int)
 type alias Search = String -> List MatchLoc
@@ -75,30 +78,31 @@ type alias MatchResults =
 
 extract : Script -> Int -> Int -> List FragmentDef -> (String -> List MatchLoc) -> MatchResults
 extract script limit contextLen fragments search =
+
     let
         -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
         -- The first slot does not contain an indexed letter but may contain other characters. All other
         -- slots start with an indexed letter and may contain further characters which are not indexed.
         letterSplit : String -> List String
-        letterSplit text =
+        letterSplit =
             let addChar char result = case result of
                 [] ->
-                    [String.fromChar char]
+                    [char]
                 head :: tail ->
                     if
                         script.indexed char
                     then
-                        "" :: (String.cons char head) :: tail
+                        "" :: (String.append char head) :: tail
                     else
-                        (String.cons char head) :: tail
+                        (String.append char head) :: tail
             in
-                String.foldr addChar [""] text
+                AstralString.toList >> List.foldr addChar [""]
 
         addMatches fragment results =
             let
                 -- We're matching against the indexed chars only.
                 -- This means all whitespace, guess marks, and other letters are removed.
-                matchText = String.filter script.indexed fragment.text
+                matchText = AstralString.filter script.indexed fragment.text
                 matches = search matchText |> uniqueSort
                 letterSlots = letterSplit fragment.text
                 addMatch (index, length) results =

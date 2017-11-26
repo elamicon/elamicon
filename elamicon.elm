@@ -10,11 +10,13 @@ import List
 import Array
 import Set
 
+import Search
+import Grams
+import AstralString
+
 import ScriptDefs exposing (..)
 import Scripts exposing (..)
 import WritingDirections exposing (..)
-import Search
-import Grams
 
 main = Html.program
     { init = (initialModel, Cmd.none)
@@ -240,9 +242,9 @@ view model =
             else identity
 
         -- Build filter that removes undesired chars
-        removeCharSet = Set.fromList <| String.toList model.removeChars
+        removeCharSet = Set.fromList <| AstralString.toList model.removeChars
         keepChar c = Set.member c removeCharSet |> not
-        charFilter = String.filter keepChar
+        charFilter = AstralString.filter keepChar
 
         -- Process fragment text for display
         cleanse = String.trim >> normalize >> charFilter
@@ -280,7 +282,7 @@ view model =
             let
                 shownExt = if model.normalize then [] else ext
                 syls = Maybe.withDefault [] (Dict.get main model.script.syllables)
-                letterEntry entryClass char = div [ classList [(model.script.id, True), (entryClass, True)], onClick (AddChar (String.fromChar char)) ] [ text (String.fromChar char) ]
+                letterEntry entryClass char = div [ classList [(model.script.id, True), (entryClass, True)], onClick (AddChar char) ] [ text char ]
                 syllableEntry syl = div [ class "syl" ] [ text syl ]
             in
                 li [ class "letter" ]
@@ -295,11 +297,11 @@ view model =
 
         specialEntry { displayChar, char, description } =
             li [ class "letter" ]
-                [ div [ classList [(model.script.id, True), ("main", True)], onClick (AddChar (String.fromChar char)), title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
+                [ div [ classList [(model.script.id, True), ("main", True)], onClick (AddChar char), title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
 
         gramStats strings =
             let
-                cleanse = charFilter >> model.normalizer >> String.filter model.script.indexed
+                cleanse = charFilter >> model.normalizer >> AstralString.filter model.script.indexed
                 tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 <| List.map cleanse strings
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
@@ -559,10 +561,10 @@ view model =
                 -- Find matches in the fragment
                 matches =
                     case search of
-                        Just s -> s (String.filter model.script.indexed fragment.text)
+                        Just s -> s (AstralString.filter model.script.indexed fragment.text)
                         Nothing -> []
 
-                guessmarks = Set.fromList ['', '']
+                guessmarks = Set.fromList <| AstralString.toList model.script.guessMarkers
                 guessmarkClass char =
                     if Set.member char guessmarks
                     then [ class "guessmark" ]
@@ -590,10 +592,10 @@ view model =
                                 if
                                     model.script.indexed char
                                 then
-                                    ((a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
+                                    ((a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize char) ]) :: elems, idx+1)
                                 else
-                                    ((span (guessmarkClass char) [ text (String.fromChar char) ]) :: elems, idx)
-                        (elems, endIdx) = String.foldl charPos ([], lineIdx) chars
+                                    ((span (guessmarkClass char) [ text  char ]) :: elems, idx)
+                        (elems, endIdx) = AstralString.toList chars |> List.foldl charPos ([], lineIdx)
                         elemLine = li [ class "line", lineDirAttr lineNr fragment.dir ] (List.reverse elems)
                     in
                         (elemLine :: lines, endIdx)

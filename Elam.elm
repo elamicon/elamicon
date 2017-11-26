@@ -5,6 +5,8 @@ import String
 import List
 import Set
 
+import AstralString
+
 import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 
@@ -22,7 +24,7 @@ import ScriptDefs exposing (..)
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
-rawTokens = String.toList <| String.trim """
+rawTokens = AstralString.toList <| String.trim """
 
 """
 
@@ -32,9 +34,9 @@ rawTokens = String.toList <| String.trim """
 -- "special" characters can be used to mark glyphs that are unreadable or
 --  are guesses.
 specialChars =
-    [ { displayChar = "", char = '', description = "Platzhalter für unbekannte Zeichen" }
-    , { displayChar = "", char = '', description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
-    , { displayChar = "", char = '', description = "Markiert Bruchstellen" }
+    [ { displayChar = "", char = "", description = "Platzhalter für unbekannte Zeichen" }
+    , { displayChar = "", char = "", description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
+    , { displayChar = "", char = "", description = "Markiert Bruchstellen" }
     ]
 
 -- Characters that are hard to read on the originals are marked with "guessmarkers".
@@ -49,41 +51,41 @@ missingChar = ""
 -- the fracture mark.
 fractureMarker = ""
 
-ignoreChars = Set.fromList <| String.toList (guessMarkers ++ missingChar ++ fractureMarker)
+ignoreChars = Set.fromList <| AstralString.toList (guessMarkers ++ missingChar ++ fractureMarker)
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 tokenSet = Set.fromList tokens
 
 -- These letters are counted as character positions
 -- Letter 'X' is used in places where the character has not been mapped yet.
-indexedTokens = Set.fromList ([ '', 'X' ] ++ tokens)
+indexedTokens = Set.fromList ([ "", "X" ] ++ tokens)
 indexed char = Set.member char indexedTokens
 
 
 -- The syllable mapping is short as of now and will likely never become
 -- comprehensive. All of this is guesswork.
-syllables : Dict.Dict Char (List String)
+syllables : Dict.Dict String (List String)
 syllables = Dict.fromList
-    [ ( '', [ "na" ] )
-    , ( '', [ "uk ?" ] )
-    , ( '', [ "NAP"] )
-    , ( '', [ "NAP"] )
-    , ( '', [ "en ?", "im ?"] )
-    , ( '', [ "šu" ] )
-    , ( '', [ "ša ?" ] )
-    , ( '', [ "in" ] )
-    , ( '', [ "ki" ] )
-    , ( '', [ "iš ?", "uš ?" ] )
-    , ( '', [ "tu ?" ] )
-    , ( '', [ "hu ?"] )
-    , ( '', [ "me ?" ] )
-    , ( '', [ "me ?" ] )
-    , ( '', [ "ši" ] )
-    , ( '', [ "še ?", "si ?" ] )
-    , ( '', [ "ak", "ik"] )
-    , ( '', [ "hal ?" ] )
-    , ( '', [ "ú" ] )
-    , ( '', [ "ni ?" ] )
-    , ( '', [ "piš ?" ] )
+    [ ( "", [ "na" ] )
+    , ( "", [ "uk ?" ] )
+    , ( "", [ "NAP"] )
+    , ( "", [ "NAP"] )
+    , ( "", [ "en ?", "im ?"] )
+    , ( "", [ "šu" ] )
+    , ( "", [ "ša ?" ] )
+    , ( "", [ "in" ] )
+    , ( "", [ "ki" ] )
+    , ( "", [ "iš ?", "uš ?" ] )
+    , ( "", [ "tu ?" ] )
+    , ( "", [ "hu ?"] )
+    , ( "", [ "me ?" ] )
+    , ( "", [ "me ?" ] )
+    , ( "", [ "ši" ] )
+    , ( "", [ "še ?", "si ?" ] )
+    , ( "", [ "ak", "ik"] )
+    , ( "", [ "hal ?" ] )
+    , ( "", [ "ú" ] )
+    , ( "", [ "ni ?" ] )
+    , ( "", [ "piš ?" ] )
     ]
 
 -- This is our best guess at the syllable mapping for letters where it makes sense
@@ -242,7 +244,7 @@ syllabaries =
             """
       }
     , { id = "splitting", name = "Jedes Zeichen einzeln"
-      , syllabary = String.join " " <| List.map String.fromChar tokens
+      , syllabary = String.join " " tokens
       }
     ]
 
@@ -642,6 +644,7 @@ elam =
     , name = "Elamische Strichschrift"
     , tokens = tokens
     , specialChars = specialChars
+    , guessMarkers = guessMarkers
     , indexed = indexed
     , syllables = syllables
     , syllableMap = syllableMap
