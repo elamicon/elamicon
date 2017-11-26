@@ -4,7 +4,8 @@ TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
 all: elamicon.js $(MFONTS) fonts/Elamicon-Fonts.zip
 
-elamicon.js: elamicon.elm Elam.elm Grams.elm $(wildcard src/*.elm)
+elms := $(wildcard *.elm src/*.elm)
+elamicon.js: $(elms)
 	elm-make elamicon.elm --output elamicon.js
 
 fonts/ElamiconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf elamicon.sfdir
