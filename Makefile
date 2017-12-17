@@ -1,8 +1,9 @@
-OFONTS = $(wildcard fonts/original/*.ttf)
-MFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
+OFONTS = $(wildcard fonts/original/Liberation*.ttf)
+EFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
+CFONTS = $(subst fonts/original/,fonts/CMinoan,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
-all: elamicon.js $(MFONTS) fonts/Elamicon-Fonts.zip
+all: elamicon.js $(EFONTS) $(CFONTS) fonts/Elamicon-Fonts.zip fonts/CMinoan-Fonts.zip
 
 elms := $(wildcard *.elm src/*.elm)
 elamicon.js: $(elms)
@@ -18,7 +19,20 @@ fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.
 	bin/addfont "Elamicon" $^ "$@"
 
 fonts/Elamicon-Fonts.zip: $(MFONTS)
-	cd fonts && zip -r Elamicon-Fonts.zip ElamiconLiberation*.ttf 
+	cd fonts && zip -r Elamicon-Fonts.zip ElamiconLiberation*.ttf
+
+
+fonts/CMinoanLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf
+	bin/addfont "Cypricon" $^ "$@"
+
+fonts/CMinoanLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf 
+	bin/addfont "Cypricon" $^ "$@"
+
+fonts/CMinoanLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf
+	bin/addfont "Cypricon" $^ "$@"
+
+fonts/CMinoan-Fonts.zip: $(CFONTS)
+	cd fonts && zip -r CMinoan-Fonts.zip CMinoanLiberation*.ttf
 
 clean:
 	rm -f elamicon.js
