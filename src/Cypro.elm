@@ -58,9 +58,9 @@ initialSyllabary =
 󱀈󱀉󱂊󱃒󱃓󱃔󱃕󱃖󱃗󱁧󱁨󱁩󱁪󱁫󱁬󱁭󱁮󱁯󱁰󱁱󱈉󱈜󱄚󱁲󱁳󱄒󱄓󱄔󱄕󱄖󱄗󱄘󱆜󱆡󱆢󱆣󱆤󱆥󱆦󱆧󱈚󱈭󱆨󱆪󱆫󱆬󱈽󱆭󱆮󱆽󱇼󱈑󱈒
 󱄙󱃘󱅪󱈳
 󱅣󱅤󱅥󱅦󱅧󱅨󱅩󱀻󱄃󱀼󱇿󱀸󱀹󱄂󱂺
+󱀆󱀇󱀕󱀊󱀜󱀝󱂬󱃴󱄸
 󱀋󱀌
 󱂇󱂈󱃧󱃦󱃨󱆼󱅠󱅡󱂉󱀅󱈿󱉀󱈅󱂍󱂎󱄦󱇦󱇧󱈔󱄑󱈣󱉆󱈖󱂏󱉪󱉫󱈬󱂑󱂜󱂻󱈥󱉦󱉧󱉩󱃩󱃫󱈠󱈌󱃬󱃭󱈘󱉮󱇾󱈗󱈸󱈼󱈵󱉃󱇌󱉒󱉓󱇱󱈪󱇘󱇐󱈧󱇎󱇢󱃮󱄣󱄤󱄥󱄧󱄨󱈱󱄩󱄪󱈤󱀍󱀖󱄬󱄭󱄮󱄯󱆛󱆾󱆿󱇨󱈍󱇩󱇪󱇫󱇬󱇭󱇮󱇯󱇀󱇁󱇂󱇃󱇤󱇄󱇅󱇇󱇈󱇉󱇊󱁛󱂓󱂔󱂕󱂖󱂗󱂘󱂙󱂚󱂛󱂐󱇜󱇝󱇞󱂞󱉔󱈕󱄆
-󱀆󱀇󱀕󱀊󱀜󱀝󱂬󱃴󱄸
 󱀓󱀚󱀛󱂫󱃳󱈁󱈙
 󱂪󱈂󱀗󱂲󱃱󱄾󱇶󱇷󱇸
 󱀘󱀙󱇴󱈆
@@ -69,7 +69,8 @@ initialSyllabary =
 󱀤󱈎󱀥󱂯󱂰󱈢󱂱󱈋󱃹󱃺󱈫󱅄󱉌
 󱃋󱃌󱃠󱃡󱃢󱃤󱃥󱅃
 󱀳󱀴󱈺
-󱀵󱄁󱉈󱅘󱉉󱅛󱅜󱅝󱅞󱅟󱂢󱅢󱈯󱉏󱅫󱅬󱅭󱅮󱅯󱅰󱅱󱅲󱅳󱅼󱅙󱅚󱀶󱂹󱀷󱀺󱈨󱈝󱄄󱀽󱀾󱂼󱀿󱁀󱁁󱁂󱀐󱀒󱀔󱁏󱁐󱂵󱂶󱂷󱂸󱂽󱂾󱂿󱃾󱃿󱄀󱇣
+󱀵󱄁󱉈󱅘󱉉󱅛󱅜󱅝󱅞󱅟󱂢󱅢󱈯󱉏󱅫󱅬󱅭󱅮󱅯󱅰󱅱󱅲󱅳󱅼󱅙󱅚󱀶󱂹󱀷󱀺󱈨󱈝󱄄󱀽󱀾󱂼󱀿󱁀󱁁󱁂󱀐󱀒󱀔󱁏󱅻󱁐󱂵󱂶󱂷󱂸󱂽󱂾󱂿󱃾󱃿󱄀󱇣
+󱀣󱀫󱈡󱄿󱅀󱅁
 󱉊󱉐󱉭
 󱁃󱁄󱃲
 󱁅󱄅󱁆󱁇󱁉󱄇󱅴󱄈󱁊󱁍󱃀󱃁󱃂󱃃󱄉
@@ -79,7 +80,6 @@ initialSyllabary =
 󱁋󱁌󱅵󱅶󱅷󱅸󱁚󱁖󱁗󱈓󱁘󱄍󱄎󱄏󱃐󱃑󱁙󱁝󱁞󱁟󱁠󱄐󱇑󱁡󱁢󱁣󱁤󱁥󱁦󱀄󱀑󱆌󱆍󱆎󱆏󱆐󱆑󱆕󱆖󱆗󱆘󱆙󱆚󱆞󱆟󱆩󱆷󱆸󱇲󱆺󱆻
 󱁵󱀂󱆲󱆳󱆴󱆹󱆵󱆶󱁷󱁸󱁹󱉂󱈾󱆋󱇙󱆒󱆓󱆔󱁺󱁻󱁼󱁽󱁾󱁿󱂀󱂁󱂂󱂃󱂄󱂅󱈛󱈐󱃣󱂆󱄠󱄡󱈞󱀀󱃍󱈊󱆠󱄝󱄞󱄟
 󱆯󱆰󱆱
-󱀣󱀫󱈡󱄿󱅀󱅁
 󱄌
 󱃛󱈩
 󱃜󱈃󱃝
@@ -119,7 +119,7 @@ Punctuation
 󱉁
 󱀏󱃄󱄋󱁑󱁒󱉎
 󱃅󱁓󱁕󱆅󱆆󱆇󱆈󱆉󱆊󱆁󱈰󱅿󱆀󱆂󱆃󱆄
-󱃙󱃚󱅻
+󱃙󱃚
 󱁈
 󱉕
 󱇥
@@ -157,11 +157,13 @@ syllabaries =
 groups : List GroupDef
 groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList (Set.fromList (List.map .group fragments))
 
+-- Tags:
+--
+-- lisible: inscription is reasonably readable from imagery available to us
+-- posdet: there is evidence to determine top and bottom
+-- rev: revised signs from the Douros corpus
 
--- Linear Elam body as read by us. The majority of the fragments is written RTL.
--- There is speculation that at least one of the fragemnts is written in
--- boustrophedon meaning alternating writing direction per line.
--- The writing direction is only a guess for many fragments.
+-- Using Douros 2014 as base
 fragments : List FragmentDef
 fragments = List.map (\f -> { f | text = String.trim f.text })
     [ { id = "##001.A"
@@ -811,7 +813,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
         """
       }
     , { id = "##092"
-      , tags = [ "ATHI", "Adis", "CM1", "lisible" ]
+      , tags = [ "ATHI", "Adis", "CM1", "CGr", "lisible" ]
       , dir = UNKNOWN, text =
         """
 󱆕󱅦󱀚󱄻
@@ -822,20 +824,25 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       , tags = [ "ENKO", "Aost", "CM1", "rev", "lisible" ]
       , dir = UNKNOWN, text =
         """
-󱂡󱉖󱉛󱉜
-󱂢󱉝󱉞
+%󱂡󱉖󱉛󱉜
+%󱂢󱉝󱉞
         """
       }
     , { id = "##094"
-      , tags = [ "ENKO", "Aost", "CM1" ]
-      , dir = UNKNOWN, text =
+      , tags = [ "ENKO", "Aost", "CM1", "lisible", "posdet" ]
+      , dir = LTR, text =
         """
-󱇆󱂔󱀛󿊀󿊀󿊀
-󱅻󱂦󱆅󱇰󱂧󱂒󱅴
-󱁭󱂧󱅧󱅻󱂧󱁒󱀰
-󿊀
-󿊀󱀜󱁧󱂓
+󱇆󱂔_󱀛=󿊀󿊀󿊀%
+󱅻󱂦󱆅=󱇰󱂧󱂒󱅴%
+󱁭_󱂧󱅧󱅻󱂧󱁒󱀰_1%
+%󿊀%
+%󿊀󱀜=󱁧2󱂓=%
         """
+      , inline =
+        [ "Evtl. 󱂒 oder 󱁓"
+        , "Evtl. 󱂓 gedreht"
+        ]
+      , notes = "LTR aufgrund Bündigkeit mit Dreicksöffnung links vgl. Ferrara 2013:51"
       }
     , { id = "##095"
       , tags = [ "ENKO", "Apes", "CM1" ]
