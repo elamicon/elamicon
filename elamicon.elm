@@ -564,6 +564,8 @@ view model =
                 , strong [] [ text "michael.maeder[ätt]isw.unibe.ch" ], text ". "
                 , text "Wir können euch Tipps geben, wie ihr zur Entzifferung der elamischen Strichschrift (Linear Elamite) beitragen könnt und auch sagen, was wir bisher herausgefunden haben."
                 , br [] [], br [] [], text " Herzlichen Dank fürs Interesse und viel Spass beim Tüfteln. Euer Team vom \"Linear Elamite Decipherment Project\", Institut für Sprachwissenschaft der Universität Bern."
+                , br [] [], a [ href "https://center-for-decipherment.ch/" ]
+                    [ text "center-for-decipherment.ch" ]
                 ]
  
         footer = div [ class "footer" ]
