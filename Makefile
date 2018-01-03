@@ -7,6 +7,18 @@ all: elamicon.js $(MFONTS) fonts/Elamicon-Fonts.zip
 elamicon.js: elamicon.elm Elam.elm Grams.elm
 	elm-make elamicon.elm --output elamicon.js
 
+fonts/ElamiconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf elamicon.sfdir
+	bin/addfont "Elamicon" $^ "$@"
+
+fonts/ElamiconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf elamicon.sfdir
+	bin/addfont "Elamicon" $^ "$@"
+
+fonts/ElamiconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf elamicon.sfdir
+	bin/addfont "Elamicon" $^ "$@"
+
+fonts/ElamiconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf elamicon.sfdir
+	bin/addfont "Elamicon" $^ "$@"
+
 fonts/ElamiconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
@@ -16,8 +28,8 @@ fonts/ElamiconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf 
 fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/Elamicon-Fonts.zip: $(MFONTS)
-	cd fonts && zip -r Elamicon-Fonts.zip ElamiconLiberation*.ttf 
+fonts/Elamicon-Fonts.zip: $(EFONTS) $(MFONTS)
+	cd fonts && zip -r Elamicon-Fonts.zip ElamiconLiberation*.ttf
 
 clean:
 	rm -f elamicon.js
