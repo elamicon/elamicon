@@ -163,6 +163,12 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 -- posdet: there is evidence to determine top and bottom
 -- rev: revised signs from the Douros corpus
 
+-- Signs:
+-- _ preceding a sign signifies difficult to read
+-- = preceding a sign signifies hardly readable
+-- % signifies a fracture
+
+
 tagsToGroup { id, tags, dir, text } = { id = id, group = Maybe.withDefault "NOGROUP" (List.head tags), dir = dir, text = String.trim text }
 
 -- Using Douros 2014 as base
