@@ -1041,19 +1041,19 @@ fragments = List.map tagsToGroup
       , notes = "LTR aufgrund Bündigkeit mit Dreicksöffnung links vgl. Ferrara 2013:51"
       }
     , { id = "##095"
-      , tags = [ "ENKO", "Apes", "CM1" ]
+      , tags = [ "ENKO", "Apes", "CM1", "lisible", "rev" ]
       , dir = UNKNOWN, text =
         """
-󱂋󱁵󱀧󱂦󱀜󱂘󱆖
+󱂋󱆳󱀧󱂦󱀜󱂘󱆖
         """
       , inline = []
       , notes = ""
       }
     , { id = "##096"
-      , tags = [ "ENKO", "Apla", "CM1" ]
+      , tags = [ "ENKO", "Apla", "CM1", "lisible" ]
       , dir = UNKNOWN, text =
         """
-󱀚󱂧󱂐
+%_󱀚󱂧󱂐%
         """
       , inline = []
       , notes = ""
