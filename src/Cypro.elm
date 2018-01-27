@@ -17,7 +17,7 @@ rawTokens = AstralString.toList <| String.trim """
 
 -- List of "special" characters
 --
--- Most of the artifacts did not make it through time in mint condition. The
+-- Most of the artefacts did not make it through time in mint condition. The
 -- "special" characters can be used to mark glyphs that are unreadable or
 --  are guesses.
 specialChars = [ { displayChar = "󿊀", char = "󿊀", description = "Platzhalter für unbekannte Zeichen" }]
@@ -49,7 +49,7 @@ syllableMap = String.trim """
 -- the syllabary a cheap operation, so the interpretation of which letters
 -- mean the same thing can be changed quickly.
 --
--- Letter are separated by whitespaces, letters following another letter without
+-- Letters are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
 initialSyllabary =
     { id = "lumping", name = "Breit zusammenfassen für die Suche"
