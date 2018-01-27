@@ -144,6 +144,30 @@ Punctuation
             """
       }
 
+revisionSyllabary = 
+  { id = "splitting"
+  , name = "Jedes Zeichen einzeln"
+  , syllabary =
+      """
+󱁾󱁿 ##097 I2
+󱀥󱈋 ##097 III4
+󱂜󱃬 ##097 IV7
+󱈲󱈶 ##097 V3
+󱈱󱃬 ##097 VIII8
+󱃬󱂒 (##097 IV7,XV7,XVI7)
+󱀤󱈋 ##097 IX6
+󱀤󱈋 ##097 XI11
+󱀤󱈋 ##097 XII4
+󱈲󱈶 ##097 XIV3
+󱁾󱁿 ##097 XV1
+󱃬󱂏 (##097 IV7,XIX2)
+󱂀󱁿 ##097 XXII6
+󱂈󱄤 ##097 XXIV9
+󱄤󱂈 ##097 XXVI2
+󱂀󱂂 ##097 XXVI3
+      """
+  }      
+
 syllabaries : List SyllabaryDef
 syllabaries =
     [ initialSyllabary
@@ -161,6 +185,7 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 --
 -- lisible: inscription is reasonably readable from imagery available to us
 -- posdet: there is evidence to determine top and bottom
+-- posdet-pal: there is paleographic evidence to determine top and bottom
 -- rev: revised signs from the Douros corpus
 
 -- Signs:
@@ -1059,36 +1084,36 @@ fragments = List.map tagsToGroup
       , notes = ""
       }
     , { id = "##097"
-      , tags = [ "ENKO", "Arou", "CM1" ]
-      , dir = UNKNOWN, text =
-        """
-󱁊󱁾󱂒󱀵󱁩󱀵 󱂨
+      , tags = [ "ENKO", "Arou", "CM1", "lisible", "posdet-pal", "rev" ]
+      , dir = LTR, text =
+        """ 
+󱁊󱁿󱂒󱀵󱁩󱀵 󱂨
 󱆦󱁵󱂦󱁵󱂉󱂂󱀵󱂩󱂓
-󱀠󱂩󱁘󱀥󱁫󱀪󱀵󱂩󱂛
-󱂏󱁘󱀚󱂦󱀻󱅏󱂜󱉩
-󱀵󱂩󱈲󱂩󱁵󱁱󱂍󱂦
+󱀠󱂩󱁘󱈋q󱁫󱀪󱀵󱂩󱂛
+󱂏=󱁘=󱀚=󱂦󱀻󱅏󱃬󱉩
+󱀵󱂩=󱈶=󱂩_󱁵󱁱=󱂍󱂦
 󱂓󱀧󱀶󱀞󱀪󱀵󱂩󱀞󱂩
-󱀺󱅏󱂩󱂧󱀞󱂩󱁓󱁘󱀪
-󱀵󱂩󱁵󱂩󱀪󱀸󱂦󱈱󱂩
-󱁵󱂉󱂂󱀵󱂩󱀤󱁫󱀺
+󱀺󱅏󱂩󱂧󱀞󱂩󱁓_󱁘󱀪
+󱀵󱂩󱁵󱂩󱀪󱀸󱂦󱃬󱂩
+󱁵󱂉󱂂󱀵󱂩󱈋󱁫󱀺
 󱁱󱂩󱀛󱂁󱀸󱂦󱁏󱁏
-󱉦󱂩󱁊󱀤󱁱󱀠󱀳󱂩󱁊
-󱀳󱂩󱂕󱀧󱀶󱂖󱀻󱁪
-󱀵󱂩󱀛󱀤󱂂󱅏󱀠󱀳
-󱁑󱀺󱈲󱆧󱀹󱀵󱀛
-󱁾󱀹󱂦󱁑󱁉󱉩󱂒
+󱉦󱂩󱁊󱈋󱁱󱀠󱀳󱂩󱁊
+󱀳󱂩󱂕󱀧󱀶󱂖󱀻_󱁪
+󱀵󱂩󱀛󱈋󱂂󱅏󱀠󱀳
+󱁑󱀺󱈶q󱆧󱀹󱀵󱀛
+󱁿󱀹󱂦󱁑󱁉󱉩󱂒
 󱀸󱁱󱂒󱈳󱁩󱀸󱂒
-󱁩󱀛󱁿󱀸󱁍󱀳󱅏󱂦
-󱀳󱀞󱂕󱅘󱁘󱈴󱂓󱂒
+_󱁩󱀛󱁿󱀸󱁍󱀳󱅏󱂦
+_󱀳󱀞󱂕󱅘󱁘󱈴󱂓󱂒
 󱀸󱂏󱉧󱅏󱂦󱁅󱀳
-󱈵󱀵󱂩󱆦󱉩󱂩󱈶󱀵
+󱈵󱀵󱂩q󱆦󱉩󱂩󱈶󱀵
 󱁩󱀠󱀳󱂩󱁓󱀹󱀛󱀵
-󱀻󱀜󱀸󱀛󱂍󱂈󱀵
-󱀛󱁿󱀸󱂦󱁑󱂀󱂊󱀵
-󱀹󱀛󱂍󱀠󱂦󱈷󱀞󱁘󱂈
-󱀹󱂒󱁩󱁵󱁱󱂍󱂦󱀠󱀜
-󱁵󱂉󱂀󱀵󱁩󱀺󱁖
-󱁩󱀹󱂒󱁩󱁵󱁱󱂍󱂦
+󱀻󱀜󱀸󱀛_󱂍=󱂈󱀵
+󱀛󱁿󱀸󱂦󱁑_󱁿=󱂊󱀵
+󱀹󱀛󱂍󱀠󱂦󱈷󱀞󱁘󱄤
+_󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
+󱁵󱂈󱂂󱀵󱁩󱀺󱁖
+󱁩󱀹󱂒󱁩󱁵󱁱_󱂍󱂦
         """
       , inline = []
       , notes = ""
