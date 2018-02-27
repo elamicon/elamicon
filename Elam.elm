@@ -725,7 +725,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "pre1", group = "Div", dir = LTR, text =
         """
-XX
+X
         """
       }
     , { id = "pre2", group = "Div", dir = RTL, text =
