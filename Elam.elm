@@ -350,6 +350,8 @@ groups =
     , { short = "Phoe1", name = "Phoenix 1", recorded = False }
     , { short = "Phoe2", name = "Phoenix 2", recorded = False }
     , { short = "Jir", name = "Jiroft (Konar Sandal)", recorded = False }
+    , { short = "Chris", name = "Christies Catalogue", recorded = False }
+    , { short = "Time", name = "Timelineauctions Catalogue", recorded = False }
     , { short = "Div", name = "Divers", recorded = False }
     ]
 
@@ -637,6 +639,12 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
+    , { id = "G'", group = "Chris", dir = LTR, text =
+        """
+
+
+        """
+      }
     , { id = "H′a", group = "Mahb", dir = RTL, text =
         """
             
@@ -723,16 +731,9 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
             
         """
       }
-    , { id = "pre1", group = "Div", dir = LTR, text =
+    , { id = "pre", group = "Time", dir = LTR, text =
         """
 X
-        """
-      }
-    , { id = "pre2", group = "Div", dir = RTL, text =
-        """
-
-
-
         """
       }
     ]
