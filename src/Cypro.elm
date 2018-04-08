@@ -165,9 +165,9 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 
 -- Using Douros 2014 as base
 fragments : List FragmentDef
-fragments = List.map (\f -> { f | text = String.trim f.text })
+fragments = List.map (\f -> { id = f.id, text = String.trim f.text, group = Maybe.withDefault "UNKNOWN" (List.head f.tags), dir = f.dir })
     [ { id = "##001.A"
-      , group = [ "ENKO", "Atab", "CM0" ]
+      , tags = [ "ENKO", "Atab", "CM0" ]
       , dir = UNKNOWN, text =
         """
 󱀀󱀁󱀂󱀃󱀄󱀅󱀆󱀈
@@ -838,11 +838,13 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 %󿊀%
 %󿊀󱀜=󱁧2󱂓=%
         """
+{-
       , inline =
         [ "Evtl. 󱂒 oder 󱁓"
         , "Evtl. 󱂓 gedreht"
         ]
       , notes = "LTR aufgrund Bündigkeit mit Dreicksöffnung links vgl. Ferrara 2013:51"
+-}
       }
     , { id = "##095"
       , tags = [ "ENKO", "Apes", "CM1" ]
@@ -1443,7 +1445,7 @@ neu schreib󱀵
 󱂈󱂛󱁁󱆐invert poss
         """
       }
- , { id = "##167", group = "", dir = UNKNOWN, text =
+ , { id = "##167", tags = [], dir = UNKNOWN, text =
         """
 󱀵󱂧󱁷irgend
         """
@@ -2387,15 +2389,15 @@ unspecified
 󱂐󱁭nonver Source Valerio 2014
         """
     }
-    , { id = "##254",
-      , tags [ "Mvas", "CM1" ]
+    , { id = "##254"
+      , tags = [ "Mvas", "CM1" ]
       , dir = UNKNOWN, text =
         """
 noch einfuegen Source Egetmeyer 2016
         """
     }
-    , { id = "##255",
-      , tags [ "CM1" ]
+    , { id = "##255"
+      , tags = [ "CM1" ]
       , dir = UNKNOWN, text =
         """
 noch einfuegen Source Egetmeyer 2016
