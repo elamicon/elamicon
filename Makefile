@@ -3,7 +3,7 @@ EFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
 CFONTS = $(subst fonts/original/,fonts/CMinoan,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
-all: elamicon.js $(EFONTS) $(CFONTS) fonts/Elamicon-Fonts.zip fonts/CMinoan-Fonts.zip
+all: elamicon.js $(EFONTS) $(CFONTS) fonts/Elamicon-Fonts.zip fonts/CMinoan-Fonts.zip build/elamicon.zip
 
 elms := $(wildcard *.elm src/*.elm)
 elamicon.js: $(elms)
@@ -38,9 +38,15 @@ clean:
 	rm -f elamicon.js
 	rm -f fonts/*.ttf
 	rm -f fonts/*.zip
+	rm -rf build
 
 live: $(MFONTS)
 	elm-live elamicon.elm --output elamicon.js --open
+
+build/elamicon.zip: elamicon.js index.html css/main.css 
+	mkdir -p build
+	rm -f "$@"
+	zip -r "$@" $^ fonts/*.ttf
 
 Times: fonts/Elamicon_Times_New_Roman.zip
 
