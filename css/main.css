@@ -13,6 +13,10 @@ h1, h2 {
     text-align: center
 }
 
+h1.secondary {
+    font-size: 120%;
+}
+
 .collapsible {
     position: relative;
     cursor: pointer;

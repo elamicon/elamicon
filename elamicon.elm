@@ -560,7 +560,7 @@ view model =
 
         contact = div [ class "footer" ]
                 [ h2 [] [ text "Kontakt mit dem Forschungsteam" ]
-                , text "Für detaillierte Informationen zum Elamicon Webtool, Hintergründe und Möglichkeiten zur Zusammenarbeit mit dem Entzifferungsteam der Universität Bern wendet euch bitte an " 
+                , text "Für detaillierte Informationen zum Elamicon: Online Corpus of Linear Elamite Inscriptions (OCLEI), Hintergründe und Möglichkeiten zur Zusammenarbeit mit dem Entzifferungsteam der Universität Bern wendet euch bitte an " 
                 , strong [] [ text "michael.maeder[ätt]isw.unibe.ch" ], text ". "
                 , text "Wir können euch Tipps geben, wie ihr zur Entzifferung der elamischen Strichschrift (Linear Elamite) beitragen könnt und auch sagen, was wir bisher herausgefunden haben."
                 , br [] [], br [] [], text " Herzlichen Dank fürs Interesse und viel Spass beim Tüfteln. Euer Team vom \"Linear Elamite Decipherment Project\", Institut für Sprachwissenschaft der Universität Bern."
@@ -586,7 +586,8 @@ view model =
                 ]
     in
         div [] (
-            [ h1 [] [ text " Elamische Zeichensammlung " ]
+            [ h1 [ class "secondary" ] [ text " Online Corpus of Linear Elamite Inscriptions OCLEI " ]
+            , h1 [] [ text " Elamicon " ]
             ] ++ syllabary
               ++ playground
               ++ settings
