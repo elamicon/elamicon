@@ -1,0 +1,8 @@
+#!/usr/bin/python
+
+# Output all chars in the Unicode Private Use Area grouped in chunks of 32
+
+for nr, codepoint in enumerate(range(0xE000, 0xF8FF + 1)):
+    if codepoint % 32 == 0:
+        print("")
+    print("{:04d} 0x{:04x} [{}]".format(nr, codepoint, unichr(codepoint).encode('utf-8')))
