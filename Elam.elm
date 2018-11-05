@@ -343,7 +343,7 @@ type Dir
 groups =
     [ { short = "Susa", name = "Susa", recorded = True }
     , { short = "Sha", name = "Shahdad", recorded = True }
-    , { short = "Mahb", name = "Mahboubian", recorded = False }
+    , { short = "Mah", name = "Mahboubian", recorded = False }
     , { short = "Pers", name = "Persepolis", recorded = False }
     , { short = "Liga", name = "Ligabue", recorded = False }
     , { short = "Schø", name = "Schøyen", recorded = False }
@@ -548,26 +548,26 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
             
         """
       }
-     , { id = "X", group = "Mahb", dir = RTL, text =
+     , { id = "X", group = "Mah", dir = RTL, text =
         """
             
             
             
         """
       }
-    , { id = "Y", group = "Mahb", dir = RTL, text =
+    , { id = "Y", group = "Mah", dir = RTL, text =
         """
             
                  
                   
         """
       }
-    , { id = "Yb", group = "Mahb", dir = LTR, text =
+    , { id = "Yb", group = "Mah", dir = LTR, text =
         """
         
         """
       }
-    , { id = "Z", group = "Mahb", dir = RTL, text =
+    , { id = "Z", group = "Mah", dir = RTL, text =
         """
             ​
             ​​
@@ -645,7 +645,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "H′a", group = "Mahb", dir = RTL, text =
+    , { id = "H′a", group = "Mah", dir = RTL, text =
         """
             
             
@@ -653,79 +653,79 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
             
         """
       }
-    , { id = "H′b", group = "Mahb", dir = RTL, text =
+    , { id = "H′b", group = "Mah", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "I′a", group = "Mahb", dir = RTL, text =
+    , { id = "I′a", group = "Mah", dir = RTL, text =
         """
 
         """
       }
-    , { id = "I′b", group = "Mahb", dir = RTL, text =
+    , { id = "I′b", group = "Mah", dir = RTL, text =
         """
 
 ​​
 
         """
       }
-    , { id = "I′c", group = "Mahb", dir = RTL, text =
+    , { id = "I′c", group = "Mah", dir = RTL, text =
         """
 
 
 
         """
       }
-    , { id = "J′", group = "Mahb", dir = RTL, text =
+    , { id = "J′", group = "Mah", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K′a", group = "Mahb", dir = RTL, text =
+    , { id = "K′a", group = "Mah", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K′b", group = "Mahb", dir = RTL, text =
+    , { id = "K′b", group = "Mah", dir = RTL, text =
         """
             
             ​​
             
         """
       }
-    , { id = "K′c", group = "Mahb", dir = RTL, text =
+    , { id = "K′c", group = "Mah", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "K′d", group = "Mahb", dir = RTL, text =
+    , { id = "K′d", group = "Mah", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "L′a", group = "Mahb", dir = RTL, text =
+    , { id = "L′a", group = "Mah", dir = RTL, text =
         """
             
         """
       }
-    , { id = "L′b", group = "Mahb", dir = RTL, text =
+    , { id = "L′b", group = "Mah", dir = RTL, text =
         """
             
         """
       }
-    , { id = "L′c", group = "Mahb", dir = RTL, text =
+    , { id = "L′c", group = "Mah", dir = RTL, text =
         """
             
             
         """
       }
-    , { id = "L′d", group = "Mahb", dir = RTL, text =
+    , { id = "L′d", group = "Mah", dir = RTL, text =
         """
             
             
