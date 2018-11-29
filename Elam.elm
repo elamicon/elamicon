@@ -350,7 +350,7 @@ groups =
     , { short = "Phoe1", name = "Phoenix 1", recorded = False }
     , { short = "Phoe2", name = "Phoenix 2", recorded = False }
     , { short = "Jir", name = "Jiroft (Konar Sandal)", recorded = False }
-    , { short = "Chris", name = "Christies Catalogue", recorded = False }
+    , { short = "Chris", name = "Christie's Catalogue", recorded = False }
     , { short = "Time", name = "Timelineauctions Catalogue", recorded = False }
     , { short = "Div", name = "Divers", recorded = False }
     ]
