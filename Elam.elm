@@ -352,6 +352,7 @@ groups =
     , { short = "Jir", name = "Jiroft (Konar Sandal)", recorded = False }
     , { short = "Chris", name = "Christie's Catalogue", recorded = False }
     , { short = "Time", name = "Timelineauctions Catalogue", recorded = False }
+    , { short = "Gonur", name = "Gonur Tepe", recorded = True }
     , { short = "Div", name = "Divers", recorded = False }
     ]
 
@@ -744,12 +745,17 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
 
      
-     
+     
         """
       }
     , { id = "O'", group = "Mah", dir = RTL, text =
         """
 
+        """
+      }
+    , { id = "P'", group = "Gonur", dir = RTL, text =
+        """
+
         """
       }
     ]
