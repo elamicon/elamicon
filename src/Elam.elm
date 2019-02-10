@@ -676,7 +676,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 elam : Script
 elam =
     { id = "elam"
-    , name = "Linear Elam"
+    , name = "Linear Elamite"
     , tokens = tokens
     , specialChars = specialChars
     , guessMarkers = guessMarkers
