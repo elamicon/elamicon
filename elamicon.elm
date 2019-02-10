@@ -254,13 +254,27 @@ view model =
         cleanse = String.trim >> normalize >> charFilter
         cleanedFragments = List.map (\f -> { f | text = cleanse f.text }) selectedFragments
 
+        decorate decorationAccessor title = let
+            (decorLeft, decorRight) = decorationAccessor model.script.decorations
+        in
+            decorLeft ++ " " ++ title ++ " " ++ decorRight
 
-        collapsible section =
-            [ classList
-                [ ("collapsible", True)
-                , ("collapsed", Set.member section model.collapsed)
+        collapsibleTitle section title decorationAccessor = let
+            collapsed = Set.member section model.collapsed
+            attrs = 
+                [ classList
+                    [ ("collapsible", True)
+                    , ("collapsed", collapsed)
+                    ]
+                , onClick (Toggle section)
                 ]
-            , onClick (Toggle section)
+            (decorUp, decorDown) = model.script.decorations.collapse
+            toggle = (if collapsed then decorUp else decorDown)
+        in
+            [ h2 attrs
+                [ text (decorate decorationAccessor title)
+                , span [ class "toggle" ] [ text toggle ]
+                ]
             ]
 
         -- build is called lazily when the section is expanded
@@ -271,8 +285,8 @@ view model =
             else build ()
 
         syllabary =
-            [ h2 (collapsible "syllabary") [ text " Signs " ]
-            ] ++ ifExpanded "syllabary" syllabaryView
+            collapsibleTitle "syllabary" "Signs" .signs
+            ++ ifExpanded "syllabary" syllabaryView
 
         syllabaryView =
             \_ ->
@@ -334,12 +348,12 @@ view model =
                                                }
                           }
         info =
-            [ h2 (collapsible "info") [ text " Info " ]
-            ] ++ ifExpanded "info" (\_ -> Markdown.toHtml  (Just markdownOptions) model.script.description)
+            collapsibleTitle "info" "Info" .info
+            ++ ifExpanded "info" (\_ -> Markdown.toHtml  (Just markdownOptions) model.script.description)
 
         playground =
-            [ h2 (collapsible "playground") [ text " Sandbox " ]
-            ] ++ ifExpanded "playground" (\_ ->
+            collapsibleTitle "playground" "Sandbox" .sandbox
+            ++ ifExpanded "playground" (\_ ->
             [ textarea
                 [ class model.script.id
                 , dirAttr LTR
@@ -370,8 +384,8 @@ view model =
                         [ span [ class "recordWarn", title "Undocumented finds" ] [ text "⚠" ] ]) ]
 
                 groupSelection = List.map groupSelectionEntry model.script.groups
-            in  [ h2 (collapsible "settings") [ text " Settings " ]
-                ] ++ ifExpanded "settings" (\_ ->
+            in  collapsibleTitle "settings" "Settings" .settings
+                ++ ifExpanded "settings" (\_ ->
                 [ div [] [ label []
                     [ text "Writing direction"
                     , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
@@ -509,10 +523,10 @@ view model =
                         Nothing  -> List.map .text selectedFragments
                 stats = \_ -> [ gramStats (statsBase ()) ]
             in
-                [ h2 (collapsible "gramStats") [ text " Frequency Analysis " ]
-                ] ++ ifExpanded "gramStats" stats ++
-                [ h2 (collapsible "search") [ text " Search " ]
-                ] ++ ifExpanded "search" (\_ -> [ label []
+                collapsibleTitle "gramStats" "Frequency Analysis" .grams
+                ++ ifExpanded "gramStats" stats ++
+                collapsibleTitle "search" "Search" .search
+                ++ ifExpanded "search" (\_ -> [ label []
                     [ text "Search "
                     , div [ class "searchInput"]
                         ([ Html.input [ scriptClass, dirAttr LTR, value model.search, onInput SetSearch ] []
@@ -661,14 +675,14 @@ view model =
                         (List.map scriptOpt Scripts.scripts)
                     ]
                 ]
-            , h1 [ class "secondary" ] [ text (" " ++ model.script.headline ++ " ") ]
-            , h1 [] [ text (" " ++ model.script.title ++ " ") ]
+            , h1 [ class "secondary" ] [ text (decorate .headline model.script.headline) ]
+            , h1 [] [ text (decorate .title model.script.title) ]
             ] ++ info
               ++ syllabary
               ++ playground
               ++ settings
               ++ searchView ++
-            [ h2 [] [ text " Inscriptions " ]
+            [ h2 [] [ text (decorate .inscriptions "Inscriptions") ]
             ] ++ [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments) ]
               ++ [ contact, small [] [ footer ] ]
         )

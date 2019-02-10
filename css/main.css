@@ -22,14 +22,9 @@ h1.secondary {
     cursor: pointer;
 }
 
-.collapsible::after {
+.collapsible .toggle {
     position: absolute;
     right: 0;
-    content: '';
-}
-
-.collapsible.collapsed::after {
-    content: '';
 }
 
 .collapsed {

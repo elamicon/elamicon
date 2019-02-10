@@ -707,4 +707,15 @@ elam =
     , initialSyllabary = initialSyllabary
     , groups = groups
     , fragments = fragments
+    , decorations = { headline = ("", "")
+                    , title = ("", "")
+                    , info = ("", "")
+                    , signs = ("", "")
+                    , sandbox = ("", "")
+                    , settings = ("", "")
+                    , grams = ("", "")
+                    , search = ("", "")
+                    , inscriptions = ("", "")
+                    , collapse = ("", "")
+                    }
     }

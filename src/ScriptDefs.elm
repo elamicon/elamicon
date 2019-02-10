@@ -12,6 +12,8 @@ type alias SyllabaryDef = { id : String, name : String, syllabary : String }
 type alias GroupDef = { short : String, name : String, recorded : Bool }
 type alias FragmentDef = { id : String, group : String, dir : Dir, text : String }
 
+type alias Decoration = (String, String)
+
 type alias Type = Set Token
 type alias Script =
     { id : String
@@ -29,4 +31,15 @@ type alias Script =
     , initialSyllabary : SyllabaryDef
     , groups : List GroupDef
     , fragments : List FragmentDef
+    , decorations : { headline : Decoration
+                    , title : Decoration
+                    , info : Decoration
+                    , signs : Decoration
+                    , sandbox : Decoration
+                    , settings : Decoration
+                    , grams : Decoration
+                    , search : Decoration
+                    , inscriptions : Decoration
+                    , collapse : Decoration
+                    }
     }
