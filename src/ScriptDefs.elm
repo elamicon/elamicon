@@ -16,6 +16,8 @@ type alias Type = Set Token
 type alias Script =
     { id : String
     , name : String
+    , headline: String
+    , title: String
     , description: String
     , tokens : List Token
     , specialChars : List SpecialCharDef

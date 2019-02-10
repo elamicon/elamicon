@@ -694,6 +694,8 @@ elam : Script
 elam =
     { id = "elam"
     , name = "Linear Elamite"
+    , headline = "Online Corpus of Linear Elamite Inscriptions OCLEI"
+    , title = "Elamicon"
     , description = description
     , tokens = tokens
     , specialChars = specialChars

@@ -633,10 +633,10 @@ view model =
                 , a [ href "http://elm-lang.org/" ]
                     [ text "Elm" ]
                 , text " and "
-                , a [ href "https://unicode.org" ] [ text "unicode ♥" ]
+                , a [ href "https://unicode.org" ] [ text "Unicode ♥" ]
                 , text ".  ", br [] []
-                , a [ href "fonts/Elamicon-Fonts.zip" ]
-                    [ text "Download the elamicon fonts."]
+                , a [ href ("fonts/" ++ model.script.title ++ "-Fonts.zip") ]
+                    [ text ("Download the " ++ model.script.title ++ " fonts.") ]
                 , text " ", br [] []
                 , a [ href "https://github.com/elamicon/elamicon/" ]
                     [ text "The project on Github." ]
@@ -655,8 +655,8 @@ view model =
                         (List.map scriptOpt Scripts.scripts)
                     ]
                 ]
-            , h1 [ class "secondary" ] [ text " Online Corpus of Linear Elamite Inscriptions OCLEI " ]
-            , h1 [] [ text " Elamicon " ]
+            , h1 [ class "secondary" ] [ text (" " ++ model.script.headline ++ " ") ]
+            , h1 [] [ text (" " ++ model.script.title ++ " ") ]
             ] ++ info
               ++ syllabary
               ++ playground

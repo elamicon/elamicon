@@ -3166,6 +3166,8 @@ cypro : Script
 cypro =
     { id = "cypro"
     , name = "Cypro-Minoan"
+    , headline = "Online Corpus of Cypro Minoan Inscriptions OCCMI"
+    , title = "Cypricon"
     , description = ""
     , tokens = tokens
     , specialChars = specialChars
