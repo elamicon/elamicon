@@ -1,0 +1,20 @@
+#!/usr/bin/python
+
+# Change the bearing of all glyphs to the one given in argument
+#
+# Example:
+# set_bearing elamicon.sfdir 200
+
+from __future__ import print_function
+import sys
+import fontforge
+
+n = sys.argv[1]
+b = int(sys.argv[2])
+f = fontforge.open(n)
+glyphs = sorted(f.glyphs(), key=lambda g: g.unicode)
+for glyph in f.glyphs():
+    glyph.left_side_bearing = b
+    glyph.right_side_bearing = b
+f.save(n)
+f.close()
