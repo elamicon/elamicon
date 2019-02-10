@@ -1,1 +1,6 @@
 elm-stuff
+
+# generated files
+elamicon.js
+fonts/*.ttf
+fonts/*.zip
