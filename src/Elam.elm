@@ -274,7 +274,7 @@ groups =
 -- The writing direction is only a guess for many fragments.
 fragments : List FragmentDef
 fragments = List.map (\f -> { f | text = String.trim f.text })
-    [ { id = "A", group = "Susa", dir = RTL, text =
+    [ { id = "A", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/a.jpg", text =
         """
 
 ​
@@ -283,7 +283,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "B", group = "Susa", dir = LTR, text =
+    , { id = "B", group = "Susa", dir = LTR, plate = Nothing, text =
         """
 
 ​

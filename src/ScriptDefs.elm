@@ -10,7 +10,7 @@ type alias Token = String
 type alias SpecialCharDef = { displayChar : String, char : String, description : String }
 type alias SyllabaryDef = { id : String, name : String, syllabary : String }
 type alias GroupDef = { short : String, name : String, recorded : Bool }
-type alias FragmentDef = { id : String, group : String, dir : Dir, text : String }
+type alias FragmentDef = { id : String, group : String, dir : Dir, text : String, plate : Maybe String }
 
 type alias Decoration = (String, String)
 

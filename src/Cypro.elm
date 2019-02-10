@@ -3161,14 +3161,19 @@ noch einfuegen Source Egetmeyer 2016
       }
     ]
 
-
 cypro : Script
 cypro =
     { id = "cypro"
     , name = "Cypro-Minoan"
     , headline = "Online Corpus of Cypro Minoan Inscriptions OCCMI"
     , title = "Cypricon"
-    , description = ""
+    , description = """
+The Font implemented in the Cypricon decipherment tool has been [created by George Douros] (Thank you very much!), based on the corpora of Ferrari 2012 (Cypro-Minoan Inscriptions, Vol I and II) and Olivier 2007 (Édition holistique des textes chypro-minoens).
+
+A description of the dynamic syllabary, used as a working hypothesis here, can be found in Plachtzik 2018.
+
+[created by George Douros]: http://users.teilar.gr/~g1951d/
+"""
     , tokens = tokens
     , specialChars = specialChars
     , guessMarkers = ""
