@@ -1,4 +1,5 @@
 module Grams exposing (..)
+{-| Database to find repeated subsequences in character sequences -}
 
 import Dict exposing (Dict)
 import String
@@ -17,6 +18,8 @@ registerInc seq inc grams =
 register : String -> Grams -> Grams
 register seq grams = registerInc seq 1 grams
 
+{-| Get the list of gram count per length -}
+tally : Grams -> List { seq: String, count: Int }
 tally grams =
     let rec (seq, count) =
         { seq = seq
@@ -24,8 +27,8 @@ tally grams =
         }
     in List.reverse (List.sortBy .count (List.map rec (Dict.toList grams)))
 
--- Build gram stats by adding all grams of max length <max> found in list of
--- strings <seqs>
+{-|  Build gram stats by adding all grams of max length <max> found in list of
+     strings <seqs> -}
 read : Int -> List String -> List Grams
 read max seqs =
     let

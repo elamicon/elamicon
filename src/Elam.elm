@@ -34,9 +34,9 @@ rawTokens = AstralString.toList <| String.trim """
 -- "special" characters can be used to mark glyphs that are unreadable or
 --  are guesses.
 specialChars =
-    [ { displayChar = "", char = "", description = "Platzhalter für unbekannte Zeichen" }
-    , { displayChar = "", char = "", description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
-    , { displayChar = "", char = "", description = "Markiert Bruchstellen" }
+    [ { displayChar = "", char = "", description = "Wildcard for unreadable signs" }
+    , { displayChar = "", char = "", description = "Marks signs that ar hard to read" }
+    , { displayChar = "", char = "", description = "Marks a fracture point (line is assumed to be incomplete)" }
     ]
 
 -- Characters that are hard to read on the originals are marked with "guessmarkers".
@@ -109,7 +109,7 @@ uš 
 -- Letter are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
 initialSyllabary =
-    { id = "lumping", name = "Breit zusammenfassen für die Suche"
+    { id = "lumping", name = "Broad groups ideal for searching"
       , syllabary = String.trim
             """
           
@@ -125,7 +125,7 @@ initialSyllabary =
 syllabaries : List SyllabaryDef
 syllabaries =
     [ initialSyllabary
-    , { id = "realistic", name = "Nach aktuellem Kenntnisstand gruppiert"
+    , { id = "realistic", name = "Realistic according to latest research (working hypothesis)"
       , syllabary = String.trim
             """
 
@@ -243,7 +243,7 @@ syllabaries =
 
             """
       }
-    , { id = "splitting", name = "Jedes Zeichen einzeln"
+    , { id = "splitting", name = "Each sign separately"
       , syllabary = String.join " " tokens
       }
     ]
@@ -676,7 +676,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 elam : Script
 elam =
     { id = "elam"
-    , name = "Elamische Strichschrift"
+    , name = "Linear Elam"
     , tokens = tokens
     , specialChars = specialChars
     , guessMarkers = guessMarkers

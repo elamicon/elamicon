@@ -17,7 +17,7 @@ import Cypro as Cypro
 scripts : List Script
 scripts = [ Elam.elam, Cypro.cypro ]
 
-initialScript = Cypro.cypro
+initialScript = Elam.elam
 
 
 -- Digest the mapping from letters to "spoken sound" into a dictionary

@@ -20,7 +20,7 @@ rawTokens = AstralString.toList <| String.trim """
 -- Most of the artefacts did not make it through time in mint condition. The
 -- "special" characters can be used to mark glyphs that are unreadable or
 --  are guesses.
-specialChars = [ { displayChar = "󿊀", char = "󿊀", description = "Platzhalter für unbekannte Zeichen" }]
+specialChars = [ { displayChar = "󿊀", char = "󿊀", description = "Wildcard for unreadable signs" }]
 
 ignoreChars = Set.fromList <| List.map .char specialChars
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -52,7 +52,7 @@ syllableMap = String.trim """
 -- Letters are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
 initialSyllabary =
-    { id = "lumping", name = "Breit zusammenfassen für die Suche"
+    { id = "lumping", name = "Broad grouping ideal for searching"
       , syllabary = String.trim
             """
 󱀈󱀉󱂊󱃒󱃓󱃔󱃕󱃖󱃗󱁧󱁨󱁩󱁪󱁫󱁬󱁭󱁮󱁯󱁰󱁱󱈉󱈜󱄚󱁲󱁳󱄒󱄓󱄔󱄕󱄖󱄗󱄘󱆜󱆡󱆢󱆣󱆤󱆥󱆦󱆧󱈚󱈭󱆨󱆪󱆫󱆬󱈽󱆭󱆮󱆽󱇼󱈑󱈒
@@ -145,7 +145,7 @@ Punctuation
     }
 
 realisticSyllabary =
-    { id = "realistic", name = "Nach aktuellem Kenntnisstand"
+    { id = "realistic", name = "Working hypothesis"
       , syllabary = String.trim
             """
 󱀈󱀉󱃔󱄒󱁩󱁪
@@ -318,8 +318,8 @@ Punctuation
       }
 
 revisionSyllabary = 
-  { id = "splitting"
-  , name = "Jedes Zeichen einzeln"
+  { id = "revision"
+  , name = "Sign revisions"
   , syllabary =
       """
 󱁾󱁿 ##097 I2
@@ -345,7 +345,8 @@ syllabaries : List SyllabaryDef
 syllabaries =
     [ initialSyllabary
     , realisticSyllabary
-    , { id = "splitting", name = "Jedes Zeichen einzeln"
+    , revisionSyllabary
+    , { id = "splitting", name = "Each sign separately"
       , syllabary = String.join " " tokens
       }
     ]
@@ -3171,7 +3172,7 @@ noch einfuegen Source Egetmeyer 2016
 cypro : Script
 cypro =
     { id = "cypro"
-    , name = "Kypro-Minoisch"
+    , name = "Cypro-Minoan"
     , tokens = tokens
     , specialChars = specialChars
     , guessMarkers = ""

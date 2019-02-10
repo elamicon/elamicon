@@ -268,7 +268,7 @@ view model =
             else build ()
 
         syllabary =
-            [ h2 (collapsible "syllabary") [ text " Die Buchstaben " ]
+            [ h2 (collapsible "syllabary") [ text " Signs " ]
             ] ++ ifExpanded "syllabary" syllabaryView
 
         syllabaryView =
@@ -321,12 +321,12 @@ view model =
                 if List.isEmpty tallyGrams
                 then div [] []
                 else div []
-                    [ h3 [] [ text "Statistik der Buchstabenfolgen" ]
+                    [ h3 [] [ text "N-gram statistics" ]
                     , ul [ class "tallyGrams" ] (List.indexedMap ntally tallyGrams)
                     ]
 
         playground =
-            [ h2 (collapsible "playground") [ text " Spielplatz " ]
+            [ h2 (collapsible "playground") [ text " Sandbox " ]
             ] ++ ifExpanded "playground" (\_ ->
             [ textarea
                 [ class model.script.id
@@ -355,65 +355,65 @@ view model =
                     [ input [ type_ "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
                     , text group.name
                     ] ++ if group.recorded then [] else
-                        [ span [ class "recordWarn", title "Undokumentierte Funde" ] [ text "⚠" ] ]) ]
+                        [ span [ class "recordWarn", title "Undocumented finds" ] [ text "⚠" ] ]) ]
 
                 groupSelection = List.map groupSelectionEntry model.script.groups
-            in  [ h2 (collapsible "settings") [ text " Einstellungen " ]
+            in  [ h2 (collapsible "settings") [ text " Settings " ]
                 ] ++ ifExpanded "settings" (\_ ->
                 [ div [] [ label []
-                    [ text "Schreibrichtung "
+                    [ text "Writing direction"
                     , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
-                        [ option (dirOptAttrs "Original" Nothing) [ text "ursprünglich ⇔" ]
-                        , option (dirOptAttrs "LTR" (Just LTR)) [ text "alles ⇒ von links ⇒ nach rechts" ]
-                        , option (dirOptAttrs "RTL" (Just RTL)) [ text "alles ⇐ nach links ⇐ von rechts" ]
+                        [ option (dirOptAttrs "Original" Nothing) [ text "original ⇔" ]
+                        , option (dirOptAttrs "LTR" (Just LTR)) [ text "everything ⇒ from left ⇒ to right" ]
+                        , option (dirOptAttrs "RTL" (Just RTL)) [ text "everything ⇐ to left ⇐ from right" ]
                         ]
                     ] ]
                 , div [] [ label []
-                    [ text "Zeilenumbrüche "
+                    [ text "Line breaks: "
                     , Html.select [ on "change" (Json.Decode.map SetBreaking boolDecoder) ]
-                        [ option (breakOptAttrs "true" True) [ text "ursprünglich" ]
-                        , option (breakOptAttrs "false" False) [ text "entfernen" ]
+                        [ option (breakOptAttrs "true" True) [ text "original" ]
+                        , option (breakOptAttrs "false" False) [ text "remove" ]
                         ]
                     ] ]
                 , div [] [ label []
-                    [ text "Alternative Zeichen "
+                    [ text "Sign forms: "
                     , Html.select [ on "change" (Json.Decode.map SetNormalize boolDecoder) ]
-                        [ option (boolOptAttrs "false" (not model.normalize)) [ text "belassen wie im Original" ]
-                        , option (boolOptAttrs "true" model.normalize) [ text "normalisieren nach Syllabar" ]
+                        [ option (boolOptAttrs "false" (not model.normalize)) [ text "according to original inscription" ]
+                        , option (boolOptAttrs "true" model.normalize) [ text "normalize per the syllabary" ]
                         ]
                     ] ]
                 , div [] [ label []
-                    [ text "Silben mit angenommenem Lautwert "
+                    [ text "Sign with assumed sound value: "
                     , Html.select [ on "change" (Json.Decode.map SetSyllabize boolDecoder) ]
-                        [ option (boolOptAttrs "false" (not model.syllabize)) [ text "belassen wie im Original" ]
-                        , option (boolOptAttrs "true" model.syllabize) [ text "ersetzen durch Silbenlautwert" ]
+                        [ option (boolOptAttrs "false" (not model.syllabize)) [ text "keep original sign" ]
+                        , option (boolOptAttrs "true" model.syllabize) [ text "replace with sound value" ]
                         ]
                     ] ]
                 , div [] [ label [] (
-                    [ text "Diese Zeichen "
+                    [ text "Remove these signs "
                     , Html.input [ class model.script.id, value model.removeChars, onInput SetRemoveChars ] []
-                    , text " aus dem Textkorpus entfernen."
+                    , text " from the corpus."
                     ]
                     ++
                     if not (String.isEmpty model.removeChars)
-                    then [ small [] [ text "Vorsicht: Wenn Zeichen entfernt werden, verschiebt sich die Nummerierung innerhalb der Zeilen." ] ]
+                    then [ small [] [ text "Caution: Sign enumeration within line changes as signs are removed!" ] ]
                     else []
                     )]
                 , div [] (
-                    [ h4 [] [ text "Syllabar" ]
+                    [ h4 [] [ text "Dynamic Syllabary" ]
                     , syllabarySelection
                     , Html.textarea [ class model.script.id, value model.syllabary, onInput SetSyllabary ] []
                     ]
                     ++ if not (String.isEmpty model.missingSyllabaryChars)
-                        then [ div [] [ text "Die folgenden Zeichen sind nicht im Syllabar aufgeführt: ", text model.missingSyllabaryChars ] ]
+                        then [ div [] [ text "The following signs are not listed in the syllabary: ", text model.missingSyllabaryChars ] ]
                         else []
                     )
                 , div [] [ label []
-                    [ h4 [] [ text "Angenommene Silbenlautwerte" ]
+                    [ h4 [] [ text "Assumed sound values" ]
                     , Html.textarea [ scriptClass, value model.syllableMap, onInput SetSyllableMap ] []
                     ] ]
                 , div [ class "groups" ]
-                    ( h4 [] [ text "Gruppen" ] :: groupSelection )
+                    ( h4 [] [ text "Groups" ] :: groupSelection )
                 ])
 
 
@@ -497,51 +497,51 @@ view model =
                         Nothing  -> List.map .text selectedFragments
                 stats = \_ -> [ gramStats (statsBase ()) ]
             in
-                [ h2 (collapsible "gramStats") [ text " Frequenzanalyse " ]
+                [ h2 (collapsible "gramStats") [ text " Frequency Analysis " ]
                 ] ++ ifExpanded "gramStats" stats ++
-                [ h2 (collapsible "search") [ text " Suche " ]
+                [ h2 (collapsible "search") [ text " Search " ]
                 ] ++ ifExpanded "search" (\_ -> [ label []
-                    [ text "Suchmuster "
+                    [ text "Search "
                     , div [ class "searchInput"]
                         ([ Html.input [ scriptClass, dirAttr LTR, value model.search, onInput SetSearch ] []
                         ] ++ if searchPattern == Invalid
-                            then [ div [ class "invalidPattern" ] [ text "Ungültiges Suchmuster" ] ]
+                            then [ div [ class "invalidPattern" ] [ text "Invalid pattern" ] ]
                             else []
                         )
                     , label []
                         [ input [ type_ "checkbox", checked model.bidirectionalSearch, Html.Events.onCheck BidirectionalSearch ] []
-                        , text "auch in Gegenrichtung suchen"
+                        , text "also search in reverse direction"
                         ]
                     ]
                 ]
                 ++ case results of
                     Just res ->
                         if List.length res.items == 0
-                        then [ div [class "noresult" ] [ text "Nichts gefunden" ] ]
+                        then [ div [class "noresult" ] [ text "No results" ] ]
                         else
                             [ ol [ class "result" ] resultLines ]
                             ++
                                 if res.more
                                 then
-                                    [ text (String.concat [ "Nur ", toString maxResults, " von ", toString (List.length res.raw), " Resultaten werden angezeigt. "])
-                                    , button [ type_ "button", onClick ShowAllResults ] [ text "Alle Resultate anzeigen!" ]
+                                    [ text (String.concat [ "Only showing ", toString maxResults, " of ", toString (List.length res.raw), " results. "])
+                                    , button [ type_ "button", onClick ShowAllResults ] [ text "Show all!" ]
                                     ]
                                 else []
                     Nothing -> [ div [ class "searchExamples" ]
-                        [ h3 [] [ text "Suchbeispiele" ]
+                        [ h3 [] [ text "Examples of search patterns" ]
                         , dl []
                             [ dt [] [ text "?[]" ]
-                            , dd [] [ text "Suche nach Varianten von  (in-šu-uš oder in-šu-ši mit optionalem NAP)" ]
+                            , dd [] [ text "Search variants of  (in-šu-uš or in-šu-ši with optional NAP)" ]
                             , dt [] [ text "[]" ]
-                            , dd [] [ text "Suche nach  und erlaube einen Platzhalter anstelle des NAP" ]
+                            , dd [] [ text "Search  and allow placeholder instead of NAP" ]
                             , dt [] [ text "([^])\\1" ]
-                            , dd [] [ text "Suche nach Silbenwiederholungen wie " ]
+                            , dd [] [ text "Look for sign repetitions (geminates) like " ]
                             , dt [] [ text "([^]).\\1" ]
-                            , dd [] [ text "Silbenwiederholungen mit einem beliebigen Zeichen dazwischen ()" ]
+                            , dd [] [ text "Sign repetitions with an arbitrary sign in-between ()" ]
                             , dt [] [ text "[^]+" ]
-                            , dd [] [ text "\"Worte\", wenn wir den vertikalen Strich als Worttrenner annehmen" ]
+                            , dd [] [ text "Look for \"words\", assuming the vertical bar separates words" ]
                             , dt [] [ text "[]" ]
-                            , dd [] [ text "Alle Stellen anzeigen, wo  oder  steht" ]
+                            , dd [] [ text "Show sequences, with  or " ]
                             ]
                         ]
                     ]
@@ -610,30 +610,30 @@ view model =
                 ]
 
         contact = div [ class "footer" ]
-                [ h2 [] [ text "Kontakt mit dem Forschungsteam" ]
-                , text "Für detaillierte Informationen zum Elamicon: Online Corpus of Linear Elamite Inscriptions (OCLEI), Hintergründe und Möglichkeiten zur Zusammenarbeit mit dem Entzifferungsteam der Universität Bern wendet euch bitte an " 
+                [ h2 [] [ text "Contact the research-team" ]
+                , text "For detailed information about Elamicon: Online Corpus of Linear Elamite Inscriptions (OCLEI), and possibilities for collaboration please contact " 
                 , strong [] [ text "michael.maeder[ätt]isw.unibe.ch" ], text ". "
-                , text "Wir können euch Tipps geben, wie ihr zur Entzifferung der elamischen Strichschrift (Linear Elamite) beitragen könnt und auch sagen, was wir bisher herausgefunden haben."
-                , br [] [], br [] [], text " Herzlichen Dank fürs Interesse und viel Spass beim Tüfteln. Euer Team vom \"Linear Elamite Decipherment Project\", Institut für Sprachwissenschaft der Universität Bern."
+                , text "We can help you with tips on how to contribute to the decipherment of Linear Elamite and tell you what we've discovered so far."
+                , br [] [], br [] [], text " Thank you for your interest and have fun puzzling over the inscriptions. Your team of the \"Linear Elamite Decipherment Project\", Institut für Sprachwissenschaft, Universität Bern."
                 , br [] [], a [ href "https://center-for-decipherment.ch/" ]
                     [ text "center-for-decipherment.ch" ]
                 ]
 
         footer = div [ class "footer" ]
-                [ text "Diese Seite wurde produziert mit "
+                [ text "This site was produced with "
                 , a [ href "https://fontforge.github.io/" ]
                     [ text "FontForge" ]
                 , text ", "
                 , a [ href "http://elm-lang.org/" ]
                     [ text "Elm" ]
-                , text " und "
-                , a [ href "https://unicode.org" ] [ text "♥" ]
+                , text " and "
+                , a [ href "https://unicode.org" ] [ text "unicode ♥" ]
                 , text ".  ", br [] []
                 , a [ href "fonts/Elamicon-Fonts.zip" ]
-                    [ text "Elamicon-Schriften installieren."]
+                    [ text "Download the elamicon fonts."]
                 , text " ", br [] []
                 , a [ href "https://github.com/elamicon/elamicon/" ]
-                    [ text "Das Projekt auf Github." ]
+                    [ text "The project on Github." ]
                 ]
 
         scriptOpt script = option
@@ -643,7 +643,7 @@ view model =
         div [ class model.script.id ] (
             [ div []
                 [ label []
-                    [ text "Skript "
+                    [ text "Choose script "
                     , Html.select
                         [ on "change" (Json.Decode.map SetScript scriptDecoder) ]
                         (List.map scriptOpt Scripts.scripts)
@@ -655,7 +655,7 @@ view model =
               ++ playground
               ++ settings
               ++ searchView ++
-            [ h2 [] [ text " Textfragmente " ]
+            [ h2 [] [ text " Inscriptions " ]
             ] ++ [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments) ]
               ++ [ contact, small [] [ footer ] ]
         )
