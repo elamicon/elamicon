@@ -1,10 +1,14 @@
-module Elam exposing (..)
+module Elam exposing (elam)
 
 import Dict
 import String
 import List
 import Set
 
+import AstralString
+
+import WritingDirections exposing (..)
+import ScriptDefs exposing (..)
 
 -- List of letters found in Linear-Elam writings
 --
@@ -20,7 +24,7 @@ import Set
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
-allChars = String.toList <| String.trim """
+rawTokens = AstralString.toList <| String.trim """
 
 """
 
@@ -30,62 +34,62 @@ allChars = String.toList <| String.trim """
 -- "special" characters can be used to mark glyphs that are unreadable or
 --  are guesses.
 specialChars =
-    [ { displayChar = "", char = '', description = "Platzhalter für unbekannte Zeichen" }
-    , { displayChar = "", char = '', description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
-    , { displayChar = "", char = '', description = "Markiert Bruchstellen" }
+    [ { displayChar = "", char = "", description = "Platzhalter für unbekannte Zeichen" }
+    , { displayChar = "", char = "", description = "Kann angefügt werden, um ein anderes Zeichen als schlecht lesbar zu markieren" }
+    , { displayChar = "", char = "", description = "Markiert Bruchstellen" }
     ]
 
 -- Characters that are hard to read on the originals are marked with "guessmarkers".
 -- Guessmarkers are zero-width and overlap the previous charachter. There are two
--- markers because here are two writing directions.
+-- markers because there are two writing directions.
 guessMarkers = ""
 
--- Unreadable signs are represented by this special character 
+-- Unreadable signs are represented by this special character
 missingChar = ""
 
 -- To mark places where we assume the writing continues but is missing, we use
 -- the fracture mark.
 fractureMarker = ""
 
-ignoreChars = Set.fromList <| String.toList (guessMarkers ++ missingChar ++ fractureMarker)
-letters = List.filter (\c -> not (Set.member c ignoreChars)) allChars
-elamLetters = Set.fromList letters
+ignoreChars = Set.fromList <| AstralString.toList (guessMarkers ++ missingChar ++ fractureMarker)
+tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
+tokenSet = Set.fromList tokens
 
 -- These letters are counted as character positions
 -- Letter 'X' is used in places where the character has not been mapped yet.
-indexedLetters = Set.fromList ([ '', 'X' ] ++ letters)
-indexed char = Set.member char indexedLetters
+indexedTokens = Set.fromList ([ "", "X" ] ++ tokens)
+indexed char = Set.member char indexedTokens
 
 
 -- The syllable mapping is short as of now and will likely never become
 -- comprehensive. All of this is guesswork.
-syllables : Dict.Dict Char (List String)
+syllables : Dict.Dict String (List String)
 syllables = Dict.fromList
-    [ ( '', [ "na" ] )
-    , ( '', [ "uk ?" ] )
-    , ( '', [ "NAP"] )
-    , ( '', [ "NAP"] )
-    , ( '', [ "en ?", "im ?"] )
-    , ( '', [ "šu" ] )
-    , ( '', [ "ša ?" ] )
-    , ( '', [ "in" ] )
-    , ( '', [ "ki" ] )
-    , ( '', [ "iš ?", "uš ?" ] )
-    , ( '', [ "tu ?" ] )
-    , ( '', [ "hu ?"] )
-    , ( '', [ "me ?" ] )
-    , ( '', [ "me ?" ] )
-    , ( '', [ "ši" ] )
-    , ( '', [ "še ?", "si ?" ] )
-    , ( '', [ "ak", "ik"] )
-    , ( '', [ "hal ?" ] )
-    , ( '', [ "ú" ] )
-    , ( '', [ "ni ?" ] )
-    , ( '', [ "piš ?" ] )
+    [ ( "", [ "na" ] )
+    , ( "", [ "uk ?" ] )
+    , ( "", [ "NAP"] )
+    , ( "", [ "NAP"] )
+    , ( "", [ "en ?", "im ?"] )
+    , ( "", [ "šu" ] )
+    , ( "", [ "ša ?" ] )
+    , ( "", [ "in" ] )
+    , ( "", [ "ki" ] )
+    , ( "", [ "iš ?", "uš ?" ] )
+    , ( "", [ "tu ?" ] )
+    , ( "", [ "hu ?"] )
+    , ( "", [ "me ?" ] )
+    , ( "", [ "me ?" ] )
+    , ( "", [ "ši" ] )
+    , ( "", [ "še ?", "si ?" ] )
+    , ( "", [ "ak", "ik"] )
+    , ( "", [ "hal ?" ] )
+    , ( "", [ "ú" ] )
+    , ( "", [ "ni ?" ] )
+    , ( "", [ "piš ?" ] )
     ]
-    
+
 -- This is our best guess at the syllable mapping for letters where it makes sense
--- to try. 
+-- to try.
 syllableMap = String.trim """
 in 
 šu 
@@ -94,37 +98,6 @@ na 
 ak 
 uš 
 """
-
-sylDict strMap = 
-    let
-        lines = String.lines strMap
-        addRepl : String -> Char -> (Dict.Dict Char String) -> (Dict.Dict Char String)
-        addRepl target source state =
-            Dict.insert source target state
-        addLine line state =
-            let
-                sylls = String.words line 
-                target = Maybe.withDefault "" (List.head sylls)
-                sources = List.concat <| List.map String.toList (Maybe.withDefault [] (List.tail sylls)) 
-            in
-                if List.isEmpty sylls
-                then state
-                else List.foldr 
-                    (addRepl target)
-                    state
-                    sources
-    in
-        List.foldl addLine Dict.empty lines
-
-
-syllabizer strMap =
-    let
-        map = sylDict strMap
-        replacer char = Maybe.withDefault (String.fromChar char) (Dict.get char map)
-    in String.foldr (replacer >> (++)) ""
-
-
-
 
 -- Syllabary definitions
 --
@@ -135,8 +108,8 @@ syllabizer strMap =
 --
 -- Letter are separated by whitespaces, letters following another letter without
 -- a space are grouped with that letter
-syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
-    [ { id = "lumping", name = "Breit zusammenfassen für die Suche"
+initialSyllabary =
+    { id = "lumping", name = "Breit zusammenfassen für die Suche"
       , syllabary = String.trim
             """
           
@@ -148,6 +121,10 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
            
             """
       }
+
+syllabaries : List SyllabaryDef
+syllabaries =
+    [ initialSyllabary
     , { id = "realistic", name = "Nach aktuellem Kenntnisstand gruppiert"
       , syllabary = String.trim
             """
@@ -267,79 +244,13 @@ syllabaries = Dict.fromList <| List.map (\s -> (s.id, s))
             """
       }
     , { id = "splitting", name = "Jedes Zeichen einzeln"
-      , syllabary = String.join " " <| List.map String.fromChar letters
+      , syllabary = String.join " " tokens
       }
     ]
 
-
--- List of letter groupings made from a syllabary string.
-syllabaryList : String -> List (Char, List Char)
-syllabaryList syllabary =
-    let
-        letterGroup letterString =
-            case (String.toList letterString) of
-                main :: ext -> (main, ext)
-                _ -> ('?', []) -- should not be reachable?
-    in
-        List.map letterGroup (String.words syllabary)
-
--- Sanitize the syllabary string to include all Elam letters but no duplicates
-dedupe : String -> (String, String)
-dedupe syllabary =
-    let
-        dedup letter (seen, dedupSyllabary) =
-            if Set.member letter seen
-            then
-                (seen, dedupSyllabary)
-            else
-                if Set.member letter indexedLetters
-                then
-                    (Set.insert letter seen, dedupSyllabary ++ String.fromChar letter)
-                else
-                    (seen, dedupSyllabary ++ String.fromChar letter)
-
-        (presentLetters, dedupedSyllabary) = List.foldl dedup (Set.empty, "") (String.toList syllabary)
-        missingLetters = Set.diff elamLetters presentLetters
-    in
-        (dedupedSyllabary, String.join " " (List.map String.fromChar (Set.toList missingLetters)))
-
-
--- When searching the corpus (and optionally when displaying it) we want to treat all
--- characters in an letter group as the same character. This function builds a
--- dictionary that maps all alternate versions of a letter to the main letter.
-normalization : String -> Dict.Dict Char Char
-normalization syllabary =
-    let allLetters = Set.fromList letters
-        ins group dict =
-            case (String.toList group) of
-                main :: extras -> List.foldl (insLetter main) (Dict.insert main main dict) extras
-                _ -> dict
-        insLetter main ext dict = Dict.insert ext main dict
-    in List.foldl ins Dict.empty (String.words syllabary)
-
-
-normalizer: Dict.Dict Char Char -> String -> String
-normalizer normalization =
-    let
-        repl: Char -> Char
-        repl letter = Maybe.withDefault letter (Dict.get letter normalization)
-    in String.map repl
-
-
--- Linear Elam texts are written left-to-right (LTR) and right-to-left (RTL).
--- The majority is written RTL. We display them in their original direction, but
--- allow coercing the direction to one of the two for all panels.
--- There is speculation that at least one of the fragemnts is written in
--- boustrophedon meaning alternating writing direction per line.
-type Dir
-    = Original  -- No choice made yet
-    | LTR       -- assumed to be written left-to-right
-    | RTL       -- assumed to be written right-to-left
-    | BoustroR  -- assumed to be written boustrophedon, first line right-to-left
-
-
 -- We grouped the fragments according to where they were found
 -- Recorded means that there is a sound archaelogical paper trail
+groups : List GroupDef
 groups =
     [ { short = "Susa", name = "Susa", recorded = True }
     , { short = "Sha", name = "Shahdad", recorded = True }
@@ -357,9 +268,11 @@ groups =
     ]
 
 
--- Linear Elam body as read by us. The writing direction is only a guess for most fragments.
-type alias Fragment = { id : String, group : String, dir : Dir, text : String }
-fragments : List Fragment
+-- Linear Elam body as read by us. The majority of the fragments is written RTL.
+-- There is speculation that at least one of the fragemnts is written in
+-- boustrophedon meaning alternating writing direction per line.
+-- The writing direction is only a guess for many fragments.
+fragments : List FragmentDef
 fragments = List.map (\f -> { f | text = String.trim f.text })
     [ { id = "A", group = "Susa", dir = RTL, text =
         """
@@ -759,3 +672,19 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
         """
       }
     ]
+
+elam : Script
+elam =
+    { id = "elam"
+    , name = "Elamische Strichschrift"
+    , tokens = tokens
+    , specialChars = specialChars
+    , guessMarkers = guessMarkers
+    , indexed = indexed
+    , syllables = syllables
+    , syllableMap = syllableMap
+    , syllabaries = syllabaries
+    , initialSyllabary = initialSyllabary
+    , groups = groups
+    , fragments = fragments
+    }

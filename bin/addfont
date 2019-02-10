@@ -10,13 +10,14 @@ import os
 
 prefix = sys.argv[1]
 basefont = sys.argv[2]
-addfont = sys.argv[3]
-outfont = sys.argv[4]
+addfonts = sys.argv[3:-1]
+outfont = sys.argv[-1]
 
 f = fontforge.open(basefont)
 f.fullname = prefix + f.fullname
 f.familyname =  prefix + f.familyname
 f.fontname = prefix + f.fontname
-f.mergeFonts(addfont)
+for addfont in addfonts:
+    f.mergeFonts(addfont)
 f.generate(outfont)
 f.close()

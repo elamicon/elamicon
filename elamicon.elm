@@ -9,11 +9,16 @@ import Json.Decode
 import List
 import Array
 import Set
-import Elam exposing (Dir(..))
-import ElamSearch
-import Grams
 
-main = Html.program 
+import Search
+import Grams
+import AstralString
+
+import ScriptDefs exposing (..)
+import Scripts exposing (..)
+import WritingDirections exposing (..)
+
+main = Html.program
     { init = (initialModel, Cmd.none)
     , view = view
     , update = update
@@ -22,7 +27,8 @@ main = Html.program
 
 type alias Pos = (String, Int, Int)
 type alias Model =
-    { dir : Dir
+    { script : Script
+    , dir : Maybe Dir
     , fixedBreak: Bool
     , selected : Maybe Pos
     , syllabaryId : Maybe String
@@ -41,9 +47,12 @@ type alias Model =
     , collapsed: Set.Set String
     , showAllResults: Bool
     }
-    
-(initialModel, _) = update (ChooseSyllabary "lumping")
-    { dir = Original
+
+initialScript = Scripts.initialScript
+
+initialModel = updateScript initialScript
+    { script = initialScript
+    , dir = Nothing
     , fixedBreak = True
     , selected = Nothing
     , normalizer = identity
@@ -52,21 +61,22 @@ type alias Model =
     , syllabaryId = Nothing
     , syllabary = ""
     , missingSyllabaryChars = ""
-    , syllableMap = Elam.syllableMap
-    , syllabizer = Elam.syllabizer Elam.syllableMap
+    , syllableMap = initialScript.syllableMap
+    , syllabizer = Scripts.syllabizer initialScript.syllableMap
     , syllabize = False
     , sandbox = ""
     , search = ""
     , showAllResults = False
     , bidirectionalSearch = True
-    , selectedGroups = Set.fromList (List.map .short Elam.groups)
+    , selectedGroups = Set.empty
     , collapsed = Set.fromList [ "gramStats", "syllabary", "playground", "settings", "search" ]
     }
 
 type Msg
     = Select (String, Int, Int)
+    | SetScript Script
     | SetBreaking Bool
-    | SetDir Dir
+    | SetDir (Maybe Dir)
     | SetNormalize Bool
     | SetSandbox String
     | ChooseSyllabary String
@@ -81,24 +91,51 @@ type Msg
     | SelectGroup String Bool
     | Toggle String
 
-updateSyllabary model new newId =
+updateScript : Script -> Model -> Model
+updateScript new model =
     let
-        (deduped, missing) = Elam.dedupe new
-        newNormalizer = Elam.normalizer (Elam.normalization deduped)
-    in { model 
+        selectedGroups = Set.fromList (List.map .short new.groups)
+    in
+        switchSyllabary new.initialSyllabary
+            { model
+            | script = new
+            , selectedGroups = selectedGroups
+            , search = ""
+            }
+
+
+
+setSyllabary : String -> Model -> Model
+setSyllabary new model =
+    let
+        (deduped, missing) = Scripts.dedupe model.script.tokens model.script.indexed new
+        newNormalizer = Scripts.normalizer (Scripts.normalization model.script.tokens deduped)
+    in  { model
         | syllabary = deduped
         , normalizer = newNormalizer
         , missingSyllabaryChars = missing
-        , syllabaryId = newId
         }
+
+
+switchSyllabary : SyllabaryDef -> Model -> Model
+switchSyllabary new model =
+    let
+        (deduped, missing) = Scripts.dedupe model.script.tokens model.script.indexed new.syllabary
+        newNormalizer = Scripts.normalizer (Scripts.normalization model.script.tokens deduped)
+        updated = setSyllabary new.syllabary model
+    in  { updated
+        | syllabaryId = Just new.id
+        }
+
 
 zeroWidthSpace = "​"
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     (case msg of
+        SetScript script -> updateScript script model
         SetSandbox str -> { model | sandbox = str }
-        AddChar char -> 
+        AddChar char ->
             { model
             | sandbox = model.sandbox ++ char
             ,collapsed = Set.remove "playground" model.collapsed
@@ -109,12 +146,12 @@ update msg model =
         SetRemoveChars chars -> { model | removeChars = chars }
         SetDir dir -> { model | dir = dir }
         ChooseSyllabary id ->
-            case Dict.get id Elam.syllabaries of
-                Just syl -> updateSyllabary model syl.syllabary (Just id)
+            case List.head <| List.filter (.id >> (==) id) model.script.syllabaries of
+                Just syl -> switchSyllabary syl model
                 Nothing -> model
-        SetSyllabary new -> updateSyllabary model new Nothing
+        SetSyllabary new -> setSyllabary new model
         SetSyllableMap new ->
-            { model | syllableMap = new, syllabizer = Elam.syllabizer new }
+            { model | syllableMap = new, syllabizer = Scripts.syllabizer new }
         SetSyllabize syllabize -> { model | syllabize = syllabize }
 
         SetSearch new ->
@@ -133,8 +170,8 @@ update msg model =
             { model | selectedGroups = (if include then Set.insert else Set.remove) group model.selectedGroups
             }
         Toggle section ->
-            { model | collapsed = 
-                (if Set.member section model.collapsed 
+            { model | collapsed =
+                (if Set.member section model.collapsed
                 then Set.remove else Set.insert)
                     section
                     model.collapsed
@@ -143,15 +180,22 @@ update msg model =
     )
 
 dirStr dir = case dir of
-    LTR -> "LTR"
-    _ -> "RTL"
+    RTL -> "RTL"
+    _ -> "LTR"
 
-dirDecoder : Json.Decode.Decoder Dir
+scriptDecoder : Json.Decode.Decoder Script
+scriptDecoder = Html.Events.targetValue |> Json.Decode.andThen (\valStr ->
+    case List.head <| List.filter (.id >> (==) valStr) scripts of
+    Just script -> Json.Decode.succeed(script)
+    Nothing     -> Json.Decode.fail ("script " ++ valStr ++ "unknown"))
+
+dirDecoder : Json.Decode.Decoder (Maybe Dir)
 dirDecoder = Html.Events.targetValue |> Json.Decode.andThen (\valStr -> case valStr of
-    "Original" -> Json.Decode.succeed Original
-    "LTR" -> Json.Decode.succeed LTR
-    "RTL" -> Json.Decode.succeed RTL
+    "Original" -> Json.Decode.succeed Nothing
+    "LTR" -> Json.Decode.succeed (Just LTR)
+    "RTL" -> Json.Decode.succeed (Just RTL)
     _ -> Json.Decode.fail ("dir " ++ valStr ++ "unknown"))
+
 
 boolDecoder : Json.Decode.Decoder Bool
 boolDecoder = Html.Events.targetValue |> Json.Decode.andThen (\valStr -> case valStr of
@@ -165,14 +209,20 @@ type SearchPattern = None
     | Fuzzy Int String
 
 
--- Twelve numerals ought to be enough for everybody (Marcus Licinius Crassus)
-romanNumerals = Array.fromList [ "", "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ", "Ⅹ", "Ⅺ", "Ⅻ" ]
+-- Thirty-two numerals ought to be enough for everybody (Marcus Licinius Crassus)
+romanNumerals = Array.fromList
+    [ "", "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ"
+    , "Ⅹ", "Ⅺ", "Ⅻ", "Ⅻ", "ⅩⅢ", "ⅩⅣ", "ⅩⅤ", "ⅩⅥ", "ⅩⅦ",  "ⅩⅧ", "ⅩⅨ"
+    , "ⅩⅩ", "ⅩⅪ", "ⅩⅫ", "ⅩⅫ", "ⅩⅩⅢ", "ⅩⅩⅣ", "ⅩⅩⅤ", "ⅩⅩⅥ", "ⅩⅩⅦ",  "ⅩⅩⅧ", "ⅩⅩⅨ"
+    , "ⅩⅩⅩ", "ⅩⅩⅪ", "ⅩⅩⅫ"
+    ]
 roman num = Maybe.withDefault "" <| Array.get num romanNumerals
-
 
 view : Model -> Html Msg
 view model =
-    let effectiveDir original = if model.dir == Original then original else model.dir
+    let effectiveDir original = case model.dir of
+            Nothing -> original
+            Just dir -> dir
         lineDirAttr nr original =
             Html.Attributes.dir (dirStr (
                 case effectiveDir original of
@@ -180,11 +230,12 @@ view model =
                     _ ->  effectiveDir original
             ))
         dirAttr original = lineDirAttr 0 original
+        scriptClass = class model.script.id
 
         -- There are two "guess" marker characters that are used depending on direction
         guessmarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
-        selectedFragments = List.filter (\f -> Set.member f.group model.selectedGroups) Elam.fragments
-        
+        selectedFragments = List.filter (\f -> Set.member f.group model.selectedGroups) model.script.fragments
+
         -- Normalize letters if this is enabled
         normalize =
             if model.normalize
@@ -192,15 +243,15 @@ view model =
             else identity
 
         -- Build filter that removes undesired chars
-        removeCharSet = Set.fromList <| String.toList model.removeChars
+        removeCharSet = Set.fromList <| AstralString.toList model.removeChars
         keepChar c = Set.member c removeCharSet |> not
-        charFilter = String.filter keepChar 
-    
+        charFilter = AstralString.filter keepChar
+
         -- Process fragment text for display
         cleanse = String.trim >> normalize >> charFilter
         cleanedFragments = List.map (\f -> { f | text = cleanse f.text }) selectedFragments
-        
-        
+
+
         collapsible section =
             [ classList
                 [ ("collapsible", True)
@@ -208,7 +259,7 @@ view model =
                 ]
             , onClick (Toggle section)
             ]
-        
+
         -- build is called lazily when the section is expanded
         ifExpanded : String -> (() -> List a) -> List a
         ifExpanded section build =
@@ -217,22 +268,22 @@ view model =
             else build ()
 
         syllabary =
-            [ h2 (collapsible "syllabary") [ text " Die Buchstaben " ] 
+            [ h2 (collapsible "syllabary") [ text " Die Buchstaben " ]
             ] ++ ifExpanded "syllabary" syllabaryView
-        
-        syllabaryView = 
+
+        syllabaryView =
             \_ ->
                 [ ol [ dirAttr LTR, classList [ ("syllabary", True) ] ]
-                    ( List.map syllabaryEntry (Elam.syllabaryList (charFilter model.syllabary))
-                    ++ List.map specialEntry Elam.specialChars
+                    ( List.map syllabaryEntry (Scripts.syllabaryList (charFilter model.syllabary))
+                    ++ List.map specialEntry model.script.specialChars
                     )
                 ]
 
         syllabaryEntry (main, ext) =
             let
                 shownExt = if model.normalize then [] else ext
-                syls = Maybe.withDefault [] (Dict.get main Elam.syllables)
-                letterEntry entryClass char = div [ classList [("elam", True), (entryClass, True)], onClick (AddChar (String.fromChar char)) ] [ text (String.fromChar char) ]
+                syls = Maybe.withDefault [] (Dict.get main model.script.syllables)
+                letterEntry entryClass char = div [ classList [(model.script.id, True), (entryClass, True)], onClick (AddChar char) ] [ text char ]
                 syllableEntry syl = div [ class "syl" ] [ text syl ]
             in
                 li [ class "letter" ]
@@ -247,11 +298,11 @@ view model =
 
         specialEntry { displayChar, char, description } =
             li [ class "letter" ]
-                [ div [ classList [("elam", True), ("main", True)], onClick (AddChar (String.fromChar char)), title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
+                [ div [ classList [(model.script.id, True), ("main", True)], onClick (AddChar char), title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
 
         gramStats strings =
             let
-                cleanse = charFilter >> model.normalizer >> String.filter Elam.indexed
+                cleanse = charFilter >> model.normalizer >> AstralString.filter model.script.indexed
                 tallyGrams = List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 <| List.map cleanse strings
                 boringClass count = if count < 2 then [ class "boring" ] else []
                 tallyEntry gram ts =
@@ -266,19 +317,19 @@ view model =
                             ] :: ts
                 ntally n tallyGram =
                     li [] [ table [ class "tallyGram" ] (List.foldr tallyEntry [] tallyGram) ]
-            in 
+            in
                 if List.isEmpty tallyGrams
                 then div [] []
-                else div [] 
+                else div []
                     [ h3 [] [ text "Statistik der Buchstabenfolgen" ]
                     , ul [ class "tallyGrams" ] (List.indexedMap ntally tallyGrams)
                     ]
 
         playground =
             [ h2 (collapsible "playground") [ text " Spielplatz " ]
-            ] ++ ifExpanded "playground" (\_ -> 
+            ] ++ ifExpanded "playground" (\_ ->
             [ textarea
-                [ class "elam"
+                [ class model.script.id
                 , dirAttr LTR
                 , on "input" (Json.Decode.map SetSandbox Html.Events.targetValue)
                 , onInput SetSandbox
@@ -299,22 +350,22 @@ view model =
                         attrs = [ type_ "button", handler, classes ]
                     in
                         li [] [ button attrs [ text syl.name ] ]
-                syllabarySelection = ol [ class "syllabarySelection" ] (List.map syllabaryButton (Dict.values Elam.syllabaries))
+                syllabarySelection = ol [ class "syllabarySelection" ] (List.map syllabaryButton model.script.syllabaries)
                 groupSelectionEntry group = div [] [ label [] (
                     [ input [ type_ "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
                     , text group.name
                     ] ++ if group.recorded then [] else
                         [ span [ class "recordWarn", title "Undokumentierte Funde" ] [ text "⚠" ] ]) ]
-                        
-                groupSelection = List.map groupSelectionEntry Elam.groups
+
+                groupSelection = List.map groupSelectionEntry model.script.groups
             in  [ h2 (collapsible "settings") [ text " Einstellungen " ]
-                ] ++ ifExpanded "settings" (\_ -> 
+                ] ++ ifExpanded "settings" (\_ ->
                 [ div [] [ label []
                     [ text "Schreibrichtung "
                     , Html.select [ on "change" (Json.Decode.map SetDir dirDecoder) ]
-                        [ option (dirOptAttrs "Original" Original) [ text "ursprünglich ⇔" ]
-                        , option (dirOptAttrs "LTR" LTR) [ text "alles ⇒ von links ⇒ nach rechts" ]
-                        , option (dirOptAttrs "RTL" RTL) [ text "alles ⇐ nach links ⇐ von rechts" ]
+                        [ option (dirOptAttrs "Original" Nothing) [ text "ursprünglich ⇔" ]
+                        , option (dirOptAttrs "LTR" (Just LTR)) [ text "alles ⇒ von links ⇒ nach rechts" ]
+                        , option (dirOptAttrs "RTL" (Just RTL)) [ text "alles ⇐ nach links ⇐ von rechts" ]
                         ]
                     ] ]
                 , div [] [ label []
@@ -340,10 +391,10 @@ view model =
                     ] ]
                 , div [] [ label [] (
                     [ text "Diese Zeichen "
-                    , Html.input [ class "elam", value model.removeChars, onInput SetRemoveChars ] []
+                    , Html.input [ class model.script.id, value model.removeChars, onInput SetRemoveChars ] []
                     , text " aus dem Textkorpus entfernen."
-                    ] 
-                    ++ 
+                    ]
+                    ++
                     if not (String.isEmpty model.removeChars)
                     then [ small [] [ text "Vorsicht: Wenn Zeichen entfernt werden, verschiebt sich die Nummerierung innerhalb der Zeilen." ] ]
                     else []
@@ -351,15 +402,15 @@ view model =
                 , div [] (
                     [ h4 [] [ text "Syllabar" ]
                     , syllabarySelection
-                    , Html.textarea [ class "elam", value model.syllabary, onInput SetSyllabary ] []
-                    ] 
-                    ++ if not (String.isEmpty model.missingSyllabaryChars) 
+                    , Html.textarea [ class model.script.id, value model.syllabary, onInput SetSyllabary ] []
+                    ]
+                    ++ if not (String.isEmpty model.missingSyllabaryChars)
                         then [ div [] [ text "Die folgenden Zeichen sind nicht im Syllabar aufgeführt: ", text model.missingSyllabaryChars ] ]
                         else []
                     )
                 , div [] [ label []
                     [ h4 [] [ text "Angenommene Silbenlautwerte" ]
-                    , Html.textarea [ class "elam", value model.syllableMap, onInput SetSyllableMap ] []
+                    , Html.textarea [ scriptClass, value model.syllableMap, onInput SetSyllableMap ] []
                     ] ]
                 , div [ class "groups" ]
                     ( h4 [] [ text "Gruppen" ] :: groupSelection )
@@ -384,18 +435,18 @@ view model =
 
         search =
             let
-                applyBidirectional = if model.bidirectionalSearch then ElamSearch.bidirectional else identity
+                applyBidirectional = if model.bidirectionalSearch then Search.bidirectional else identity
             in
                 case searchPattern of
-                    Pattern pat -> Just <| model.normalizer >> applyBidirectional (ElamSearch.regex pat)
-                    Fuzzy fuzz query -> Just <| model.normalizer >> applyBidirectional (ElamSearch.fuzzy fuzz query)
+                    Pattern pat -> Just <| model.normalizer >> applyBidirectional (Search.regex pat)
+                    Fuzzy fuzz query -> Just <| model.normalizer >> applyBidirectional (Search.fuzzy fuzz query)
                     _           -> Nothing
 
         searchView =
             let
                 maxResults = if model.showAllResults then 0 else 100
                 contextLen = 3
-                results = Maybe.map (ElamSearch.extract maxResults contextLen cleanedFragments) search
+                results = Maybe.map (Search.extract model.script maxResults contextLen cleanedFragments) search
 
                 buildResultLine result =
                     let
@@ -419,7 +470,7 @@ view model =
                         fragment = result.fragment
                         index = Tuple.first result.location
                         ref = href <| String.concat [ "#", fragment.id, toString index ]
-                        
+
                         -- Remove spaces and ensure the guessmarks are oriented left
                         typeset = String.words >> String.concat >> guessmarkDir LTR
                     in
@@ -452,7 +503,7 @@ view model =
                 ] ++ ifExpanded "search" (\_ -> [ label []
                     [ text "Suchmuster "
                     , div [ class "searchInput"]
-                        ([ Html.input [ class "elam", dirAttr LTR, value model.search, onInput SetSearch ] []
+                        ([ Html.input [ scriptClass, dirAttr LTR, value model.search, onInput SetSearch ] []
                         ] ++ if searchPattern == Invalid
                             then [ div [ class "invalidPattern" ] [ text "Ungültiges Suchmuster" ] ]
                             else []
@@ -500,7 +551,7 @@ view model =
             let
                 syllabize =
                     if model.syllabize
-                    then model.syllabizer 
+                    then model.syllabizer
                     else identity
 
                 -- Insert a zero-width space after the "" separator so that long
@@ -509,17 +560,17 @@ view model =
                 textMod = String.trim >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
-                matches = 
+                matches =
                     case search of
-                        Just s -> s (String.filter Elam.indexed fragment.text)
+                        Just s -> s (AstralString.filter model.script.indexed fragment.text)
                         Nothing -> []
 
-                guessmarks = Set.fromList ['', '']
-                guessmarkClass char = 
+                guessmarks = Set.fromList <| AstralString.toList model.script.guessMarkers
+                guessmarkClass char =
                     if Set.member char guessmarks
                     then [ class "guessmark" ]
                     else []
-                    
+
                 -- Fold helper building a list element from a text line
                 -- The tricky bit here is to keep indexed character position so
                 -- we can track highlighted searches which may span across
@@ -535,17 +586,17 @@ view model =
                                       then [ class "highlight" ]
                                       else []
                                 titleAttr =
-                                    [ title (String.concat [toString (lineNr+1), ".", toString (idx-lineIdx+1)]) ] 
+                                    [ title (String.concat [toString (lineNr+1), ".", toString (idx-lineIdx+1)]) ]
                                 idAttr =
                                     [ id <| String.concat [ fragment.id, toString idx ] ]
                             in
                                 if
-                                    Elam.indexed char
+                                    model.script.indexed char
                                 then
-                                    ((a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize <| String.fromChar char) ]) :: elems, idx+1)
+                                    ((a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize char) ]) :: elems, idx+1)
                                 else
-                                    ((span (guessmarkClass char) [ text (String.fromChar char) ]) :: elems, idx)
-                        (elems, endIdx) = String.foldl charPos ([], lineIdx) chars
+                                    ((span (guessmarkClass char) [ text  char ]) :: elems, idx)
+                        (elems, endIdx) = AstralString.toList chars |> List.foldl charPos ([], lineIdx)
                         elemLine = li [ class "line", lineDirAttr lineNr fragment.dir ] (List.reverse elems)
                     in
                         (elemLine :: lines, endIdx)
@@ -553,7 +604,7 @@ view model =
                 -- Build line entries from text
                 lines = List.reverse (Tuple.first (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
             in
-                div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), ("elam", True) ], dirAttr fragment.dir ]
+                div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), (model.script.id, True) ], dirAttr fragment.dir ]
                 [ h3 [] [ sup [ class "group" ] [ text fragment.group ], span [ dir "LTR" ] [ text fragment.id ] ]
                 , ol [ class "fragment", dirAttr fragment.dir ] lines
                 ]
@@ -567,7 +618,7 @@ view model =
                 , br [] [], a [ href "https://center-for-decipherment.ch/" ]
                     [ text "center-for-decipherment.ch" ]
                 ]
- 
+
         footer = div [ class "footer" ]
                 [ text "Diese Seite wurde produziert mit "
                 , a [ href "https://fontforge.github.io/" ]
@@ -584,9 +635,21 @@ view model =
                 , a [ href "https://github.com/elamicon/elamicon/" ]
                     [ text "Das Projekt auf Github." ]
                 ]
+
+        scriptOpt script = option
+            [ value script.id, selected (model.script.id == script.id) ]
+            [ text script.name ]
     in
-        div [] (
-            [ h1 [ class "secondary" ] [ text " Online Corpus of Linear Elamite Inscriptions OCLEI " ]
+        div [ class model.script.id ] (
+            [ div []
+                [ label []
+                    [ text "Skript "
+                    , Html.select
+                        [ on "change" (Json.Decode.map SetScript scriptDecoder) ]
+                        (List.map scriptOpt Scripts.scripts)
+                    ]
+                ]
+            , h1 [ class "secondary" ] [ text " Online Corpus of Linear Elamite Inscriptions OCLEI " ]
             , h1 [] [ text " Elamicon " ]
             ] ++ syllabary
               ++ playground
@@ -596,4 +659,3 @@ view model =
             ] ++ [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments) ]
               ++ [ contact, small [] [ footer ] ]
         )
-

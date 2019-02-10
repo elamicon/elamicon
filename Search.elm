@@ -1,9 +1,13 @@
-module ElamSearch exposing (..)
+module Search exposing (..)
 
 import Regex
 import Set
-import Elam
+
 import Levenshtein
+import AstralString
+
+import Scripts exposing (..)
+import ScriptDefs exposing (..)
 
 type alias MatchLoc = (Int, Int)
 type alias Search = String -> List MatchLoc
@@ -15,8 +19,11 @@ regex : Regex.Regex -> Search
 regex pat text =
     let
         find = Regex.find Regex.All pat
-        len  = String.length text 
-        extractIndex match = (match.index, String.length match.match)
+        -- The returned match index miscounts astral chars
+        extractIndex match =
+            ( AstralString.length (String.slice 0 match.index text)
+            , AstralString.length match.match
+            )
     in
         find text |> List.map extractIndex
 
@@ -25,12 +32,12 @@ fuzzy : Int -> String -> Search
 fuzzy fuzz query =
     let
         distMap = Levenshtein.distMap query
-        needleLen = String.length query
+        needleLen = AstralString.length query
         maxDist = Basics.min fuzz (needleLen - 1)
-               
+
         extendRange (pos, dist) state =
             let
-                (reserve, ranges) = state 
+                (reserve, ranges) = state
                 (rangePos, rangeLen) = Maybe.withDefault (pos, 0) (List.head ranges)
                 newReserve = if dist < maxDist then (needleLen - 1) else reserve - 1
             in
@@ -43,7 +50,7 @@ fuzzy fuzz query =
                     then (newReserve, (pos, 1) :: ranges)
                     else (newReserve, (pos, rangeLen + 1) :: Maybe.withDefault [] (List.tail ranges))
     in
-        distMap >> List.indexedMap (,) >> List.foldr extendRange (0, []) >> Tuple.second 
+        distMap >> List.indexedMap (,) >> List.foldr extendRange (0, []) >> Tuple.second
 
 
 -- Turn a search into a bidirectional search by running the search against
@@ -51,34 +58,17 @@ fuzzy fuzz query =
 bidirectional : Search -> Search
 bidirectional search text =
     let
-        len = String.length text
+        len = AstralString.length text
         matches = search text
-        reverseIndex (matchIndex, matchLen) = (len - matchIndex - matchLen, matchLen) 
-        reverseMatches = search (String.reverse text) |> List.map reverseIndex
+        reverseIndex (matchIndex, matchLen) = (len - matchIndex - matchLen, matchLen)
+        reverseMatches = search (AstralString.reverse text) |> List.map reverseIndex
     in
         uniqueSort (reverseMatches ++ matches)
 
 
--- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
--- The first slot does not contain an indexed letter but may contain other characters. All other
--- slots start with an indexed letter and may contain further characters which are not indexed.
-letterSplit : String -> List String
-letterSplit text =
-    let addChar char result = case result of
-        [] ->
-            [String.fromChar char]
-        head :: tail ->
-            if
-                Elam.indexed char
-            then
-                "" :: (String.cons char head) :: tail
-            else
-                (String.cons char head) :: tail
-    in
-        String.foldr addChar [""] text
 
 type alias MatchContext =
-    { fragment : Elam.Fragment
+    { fragment : FragmentDef
     , location : MatchLoc, start : (Int, Int), end : (Int, Int)
     , before : String, match : String, after : String
     }
@@ -89,14 +79,33 @@ type alias MatchResults =
     , more : Bool
     }
 
-extract : Int -> Int -> List Elam.Fragment -> (String -> List MatchLoc) -> MatchResults
-extract limit contextLen fragments search =
+extract : Script -> Int -> Int -> List FragmentDef -> (String -> List MatchLoc) -> MatchResults
+extract script limit contextLen fragments search =
+
     let
+        -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
+        -- The first slot does not contain an indexed letter but may contain other characters. All other
+        -- slots start with an indexed letter and may contain further characters which are not indexed.
+        letterSplit : String -> List String
+        letterSplit =
+            let addChar char result = case result of
+                [] ->
+                    [char]
+                head :: tail ->
+                    if
+                        script.indexed char
+                    then
+                        "" :: (String.append char head) :: tail
+                    else
+                        (String.append char head) :: tail
+            in
+                AstralString.toList >> List.foldr addChar [""]
+
         addMatches fragment results =
             let
-                -- We're matching against the indexed Elam chars only.
+                -- We're matching against the indexed chars only.
                 -- This means all whitespace, guess marks, and other letters are removed.
-                matchText = String.filter Elam.indexed fragment.text
+                matchText = AstralString.filter script.indexed fragment.text
                 matches = search matchText |> uniqueSort
                 letterSlots = letterSplit fragment.text
                 addMatch (index, length) results =
@@ -112,14 +121,12 @@ extract limit contextLen fragments search =
                         -- be shown as part of the match, instead we prepend them to the context
                         -- following the match
                         matchReversed = List.reverse (List.take length (List.drop slotIndex letterSlots))
-                        matchLast =
-                            case (List.head matchReversed) of
-                            Just s -> s
-                            Nothing -> ""
                         (matchLastLetter, matchAppended) =
-                            case (String.uncons matchLast) of
-                                Just (l, a) -> (String.fromChar l, a)
-                                Nothing -> ("", "")
+                            case (List.head matchReversed) of
+                                Just s -> case AstralString.toList s of
+                                    (headChar :: rest) -> (headChar, AstralString.fromList rest)
+                                    _ -> ("", "")
+                                _ -> ("", "")
                         matchText = String.concat (List.reverse (matchLastLetter :: List.drop 1 matchReversed))
                         afterText = String.concat (matchAppended :: List.take contextLen (List.drop (lastSlotIndex + 1) letterSlots))
 
