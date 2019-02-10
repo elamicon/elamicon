@@ -354,7 +354,7 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 -- % signifies a fracture
 
 
-tagsToGroup { id, tags, dir, text } = { id = id, group = Maybe.withDefault "NOGROUP" (List.head tags), dir = dir, text = String.trim text }
+tagsToGroup { id, tags, dir, plate, text } = { id = id, group = Maybe.withDefault "NOGROUP" (List.head tags), dir = dir, plate = plate, text = String.trim text }
 
 -- Using Douros 2014 as base
 fragments : List FragmentDef
@@ -1211,7 +1211,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##094"
       , tags = [ "ENKO", "Aost", "CM1", "lisible", "posdet" ]
-      , dir = LTR, text =
+      , dir = LTR, plate = Nothing, text =
         """
 󱇆󱂔_󱀛=󿊀󿊀󿊀%
 󱅻󱂦󱆅=󱇰󱂧󱂒󱅴%
@@ -1245,7 +1245,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##097"
       , tags = [ "ENKO", "Arou", "CM1", "lisible", "posdet-pal", "rev" ]
-      , dir = LTR, text =
+      , dir = LTR, plate = Nothing, text =
         """ 
 󱁊󱁿󱂒󱀵󱁩󱀵 󱂨
 󱆦󱁵󱂦󱁵󱂉󱂂󱀵󱂩󱂓
@@ -1973,7 +1973,8 @@ neu schreib󱀵
       , notes = ""
       }
     , { id = "##167"
-      , tags = [ "KITI", "Mexv", "CM1" ], dir = UNKNOWN, text =
+      , tags = [ "KITI", "Mexv", "CM1" ]
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱂧󱁷irgend
         """
@@ -3088,9 +3089,9 @@ unspecified
       , inline = []
       , notes = "Source Valerio 2014"
       }
-  , { id = "##249"
-    , tags = [ "KOUR", "Avas", "CM1" ]
-    , dir = UNKNOWN, text =
+    , { id = "##249"
+      , tags = [ "KOUR", "Avas", "CM1" ]
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀜󱁷󱀜nonver
         """
