@@ -10,6 +10,8 @@ import List
 import Array
 import Set
 
+import Markdown
+
 import Search
 import Grams
 import AstralString
@@ -69,7 +71,7 @@ initialModel = updateScript initialScript
     , showAllResults = False
     , bidirectionalSearch = True
     , selectedGroups = Set.empty
-    , collapsed = Set.fromList [ "gramStats", "syllabary", "playground", "settings", "search" ]
+    , collapsed = Set.fromList [ "info", "gramStats", "syllabary", "playground", "settings", "search" ]
     }
 
 type Msg
@@ -324,6 +326,10 @@ view model =
                     [ h3 [] [ text "N-gram statistics" ]
                     , ul [ class "tallyGrams" ] (List.indexedMap ntally tallyGrams)
                     ]
+
+        info =
+            [ h2 (collapsible "info") [ text " Info " ]
+            ] ++ ifExpanded "info" (\_ -> Markdown.toHtml Nothing model.script.description)
 
         playground =
             [ h2 (collapsible "playground") [ text " Sandbox " ]
@@ -651,7 +657,8 @@ view model =
                 ]
             , h1 [ class "secondary" ] [ text " Online Corpus of Linear Elamite Inscriptions OCLEI " ]
             , h1 [] [ text " Elamicon " ]
-            ] ++ syllabary
+            ] ++ info
+              ++ syllabary
               ++ playground
               ++ settings
               ++ searchView ++

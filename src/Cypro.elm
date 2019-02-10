@@ -3166,6 +3166,7 @@ cypro : Script
 cypro =
     { id = "cypro"
     , name = "Cypro-Minoan"
+    , description = ""
     , tokens = tokens
     , specialChars = specialChars
     , guessMarkers = ""
