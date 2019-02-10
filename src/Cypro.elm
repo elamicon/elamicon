@@ -361,7 +361,7 @@ fragments : List FragmentDef
 fragments = List.map tagsToGroup
     [ { id = "##001.A"
       , tags = [ "ENKO", "Atab", "CM0" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀀󱀁󱀂󱀃󱀄󱀅󱀆󱀈
 󱀊󱀋󱀌󱀍󱀎󱀏󱀐
@@ -372,7 +372,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##001.B"
       , tags = [ "ENKO", "Atab", "CM0" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀇󱀉
         """
@@ -381,7 +381,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##002"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱈪󱂎󱆲󱂧󱀱
         """
@@ -390,7 +390,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##003"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆳󱁖󱀤󱇸
         """
@@ -399,7 +399,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##004"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅹󱀾󱀳󱂧󱆌
         """
@@ -408,7 +408,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##005"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁘󱇛󱇉
         """
@@ -417,7 +417,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##006"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂏󱀛󱀬󱁖󱂧󱀹
         """
@@ -426,7 +426,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##007"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁊󱂖󱈫󱅺
         """
@@ -435,7 +435,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##008"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱀾󱀹󱂈
         """
@@ -444,7 +444,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##009"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀
         """
@@ -453,7 +453,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##010"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀
         """
@@ -462,7 +462,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##011"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱈬󱁉󱀡
         """
@@ -471,7 +471,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##012"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇛󿊀󿊀󿊀󱆲󱁟󱀞󱇊
         """
@@ -480,7 +480,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##013"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆬󱅠󱁘󱇸󱇛󱅡󱇸
         """
@@ -489,7 +489,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##014"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁳󱂉󱂧󱄺
         """
@@ -498,7 +498,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##015"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀛󱂄󱁵󱀼󿊀󿊀
         """
@@ -507,7 +507,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##016.A"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇍󱁮󱀛󱇀󱉖󿊀󱇸
         """
@@ -516,7 +516,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##016.B"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱂧󿊀
         """
@@ -525,7 +525,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##018.A"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅹󱀾󱀳󱂧󱅒
         """
@@ -534,7 +534,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##018.B"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀
         """
@@ -543,7 +543,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##020"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁒󱁠󱂊󱂦󱀫󱀚
         """
@@ -552,7 +552,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##021"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇦󱁎󱇾󱂧󱄹󱆣󱇧󱀻󱀜󱂧
         """
@@ -561,7 +561,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##022"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱂦󱀻󱀞󱆾
         """
@@ -570,7 +570,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##023"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅣󱇽󱂒
         """
@@ -579,7 +579,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##024"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱁮󱀚󱆿󱂛󱁮󱂦󱆼
         """
@@ -588,7 +588,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##025"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅢󱁵󱀣󱇳󱀵󱁭󱅆󱅃󱁭
         """
@@ -597,7 +597,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##026"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱆭󱆍󱀤󱇼
         """
@@ -606,7 +606,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##027"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀮󱀰󱄿󱂦󱉤
         """
@@ -615,7 +615,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##028"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂛󱂈󱁃
         """
@@ -624,7 +624,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##029"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀫󱈁󱇁󱂦󱂐
         """
@@ -633,7 +633,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##030"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀯󱀰󱀣󱂧󱁗󱅿󱁃󱂊
         """
@@ -642,7 +642,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##031"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱀸󱂊󿊀
         """
@@ -651,7 +651,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##032"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱅤󱁬󱁽
         """
@@ -660,7 +660,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##033"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁾󱁵󱀷
         """
@@ -669,7 +669,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##034"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁵󱂇󱂀󱉖󱀹
         """
@@ -678,7 +678,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##035"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅄󱆝󱂧󱀛󱂓󱁉󱁘
         """
@@ -687,7 +687,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##036"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆴󱇂󱂦
         """
@@ -696,7 +696,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##037"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇨󱆁󱇃󱂧󱀵󱀯
         """
@@ -705,7 +705,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##038"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆂󱀰󱂦󱁒
         """
@@ -714,7 +714,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##039"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆀󱀯󱁻󱂀
         """
@@ -723,7 +723,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##040"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇩󱆤󱁻
         """
@@ -732,7 +732,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##041"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁶󱂒󱂎󱀵󱂧󱀛
         """
@@ -741,7 +741,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##042"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀗󱁻󱂁󱂞
         """
@@ -750,7 +750,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##043"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀗󱀵󱆡󱁻󱉖󱄸
         """
@@ -759,7 +759,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##044"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇿󱁗󱅇󱉖󱁗
         """
@@ -768,7 +768,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##045"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱁿󱂓󱂊󱉖󱂞
         """
@@ -777,7 +777,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##046"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂛󱁧󱇜󱀤󱅤󱉖󱂞
         """
@@ -786,7 +786,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##047"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅽󱁟󱇃󱅓󱂛
         """
@@ -795,7 +795,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##048"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱁮󱀚󱂌󱉖󱀵
         """
@@ -804,7 +804,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##049"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂔󱁭󱀬󱁥󱂧󱀣
         """
@@ -813,7 +813,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##050"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂛󱁄󱈭󱁗
         """
@@ -822,7 +822,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##051"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅾󱈮󱂋󱂧󱀮
         """
@@ -831,7 +831,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##052"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱁧󱂛󱁤󱉖󱀵
         """
@@ -840,7 +840,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##053"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇝󱂛󱀵
         """
@@ -849,7 +849,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##054"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱀥󱁵󱁻󱅐
         """
@@ -858,7 +858,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##055"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text = 
         """
 󱂐󱁿󱂗󱂋󱉖󱁍
         """
@@ -867,7 +867,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##056"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀻󱀬󱁬󱂦󱁵
         """
@@ -876,7 +876,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##057"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀸󱁵󱂌󱂧󱄼
         """
@@ -885,7 +885,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##058"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀞󱀹󱁵󱇄󱂦󱆃
         """
@@ -894,7 +894,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##059"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆯󱂊󱂦󱁖
         """
@@ -903,7 +903,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##060"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱀞󱁤󱂄󱆡
         """
@@ -912,7 +912,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##061"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱂧󱀞
         """
@@ -921,7 +921,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##062"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀸󱅍󱂦󱁆
         """
@@ -930,7 +930,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##063"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱁾󱂓󱇃
         """
@@ -939,7 +939,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##064"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅥󱆋󱅈󱀝󱂑󱁾󱈩
         """
@@ -948,7 +948,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##065"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂛󱀵󱁝
         """
@@ -957,7 +957,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##066"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆔󱅅󱂦󱆔󱅀󱂃󱂀
         """
@@ -966,7 +966,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##067"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀘󱅗󱆡󱁺󱂦󱁢
         """
@@ -975,7 +975,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##068"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱂊󱂦󱅀󱁭󱀚
         """
@@ -984,7 +984,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##069"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀗󱀵󱁭󱁻󱂧󱂞
         """
@@ -993,7 +993,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##070"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁣󱀜󱀶󱂧󱁴󱀣󱀥󱁭
         """
@@ -1002,7 +1002,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##071"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁸󱁺󱂁󱂦󱁹
         """
@@ -1011,7 +1011,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##072"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱁿󱇙󱂊󱂦󱀻
         """
@@ -1020,7 +1020,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##073"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀
         """
@@ -1029,7 +1029,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##074"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀
         """
@@ -1038,7 +1038,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##075"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀚󱁇󱀪󱁩󱂦󱀜
         """
@@ -1047,7 +1047,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##076"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁢󱀝󱀶󱂧󱁕
         """
@@ -1056,7 +1056,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##077"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆄󱁬󱅑󱂧󱆥
         """
@@ -1065,7 +1065,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##078"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱈯󱀣
         """
@@ -1074,7 +1074,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##079"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂏󱀟󱀵󿊀󿊀
         """
@@ -1083,7 +1083,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##080"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁴󱇅󱂦󱇞󱁍󿊀
         """
@@ -1092,7 +1092,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##081"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁶󱂐󱁞󱀢󱂦󱀹
         """
@@ -1101,7 +1101,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##082"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀩󱀶󱇪󱂊󱂦󱂛
         """
@@ -1110,7 +1110,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##083"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂞󿊀󿊀󱂦󱂞
         """
@@ -1119,7 +1119,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##084"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱈪󱀥󱀞󱀥
         """
@@ -1128,7 +1128,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##085"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇌󱅃󱁵󱁻󱂦󱂛
         """
@@ -1137,7 +1137,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##086"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀞󱀞󱀚󱂍󱈰
         """
@@ -1146,7 +1146,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##087"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁝󱀰󱀤󱁑
         """
@@ -1155,7 +1155,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##088"
       , tags = [ "HALA", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱁾󱂗󱂊󱁵󱀣
         """
@@ -1164,7 +1164,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##089"
       , tags = [ "HALA", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁣󱀜󱅚󱂧󱁰
         """
@@ -1173,7 +1173,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##090"
       , tags = [ "KITI", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆵󱀚󱅔󱆷
         """
@@ -1182,7 +1182,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##091"
       , tags = [ "KITI", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀚󱅁󱂔󿊀
         """
@@ -1191,7 +1191,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##092"
       , tags = [ "ATHI", "Adis", "CM1", "CGr", "lisible" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆕󱅦󱀚󱄻
 󱉘󱉙󱉚
@@ -1201,7 +1201,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##093"
       , tags = [ "ENKO", "Aost", "CM1", "rev", "lisible" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 %󱂡󱉖󱉛󱉜
 %󱂢󱉝󱉞
@@ -1227,7 +1227,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##095"
       , tags = [ "ENKO", "Apes", "CM1", "lisible", "rev" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂋󱆳󱀧󱂦󱀜󱂘󱆖
         """
@@ -1236,7 +1236,7 @@ fragments = List.map tagsToGroup
       }
     , { id = "##096"
       , tags = [ "ENKO", "Apla", "CM1", "lisible" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 %_󱀚󱂧󱂐%
         """
@@ -1280,7 +1280,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##098"
       , tags = [ "KALA", "Arou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂔󱀶󱂃󱂦󱂔󱁭󱁾󱂍󱀵
 󱁾󿊀󱁓󱂦󱈸󱈹󱂧󱂔󱂄
@@ -1306,7 +1306,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##099"
       , tags = [ "KALA", "Arou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󱁞󱀚󱂧󱆰
 󱁑󱁁󱅨󿊀
@@ -1317,7 +1317,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##100"
       , tags = [ "KALA", "Arou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀
 󱁾
@@ -1332,7 +1332,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##101"
       , tags = [ "KALA", "Arou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂔󱀶󱂃
 󱁓󱀸󱈫󱀚
@@ -1344,7 +1344,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##102"
       , tags = [ "KALA", "Arou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱀶󱂃󱂦󱂔󱁭󿊀󿊀
 󿊀󱁓󱉀󱁧󱁭
@@ -1358,7 +1358,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##103"
       , tags = [ "PSIL", "Asta", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁚󱀙󱀥󱁭
         """
@@ -1367,7 +1367,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##104"
       , tags = [ "ALAS", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆨󱀵󿊀󿊀
         """
@@ -1376,7 +1376,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##105"
       , tags = [ "ARPE", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆇󱄻󱂊󱂣󱆎󱂈󱈨
         """
@@ -1385,7 +1385,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##106"
       , tags = [ "ATHI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅶󱁿󱁿󱀚󱈫󱁩󱀵
         """
@@ -1394,7 +1394,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##107"
       , tags = [ "ATHI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱉁󿊀
         """
@@ -1403,7 +1403,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##108"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅛󱄽󱅩󱅜󱇈
         """
@@ -1412,7 +1412,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##109"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁿󱀮󱁵󱂦󱂐󱁮󱀚󱂋󱂦󱂕󱇆
         """
@@ -1421,7 +1421,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##110"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂦󱅪󱆩󱁢󱀵
         """
@@ -1430,7 +1430,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##111"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱄽󱀵󱀬󱀵󱂦󱂛
         """
@@ -1439,7 +1439,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##112"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇏󱁵󱁪󱂁󱇇󱀵
         """
@@ -1448,7 +1448,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##113"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇐
 󱅕
@@ -1458,7 +1458,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##114"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵
 󱄷
@@ -1468,7 +1468,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##115"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵
 󱆶
@@ -1478,7 +1478,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##116"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁊change
 󱀝doubt
@@ -1488,7 +1488,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##117"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂑
 󱉂evtl zwei z
@@ -1498,7 +1498,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##118"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆗󱇳󱆘
         """
@@ -1507,7 +1507,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##119"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀶
 󱅵
@@ -1517,7 +1517,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##120"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱂦󱂛
         """
@@ -1526,7 +1526,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##121"
       , tags = [ "ENKO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀸󱂧󱀵󱂧󱀳
         """
@@ -1535,7 +1535,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##122"
       , tags = [ "HALA", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅝
 󱅞
@@ -1545,7 +1545,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##123"
       , tags = [ "IDAL", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅼󱅼󱆜
         """
@@ -1554,7 +1554,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##124"
       , tags = [ "IDAL", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁍󱁢󱁟󱆸
 󿊀󿊀󱀵mit oberer z󱂃
@@ -1564,7 +1564,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##125"
       , tags = [ "KALA", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁋󱀝ligatur
         """
@@ -1573,7 +1573,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##126"
       , tags = [ "KALA", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆞
 󱁵
@@ -1584,7 +1584,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##127"
       , tags = [ "KATY", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅷
 󱅫
@@ -1595,7 +1595,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##128"
       , tags = [ "KATY", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁜󱁙󱁶󱈧
         """
@@ -1604,7 +1604,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##129"
       , tags = [ "KATY", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆺
 󱆢
@@ -1614,7 +1614,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##130"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀝󱁉󱂋󱀵󱆈
         """
@@ -1623,7 +1623,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##131"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀚󱅟nonver
         """
@@ -1632,7 +1632,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##132"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅲󱅬
         """
@@ -1641,7 +1641,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##133"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅭󱅳
         """
@@ -1650,7 +1650,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##134"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅳󱅮
         """
@@ -1659,7 +1659,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##135"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱇷󱇣
         """
@@ -1668,7 +1668,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##136"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵plus ein z
         """
@@ -1677,7 +1677,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##137"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱂦󱇟rhomb buendig
         """
@@ -1686,7 +1686,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##138"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱂧󿊀
         """
@@ -1695,7 +1695,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##139"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱉬
         """
@@ -1704,7 +1704,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##140"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅯󱁭
         """
@@ -1713,7 +1713,7 @@ _󱀹󱂒󱁩󱁵󱁱_󱂍󱂦󱀠󱀜
       }
     , { id = "##141"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 irgend
 󱀵
@@ -1724,7 +1724,7 @@ irgend
       }
     , { id = "##142"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 neu schreib
         """
@@ -1733,7 +1733,7 @@ neu schreib
       }
     , { id = "##143"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱂦󱇠change
         """
@@ -1742,7 +1742,7 @@ neu schreib
       }
     , { id = "##144"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱄾󱀵
         """
@@ -1751,7 +1751,7 @@ neu schreib
       }
     , { id = "##145"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱉟󱁋󱉠
         """
@@ -1760,7 +1760,7 @@ neu schreib
       }
     , { id = "##146.A"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱀴
         """
@@ -1769,7 +1769,7 @@ neu schreib
       }
     , { id = "##146.B"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 neu schreib
         """
@@ -1778,7 +1778,7 @@ neu schreib
       }
     , { id = "##147"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱂧󱇡change
         """
@@ -1787,7 +1787,7 @@ neu schreib
       }
     , { id = "##148"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂕change
 󱅖
@@ -1797,7 +1797,7 @@ neu schreib
       }
     , { id = "##149"
       , tags = [ "KOUR", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂛󱁡
         """
@@ -1806,7 +1806,7 @@ neu schreib
       }
     , { id = "##150"
       , tags = [ "KOUR", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂛change󱁡
         """
@@ -1815,7 +1815,7 @@ neu schreib
       }
     , { id = "##151"
       , tags = [ "KOUR", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁡nonver
         """
@@ -1824,7 +1824,7 @@ neu schreib
       }
     , { id = "##152"
       , tags = [ "KOUR", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂛󱁠nonver
         """
@@ -1833,7 +1833,7 @@ neu schreib
       }
     , { id = "##153"
       , tags = [ "MAAP", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅸
 󱆮
@@ -1843,7 +1843,7 @@ neu schreib
       }
     , { id = "##154"
       , tags = [ "MAAP", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂓󱇈
         """
@@ -1852,7 +1852,7 @@ neu schreib
       }
     , { id = "##155"
       , tags = [ "MAAP", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 neu schreib
         """
@@ -1861,7 +1861,7 @@ neu schreib
       }
     , { id = "##156"
       , tags = [ "MAAP", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 neu schreib󱀵
         """
@@ -1870,7 +1870,7 @@ neu schreib󱀵
       }
     , { id = "##157"
       , tags = [ "MARO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁋󱆉󱀵󱂦󱁒󱀻󱁧󱀵󱂦
         """
@@ -1879,7 +1879,7 @@ neu schreib󱀵
       }
     , { id = "##158"
       , tags = [ "MYRT", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂑󱁾change󱀾󱇫
         """
@@ -1888,7 +1888,7 @@ neu schreib󱀵
       }
     , { id = "##159"
       , tags = [ "MYRT", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀸󿊀changed
         """
@@ -1897,7 +1897,7 @@ neu schreib󱀵
       }
  , { id = "##160"
       , tags = [ "TOUM", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱂧󱅰󿊀
 󱇑
@@ -1909,7 +1909,7 @@ neu schreib󱀵
       }
  , { id = "##161"
       , tags = [ "KITI", "Iins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇢󱂓󱀵
 󱁵󱂇󱂂󱂧󱂛󱀵󱁝󱀳󱀵󱂣󱂐
@@ -1919,7 +1919,7 @@ neu schreib󱀵
       }
  , { id = "##162"
       , tags = [ "KITI", "Iins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇒󱀛󱁘󱆟
 󱀵󱂆󱂌󱂦󱀵plus numeralia
@@ -1929,7 +1929,7 @@ neu schreib󱀵
       }
  , { id = "##163.A"
       , tags = [ "KITI", "Ipla", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆱󱇬󱇤󱆙󱁭invert
         """
@@ -1938,7 +1938,7 @@ neu schreib󱀵
       }
  , { id = "##163.B"
       , tags = [ "KITI", "Ipla", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇓󱁺󱂧󱂐󱁮󱀚󱉦󱀵
         """
@@ -1947,7 +1947,7 @@ neu schreib󱀵
       }
  , { id = "##164"
       , tags = [ "ENKO", "Mbij", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱉃󱉄󱉅󱉆󿊀󱉇󿊀󿊀
         """
@@ -1956,7 +1956,7 @@ neu schreib󱀵
       }
  , { id = "##165"
       , tags = [ "KALA", "Mbij", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂈󱇭󱁁󱆏invert poss
         """
@@ -1965,7 +1965,7 @@ neu schreib󱀵
       }
  , { id = "##166"
       , tags = [ "KALA", "Mbij", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂈󱂛󱁁󱆐invert poss
         """
@@ -1982,7 +1982,7 @@ neu schreib󱀵
       }
    , { id = "##168"
       , tags = [ "ENKO", "Mins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀮󱀰󱀵󱂧󱇚󱁭󱀵
         """
@@ -1991,7 +1991,7 @@ neu schreib󱀵
       }
  , { id = "##169"
       , tags = [ "ENKO", "Mins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇲󱂦unsicher
 󱁟󱁶
@@ -2001,7 +2001,7 @@ neu schreib󱀵
       }
  , { id = "##170"
       , tags = [ "PPAP", "Mins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁢󱀦󱀶󱀚󱀨
         """
@@ -2010,7 +2010,7 @@ neu schreib󱀵
       }
  , { id = "##171"
       , tags = [ "PPAP", "Mins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 neu schreib
         """
@@ -2019,7 +2019,7 @@ neu schreib
       }
  , { id = "##172"
       , tags = [ "PPAP", "Mins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱈀󱂌nonver keine schrift
         """
@@ -2028,7 +2028,7 @@ neu schreib
       }
  , { id = "##173"
       , tags = [ "PYLA", "Mins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀸󱀳eckig nonver
         """
@@ -2037,7 +2037,7 @@ neu schreib
       }
  , { id = "##174"
       , tags = [ "ENKO", "Mlin", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇔󱂧󱀵
         """
@@ -2046,7 +2046,7 @@ neu schreib
       }
  , { id = "##175"
       , tags = [ "ENKO", "Mlin", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇕󱉈
 󱇖󱁈󱀵󱂠󱀵
@@ -2056,7 +2056,7 @@ neu schreib
       }
  , { id = "##176"
       , tags = [ "ENKO", "Mlin", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇗󱉖󱉉
         """
@@ -2065,7 +2065,7 @@ neu schreib
       }
  , { id = "##177"
       , tags = [ "PYLA", "Mlin ", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀬
 󱀵
@@ -2077,7 +2077,7 @@ neu schreib
       }
  , { id = "##178"
       , tags = [ "CYPR", "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂓󱁭󱆛
         """
@@ -2086,7 +2086,7 @@ neu schreib
       }
  , { id = "##179"
       , tags = [ "CYPR", "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱂚󱀚󱅀󱀵󱂧󱀚󱀚󱂋󱂧󱀞󱅇
         """
@@ -2095,7 +2095,7 @@ neu schreib
       }
  , { id = "##180"
       , tags = [ "CYPR", "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀻󱁩󱀥󱂀󱀵󱂧󱉥󱀰letztes
         """
@@ -2104,7 +2104,7 @@ neu schreib
       }
  , { id = "##181"
       , tags = [ "CYPR", "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂆󱄿󱀮󱅙󱂧󱁊
         """
@@ -2113,7 +2113,7 @@ neu schreib
       }
  , { id = "##182"
       , tags = [ "ENKO", "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁵󱂚󱆚󱀵󱂧󱉡󱉢zweites
         """
@@ -2122,7 +2122,7 @@ neu schreib
       }
  , { id = "##183"
       , tags = [ "ENKO", "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱂚󱀚󱄿󱀵󱂦󱇱zweites
         """
@@ -2131,7 +2131,7 @@ neu schreib
       }
  , { id = "##184"
       , tags = [ "MYRT", "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁋󱉖󱂔󱉪
         """
@@ -2140,7 +2140,7 @@ neu schreib
       }
  , { id = "##185"
       , tags = [ "MYRT", "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁌󱂓󱉫
         """
@@ -2149,7 +2149,7 @@ neu schreib
       }
  , { id = "##186"
       , tags = [ "PPAP", "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁷󱀞󱁷󱆻󱀵zweites
         """
@@ -2158,7 +2158,7 @@ neu schreib
       }
  , { id = "##187"
       , tags = [ "ENKO", "Pblo", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅎󱀮󿊀󿊀󿊀󱀻ergaenzen
         """
@@ -2167,7 +2167,7 @@ neu schreib
       }
  , { id = "##188"
       , tags = [ "KITI", "Pblo", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂅󱀿󿊀
         """
@@ -2176,7 +2176,7 @@ neu schreib
       }
  , { id = "##189"
       , tags = [ "PPAP", "Pblo", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱂧󱂒change
         """
@@ -2185,7 +2185,7 @@ neu schreib
       }
  , { id = "##190"
       , tags = [ "PPAP", "Pblo", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇥󱉖󱀵check
         """
@@ -2194,7 +2194,7 @@ neu schreib
       }
  , { id = "##191"
       , tags = [ "KALA", "Ppla", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱉖󱂡
         """
@@ -2203,7 +2203,7 @@ neu schreib
       }
  , { id = "##192"
       , tags = [ "KALA", "Ppla", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂛󱆊󱇮zweites
         """
@@ -2212,7 +2212,7 @@ neu schreib
       }
  , { id = "##193"
       , tags = [ "CYPR?", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁵󱀸󱁵󱂧󱁫󱁩󱀵checken
         """
@@ -2221,7 +2221,7 @@ neu schreib
       }
  , { id = "##194"
       , tags = [ "CYPR?", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁧󱀨󱉖󱉊󱉋
         """
@@ -2230,7 +2230,7 @@ neu schreib
       }
  , { id = "##195"
       , tags = [ "CYPR?", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂑
 󱀚 turn both
@@ -2240,7 +2240,7 @@ neu schreib
       }
  , { id = "##196"
       , tags = [ "CYPR?", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱉌󱉍󱁦󱀜check and turn
         """
@@ -2249,7 +2249,7 @@ neu schreib
       }
  , { id = "##197"
       , tags = [ "CYPR?", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇷󱂙󱇋󱀵󱇶
         """
@@ -2258,7 +2258,7 @@ neu schreib
       }
  , { id = "##198"
       , tags = [ "CYPR?", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱆠󱉎󱉎mut zur luecke
         """
@@ -2267,7 +2267,7 @@ neu schreib
       }
  , { id = "##199"
       , tags = [ "ENKO", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱆪󱆫
 󱅱
@@ -2277,7 +2277,7 @@ neu schreib
       }
  , { id = "##200"
       , tags = [ "ENKO?", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀞󱀵
         """
@@ -2286,7 +2286,7 @@ neu schreib
       }
  , { id = "##201"
       , tags = [ "HALA", "Psce ", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁘󱁿󱁁󱁵󿊀checken
         """
@@ -2295,7 +2295,7 @@ neu schreib
       }
  , { id = "##202"
       , tags = [ "KOUR", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱉏󱀬󱇯󱂊󱀵
         """
@@ -2304,7 +2304,7 @@ neu schreib
       }
  , { id = "##203"
       , tags = [ "PARA", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁑󱀚󱅂󱁩
         """
@@ -2313,7 +2313,7 @@ neu schreib
       }
  , { id = "##204"
       , tags = [ "PYLA", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱆑󱆽󱁀
         """
@@ -2322,7 +2322,7 @@ neu schreib
       }
  , { id = "##205"
       , tags = [ "SALA", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱉐󱇯
         """
@@ -2331,7 +2331,7 @@ neu schreib
       }
  , { id = "##206"
       , tags = [ "PPAP", "Vsce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇘󿊀
         """
@@ -2340,7 +2340,7 @@ neu schreib
       }
  , { id = "##207.A.left"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱂷󱂯󱃯
 󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃒󱃐󱃝󱃯󱂺󱃊
@@ -2368,7 +2368,7 @@ neu schreib
       }
  , { id = "##207.A.right"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀
 󱃄
@@ -2388,7 +2388,7 @@ neu schreib
       }
  , { id = "##207.B.left"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃬󱂲󱂹󱃯󱂷󱃐󱂻󱃝󱃯󱃫󱃀󱃙󱃟
 󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂽󱂷󱃤󱃩󱃯󱃫󱂺󱂴󱃯󱃫󱃙󱂻󱃔
@@ -2422,7 +2422,7 @@ neu schreib
       }
  , { id = "##207.B.right"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂫󱂴󱃯
 󱃜󱃁
@@ -2439,7 +2439,7 @@ neu schreib
       }
  , { id = "##208.A"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱃬󱃍󱂿󱃯󱂹󱃖󱃯󱃈󱂾󱂶󱃯󱃊
 󱃫󱃙󱃉󱃯󱃫󱂽󱂵󱂵󱃯󱃠󱃢󱃄
@@ -2469,7 +2469,7 @@ neu schreib
       }
  , { id = "##208.B"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󿊀󱃯󱃫󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃉
 󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃠󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃏󱃟󱃯󱂷󱂯󱃍󱃋
@@ -2493,7 +2493,7 @@ neu schreib
       }
  , { id = "##209.A.top"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂺󱂶󱂮󱃯󱂫󱃟󱃯󱂻󱃇󱃯󱃒󱂺󱃧nonver
         """
@@ -2502,7 +2502,7 @@ neu schreib
       }
  , { id = "##209.A.left.1"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󿊀󱃮󱈑󱃯󱂻󿊀
 󿊀󿊀󱂿󱃦󿊀󿊀󿊀󿊀
@@ -2513,7 +2513,7 @@ neu schreib
       }
  , { id = "##209.A.left.2"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱃫󱃃󱃦󱃇󱃯󱂫󿊀󿊀󱃯󱂻󱂻
 󱃒󱃟󱂼󱃦󱃯󱃃󱃐󱃯󱃜󱃂󱃭
@@ -2524,7 +2524,7 @@ neu schreib
       }
  , { id = "##209.A.left.3"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱃫󱃒󱃦󿊀󿊀󿊀󱃧󱃯󱃃󱃒󱃧
 󱂾󱃄󱂿󱃖󱃯󱃃󱃐󱃯󱃜󱃂󱃭nonver
@@ -2534,7 +2534,7 @@ neu schreib
       }
  , { id = "##209.A.left.4"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂷󱂯󱂻󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃬󱃮󱃦
 󱃃󱃐󱃯󱃜󱃂󱃭󱃯󱂾󱃄󱂿󱃖nonver
@@ -2544,7 +2544,7 @@ neu schreib
       }
  , { id = "##209.A.left.5"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱃃󱂺󿊀󿊀󱂽󱃐󱃯󱂳󱃥󱃃
 󱃒󱃟󱂼󱃦󱃯󱂾󱃄󱂿󱃖󱃯󱃃󱃐
@@ -2555,7 +2555,7 @@ neu schreib
       }
  , { id = "##209.A.left.6"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱃭󱃟󱃯󱃏󱃐󱃯󱃒󱃟󱂼󱃦
 󱂾󱃄󱂿󱃖󱃯󱃃󱃐󱃯󱃜󱃂󱃭nonver
@@ -2565,7 +2565,7 @@ neu schreib
       }
  , { id = "##209.A.left.7"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󿊀󿊀󱃯󱂯󱃠󱃎󱃯󱃟󱃅󱃖󿊀
 󱂾󱃄󱂿󱃖󱃯󱃃󱃐󱃜󱃂󱃭nonver
@@ -2575,7 +2575,7 @@ neu schreib
       }
  , { id = "##209.A.left.8"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱂾󱃦󱃯󱃟󱂸󿊀
 󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃯󱃬nonver
@@ -2585,7 +2585,7 @@ neu schreib
       }
  , { id = "##209.A.right.1"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃬󿊀󿊀
 󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃅󱃦󱃎󿊀
@@ -2597,7 +2597,7 @@ neu schreib
       }
  , { id = "##209.A.right.2"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱃎󱃋󿊀󿊀󿊀󿊀󱃯󱃮󿊀
 󿊀󿊀󿊀󿊀󿊀󱃐󱃯󱃒󱃟󱂼󱃦
@@ -2608,7 +2608,7 @@ neu schreib
       }
  , { id = "##209.A.right.3"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂾󱃭󱃖󱃟󱃯󿊀󱃂
 󱈋󱃩󱃯󱂾󱃄󱂿
@@ -2619,7 +2619,7 @@ neu schreib
       }
  , { id = "##209.A.right.4"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󿊀󱃋󱃎󱂹󱃯
 󿊀󿊀󿊀󱃂󱃐󱃯󱃃
@@ -2630,7 +2630,7 @@ neu schreib
       }
  , { id = "##209.A.right.5"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱃒󱂯󱃔󱃋
 󿊀󿊀󿊀󿊀󿊀󱃖󿊀
@@ -2641,7 +2641,7 @@ neu schreib
       }
  , { id = "##209.B"
       , tags = [ "ENKO", "Atab", "CM2" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀
 󱂭󱂭󱃟󱃯󱂭󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󿊀󱃉󱃯󱃒󱂺
@@ -2672,7 +2672,7 @@ neu schreib
       }
  , { id = "##210"
       , tags = [ "RASH", "Aéti", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱄪󱄁
         """
@@ -2681,7 +2681,7 @@ neu schreib
       }
  , { id = "##211"
       , tags = [ "RASH?", "Aéti", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱉑󱉒󱉓nonver
         """
@@ -2690,7 +2690,7 @@ neu schreib
       }
  , { id = "##212.A"
       , tags = [ "RASH", "Atab", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱄬󱄄󱄡󱄴󱄋󱃲
 󱃴󱃵󱄇󱄪󱄴󱄁󱄦
@@ -2705,7 +2705,7 @@ neu schreib
       }
  , { id = "##212.B.side"
       , tags = [ "RASH", "Atab", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
  󱄁󱄭󱄥󱃳󱄞
         """
@@ -2714,7 +2714,7 @@ neu schreib
       }
  , { id = "##212.B.face"
       , tags = [ "RASH", "Atab", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱃺󿊀
 󱄊󱄲
@@ -2729,7 +2729,7 @@ neu schreib
       }
  , { id = "##213"
       , tags = [ "RASH", "Atab", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󿊀󿊀󱄲󿊀
 󱃷󱉣󱈤󱃳󱄰
@@ -2741,7 +2741,7 @@ neu schreib
       }
  , { id = "##214"
       , tags = [ "RASH", "Atab", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱄱󱄉󱃴󱃿󱈗󱄳󱄧󿊀󿊀󱃷󱄎󱄃󱄚
 󿊀󱈤󱈙󱄵󱄚󱄛󱄁󿊀󿊀󿊀󿊀󿊀
@@ -2757,7 +2757,7 @@ neu schreib
       }
  , { id = "##215.A"
       , tags = [ "RASH", "Atab", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱄪󱄂󱄝󱄲󱄍󱄄󱄲󱄏󱈢󱄶
 󱄪󱄁󱄍󱄄󱄲󱄪󱄙󱄜󱄍󱄲󱄶
@@ -2776,7 +2776,7 @@ neu schreib
       }
  , { id = "##215.B"
       , tags = [ "RASH", "Atab", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱃽󱄝󱈚󱄤󱄲󱄁󱄂󱃵󱄩󱄊󱄶
 󱄀󱄜󱄚󱄍󱄶
@@ -2792,7 +2792,7 @@ neu schreib
       }
  , { id = "##216"
       , tags = [ "RASH", "Mvas", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱄟󱄲󱈟󱈠
         """
@@ -2801,7 +2801,7 @@ neu schreib
       }
  , { id = "##217"
       , tags = [ "SYRI", "Psce", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱄖󱄌󱃴󱄐
         """
@@ -2810,7 +2810,7 @@ neu schreib
       }
  , { id = "##218"
       , tags = [ "PARA", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅍󱀵
         """
@@ -2819,7 +2819,7 @@ neu schreib
       }
  , { id = "##219"
       , tags = [ "APLI", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂑
         """
@@ -2828,7 +2828,7 @@ neu schreib
       }
  , { id = "##220"
       , tags = [ "CYPR", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀗󱁩󱅍󱄦
         """
@@ -2837,7 +2837,7 @@ neu schreib
       }
  , { id = "##221"
       , tags = [ "DHEN", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀜󱇶󱀜
         """
@@ -2846,7 +2846,7 @@ neu schreib
       }
  , { id = "##222"
       , tags = [ "ENKO", "Apes", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂊nonver
         """
@@ -2855,7 +2855,7 @@ neu schreib
       }
  , { id = "##223"
       , tags = [ "ENKO", "Apes", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐nonver
         """
@@ -2864,7 +2864,7 @@ neu schreib
       }
  , { id = "##224"
       , tags = [ "ENKO Pblo", "002", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱇶󱀜󱀡change
         """
@@ -2873,7 +2873,7 @@ neu schreib
       }
  , { id = "##225"
       , tags = [ "ENKO", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁵󱇆󱀵󱀠erstes change
         """
@@ -2882,7 +2882,7 @@ neu schreib
       }
  , { id = "##226"
       , tags = [ "ENKO", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀nonver
         """
@@ -2891,7 +2891,7 @@ neu schreib
       }
  , { id = "##227"
       , tags = [ "ENKO", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱆺󱀿erstes change
         """
@@ -2900,7 +2900,7 @@ neu schreib
       }
  , { id = "##228"
       , tags = [ "ENKO", "Mins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀nonver
         """
@@ -2909,7 +2909,7 @@ neu schreib
       }
  , { id = "##229"
       , tags = [ "ENKO", "Mins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀛󱀻󱂋change
         """
@@ -2918,7 +2918,7 @@ neu schreib
       }
  , { id = "##230"
       , tags = [ "ENKO", "Mins", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱂓nonver
         """
@@ -2927,7 +2927,7 @@ neu schreib
       }
  , { id = "##231"
       , tags = [ "KLAV", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱉔󱉕
         """
@@ -2936,7 +2936,7 @@ neu schreib
       }
  , { id = "##232"
       , tags = [ "IDAL", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀
         """
@@ -2945,7 +2945,7 @@ neu schreib
       }
  , { id = "##233"
       , tags = [ "IDAL", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱀡󿊀󱀻ergaenz
         """
@@ -2954,7 +2954,7 @@ neu schreib
       }
  , { id = "##234"
       , tags = [ "IDAL", "Pfus", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀜󱀠󱀵nonver source Ferrara 2013:121
         """
@@ -2963,7 +2963,7 @@ neu schreib
       }
  , { id = "##235"
       , tags = [ "KALO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󿊀󱂏󿊀󱇷change
         """
@@ -2972,7 +2972,7 @@ neu schreib
       }
  , { id = "##236"
       , tags = [ "KITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱇷󱀵eliminate
         """
@@ -2981,7 +2981,7 @@ neu schreib
       }
  , { id = "##237"
       , tags = [ "ITI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵
 󱀞change
@@ -2991,7 +2991,7 @@ neu schreib
       }
  , { id = "##238"
       , tags = [ "MAAP", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁟󱂏change
         """
@@ -3000,7 +3000,7 @@ neu schreib
       }
  , { id = "##239"
       , tags = [ "MARO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁵󱂃󱀵change
         """
@@ -3009,7 +3009,7 @@ neu schreib
       }
  , { id = "##240"
       , tags = [ "MARO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱀧󿊀󱃅change
         """
@@ -3018,7 +3018,7 @@ neu schreib
       }
  , { id = "##241"
       , tags = [ "MARO", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂃󱂅change willkuer
         """
@@ -3027,7 +3027,7 @@ neu schreib
       }
  , { id = "##242"
       , tags = [ "SANI", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀵󱁵󱂓change upsidedown
         """
@@ -3036,7 +3036,7 @@ neu schreib
       }
  , { id = "##243"
       , tags = [ "RASH", "Avas", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 unspecified
         """
@@ -3045,7 +3045,7 @@ unspecified
       }
  , { id = "##244"
       , tags = [ "TIRY", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱅹󱅹󱂊abfolge unklar
         """
@@ -3054,7 +3054,7 @@ unspecified
       }
  , { id = "##245"
       , tags = [ "TIRY", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱀸󱁾nonver Source Douros
         """
@@ -3063,7 +3063,7 @@ unspecified
       }
  , { id = "##246"
       , tags = [ "TIRY", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱁿󱁖󱀜󱇸nonver Source Brent, Maran & Wirhova 2014
         """
@@ -3072,7 +3072,7 @@ unspecified
       }
  , { id = "##247"
       , tags = [ "ENKO", "Abou", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱁿󱇝󱇃󱂦󱀚nonver
         """
@@ -3081,7 +3081,7 @@ unspecified
       }
  , { id = "##248"
       , tags = [ "KOUR", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂑󱄼nonver
         """
@@ -3099,7 +3099,7 @@ unspecified
       }
     , { id = "##250"
       , tags = [ "KOUR", "Avas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱈩󱀸󱀵nonver
         """
@@ -3108,7 +3108,7 @@ unspecified
       }
     , { id = "##251"
       , tags = [ "RASH", "Avas", "CM3" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱄻󱂉nonver
         """
@@ -3117,7 +3117,7 @@ unspecified
       }
     , { id = "##252"
       , tags = [ "CYPR?", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
  󱂐󱁎󱁓nonver
         """
@@ -3126,7 +3126,7 @@ unspecified
       }
     , { id = "##253"
       , tags = [ "PPAP", "Psce", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 󱂐󱁭nonver 
         """
@@ -3135,7 +3135,7 @@ unspecified
       }
     , { id = "##254"
       , tags = [ "Mvas", "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 noch einfuegen Source Egetmeyer 2016
         """
@@ -3144,7 +3144,7 @@ noch einfuegen Source Egetmeyer 2016
       }
     , { id = "##255"
       , tags = [ "CM1" ]
-      , dir = UNKNOWN, text =
+      , dir = UNKNOWN, plate = Nothing, text =
         """
 noch einfuegen Source Egetmeyer 2016
         """
