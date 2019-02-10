@@ -11,6 +11,7 @@ import Array
 import Set
 
 import Markdown
+import Markdown.Config exposing (..)
 
 import Search
 import Grams
@@ -327,9 +328,14 @@ view model =
                     , ul [ class "tallyGrams" ] (List.indexedMap ntally tallyGrams)
                     ]
 
+        markdownOptions = { defaultOptions
+                          | rawHtml = Sanitize { defaultSanitizeOptions 
+                                               | allowedHtmlElements = defaultSanitizeOptions.allowedHtmlElements ++ [ "sub", "sup" ] 
+                                               }
+                          }
         info =
             [ h2 (collapsible "info") [ text " Info " ]
-            ] ++ ifExpanded "info" (\_ -> Markdown.toHtml Nothing model.script.description)
+            ] ++ ifExpanded "info" (\_ -> Markdown.toHtml  (Just markdownOptions) model.script.description)
 
         playground =
             [ h2 (collapsible "playground") [ text " Sandbox " ]
