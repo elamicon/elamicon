@@ -65,8 +65,8 @@ body, h1, h2, label, input, select {
 }
 
 @font-face {
-    font-family: 'CMinoan';
-    src: url('../fonts/CMinoanLiberationSerif-Regular.ttf');
+    font-family: 'Cypricon';
+    src: url('../fonts/CypriconLiberationSerif-Regular.ttf');
 }
 
 
@@ -75,7 +75,7 @@ body, h1, h2, label, input, select {
 }
 
 .cypro {
-    font-family: 'CMinoan';
+    font-family: 'Cypricon';
 }
 
 .syllabary {
