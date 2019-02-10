@@ -283,14 +283,14 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "B", group = "Susa", dir = LTR, plate = Nothing, text =
+    , { id = "B", group = "Susa", dir = LTR, plate = Just "/plates/linear-elam/b.jpg", text =
         """
 
 ​
 
         """
       }
-    , { id = "C", group = "Susa", dir = RTL, text =
+    , { id = "C", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/c.jpg", text =
         """
 ​
 ​
@@ -300,7 +300,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "D", group = "Susa", dir = RTL, text =
+    , { id = "D", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/d.jpg", text =
         """
 
 
@@ -308,7 +308,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "E", group = "Susa", dir = RTL, text =
+    , { id = "E", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/e.jpg", text =
         """
 
 
@@ -316,7 +316,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "F", group = "Susa", dir = RTL, text =
+    , { id = "F", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/f.jpg", text =
         """
 
 
@@ -324,14 +324,14 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "G", group = "Susa", dir = RTL, text =
+    , { id = "G", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/g.jpg", text =
         """
 
 
 
         """
       }
-    , { id = "H", group = "Susa", dir = RTL, text =
+    , { id = "H", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/h.jpg", text =
         """
 
 
@@ -339,7 +339,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "I", group = "Susa", dir = RTL, text =
+    , { id = "I", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/i.jpg", text =
         """
 
 
@@ -347,13 +347,13 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "J", group = "Susa", dir = RTL, text =
+    , { id = "J", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/j.jpg", text =
         """
 
 
         """
       }
-    , { id = "K", group = "Susa", dir = RTL, text =
+    , { id = "K", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/k.jpg", text =
         """
 
 
@@ -363,7 +363,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "L", group = "Susa", dir = RTL, text =
+    , { id = "L", group = "Susa", dirl= RTL, plate = Just "/plates/linear-elam/l.jpg", text =
         """
 
 
@@ -371,7 +371,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "M", group = "Susa", dir = RTL, text =
+    , { id = "M", group = "Susa", dirm= RTL, plate = Just "/plates/linear-elam/m.jpg", text =
         """
 
 
@@ -380,7 +380,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "N", group = "Susa", dir = RTL, text =
+    , { id = "N", group = "Susa", dirn= RTL, plate = Just "/plates/linear-elam/n.jpg", text =
         """
 
 
@@ -390,7 +390,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "O", group = "Div", dir = RTL, text =
+    , { id = "O", group = "Div", dir = RTL, plate = Nothing, text =
         """
 
 
@@ -402,55 +402,55 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
         """
       }
-    , { id = "Or", group = "Div", dir = RTL, text =
+    , { id = "Or", group = "Div", dir = RTL, plate = Nothing, text =
         """
 
         """
       }
-    , { id = "P", group = "Susa", dir = LTR, text =
+    , { id = "P", group = "Susa", dir = LTR, plate = Just "/plates/linear-elam/p.jpg", text =
         """
 
         """
       }
-    , { id = "Q", group = "Pers", dir = RTL, text =
+    , { id = "Q", group = "Pers", dir = RTL, plate = Just "/plates/linear-elam/q.jpg", text =
         """
 ​​​
         """
       }
-    , { id = "R", group = "Susa", dir = RTL, text =
+    , { id = "R", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/r.jpg", text =
         """
 
 
 
         """
       }
-    , { id = "Rr", group = "Susa", dir = RTL, text =
+    , { id = "Rr", group = "Susa", dir = RTL, plate = Nothing, text =
         """
 
         """
       }
-    , { id = "S", group = "Sha", dir = RTL, text =
+    , { id = "S", group = "Sha", dir = RTL, plate = Just "/plates/linear-elam/s.jpg", text =
         """
 
         """
       }
-    , { id = "T", group = "Susa", dir = RTL, text =
+    , { id = "T", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/t.jpg", text =
         """
 
         """
       }
-    , { id = "U", group = "Susa", dir = RTL, text =
+    , { id = "U", group = "Susa", dir = RTL, plate = Just "/plates/linear-elam/u.jpg", text =
         """
 
 
         """
       }
-    , { id = "V", group = "Liga", dir = RTL, text =
+    , { id = "V", group = "Liga", dir = RTL, plate = Just "/plates/linear-elam/v.jpg", text =
         """
 
         """
       }
-    , { id = "W", group = "Phoe1", dir = RTL, text =
+    , { id = "W", group = "Phoe1", dir = RTL, plate = Just "/plates/linear-elam/w.jpg", text =
         """
             
             
@@ -462,26 +462,26 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
             
         """
       }
-     , { id = "X", group = "Mah", dir = RTL, text =
+     , { id = "X", group = "Mah", dir= RTL, plate = Just "/plates/linear-elam/x.jpg", text =
         """
             
             
             
         """
       }
-    , { id = "Y", group = "Mah", dir = RTL, text =
+    , { id = "Y", group = "Mah", dir = RTL, plate = Just "/plates/linear-elam/y.jpg", text =
         """
             
                  
                   
         """
       }
-    , { id = "Yb", group = "Mah", dir = LTR, text =
+    , { id = "Yb", group = "Mah", dir = LTR, plate = Just "/plates/linear-elam/y.jpg", text =
         """
         
         """
       }
-    , { id = "Z", group = "Mah", dir = RTL, text =
+    , { id = "Z", group = "Mah", dir = RTL, plate = Just "/plates/linear-elam/b.jpg", text =
         """
             ​
             ​​
