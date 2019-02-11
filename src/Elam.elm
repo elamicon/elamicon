@@ -703,14 +703,14 @@ sources = """
 - **Hinz, W. (1969):** "Eine neugefundene altelamische Silbervase", in: Altiranische Funde und Forschungen 1, S. 11-44.
 - **Hinz, W. (1971):** "Eine altelamische Tonkrug-Aufschrift vom Rande der Lut", Archäologische Mitteilungen aus Iran 4, 21-24.
 - **Klochkov, I. S. (1998):** "Signs on a potsherd from Gonur (On the question of the script used in Margiana)." Ancient Civilizations from Scythia to Siberia 5/2. S. 165-175.
-- **Mäder, Michael; Balmer, Stephan; Plachtzik, Simon & Rawyler, Nicolai (2018): "Sequenzanalysen zur elamischen Strichschrift", in: B. Mofidi-Nasrabadi, D. Prechel, A. Pruß (eds.), Elam and its Neighbors. Recent Research and New Perspectives. Proceedings of the international congress held at Johannes Gutenberg University Mainz, September 21-23, 2016 (Elamica 8). S. 49-104.
+- **Mäder, Michael; Balmer, Stephan; Plachtzik, Simon & Rawyler, Nicolai (2018)**: "Sequenzanalysen zur elamischen Strichschrift", in: B. Mofidi-Nasrabadi, D. Prechel, A. Pruß (eds.), Elam and its Neighbors. Recent Research and New Perspectives. Proceedings of the international congress held at Johannes Gutenberg University Mainz, September 21-23, 2016 (Elamica 8). S. 49-104.
 - **Madjidzadeh, Y. (2011):** Jiroft Tablets and the Origin of the Linear Elamite Writing System, in: T. Osada/M. Witzel (eds.), Cultural Relations Between the Indus and the Iranian Plateau During the Third Millennium BCE. Harvard.
 - **Mahboubian, H. (2004):** Elam – Art and Civilization of Ancient Iran, 3000-2000 BC. Salisbury.
-- **MCEI: Mahboubian Collection of Elamite Inscriptions. https://mahboubiancollection.com/collections/elemite-inscription-3?view=nano 
+- **[MCEI: Mahboubian Collection of Elamite Inscriptions](https://mahboubiancollection.com/collections/elemite-inscription-3?view=nano)**
 - **Meriggi, P. (1972):** La scrittura proto-elamica. Parte Ia: La scrittura e il contenuto dei testi, Roma: Accademia Nazionale dei Lincei.
 - **Sarrāf. M. R. (2013):** Mazhab-e qūm-e Īlām 5000-2600 sāl-e pīš (Die Religion Elams vor 5000-2600 Jahren). Sāzemān-e moṭāleʿe wa tadwīn. Tehrān.
 - **Scheil, V. (1905):** Documents archaïques en écriture proto-élamite. Mémoires de la Délégation en Perse VI, S. 57-128. Paris.
-- **Vallat 2011: "Textes historiques élamites et achéménides", in: A. George et al. (eds.), Cuneiform Royal Inscriptions and Related Texts in the Schøyen Collection, Bethesda, 187-188.
+- **Vallat 2011**: "Textes historiques élamites et achéménides", in: A. George et al. (eds.), Cuneiform Royal Inscriptions and Related Texts in the Schøyen Collection, Bethesda, 187-188.
 - **Winkelmann, Sylvia (1999):** "Ein Stempelsiegel mit alt-elamischer Strichschrift", Archäologische Mitteilungen aus Iran 31, 23-32.
 - **Winkelmann, Sylvia (2004):** Seals of the Oasis from the Ligabue Collection. With an Introduction by Pierre Amiet. Venezia. S. 25-181.
 
