@@ -15,7 +15,7 @@ import Elam as Elam
 import Cypro as Cypro
 
 scripts : List Script
-scripts = [ Elam.elam, Cypro.cypro ]
+scripts = [ Elam.elam ]
 
 initialScript = Elam.elam
 
