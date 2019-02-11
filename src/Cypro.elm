@@ -3167,6 +3167,7 @@ A description of the dynamic syllabary, used as a working hypothesis here, can b
 
 [created by George Douros]: http://users.teilar.gr/~g1951d/
 """
+    , sources = ""
     , tokens = tokens
     , specialChars = specialChars
     , guessMarkers = ""

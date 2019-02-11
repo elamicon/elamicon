@@ -348,8 +348,8 @@ view model =
                                                }
                           }
         info =
-            collapsibleTitle "info" "Info" .info
-            ++ ifExpanded "info" (\_ -> Markdown.toHtml  (Just markdownOptions) model.script.description)
+            collapsibleTitle "info" "Intro & Sources" .info
+            ++ ifExpanded "info" (\_ -> Markdown.toHtml  (Just markdownOptions) (model.script.description ++ model.script.sources))
 
         playground =
             collapsibleTitle "playground" "Sandbox" .sandbox
@@ -629,11 +629,20 @@ view model =
 
                 -- Build line entries from text
                 lines = List.reverse (Tuple.first (List.foldl line ([], 0) (String.lines (textMod fragment.text))))
+                thumb = 
+                    case fragment.plate of
+                        Nothing -> []
+                        Just url -> [ a [ href url, target "_blank", class "img" ] [ img [ src (url ++ ".thumb") ] [] ] ]
             in
                 div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), (model.script.id, True) ], dirAttr fragment.dir ]
-                [ h3 [] [ span [ dir "LTR" ] [ sup [ class "group" ] [ text fragment.group ], text fragment.id ] ]
-                , ol [ class "fragment", dirAttr fragment.dir ] lines
-                ]
+                    [ h3 [] 
+                        ([ span [ dir "LTR" ]
+                            [ sup [ class "group" ] [ text fragment.group ]
+                            , text fragment.id
+                            ]
+                        ] ++ thumb)
+                    , ol [ class "fragment", dirAttr fragment.dir ] lines
+                    ]
 
         contact = div [ class "footer" ]
                 [ h2 [] [ text "Contact the research-team" ]

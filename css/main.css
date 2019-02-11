@@ -326,6 +326,18 @@ h1, h2, .fragment {
     text-align: right;
 }
 
+.plate .img {
+    margin: 0 1em;
+    display: inline-block;
+    height: 3em;
+    opacity: 0.5;
+}
+
+.plate img {
+    height: 100%;
+}
+
+
 .fixedBreak {
     /* custom line counter */
     position: relative;

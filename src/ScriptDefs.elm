@@ -19,8 +19,9 @@ type alias Script =
     { id : String
     , name : String
     , headline: String
-    , title: String
-    , description: String
+    , title : String
+    , description : String
+    , sources : String
     , tokens : List Token
     , specialChars : List SpecialCharDef
     , guessMarkers : String
