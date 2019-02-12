@@ -746,6 +746,6 @@ elam =
                     , grams = ("", "")
                     , search = ("", "")
                     , inscriptions = ("", "")
-                    , collapse = ("", "")
+                    , collapse = ("", "")
                     }
     }
