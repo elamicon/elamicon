@@ -1,10 +1,10 @@
 OFONTS = $(wildcard fonts/original/Liberation*.ttf)
 EFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
 CFONTS = $(subst fonts/original/,fonts/Cypricon,$(OFONTS))
-CFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
+BFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
-all: elamicon.js $(EFONTS) $(CFONTS) fonts/Elamicon-Fonts.zip fonts/Cypricon-Fonts.zip build/elamicon.zip
+all: build/elamicon.zip
 
 elms := $(wildcard *.elm src/*.elm)
 elamicon.js: $(elms)
@@ -55,7 +55,7 @@ fonts/CypriconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf 
 fonts/CypriconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf
 		bin/addfont "Cypricon" $^ "$@"
 
-fonts/Cyfonts/Cypricon-Fonts.zip: $(CFONTS)
+fonts/Cypricon-Fonts.zip: $(CFONTS)
 		cd fonts && zip -r Cypricon-Fonts.zip CypriconLiberation*.ttf
 
 fonts/byblos-scaled.ttf:
@@ -82,8 +82,8 @@ fonts/BybliconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf 
 fonts/BybliconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/byblos-scaled.ttf
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/Byblicon-Fonts.zip: $(CFONTS)
-		cd fonts && zip -r Cypricon-Fonts.zip CypriconLiberation*.ttf
+fonts/Byblicon-Fonts.zip: $(BFONTS)
+		cd fonts && zip -r Byblicon-Fonts.zip BybliconLiberation*.ttf
 
 clean:
 	rm -f elamicon.js
@@ -94,10 +94,10 @@ clean:
 live: $(MFONTS)
 	elm-live elamicon.elm --output elamicon.js --open
 
-build/elamicon.zip: elamicon.js index.html css/main.css 
+build/elamicon.zip: elamicon.js index.html css/main.css $(EFONTS) $(BFONTS) $(CFONTS)
 	mkdir -p build
 	rm -f "$@"
-	zip -r "$@" $^ fonts/*.ttf
+	zip -r "$@" $^ fonts/*Liberation*.ttf
 
 Times: fonts/Elamicon_Times_New_Roman.zip
 
