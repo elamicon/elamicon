@@ -103,6 +103,7 @@ updateScript new model =
             { model
             | script = new
             , selectedGroups = selectedGroups
+            , syllableMap = new.syllableMap
             , search = ""
             }
 
