@@ -1,0 +1,4 @@
+#!/bin/sh
+for t in plates/*/*.jpg;
+do convert -resize x200 "$t" "jpeg:$t.thumb"
+done

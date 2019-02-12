@@ -2,11 +2,33 @@ body {
     padding: 1em;
     background-color: #eed;
     font-size: large;
-    font-family: ElamiconLiberationSerif;
 }
 
-input, textarea {
+.elam {
+    font-family: ElamiconLiberationSerif;
+    unicode-bidi: bidi-override;
+}
+
+.cypro {
+    font-family: CypriconLiberationSerif;
+    unicode-bidi: bidi-override;
+}
+
+.byblos {
+    font-family: BybliconLiberationSerif;
+    unicode-bidi: bidi-override;
+}
+
+.elam input, .elam textarea {
     font-family: ElamiconLiberationMono;
+}
+
+.cypro input, .cypro textarea {
+    font-family: ElamiconLiberationMono;
+}
+
+.byblos input, .byblos textarea {
+    font-family: BybliconLiberationMono;
 }
 
 h1, h2 {
@@ -59,19 +81,41 @@ body, h1, h2, label, input, select {
     src: url('../fonts/ElamiconLiberationMono-Regular.ttf');
 }
 
+
 @font-face {
-    font-family: 'Cypricon';
+    font-family: 'CypriconLiberationSerif';
     src: url('../fonts/CypriconLiberationSerif-Regular.ttf');
 }
 
-
-.elam {
-    unicode-bidi: bidi-override;
+@font-face {
+    font-family: 'CypriconLiberationSerif';
+    src: url('../fonts/CypriconLiberationSerif-Bold.ttf');
+    font-weight: bold;
 }
 
-.cypro {
-    font-family: 'Cypricon';
+@font-face {
+    font-family: 'CypriconLiberationMono';
+    src: url('../fonts/CypriconLiberationMono-Regular.ttf');
 }
+
+
+@font-face {
+    font-family: 'BybliconLiberationSerif';
+    src: url('../fonts/BybliconLiberationSerif-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'BybliconLiberationSerif';
+    src: url('../fonts/BybliconLiberationSerif-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'BybliconLiberationMono';
+    src: url('../fonts/BybliconLiberationMono-Regular.ttf');
+}
+
+
 
 .syllabary {
     padding: 0;

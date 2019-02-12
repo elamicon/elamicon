@@ -13,9 +13,10 @@ import ScriptDefs exposing (..)
 
 import Elam as Elam
 import Cypro as Cypro
+import Byblos as Byblos
 
 scripts : List Script
-scripts = [ Elam.elam ]
+scripts = [ Byblos.byblos, Elam.elam ]
 
 initialScript = Elam.elam
 

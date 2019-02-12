@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+"""
+Because fontforge can't deal with the glyph names
+given in the byblos.svg, this script replaces each
+glyph name with the glyph id. Which fixes the font
+for fontforge.
+"""
+
+import sys
+from xml.dom import minidom
+
+f = sys.argv[1]
+
+svg = minidom.parse(f)
+
+for tag in svg.getElementsByTagName('glyph'):
+    tag.attributes['glyph-name'].value = tag.attributes['id'].value
+
+with open(f, "w") as out:
+    svg.writexml(out)

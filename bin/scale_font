@@ -1,0 +1,27 @@
+#!/usr/bin/python
+
+# Scale all glyphs in font by given factor
+#
+# Example:
+# scale_font byblos.ttf 2.3 byblos-scaled.ttf
+
+from __future__ import print_function
+import sys
+import fontforge
+import psMat
+
+n = sys.argv[1]
+s = float(sys.argv[2])
+o = sys.argv[3]
+f = fontforge.open(n)
+glyphs = sorted(f.glyphs(), key=lambda g: g.unicode)
+matrix = psMat.scale(s)
+for glyph in f.glyphs():
+    print("%04x"%glyph.unicode)
+    glyph.removeOverlap()
+    glyph.correctDirection()
+    glyph.simplify(1)
+    #glyph.addExtrema("all")
+    glyph.transform(matrix, ("round"))
+f.save(o)
+f.close()
