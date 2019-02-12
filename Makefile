@@ -60,6 +60,7 @@ fonts/Cypricon-Fonts.zip: $(CFONTS)
 
 fonts/byblos-scaled.ttf:
 	bin/scale_font fonts/original/byblos.svg 2 "$@"
+	bin/set_bearing "$@" 200 
 
 fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-scaled.ttf
 		bin/addfont "Byblicon" $^ "$@"
