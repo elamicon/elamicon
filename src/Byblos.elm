@@ -35,12 +35,42 @@ syllableMap = String.trim """
 
 initialSyllabary : SyllabaryDef
 initialSyllabary =
-    { id = "splitting", name = "Each sign separately"
-    , syllabary = String.join " " tokens
+    { id = "search"
+    , name = "Broad lumping ideal for searching"
+    , syllabary = String.trim
+        """
+    
+    
+ 
+                
+  
+  
+   
+ 
+    
+             
+                  
+     
+    
+                  
+              
+  
+         
+      
+     
+      
+            
+        """
     }
 
 syllabaries : List SyllabaryDef
-syllabaries = [ initialSyllabary ]
+syllabaries =
+    [ initialSyllabary
+    ,   { id = "splitting"
+        , name = "Each sign separately"
+        , syllabary = String.join " " tokens
+        }
+    ]
 
 
 -- We grouped the fragments according to where they were found
@@ -66,7 +96,7 @@ tagsToGroup { id, tags, dir, plate, text } = { id = id, group = Maybe.withDefaul
 -- Using Douros 2014 as base
 fragments : List FragmentDef
 fragments = List.map tagsToGroup
-    [ 
+    [
     ]
 
 byblos : Script
