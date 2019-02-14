@@ -36,30 +36,31 @@ syllableMap = String.trim """
 initialSyllabary : SyllabaryDef
 initialSyllabary =
     { id = "search"
-    , name = "Broad lumping ideal for searching"
+    , name = "Ordered and grouped by looks"
     , syllabary = String.trim
         """
-    
-    
- 
-                
-  
-  
-   
- 
-    
-             
-                  
-     
-    
-                  
-              
-  
-         
-      
-     
+   
+           
+     
+           
+          
+          
+        
+         
+              
+     
+      
+     
+   
+      
+              
       
-            
+        
+      
+  
+ 
+  
+  
         """
     }
 
@@ -67,7 +68,7 @@ syllabaries : List SyllabaryDef
 syllabaries =
     [ initialSyllabary
     ,   { id = "splitting"
-        , name = "Each sign separately"
+        , name = "Codepoint order"
         , syllabary = String.join " " tokens
         }
     ]
