@@ -95,7 +95,7 @@ clean:
 live: $(MFONTS)
 	elm-live elamicon.elm --output elamicon.js --open
 
-build/elamicon.zip: elamicon.js index.html css/main.css $(EFONTS) $(BFONTS) $(CFONTS)
+build/elamicon.zip: elamicon.js index.html css/main.css $(EFONTS) $(BFONTS)
 	mkdir -p build
 	rm -f "$@"
 	zip -r "$@" $^ fonts/*Liberation*.ttf
