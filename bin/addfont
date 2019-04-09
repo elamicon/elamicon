@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-# Merge glyphs from two fonts and write to third file
+# Merge glyphs from two or more fonts and write to third file
+#
+# Synopsis
+#  addfont <PREFIX> <BASEFONT> [<ADDFONT>, ...] <OUTFONT>
+#
 # Example:
 # addfont Elamicon fonts.original/LiberationSerif-Regular.ttf elamicon.sfdir fonts/ElamiconLiberationSerif-Regular.ttf
 
