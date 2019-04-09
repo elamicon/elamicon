@@ -35,7 +35,7 @@ rawTokens = AstralString.toList <| String.trim """
 --  are guesses.
 specialChars =
     [ { displayChar = "", char = "", description = "Wildcard for unreadable signs" }
-    , { displayChar = "", char = "", description = "Marks signs that ar hard to read" }
+    , { displayChar = "", char = "", description = "Marks signs that are hard to read" }
     , { displayChar = "", char = "", description = "Marks a fracture point (line is assumed to be incomplete)" }
     ]
 
