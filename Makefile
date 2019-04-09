@@ -10,25 +10,25 @@ elms := $(wildcard *.elm src/*.elm)
 elamicon.js: $(elms)
 	elm-make elamicon.elm --output elamicon.js
 
-fonts/ElamiconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf elamicon.sfdir
+fonts/ElamiconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf  fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf elamicon.sfdir
+fonts/ElamiconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf  fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf elamicon.sfdir
+fonts/ElamiconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf  fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf elamicon.sfdir
+fonts/ElamiconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf  fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf elamicon.sfdir
+fonts/ElamiconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf  fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf elamicon.sfdir
+fonts/ElamiconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf  fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf elamicon.sfdir
+fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf  fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
 fonts/Elamicon-Fonts.zip: $(EFONTS) $(MFONTS)
