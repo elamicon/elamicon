@@ -62,25 +62,25 @@ fonts/byblos-scaled.ttf:
 	bin/scale_font fonts/original/byblos.svg 2 "$@"
 	bin/set_bearing "$@" 200 
 
-fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-scaled.ttf
+fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/byblos-scaled.ttf 
+fonts/BybliconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/byblos-scaled.ttf 
+fonts/BybliconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir 
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/byblos-scaled.ttf 
+fonts/BybliconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir 
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/byblos-scaled.ttf
+fonts/BybliconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/byblos-scaled.ttf 
+fonts/BybliconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir 
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/byblos-scaled.ttf
+fonts/BybliconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
 		bin/addfont "Byblicon" $^ "$@"
 
 fonts/Byblicon-Fonts.zip: $(BFONTS)

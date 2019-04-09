@@ -12,18 +12,21 @@ import ScriptDefs exposing (..)
 
 -- Glyphs courtesy Douros
 rawTokens = AstralString.toList <| String.trim """
-
+
 """
-
-specialChars = []
+specialChars =
+    [ { displayChar = "", char = "", description = "Wildcard for unreadable signs" }
+    , { displayChar = "", char = "", description = "Marks signs that are hard to read" }
+    , { displayChar = "", char = "", description = "Marks a fracture point (line is assumed to be incomplete)" }
+    ]
 
 ignoreChars = Set.fromList <| List.map .char specialChars
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 tokenSet = Set.fromList tokens
 
 -- These letters are counted as character positions
--- Letter 'X' is used in places where the character has not been mapped yet.
-indexedTokens = Set.fromList ([ "X" ] ++ tokens)
+-- Letter 'x' is used in places where the character has not been mapped yet.
+indexedTokens = Set.fromList ([ "x" ] ++ tokens)
 indexed char = Set.member char indexedTokens
 
 syllables : Dict.Dict String (List String)
@@ -91,10 +94,12 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 -- = preceding a sign signifies hardly readable
 -- % signifies a fracture
 
+-- In the source material "s" is a guessmark and "a" marks a fracture
+replaceGuessmark = \s -> String.split "s" s |> String.join ""
+replaceFracture = \s -> String.split "a" s |> String.join ""
 
--- Using Douros 2014 as base
 fragments : List FragmentDef
-fragments = List.map  (\f -> { f | text = String.trim f.text })
+fragments = List.map  (\f -> { f | text = String.trim f.text |> replaceGuessmark |> replaceFracture })
     [ { id = "a", group = "Byblos", dir = RTL, plate = Nothing, text =
         """
 z(Kranich bi)xa
