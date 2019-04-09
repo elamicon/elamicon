@@ -92,12 +92,145 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 -- % signifies a fracture
 
 
-tagsToGroup { id, tags, dir, plate, text } = { id = id, group = Maybe.withDefault "NOGROUP" (List.head tags), dir = dir, plate = plate, text = String.trim text }
-
 -- Using Douros 2014 as base
 fragments : List FragmentDef
-fragments = List.map tagsToGroup
-    [
+fragments = List.map  (\f -> { f | text = String.trim f.text })
+    [ { id = "a", group = "Byblos", dir = RTL, plate = Nothing, text =
+        """
+z(Kranich bi)xa
+sa
+szsssa
+zzzsxsssa
+sxxxxzszszsszs
+szsszsszzsz
+zzzs
+()xzzx
+xz(?)zzx
+z
+        """
+      }
+    , { id = "b", group = "Byblos", dir = RTL, plate = Nothing, text =
+        """
+s
+
+
+sx
+
+
+
+        """
+      }
+    , { id = "c", group = "Byblos", dir = RTL, plate = Nothing, text =
+        """
+sx
+x
+s
+
+
+
+
+
+
+xxx
+
+sx
+x
+sxxxxxx
+xxa   a
+        """
+      }
+    , { id = "d", group = "Byblos", dir = RTL, plate = Nothing, text =
+        """
+
+
+ss
+
+
+
+x
+xs
+xss
+xsx
+xssss
+s
+
+
+
+
+x
+s
+xx
+xs
+xx
+xss
+
+
+xs
+xs
+xxxs
+s
+
+x
+
+
+
+x
+
+x
+
+xxxx
+xx
+
+
+        """
+      }
+    , { id = "e", group = "Byblos", dir = RTL, plate = Nothing, text =
+        """
+a
+
+
+        """
+      }
+    , { id = "f", group = "Byblos", dir = RTL, plate = Nothing, text =
+        """
+xxx
+sss
+sxss
+sxs
+s
+zxxxx
+zs
+        """
+      }
+    , { id = "g", group = "Byblos", dir = RTL, plate = Nothing, text =
+        """
+xzsa
+assza
+asssa
+asza
+asza
+        """
+      }
+    , { id = "h", group = "Byblos", dir = RTL, plate = Nothing, text =
+        """
+axs
+ax
+ax
+        """
+      }
+    , { id = "i", group = "Byblos", dir = RTL, plate = Nothing, text =
+        """
+sssssxx
+sxs
+ss
+xsssx
+ss
+ssss
+sss
+xsxxx
+ssss
+        """
+      }
     ]
 
 byblos : Script
