@@ -68,6 +68,14 @@ tokenSet = Set.fromList tokens
 indexedTokens = Set.fromList ([ "", "X" ] ++ tokens)
 indexed char = Set.member char indexedTokens
 
+searchExamples =
+    [ ("?[]", "Search variants of  (in-šu-uš or in-šu-ši with optional NAP)")
+    , ("[]", "Search  and allow placeholder instead of NAP")
+    , ("([^])\\1", "Look for sign repetitions (geminates) like ")
+    , ("([^]).\\1", "Sign repetitions with an arbitrary sign in-between ()")
+    , ("[^]+", "Look for \"words\", assuming the vertical bar separates words")
+    , ("[]", "Show sequences, with  or ")
+    ]
 
 -- The syllable mapping is short as of now and will likely never become
 -- comprehensive. All of this is guesswork.
@@ -741,6 +749,7 @@ elam =
     , guessMarkers = guessMarkers
     , guessMarkDir = guessMarkDir
     , indexed = indexed
+    , searchExamples = searchExamples
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries

@@ -28,6 +28,7 @@ type alias Script =
     , guessMarkers : String
     , guessMarkDir : Dir -> String -> String
     , indexed : Token -> Bool
+    , searchExamples : List (String, String)
     , syllables : Dict String (List String)
     , syllableMap : String
     , syllabaries : List SyllabaryDef

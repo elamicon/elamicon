@@ -521,6 +521,11 @@ view model =
                         Just res -> res.raw
                         Nothing  -> List.map .text selectedFragments
                 stats = \_ -> [ gramStats (statsBase ()) ]
+                searchExamplesList examples =
+                    let
+                        def (t, e) = [ dt [] [ text t ], dd [] [ text e ] ]
+                    in
+                        dl [] (List.concatMap def examples)
             in
                 collapsibleTitle "gramStats" "Frequency Analysis" .grams
                 ++ ifExpanded "gramStats" stats ++
@@ -554,20 +559,7 @@ view model =
                                 else []
                     Nothing -> [ div [ class "searchExamples" ]
                         [ h3 [] [ text "Examples of search patterns" ]
-                        , dl []
-                            [ dt [] [ text "?[]" ]
-                            , dd [] [ text "Search variants of  (in-šu-uš or in-šu-ši with optional NAP)" ]
-                            , dt [] [ text "[]" ]
-                            , dd [] [ text "Search  and allow placeholder instead of NAP" ]
-                            , dt [] [ text "([^])\\1" ]
-                            , dd [] [ text "Look for sign repetitions (geminates) like " ]
-                            , dt [] [ text "([^]).\\1" ]
-                            , dd [] [ text "Sign repetitions with an arbitrary sign in-between ()" ]
-                            , dt [] [ text "[^]+" ]
-                            , dd [] [ text "Look for \"words\", assuming the vertical bar separates words" ]
-                            , dt [] [ text "[]" ]
-                            , dd [] [ text "Show sequences, with  or " ]
-                            ]
+                        , searchExamplesList model.script.searchExamples
                         ]
                     ]
                 )

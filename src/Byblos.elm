@@ -43,6 +43,14 @@ tokenSet = Set.fromList tokens
 indexedTokens = Set.fromList ([ "x" ] ++ tokens)
 indexed char = Set.member char indexedTokens
 
+searchExamples =
+    [ ("[]", "Search occurrences of  followed by either  or ")
+    , ("(.)\\1", "Look for sign repetitions (geminates) like ")
+    , ("([^])\\1", "Look for sign repetitions (geminates) excluding placeholder ")
+    , ("(.).\\1", "Sign repetitions with an arbitrary sign in-between ()")
+    , ("[]", "Show all occurrences of  and ")
+    ]
+
 syllables : Dict.Dict String (List String)
 syllables = Dict.fromList []
 
@@ -268,6 +276,7 @@ Work in progress. Check back soon!
     , guessMarkDir = guessMarkDir
     , seperatorChars = ""
     , indexed = indexed
+    , searchExamples = searchExamples
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
