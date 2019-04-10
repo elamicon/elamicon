@@ -4,6 +4,7 @@ import Dict
 import String
 import List
 import Set
+import Regex
 
 import AstralString
 
@@ -20,7 +21,20 @@ specialChars =
     , { displayChar = "", char = "", description = "Marks a fracture point (line is assumed to be incomplete)" }
     ]
 
-ignoreChars = Set.fromList <| List.map .char specialChars
+guessMarkerL = ""
+guessMarkerR = ""
+guessMarkers = guessMarkerL ++ guessMarkerR
+
+guessMarkDir dir = 
+    let
+        guessMarkerMatch = Regex.regex ("["++guessMarkers++"]")
+        replacement = case dir of
+                        LTR -> guessMarkerL
+                        _ -> guessMarkerR
+    in
+        Regex.replace Regex.All guessMarkerMatch (\_ -> replacement)
+
+ignoreChars = Set.fromList <| List.map .char specialChars ++ [ guessMarkerL, guessMarkerR ]
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 tokenSet = Set.fromList tokens
 
@@ -250,7 +264,9 @@ Work in progress. Check back soon!
     , sources = ""
     , tokens = tokens
     , specialChars = specialChars
-    , guessMarkers = ""
+    , guessMarkers = guessMarkers
+    , guessMarkDir = guessMarkDir
+    , seperatorChars = ""
     , indexed = indexed
     , syllables = syllables
     , syllableMap = syllableMap

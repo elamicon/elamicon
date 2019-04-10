@@ -23,8 +23,10 @@ type alias Script =
     , description : String
     , sources : String
     , tokens : List Token
+    , seperatorChars : String
     , specialChars : List SpecialCharDef
     , guessMarkers : String
+    , guessMarkDir : Dir -> String -> String
     , indexed : Token -> Bool
     , syllables : Dict String (List String)
     , syllableMap : String

@@ -3171,6 +3171,7 @@ A description of the dynamic syllabary, used as a working hypothesis here, can b
     , tokens = tokens
     , specialChars = specialChars
     , guessMarkers = ""
+    , guessMarkDir = \_ -> \s -> s
     , indexed = indexed
     , syllables = syllables
     , syllableMap = syllableMap

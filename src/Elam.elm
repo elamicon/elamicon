@@ -4,6 +4,7 @@ import Dict
 import String
 import List
 import Set
+import Regex
 
 import AstralString
 
@@ -44,12 +45,19 @@ specialChars =
 -- markers because there are two writing directions.
 guessMarkers = ""
 
+-- Turn all guessmarkers in the writing direction so they don't overlap on
+-- the wrong character
+guessMarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
+
 -- Unreadable signs are represented by this special character
 missingChar = ""
 
 -- To mark places where we assume the writing continues but is missing, we use
 -- the fracture mark.
 fractureMarker = ""
+
+-- These characters are assumed to be seperators
+seperatorChars = ""
 
 ignoreChars = Set.fromList <| AstralString.toList (guessMarkers ++ missingChar ++ fractureMarker)
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -728,8 +736,10 @@ elam =
     , description = description
     , sources = sources
     , tokens = tokens
+    , seperatorChars = seperatorChars
     , specialChars = specialChars
     , guessMarkers = guessMarkers
+    , guessMarkDir = guessMarkDir
     , indexed = indexed
     , syllables = syllables
     , syllableMap = syllableMap

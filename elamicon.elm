@@ -236,8 +236,6 @@ view model =
         dirAttr original = lineDirAttr 0 original
         scriptClass = class model.script.id
 
-        -- There are two "guess" marker characters that are used depending on direction
-        guessmarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
         selectedFragments = List.filter (\f -> Set.member f.group model.selectedGroups) model.script.fragments
 
         -- Normalize letters if this is enabled
@@ -316,7 +314,7 @@ view model =
 
         specialEntry { displayChar, char, description } =
             li [ class "letter" ]
-                [ div [ classList [(model.script.id, True), ("main", True)], onClick (AddChar char), title description ] [ text ((guessmarkDir LTR) displayChar) ] ]
+                [ div [ classList [(model.script.id, True), ("main", True)], onClick (AddChar char), title description ] [ text ((model.script.guessMarkDir LTR) displayChar) ] ]
 
         gramStats strings =
             let
@@ -360,7 +358,7 @@ view model =
                 , dirAttr LTR
                 , on "input" (Json.Decode.map SetSandbox Html.Events.targetValue)
                 , onInput SetSandbox
-                , value ((guessmarkDir LTR) model.sandbox)
+                , value ((model.script.guessMarkDir LTR) model.sandbox)
                 ] []
             , gramStats [model.sandbox]
             ])
@@ -499,7 +497,7 @@ view model =
                         ref = href <| String.concat [ "#", fragment.id, toString index ]
 
                         -- Remove spaces and ensure the guessmarks are oriented left
-                        typeset = String.words >> String.concat >> guessmarkDir LTR
+                        typeset = String.words >> String.concat >> model.script.guessMarkDir LTR
                     in
                         li [ class "result" ]
                             [ div [ class "id" ]
@@ -583,8 +581,9 @@ view model =
 
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
-                breakAfterSeparator = Regex.replace Regex.All (Regex.regex "[]") (\l -> l.match ++ zeroWidthSpace)
-                textMod = String.trim >> breakAfterSeparator >> guessmarkDir (effectiveDir fragment.dir)
+                seperatorMatch = Regex.regex ("["++model.script.seperatorChars++"]")
+                breakAfterSeparator = Regex.replace Regex.All seperatorMatch (\l -> l.match ++ zeroWidthSpace)
+                textMod = String.trim >> breakAfterSeparator >> model.script.guessMarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
                 matches =
