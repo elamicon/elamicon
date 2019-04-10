@@ -12,7 +12,6 @@ import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 
 import Elam as Elam
-import Cypro as Cypro
 import Byblos as Byblos
 
 scripts : List Script
