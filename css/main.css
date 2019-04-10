@@ -354,6 +354,11 @@ h2 {
 h1, h2, .fragment {
     /* horizontal rules between the lines */
     line-height: 1em;
+    background-color: #ffffe8;
+}
+
+.elam h1, .elam h2, .elam .fragment {
+    /* Linear Elam gets horizontal rules between the lines */
     background: linear-gradient(to bottom, #445 0%, #445 6%, #ffffe8 6%) 0 0;
     background-size: 100% 1em;
     padding-bottom: 0.06em; /* so the bottom rule is visible */
