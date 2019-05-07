@@ -122,21 +122,21 @@ replaceFracture = \s -> String.split "a" s |> String.join ""
 
 fragments : List FragmentDef
 fragments = List.map  (\f -> { f | text = String.trim f.text |> replaceGuessmark |> replaceFracture })
-    [ { id = "a", group = "Byblos", dir = RTL, plate = Nothing, text =
+    [ { id = "a", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
-z(Kranich bi)xa
+xa
 sa
-szsssa
-zzzsxsssa
-sxxxxzszszsszs
-szsszsszzsz
-zzzs
-()xzzx
-xz(?)zzx
-z
+ssssa
+sxsssa
+sxxxxssssss
+ssssss
+s
+xx
+xx
+
         """
       }
-    , { id = "b", group = "Byblos", dir = RTL, plate = Nothing, text =
+    , { id = "b", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
 s
 
@@ -147,12 +147,12 @@ xz(?)zzx
 
         """
       }
-    , { id = "c", group = "Byblos", dir = RTL, plate = Nothing, text =
+    , { id = "c", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
 sx
 x
 s
-
+      
 
 
 
@@ -166,7 +166,7 @@ xz(?)zzx
 xxa   a
         """
       }
-    , { id = "d", group = "Byblos", dir = RTL, plate = Nothing, text =
+    , { id = "d", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
 
 
@@ -194,7 +194,7 @@ xss
 
 xs
 xs
-xxxs
+xxxs 
 s
 
 x
@@ -211,41 +211,45 @@ xxxx
 
         """
       }
-    , { id = "e", group = "Byblos", dir = RTL, plate = Nothing, text =
+    , { id = "e", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
 a
 
-
+
         """
       }
-    , { id = "f", group = "Byblos", dir = RTL, plate = Nothing, text =
+    , { id = "f (face b = recto)", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
-xxx
-sss
-sxss
-sxs
+xsxs
 s
-zxxxx
-zs
+xxxx
+s
         """
       }
-    , { id = "g", group = "Byblos", dir = RTL, plate = Nothing, text =
+    , { id = "f (face a = verso)", group = "BYBL", dir = LTR, plate = Nothing, text =
         """
-xzsa
-assza
+xxx
+xsxsss
+sxs
+        """
+      }
+    , { id = "g", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+xsa
+assa
 asssa
-asza
-asza
+asa
+asa
         """
       }
-    , { id = "h", group = "Byblos", dir = RTL, plate = Nothing, text =
+    , { id = "h", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
 axs
 ax
 ax
         """
       }
-    , { id = "i", group = "Byblos", dir = RTL, plate = Nothing, text =
+    , { id = "i", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
 sssssxx
 sxs
@@ -256,6 +260,229 @@ ax
 sss
 xsxxx
 ssss
+        """
+      }
+    , { id = "j", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+ax
+axxx
+a
+ax
+        """
+      }
+    , { id = "k", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+
+
+
+
+x
+        """
+      }
+    , { id = "l", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+a
+asx
+assx
+asss
+asx
+axs
+assxxsx
+asxx
+axxsxss
+axxxxxxxxx
+xxxxxxxxxxx
+sxxxssxsssx
+xxssxx
+        """
+      }
+    , { id = "m", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+aa
+axa
+aa
+        """
+      }
+    , { id = "n", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+aa
+sssxsa
+xxxa
+xssa
+sxsa
+        """
+      }
+    , { id = "o (recto)", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+sxxxxxssxsss
+xsxxxxxs
+xxxxxxxxs
+xsxxxxxs
+xxxxs
+        """
+      }
+    , { id = "o (verso) Var. 1", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+xa
+x
+
+aa
+        """
+      }
+    , { id = "o (verso) Var. 2", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+xxx
+xsxx
+sxx
+
+        """
+      }
+    , { id = "p", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+axxxxxxx
+axxxxxx
+axxxxxxxxx
+axxxxxxxxxxx
+axxxxxxxx
+axxxxxxxxxxxx
+axxxxxx
+        """
+      }
+    , { id = "q", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+x
+
+xxxx
+        """
+      }
+    , { id = "ra", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+
+        """
+      }
+    , { id = "rb (Var. 1)", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+
+        """
+      }
+    , { id = "rc (Var. 1)", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+s
+        """
+      }
+    , { id = "rb (Var. 2)", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+z
+        """
+      }
+    , { id = "rc (Var. 2) ", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+
+        """
+      }
+    , { id = "rb (Var. 3)", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+ 
+        """
+      }
+    , { id = "rc (Var. 3)", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+ 
+        """
+      }
+    , { id = "rd", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+
+        """
+      }
+    , { id = "s", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+xa
+        """
+      }
+    , { id = "t", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+xs
+        """
+      }
+    , { id = "u", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+xxxa
+xxxa
+xxa
+        """
+      }
+    , { id = "v", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+
+        """
+      }
+    , { id = "w", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+s
+        """
+      }
+    , { id = "x", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+
+        """
+      }
+    , { id = "y", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+
+
+ax
+a
+ax
+a
+        """
+      }
+    , { id = "z", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+
+        """
+      }
+    , { id = "a' (Var. 1)", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+xx
+s
+xxxs
+xxxxx
+xs
+        """
+      }
+    , { id = "a' (Var. 2)", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+xxx
+xxxx
+xx
+xxxxxx
+xxxxxxx
+        """
+      }
+    , { id = "b'a", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+sa
+        """
+      }
+    , { id = "b'b", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+a
+        """
+      }
+    , { id = "b'c", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+xa
+        """
+      }
+    , { id = "c'", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+s
+        """
+      }
+    , { id = "d'", group = "BYBL?", dir = RTL, plate = Nothing, text =
+        """
+
         """
       }
     ]
