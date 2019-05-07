@@ -12,7 +12,10 @@
 </body>
 
 <script type="text/javascript">
-Elm.Main.fullscreen();
+var app = Elm.Main.fullscreen();
+app.ports.htmltitle.subscribe(function(title) {
+    document.title = title;
+});
 </script>
 
 </html>

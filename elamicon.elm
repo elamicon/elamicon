@@ -1,3 +1,5 @@
+port module Main exposing(..)
+
 import Html exposing (..)
 import Html.Events exposing (on, onClick, onInput, targetValue)
 import Html.Attributes exposing (..)
@@ -21,12 +23,15 @@ import ScriptDefs exposing (..)
 import Scripts exposing (..)
 import WritingDirections exposing (..)
 
+
 main = Html.program
-    { init = (initialModel, Cmd.none)
+    { init = (initialModel, htmltitle (initialScript.headline))
     , view = view
     , update = update
     , subscriptions = \_ -> Sub.none
     }
+
+port htmltitle : String -> Cmd a
 
 type alias Pos = (String, Int, Int)
 type alias Model =
@@ -136,27 +141,28 @@ zeroWidthSpace = "​"
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
-    (case msg of
-        SetScript script -> updateScript script model
-        SetSandbox str -> { model | sandbox = str }
+    case msg of
+        SetScript script -> (updateScript script model, htmltitle script.headline)
+        SetSandbox str -> ({ model | sandbox = str }, Cmd.none)
         AddChar char ->
-            { model
-            | sandbox = model.sandbox ++ char
-            ,collapsed = Set.remove "playground" model.collapsed
-            }
-        Select pos -> { model | selected = Just pos }
-        SetBreaking breaking -> { model | fixedBreak = breaking }
-        SetNormalize normalize -> { model | normalize = normalize }
-        SetRemoveChars chars -> { model | removeChars = chars }
-        SetDir dir -> { model | dir = dir }
+            ({ model
+            |  sandbox = model.sandbox ++ char
+             , collapsed = Set.remove "playground" model.collapsed
+             }, Cmd.none)
+        Select pos -> ({ model | selected = Just pos }, Cmd.none)
+        SetBreaking breaking -> ({ model | fixedBreak = breaking }, Cmd.none)
+        SetNormalize normalize -> ({ model | normalize = normalize }, Cmd.none)
+        SetRemoveChars chars -> ({ model | removeChars = chars }, Cmd.none)
+        SetDir dir -> ({ model | dir = dir }, Cmd.none)
         ChooseSyllabary id ->
-            case List.head <| List.filter (.id >> (==) id) model.script.syllabaries of
+            ((case List.head <| List.filter (.id >> (==) id) model.script.syllabaries of
                 Just syl -> switchSyllabary syl model
                 Nothing -> model
-        SetSyllabary new -> setSyllabary new model
+             ), Cmd.none)
+        SetSyllabary new -> (setSyllabary new model, Cmd.none)
         SetSyllableMap new ->
-            { model | syllableMap = new, syllabizer = Scripts.syllabizer new }
-        SetSyllabize syllabize -> { model | syllabize = syllabize }
+            ({ model | syllableMap = new, syllabizer = Scripts.syllabizer new }, Cmd.none)
+        SetSyllabize syllabize -> ({ model | syllabize = syllabize }, Cmd.none)
 
         SetSearch new ->
             let
@@ -165,23 +171,21 @@ update msg model =
                 unwanted = Regex.regex ("[\\s"++zeroWidthSpace++"]")
                 cleanSearch =  Regex.replace Regex.All unwanted (\_ -> "") new
             in
-                { model | search = cleanSearch, showAllResults = False }
+                ({ model | search = cleanSearch, showAllResults = False }, Cmd.none)
 
-        ShowAllResults -> { model | showAllResults = True }
+        ShowAllResults -> ({ model | showAllResults = True }, Cmd.none)
         BidirectionalSearch new ->
-            { model | bidirectionalSearch = new }
+            ({ model | bidirectionalSearch = new }, Cmd.none)
         SelectGroup group include ->
-            { model | selectedGroups = (if include then Set.insert else Set.remove) group model.selectedGroups
-            }
+            ({ model | selectedGroups = (if include then Set.insert else Set.remove) group model.selectedGroups
+            }, Cmd.none)
         Toggle section ->
-            { model | collapsed =
+            ({ model | collapsed =
                 (if Set.member section model.collapsed
                 then Set.remove else Set.insert)
                     section
                     model.collapsed
-            }
-    , Cmd.none
-    )
+            }, Cmd.none)
 
 dirStr dir = case dir of
     RTL -> "RTL"
