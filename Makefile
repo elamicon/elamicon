@@ -58,8 +58,12 @@ fonts/CypriconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.
 fonts/Cypricon-Fonts.zip: $(CFONTS)
 		cd fonts && zip -r Cypricon-Fonts.zip CypriconLiberation*.ttf
 
-fonts/byblos-scaled.ttf:
-	bin/scale_font fonts/original/byblos.svg 2 "$@"
+fonts/byblos-fixed.svg: fonts/original/byblos.svg
+	cp $^ "$@"
+	bin/fix_glyph_names "$@"
+
+fonts/byblos-scaled.ttf: fonts/byblos-fixed.svg
+	bin/scale_font $^ 2 "$@"
 	bin/set_bearing "$@" 200 
 
 fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
