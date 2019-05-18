@@ -367,12 +367,21 @@ h1, h2, .fragment {
 .fragment {
     font-size: 200%;
     margin-top: 0;
+    padding-top: 0;
     padding-left: 0.1em;
     padding-right: 0.1em;
 }
 
 .fragment[dir=RTL] {
     text-align: right;
+}
+
+.fragment.tdr {
+    margin: 0;
+    margin-top: 1ex; /* for the column counter*/
+    text-align: left;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
 }
 
 .plate .img {
@@ -426,9 +435,17 @@ h1, h2, .fragment {
     position: absolute;
 }
 
+.tdr .guessmark {
+    margin-top: -1em; /* HACK to overlay it on the glyph above*/
+}
+
 .fixedBreak .line {
     display: block;
     padding: 0;
+}
+
+.fixedBreak .fragment.tdr .line {
+    position: relative; /* column counter above */
 }
 
 /* custom line counter */
@@ -450,6 +467,13 @@ h1, h2, .fragment {
     right: -4.5em;
 }
 
+.fixedBreak .fragment.tdr .line:before {
+    writing-mode: horizontal-tb;
+    text-align: center;
+    top: -5ex;
+    right: 0;
+    left: 0;
+}
 
 h2 {
     clear: both;

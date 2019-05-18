@@ -593,6 +593,18 @@ view model =
                     then [ class "guessmark" ]
                     else []
 
+                -- Depending on the tablet's writing direction and the chosen
+                -- normalization of writing direction, we set dir = LTR or RTL.
+                -- For fragments written top-down we use the "tdr" class and
+                -- set writing-mode in CSS.
+                fragmentAttrs =
+                    [ classList
+                        [ ("fragment", True)
+                        , ("tdr", effectiveDir fragment.dir == TDR) 
+                        ]
+                    , dirAttr fragment.dir
+                    ]
+
                 -- Fold helper building a list element from a text line
                 -- The tricky bit here is to keep indexed character position so
                 -- we can track highlighted searches which may span across
@@ -632,12 +644,12 @@ view model =
             in
                 div [ classList [ ("plate", True), ("fixedBreak", model.fixedBreak), (model.script.id, True) ], dirAttr fragment.dir ]
                     [ h3 [] 
-                        ([ span [ dir "LTR" ]
+                        ([ span [ dir "LTR" ] -- labels are always written LTR
                             [ sup [ class "group" ] [ text fragment.group ]
                             , text fragment.id
                             ]
                         ] ++ thumb)
-                    , ol [ class "fragment", dirAttr fragment.dir ] lines
+                    , ol fragmentAttrs lines
                     ]
 
         contact = div [ class "footer" ]

@@ -354,37 +354,37 @@ axxxxxx
 xxxx
         """
       }
-    , { id = "ra", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "ra", group = "BYBL", dir = TDR, plate = Nothing, text =
         """
 
         """
       }
-    , { id = "rb (Var. 1)", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "rb (Var. 1)", group = "BYBL", dir = TDR, plate = Nothing, text =
         """
 
         """
       }
-    , { id = "rb (Var. 2)", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "rb (Var. 2)", group = "BYBL", dir = TDR, plate = Nothing, text =
         """
 z
         """
       }
-    , { id = "rb (Var. 3)", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "rb (Var. 3)", group = "BYBL", dir = TDR, plate = Nothing, text =
         """
  
         """
       }
-    , { id = "rc (Var. 1)", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "rc (Var. 1)", group = "BYBL", dir = TDR, plate = Nothing, text =
         """
 s
         """
       }
-    , { id = "rc (Var. 2) ", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "rc (Var. 2) ", group = "BYBL", dir = TDR, plate = Nothing, text =
         """
 
         """
       }
-    , { id = "rc (Var. 3)", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "rc (Var. 3)", group = "BYBL", dir = TDR, plate = Nothing, text =
         """
 
         """
@@ -421,12 +421,12 @@ xxxa
 s
         """
       }
-    , { id = "x", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "x", group = "BYBL?", dir = TDR, plate = Nothing, text =
         """
 
         """
       }
-    , { id = "y", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "y", group = "BYBL?", dir = TDR, plate = Nothing, text =
         """
 
 

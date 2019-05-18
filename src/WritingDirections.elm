@@ -10,3 +10,4 @@ type Dir
     | LTR       -- assumed to be written left-to-right
     | RTL       -- assumed to be written right-to-left
     | BoustroR  -- assumed to be written boustrophedon, first line right-to-left
+    | TDR       -- assumed to be written top-down, first column right
