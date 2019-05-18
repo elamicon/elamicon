@@ -428,24 +428,26 @@ h1, h2, .fragment {
 
 .fixedBreak .line {
     display: block;
+    padding: 0;
 }
 
 /* custom line counter */
 .fixedBreak .line:before {
     content: counter(lines, upper-roman);
     position: absolute;
-    font-size: 50%;
+    font-size: 30%;
     user-select: none;
+    width: 4em;
 }
 
 .fixedBreak .fragment[dir=LTR] .line:before {
     text-align: right;
-    left: -2em;
+    left: -4.5em;
 }
 
 .fixedBreak .fragment[dir=RTL] .line:before {
     text-align: left;
-    right: -2em;
+    right: -4.5em;
 }
 
 
