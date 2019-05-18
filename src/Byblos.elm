@@ -339,12 +339,12 @@ aa
     , { id = "p", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
 axxxxxxx
-axxxxxx
-axxxxxxxxx
+axxxxxx
+axxxxxxxxx
 axxxxxxxxxxx
 axxxxxxxx
-axxxxxxxxxxxx
-axxxxxx
+axxxxxxxxxxxx
+axxxxxx
         """
       }
     , { id = "q", group = "BYBL", dir = RTL, plate = Nothing, text =
