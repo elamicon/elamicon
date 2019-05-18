@@ -129,7 +129,7 @@ fragments = List.map  (\f -> { f | text = String.trim f.text |> replaceGuessmark
 sxsssa
 sxxxxssssss
 ssssss
-s
+s
 xx
 xx
 
@@ -156,13 +156,13 @@ xx
 
 
 
-
+
 xxx
 
 sx
-x
+
 sxxxxxx
-xxa   a
+xxxxxxa   a
         """
       }
     , { id = "d", group = "BYBL", dir = RTL, plate = Nothing, text =
@@ -172,9 +172,9 @@ xxa   a
 ss
 
 
-
+
 x
-xs
+xsx
 xss
 xsx
 xssss
@@ -198,7 +198,7 @@ xxxs
 
 x
 
-
+
 
 x
 
@@ -214,7 +214,7 @@ xxxx
         """
 a
 
-
+
         """
       }
     , { id = "f (face b = recto)", group = "BYBL", dir = RTL, plate = Nothing, text =
@@ -254,10 +254,10 @@ ax
 sxs
 ss
 xsssx
-ss
+xss
 ssss
 sss
-xsxxx
+xsxxxx
 ssss
         """
       }
@@ -266,7 +266,7 @@ xsxxx
 ax
 axxx
 a
-ax
+ax
         """
       }
     , { id = "k", group = "BYBL", dir = RTL, plate = Nothing, text =
@@ -292,7 +292,7 @@ axxsxss
 axxxxxxxxx
 xxxxxxxxxxx
 sxxxssxsssx
-xxssxx
+xxssxx
         """
       }
     , { id = "m", group = "BYBL", dir = RTL, plate = Nothing, text =
@@ -343,8 +343,8 @@ axxxxxx
 axxxxxxxxx
 axxxxxxxxxxx
 axxxxxxxx
-axxxxxxxxxxxx
-axxxxxx
+axxxxxxxxxxxx
+axxxxxx
         """
       }
     , { id = "q", group = "BYBL", dir = RTL, plate = Nothing, text =
@@ -364,19 +364,9 @@ xxxx
 
         """
       }
-    , { id = "rc (Var. 1)", group = "BYBL", dir = RTL, plate = Nothing, text =
-        """
-s
-        """
-      }
     , { id = "rb (Var. 2)", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
 z
-        """
-      }
-    , { id = "rc (Var. 2) ", group = "BYBL", dir = RTL, plate = Nothing, text =
-        """
-
         """
       }
     , { id = "rb (Var. 3)", group = "BYBL", dir = RTL, plate = Nothing, text =
@@ -384,9 +374,19 @@ z
  
         """
       }
+    , { id = "rc (Var. 1)", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+s
+        """
+      }
+    , { id = "rc (Var. 2) ", group = "BYBL", dir = RTL, plate = Nothing, text =
+        """
+
+        """
+      }
     , { id = "rc (Var. 3)", group = "BYBL", dir = RTL, plate = Nothing, text =
         """
- 
+
         """
       }
     , { id = "rd", group = "BYBL", dir = RTL, plate = Nothing, text =
@@ -461,12 +461,12 @@ xxxxxxx
       }
     , { id = "b'a", group = "BYBL?", dir = RTL, plate = Nothing, text =
         """
-sa
+as
         """
       }
     , { id = "b'b", group = "BYBL?", dir = RTL, plate = Nothing, text =
         """
-a
+aa
         """
       }
     , { id = "b'c", group = "BYBL?", dir = RTL, plate = Nothing, text =
@@ -476,7 +476,7 @@ a
       }
     , { id = "c'", group = "BYBL?", dir = RTL, plate = Nothing, text =
         """
-s
+s
         """
       }
     , { id = "d'", group = "BYBL?", dir = RTL, plate = Nothing, text =
