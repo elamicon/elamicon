@@ -8,7 +8,7 @@ all: build/elamicon.zip
 
 elms := $(wildcard *.elm src/*.elm)
 elamicon.js: $(elms)
-	elm-make elamicon.elm --output elamicon.js
+	elm make elamicon.elm --output="$@"
 
 fonts/ElamiconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf  fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"

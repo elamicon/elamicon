@@ -1,15 +1,15 @@
 module Elam exposing (elam)
 
-import Dict
-import String
-import List
-import Set
-import Regex
-
 import AstralString
-
-import WritingDirections exposing (..)
+import Dict
+import List
+import Regex
 import ScriptDefs exposing (..)
+import Set
+import String
+import WritingDirections exposing (..)
+
+
 
 -- List of letters found in Linear-Elam writings
 --
@@ -47,7 +47,10 @@ guessMarkers = ""
 
 -- Turn all guessmarkers in the writing direction so they don't overlap on
 -- the wrong character
-guessMarkDir dir = Regex.replace Regex.All (Regex.regex "[]") (\_ -> if dir == LTR then "" else "")
+guessMarkDir dir =
+    case dir of
+        LTR -> \s -> String.split "" s |> String.join ""
+        _ -> \s -> String.split "" s |> String.join ""
 
 -- Unreadable signs are represented by this special character
 missingChar = ""

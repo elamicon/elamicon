@@ -25,14 +25,10 @@ guessMarkerL = ""
 guessMarkerR = ""
 guessMarkers = guessMarkerL ++ guessMarkerR
 
-guessMarkDir dir = 
-    let
-        guessMarkerMatch = Regex.regex ("["++guessMarkers++"]")
-        replacement = case dir of
-                        LTR -> guessMarkerL
-                        _ -> guessMarkerR
-    in
-        Regex.replace Regex.All guessMarkerMatch (\_ -> replacement)
+guessMarkDir dir =
+    case dir of
+        LTR -> \s -> String.split guessMarkerR s |> String.join guessMarkerL
+        _ -> \s -> String.split guessMarkerL s |> String.join guessMarkerR
 
 ignoreChars = Set.fromList <| List.map .char specialChars ++ [ guessMarkerL, guessMarkerR ]
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
