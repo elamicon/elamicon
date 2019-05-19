@@ -102,7 +102,7 @@ live: $(MFONTS)
 build/elamicon.zip: elamicon.js index.html css/main.css $(EFONTS) $(BFONTS)
 	mkdir -p build
 	rm -f "$@"
-	zip -r "$@" $^ fonts/*Liberation*.ttf
+	zip -rq "$@" $^ fonts/*Liberation*.ttf
 
 Times: fonts/Elamicon_Times_New_Roman.zip
 
