@@ -168,7 +168,10 @@ update msg model =
             let
                 -- When copying strings from the fragments into the search field, irrelevant whitespace
                 -- and markers might get copied as well, we remove those from the search pattern.
-                unwanted = Regex.regex ("[\\s"++zeroWidthSpace++"]")
+                unwanted = Regex.regex ("[\\s"
+                                        ++ zeroWidthSpace
+                                        ++ model.script.guessMarkers
+                                        ++ "]")
                 cleanSearch =  Regex.replace Regex.All unwanted (\_ -> "") new
             in
                 ({ model | search = cleanSearch, showAllResults = False }, Cmd.none)
