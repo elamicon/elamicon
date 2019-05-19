@@ -7,8 +7,13 @@ TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 all: build/elamicon.zip
 
 elms := $(wildcard *.elm src/*.elm)
-elamicon.js: $(elms)
-	elm make elamicon.elm --output="$@"
+
+dev: $(elms)
+	elm make --output=elamicon.js elamicon.elm
+
+elamicon.min.js: $(elms)
+	elm make --optimize --output=elamicon.opt.js elamicon.elm
+	uglifyjs elamicon.opt.js --compress "pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe" | uglifyjs --mangle --output="$@"
 
 fonts/ElamiconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf  fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon" $^ "$@"
@@ -91,7 +96,7 @@ fonts/Byblicon-Fonts.zip: $(BFONTS)
 		cd fonts && zip -r Byblicon-Fonts.zip BybliconLiberation*.ttf
 
 clean:
-	rm -f elamicon.js
+	rm -f elamicon*.js
 	rm -f fonts/*.ttf
 	rm -f fonts/*.zip
 	rm -rf build
@@ -99,7 +104,7 @@ clean:
 live: $(MFONTS)
 	elm-live elamicon.elm --output elamicon.js --open
 
-build/elamicon.zip: elamicon.js index.html css/main.css $(EFONTS) $(BFONTS)
+build/elamicon.zip: elamicon.min.js index.html css/main.css $(EFONTS) $(BFONTS)
 	mkdir -p build
 	rm -f "$@"
 	zip -rq "$@" $^ fonts/*Liberation*.ttf
