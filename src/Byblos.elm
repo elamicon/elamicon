@@ -228,7 +228,7 @@ xsxsss
 sxs
         """
       }
-    , { id = "g", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "g", group = "BYBL", dir = TDR, plate = Nothing, text =
         """
 xsa
 assa
@@ -357,7 +357,7 @@ xxxx
       }
     , { id = "rb (Var. 1)", group = "BYBL", dir = TDR, plate = Nothing, text =
         """
-
+
         """
       }
     , { id = "rb (Var. 2)", group = "BYBL", dir = TDR, plate = Nothing, text =
