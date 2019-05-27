@@ -25,10 +25,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.69665275"
-     inkscape:cx="465.4743"
+     inkscape:cx="523.62285"
      inkscape:cy="442.67027"
      inkscape:document-units="px"
-     inkscape:current-layer="layer165"
+     inkscape:current-layer="layer217"
      showgrid="false"
      showguides="true"
      inkscape:window-width="1680"
@@ -1034,7 +1034,8 @@
       <glyph
          glyph-name="U I 6   das K menschlich"
          id="glyph1901"
-         unicode="" />
+         unicode=""
+         d="M 626.04297,639.83984 V 434.74805 c -68.55963,26.56941 -110.86826,51.88025 -139.75781,77.51562 -38.37394,34.05142 -56.62676,70.86117 -82.81641,124.91992 l -71.99609,-34.8789 C 357.76718,548.02946 382.46343,497.43446 433.18555,452.42578 476.1507,414.30031 535.26623,381.75166 626.04297,349.38477 V 239.89258 C 537.71082,235.83137 471.35234,214.8726 424.13281,176.11328 369.97334,131.65742 347.23038,65.98282 344.72266,-3.2207 l 79.94726,-2.89844 c 1.98626,54.81319 16.52627,92.73899 50.2207,120.39648 28.88093,23.70641 76.45284,41.46764 151.15235,45.48438 V -4.66992 h 80 v 644.50976 z" />
       <glyph
          glyph-name="X I 2   Navigation"
          id="glyph1672"
@@ -1280,6 +1281,11 @@
          id="glyph1731"
          unicode=""
          d="m 478,669.61133 c -7.42357,-0.0328 -15.00207,-0.56418 -22.71484,-1.63281 l -0.54688,-0.0762 -0.54687,-0.0898 C 348.73724,650.21855 287.76685,570.6773 261.25586,481.13086 234.74487,391.58442 234.58903,288.37575 237.05273,196.65234 l 79.97266,2.14844 c -2.40619,89.58209 -0.65445,186.68118 20.93945,259.61914 21.53371,72.73464 54.75948,117.79006 128.79102,130.36133 43.72106,5.93699 61.61424,-6.71201 81.50391,-39.47852 19.9696,-32.89819 33.16198,-89.02036 38.60156,-152.22851 10.87915,-126.4163 -5.92294,-275.87737 -5.31641,-351.82227 l 79.99805,0.63867 c -0.49303,61.73235 16.94236,219.54449 5.02344,358.04297 -5.95946,69.24924 -18.42542,134.99638 -49.91993,186.88086 -27.55769,45.39892 -76.44321,77.90828 -135.4746,78.78125 -1.05414,0.0156 -2.11137,0.0203 -3.17188,0.0156 z M 64.814453,537.98242 C 60.4444,421.00976 57.887519,286.4449 81.392578,174.45703 93.145108,118.4631 111.28467,67.47706 142.60938,27.125 c 31.3247,-40.35206 78.47428,-68.4536 134.98632,-71.72852 l 1.64649,-0.09375 1.65039,0.03907 c 52.00993,1.27744 96.92606,26.72162 128.07617,63.87109 31.15011,37.14947 51.28696,84.91933 65.7832,138.42578 28.9925,107.0129 34.93293,238.95931 33.19532,360.75977 l -79.99219,-1.14063 C 429.64045,399.11956 422.80001,271.81258 397.53516,178.55859 384.90273,131.9316 367.54286,94.31598 347.66797,70.61328 328.17828,47.36997 308.86191,36.5266 280.56055,35.43555 246.68797,37.78803 225.47536,50.83767 205.80273,76.17969 185.79665,101.95117 169.95155,141.98845 159.6875,190.89062 139.15941,288.695 140.44162,419.41293 144.75977,534.99609 Z" />
+      <glyph
+         glyph-name="Rb I 1   Götterzeichen auf Siegel"
+         id="glyph1690"
+         unicode=""
+         d="m 511.52539,379.24219 c -3.32567,-0.009 -6.66585,-0.0433 -10.01953,-0.10352 -83.46948,-1.49785 -175.71703,-19.06291 -281.73242,-59.32812 l 28.40429,-74.78711 c 51.44821,19.5403 98.28527,33.3867 141.69532,42.42578 v -79.98047 h 80 v 91.68555 c 25.99851,2.08953 50.82473,2.317 74.81836,0.9375 v -89.75196 h 80 v 78.95899 c 45.96712,-9.73725 90.04089,-25.01972 135.04101,-43.79688 l 30.80664,73.83008 c -86.12868,35.93882 -175.91792,60.18099 -279.01367,59.91016 z" />
     </font>
     <filter
        inkscape:collect="always"
@@ -1343,12 +1349,25 @@
   </metadata>
   <g
      inkscape:groupmode="layer"
-     id="layer165"
-     inkscape:label="G' = Jordan G'a I 3   Ineinander">
+     id="layer169"
+     inkscape:label="Rb I 1   Götterzeichen auf Siegel"
+     style="display:none">
     <path
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="M 478 77.388672 C 470.57643 77.421469 462.99793 77.95285 455.28516 79.021484 L 454.73828 79.097656 L 454.19141 79.1875 C 348.73724 96.781452 287.76685 176.3227 261.25586 265.86914 C 234.74487 355.41558 234.58903 458.62425 237.05273 550.34766 L 317.02539 548.19922 C 314.6192 458.61713 316.37094 361.51804 337.96484 288.58008 C 359.49855 215.84544 392.72432 170.79002 466.75586 158.21875 C 510.47692 152.28176 528.3701 164.93076 548.25977 197.69727 C 568.22937 230.59546 581.42175 286.71763 586.86133 349.92578 C 597.74048 476.34208 580.93839 625.80315 581.54492 701.74805 L 661.54297 701.10938 C 661.04994 639.37703 678.48533 481.56489 666.56641 343.06641 C 660.60695 273.81717 648.14099 208.07003 616.64648 156.18555 C 589.08879 110.78663 540.20327 78.277272 481.17188 77.404297 C 480.11774 77.388708 479.06051 77.383987 478 77.388672 z M 64.814453 209.01758 C 60.4444 325.99024 57.887519 460.5551 81.392578 572.54297 C 93.145108 628.5369 111.28467 679.52294 142.60938 719.875 C 173.93408 760.22706 221.08366 788.3286 277.5957 791.60352 L 279.24219 791.69727 L 280.89258 791.6582 C 332.90251 790.38076 377.81864 764.93658 408.96875 727.78711 C 440.11886 690.63764 460.25571 642.86778 474.75195 589.36133 C 503.74445 482.34843 509.68488 350.40202 507.94727 228.60156 L 427.95508 229.74219 C 429.64045 347.88044 422.80001 475.18742 397.53516 568.44141 C 384.90273 615.0684 367.54286 652.68402 347.66797 676.38672 C 328.17828 699.63003 308.86191 710.4734 280.56055 711.56445 C 246.68797 709.21197 225.47536 696.16233 205.80273 670.82031 C 185.79665 645.04883 169.95155 605.01155 159.6875 556.10938 C 139.15941 458.305 140.44162 327.58707 144.75977 212.00391 L 64.814453 209.01758 z "
-       id="path1733" />
+       d="m 511.52539,367.75781 c -3.32567,0.009 -6.66585,0.0433 -10.01953,0.10352 -83.46948,1.49785 -175.71703,19.06291 -281.73242,59.32812 l 28.40429,74.78711 c 51.44821,-19.5403 98.28527,-33.3867 141.69532,-42.42578 v 79.98047 h 80 V 447.8457 c 25.99851,-2.08953 50.82473,-2.317 74.81836,-0.9375 v 89.75196 h 80 v -78.95899 c 45.96712,9.73725 90.04089,25.01972 135.04101,43.79688 l 30.80664,-73.83008 C 704.41038,391.72915 614.62114,367.48698 511.52539,367.75781 Z"
+       id="path1682"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer165"
+     inkscape:label="G' = Jordan G'a I 3   Ineinander"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 478,77.388672 c -7.42357,0.0328 -15.00207,0.564178 -22.71484,1.632812 l -0.54688,0.07617 -0.54687,0.08984 C 348.73724,96.781452 287.76685,176.3227 261.25586,265.86914 234.74487,355.41558 234.58903,458.62425 237.05273,550.34766 l 79.97266,-2.14844 c -2.40619,-89.58209 -0.65445,-186.68118 20.93945,-259.61914 21.53371,-72.73464 54.75948,-117.79006 128.79102,-130.36133 43.72106,-5.93699 61.61424,6.71201 81.50391,39.47852 19.9696,32.89819 33.16198,89.02036 38.60156,152.22851 10.87915,126.4163 -5.92294,275.87737 -5.31641,351.82227 l 79.99805,-0.63867 C 661.04994,639.37703 678.48533,481.56489 666.56641,343.06641 660.60695,273.81717 648.14099,208.07003 616.64648,156.18555 589.08879,110.78663 540.20327,78.277272 481.17188,77.404297 480.11774,77.388708 479.06051,77.383987 478,77.388672 Z M 64.814453,209.01758 C 60.4444,325.99024 57.887519,460.5551 81.392578,572.54297 93.145108,628.5369 111.28467,679.52294 142.60938,719.875 c 31.3247,40.35206 78.47428,68.4536 134.98632,71.72852 l 1.64649,0.0937 1.65039,-0.0391 c 52.00993,-1.27744 96.92606,-26.72162 128.07617,-63.87109 31.15011,-37.14947 51.28696,-84.91933 65.7832,-138.42578 28.9925,-107.0129 34.93293,-238.95931 33.19532,-360.75977 l -79.99219,1.14063 c 1.68537,118.13825 -5.15507,245.44523 -30.41992,338.69922 -12.63243,46.62699 -29.9923,84.24261 -49.86719,107.94531 -19.48969,23.24331 -38.80606,34.08668 -67.10742,35.17773 -33.87258,-2.35248 -55.08519,-15.40212 -74.75782,-40.74414 C 185.79665,645.04883 169.95155,605.01155 159.6875,556.10938 139.15941,458.305 140.44162,327.58707 144.75977,212.00391 Z"
+       id="path1733"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1825,7 +1844,12 @@
      inkscape:groupmode="layer"
      id="layer217"
      inkscape:label="U I 6   das K menschlich"
-     style="display:none" />
+     style="display:inline">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 626.04297 107.16016 L 626.04297 312.25195 C 557.48334 285.68254 515.17471 260.3717 486.28516 234.73633 C 447.91122 200.68491 429.6584 163.87516 403.46875 109.81641 L 331.47266 144.69531 C 357.76718 198.97054 382.46343 249.56554 433.18555 294.57422 C 476.1507 332.69969 535.26623 365.24834 626.04297 397.61523 L 626.04297 507.10742 C 537.71082 511.16863 471.35234 532.1274 424.13281 570.88672 C 369.97334 615.34258 347.23038 681.01718 344.72266 750.2207 L 424.66992 753.11914 C 426.65618 698.30595 441.19619 660.38015 474.89062 632.72266 C 503.77155 609.01625 551.34346 591.25502 626.04297 587.23828 L 626.04297 751.66992 L 706.04297 751.66992 L 706.04297 107.16016 L 626.04297 107.16016 z "
+       id="path1699" />
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer216"

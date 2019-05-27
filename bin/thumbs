@@ -1,4 +1,7 @@
 #!/bin/sh
-for t in plates/*/*.jpg;
+full_imgs=plates/*/*.jpg
+jpegoptim --strip-all --all-progressive $full_imgs
+
+for t in $full_imgs;
 do convert -resize x200 "$t" "jpeg:$t.thumb"
 done

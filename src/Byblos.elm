@@ -143,7 +143,7 @@ replaceFracture = \s -> String.split "a" s |> String.join ""
 
 fragments : List FragmentDef
 fragments = List.map  (\f -> { f | text = String.trim f.text |> replaceGuessmark |> replaceFracture })
-    [ { id = "a", group = "BYBL", dir = RTL, plate = Nothing, text =
+    [ { id = "a", group = "BYBL", dir = RTL, plate = Just "plates/byblos/a.jpg", text =
         """
 xa
 sa
@@ -157,7 +157,7 @@ xx
 
         """
       }
-    , { id = "b", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "b", group = "BYBL", dir = RTL, plate = Just "plates/byblos/b.jpg", text =
         """
 s
 
@@ -168,7 +168,7 @@ xx
 
         """
       }
-    , { id = "c", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "c", group = "BYBL", dir = RTL, plate = Just "plates/byblos/c.jpg", text =
         """
 sx
 x
@@ -187,7 +187,7 @@ xx
 xxxxxxa   a
         """
       }
-    , { id = "d", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "d", group = "BYBL", dir = RTL, plate = Just "plates/byblos/d.jpg", text =
         """
 
 
@@ -232,14 +232,14 @@ xxxx
 
         """
       }
-    , { id = "e", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "e", group = "BYBL", dir = RTL, plate = Just "plates/byblos/e.jpg", text =
         """
 a
 
 
         """
       }
-    , { id = "f (face b = recto)", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "f (face b = recto)", group = "BYBL", dir = RTL, plate = Just "plates/byblos/f.jpg", text =
         """
 xsxs
 s
@@ -247,14 +247,14 @@ xsxs
 s
         """
       }
-    , { id = "f (face a = verso)", group = "BYBL", dir = LTR, plate = Nothing, text =
+    , { id = "f (face a = verso)", group = "BYBL", dir = LTR, plate = Just "plates/byblos/f.jpg", text =
         """
 xxx
 xsxsss
 sxs
         """
       }
-    , { id = "g", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "g", group = "BYBL", dir = TDR, plate = Just "plates/byblos/g.jpg", text =
         """
 xsa
 assa
@@ -263,14 +263,14 @@ asa
 asa
         """
       }
-    , { id = "h", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "h", group = "BYBL", dir = RTL, plate = Just "plates/byblos/h.jpg", text =
         """
 axs
 ax
 ax
         """
       }
-    , { id = "i", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "i", group = "BYBL", dir = RTL, plate = Just "plates/byblos/i.jpg", text =
         """
 sssssxx
 sxs
@@ -283,7 +283,7 @@ xsxxxx
 ssss
         """
       }
-    , { id = "j", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "j", group = "BYBL", dir = RTL, plate = Just "plates/byblos/j.jpg", text =
         """
 ax
 axxx
@@ -291,7 +291,7 @@ a
 ax
         """
       }
-    , { id = "k", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "k", group = "BYBL", dir = RTL, plate = Just "plates/byblos/k.jpg", text =
         """
 
 
@@ -300,7 +300,7 @@ ax
 x
         """
       }
-    , { id = "l", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "l", group = "BYBL", dir = RTL, plate = Just "plates/byblos/l.jpg", text =
         """
 a
 asx
@@ -317,14 +317,14 @@ xxxxxxxxxxx
 xxssxx
         """
       }
-    , { id = "m", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "m", group = "BYBL", dir = RTL, plate = Just "plates/byblos/m.jpg", text =
         """
 aa
 axa
 aa
         """
       }
-    , { id = "n", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "n", group = "BYBL", dir = RTL, plate = Just "plates/byblos/n.jpg", text =
         """
 aa
 sssxsa
@@ -333,7 +333,7 @@ xssa
 sxsa
         """
       }
-    , { id = "o (recto)", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "o (recto)", group = "BYBL", dir = RTL, plate = Just "plates/byblos/o_recto.jpg", text =
         """
 sxxxxxssxsss
 xsxxxxxs
@@ -342,7 +342,7 @@ xsxxxxxs
 xxxxs
         """
       }
-    , { id = "o (verso) Var. 1", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "o (verso) Var. 1", group = "BYBL", dir = RTL, plate = Just "plates/byblos/o_verso.jpg", text =
         """
 xa
 x
@@ -350,7 +350,7 @@ xxxxs
 aa
         """
       }
-    , { id = "o (verso) Var. 2", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "o (verso) Var. 2", group = "BYBL", dir = RTL, plate = Just "plates/byblos/o_verso.jpg", text =
         """
 xxx
 xsxx
@@ -358,7 +358,7 @@ aa
 
         """
       }
-    , { id = "p", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "p", group = "BYBL", dir = RTL, plate = Just "plates/byblos/p.jpg", text =
         """
 axxxxxxx
 axxxxxx
@@ -369,86 +369,86 @@ axxxxxxxxxxxx
 axxxxxx
         """
       }
-    , { id = "q", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "q", group = "BYBL", dir = RTL, plate = Just "plates/byblos/q.jpg", text =
         """
 x
 
 xxxx
         """
       }
-    , { id = "ra", group = "BYBL", dir = TDR, plate = Nothing, text =
+    , { id = "ra", group = "BYBL", dir = TDR, plate = Just "plates/byblos/r.jpg", text =
         """
 
         """
       }
-    , { id = "rb (Var. 1)", group = "BYBL", dir = TDR, plate = Nothing, text =
+    , { id = "rb (Var. 1)", group = "BYBL", dir = TDR, plate = Just "plates/byblos/r.jpg", text =
         """
-
+
         """
       }
-    , { id = "rb (Var. 2)", group = "BYBL", dir = TDR, plate = Nothing, text =
+    , { id = "rb (Var. 2)", group = "BYBL", dir = TDR, plate = Just "plates/byblos/r.jpg", text =
         """
 z
         """
       }
-    , { id = "rb (Var. 3)", group = "BYBL", dir = TDR, plate = Nothing, text =
+    , { id = "rb (Var. 3)", group = "BYBL", dir = TDR, plate = Just "plates/byblos/r.jpg", text =
         """
 
         """
       }
-    , { id = "rc (Var. 1)", group = "BYBL", dir = TDR, plate = Nothing, text =
+    , { id = "rc (Var. 1)", group = "BYBL", dir = TDR, plate = Just "plates/byblos/r.jpg", text =
         """
 s
         """
       }
-    , { id = "rc (Var. 2) ", group = "BYBL", dir = TDR, plate = Nothing, text =
+    , { id = "rc (Var. 2) ", group = "BYBL", dir = TDR, plate = Just "plates/byblos/r.jpg", text =
         """
 
         """
       }
-    , { id = "rc (Var. 3)", group = "BYBL", dir = TDR, plate = Nothing, text =
+    , { id = "rc (Var. 3)", group = "BYBL", dir = TDR, plate = Just "plates/byblos/r.jpg", text =
         """
 
         """
       }
-    , { id = "rd", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "rd", group = "BYBL", dir = RTL, plate = Just "plates/byblos/r.jpg", text =
         """
 
         """
       }
-    , { id = "s", group = "BYBL", dir = RTL, plate = Nothing, text =
+    , { id = "s", group = "BYBL", dir = RTL, plate = Just "plates/byblos/s.jpg", text =
         """
 xa
         """
       }
-    , { id = "t", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "t", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/t.jpg", text =
         """
 xs
         """
       }
-    , { id = "u", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "u", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/u.jpg", text =
         """
 xxxa
 xxxa
 xxa
         """
       }
-    , { id = "v", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "v", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/v.jpg", text =
         """
 
         """
       }
-    , { id = "w", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "w", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/w.jpg", text =
         """
 s
         """
       }
-    , { id = "x", group = "BYBL?", dir = TDR, plate = Nothing, text =
+    , { id = "x", group = "BYBL?", dir = TDR, plate = Just "plates/byblos/x.jpg", text =
         """
 
         """
       }
-    , { id = "y", group = "BYBL?", dir = TDR, plate = Nothing, text =
+    , { id = "y", group = "BYBL?", dir = TDR, plate = Just "plates/byblos/y.jpg", text =
         """
 
 
@@ -458,12 +458,12 @@ ax
 a
         """
       }
-    , { id = "z", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "z", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z.jpg", text =
         """
 
         """
       }
-    , { id = "a' (Var. 1)", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "a' (Var. 1)", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z_a.jpg", text =
         """
 xx
 s
@@ -472,7 +472,7 @@ xx
 xs
         """
       }
-    , { id = "a' (Var. 2)", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "a' (Var. 2)", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z_a.jpg", text =
         """
 xxx
 xxxx
@@ -481,27 +481,27 @@ xxxxxx
 xxxxxxx
         """
       }
-    , { id = "b'a", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "b'a", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z_b.jpg", text =
         """
 as
         """
       }
-    , { id = "b'b", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "b'b", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z_b.jpg", text =
         """
 aa
         """
       }
-    , { id = "b'c", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "b'c", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z_c.jpg", text =
         """
 xa
         """
       }
-    , { id = "c'", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "c'", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z_c.jpg", text =
         """
 s
         """
       }
-    , { id = "d'", group = "BYBL?", dir = RTL, plate = Nothing, text =
+    , { id = "d'", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z_d.jpg", text =
         """
 
         """
