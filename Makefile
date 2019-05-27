@@ -39,29 +39,7 @@ fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.
 fonts/Elamicon-Fonts.zip: $(EFONTS) $(MFONTS)
 	cd fonts && zip -rq Elamicon-Fonts.zip ElamiconLiberation*.ttf
 
-fonts/CypriconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf
-		bin/addfont "Cypricon" $^ "$@"
 
-fonts/CypriconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf 
-		bin/addfont "Cypricon" $^ "$@"
-
-fonts/CypriconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf 
-		bin/addfont "Cypricon" $^ "$@"
-
-fonts/CypriconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf 
-		bin/addfont "Cypricon" $^ "$@"
-
-fonts/CypriconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf
-		bin/addfont "Cypricon" $^ "$@"
-
-fonts/CypriconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf 
-		bin/addfont "Cypricon" $^ "$@"
-
-fonts/CypriconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf
-		bin/addfont "Cypricon" $^ "$@"
-
-fonts/Cypricon-Fonts.zip: $(CFONTS)
-		cd fonts && zip -r Cypricon-Fonts.zip CypriconLiberation*.ttf
 
 fonts/byblos-fixed.svg: fonts/original/byblos.svg
 	cp $^ "$@"
