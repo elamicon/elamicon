@@ -110,12 +110,35 @@ syllables = Dict.fromList
 -- This is our best guess at the syllable mapping for letters where it makes sense
 -- to try.
 syllableMap = String.trim """
-in 
-šu 
-ši 
-na 
-ak 
-uš 
+in  Bork 1905:327
+šu  Bork 1905:327 
+ši  Bork 1905:327
+na  Bork 1905:327
+k  Bork 1905:327
+š  Meriggi 1971:207
+pu  Meriggi 1971:206
+zu  Meriggi 1971:206
+ša  Desset 2018:138
+me  Hinz 1962:6
+ni  Hinz 1962:6
+še  Bork 1905:327
+en  Bork 1905:327
+HAL  Mäder 2019
+maš  Mäder 2019
+KI  Mäder 2019
+ri  Meriggi 1971:205
+ri  Desset 2018:133
+ha    Desset 2018:138
+p  Mäder et al. 2018:62
+pi  Desset 2018:138
+e  Mäder et al. 2018:96, but see Desset 2018:138 for  = u
+ia  Desset 2018:132
+b  Desset 2018:132
+t  Desset 2018:132
+l  Desset 2018:132
+ih 
+ta  Mäder et al. 2018:84
+ki  Mäder et al. 2018:84
 """
 
 -- Syllabary definitions
