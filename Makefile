@@ -37,7 +37,7 @@ fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.
 	bin/addfont "Elamicon" $^ "$@"
 
 fonts/Elamicon-Fonts.zip: $(EFONTS) $(MFONTS)
-	cd fonts && zip -r Elamicon-Fonts.zip ElamiconLiberation*.ttf
+	cd fonts && zip -rq Elamicon-Fonts.zip ElamiconLiberation*.ttf
 
 fonts/CypriconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/original/Cypro-Minoan.sfdir fonts/original/CMinoanHinted.ttf
 		bin/addfont "Cypricon" $^ "$@"
@@ -71,29 +71,32 @@ fonts/byblos-scaled.ttf: fonts/byblos-fixed.svg
 	bin/scale_font $^ 2 "$@"
 	bin/set_bearing "$@" 200 
 
-fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
+fonts/byblos-base.ttf: fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
+	bin/addfont "Byblicon" $^ "$@"
+
+fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-base.ttf 
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
+fonts/BybliconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/byblos-base.ttf
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir 
+fonts/BybliconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/byblos-base.ttf
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir 
+fonts/BybliconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/byblos-base.ttf
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
+fonts/BybliconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/byblos-base.ttf
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir 
+fonts/BybliconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/byblos-base.ttf
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
+fonts/BybliconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/byblos-base.ttf
 		bin/addfont "Byblicon" $^ "$@"
 
 fonts/Byblicon-Fonts.zip: $(BFONTS)
-		cd fonts && zip -r Byblicon-Fonts.zip BybliconLiberation*.ttf
+		cd fonts && zip -rq Byblicon-Fonts.zip BybliconLiberation*.ttf
 
 clean:
 	rm -f elamicon*.js
