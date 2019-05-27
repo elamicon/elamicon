@@ -109,19 +109,36 @@ build/elamicon.zip: elamicon.min.js index.html css/main.css $(EFONTS) $(BFONTS)
 	rm -f "$@"
 	zip -rq "$@" $^ fonts/*Liberation*.ttf
 
-Times: fonts/Elamicon_Times_New_Roman.zip
+ElamiconTimes: fonts/Elamicon_Times_New_Roman.zip
 
 fonts/Elamicon_Times_New_Roman.zip: fonts/Elamicon_Times_New_Roman_Bold_Italic.ttf fonts/Elamicon_Times_New_Roman_Italic.ttf fonts/Elamicon_Times_New_Roman_Bold.ttf fonts/Elamicon_Times_New_Roman.ttf
-	zip -r fonts/Elamicon_Times_New_Roman.zip $^
+	zip -rq fonts/Elamicon_Times_New_Roman.zip $^
 
-fonts/Elamicon_Times_New_Roman_Bold_Italic.ttf: elamicon.sfdir
+fonts/Elamicon_Times_New_Roman_Bold_Italic.ttf: fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
 
-fonts/Elamicon_Times_New_Roman_Italic.ttf: elamicon.sfdir
+fonts/Elamicon_Times_New_Roman_Italic.ttf: fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Italic.ttf $^ $@
 
-fonts/Elamicon_Times_New_Roman_Bold.ttf: elamicon.sfdir
+fonts/Elamicon_Times_New_Roman_Bold.ttf: fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
 
-fonts/Elamicon_Times_New_Roman.ttf: elamicon.sfdir
+fonts/Elamicon_Times_New_Roman.ttf: fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
+
+BybliconTimes: fonts/Byblicon_Times_New_Roman.zip
+
+fonts/Byblicon_Times_New_Roman.zip: fonts/Byblicon_Times_New_Roman_Bold_Italic.ttf fonts/Byblicon_Times_New_Roman_Italic.ttf fonts/Byblicon_Times_New_Roman_Bold.ttf fonts/Byblicon_Times_New_Roman.ttf
+	zip -rq fonts/Byblicon_Times_New_Roman.zip $^
+
+fonts/Byblicon_Times_New_Roman_Bold_Italic.ttf: fonts/byblos-scaled.ttf
+	bin/addfont "Byblicon-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
+
+fonts/Byblicon_Times_New_Roman_Italic.ttf: fonts/byblos-scaled.ttf
+	bin/addfont "Byblicon-" $(TIMESPATH)Times_New_Roman_Italic.ttf $^ $@
+
+fonts/Byblicon_Times_New_Roman_Bold.ttf: fonts/byblos-scaled.ttf
+	bin/addfont "Byblicon-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
+
+fonts/Byblicon_Times_New_Roman.ttf: fonts/byblos-scaled.ttf
+	bin/addfont "Byblicon-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
