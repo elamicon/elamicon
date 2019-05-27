@@ -460,7 +460,7 @@ a
       }
     , { id = "z", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z.jpg", text =
         """
-
+
         """
       }
     , { id = "a' (Var. 1)", group = "BYBL?", dir = RTL, plate = Just "plates/byblos/z_a.jpg", text =
