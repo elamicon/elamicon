@@ -4,7 +4,7 @@ CFONTS = $(subst fonts/original/,fonts/Cypricon,$(OFONTS))
 BFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
-all: build/elamicon.zip
+all: build/elamicon.zip fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip
 
 elms := $(wildcard *.elm src/*.elm)
 
