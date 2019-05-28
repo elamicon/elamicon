@@ -581,7 +581,7 @@ Work in progress. Check back soon!
                     , settings = ("", "")
                     , grams = ("", "")
                     , search = ("", "")
-                    , inscriptions = ("", "")
+                    , inscriptions = ("", "")
                     , collapse = ("", "")
                     }
     }
