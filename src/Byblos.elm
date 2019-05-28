@@ -72,22 +72,20 @@ initialSyllabary =
 
 
 
-
+
 
-
+
 
 
 
-
-
-
+
+
 
 
 
 
 
 
-
 
 
 
@@ -95,17 +93,17 @@ initialSyllabary =
 
 
 
-  
+
 
 
 
 
 
 
-
+
 
-
-
+
+
 
         """
     }
@@ -148,12 +146,12 @@ fragments = List.map  (\f -> { f | text = String.trim f.text |> replaceGuessmark
 xa
 sa
 ssssa
-sxsssa
-sxxxxssssss
-ssssss
+sxsssa
+sxxxxssssss
+ssssss
 s
-xx
-xx
+xs
+x
 
         """
       }
@@ -258,7 +256,7 @@ xsxsss
         """
 xsa
 assa
-asssa
+asssa
 asa
 asa
         """
@@ -388,7 +386,7 @@ xxxx
       }
     , { id = "rb (Var. 2)", group = "BYBL", dir = TDR, plate = Just "plates/byblos/r.jpg", text =
         """
-z
+
         """
       }
     , { id = "rb (Var. 3)", group = "BYBL", dir = TDR, plate = Just "plates/byblos/r.jpg", text =
