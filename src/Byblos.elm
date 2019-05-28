@@ -12,25 +12,35 @@ import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 
 rawTokens = AstralString.toList <| String.trim """
-
-
+
 """
-specialChars =
-    [ { displayChar = "", char = "", description = "Wildcard for unreadable signs" }
-    , { displayChar = "", char = "", description = "Marks signs that are hard to read" }
-    , { displayChar = "", char = "", description = "Marks a fracture point (line is assumed to be incomplete)" }
-    ]
-
+wildcardChar = ""
 guessMarkerL = ""
 guessMarkerR = ""
 guessMarkers = guessMarkerL ++ guessMarkerR
+fractureMarker = ""
+
+specialChars =
+    [ { displayChar = wildcardChar
+      , char = wildcardChar
+      , description = "Wildcard for unreadable signs"
+      }
+    , { displayChar = wildcardChar ++ guessMarkerL
+      , char = guessMarkerL
+      , description = "Marks signs that are hard to read"
+      }
+    , { displayChar = fractureMarker
+      , char = fractureMarker
+      , description = "Marks a fracture point (line is assumed to be incomplete)"
+      }
+    ]
 
 guessMarkDir dir =
     case dir of
         LTR -> \s -> String.split guessMarkerR s |> String.join guessMarkerL
         _ -> \s -> String.split guessMarkerL s |> String.join guessMarkerR
 
-ignoreChars = Set.fromList <| List.map .char specialChars ++ [ guessMarkerL, guessMarkerR ]
+ignoreChars = Set.fromList [ guessMarkerL, guessMarkerR, fractureMarker ]
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 tokenSet = Set.fromList tokens
 
