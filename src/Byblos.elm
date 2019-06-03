@@ -247,19 +247,19 @@ xxxx
 
         """
       }
-    , { id = "f (face b = recto)", group = "BYBL", dir = RTL, plate = Just "plates/byblos/f.jpg", text =
+    , { id = "f (face a = verso)", group = "BYBL", dir = RTL, plate = Just "plates/byblos/f.jpg", text =
         """
-xsxs
-s
-xxxx
-s
+xx
+ss
+x
         """
       }
-    , { id = "f (face a = verso)", group = "BYBL", dir = LTR, plate = Just "plates/byblos/f.jpg", text =
+    , { id = "f (face b = recto)", group = "BYBL", dir = LTR, plate = Just "plates/byblos/f.jpg", text =
         """
-xxx
-xsxsss
-sxs
+sxsx
+s
+xxxx
+s
         """
       }
     , { id = "g", group = "BYBL", dir = TDR, plate = Just "plates/byblos/g.jpg", text =
