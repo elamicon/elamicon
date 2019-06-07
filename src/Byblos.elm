@@ -429,18 +429,6 @@ syllabaries = [ initialSyllabary ] ++ alternateSyllabaries ++ [ codepointSyllaba
 groups : List GroupDef
 groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList (Set.fromList (List.map .group fragments))
 
--- Tags:
---
--- lisible: inscription is reasonably readable from imagery available to us
--- posdet: there is evidence to determine top and bottom
--- posdet-pal: there is paleographic evidence to determine top and bottom
--- rev: revised signs from the Douros corpus
-
--- Signs:
--- _ preceding a sign signifies difficult to read
--- = preceding a sign signifies hardly readable
--- % signifies a fracture
-
 -- In the source material "s" is a guessmark and "a" marks a fracture
 -- whereas x is a placeholder for unreadable glyphs.
 replaceGuessmark = String.split "s" >> String.join guessMarkerL
