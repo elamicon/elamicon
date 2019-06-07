@@ -146,11 +146,14 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 -- % signifies a fracture
 
 -- In the source material "s" is a guessmark and "a" marks a fracture
-replaceGuessmark = \s -> String.split "s" s |> String.join ""
-replaceFracture = \s -> String.split "a" s |> String.join ""
+-- whereas x is a placeholder for unreadable glyphs.
+replaceGuessmark = String.split "s" >> String.join guessMarkerL
+replaceFracture = String.split "a" >> String.join fractureMarker
+replaceWildcard = String.split "x" >> String.join wildcardChar
+replaceMarkers = replaceGuessmark >> replaceFracture >> replaceWildcard
 
 fragments : List FragmentDef
-fragments = List.map  (\f -> { f | text = String.trim f.text |> replaceGuessmark |> replaceFracture })
+fragments = List.map  (\f -> { f | text = String.trim f.text |> replaceMarkers })
     [ { id = "a", group = "BYBL", dir = RTL, plate = Just "plates/byblos/a.jpg", text =
         """
 xa
