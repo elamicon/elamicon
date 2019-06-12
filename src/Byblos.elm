@@ -45,8 +45,7 @@ tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 tokenSet = Set.fromList tokens
 
 -- These letters are counted as character positions
--- Letter 'x' is used in places where the character has not been mapped yet.
-indexedTokens = Set.fromList ([ "x" ] ++ tokens)
+indexedTokens = Set.fromList (wildcardChar :: tokens)
 indexed char = Set.member char indexedTokens
 
 searchExamples =
