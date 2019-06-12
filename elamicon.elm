@@ -214,17 +214,28 @@ update msg model =
 
         SetSearch new ->
             let
-                -- When copying strings from the fragments into the search field, irrelevant whitespace
-                -- and markers might get copied as well, we remove those from the search pattern.
-                unwanted = regex
-                        ("[\\s"
-                            ++ zeroWidthSpace
-                            ++ model.script.guessMarkers
-                            ++ "]"
-                        )
+                charRange lower upper = List.map (Char.fromCode >> String.fromChar) (
+                                            List.range (Char.toCode lower)
+                                                       (Char.toCode upper))
 
-                cleanSearch =
-                    Regex.replace unwanted (\_ -> "") new
+                -- Set of characters used in regexes
+                -- All latin chars are included to allow character classes.
+                regexMeta = AstralString.toList "()[]^$|-*.?=!<>\\"
+                allowedRegexChars = Set.fromList (regexMeta
+                                               ++ charRange '0' '9'
+                                               ++ charRange 'a' 'z'
+                                               ++ charRange 'A' 'Z')
+
+                -- When copying strings from the fragments into the search
+                -- field, irrelevant whitespace and markers might get copied
+                -- as well. To prevent these search-breaking chars, we only
+                -- keep indexed chars in the search pattern.
+                -- This means that irrelevant chars vanish as they are typed!
+                -- Maybe it would be better to just ignore the chars when
+                -- searching but leave them alone in the search-field?
+                indexedOrRegex c = model.script.indexed c 
+                                   || Set.member c allowedRegexChars
+                cleanSearch = AstralString.filter indexedOrRegex new
             in
             ( { model | search = cleanSearch, showAllResults = False }, Cmd.none )
 
