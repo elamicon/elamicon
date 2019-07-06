@@ -6,30 +6,30 @@ import List
 import Set
 import Regex
 
-import AstralString
 
 import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
+import Tokens 
 
-rawTokens = AstralString.toList <| String.trim """
+rawTokens = Tokens.toList <| String.trim """
 
 """
-wildcardChar = ""
-guessMarkerL = ""
-guessMarkerR = ""
-guessMarkers = guessMarkerL ++ guessMarkerR
-fractureMarker = ""
+wildcardChar = ''
+guessMarkerL = ''
+guessMarkerR = ''
+guessMarkers = Set.fromList [ guessMarkerL,  guessMarkerR ]
+fractureMarker = ''
 
 specialChars =
-    [ { displayChar = wildcardChar
+    [ { displayChar = String.fromChar wildcardChar
       , char = wildcardChar
       , description = "Wildcard for unreadable signs"
       }
-    , { displayChar = wildcardChar ++ guessMarkerL
+    , { displayChar = String.fromList [ wildcardChar, guessMarkerL ]
       , char = guessMarkerL
       , description = "Marks signs that are hard to read"
       }
-    , { displayChar = fractureMarker
+    , { displayChar = String.fromChar fractureMarker
       , char = fractureMarker
       , description = "Marks a fracture point (line is assumed to be incomplete)"
       }
@@ -37,12 +37,11 @@ specialChars =
 
 guessMarkDir dir =
     case dir of
-        LTR -> \s -> String.split guessMarkerR s |> String.join guessMarkerL
-        _ -> \s -> String.split guessMarkerL s |> String.join guessMarkerR
+        LTR -> Tokens.replace guessMarkerR guessMarkerL
+        _ -> Tokens.replace guessMarkerL guessMarkerR
 
-ignoreChars = Set.fromList [ guessMarkerL, guessMarkerR, fractureMarker ]
+ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
-tokenSet = Set.fromList tokens
 
 -- These letters are counted as character positions
 indexedTokens = Set.fromList (wildcardChar :: tokens)
@@ -56,8 +55,9 @@ searchExamples =
     , ("[]", "Show all occurrences of  and ")
     ]
 
-syllables : Dict.Dict String (List String)
-syllables = Dict.fromList []
+-- We don't know enough about the language to venture guesses about
+-- syllables for the tokens.
+syllables = Dict.empty
 
 syllableMap = String.trim """
 """
@@ -416,7 +416,7 @@ alternateSyllabaries =
 codepointSyllabary =
     { id = "splitting"
     , name = "Codepoint order"
-    , syllabary = String.join " " tokens
+    , syllabary = String.join " " (List.map String.fromChar tokens)
     }
 
 syllabaries : List SyllabaryDef
@@ -430,9 +430,9 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 
 -- In the source material "s" is a guessmark and "a" marks a fracture
 -- whereas x is a placeholder for unreadable glyphs.
-replaceGuessmark = String.split "s" >> String.join guessMarkerL
-replaceFracture = String.split "a" >> String.join fractureMarker
-replaceWildcard = String.split "x" >> String.join wildcardChar
+replaceGuessmark = Tokens.replace 's' guessMarkerL
+replaceFracture = Tokens.replace 'a' fractureMarker
+replaceWildcard = Tokens.replace 'x' wildcardChar
 replaceMarkers = replaceGuessmark >> replaceFracture >> replaceWildcard
 
 fragments : List FragmentDef

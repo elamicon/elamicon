@@ -1,6 +1,5 @@
 port module Main exposing (main)
 
-import AstralString
 import Array
 import Dict
 import Grams
@@ -214,13 +213,13 @@ update msg model =
 
         SetSearch new ->
             let
-                charRange lower upper = List.map (Char.fromCode >> String.fromChar) (
+                charRange lower upper = List.map Char.fromCode (
                                             List.range (Char.toCode lower)
                                                        (Char.toCode upper))
 
                 -- Set of characters used in regexes
                 -- All latin chars are included to allow character classes.
-                regexMeta = AstralString.toList "()[]^$|-*.?=!<>\\"
+                regexMeta = String.toList "()[]^$|-*.?=!<>\\"
                 allowedRegexChars = Set.fromList (regexMeta
                                                ++ charRange '0' '9'
                                                ++ charRange 'a' 'z'
@@ -235,7 +234,7 @@ update msg model =
                 -- searching but leave them alone in the search-field?
                 indexedOrRegex c = model.script.indexed c 
                                    || Set.member c allowedRegexChars
-                cleanSearch = AstralString.filter indexedOrRegex new
+                cleanSearch = String.filter indexedOrRegex new
             in
             ( { model | search = cleanSearch, showAllResults = False }, Cmd.none )
 
@@ -446,13 +445,13 @@ view model =
 
         -- Build filter that removes undesired chars
         removeCharSet =
-            Set.fromList <| AstralString.toList model.removeChars
+            Set.fromList <| String.toList model.removeChars
 
         keepChar c =
             Set.member c removeCharSet |> not
 
         charFilter =
-            AstralString.filter keepChar
+            String.filter keepChar
 
         -- Process fragment text for display
         cleanse =
@@ -518,6 +517,7 @@ view model =
                     )
                 ]
 
+        syllabaryEntry : (Char, List Char) -> Html Msg
         syllabaryEntry ( principal, ext ) =
             let
                 shownExt =
@@ -525,10 +525,13 @@ view model =
                         []
 
                     else
-                        ext
+                        List.map String.fromChar ext
 
-                syls =
-                    Maybe.withDefault [] (Dict.get principal model.script.syllables)
+                maybeSyls = Dict.get
+                    principal
+                    model.script.syllables
+
+                syls = Maybe.withDefault [] maybeSyls
 
                 letterEntry entryClass char =
                     div [ classList [ ( model.script.id, True ), ( entryClass, True ) ], onClick (AddChar char) ] [ text char ]
@@ -537,7 +540,7 @@ view model =
                     div [ class "syl" ] [ text syl ]
             in
             li [ class "letter" ]
-                ([ letterEntry "main" principal ]
+                ([ letterEntry "main" (String.fromChar principal) ]
                     ++ (if shownExt /= [] || List.length syls > 0 then
                             [ div [ class "menu" ] (List.map (letterEntry "ext") shownExt ++ List.map syllableEntry syls) ]
 
@@ -550,12 +553,12 @@ view model =
 
         specialEntry { displayChar, char, description } =
             li [ class "letter" ]
-                [ div [ classList [ ( model.script.id, True ), ( "main", True ) ], onClick (AddChar char), title description ] [ text (model.script.guessMarkDir LTR displayChar) ] ]
+                [ div [ classList [ ( model.script.id, True ), ( "main", True ) ], onClick (AddChar (String.fromChar char)), title description ] [ text (model.script.guessMarkDir LTR displayChar) ] ]
 
         gramStats strings =
             let
                 onlyIndexed =
-                    charFilter >> model.normalizer >> AstralString.filter model.script.indexed
+                    charFilter >> model.normalizer >> String.filter model.script.indexed
 
                 tallyGrams =
                     List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 <| List.map onlyIndexed strings
@@ -963,16 +966,13 @@ view model =
                 matches =
                     case search of
                         Just s ->
-                            s (AstralString.filter model.script.indexed fragment.text)
+                            s (String.filter model.script.indexed fragment.text)
 
                         Nothing ->
                             []
 
-                guessmarks =
-                    Set.fromList <| AstralString.toList model.script.guessMarkers
-
                 guessmarkClass char =
-                    if Set.member char guessmarks then
+                    if Set.member char model.script.guessMarkers then
                         [ class "guessmark" ]
 
                     else
@@ -1016,15 +1016,17 @@ view model =
 
                                 idAttr =
                                     [ id <| String.concat [ fragment.id, fromInt idx ] ]
+
+                                charStr = String.fromChar char
                             in
                             if model.script.indexed char then
-                                ( a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize char) ] :: tailElems, idx + 1 )
+                                ( a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize charStr) ] :: tailElems, idx + 1 )
 
                             else
-                                ( span (guessmarkClass char) [ text char ] :: tailElems, idx )
+                                ( span (guessmarkClass char) [ text charStr ] :: tailElems, idx )
 
                         ( elems, endIdx ) =
-                            AstralString.toList chars |> List.foldl charPos ( [], lineIdx )
+                            String.toList chars |> List.foldl charPos ( [], lineIdx )
 
                         elemLine =
                             li [ class "line", lineDirAttr lineNr fragment.dir ] (List.reverse elems)

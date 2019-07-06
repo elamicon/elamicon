@@ -1,6 +1,5 @@
 module Search exposing (MatchContext, MatchLoc, MatchResults, Search, bidirectional, extract, fuzzy, regex, uniqueSort)
 
-import AstralString
 import Levenshtein
 import Regex
 import ScriptDefs exposing (..)
@@ -32,8 +31,8 @@ regex pat text =
 
         -- The returned match index miscounts astral chars
         extractIndex match =
-            ( AstralString.length (String.slice 0 match.index text)
-            , AstralString.length match.match
+            ( String.length (String.slice 0 match.index text)
+            , String.length match.match
             )
     in
     find text |> List.map extractIndex
@@ -46,7 +45,7 @@ fuzzy fuzz query =
             Levenshtein.distMap query
 
         needleLen =
-            AstralString.length query
+            String.length query
 
         maxDist =
             Basics.min fuzz (needleLen - 1)
@@ -87,7 +86,7 @@ bidirectional : Search -> Search
 bidirectional search text =
     let
         len =
-            AstralString.length text
+            String.length text
 
         matches =
             search text
@@ -96,7 +95,7 @@ bidirectional search text =
             ( len - matchIndex - matchLen, matchLen )
 
         reverseMatches =
-            search (AstralString.reverse text) |> List.map reverseIndex
+            search (String.reverse text) |> List.map reverseIndex
     in
     uniqueSort (reverseMatches ++ matches)
 
@@ -131,23 +130,23 @@ extract script limit contextLen fragments search =
                 addChar char result =
                     case result of
                         [] ->
-                            [ char ]
+                            [ String.fromChar char ]
 
                         head :: tail ->
                             if script.indexed char then
-                                "" :: String.append char head :: tail
+                                "" :: String.cons char head :: tail
 
                             else
-                                String.append char head :: tail
+                                String.cons char head :: tail
             in
-            AstralString.toList >> List.foldr addChar [ "" ]
+            String.toList >> List.foldr addChar [ "" ]
 
         addMatches fragment results =
             let
                 -- We're matching against the indexed chars only.
                 -- This means all whitespace, guess marks, and other letters are removed.
                 matchNormalized =
-                    AstralString.filter script.indexed fragment.text
+                    String.filter script.indexed fragment.text
 
                 matches =
                     search matchNormalized |> uniqueSort
@@ -182,10 +181,9 @@ extract script limit contextLen fragments search =
                         ( matchLastLetter, matchAppended ) =
                             case List.head matchReversed of
                                 Just s ->
-                                    case AstralString.toList s of
-                                        headChar :: rest ->
-                                            ( headChar, AstralString.fromList rest )
-
+                                    case String.uncons s of
+                                        Just (headChar, rest) -> 
+                                            ( String.fromChar headChar, rest )
                                         _ ->
                                             ( "", "" )
 

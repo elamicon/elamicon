@@ -1,23 +1,22 @@
 module Levenshtein exposing (distMap)
 
-import AstralString
 import List
 
 
 distMap needle haystack =
     let
         needleChars =
-            AstralString.toList needle
+            String.toList needle
 
         haystackChars =
-            AstralString.toList haystack
+            String.toList haystack
 
         descend needleChar rowDists =
             let
                 startCost =
                     1 + Maybe.withDefault 0 (List.head rowDists)
 
-                calcRow : List String -> List Int -> List Int -> List Int
+                calcRow : List Char -> List Int -> List Int -> List Int
                 calcRow chars dists collectedDists =
                     if List.isEmpty chars then
                         List.reverse collectedDists
@@ -25,7 +24,7 @@ distMap needle haystack =
                     else
                         let
                             charCost =
-                                if needleChar == Maybe.withDefault " " (List.head chars) then
+                                if needleChar == Maybe.withDefault ' ' (List.head chars) then
                                     0
 
                                 else

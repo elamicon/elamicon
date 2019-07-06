@@ -5,13 +5,11 @@ import Regex
 import Set exposing (Set)
 import WritingDirections exposing (..)
 
-
 type alias Token =
-    String
-
+    Char
 
 type alias SpecialCharDef =
-    { displayChar : String, char : String, description : String }
+    { displayChar : String, char : Char, description : String }
 
 
 type alias SyllabaryDef =
@@ -44,11 +42,11 @@ type alias Script =
     , tokens : List Token
     , seperatorChars : String
     , specialChars : List SpecialCharDef
-    , guessMarkers : String
+    , guessMarkers : Set Token
     , guessMarkDir : Dir -> String -> String
     , indexed : Token -> Bool
     , searchExamples : List ( String, String )
-    , syllables : Dict String (List String)
+    , syllables : Dict Token (List String)
     , syllableMap : String
     , syllabaries : List SyllabaryDef
     , initialSyllabary : SyllabaryDef

@@ -3,7 +3,7 @@ module Grams exposing (Grams, read, register, registerInc, tally)
 {-| Database to find repeated subsequences in character sequences
 -}
 
-import AstralString
+import String
 import Dict exposing (Dict)
 import String
 
@@ -50,13 +50,13 @@ read : Int -> List String -> List Grams
 read max seqs =
     let
         tokenSeqs =
-            List.map AstralString.toList seqs
+            List.map String.toList seqs
 
         addGrams n =
             let
                 readSeqs seq grams =
                     if List.length seq >= n then
-                        readSeqs (List.drop 1 seq) (register (List.take n seq |> AstralString.fromList) grams)
+                        readSeqs (List.drop 1 seq) (register (List.take n seq |> String.fromList) grams)
 
                     else
                         grams

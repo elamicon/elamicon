@@ -1,6 +1,5 @@
 module Scripts exposing (dedupe, initialScript, normalization, normalizer, scripts, sylDict, syllabaryList, syllabizer)
 
-import AstralString
 import Byblos as Byblos
 import Dict exposing (Dict)
 import Elam as Elam
@@ -9,6 +8,7 @@ import Regex
 import ScriptDefs exposing (..)
 import Set exposing (Set)
 import String
+import Tokens
 import WritingDirections exposing (..)
 
 
@@ -21,17 +21,16 @@ initialScript =
     Elam.elam
 
 
-
 -- Digest the mapping from letters to "spoken sound" into a dictionary
 
 
-sylDict : String -> Dict.Dict String String
+sylDict : String -> Dict.Dict Token String
 sylDict strMap =
     let
         lines =
             String.lines strMap
 
-        addRepl : String -> String -> Dict.Dict String String -> Dict.Dict String String
+        addRepl : String -> Char -> Dict.Dict Token String -> Dict.Dict Token String
         addRepl target source state =
             Dict.insert source target state
 
@@ -43,8 +42,9 @@ sylDict strMap =
                 target =
                     Maybe.withDefault "" (List.head sylls)
 
+                sources : List Token
                 sources =
-                    List.concat <| List.map AstralString.toList (Maybe.withDefault [] (List.tail sylls))
+                    List.concat <| List.map Tokens.toList (Maybe.withDefault [] (List.tail sylls))
             in
             if List.isEmpty sylls then
                 state
@@ -76,9 +76,9 @@ syllabizer strMap =
             sylDict strMap
 
         replacer char =
-            Maybe.withDefault char (Dict.get char map)
+            Maybe.withDefault (String.fromChar char) (Dict.get char map)
     in
-    AstralString.map replacer
+    String.toList >> List.map replacer >> String.concat
 
 
 
@@ -94,16 +94,16 @@ syllabizer strMap =
 -- List of letter groupings made from a syllabary string.
 
 
-syllabaryList : String -> List ( String, List String )
+syllabaryList : String -> List ( Token, List Token )
 syllabaryList syllabary =
     let
         letterGroup letterString =
-            case AstralString.toList letterString of
+            case Tokens.toList letterString of
                 main :: ext ->
                     ( main, ext )
 
                 _ ->
-                    ( "?", [] )
+                    ( '?', [] )
 
         -- should not be reachable?
     in
@@ -122,18 +122,18 @@ dedupe tokens indexed syllabary =
                 ( seen, dedupSyllabary )
 
             else if indexed letter then
-                ( Set.insert letter seen, dedupSyllabary ++ letter )
+                ( Set.insert letter seen, dedupSyllabary ++ String.fromChar letter )
 
             else
-                ( seen, dedupSyllabary ++ letter )
+                ( seen, dedupSyllabary ++ String.fromChar letter )
 
         ( presentLetters, dedupedSyllabary ) =
-            List.foldl dedup ( Set.empty, "" ) (AstralString.toList syllabary)
+            List.foldl dedup ( Set.empty, "" ) (String.toList syllabary)
 
         missingLetters =
             Set.diff (Set.fromList tokens) presentLetters
     in
-    ( dedupedSyllabary, String.join " " (Set.toList missingLetters) )
+    ( dedupedSyllabary, String.join " " (List.map String.fromChar (Set.toList missingLetters)) )
 
 
 
@@ -142,14 +142,14 @@ dedupe tokens indexed syllabary =
 -- dictionary that maps all alternate versions of a letter to the main letter.
 
 
-normalization : List Token -> String -> Dict.Dict String String
+normalization : List Token -> String -> Dict.Dict Token Token
 normalization tokens syllabary =
     let
         allLetters =
             Set.fromList tokens
 
         ins group dict =
-            case AstralString.toList group of
+            case String.toList group of
                 main :: extras ->
                     List.foldl (insLetter main) (Dict.insert main main dict) extras
 
@@ -162,10 +162,10 @@ normalization tokens syllabary =
     List.foldl ins Dict.empty (String.words syllabary)
 
 
-normalizer : Dict.Dict String String -> String -> String
+normalizer : Dict.Dict Token Token -> String -> String
 normalizer normMap =
     let
         repl letter =
             Maybe.withDefault letter (Dict.get letter normMap)
     in
-    AstralString.map repl
+    String.map repl

@@ -1,15 +1,14 @@
 module Elam exposing (elam)
 
-import AstralString
 import Dict
 import List
 import Regex
-import ScriptDefs exposing (..)
 import Set
 import String
+
+import ScriptDefs exposing (..)
+import Tokens exposing (..)
 import WritingDirections exposing (..)
-
-
 
 -- List of letters found in Linear-Elam writings
 --
@@ -25,9 +24,23 @@ import WritingDirections exposing (..)
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
-rawTokens = AstralString.toList <| String.trim """
+rawTokens = Tokens.toList <| String.trim """
 
 """
+
+-- Characters that are hard to read on the originals are marked with "guessmarkers".
+-- Guessmarkers are zero-width and overlap the previous charachter. There are two
+-- markers because there are two writing directions.
+guessMarkerL = ''
+guessMarkerR = ''
+guessMarkers = Set.fromList [ guessMarkerL, guessMarkerR ]
+
+-- Unreadable signs are represented by this special character
+missingChar = ''
+
+-- To mark places where we assume the writing continues but is missing, we use
+-- the fracture mark.
+fractureMarker = ''
 
 -- List of "special" characters
 --
@@ -35,40 +48,29 @@ rawTokens = AstralString.toList <| String.trim """
 -- "special" characters can be used to mark glyphs that are unreadable or
 --  are guesses.
 specialChars =
-    [ { displayChar = "", char = "", description = "Wildcard for unreadable signs" }
-    , { displayChar = "", char = "", description = "Marks signs that are hard to read" }
-    , { displayChar = "", char = "", description = "Marks a fracture point (line is assumed to be incomplete)" }
+    [ { displayChar = "", char = missingChar, description = "Wildcard for unreadable signs" }
+    , { displayChar = "", char = guessMarkerL, description = "Marks signs that are hard to read" }
+    , { displayChar = "", char = fractureMarker, description = "Marks a fracture point (line is assumed to be incomplete)" }
     ]
 
--- Characters that are hard to read on the originals are marked with "guessmarkers".
--- Guessmarkers are zero-width and overlap the previous charachter. There are two
--- markers because there are two writing directions.
-guessMarkers = ""
 
 -- Turn all guessmarkers in the writing direction so they don't overlap on
 -- the wrong character
 guessMarkDir dir =
     case dir of
-        LTR -> \s -> String.split "" s |> String.join ""
-        _ -> \s -> String.split "" s |> String.join ""
-
--- Unreadable signs are represented by this special character
-missingChar = ""
-
--- To mark places where we assume the writing continues but is missing, we use
--- the fracture mark.
-fractureMarker = ""
+        LTR -> Tokens.replace guessMarkerR guessMarkerL
+        _ -> Tokens.replace guessMarkerL guessMarkerR
 
 -- These characters are assumed to be seperators
 seperatorChars = ""
 
-ignoreChars = Set.fromList <| AstralString.toList (guessMarkers ++ missingChar ++ fractureMarker)
+ignoreChars = Set.union guessMarkers <| Set.fromList [ missingChar, fractureMarker ]
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 tokenSet = Set.fromList tokens
 
 -- These letters are counted as character positions
 -- Letter 'X' is used in places where the character has not been mapped yet.
-indexedTokens = Set.fromList ([ "", "X" ] ++ tokens)
+indexedTokens = Set.fromList ([ '', 'X' ] ++ tokens)
 indexed char = Set.member char indexedTokens
 
 searchExamples =
@@ -82,29 +84,28 @@ searchExamples =
 
 -- The syllable mapping is short as of now and will likely never become
 -- comprehensive. All of this is guesswork.
-syllables : Dict.Dict String (List String)
 syllables = Dict.fromList
-    [ ( "", [ "na" ] )
-    , ( "", [ "uk ?" ] )
-    , ( "", [ "NAP"] )
-    , ( "", [ "NAP"] )
-    , ( "", [ "en ?", "im ?"] )
-    , ( "", [ "šu" ] )
-    , ( "", [ "ša ?" ] )
-    , ( "", [ "in" ] )
-    , ( "", [ "ki" ] )
-    , ( "", [ "iš ?", "uš ?" ] )
-    , ( "", [ "tu ?" ] )
-    , ( "", [ "hu ?"] )
-    , ( "", [ "me ?" ] )
-    , ( "", [ "me ?" ] )
-    , ( "", [ "ši" ] )
-    , ( "", [ "še ?", "si ?" ] )
-    , ( "", [ "ak", "ik"] )
-    , ( "", [ "hal ?" ] )
-    , ( "", [ "ú" ] )
-    , ( "", [ "ni ?" ] )
-    , ( "", [ "piš ?" ] )
+    [ ( '', [ "na" ] )
+    , ( '', [ "uk ?" ] )
+    , ( '', [ "NAP"] )
+    , ( '', [ "NAP"] )
+    , ( '', [ "en ?", "im ?"] )
+    , ( '', [ "šu" ] )
+    , ( '', [ "ša ?" ] )
+    , ( '', [ "in" ] )
+    , ( '', [ "ki" ] )
+    , ( '', [ "iš ?", "uš ?" ] )
+    , ( '', [ "tu ?" ] )
+    , ( '', [ "hu ?"] )
+    , ( '', [ "me ?" ] )
+    , ( '', [ "me ?" ] )
+    , ( '', [ "ši" ] )
+    , ( '', [ "še ?", "si ?" ] )
+    , ( '', [ "ak", "ik"] )
+    , ( '', [ "hal ?" ] )
+    , ( '', [ "ú" ] )
+    , ( '', [ "ni ?" ] )
+    , ( '', [ "piš ?" ] )
     ]
 
 -- This is our best guess at the syllable mapping for letters where it makes sense
@@ -286,7 +287,7 @@ syllabaries =
             """
       }
     , { id = "splitting", name = "Each sign separately"
-      , syllabary = String.join " " tokens
+      , syllabary = String.join " " (List.map String.fromChar tokens)
       }
     ]
 
