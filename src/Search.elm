@@ -118,8 +118,14 @@ type alias MatchResults =
     }
 
 
-extract : Script -> Int -> Int -> List FragmentDef -> (String -> List MatchLoc) -> MatchResults
-extract script limit contextLen fragments search =
+-- Run a search over fragments
+--   indexed: Which characters to include in the search
+--   limit: only return this many matches
+--   contextLen: how many chars of context to include with each match
+--   fragments: list of fragments to search
+--   search: search function
+extract : (Char -> Bool) -> Int -> Int -> List FragmentDef -> Search -> MatchResults
+extract indexed limit contextLen fragments search =
     let
         -- Split text into letter chunks. Characters which are not indexed are kept with the preceding letter.
         -- The first slot does not contain an indexed letter but may contain other characters. All other
@@ -133,7 +139,7 @@ extract script limit contextLen fragments search =
                             [ String.fromChar char ]
 
                         head :: tail ->
-                            if script.indexed char then
+                            if indexed char then
                                 "" :: String.cons char head :: tail
 
                             else
@@ -146,7 +152,7 @@ extract script limit contextLen fragments search =
                 -- We're matching against the indexed chars only.
                 -- This means all whitespace, guess marks, and other letters are removed.
                 matchNormalized =
-                    String.filter script.indexed fragment.text
+                    String.filter indexed fragment.text
 
                 matches =
                     search matchNormalized |> uniqueSort

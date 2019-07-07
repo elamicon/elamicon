@@ -802,7 +802,7 @@ view model =
                     3
 
                 results =
-                    Maybe.map (Search.extract model.script maxResults contextLen cleanedFragments) search
+                    Maybe.map (Search.extract model.script.indexed maxResults contextLen cleanedFragments) search
 
                 buildResultLine result =
                     let
