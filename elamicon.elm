@@ -849,8 +849,11 @@ view model =
                             href <| String.concat [ "#", fragment.id, fromInt index ]
 
                         -- Remove spaces and ensure the guessmarks are oriented left
+                        showNewlines = String.replace "\n" "⏎"
+                        removeWhitespace = String.words >> String.concat
+                        fixGuessmarkDir = model.script.guessMarkDir LTR
                         typeset =
-                            String.words >> String.concat >> model.script.guessMarkDir LTR
+                            showNewlines >> removeWhitespace >> fixGuessmarkDir
                     in
                     li [ class "result" ]
                         [ div [ class "id" ]
