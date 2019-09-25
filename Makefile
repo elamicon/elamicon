@@ -2,9 +2,10 @@ OFONTS = $(wildcard fonts/original/Liberation*.ttf)
 EFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
 CFONTS = $(subst fonts/original/,fonts/Cypricon,$(OFONTS))
 BFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
+IFONTS = $(subst fonts/original/,fonts/NorthItalic,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
-all: build/elamicon.zip fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip
+all: build/elamicon.zip fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
 
 elms := $(wildcard *.elm src/*.elm)
 
@@ -46,8 +47,8 @@ fonts/byblos-fixed.svg: fonts/original/byblos.svg
 	bin/fix_glyph_names "$@"
 
 fonts/byblos-scaled.ttf: fonts/byblos-fixed.svg
-	bin/scale_font $^ 2 "$@"
-	bin/set_bearing "$@" 200 
+	bin/scale_font $^ 2 0 "$@"
+	bin/set_bearing "$@" 200
 
 fonts/byblos-base.ttf: fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
 	bin/addfont "Byblicon" $^ "$@"
@@ -75,6 +76,45 @@ fonts/BybliconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.
 
 fonts/Byblicon-Fonts.zip: $(BFONTS)
 		cd fonts && zip -rq Byblicon-Fonts.zip BybliconLiberation*.ttf
+
+
+
+fonts/north-italic-fixed.svg: fonts/original/north-italic.svg
+	cp $^ "$@"
+	bin/fix_glyph_names "$@"
+
+fonts/north-italic-scaled.ttf: fonts/north-italic-fixed.svg
+	bin/scale_font $^ 2.15 -560 "$@"
+	bin/set_bearing "$@" 200 
+
+fonts/north-italic-base.ttf: fonts/north-italic-scaled.ttf
+	cp $^ "$@" 
+
+fonts/NorthItalicLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/north-italic-base.ttf 
+		bin/addfont "NorthItalic" $^ "$@"
+
+fonts/NorthItalicLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/north-italic-base.ttf
+		bin/addfont "NorthItalic" $^ "$@"
+
+fonts/NorthItalicLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/north-italic-base.ttf
+		bin/addfont "NorthItalic" $^ "$@"
+
+fonts/NorthItalicLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/north-italic-base.ttf
+		bin/addfont "NorthItalic" $^ "$@"
+
+fonts/NorthItalicLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/north-italic-base.ttf
+		bin/addfont "NorthItalic" $^ "$@"
+
+fonts/NorthItalicLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/north-italic-base.ttf
+		bin/addfont "NorthItalic" $^ "$@"
+
+fonts/NorthItalicLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/north-italic-base.ttf
+		bin/addfont "NorthItalic" $^ "$@"
+
+fonts/NorthItalic-Fonts.zip: $(IFONTS)
+		cd fonts && zip -rq NorthItalic-Fonts.zip NorthItalicLiberation*.ttf
+
+
 
 clean:
 	rm -f elamicon*.js
