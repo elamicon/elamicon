@@ -1089,15 +1089,25 @@ view model =
                 , a [ href "https://unicode.org" ] [ text "Unicode ♥" ]
                 , text ".  "
                 , br [] []
-                , a [ href ("fonts/" ++ model.script.title ++ "-Fonts.zip") ]
-                    [ text ("Download the " ++ model.script.title ++ " fonts.") ]
+                , a [ href ("fonts/" ++ model.script.font ++ "-Fonts.zip") ]
+                    [ text ("Download the " ++ model.script.font ++ " fonts.") ]
                 , text " "
                 , br [] []
                 , a [ href "https://github.com/elamicon/elamicon/" ]
                     [ text "The project on Github." ]
                 ]
 
-        scriptOpt script =
+        groupedScripts : List (String, List Script)
+        groupedScripts = Dict.toList (Dict.Extra.groupBy (.group) scripts)
+        scriptSelect =
+            Html.select
+                [ on "change" (Json.Decode.map SetScript scriptDecoder) ]
+                (List.concat (List.map scriptOptionGroup groupedScripts))
+        scriptOptionGroup (groupName, scripts) =
+            (option [Html.Attributes.disabled True] [(text groupName)])
+            :: (List.map scriptOption scripts)
+
+        scriptOption script =
             option
                 [ value script.id, selected (model.script.id == script.id) ]
                 [ text script.name ]
@@ -1106,9 +1116,7 @@ view model =
         ([ div []
             [ label []
                 [ text "Choose script "
-                , Html.select
-                    [ on "change" (Json.Decode.map SetScript scriptDecoder) ]
-                    (List.map scriptOpt Scripts.scripts)
+                , scriptSelect
                 ]
             ]
          , h1 [ class "secondary" ] [ text (decorate .headline model.script.headline) ]
