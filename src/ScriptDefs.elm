@@ -49,8 +49,10 @@ type alias Type =
 type alias Script =
     { id : String
     , name : String
+    , group : String
     , headline : String
     , title : String
+    , font : String
     , description : String
     , sources : String
     , tokens : List Token

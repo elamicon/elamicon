@@ -910,9 +910,11 @@ aa
 byblos : Script
 byblos =
     { id = "byblos"
-    , name = "Byblos"
+    , name = "Byblos Script"
+    , group = "Crescent Scripts"
     , headline = "Online Corpus of Byblos Inscriptions OCBI"
     , title = "Byblicon"
+    , font = "Byblicon"
     , description = """
 Work in progress. Check back soon!
 """

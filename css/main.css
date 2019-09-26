@@ -19,6 +19,11 @@ body {
     unicode-bidi: bidi-override;
 }
 
+.raetic {
+    font-family: NorthItalicLiberationSerif;
+    unicode-bidi: bidi-override;
+}
+
 .elam input, .elam textarea {
     font-family: ElamiconLiberationMono;
 }
@@ -29,6 +34,10 @@ body {
 
 .byblos input, .byblos textarea {
     font-family: BybliconLiberationMono;
+}
+
+.raetic input, .raetic textarea {
+    font-family: NorthItalicLiberationMono;
 }
 
 h1, h2 {
@@ -113,6 +122,23 @@ body, h1, h2, label, input, select {
 @font-face {
     font-family: 'BybliconLiberationMono';
     src: url('../fonts/BybliconLiberationMono-Regular.ttf');
+}
+
+
+@font-face {
+    font-family: 'NorthItalicLiberationSerif';
+    src: url('../fonts/NorthItalicLiberationSerif-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'NorthItalicLiberationSerif';
+    src: url('../fonts/NorthItalicLiberationSerif-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'NorthItalicLiberationMono';
+    src: url('../fonts/NorthItalicLiberationMono-Regular.ttf');
 }
 
 
