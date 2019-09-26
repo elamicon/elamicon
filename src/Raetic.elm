@@ -49,7 +49,41 @@ syllables = Dict.empty
 syllableMap = String.trim """
 """
 
-
+letterGroupSyllabary =
+    { id = "group"
+    , name = "By Letter"
+    , syllabary = """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+    }
 
 
 codepointSyllabary =
@@ -59,7 +93,7 @@ codepointSyllabary =
     }
 
 syllabaries : List SyllabaryDef
-syllabaries = [ codepointSyllabary ]
+syllabaries = [ letterGroupSyllabary, codepointSyllabary ]
 
 
 -- We grouped the fragments according to where they were found
@@ -94,7 +128,7 @@ This sub-corpus includes, with minor changes, all the sign variants ocurring in 
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
-    , initialSyllabary = codepointSyllabary
+    , initialSyllabary = letterGroupSyllabary
     , groups = groups
     , fragments = fragments
     , decorations = { headline = ("", "")
