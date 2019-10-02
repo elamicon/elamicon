@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.42493485"
-     inkscape:cx="-692.85606"
-     inkscape:cy="458.37965"
+     inkscape:cx="515.56448"
+     inkscape:cy="439.55323"
      inkscape:document-units="px"
-     inkscape:current-layer="layer544"
+     inkscape:current-layer="layer627"
      showgrid="false"
      showguides="true"
-     inkscape:window-width="1534"
-     inkscape:window-height="1438"
-     inkscape:window-x="1920"
+     inkscape:window-width="766"
+     inkscape:window-height="598"
+     inkscape:window-x="1152"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      showborder="true"
@@ -1048,7 +1048,7 @@
       <font-face
          units-per-em="1024"
          id="font-face3457"
-         font-family="NorthItaly" />
+         font-family="NorthItalic" />
       <missing-glyph
          d="M0,0h1000v1024h-1000z"
          id="missing-glyph3459" />
@@ -1056,7 +1056,7 @@
          glyph-name="Raet A1 sin"
          id="glyph3461"
          unicode=""
-         d="m 445.96094,886.40234 -290.40625,-278.59961 0.55859,-62.27734 284.98438,-263.75586 59.08984,0.92188 275.9375,271.83984 0.22656,60.73633 -270.51367,270.51367 z m 29,-90.76562 L 685.35938,585.23828 469.23828,372.32422 247.56445,577.48633 Z M 431.37305,653.11328 V 503.8125 h 75.55468 v 149.30078 z" />
+         d="M 448.51562,925.06836 204.91406,283.58594 279.70312,255.18359 484.67578,794.94531 547.17383,619.16797 426.23828,285.02734 l 75.22461,-27.22461 87.87305,242.78711 86.24804,-242.57617 75.37696,26.80078 -227.36133,639.45508 z" />
       <glyph
          glyph-name="Raet A1 dex"
          id="glyph3477"
@@ -4031,6 +4031,89 @@
          id="glyph5017"
          unicode=""
          d="M 230.38086,770.26562 163.55664,737.87695 C 185.2513,668.56754 227.5952,605.50473 280.70898,551.94336 227.73246,493.28982 185.5181,424.56983 163.92969,349.46875 l 67.52539,-30.05469 c 17.24586,59.99432 58.83591,122.62968 111.66211,177.49805 52.33388,-40.43748 110.16708,-72.64411 166.85937,-94.41797 72.56513,-27.87015 144.05814,-38.55415 204.67188,-15.82617 56.30208,21.11124 100.67493,80.93019 108.61914,165.2168 l 1.67969,0.0449 c -0.0896,5.13549 -0.31347,10.18833 -0.65235,15.16601 0.0617,1.51674 0.11371,3.04128 0.15235,4.57227 l -0.5,0.0195 C 816.7337,657.53173 772.82093,718.70263 716.23828,739.39062 655.40374,761.6332 583.86173,748.78664 511.19531,717.69922 453.5091,693.02048 394.57415,656.56643 341.42188,611.00391 288.26028,661.25509 246.70882,718.10157 230.38086,770.26562 Z M 650.14062,660.61719 c 17.46592,0.13902 33.01671,-2.14421 45.88086,-6.84766 34.04199,-12.44656 52.52351,-32.16789 56.47461,-86.53711 -2.85079,-59.83922 -21.74455,-81.32252 -58.53906,-95.11914 -38.24525,-14.34059 -98.76019,-8.95503 -162.83008,15.65234 -41.1864,15.8185 -83.50743,39.6267 -123.0957,68.18946 40.65193,32.37243 84.20381,59.26323 126.48047,77.34961 41.95851,17.95027 82.28488,27.04708 115.6289,27.3125 z" />
+      <glyph
+         glyph-name="LepCam S7  (Morandi 1998:107)  [= Run Z3)"
+         id="glyph4091"
+         unicode=""
+         d="M 332.60156,918.44336 276.0332,861.875 463.84375,674.06445 V 515.46289 L 276.0332,327.65234 332.60156,271.08398 463.84375,402.32617 V 273.93359 h 80 V 403.75977 L 675.80273,271.80078 732.37109,328.37109 543.84375,516.89648 V 672.63086 L 732.37109,861.15625 675.80273,917.72656 543.84375,785.76758 v 132.67578 h -80 V 787.20117 Z" />
+      <glyph
+         glyph-name="LepCam P7 sin"
+         id="glyph4093"
+         unicode=""
+         d="m 185.53125,762.25391 v -80 h 572.125 V 399.06641 H 187.58789 v -80 h 610.06836 l 40,40 v 363.1875 l -40,40 z" />
+      <glyph
+         glyph-name="LepCam N?/Ksi? (0, FdN, Morandi 1998:107) [= Run N3 sin/dex = Raet L4 sin  (0)]"
+         id="glyph4098"
+         unicode=""
+         d="m 647.1875,916.21289 -80,-0.17773 0.55078,-247.61133 -191.36133,-144.55469 48.21875,-63.83398 143.36719,108.29882 0.66016,-296.80859 80,0.17773 z" />
+      <glyph
+         glyph-name="LepCam N11 sin (0, FdN)"
+         id="glyph4101"
+         unicode=""
+         d="M 556.42773,918.25391 V 586 l -119.48828,-68.98633 -102.4082,59.12695 -40,-69.28124 122.4082,-70.67383 h 40 L 556.42773,493.625 V 273.44922 h 80 v 644.80469 z" />
+      <glyph
+         glyph-name="LepCam N11 dex (0, PC 10)"
+         id="glyph4108"
+         unicode=""
+         d="M 328.89062,918.25391 V 273.44922 h 80 V 493.625 l 99.48829,-57.43945 h 40 l 122.4082,70.67383 -40,69.28124 L 528.37891,517.01367 408.89062,586 v 332.25391 z" />
+      <glyph
+         glyph-name="LepCam K9 (0, PC 10)"
+         id="glyph4115"
+         unicode=""
+         d="M 438.30664,918.25391 V 569.95898 H 301.22266 l -40,-40 V 273.80273 h 80 V 489.95898 H 616.57031 V 273.44922 h 80 v 256.50976 l -40,40 H 518.30664 v 348.29493 z" />
+      <glyph
+         glyph-name="LepCam H1 (=, FdN, PC 10) [Run H1 sin/dex = Raet H1 sin = Lep N5 sin]"
+         id="glyph4122"
+         unicode=""
+         d="M 283.53516,918.68359 V 274.17383 h 80 V 495.18945 L 658.18359,610.33984 V 274.17383 h 80 v 643.07422 h -80 V 696.23047 L 363.53516,581.08203 v 337.60156 z" />
+      <glyph
+         glyph-name="LepCam Z12 (0, FdN) [Run Z2 = Raet X2]"
+         id="glyph4124"
+         unicode=""
+         d="M 450.53125,918.44336 V 515.46289 L 262.7207,327.65234 319.28906,271.08398 450.53125,402.32617 V 273.93359 h 80 v 129.82618 l 131.95898,-131.95899 56.56836,56.57031 -188.52734,188.52539 v 401.54688 z" />
+      <glyph
+         glyph-name="LepCam Z13 (0, PC 10)  [= Run Z1 = Lep X4 = Raet X1]"
+         id="glyph4126"
+         unicode=""
+         d="M 329.27344,920.10742 272.70508,863.53906 460.51562,675.72852 V 272.74805 h 80 V 674.29492 L 729.04297,862.82031 672.47461,919.39062 540.51562,787.43164 v 129.82617 h -80 V 788.86523 Z" />
+      <glyph
+         glyph-name="LepCam V4 (0, FdN)  [= Lep E5 sin]"
+         id="glyph4128"
+         unicode=""
+         d="M 610.28906,951.55859 351.91211,803.70898 391.64453,734.27344 590.15625,847.86523 v -69.04882 l -237.25391,-136.97657 40,-69.2832 197.25391,113.88477 v -60.64453 l -245.14844,-141.53711 40,-69.28125 205.14844,118.44336 V 471.47461 L 346.42188,332.03711 386.14844,262.59766 590.15625,379.30859 V 273.76562 h 80 v 643.07422 z" />
+      <glyph
+         glyph-name="LepCam V5 (0, PC 10)"
+         id="glyph4130"
+         unicode=""
+         d="M 203.33594,918.25391 V 273.44922 h 80 v 383.67969 l 64.95898,-45.83203 V 273.44922 h 80 v 281.40234 l 65.54492,-46.24609 V 273.44922 h 80 v 178.71289 l 64.25196,-45.33399 v -133.3789 h 80 v 642.45312 h -80 V 504.73633 l -64.25196,45.33398 v 368.1836 h -80 V 606.51367 l -65.54492,46.2461 v 265.49414 h -80 V 709.20312 l -64.95898,45.83204 v 163.21875 z" />
+      <glyph
+         glyph-name="LepCam D1  [= Run Þ2 dex]"
+         id="glyph4143"
+         unicode=""
+         d="M 359.39844,915.90039 V 271.0957 h 80 v 156.7461 l 210.62304,121.60351 2.50196,67.71094 -213.125,145.01172 v 153.73242 z m 80,-250.49414 115.43554,-78.54297 -115.43554,-66.64648 z" />
+      <glyph
+         glyph-name="LepCam D2  [= Raet R2 sin]"
+         id="glyph4145"
+         unicode=""
+         d="M 600.78418,958.10508 C 383.78036,880.10332 306.38529,710.5159 328.20801,558.87266 350.03074,407.22941 460.2418,270.02157 605.79786,238.30625 l 48.51562,39.08203 v 643.07618 z m -26.4707,-97.82227 V 333.81016 C 490.34695,374.88783 421.9002,469.4644 407.39356,570.26914 c -15.47173,107.51104 21.67601,218.9951 166.91992,290.01367 z" />
+      <glyph
+         glyph-name="LepCam C2  (0, PC 10 FdN)  [= Etr C2]"
+         id="glyph4147"
+         unicode=""
+         d="M 563.70228,791.3032 614.14955,729.21531 439.58314,587.37937 612.3097,448.65476 562.214,386.28172 350.88197,556.01218 l -0.17773,62.23243 z" />
+      <glyph
+         glyph-name="LepCam B2 (0, PC 10)"
+         id="glyph4149"
+         unicode=""
+         d="m 444.92124,270.67583 v 163.375 L 301.94077,516.60161 V 272.33989 h -80 v 643.98242 h 80 v -307.3457 l 142.98047,-82.55078 v 388.23242 h 80 v -388.2793 l 133.28516,76.95118 v 309.66406 h 80 v -640.6543 h -80 V 510.95513 L 524.92124,434.002 V 270.67583 Z" />
+      <glyph
+         glyph-name="Run N3 sin/dex  [= Raet L4 sin  (0) = LepCam N? (0, FdN)"
+         id="glyph4152"
+         unicode=""
+         d="m 647.1875,916.21289 -80,-0.17773 0.55078,-247.61133 -191.36133,-144.55469 48.21875,-63.83398 143.36719,108.29882 0.66016,-296.80859 80,0.17773 z" />
+      <glyph
+         glyph-name="Glyphe 613"
+         id="glyph4154" />
     </font>
   </defs>
   <metadata
@@ -4041,7 +4124,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -4315,18 +4398,39 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer627"
+     inkscape:label="Run N3 sin/dex  [= Raet L4 sin  (0) = LepCam N? (0, FdN)"
+     style="display:inline">
+    <g
+       transform="translate(-63.938897,-1.6188197)"
+       style="display:inline"
+       id="g3281-1-9">
+      <g
+         id="g3331-6">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="m 647.1875,107.78711 -80,0.17773 0.55078,247.61133 -191.36133,144.55469 48.21875,63.83398 143.36719,-108.29882 0.66016,296.80859 80,-0.17773 z"
+           transform="translate(-1.4337376,-0.71770969)"
+           id="path3275-6-9"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer544"
      inkscape:label="Run O4"
-     style="display:inline">
+     style="display:none">
     <g
        transform="matrix(0,1.1536317,-0.92707465,0,892.10989,-98.197617)"
        style="display:inline;stroke-width:77.35689545;stroke-miterlimit:4;stroke-dasharray:none"
        id="g4835-3-0">
       <path
          style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-         d="M 230.38086 253.73438 L 163.55664 286.12305 C 185.2513 355.43246 227.5952 418.49527 280.70898 472.05664 C 227.73246 530.71018 185.5181 599.43017 163.92969 674.53125 L 231.45508 704.58594 C 248.70094 644.59162 290.29099 581.95626 343.11719 527.08789 C 395.45107 567.52537 453.28427 599.732 509.97656 621.50586 C 582.54169 649.37601 654.0347 660.06001 714.64844 637.33203 C 770.95052 616.22079 815.32337 556.40184 823.26758 472.11523 L 824.94727 472.07031 C 824.85765 466.93482 824.6338 461.88198 824.29492 456.9043 C 824.35665 455.38756 824.40863 453.86302 824.44727 452.33203 L 823.94727 452.3125 C 816.7337 366.46827 772.82093 305.29737 716.23828 284.60938 C 655.40374 262.3668 583.86173 275.21336 511.19531 306.30078 C 453.5091 330.97952 394.57415 367.43357 341.42188 412.99609 C 288.26028 362.74491 246.70882 305.89843 230.38086 253.73438 z M 650.14062 363.38281 C 667.60654 363.24379 683.15733 365.52702 696.02148 370.23047 C 730.06347 382.67703 748.54499 402.39836 752.49609 456.76758 C 749.6453 516.6068 730.75154 538.0901 693.95703 551.88672 C 655.71178 566.22731 595.19684 560.84175 531.12695 536.23438 C 489.94055 520.41588 447.61952 496.60768 408.03125 468.04492 C 448.68318 435.67249 492.23506 408.78169 534.51172 390.69531 C 576.47023 372.74504 616.7966 363.64823 650.14062 363.38281 z "
+         d="m 230.38086,253.73438 -66.82422,32.38867 c 21.69466,69.30941 64.03856,132.37222 117.15234,185.93359 -52.97652,58.65354 -95.19088,127.37353 -116.77929,202.47461 l 67.52539,30.05469 c 17.24586,-59.99432 58.83591,-122.62968 111.66211,-177.49805 52.33388,40.43748 110.16708,72.64411 166.85937,94.41797 72.56513,27.87015 144.05814,38.55415 204.67188,15.82617 56.30208,-21.11124 100.67493,-80.93019 108.61914,-165.2168 l 1.67969,-0.0449 c -0.0896,-5.13549 -0.31347,-10.18833 -0.65235,-15.16601 0.0617,-1.51674 0.11371,-3.04128 0.15235,-4.57227 l -0.5,-0.0195 C 816.7337,366.46827 772.82093,305.29737 716.23828,284.60938 655.40374,262.3668 583.86173,275.21336 511.19531,306.30078 453.5091,330.97952 394.57415,367.43357 341.42188,412.99609 288.26028,362.74491 246.70882,305.89843 230.38086,253.73438 Z m 419.75976,109.64843 c 17.46592,-0.13902 33.01671,2.14421 45.88086,6.84766 34.04199,12.44656 52.52351,32.16789 56.47461,86.53711 -2.85079,59.83922 -21.74455,81.32252 -58.53906,95.11914 -38.24525,14.34059 -98.76019,8.95503 -162.83008,-15.65234 -41.1864,-15.8185 -83.50743,-39.6267 -123.0957,-68.18946 40.65193,-32.37243 84.20381,-59.26323 126.48047,-77.34961 41.95851,-17.95027 82.28488,-27.04708 115.6289,-27.3125 z"
          transform="matrix(0,-1.0786618,0.86682778,0,85.120422,962.28485)"
-         id="path3356-9-4-2-7" />
+         id="path3356-9-4-2-7"
+         inkscape:connector-curvature="0" />
     </g>
   </g>
   <g
@@ -4906,7 +5010,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer499"
-     inkscape:label="Run Z3"
+     inkscape:label="Run Z3  [= LepCam S7]"
      style="display:none">
     <g
        id="g4097">
@@ -5360,7 +5464,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer470"
-     inkscape:label="Run H1 sin/dex  [= Raet H1 sin]"
+     inkscape:label="Run H1 sin/dex  [= Raet H1 sin = Lep N5 sin]"
      style="display:none">
     <g
        transform="translate(-2.3091751,-0.40729298)"
@@ -5806,7 +5910,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer436"
-     inkscape:label="Run Þ2 dex"
+     inkscape:label="Run Þ2 dex  [= LepCam D1]"
      style="display:none">
     <g
        transform="matrix(-1,0,0,1,950.06991,2.3533018)"
@@ -7644,7 +7748,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer560"
-     inkscape:label="LepCam P5 dex  (0)"
+     inkscape:label="LepCam P5 dex  (0)  [= Run Exx]"
      style="display:none">
     <path
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
@@ -7655,7 +7759,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer559"
-     inkscape:label="LepCam P5 sin"
+     inkscape:label="LepCam P5 sin  [= Run Exx]"
      style="display:none">
     <path
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
@@ -10609,7 +10713,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer148"
-     inkscape:label="Lep E5 sin"
+     inkscape:label="Lep E5 sin  [= LepCam V4]"
      style="display:none">
     <g
        id="g3512">
@@ -11574,6 +11678,238 @@
          transform="translate(-40.15744,0.04186049)"
          id="path2385-8"
          inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer549"
+     inkscape:label="LepCam B2 (0, PC 10)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 444.92124,753.32417 v -163.375 L 301.94077,507.39839 v 244.26172 h -80 V 107.67769 h 80 v 307.3457 l 142.98047,82.55078 V 109.34175 h 80 v 388.2793 L 658.2064,420.66987 V 111.00581 h 80 v 640.6543 h -80 V 513.04487 L 524.92124,589.998 v 163.32617 z"
+       id="path6355-7"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer553"
+     inkscape:label="LepCam C2  (0, PC 10 FdN)  [= Etr C2]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 563.70228,232.6968 614.14955,294.78469 439.58314,436.62063 612.3097,575.34524 562.214,637.71828 350.88197,467.98782 350.70424,405.75539 Z"
+       id="path7516-2-9"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer618"
+     inkscape:label="LepCam D2  [= Raet R2 sin]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 600.78418,65.894917 C 383.78036,143.89668 306.38529,313.4841 328.20801,465.12734 350.03074,616.77059 460.2418,753.97843 605.79786,785.69375 l 48.51562,-39.08203 V 103.53554 Z m -26.4707,97.822273 V 690.18984 C 490.34695,649.11217 421.9002,554.5356 407.39356,453.73086 391.92183,346.21982 429.06957,234.73576 574.31348,163.71719 Z"
+       id="path3795-3-2-0"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer574"
+     inkscape:label="LepCam D1  [= Run Þ2 dex]"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,957.1288,-0.00102065)"
+       style="display:inline"
+       id="g7567-3-3">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 359.39844,108.09961 V 752.9043 h 80 V 596.1582 l 210.62304,-121.60351 2.50196,-67.71094 -213.125,-145.01172 V 108.09961 Z m 80,250.49414 115.43554,78.54297 -115.43554,66.64648 z"
+         transform="matrix(-1,0,0,1,950.06991,-2.3533018)"
+         id="path7546-8-3"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer620"
+     inkscape:label="LepCam V5 (0, PC 10)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 203.33594,105.74609 v 644.80469 h 80 V 366.87109 l 64.95898,45.83203 v 337.84766 h 80 V 469.14844 l 65.54492,46.24609 v 235.15625 h 80 V 571.83789 l 64.25196,45.33399 v 133.3789 h 80 V 108.09766 h -80 v 411.16601 l -64.25196,-45.33398 v -368.1836 h -80 v 311.74024 l -65.54492,-46.2461 V 105.74609 h -80 V 314.79688 L 283.33594,268.96484 V 105.74609 Z"
+       id="path3878"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer619"
+     inkscape:label="LepCam V4 (0, FdN)  [= Lep E5 sin]"
+     style="display:none">
+    <g
+       transform="translate(-48.688154,-0.54075009)"
+       style="display:inline"
+       id="g3512-0">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 610.28906,72.441406 351.91211,220.29102 391.64453,289.72656 590.15625,176.13477 v 69.04882 l -237.25391,136.97657 40,69.2832 197.25391,-113.88477 v 60.64453 l -245.14844,141.53711 40,69.28125 205.14844,-118.44336 v 61.94727 l -243.73437,139.4375 39.72656,69.43945 204.00781,-116.71093 v 105.54297 h 80 V 107.16016 Z"
+         id="path3500-25"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer621"
+     inkscape:label="LepCam Z13 (0, PC 10)  [= Run Z1 = Lep X4 = Raet X1]"
+     style="display:none">
+    <g
+       transform="translate(-21.769051,1.2391887)"
+       style="display:inline"
+       id="g3494-9-8">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 329.27344,103.89258 -56.56836,56.56836 187.81054,187.81054 v 402.98047 h 80 V 349.70508 L 729.04297,161.17969 672.47461,104.60938 540.51562,236.56836 V 106.74219 h -80 v 128.39258 z"
+         transform="translate(3.3219199,-1.0171233)"
+         id="path6706-5-3"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer622"
+     inkscape:label="LepCam Z12 (0, FdN) [Run Z2 = Raet X2]"
+     style="display:none">
+    <g
+       transform="matrix(1,0,0,-1,-5.2957712,857.05491)"
+       style="display:inline"
+       id="g3494-4-8">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 450.53125,105.55664 V 508.53711 L 262.7207,696.34766 319.28906,752.91602 450.53125,621.67383 v 128.39258 h 80 V 620.24023 L 662.49023,752.19922 719.05859,695.62891 530.53125,507.10352 V 105.55664 Z"
+         transform="matrix(1,0,0,-1,13.306134,855.79031)"
+         id="path6706-92-3"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer623"
+     inkscape:label="LepCam H1 (=, FdN, PC 10) [Run H1 sin/dex = Raet H1 sin = Lep N5 sin]"
+     style="display:none">
+    <g
+       transform="translate(-4.8553346,0.16904953)"
+       style="display:inline"
+       id="g2782-3-7">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 283.53516,105.31641 v 644.50976 h 80 V 528.81055 L 658.18359,413.66016 v 336.16601 h 80 V 106.75195 h -80 V 327.76953 L 363.53516,442.91797 V 105.31641 Z"
+         transform="translate(2.3091751,0.40729298)"
+         id="path2773-2-1"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer624"
+     inkscape:label="LepCam K9 (0, PC 10)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 438.30664,105.74609 V 454.04102 H 301.22266 l -40,40 v 256.15625 h 80 V 534.04102 h 275.34765 v 216.50976 h 80 V 494.04102 l -40,-40 H 518.30664 V 105.74609 Z"
+       id="path3947"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer626"
+     inkscape:label="LepCam N11 dex (0, PC 10)"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,965.31873,-2.2238125e-6)"
+       id="g3958-8">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 328.89062,105.74609 v 644.80469 h 80 V 530.375 l 99.48829,57.43945 h 40 l 122.4082,-70.67383 -40,-69.28124 -102.4082,59.12695 L 408.89062,438 V 105.74609 Z"
+         transform="matrix(-1,0,0,1,965.31873,2.2238125e-6)"
+         id="path3952-0"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer625"
+     inkscape:label="LepCam N11 sin (0, FdN)"
+     style="display:none">
+    <g
+       id="g3958">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 556.42773,105.74609 V 438 l -119.48828,68.98633 -102.4082,-59.12695 -40,69.28124 122.4082,70.67383 h 40 L 556.42773,530.375 v 220.17578 h 80 V 105.74609 Z"
+         id="path3952"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer628"
+     inkscape:label="LepCam N?/Ksi? (0, FdN, Morandi 1998:107) [= Run N3 sin/dex = Raet L4 sin  (0)]"
+     style="display:none">
+    <g
+       transform="translate(-108.65163,-1.2655175)"
+       style="display:inline"
+       id="g3281-1-9-8">
+      <g
+         id="g3331-6-1">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="m 647.1875,107.78711 -80,0.17773 0.55078,247.61133 -191.36133,144.55469 48.21875,63.83398 143.36719,-108.29882 0.66016,296.80859 80,-0.17773 z"
+           transform="translate(-1.4337376,-0.71770969)"
+           id="path3275-6-9-4"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer629"
+     inkscape:label="LepCam P7 sin"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 185.53125,261.74609 v 80 h 572.125 v 283.1875 H 187.58789 v 80 h 610.06836 l 40,-40 v -363.1875 l -40,-40 z"
+       id="path4027"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer630"
+     inkscape:label="LepCam S7  (Morandi 1998:107)  [= Run Z3)"
+     style="display:none">
+    <g
+       transform="translate(-31.188458,-1.0886974)"
+       style="display:inline"
+       id="g4097-8">
+      <g
+         id="g3494-91-4"
+         style="display:inline"
+         transform="translate(0.00615155,2.681159)">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 503.83782,750.23424 V 105.72375"
+           id="path6706-93-8"
+           inkscape:connector-curvature="0" />
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="M 332.60156,105.55664 276.0332,162.125 463.84375,349.93555 V 508.53711 L 276.0332,696.34766 332.60156,752.91602 463.84375,621.67383 v 128.39258 h 80 V 620.24023 L 675.80273,752.19922 732.37109,695.62891 543.84375,507.10352 V 351.36914 L 732.37109,162.84375 675.80273,106.27344 543.84375,238.23242 V 105.55664 h -80 v 131.24219 z"
+           transform="translate(-0.00615155,-2.681159)"
+           id="path6708-1-7"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g3494-60-6"
+         style="display:inline"
+         transform="matrix(1,0,0,-1,0.00615518,855.79031)" />
     </g>
   </g>
   <g
