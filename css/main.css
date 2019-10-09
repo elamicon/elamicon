@@ -317,6 +317,12 @@ ul {
     background-color: #ffffe8;
 }
 
+.searchCodeExample {
+    padding: 0.2em;
+    border: 0.06em solid black;
+    background-color: #ffffe8;
+}
+
 .noresult {
     margin: 1em;
 }

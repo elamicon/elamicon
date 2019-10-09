@@ -54,6 +54,7 @@ type alias Model =
     , sandbox : String
     , search : String
     , bidirectionalSearch : Bool
+    , linesplitSearch : Bool
     , selectedGroups : Set.Set String
     , collapsed : Set.Set String
     , showAllResults : Bool
@@ -83,6 +84,7 @@ initialModel =
         , search = ""
         , showAllResults = False
         , bidirectionalSearch = True
+        , linesplitSearch = False
         , selectedGroups = Set.empty
         , collapsed = Set.fromList [ "info", "gramStats", "syllabary", "playground", "settings", "search" ]
         }
@@ -104,6 +106,7 @@ type Msg
     | SetSearch String
     | ShowAllResults
     | BidirectionalSearch Bool
+    | LinesplitSearch Bool
     | SelectGroup String Bool
     | Toggle String
 
@@ -222,6 +225,7 @@ update msg model =
                 -- All latin chars are included to allow character classes.
                 regexMeta = String.toList "()[]^$|-*.?=!<>\\"
                 allowedRegexChars = Set.fromList (regexMeta
+                                               ++ ['⏎']
                                                ++ charRange '0' '9'
                                                ++ charRange 'a' 'z'
                                                ++ charRange 'A' 'Z')
@@ -233,7 +237,7 @@ update msg model =
                 -- This means that irrelevant chars vanish as they are typed!
                 -- Maybe it would be better to just ignore the chars when
                 -- searching but leave them alone in the search-field?
-                indexedOrRegex c = model.script.indexed c 
+                indexedOrRegex c = model.script.indexed c
                                    || Set.member c allowedRegexChars
                 cleanSearch = String.filter indexedOrRegex new
             in
@@ -244,6 +248,9 @@ update msg model =
 
         BidirectionalSearch new ->
             ( { model | bidirectionalSearch = new }, Cmd.none )
+
+        LinesplitSearch new ->
+            ( { model | linesplitSearch = new }, Cmd.none )
 
         SelectGroup group include ->
             ( { model
@@ -454,9 +461,21 @@ view model =
         charFilter =
             String.filter keepChar
 
+        -- When the search splits along lines, make the newlines count
+        linesplitInsertion =
+            if model.linesplitSearch
+                then String.join "⏎\n" << String.split "\n"
+                else identity
+
+        -- When splitting by line, the linebreak is made to count as char
+        indexed =
+            if model.linesplitSearch
+            then \c -> c == '⏎' || model.script.indexed c
+            else model.script.indexed
+
         -- Process fragment text for display
         cleanse =
-            String.trim >> normalize >> charFilter
+            String.trim >> linesplitInsertion >> normalize >> charFilter
 
         cleanedFragments =
             List.map (\f -> { f | text = cleanse f.text }) selectedFragments
@@ -559,7 +578,7 @@ view model =
         gramStats strings =
             let
                 onlyIndexed =
-                    charFilter >> model.normalizer >> String.filter model.script.indexed
+                    charFilter >> model.normalizer >> String.filter indexed
 
                 tallyGrams =
                     List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 <| List.map onlyIndexed strings
@@ -803,7 +822,7 @@ view model =
                     3
 
                 results =
-                    Maybe.map (Search.extract model.script.indexed maxResults contextLen cleanedFragments) search
+                    Maybe.map (Search.extract indexed maxResults contextLen cleanedFragments) search
 
                 buildResultLine result =
                     let
@@ -850,11 +869,10 @@ view model =
                             href <| String.concat [ "#", fragment.id, fromInt index ]
 
                         -- Remove spaces and ensure the guessmarks are oriented left
-                        showNewlines = String.replace "\n" "⏎"
                         removeWhitespace = String.words >> String.concat
                         fixGuessmarkDir = model.script.guessMarkDir LTR
                         typeset =
-                            showNewlines >> removeWhitespace >> fixGuessmarkDir
+                            removeWhitespace >> fixGuessmarkDir
                     in
                     li [ class "result" ]
                         [ div [ class "id" ]
@@ -902,7 +920,7 @@ view model =
                 ++ collapsibleTitle "search" "Search" .search
                 ++ ifExpanded "search"
                     (\_ ->
-                        [ label []
+                        [ label [] (
                             [ text "Search "
                             , div [ class "searchInput" ]
                                 ([ Html.input [ scriptClass, dirAttr LTR, value model.search, onInput SetSearch ] []
@@ -918,8 +936,18 @@ view model =
                                 [ input [ type_ "checkbox", checked model.bidirectionalSearch, Html.Events.onCheck BidirectionalSearch ] []
                                 , text "also search in reverse direction"
                                 ]
+                            , label []
+                                [ input [ type_ "checkbox", checked model.linesplitSearch, Html.Events.onCheck LinesplitSearch ] []
+                                , text "split search at new lines"
+                                ]
                             ]
-                        ]
+                            ++ (if model.linesplitSearch then
+                                    [ div [] [ text "Use the character [⏎] to search across lines. Just copy the ⏎ character to the search-input to use it. For example, write ", span [ class "searchCodeExample" ] [ text "line⏎?break" ], text " to allow (but not require) the word linebreak to be split across lines."] ]
+
+                                else
+                                    []
+                               )
+                        )]
                             ++ (case results of
                                     Just res ->
                                         if List.length res.items == 0 then
@@ -963,14 +991,15 @@ view model =
                 breakAfterSeparator =
                     Regex.replace seperatorMatch (\l -> l.match ++ zeroWidthSpace)
 
-                textMod =
-                    String.trim >> breakAfterSeparator >> model.script.guessMarkDir (effectiveDir fragment.dir)
+                textMod = String.trim
+                       >> breakAfterSeparator
+                       >> model.script.guessMarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
                 matches =
                     case search of
                         Just s ->
-                            s (String.filter model.script.indexed fragment.text)
+                            s (String.filter indexed fragment.text)
 
                         Nothing ->
                             []
@@ -1023,7 +1052,7 @@ view model =
 
                                 charStr = String.fromChar char
                             in
-                            if model.script.indexed char then
+                            if indexed char then
                                 ( a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize charStr) ] :: tailElems, idx + 1 )
 
                             else
