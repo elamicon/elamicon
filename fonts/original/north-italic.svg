@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.60094863"
-     inkscape:cx="350.02216"
+     inkscape:cx="-64.32274"
      inkscape:cy="396.40674"
      inkscape:document-units="px"
-     inkscape:current-layer="layer353"
+     inkscape:current-layer="layer554"
      showgrid="false"
      showguides="true"
      inkscape:window-width="1534"
@@ -3680,7 +3680,8 @@
       <glyph
          glyph-name="Run N2 sin/dex  [= Raet T2 sin]"
          id="glyph4605"
-         unicode="" />
+         unicode=""
+         d="M 484.24805,915.58398 V 646.11719 l -131.9668,-72.42774 38.49023,-70.13281 93.47657,51.30469 V 273.94531 h 80 v 324.82227 l 135.14257,74.17187 -38.49023,70.13086 -96.65234,-53.04687 v 225.56054 z" />
       <glyph
          glyph-name="Run N3 sin"
          id="glyph4612"
@@ -4109,7 +4110,8 @@
       <glyph
          glyph-name="Etr P3 (CIE 2312)"
          id="glyph4154"
-         unicode="" />
+         unicode=""
+         d="m 567.16992,959.83398 c -2.27677,0.001 -4.54509,-0.0229 -6.80273,-0.0703 -126.4281,-2.65462 -222.41081,-80.89655 -238.97071,-176.27344 -9.46279,-54.50109 12.06037,-114.40566 63.90235,-153.79492 42.91622,-32.60753 103.81918,-52.9193 185.03515,-58.16992 V 274.22852 h 80 v 642.31836 l -34.0625,39.55664 c -16.76594,2.51679 -33.16417,3.72258 -49.10156,3.73046 z m -3.00195,-80.07812 c 2.04,-0.0328 4.12995,-0.15352 6.16601,-0.17774 V 652.00977 c -66.8652,5.27035 -111.29276,22.12856 -136.63671,41.38476 -31.48104,23.91913 -38.31254,48.56855 -33.47852,76.41016 8.45954,48.72281 68.11586,107.80253 161.92969,109.94726 0.66505,0.0152 1.33953,0.0147 2.01953,0.004 z" />
       <glyph
          glyph-name="Run I2  [= Raet I2]"
          id="glyph3883"
@@ -6527,12 +6529,11 @@
      inkscape:groupmode="layer"
      id="layer554"
      inkscape:label="Etr P3 (CIE 2312)"
-     style="display:none">
+     style="display:inline">
     <path
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 567.16976,64.165201 c -2.27677,-0.0011 -4.54509,0.02291 -6.80273,0.07031 -126.4281,2.654617 -222.41081,80.896539 -238.97071,176.273429 -9.46279,54.50109 12.06037,114.40566 63.90235,153.79492 42.91622,32.60753 103.81918,52.91931 185.03515,58.16993 v 297.29687 h 80 V 107.45231 l -34.0625,-39.55664 c -16.76594,-2.516794 -33.16417,-3.722584 -49.10156,-3.730469 z m -3.00195,80.078129 c 2.04,0.0328 4.12995,0.15352 6.16601,0.17773 v 227.56835 c -66.8652,-5.27035 -111.29276,-22.12856 -136.63671,-41.38476 -31.48104,-23.91913 -38.31254,-48.56855 -33.47852,-76.41016 8.45954,-48.72281 68.11586,-107.80253 161.92969,-109.94726 0.66505,-0.0152 1.33953,-0.0148 2.01953,-0.004 z"
-       id="path3589-0"
-       inkscape:connector-curvature="0" />
+       d="M 567.16992 64.166016 C 564.89315 64.164916 562.62483 64.188928 560.36719 64.236328 C 433.93909 66.890945 337.95638 145.13288 321.39648 240.50977 C 311.93369 295.01086 333.45685 354.91543 385.29883 394.30469 C 428.21505 426.91222 489.11801 447.22399 570.33398 452.47461 L 570.33398 749.77148 L 650.33398 749.77148 L 650.33398 107.45312 L 616.27148 67.896484 C 599.50554 65.37969 583.10731 64.173901 567.16992 64.166016 z M 564.16797 144.24414 C 566.20797 144.27694 568.29792 144.39766 570.33398 144.42188 L 570.33398 371.99023 C 503.46878 366.71988 459.04122 349.86167 433.69727 330.60547 C 402.21623 306.68634 395.38473 282.03692 400.21875 254.19531 C 408.67829 205.4725 468.33461 146.39278 562.14844 144.24805 C 562.81349 144.23285 563.48797 144.23334 564.16797 144.24414 z "
+       id="path3589-0" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -8374,7 +8375,7 @@
      inkscape:groupmode="layer"
      id="layer353"
      inkscape:label="Lep K10  (Maras 2014) [= Lep U4]"
-     style="display:inline">
+     style="display:none">
     <g
        transform="translate(23.471944,0.6574666)"
        style="display:inline"
