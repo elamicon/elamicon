@@ -1100,7 +1100,9 @@ view model =
                 , text "We can help you with tips on how to contribute to the decipherment of Linear Elamite and tell you what we've discovered so far."
                 , br [] []
                 , br [] []
-                , text " Thank you for your interest and have fun puzzling over the inscriptions. Your team of the \"Linear Elamite Decipherment Project\", Institut für Sprachwissenschaft, Universität Bern."
+                , text " Thank you for your interest and have fun puzzling over the inscriptions. Your "
+                , text model.script.title
+                , text " team, Institut für Sprachwissenschaft, Universität Bern."
                 , br [] []
                 , a [ href "https://center-for-decipherment.ch/" ]
                     [ text "center-for-decipherment.ch" ]
