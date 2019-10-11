@@ -8,6 +8,7 @@ import Dict exposing (Dict)
 import List
 import Regex
 import ScriptDefs exposing (..)
+import Specialchars exposing (..)
 import Set exposing (Set)
 import String
 import Tokens

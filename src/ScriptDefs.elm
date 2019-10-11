@@ -57,9 +57,6 @@ type alias Script =
     , sources : String
     , tokens : List Token
     , seperatorChars : String
-    , specialChars : List SpecialCharDef
-    , guessMarkers : Set Token
-    , guessMarkDir : Dir -> String -> String
     , indexed : Token -> Bool
     , searchExamples : List ( String, String )
     , syllables : Dict Token (List String)

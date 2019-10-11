@@ -9,24 +9,12 @@ import Regex
 
 import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
+import Specialchars exposing (..)
 import Tokens 
 
 rawTokens = Tokens.toList <| String.trim """
 
 """
-wildcardChar = ''
-guessMarkerL = ''
-guessMarkerR = ''
-guessMarkers = Set.fromList [ guessMarkerL,  guessMarkerR ]
-fractureMarker = ''
-
-specialChars = []
-
-guessMarkDir dir =
-    case dir of
-        LTR -> Tokens.replace guessMarkerR guessMarkerL
-        _ -> Tokens.replace guessMarkerL guessMarkerR
-
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 
@@ -119,9 +107,6 @@ Work in progress. Check back soon!
 This sub-corpus includes, with minor changes, all the sign variants ocurring in [Thesaurus Inscriptionum Raeticarum](https://www.univie.ac.at/raetica/wiki/Main_Page), which on its part collects the letter forms of the Sondrio Alphabet, Magré Alphabet, Sanzeno Alphabet and others. We are grateful to the authors of the TIR for meticulously collecting the Raetic inscriptions.
     """
     , tokens = tokens
-    , specialChars = specialChars
-    , guessMarkers = guessMarkers
-    , guessMarkDir = guessMarkDir
     , seperatorChars = ""
     , indexed = indexed
     , searchExamples = searchExamples
