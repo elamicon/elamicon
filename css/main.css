@@ -66,6 +66,11 @@ h3, h4 {
     margin: 1ex 0 0.5ex 0;
 }
 
+h4 {
+    margin-top: 2ex;
+    font-size: 120%;
+}
+
 p {
     margin: 0.5ex 0;
 }
