@@ -916,9 +916,9 @@ byblos =
     , title = "Byblicon"
     , font = "Byblicon"
     , description = """
-Work in progress. Check back soon!
 """
     , sources = """
+#### Sources
 - **Albright, William F. (1939):** "A Hebrew Letter from the Twelfth Century B.C." Bulletin of the American Schools of Oriental Research 73, 9-13.
 - **Albright, William F. (1949):** "The so-called enigmatic inscription from Byblus." Bulletin of the American Schools of Oriental Research 116, 12-14.
 - **Carlson, Deborah & Casaban, Jose Luis (2016):** Introduction to Nautical Archaeology (Anthropology 316). Texas Agricultural & Mechanical University. Online unter http://nautarch.tamu.edu/class/316/uluburun/.
