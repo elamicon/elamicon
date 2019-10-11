@@ -10,10 +10,10 @@ import Regex
 import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 import Tokens 
+import RaeticTokens
 
-rawTokens = Tokens.toList <| String.trim """
-
-"""
+rawTokens = Tokens.toList RaeticTokens.tokens
+
 wildcardChar = ''
 guessMarkerL = ''
 guessMarkerR = ''

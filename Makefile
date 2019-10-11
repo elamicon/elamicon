@@ -5,7 +5,16 @@ BFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
 IFONTS = $(subst fonts/original/,fonts/NorthItalic,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
-all: build/elamicon.zip fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
+all: src/RaeticTokens.elm src/LeponticTokens.elm src/EtruscanTokens.elm src/RunicTokens.elm build/elamicon.zip fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
+
+src/RaeticTokens.elm: fonts/original/north-italic.txt
+	bin/extract_script_chars Raet < $^ > "$@"
+src/LeponticTokens.elm: fonts/original/north-italic.txt
+	bin/extract_script_chars Lep < $^ > "$@"
+src/EtruscanTokens.elm: fonts/original/north-italic.txt
+	bin/extract_script_chars Etr < $^ > "$@"
+src/RunicTokens.elm: fonts/original/north-italic.txt
+	bin/extract_script_chars Run< $^ > "$@"
 
 elms := $(wildcard *.elm src/*.elm)
 
