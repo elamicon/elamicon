@@ -911,7 +911,7 @@ byblos : Script
 byblos =
     { id = "byblos"
     , name = "Byblos Script"
-    , group = "Crescent Scripts"
+    , group = "Ancient Near Eastern Scripts"
     , headline = "Online Corpus of Byblos Inscriptions OCBI"
     , title = "Byblicon"
     , font = "Byblicon"

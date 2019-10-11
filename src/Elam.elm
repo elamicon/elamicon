@@ -766,7 +766,7 @@ elam : Script
 elam =
     { id = "elam"
     , name = "Linear Elamite"
-    , group = "Crescent Scripts"
+    , group = "Ancient Near Eastern Scripts"
     , headline = "Online Corpus of Linear Elamite Inscriptions OCLEI"
     , title = "Elamicon"
     , font = "Elamicon"
