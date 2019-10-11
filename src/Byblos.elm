@@ -9,36 +9,12 @@ import Regex
 
 import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
+import Specialchars exposing (..)
 import Tokens 
 
 rawTokens = Tokens.toList <| String.trim """
 
 """
-wildcardChar = ''
-guessMarkerL = ''
-guessMarkerR = ''
-guessMarkers = Set.fromList [ guessMarkerL,  guessMarkerR ]
-fractureMarker = ''
-
-specialChars =
-    [ { displayChar = String.fromChar wildcardChar
-      , char = wildcardChar
-      , description = "Wildcard for unreadable signs"
-      }
-    , { displayChar = String.fromList [ wildcardChar, guessMarkerL ]
-      , char = guessMarkerL
-      , description = "Marks signs that are hard to read"
-      }
-    , { displayChar = String.fromChar fractureMarker
-      , char = fractureMarker
-      , description = "Marks a fracture point (line is assumed to be incomplete)"
-      }
-    ]
-
-guessMarkDir dir =
-    case dir of
-        LTR -> Tokens.replace guessMarkerR guessMarkerL
-        _ -> Tokens.replace guessMarkerL guessMarkerR
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -962,9 +938,6 @@ byblos =
 - **Weippert, Manfred (1966):** Tell dēr ʿallā: Tontafeln mit einer bisher unbekannten Linearschrift (Archäologischer Jahresbericht). Zeitschrift des Deutschen Palästina-Vereins 82/3, 299-310.
     """
     , tokens = tokens
-    , specialChars = specialChars
-    , guessMarkers = guessMarkers
-    , guessMarkDir = guessMarkDir
     , seperatorChars = ""
     , indexed = indexed
     , searchExamples = searchExamples

@@ -15,6 +15,7 @@ import Markdown.Config exposing (..)
 import Regex
 import ScriptDefs exposing (..)
 import Scripts exposing (..)
+import Specialchars exposing (..)
 import Search
 import Set
 import String
@@ -533,7 +534,7 @@ view model =
             \_ ->
                 [ ol [ dirAttr LTR, classList [ ( "syllabary", True ) ] ]
                     (List.map syllabaryEntry (Scripts.syllabaryList (charFilter model.syllabary))
-                        ++ List.map specialEntry model.script.specialChars
+                        ++ List.map specialEntry specialchars
                     )
                 ]
 
@@ -573,7 +574,7 @@ view model =
 
         specialEntry { displayChar, char, description } =
             li [ class "letter" ]
-                [ div [ classList [ ( model.script.id, True ), ( "main", True ) ], onClick (AddChar (String.fromChar char)), title description ] [ text (model.script.guessMarkDir LTR displayChar) ] ]
+                [ div [ classList [ ( model.script.id, True ), ( "main", True ) ], onClick (AddChar (String.fromChar char)), title description ] [ text (guessMarkDir LTR displayChar) ] ]
 
         gramStats strings =
             let
@@ -634,7 +635,7 @@ view model =
                             , dirAttr LTR
                             , on "input" (Json.Decode.map SetSandbox Html.Events.targetValue)
                             , onInput SetSandbox
-                            , value (model.script.guessMarkDir LTR model.sandbox)
+                            , value (guessMarkDir LTR model.sandbox)
                             ]
                             []
                         , gramStats [ model.sandbox ]
@@ -870,7 +871,7 @@ view model =
 
                         -- Remove spaces and ensure the guessmarks are oriented left
                         removeWhitespace = String.words >> String.concat
-                        fixGuessmarkDir = model.script.guessMarkDir LTR
+                        fixGuessmarkDir = guessMarkDir LTR
                         typeset =
                             removeWhitespace >> fixGuessmarkDir
                     in
@@ -993,7 +994,7 @@ view model =
 
                 textMod = String.trim
                        >> breakAfterSeparator
-                       >> model.script.guessMarkDir (effectiveDir fragment.dir)
+                       >> guessMarkDir (effectiveDir fragment.dir)
 
                 -- Find matches in the fragment
                 matches =
@@ -1005,7 +1006,7 @@ view model =
                             []
 
                 guessmarkClass char =
-                    if Set.member char model.script.guessMarkers then
+                    if Set.member char guessMarkers then
                         [ class "guessmark" ]
 
                     else

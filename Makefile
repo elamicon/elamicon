@@ -25,25 +25,29 @@ elamicon.min.js: $(elms)
 	elm make --optimize --output=elamicon.opt.js elamicon.elm
 	uglifyjs elamicon.opt.js --compress "pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe" | uglifyjs --mangle --output="$@"
 
-fonts/ElamiconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf  fonts/original/elamicon.sfdir
+
+fonts/elamicon-base.ttf: fonts/original/elamicon.sfdir fonts/original/special.sfdir
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf  fonts/original/elamicon.sfdir
+fonts/ElamiconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf  fonts/elamicon-base.ttf
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf  fonts/original/elamicon.sfdir
+fonts/ElamiconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf  fonts/elamicon-base.ttf
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf  fonts/original/elamicon.sfdir
+fonts/ElamiconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf  fonts/elamicon-base.ttf
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf  fonts/original/elamicon.sfdir
+fonts/ElamiconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf  fonts/elamicon-base.ttf
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf  fonts/original/elamicon.sfdir
+fonts/ElamiconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf  fonts/elamicon-base.ttf
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf  fonts/original/elamicon.sfdir
+fonts/ElamiconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf  fonts/elamicon-base.ttf
+	bin/addfont "Elamicon" $^ "$@"
+
+fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf  fonts/elamicon-base.ttf
 	bin/addfont "Elamicon" $^ "$@"
 
 fonts/Elamicon-Fonts.zip: $(EFONTS) $(MFONTS)
@@ -59,7 +63,7 @@ fonts/byblos-scaled.ttf: fonts/byblos-fixed.svg
 	bin/scale_font $^ 2 0 "$@"
 	bin/set_bearing "$@" 200
 
-fonts/byblos-base.ttf: fonts/byblos-scaled.ttf fonts/original/byblos-special.sfdir
+fonts/byblos-base.ttf: fonts/byblos-scaled.ttf fonts/original/special.sfdir
 	bin/addfont "Byblicon" $^ "$@"
 
 fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-base.ttf 
@@ -96,8 +100,8 @@ fonts/north-italic-scaled.ttf: fonts/north-italic-fixed.svg
 	bin/scale_font $^ 2.15 -560 "$@"
 	bin/set_bearing "$@" 200 
 
-fonts/north-italic-base.ttf: fonts/north-italic-scaled.ttf
-	cp $^ "$@" 
+fonts/north-italic-base.ttf: fonts/north-italic-scaled.ttf fonts/original/special.sfdir
+	bin/addfont "NorthItalic" $^ "$@"
 
 fonts/NorthItalicLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/north-italic-base.ttf 
 		bin/addfont "NorthItalic" $^ "$@"

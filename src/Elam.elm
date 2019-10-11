@@ -7,6 +7,7 @@ import Set
 import String
 
 import ScriptDefs exposing (..)
+import Specialchars exposing (..)
 import Tokens exposing (..)
 import WritingDirections exposing (..)
 
@@ -25,59 +26,26 @@ import WritingDirections exposing (..)
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
 rawTokens = Tokens.toList <| String.trim """
-
+
 """
-
--- Characters that are hard to read on the originals are marked with "guessmarkers".
--- Guessmarkers are zero-width and overlap the previous charachter. There are two
--- markers because there are two writing directions.
-guessMarkerL = ''
-guessMarkerR = ''
-guessMarkers = Set.fromList [ guessMarkerL, guessMarkerR ]
-
--- Unreadable signs are represented by this special character
-missingChar = ''
-
--- To mark places where we assume the writing continues but is missing, we use
--- the fracture mark.
-fractureMarker = ''
-
--- List of "special" characters
---
--- Most of the artifacts did not make it through time in mint condition. The
--- "special" characters can be used to mark glyphs that are unreadable or
---  are guesses.
-specialChars =
-    [ { displayChar = "", char = missingChar, description = "Wildcard for unreadable signs" }
-    , { displayChar = "", char = guessMarkerL, description = "Marks signs that are hard to read" }
-    , { displayChar = "", char = fractureMarker, description = "Marks a fracture point (line is assumed to be incomplete)" }
-    ]
-
-
--- Turn all guessmarkers in the writing direction so they don't overlap on
--- the wrong character
-guessMarkDir dir =
-    case dir of
-        LTR -> Tokens.replace guessMarkerR guessMarkerL
-        _ -> Tokens.replace guessMarkerL guessMarkerR
 
 -- These characters are assumed to be seperators
 seperatorChars = ""
 
-ignoreChars = Set.union guessMarkers <| Set.fromList [ missingChar, fractureMarker ]
+ignoreChars = Set.union guessMarkers <| Set.fromList [ wildcardChar, fractureMarker ]
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 tokenSet = Set.fromList tokens
 
 -- These letters are counted as character positions
 -- Letter 'X' is used in places where the character has not been mapped yet.
-indexedTokens = Set.fromList ([ '', 'X' ] ++ tokens)
+indexedTokens = Set.fromList ([ '', 'X' ] ++ tokens)
 indexed char = Set.member char indexedTokens
 
 searchExamples =
     [ ("?[]", "Search variants of  (in-šu-uš or in-šu-ši with optional NAP)")
-    , ("[]", "Search  and allow placeholder instead of NAP")
-    , ("([^])\\1", "Look for sign repetitions (geminates) like ")
-    , ("([^]).\\1", "Sign repetitions with an arbitrary sign in-between ()")
+    , ("[]", "Search  and allow placeholder instead of NAP")
+    , ("([^])\\1", "Look for sign repetitions (geminates) like ")
+    , ("([^]).\\1", "Sign repetitions with an arbitrary sign in-between ()")
     , ("[^]+", "Look for \"words\", assuming the vertical bar separates words")
     , ("[]", "Show sequences, with  or ")
     ]
@@ -328,19 +296,19 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "B", group = "Susa", dir = LTR, plate = Just "plates/linear-elam/b.jpg", text =
         """
-
-​
-
+
+​
+
         """
       }
     , { id = "C", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/c.jpg", text =
         """
-​
+​
 ​
-​
-​
-
-
+​
+​
+
+
         """
       }
     , { id = "D", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/d.jpg", text =
@@ -348,38 +316,38 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
 
 
-
+
         """
       }
     , { id = "E", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/e.jpg", text =
         """
 
-
-
-
+
+
+
         """
       }
     , { id = "F", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/f.jpg", text =
         """
 
-
-
-
+
+
+
         """
       }
     , { id = "G", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/g.jpg", text =
         """
-
-
-
+
+
+
         """
       }
     , { id = "H", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/h.jpg", text =
         """
-
-
-
-
+
+
+
+
         """
       }
     , { id = "I", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/i.jpg", text =
@@ -387,7 +355,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
 
 
-
+
         """
       }
     , { id = "J", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/j.jpg", text =
@@ -398,61 +366,61 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "K", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/k.jpg", text =
         """
-
-
-
-
-
-
+
+
+
+
+
+
         """
       }
     , { id = "L", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/l.jpg", text =
         """
-
-
-
-
+
+
+
+
         """
       }
     , { id = "M", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/m.jpg", text =
         """
-
-
-
+
+
+
 
 
         """
       }
     , { id = "N", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/n.jpg", text =
         """
-
-
-
-
-
-
+
+
+
+
+
+
         """
       }
     , { id = "O", group = "Div", dir = RTL, plate = Nothing, text =
         """
-
-
+
+
 
 
-
-
-
+
+
+
 
         """
       }
     , { id = "Or", group = "Div", dir = RTL, plate = Nothing, text =
         """
-
+
         """
       }
     , { id = "P", group = "Susa", dir = LTR, plate = Just "plates/linear-elam/p.jpg", text =
         """
-
+
         """
       }
     , { id = "Q", group = "Pers", dir = RTL, plate = Just "plates/linear-elam/q.jpg", text =
@@ -462,7 +430,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "R", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/r.jpg", text =
         """
-
+
 
 
         """
@@ -479,13 +447,13 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "T", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/t.jpg", text =
         """
-
+
         """
       }
     , { id = "U", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/u.jpg", text =
         """
-
-
+
+
         """
       }
     , { id = "V", group = "Liga", dir = RTL, plate = Just "plates/linear-elam/v.jpg", text =
@@ -514,7 +482,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "Y", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/y.jpg", text =
         """
-            
+            
                  
                   
         """
@@ -526,15 +494,15 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "Z", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/z.jpg", text =
         """
-            ​
-            ​​
+            ​
+            ​​
             ​​
             ​​ 
-             ​
-            ​ 
-             
-            ​
-            
+             ​
+            ​ 
+             
+            ​
+            
         """
       }
     , { id = "A′", group = "Phoe2", dir = RTL, plate = Just "plates/linear-elam/aprim.jpg", text =
@@ -580,20 +548,20 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
 
 
 
-
+
 
         """
       }
     , { id = "E′", group = "Jir", dir = RTL, plate = Just "plates/linear-elam/eprim.jpg", text =
         """
 
-
+
         """
       }
     , { id = "F′", group = "Schø",dir = RTL, plate = Just "plates/linear-elam/fprim.jpg", text =
         """
-
-
+
+
         """
       }
     , { id = "G'", group = "Chris", dir = LTR, plate = Just "plates/linear-elam/gprim.jpg", text =
@@ -604,88 +572,88 @@ fragments = List.map (\f -> { f | text = String.trim f.text })
       }
     , { id = "H′a", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/hprim_a.jpg", text =
         """
-            
-            
-            
-            
+            
+            
+            
+            
         """
       }
     , { id = "H′b", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/hprim_b.jpg", text =
         """
-            
-            
+            
+            
         """
       }
     , { id = "I′a", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/iprim.jpg", text =
         """
-
+
         """
       }
     , { id = "I′b", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/iprim.jpg", text =
         """
-
-​​
-
+
+​​
+
         """
       }
     , { id = "I′c", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/iprim.jpg", text =
         """
-
-
-
+
+
+
         """
       }
     , { id = "J′", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/jprim.jpg", text =
         """
-            
-            
+            
+            
         """
       }
     , { id = "K′a", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/kprim.jpg", text =
         """
-            
-            
+            
+            
         """
       }
     , { id = "K′b", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/kprim.jpg", text =
         """
             
-            ​​
-            
+            ​​
+            
         """
       }
     , { id = "K′c", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/kprim.jpg", text =
         """
-            
-            
+            
+            
         """
       }
     , { id = "K′d", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/kprim.jpg", text =
         """
-            
-            
+            
+            
         """
       }
     , { id = "L′a", group = "Mah",dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", text =
         """
-            
+            
         """
       }
     , { id = "L′b", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", text =
         """
-            
+            
         """
       }
     , { id = "L′c", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", text =
         """
-            
-            
+            
+            
         """
       }
     , { id = "L′d", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", text =
         """
-            
-            
+            
+            
         """
       }
     , { id = "M'", group = "Time", dir = RTL, plate = Just "plates/linear-elam/mprim.jpg", text =
@@ -774,9 +742,6 @@ elam =
     , sources = sources
     , tokens = tokens
     , seperatorChars = seperatorChars
-    , specialChars = specialChars
-    , guessMarkers = guessMarkers
-    , guessMarkDir = guessMarkDir
     , indexed = indexed
     , searchExamples = searchExamples
     , syllables = syllables

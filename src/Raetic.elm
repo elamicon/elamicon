@@ -9,23 +9,11 @@ import Regex
 
 import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
+import Specialchars exposing (..)
 import Tokens 
 import RaeticTokens
 
 rawTokens = Tokens.toList RaeticTokens.tokens
-
-wildcardChar = ''
-guessMarkerL = ''
-guessMarkerR = ''
-guessMarkers = Set.fromList [ guessMarkerL,  guessMarkerR ]
-fractureMarker = ''
-
-specialChars = []
-
-guessMarkDir dir =
-    case dir of
-        LTR -> Tokens.replace guessMarkerR guessMarkerL
-        _ -> Tokens.replace guessMarkerL guessMarkerR
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -129,9 +117,6 @@ We have labelled the sign variants with sub-numbers according to the frequency o
 None.
     """
     , tokens = tokens
-    , specialChars = specialChars
-    , guessMarkers = guessMarkers
-    , guessMarkDir = guessMarkDir
     , seperatorChars = ""
     , indexed = indexed
     , searchExamples = searchExamples
