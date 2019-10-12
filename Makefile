@@ -8,13 +8,13 @@ TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 all: src/RaeticTokens.elm src/LeponticTokens.elm src/EtruscanTokens.elm src/RunicTokens.elm build/elamicon.zip fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
 
 src/RaeticTokens.elm: fonts/original/north-italic.txt
-	bin/extract_script_chars Raet < $^ > "$@"
+	bin/extract_script_chars Raet RaeticTokens < $^ > "$@"
 src/LeponticTokens.elm: fonts/original/north-italic.txt
-	bin/extract_script_chars Lep < $^ > "$@"
+	bin/extract_script_chars Lep LeponticTokens < $^ > "$@"
 src/EtruscanTokens.elm: fonts/original/north-italic.txt
-	bin/extract_script_chars Etr < $^ > "$@"
+	bin/extract_script_chars Etr EtruscanTokens < $^ > "$@"
 src/RunicTokens.elm: fonts/original/north-italic.txt
-	bin/extract_script_chars Run< $^ > "$@"
+	bin/extract_script_chars Run RunicTokens < $^ > "$@"
 
 elms := $(wildcard *.elm src/*.elm)
 
@@ -134,6 +134,7 @@ clean:
 	rm -f fonts/*.ttf
 	rm -f fonts/*.zip
 	rm -rf build
+	rm -f src/*?Tokens.elm
 
 live: $(MFONTS)
 	elm-live elamicon.elm --output elamicon.js --open

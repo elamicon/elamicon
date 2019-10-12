@@ -3,6 +3,7 @@ import sys
 import re
 
 script_name = sys.argv[1]
+module_name = sys.argv[2]
 selector = re.compile(r"\[(.)\]\s+" + re.escape(script_name))
 tokens = []
 
@@ -11,4 +12,5 @@ for line in sys.stdin:
     if found:
         tokens.append(found.group(1))
 
-print('module RaeticTokens exposing (tokens)\ntokens = """' + "".join(tokens) + '"""\n')
+token_str = "".join(tokens)
+print('module {} exposing (tokens)\ntokens = """{}"""\n'.format(module_name, token_str))
