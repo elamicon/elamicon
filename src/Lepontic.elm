@@ -37,43 +37,6 @@ syllables = Dict.empty
 syllableMap = String.trim """
 """
 
-letterGroupSyllabary =
-    { id = "group"
-    , name = "By Letter"
-    , syllabary = """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-    }
-
-
 codepointSyllabary =
     { id = "splitting"
     , name = "Codepoint order"
@@ -81,7 +44,7 @@ codepointSyllabary =
     }
 
 syllabaries : List SyllabaryDef
-syllabaries = [ letterGroupSyllabary, codepointSyllabary ]
+syllabaries = [ codepointSyllabary ]
 
 
 fragments : List FragmentDef
@@ -120,7 +83,7 @@ The collection of Lepontic sign variants contains signs from inscriptions which 
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
-    , initialSyllabary = letterGroupSyllabary
+    , initialSyllabary = codepointSyllabary
     , groups = []
     , fragments = fragments
     , decorations = { headline = ("", "")
