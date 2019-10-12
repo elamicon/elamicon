@@ -2257,373 +2257,375 @@ ERSTES ZEICHEN NORTH ITALIC
 2192 0xe890 []	Raet <hundred> (numeral)  (0)
 2193 0xe891 []	Raet <thousand>2 (numeral)  (0) 1
 2194 0xe892 []	Raet <thousand>1 (numeral)  (0)
-2195 0xe893 []	LepCam S7  (Morandi 1998:107)  [= Run Z3)
-2196 0xe894 []	LepCam P7 sin
-2197 0xe895 []	LepCam N?/Ksi? (0, FdN, Morandi 1998:107) [= Run N3 sin/dex = Raet L4 sin  (0)]
-2198 0xe896 []	LepCam N11 sin (0, FdN)
-2199 0xe897 []	LepCam N11 dex (0, PC 10)
-2200 0xe898 []	LepCam K9 (0, PC 10)
-2201 0xe899 []	LepCam H1 (=, FdN, PC 10) [Run H1 sin/dex = Raet H1 sin = Lep N5 sin]
-2202 0xe89a []	LepCam Z12 (0, FdN) [Run Z2 = Raet X2]
-2203 0xe89b []	LepCam Z13 (0, PC 10)  [= Run Z1 = Lep X4 = Raet X1]
-2204 0xe89c []	LepCam V4 (0, FdN)  [= Lep E5 sin]
-2205 0xe89d []	LepCam V5 (0, PC 10)
-2206 0xe89e []	LepCam D1  [= Run Þ2 dex]
-2207 0xe89f []	LepCam D2  [= Raet R2 sin]
+2195 0xe893 []	LepCam S7  (Morandi 1998:107)  [= Run Z3) 231
+2196 0xe894 []	LepCam P7 sin 232
+2197 0xe895 []	LepCam N?/Ksi? (0, FdN, Morandi 1998:107) [= Run N3 sin/dex
+			 = Raet L4 sin  (0)] 233
+2198 0xe896 []	LepCam N11 sin (0, FdN) 234
+2199 0xe897 []	LepCam N11 dex (0, PC 10) 235
+2200 0xe898 []	LepCam K9 (0, PC 10) 236
+2201 0xe899 []	LepCam H1 (=, FdN, PC 10) [Run H1 sin/dex = Raet H1 sin
+			 = Lep N5 sin] 237
+2202 0xe89a []	LepCam Z12 (0, FdN) [Run Z2 = Raet X2] 238
+2203 0xe89b []	LepCam Z13 (0, PC 10)  [= Run Z1 = Lep X4 = Raet X1] 239
+2204 0xe89c []	LepCam V4 (0, FdN)  [= Lep E5 sin] 240
+2205 0xe89d []	LepCam V5 (0, PC 10) 241
+2206 0xe89e []	LepCam D1  [= Run Þ2 dex] 242
+2207 0xe89f []	LepCam D2  [= Raet R2 sin] 243
 
-2208 0xe8a0 []	LepCam C2  (0, PC 10 FdN)  [= Etr C2]
-2209 0xe8a1 []	LepCam B2 (0, PC 10)
-2210 0xe8a2 []	Lep A1 sin  [=Raet V1 sin]
-2211 0xe8a3 []	Lep A1 dex  [=Raet V1 dex]
-2212 0xe8a4 []	Lep A2 sin
-2213 0xe8a5 []	Lep A2 dex
-2214 0xe8a6 []	Lep A3 sin  [= Raet V3 sin]
-2215 0xe8a7 []	Lep A3 dex  [= Raet V3 dex]
-2216 0xe8a8 []	Lep A4 sin  [= Raet L1 sin = Raet P2 sin = Raet T3 dex]
-2217 0xe8a9 []	Lep A4 dex  [= Raet L1 dex = Raet P2 dex = Raet T3 sin]  (0)
-2218 0xe8aa []	Lep A5 sin  (0)
-2219 0xe8ab []	Lep A5 dex
-2220 0xe8ac []	Lep A6 sin  [= Raet U3 sin]
-2221 0xe8ad []	Lep A6 dex  [= Raet U3 dex]  (0)
-2222 0xe8ae []	Lep A7 sin  [= Raet A9 sin (0)]
-2223 0xe8af []	Lep A7 dex  [= Raet A9 dex]  (0)
-2224 0xe8b0 []	Lep A8 sin
-2225 0xe8b1 []	Lep A8 dex  (0)
-2226 0xe8b2 []	Lep A9 sin  [= Raet A11 sin]
-2227 0xe8b3 []	Lep A9 dex  [= Raet A11 dex (0)]
-2228 0xe8b4 []	Lep A10 sin
-2229 0xe8b5 []	Lep A10 dex
-2230 0xe8b6 []	Lep A11 sin
-2231 0xe8b7 []	Lep A11 dex  (0)
-2232 0xe8b8 []	Lep A13 sin
-2233 0xe8b9 []	Lep A13 dex  (0)
-2234 0xe8ba []	Lep A14 sin  [= Raet A14 sin]
-2235 0xe8bb []	Lep A14 dex  [= Raet A14 dex]
-2236 0xe8bc []	Lep A15 sin
-2237 0xe8bd []	Lep A15 dex  (0)
-2238 0xe8be []	Lep A16 sin  (0)
-2239 0xe8bf []	Lep A16 dex
+2208 0xe8a0 []	LepCam C2  (0, PC 10 FdN)  [= Etr C2] 244
+2209 0xe8a1 []	LepCam B2 (0, PC 10) 245
+2210 0xe8a2 []	Lep A1 sin  [=Raet V1 sin] 1		
+2211 0xe8a3 []	Lep A1 dex  [=Raet V1 dex] 2
+2212 0xe8a4 []	Lep A2 sin 3
+2213 0xe8a5 []	Lep A2 dex 4
+2214 0xe8a6 []	Lep A3 sin  [= Raet V3 sin] 5
+2215 0xe8a7 []	Lep A3 dex  [= Raet V3 dex] 6
+2216 0xe8a8 []	Lep A4 sin  [= Raet L1 sin = Raet P2 sin = Raet T3 dex] 7
+2217 0xe8a9 []	Lep A4 dex  [= Raet L1 dex = Raet P2 dex = Raet T3 sin]  (0) 8
+2218 0xe8aa []	Lep A5 sin  (0) 9 
+2219 0xe8ab []	Lep A5 dex 10
+2220 0xe8ac []	Lep A6 sin  [= Raet U3 sin] 11
+2221 0xe8ad []	Lep A6 dex  [= Raet U3 dex]  (0) 12
+2222 0xe8ae []	Lep A7 sin  [= Raet A9 sin (0)] 13
+2223 0xe8af []	Lep A7 dex  [= Raet A9 dex]  (0) 14
+2224 0xe8b0 []	Lep A8 sin 15
+2225 0xe8b1 []	Lep A8 dex  (0) 16
+2226 0xe8b2 []	Lep A9 sin  [= Raet A11 sin] 17
+2227 0xe8b3 []	Lep A9 dex  [= Raet A11 dex (0)] 18
+2228 0xe8b4 []	Lep A10 sin 19
+2229 0xe8b5 []	Lep A10 dex 20
+2230 0xe8b6 []	Lep A11 sin 21
+2231 0xe8b7 []	Lep A11 dex  (0) 22
+2232 0xe8b8 []	Lep A13 sin 23
+2233 0xe8b9 []	Lep A13 dex  (0) 24
+2234 0xe8ba []	Lep A14 sin  [= Raet A14 sin] 25
+2235 0xe8bb []	Lep A14 dex  [= Raet A14 dex] 26
+2236 0xe8bc []	Lep A15 sin 27
+2237 0xe8bd []	Lep A15 dex  (0) 28
+2238 0xe8be []	Lep A16 sin  (0) 29
+2239 0xe8bf []	Lep A16 dex 30
 
-2240 0xe8c0 []	Lep A17 sin
-2241 0xe8c1 []	Lep A17 dex  (0)
-2242 0xe8c2 []	Lep A19 sin
-2243 0xe8c3 []	Lep A19 dex  (0)
-2244 0xe8c4 []	Lep A20 sin
-2245 0xe8c5 []	Lep A20 dex  (0)
-2246 0xe8c6 []	Lep A21 sin
-2247 0xe8c7 []	Lep A21 dex
-2248 0xe8c8 []	Lep A22 sin  [= Raet A1 sin]
-2249 0xe8c9 []	Lep A22 dex  [= Raet A1 dex]
-2250 0xe8ca []	Lep A23 sin
-2251 0xe8cb []	Lep A23 dex
-2252 0xe8cc []	Lep A24 sin  [= Raet A3 sin]
-2253 0xe8cd []	Lep A24 dex  [= Raet A3 dex]
-2254 0xe8ce []	Lep A25  [= Lat A1]
-2255 0xe8cf []	Lep A26 sin  [= Raet A2 dex]  (0)
-2256 0xe8d0 []	Lep A26 dex  [= Raet A2 sin  (0)]
-2257 0xe8d1 []	Lep E1 sin  [=Raet E1 sin]
-2258 0xe8d2 []	Lep E1 dex  [=Raet E1 dex]
-2259 0xe8d3 []	Lep E2 sin  [=Raet E3 sin]
-2260 0xe8d4 []	Lep E2 dex  [=Raet E2 dex]
-2261 0xe8d5 []	Lep E3 sin
-2262 0xe8d6 []	Lep E3 dex
-2263 0xe8d7 []	Lep E4 sin  (0)
-2264 0xe8d8 []	Lep E4 dex
-2265 0xe8d9 []	Lep E5 sin
-2266 0xe8da []	Lep E5 dex
-2267 0xe8db []	Lep E6 sin  [= Raet E2 sin]
-2268 0xe8dc []	Lep E6 dex  [= Raet E2 dex]
-2269 0xe8dd []	Lep E7  [= Lat. E2 = Run E3]
-2270 0xe8de []	Lep E8 sin  (0)
-2271 0xe8df []	Lep E8 dex
+2240 0xe8c0 []	Lep A17 sin 31
+2241 0xe8c1 []	Lep A17 dex  (0) 32
+2242 0xe8c2 []	Lep A19 sin 33
+2243 0xe8c3 []	Lep A19 dex  (0) 34
+2244 0xe8c4 []	Lep A20 sin 35
+2245 0xe8c5 []	Lep A20 dex  (0) 36
+2246 0xe8c6 []	Lep A21 sin 37
+2247 0xe8c7 []	Lep A21 dex 38
+2248 0xe8c8 []	Lep A22 sin  [= Raet A1 sin] 39
+2249 0xe8c9 []	Lep A22 dex  [= Raet A1 dex] 40
+2250 0xe8ca []	Lep A23 sin 41
+2251 0xe8cb []	Lep A23 dex 42
+2252 0xe8cc []	Lep A24 sin  [= Raet A3 sin] 43
+2253 0xe8cd []	Lep A24 dex  [= Raet A3 dex] 44
+2254 0xe8ce []	Lep A25  [= Lat A1] 45
+2255 0xe8cf []	Lep A26 sin  [= Raet A2 dex]  (0) 46
+2256 0xe8d0 []	Lep A26 dex  [= Raet A2 sin  (0)] 47
+2257 0xe8d1 []	Lep E1 sin  [=Raet E1 sin] 48
+2258 0xe8d2 []	Lep E1 dex  [=Raet E1 dex] 49
+2259 0xe8d3 []	Lep E2 sin  [=Raet E3 sin] 50
+2260 0xe8d4 []	Lep E2 dex  [=Raet E3 dex] 51
+2261 0xe8d5 []	Lep E3 sin 52
+2262 0xe8d6 []	Lep E3 dex 53
+2263 0xe8d7 []	Lep E4 sin  (0) 54
+2264 0xe8d8 []	Lep E4 dex 55
+2265 0xe8d9 []	Lep E5 sin 56
+2266 0xe8da []	Lep E5 dex 57
+2267 0xe8db []	Lep E6 sin  [= Raet E2 sin] 58
+2268 0xe8dc []	Lep E6 dex  [= Raet E2 dex] 59
+2269 0xe8dd []	Lep E7  [= Lat. E2 = Run E3] 60
+2270 0xe8de []	Lep E8 sin  (0) 61
+2271 0xe8df []	Lep E8 dex 62
 
-2272 0xe8e0 []	Lep E9 sin
-2273 0xe8e1 []	Lep E9 dex  (0)
-2274 0xe8e2 []	Lep V1 sin  [= Raet V1 sin]
-2275 0xe8e3 []	Lep V1 dex  [= Raet V1 dex]
-2276 0xe8e4 []	Lep V2 sin  [= Raet V3 sin]
-2277 0xe8e5 []	Lep V2 dex  [= Raet V3 dex]  (0)
-2278 0xe8e6 []	Lep V3 sin  [= Run P1]
-2279 0xe8e7 []	Lep V3 dex  [= Run P1]  (0)
-2280 0xe8e8 []	Lep Z1 sin  [= Raet Z1 sin]
-2281 0xe8e9 []	Lep Z1 dex  [= Raet Z1 dex]
-2282 0xe8ea []	Lep Z2 sin  [= Raet Z2 sin]
-2283 0xe8eb []	Lep Z2 dex  [= Raet Z2 dex]
-2284 0xe8ec []	Lep Z5
-2285 0xe8ed []	Lep Z6  [= Raet Z3]
-2286 0xe8ee []	Lep Z8
-2287 0xe8ef []	Lep Z9
-2288 0xe8f0 []	Lep Z10
-2289 0xe8f1 []	Lep Z11 sin
-2290 0xe8f2 []	Lep Z11 dex
-2291 0xe8f3 []	Lep Θ1
-2292 0xe8f4 []	Lep Θ2  [= Raet <thousand>2]
-2293 0xe8f5 []	Lep Θ3
-2294 0xe8f6 []	Lep Θ4
-2295 0xe8f7 []	Lep I1  [= Raet I1]
-2296 0xe8f8 []	Lep I2 sin
-2297 0xe8f9 []	Lep I2 dex  (0)
-2298 0xe8fa []	Lep I3 sin
-2299 0xe8fb []	Lep I3 dex
-2300 0xe8fc []	Lep K1 sin  [= Raet K1 sin]
-2301 0xe8fd []	Lep K1 dex  [= Raet K1 dex]
-2302 0xe8fe []	Lep K2 sin
-2303 0xe8ff []	Lep K2 dex
+2272 0xe8e0 []	Lep E9 sin 63
+2273 0xe8e1 []	Lep E9 dex  (0) 64
+2274 0xe8e2 []	Lep V1 sin  [= Raet V1 sin] 65
+2275 0xe8e3 []	Lep V1 dex  [= Raet V1 dex] 66
+2276 0xe8e4 []	Lep V2 sin  [= Raet V3 sin] 67
+2277 0xe8e5 []	Lep V2 dex  [= Raet V3 dex]  (0) 68
+2278 0xe8e6 []	Lep V3 sin  [= Run P1] 69
+2279 0xe8e7 []	Lep V3 dex  [= Run P1]  (0) 70
+2280 0xe8e8 []	Lep Z1 sin  [= Raet Z1 sin] 71
+2281 0xe8e9 []	Lep Z1 dex  [= Raet Z1 dex] 72
+2282 0xe8ea []	Lep Z2 sin  [= Raet Z2 sin] 73
+2283 0xe8eb []	Lep Z2 dex  [= Raet Z2 dex] 74
+2284 0xe8ec []	Lep Z5 75
+2285 0xe8ed []	Lep Z6  [= Raet Z3] 76
+2286 0xe8ee []	Lep Z8 77
+2287 0xe8ef []	Lep Z9 78
+2288 0xe8f0 []	Lep Z10 79
+2289 0xe8f1 []	Lep Z11 sin 80
+2290 0xe8f2 []	Lep Z11 dex 81
+2291 0xe8f3 []	Lep Θ1 82
+2292 0xe8f4 []	Lep Θ2  [= Raet <thousand>2] 83
+2293 0xe8f5 []	Lep Θ3 84
+2294 0xe8f6 []	Lep Θ4 85
+2295 0xe8f7 []	Lep I1  [= Raet I1] 86
+2296 0xe8f8 []	Lep I2 sin 87
+2297 0xe8f9 []	Lep I2 dex  (0) 88
+2298 0xe8fa []	Lep I3 sin 89
+2299 0xe8fb []	Lep I3 dex 90
+2300 0xe8fc []	Lep K1 sin  [= Raet K1 sin] 91
+2301 0xe8fd []	Lep K1 dex  [= Raet K1 dex] 92
+2302 0xe8fe []	Lep K2 sin 93
+2303 0xe8ff []	Lep K2 dex 94
 
-2304 0xe900 []	Lep K3 sin  (0)
-2305 0xe901 []	Lep K3 dex
-2306 0xe902 []	Lep K4 sin  [= Raet K2 sin]
-2307 0xe903 []	Lep K4 dex  [= Raet K2 dex]
-2308 0xe904 []	Lep K5 sin  [= Raet K3 sin]
-2309 0xe905 []	Lep K5 dex  [= Raet K3 dex]
-2310 0xe906 []	Lep K6 sin
-2311 0xe907 []	Lep K6 dex
-2312 0xe908 []	Lep K7 sin  [= Raet K4 sin]
-2313 0xe909 []	Lep K7 dex  [Raet K4 dex]
-2314 0xe90a []	Lep K8
-2315 0xe90b []	Lep L1 sin  [= Raet L2 sin]
-2316 0xe90c []	Lep L1 dex  [= Raet L2 dex]
-2317 0xe90d []	Lep L2 sin  [= Raet L1 sin = Raet P2 sin = Lep P1 sin = Run L1 sin = Run L2 dex]
-2318 0xe90e []	Lep L2 dex  [= Raet L1 dex = Raet P2 sin = Lep P1 sin = Run L1 dex = Run L2 sin]
-2319 0xe90f []	Lep L3  [= Raet U1]
-2320 0xe910 []	Lep M1 sin
-2321 0xe911 []	Lep M1 dex
-2322 0xe912 []	Lep M2 sin
-2323 0xe913 []	Lep M2 dex
-2324 0xe914 []	Lep M3 sin
-2325 0xe915 []	Lep M3 dex  (0)
-2326 0xe916 []	Lep M4 sin 1  [= Raet M1 sin]
-2327 0xe917 []	Lep M4 dex 1  [= Raet M1 dex]
-2328 0xe918 []	Lep M5  [= Lat M1 = Run E2]
-2329 0xe919 []	Lep M6  [= Raet San3]
-2330 0xe91a []	Lep M7
-2331 0xe91b []	Lep M8 sin
-2332 0xe91c []	Lep M8 dex
-2333 0xe91d []	Lep M9 sin
-2334 0xe91e []	Lep M9 dex
-2335 0xe91f []	Lep N1 sin  [= Raet N1 sin]
+2304 0xe900 []	Lep K3 sin  (0) 95
+2305 0xe901 []	Lep K3 dex 96
+2306 0xe902 []	Lep K4 sin  [= Raet K2 sin] 97
+2307 0xe903 []	Lep K4 dex  [= Raet K2 dex] 98
+2308 0xe904 []	Lep K5 sin  [= Raet K3 sin] 99
+2309 0xe905 []	Lep K5 dex  [= Raet K3 dex] 100
+2310 0xe906 []	Lep K6 sin 101
+2311 0xe907 []	Lep K6 dex 102
+2312 0xe908 []	Lep K7 sin  [= Raet K4 sin] 103
+2313 0xe909 []	Lep K7 dex  [Raet K4 dex] 104
+2314 0xe90a []	Lep K8 105
+2315 0xe90b []	Lep L1 sin  [= Raet L2 sin] 106
+2316 0xe90c []	Lep L1 dex  [= Raet L2 dex] 107
+2317 0xe90d []	Lep L2 sin  [= Raet L1 sin = Raet P2 sin = Lep P1 sin = Run L1 sin = Run L2 dex] 108
+2318 0xe90e []	Lep L2 dex  [= Raet L1 dex = Raet P2 sin = Lep P1 sin = Run L1 dex = Run L2 sin] 109
+2319 0xe90f []	Lep L3  [= Raet U1] 110
+2320 0xe910 []	Lep M1 sin 111
+2321 0xe911 []	Lep M1 dex 112
+2322 0xe912 []	Lep M2 sin 113
+2323 0xe913 []	Lep M2 dex 114
+2324 0xe914 []	Lep M3 sin 115
+2325 0xe915 []	Lep M3 dex  (0) 116
+2326 0xe916 []	Lep M4 sin 1  [= Raet M1 sin] 117
+2327 0xe917 []	Lep M4 dex 1  [= Raet M1 dex] 118
+2328 0xe918 []	Lep M5  [= Lat M1 = Run E2] 119
+2329 0xe919 []	Lep M6  [= Raet San3] 120
+2330 0xe91a []	Lep M7 121
+2331 0xe91b []	Lep M8 sin 122
+2332 0xe91c []	Lep M8 dex 123
+2333 0xe91d []	Lep M9 sin 124
+2334 0xe91e []	Lep M9 dex 125
+2335 0xe91f []	Lep N1 sin  [= Raet N1 sin] 126
 
-2336 0xe920 []	Lep N1 dex  [= Raet N1 dex]
-2337 0xe921 []	Lep N2 sin
-2338 0xe922 []	Lep N2 dex  (0)
-2339 0xe923 []	Lep N3 sin
-2340 0xe924 []	Lep N3 dex
-2341 0xe925 []	Lep N4 sin
-2342 0xe926 []	Lep N4 dex  (0)
-2343 0xe927 []	Lep N5 sin  [= Run H1 sin/dex]
-2344 0xe928 []	Lep N5 dex  [= Run H1 sin/dex]
-2345 0xe929 []	Lep N6 sin
-2346 0xe92a []	Lep N6 dex  [= Lat N1]
-2347 0xe92b []	Lep N7 sin
-2348 0xe92c []	Lep N7 dex  [= Lat Nx]
-2349 0xe92d []	Lep N8 sin
-2350 0xe92e []	Lep N8 dex  (0)
-2351 0xe92f []	Lep N9 sin  (0)
-2352 0xe930 []	Lep N9 dex  [= Lat Nx]
-2353 0xe931 []	Lep N10 sin  (0)
-2354 0xe932 []	Lep N10 dex
-2355 0xe933 []	Lep P1 sin [= Lep L2 sin = Raet L1 sin = Raet P2 sin = Raet T3 dex = Etr P1]
-2356 0xe934 []	Lep P1 dex [= Lep L2 dex = Raet L1 dex  = Raet P2 dex = Raet T3 sin]
-2357 0xe935 []	Lep P2 sin
-2358 0xe936 []	Lep P2 dex  (0)
-2359 0xe937 []	Lep P4 sin
-2360 0xe938 []	Lep P4 dex  (0)
-2361 0xe939 []	Lep San1  [= Run D1]
-2362 0xe93a []	Lep San2  [= Raet San1 = Run E = Lat Mx]
-2363 0xe93b []	Lep San3  [= Raet San3 = Lep M6; Lat M1]
-2364 0xe93c []	Lep San4
-2365 0xe93d []	Lep San5
-2366 0xe93e []	Lep San6  [= Raet San2 = Run M1 = Run D2]
-2367 0xe93f []	Lep Q sin  (0)
+2336 0xe920 []	Lep N1 dex  [= Raet N1 dex] 127
+2337 0xe921 []	Lep N2 sin 128
+2338 0xe922 []	Lep N2 dex  (0) 129
+2339 0xe923 []	Lep N3 sin 130
+2340 0xe924 []	Lep N3 dex 131
+2341 0xe925 []	Lep N4 sin 132
+2342 0xe926 []	Lep N4 dex  (0) 133
+2343 0xe927 []	Lep N5 sin  [= Run H1 sin/dex] 134
+2344 0xe928 []	Lep N5 dex  [= Run H1 sin/dex] 135
+2345 0xe929 []	Lep N6 sin 136
+2346 0xe92a []	Lep N6 dex  [= Lat N1] 137
+2347 0xe92b []	Lep N7 sin 138
+2348 0xe92c []	Lep N7 dex  [= Lat Nx] 139
+2349 0xe92d []	Lep N8 sin 140
+2350 0xe92e []	Lep N8 dex  (0) 141
+2351 0xe92f []	Lep N9 sin  (0) 142
+2352 0xe930 []	Lep N9 dex  [= Lat Nx] 143
+2353 0xe931 []	Lep N10 sin  (0) 144
+2354 0xe932 []	Lep N10 dex 145
+2355 0xe933 []	Lep P1 sin [= Lep L2 sin = Raet L1 sin = Raet P2 sin = Raet T3 dex				 = Etr P1] 146
+2356 0xe934 []	Lep P1 dex [= Lep L2 dex = Raet L1 dex  = Raet P2 dex = Raet T3 sin] 147
+2357 0xe935 []	Lep P2 sin 148
+2358 0xe936 []	Lep P2 dex  (0) 149
+2359 0xe937 []	Lep P4 sin 150
+2360 0xe938 []	Lep P4 dex  (0) 151
+2361 0xe939 []	Lep Ð1  [= Run D1] (Maras 2014:90) 152
+2362 0xe93a []	Lep San2  [= Raet San1 = Run E = Lat Mx] 153
+2363 0xe93b []	Lep San3  [= Raet San3 = Lep M6; Lat M1] 154
+2364 0xe93c []	Lep Ð2  (Maras 2014:90) 155
+2365 0xe93d []	Lep San5 156
+2366 0xe93e []	Lep San6  [= Raet San2 = Run M1 = Run D2] 157
+2367 0xe93f []	Lep Q1 sin  (0) 158
 
-2368 0xe940 []	Lep Q dex
-2369 0xe941 []	Lep R1 sin  [= Raet R2 sin]
-2370 0xe942 []	Lep R1 dex  [= Raet R2 dex]
-2371 0xe943 []	Lep R2 sin
-2372 0xe944 []	Lep R2 dex  (0)
-2373 0xe945 []	Lep R3 sin  [= Raet R1 sin = Meldorf 2]
-2374 0xe946 []	Lep R3 dex  [= Raet R1 dex]
-2375 0xe947 []	Lep S1 sin  [= Raet S1 dex = RunOF S1 dex]
-2376 0xe948 []	Lep S1 dex  [= Raet S1 sin = RunOF S1 sin]
-2377 0xe949 []	Lep S2 sin  [= Raet S2 dex = RunOF S2 dex]
-2378 0xe94a []	Lep S2 dex  [= Raet S2 sin = RunOF S2 sin]
-2379 0xe94b []	Lep S3 sin  [= Run S3 sin/dex]
-2380 0xe94c []	Lep S3 dex  [= Run S3 sin/dex]
-2381 0xe94d []	Lep S4 sin  (0)
-2382 0xe94e []	Lep S4 dex  (0)
-2383 0xe94f []	Lep S5
-2384 0xe950 []	Lep S6 sin  (0)
-2385 0xe951 []	Lep S6 dex
-2386 0xe952 []	Lep T1  [= Run G1 = Raet Θ1]
-2387 0xe953 []	Lep T2  [=Run T2]
-2388 0xe954 []	Lep T3
-2389 0xe955 []	Lep T4
-2390 0xe956 []	Lep T5 sin [= Lep U6 sin = RunOFx]
-2391 0xe957 []	Lep T5 dex [= Lep U6 dex = RunOFx]  (0)
-2392 0xe958 []	Lep T6  [Raet Þ3 = RunT1]
-2393 0xe959 []	Lep U1  [Raet U2 = Lat U1]
-2394 0xe95a []	Lep U2 sin  [Raet U4 sin]
-2395 0xe95b []	Lep U2 dex  [Raet U4 dex]
-2396 0xe95c []	Lep U3  [= Lep L3 = Raet U1 = Lat A2]
-2397 0xe95d []	Lep U4
-2398 0xe95e []	Lep U5
-2399 0xe95f []	Lep U6 sin  [= Lep T5 sin = RunOFx]
+2368 0xe940 []	Lep Q1 dex 159
+2369 0xe941 []	Lep R1 sin  [= Raet R2 sin] 160
+2370 0xe942 []	Lep R1 dex  [= Raet R2 dex] 161
+2371 0xe943 []	Lep R2 sin 162
+2372 0xe944 []	Lep R2 dex  (0) 163
+2373 0xe945 []	Lep R3 sin  [= Raet R1 sin = Meldorf 2] 164
+2374 0xe946 []	Lep R3 dex  [= Raet R1 dex] 165
+2375 0xe947 []	Lep S1 sin  [= Raet S1 dex = RunOF S1 dex] 166
+2376 0xe948 []	Lep S1 dex  [= Raet S1 sin = RunOF S1 sin] 167
+2377 0xe949 []	Lep S2 sin  [= Raet S2 dex = RunOF S2 dex] 168
+2378 0xe94a []	Lep S2 dex  [= Raet S2 sin = RunOF S2 sin] 169
+2379 0xe94b []	Lep S3 sin  [= Run S3 sin/dex] 170
+2380 0xe94c []	Lep S3 dex  [= Run S3 sin/dex] 171
+2381 0xe94d []	Lep S4 sin  (0) 172
+2382 0xe94e []	Lep S4 dex  (0) 173
+2383 0xe94f []	Lep S5 174
+2384 0xe950 []	Lep S6 sin  (0) 175
+2385 0xe951 []	Lep S6 dex 176
+2386 0xe952 []	Lep T1  [= Run G1 = Raet Θ1] 177
+2387 0xe953 []	Lep T2  [=Run T2] 178
+2388 0xe954 []	Lep T3 179
+2389 0xe955 []	Lep T4 180
+2390 0xe956 []	Lep T5 sin [= Lep U6 sin = RunOFx] 181
+2391 0xe957 []	Lep T5 dex [= Lep U6 dex = RunOFx]  (0) 182
+2392 0xe958 []	Lep T6  [Raet Þ3 = RunT1] 183
+2393 0xe959 []	Lep U1  [Raet U2 = Lat U1] 184
+2394 0xe95a []	Lep U2 sin  [Raet U4 sin] 185
+2395 0xe95b []	Lep U2 dex  [Raet U4 dex] 186
+2396 0xe95c []	Lep U3  [= Lep L3 = Raet U1 = Lat A2] 187
+2397 0xe95d []	Lep U4 188
+2398 0xe95e []	Lep U5 189
+2399 0xe95f []	Lep U6 sin  [= Lep T5 sin = RunOFx] 190
 
-2400 0xe960 []	Lep U6 dex  [= Lep T5 dex = RunOFx]
-2401 0xe961 []	Lep U7
-2402 0xe962 []	Lep U8 sin
-2403 0xe963 []	Lep U8 dex
-2404 0xe964 []	Lep U9 sin [Lep A6 sin = Raet U3 sin = RunOF Ux]
-2405 0xe965 []	Lep U9 dex [Lep A6 dex = Raet U3 dex = RunOF Ux]
-2406 0xe966 []	Lep U10 sin  [= Raet U5 sin]
-2407 0xe967 []	Lep U10 dex  [= Raet U5 dex]
-2408 0xe968 []	Lep U11 sin  [= Etr C2 = Run Kx]  (0)
-2409 0xe969 []	Lep U11 dex
-2410 0xe96a []	Lep U12 sin
-2411 0xe96b []	Lep U12 dex
-2412 0xe96c []	Lep Φ1
-2413 0xe96d []	Lep X1  [= Raet X3 = Raet <fifty>]
-2414 0xe96e []	Lep X2  (0)
-2415 0xe96f []	Lep X3
-2416 0xe970 []	Lep X4  [= Raet X1 = Run Z1]
-2417 0xe971 []	Lep X5  [= Lep U4]
-2418 0xe972 []	Lep X6  [= Raet X4]
-2419 0xe973 []	Lep O1
-2420 0xe974 []	Lep O2
-2421 0xe975 []	Lep O3
-2422 0xe976 []	Lep O4
-2423 0xe977 []	Lep O6
-2424 0xe978 []	Lep O8
-2425 0xe979 []	Lep O9
-2426 0xe97a []	LepCam B1
-2427 0xe97b []	LepCam C1  [= Etr C3 sin = Lat C sin]
-2428 0xe97c []	LepCam Θ5
-2429 0xe97d []	LepCam K9
-2430 0xe97e []	LepCam N11 sin
-2431 0xe97f []	Lep E10 sin
+2400 0xe960 []	Lep U6 dex  [= Lep T5 dex = RunOFx] 191
+2401 0xe961 []	Lep U7 192
+2402 0xe962 []	Lep U8 sin 193
+2403 0xe963 []	Lep U8 dex 194
+2404 0xe964 []	Lep U9 sin [Lep A6 sin = Raet U3 sin = RunOF Ux] 195
+2405 0xe965 []	Lep U9 dex [Lep A6 dex = Raet U3 dex = RunOF Ux] 196
+2406 0xe966 []	Lep U10 sin  [= Raet U5 sin] 197
+2407 0xe967 []	Lep U10 dex  [= Raet U5 dex] 198
+2408 0xe968 []	Lep U11 sin  [= Etr C2 = Run Kx]  (0) 199
+2409 0xe969 []	Lep U11 dex 200
+2410 0xe96a []	Lep U12 sin 201
+2411 0xe96b []	Lep U12 dex 202
+2412 0xe96c []	Lep Φ1 203
+2413 0xe96d []	Lep X1  [= Raet X3 = Raet <fifty>] 204
+2414 0xe96e []	Lep K9  (0) (Maras 2014) 205
+2415 0xe96f []	Lep X3 206
+2416 0xe970 []	Lep X4  [= Raet X1 = Run Z1] 207
+2417 0xe971 []	Lep K10  (Maras 2014) [= Lep U4] 208
+2418 0xe972 []	Lep X6  [= Raet X4] 209
+2419 0xe973 []	Lep O1 210
+2420 0xe974 []	Lep O2 211
+2421 0xe975 []	Lep O3 212
+2422 0xe976 []	Lep O4 213
+2423 0xe977 []	Lep O6 214
+2424 0xe978 []	Lep O8 215
+2425 0xe979 []	Lep O9 216
+2426 0xe97a []	LepCam B1 217
+2427 0xe97b []	LepCam C1  [= Etr C3 sin = Lat C sin] 218
+2428 0xe97c []	LepCam Θ5 219
+2429 0xe97d []	LepCam K9 220
+2430 0xe97e []	LepCam N11 sin 221
+2431 0xe97f []	Lep E10 sin 222
 
-2432 0xe980 []	LepCam O1  [= Etr Θ2]
-2433 0xe981 []	LepCam P5 sin
-2434 0xe982 []	LepCam P5 dex  (0)
-2435 0xe983 []	LepCam P6 sin
-2436 0xe984 []	LepCam P6 dex
-2437 0xe985 []	LepCam San7 sin [= Run B1 dex  = Run Þ2 dex]
-2438 0xe986 []	LepCam San7 dex  [=Run B1 sin = Run P6 = Run Þ2 sin]
-2439 0xe987 []	LepCam Q2
-2440 0xe988 []	Etr A1  [= Lep A14 sin]
-2441 0xe989 []	Etr A2 (Buffa 5)  [= Lep A24 sin = Raet A11 sin]
-2442 0xe98a []	Etr A3 (Buffa 6)  [= Lep A22 dex = Raet A1 dex]
-2443 0xe98b []	Etr A4 (Buffa 163)
-2444 0xe98c []	Etr A5 (Buffa 9)
-2445 0xe98d []	Etr A6 (Buffa 226)
-2446 0xe98e []	Etr C1
-2447 0xe98f []	Etr C2  [= Lep U11 sin = Run K1]
-2448 0xe990 []	Etr C3  [Lat C sin]
-2449 0xe991 []	Etr E1  [=Lep E1 sin = Raet E1 sin]
-2450 0xe992 []	Etr E2 (Buffa 3)
-2451 0xe993 []	Etr V1  [= Raet V1 sin = Lep V1 sin]
-2452 0xe994 []	Etr V2  [= Raet V2 sin]
-2453 0xe995 []	Etr Z1 [= Lep Z6 = Raet Z3]
-2454 0xe996 []	Etr Z2
-2455 0xe997 []	Etr Z3 (ab 4. Jh.)
-2456 0xe998 []	Etr H1 (bis 4. Jh.)
-2457 0xe999 []	Etr H2 (ab 4. Jh.)
-2458 0xe99a []	Etr H3 (ab 4. Jh.)
-2459 0xe99b []	Etr H4 (ab 4. Jh.)
-2460 0xe99c []	Etr Θ1 (bis 4. Jh.)
-2461 0xe99d []	Etr Θ2 (bis 4. Jh.)
-2462 0xe99e []	Etr Θ3 (ab 4. Jh.)  [= Lep Θ1]
-2463 0xe99f []	Etr Θ4 (ab 4. Jh.)  [= Raet Θ1]
+2432 0xe980 []	LepCam O1  [= Etr Θ2] 223
+2433 0xe981 []	LepCam P5 sin 224
+2434 0xe982 []	LepCam P5 dex  (0) 225
+2435 0xe983 []	LepCam P6 sin 226
+2436 0xe984 []	LepCam P6 dex 227
+2437 0xe985 []	LepCam San7 sin [= Run B1 dex  = Run Þ2 dex] 228
+2438 0xe986 []	LepCam San7 dex  [=Run B1 sin = Run P6 = Run Þ2 sin] 229
+2439 0xe987 []	LepCam Q2 230
+2440 0xe988 []	Etr A1  [= Lep A14 sin] 1
+2441 0xe989 []	Etr A2 (Buffa 5)  [= Lep A24 sin = Raet A11 sin] 2
+2442 0xe98a []	Etr A3 (Buffa 6)  [= Lep A22 dex = Raet A1 dex] 3
+2443 0xe98b []	Etr A4 (Buffa 163) 4
+2444 0xe98c []	Etr A5 (Buffa 9) 5
+2445 0xe98d []	Etr A6 (Buffa 226) 6
+2446 0xe98e []	Etr C1 7
+2447 0xe98f []	Etr C2  [= Lep U11 sin = Run K1] 8
+2448 0xe990 []	Etr C3  [Lat C sin] 9
+2449 0xe991 []	Etr E1  [=Lep E1 sin = Raet E1 sin] 10
+2450 0xe992 []	Etr E2 (Buffa 3) 11
+2451 0xe993 []	Etr V1  [= Raet V1 sin = Lep V1 sin] 12
+2452 0xe994 []	Etr V2  [= Raet V2 sin] 13
+2453 0xe995 []	Etr Z1 [= Lep Z6 = Raet Z3] 14
+2454 0xe996 []	Etr Z2 15
+2455 0xe997 []	Etr Z3 (ab 4. Jh.) 16
+2456 0xe998 []	Etr H1 (bis 4. Jh.) 17
+2457 0xe999 []	Etr H2 (ab 4. Jh.) 18
+2458 0xe99a []	Etr H3 (ab 4. Jh.) 19
+2459 0xe99b []	Etr H4 (ab 4. Jh.) 20
+2460 0xe99c []	Etr Θ1 (bis 4. Jh.) 21
+2461 0xe99d []	Etr Θ2 (bis 4. Jh.) 22
+2462 0xe99e []	Etr Θ3 (ab 4. Jh.)  [= Lep Θ1] 23
+2463 0xe99f []	Etr Θ4 (ab 4. Jh.)  [= Raet Θ1] 24
 
-2464 0xe9a0 []	Etr I1  [= Lep I1 = Raet I1 = Run I1]
-2465 0xe9a1 []	Etr I2 sin  [= Lep I2 dex (0)]
-2466 0xe9a2 []	Etr I2 dex  [= Lep I2 sin]
-2467 0xe9a3 []	Etr K1  [= Lep K1 sin = Raet K1 sin]
-2468 0xe9a4 []	Etr K2  (Buffa 4)  [= Lep K2 sin]
-2469 0xe9a5 []	Etr L1  [= Lep L1 sin = Raet L2 sin]
-2470 0xe9a6 []	Etr M1  [= Lep M1 sin]
-2471 0xe9a7 []	Etr N1  [= Lep N1 sin = Raet N1 sin]
-2472 0xe9a8 []	Etr N2 (Buffa 163)  [= Lep N4 sin]
-2473 0xe9a9 []	Etr P1  [= Lep P1 sin....]
-2474 0xe9aa []	Etr San1 [Lat M1 = Lep M5 = San2]
-2475 0xe9ab []	Etr Q1
-2476 0xe9ac []	Etr R1  [= Raet P1 sin]
-2477 0xe9ad []	Etr R2 (bis 4. Jh.)  [= Lep Q1 sin]
-2478 0xe9ae []	Etr R3 (ab 4. Jh.)  [= Lep R1 sin]
-2479 0xe9af []	Etr R4 (Mäder 2020)  [=Lep R3 sin = Ven]
-2480 0xe9b0 []	Etr R5 (Mäder 2019)  
-2481 0xe9b1 []	Etr S1 (bis 4. Jh.)  [Lep S1 dex = Raet S1 sin]
-2482 0xe9b2 []	Etr S2 (ab 4. Jh.)  [Lep S6 sin]
-2483 0xe9b3 []	Etr S3 (Buffa 4) (ab 4. Jh.)  [Lep S6 dex]
-2484 0xe9b4 []	Etr S4 (Buffa 6) (ab 4. Jh.)
-2485 0xe9b5 []	Etr T1 (bis 4. Jh.)  [= Lep T2]
-2486 0xe9b6 []	Etr T2 (ab 4. Jh.) [= Lep T5 dex]
-2487 0xe9b7 []	Etr T3 (ab 4. Jh.) [= Raet T1 sin]
-2488 0xe9b8 []	Etr T4
-2489 0xe9b9 []	Etr T5 (Buffa 163)  [= Raet T2 dex]
-2490 0xe9ba []	Etr T6 (Buffa 15)  [= Lep X4 = Raet X1]
-2491 0xe9bb []	Etr U1 [= Raet U2 = Lep U1]
-2492 0xe9bc []	Etr U2 (Buffa 6)  [= Lep U4]
-2493 0xe9bd []	Etr U3 (Buffa 163)  [= Lep U5]
-2494 0xe9be []	Etr X1 (bis 4. Jh.)  [= Raet X1 = Etr T6 = Lep X4]
-2495 0xe9bf []	Etr X2 (Buffa 4) [= Lep X2]
+2464 0xe9a0 []	Etr I1  [= Lep I1 = Raet I1 = Run I1] 25
+2465 0xe9a1 []	Etr I2 sin  [= Lep I2 dex (0)] 26
+2466 0xe9a2 []	Etr I2 dex  [= Lep I2 sin] 27
+2467 0xe9a3 []	Etr K1  [= Lep K1 sin = Raet K1 sin] 28
+2468 0xe9a4 []	Etr K2  (Buffa 4)  [= Lep K2 sin] 29
+2469 0xe9a5 []	Etr L1  [= Lep L1 sin = Raet L2 sin] 30
+2470 0xe9a6 []	Etr M1  [= Lep M1 sin] 31
+2471 0xe9a7 []	Etr N1  [= Lep N1 sin = Raet N1 sin] 32
+2472 0xe9a8 []	Etr N2 (Buffa 163)  [= Lep N4 sin] 33
+2473 0xe9a9 []	Etr P1  [= Lep P1 sin....] 34
+2474 0xe9aa []	Etr San1 [Lat M1 = Lep M5 = San2] 35
+2475 0xe9ab []	Etr Q1 36
+2476 0xe9ac []	Etr R1  [= Raet P1 sin] 37
+2477 0xe9ad []	Etr R2 (bis 4. Jh.)  [= Lep Q1 sin] 38
+2478 0xe9ae []	Etr R3 (ab 4. Jh.)  [= Lep R1 sin] 39
+2479 0xe9af []	Etr R4 (Mäder 2020)  [=Lep R3 sin = Ven] 40
+2480 0xe9b0 []	Etr R5 (Mäder 2019) 41 
+2481 0xe9b1 []	Etr S1 (bis 4. Jh.)  [Lep S1 dex = Raet S1 sin] 42
+2482 0xe9b2 []	Etr S2 (ab 4. Jh.)  [Lep S6 sin] 43
+2483 0xe9b3 []	Etr S3 (Buffa 4) (ab 4. Jh.)  [Lep S6 dex] 44
+2484 0xe9b4 []	Etr S4 (Buffa 6) (ab 4. Jh.) 45
+2485 0xe9b5 []	Etr T1 (bis 4. Jh.)  [= Lep T2] 46
+2486 0xe9b6 []	Etr T2 (ab 4. Jh.) [= Lep T5 dex] 47
+2487 0xe9b7 []	Etr T3 (ab 4. Jh.) [= Raet T1 sin] 48
+2488 0xe9b8 []	Etr T4 49
+2489 0xe9b9 []	Etr T5 (Buffa 163)  [= Raet T2 dex] 50
+2490 0xe9ba []	Etr T6 (Buffa 15)  [= Lep X4 = Raet X1] 51
+2491 0xe9bb []	Etr U1 [= Raet U2 = Lep U1] 52
+2492 0xe9bc []	Etr U2 (Buffa 6)  [= Lep U4] 53
+2493 0xe9bd []	Etr U3 (Buffa 163)  [= Lep U5] 54
+2494 0xe9be []	Etr X1 (bis 4. Jh.)  [= Raet X1 = Etr T6 = Lep X4] 55
+2495 0xe9bf []	Etr X2 (Buffa 4) [= Lep X2] 56
 
-2496 0xe9c0 []	Etr X3 (ab 4. Jh.) [= Lep X1 = Raet X3]
-2497 0xe9c1 []	Etr F1
-2498 0xe9c2 []	Etr F2 (bis 4. Jh.)
-2499 0xe9c3 []	Etr <ten> (Buffa 3)  [= Raet <ten> = Lep T1 = Raet Θ1]
-2500 0xe9c4 []	Etr <fifty> (Buffa 3)  [= Lep T6]
-2501 0xe9c5 []	EtrVen A7
-2502 0xe9c6 []	EtrVen B1
-2503 0xe9c7 []	EtrVen B2
-2504 0xe9c8 []	 EtrVen D1
-2505 0xe9c9 []	EtrVen D2
-2506 0xe9ca []	EtrVen G1  [=Raet X1 = Lep X4]
-2507 0xe9cb []	EtrVen G2  [= Raet X3 = Raet <fifty> = Lep X1]
-2508 0xe9cc []	EtrVen H5  [=Raet H4]
-2509 0xe9cd []	EtrVen H6
-2510 0xe9ce []	EtrVen H7
-2511 0xe9cf []	EtrVen J1  [= Lep E7  = Lat. E2 = Run E3]
-2512 0xe9d0 []	EtrVen J2  [= Lep K2 sin]
-2513 0xe9d1 []	EtrVen J3  [= Etr C2 = Lep U11 sin = Run K1]
-2514 0xe9d2 []	EtrVen J4
-2515 0xe9d3 []	EtrVen L2  [= ...
-2516 0xe9d4 []	EtrVen L3  [= ...
-2517 0xe9d5 []	EtrVen L4  [= LatGraff L1 sin]
-2518 0xe9d6 []	EtrVen M2  [= Lep M4 sin]
-2519 0xe9d7 []	EtrVen P2 sin  [= Raet P5 sin]
-2520 0xe9d8 []	EtrVen P2 dex  [= Raet P5 dex]
-2521 0xe9d9 []	EtrVen San2
-2522 0xe9da []	EtrVen San3 sin  [= Lep T5 sin = Lep U6 sin = Run K5 sin = Lep T5 sin = ]
-2523 0xe9db []	EtrVen San3 dex [= Lep T5 sin = Lep U6 sin = Run K5 sin = Lep T5 sin = ]
-2524 0xe9dc []	EtrVen T5  [= EtrVen B1]
-2525 0xe9dd []	EtrVen T6  [= EtrVen B2]
-2526 0xe9de []	EtrVen O1
-2527 0xe9df []	EtrVen O2
+2496 0xe9c0 []	Etr X3 (ab 4. Jh.) [= Lep X1 = Raet X3] 57
+2497 0xe9c1 []	Etr F1 58
+2498 0xe9c2 []	Etr F2 (bis 4. Jh.) 59
+2499 0xe9c3 []	Etr <ten> (Buffa 3)  [= Raet <ten> = Lep T1 = Raet Θ1] 60
+2500 0xe9c4 []	Etr <fifty> (Buffa 3)  [= Lep T6] 61
+2501 0xe9c5 []	EtrVen A7 62
+2502 0xe9c6 []	EtrVen B1 63
+2503 0xe9c7 []	EtrVen B2 64
+2504 0xe9c8 []	 EtrVen D1 65
+2505 0xe9c9 []	EtrVen D2 66
+2506 0xe9ca []	EtrVen G1  [=Raet X1 = Lep X4] 67
+2507 0xe9cb []	EtrVen G2  [= Raet X3 = Raet <fifty> = Lep X1] 68
+2508 0xe9cc []	EtrVen H5  [=Raet H4] 69
+2509 0xe9cd []	EtrVen H6 70
+2510 0xe9ce []	EtrVen H7 71
+2511 0xe9cf []	EtrVen J1  [= Lep E7  = Lat. E2 = Run E3] 72
+2512 0xe9d0 []	EtrVen J2  [= Lep K2 sin] 73
+2513 0xe9d1 []	EtrVen J3  [= Etr C2 = Lep U11 sin = Run K1] 74
+2514 0xe9d2 []	EtrVen J4 75
+2515 0xe9d3 []	EtrVen L2  [= ... 76
+2516 0xe9d4 []	EtrVen L3  [= ... 77
+2517 0xe9d5 []	EtrVen L4  [= LatGraff L1 sin] 78
+2518 0xe9d6 []	EtrVen M2  [= Lep M4 sin] 79
+2519 0xe9d7 []	EtrVen P2 sin  [= Raet P5 sin] 80
+2520 0xe9d8 []	EtrVen P2 dex  [= Raet P5 dex] 81
+2521 0xe9d9 []	EtrVen San2 82
+2522 0xe9da []	EtrVen San3 sin  [= Lep T5 sin = Lep U6 sin = Run K5 sin = Lep T5 sin = ] 			83
+2523 0xe9db []	EtrVen San3 dex [= Lep T5 sin = Lep U6 sin = Run K5 sin = Lep T5 sin = ] 			84
+2524 0xe9dc []	EtrVen T5  [= EtrVen B1] 85
+2525 0xe9dd []	EtrVen T6  [= EtrVen B2] 86
+2526 0xe9de []	EtrVen O1 87
+2527 0xe9df []	EtrVen O2 88
 
-2528 0xe9e0 []	EtrVen O3
-2529 0xe9e1 []	EtrVen F3 sin
-2530 0xe9e2 []	EtrVen F3 dex
-2531 0xe9e3 []	EtrVen F4 sin
-2532 0xe9e4 []	EtrVen F4 dex
-2533 0xe9e5 []	EtrVen F5 sin
-2534 0xe9e6 []	EtrVen F5 dex
-2535 0xe9e7 []	EtrVen F6
-2536 0xe9e8 []
-2537 0xe9e9 []
-2538 0xe9ea []
-2539 0xe9eb []
-2540 0xe9ec []
-2541 0xe9ed []
-2542 0xe9ee []
-2543 0xe9ef []
-2544 0xe9f0 []
-2545 0xe9f1 []
-2546 0xe9f2 []
-2547 0xe9f3 []
-2548 0xe9f4 []
-2549 0xe9f5 []
-2550 0xe9f6 []
+2528 0xe9e0 []	EtrVen O3 89
+2529 0xe9e1 []	EtrVen F3 sin 90
+2530 0xe9e2 []	EtrVen F3 dex 91
+2531 0xe9e3 []	EtrVen F4 sin 92
+2532 0xe9e4 []	EtrVen F4 dex 93
+2533 0xe9e5 []	EtrVen F5 sin 94
+2534 0xe9e6 []	EtrVen F5 dex 95
+2535 0xe9e7 []	EtrVen F6 96
+2536 0xe9e8 []	Etr P3 (CIE 2312) 97
+2537 0xe9e9 []	Etr <one> (Bonfante 2002:76) 98
+2538 0xe9ea []	Etr <five> (Bonfante 2002:76) 99
+2539 0xe9eb []	Etr .S.  (0) (Bonfante 2002:78) 100
+2540 0xe9ec []	Etr Samech  (0) (Bonfante 2002:78) 101
+2541 0xe9ed []	Etr <hundred>1 (Bonfante 2002:76) 102
+2542 0xe9ee []	Etr <hundred>2 (Bonfante 2002:76) 103
+2543 0xe9ef []	Etr <thousand?> (Bonfante 2002:76) 104
+2544 0xe9f0 []	Etr <ten thousand?> (Bonfante 2002:76) 105
+2545 0xe9f1 []	
+2546 0xe9f2 []	EtrVen B3 (Prosdocimi 1976:209 Fig. 2) 106
+2547 0xe9f3 []	EtrVen D3 (Prosdocimi 1976:209 Fig. 2) 107
+2548 0xe9f4 []	EtrVen O4 (Prosdocimi 1976:217) 108
+2549 0xe9f5 []	LepCam ?1 (Morandi 1998:107) 246
+2550 0xe9f6 []	LepBrem ?1 (Casini et al. 2014:182; Casini & Motta 2011:465) 247
 2551 0xe9f7 []	Run F1 sin
 2552 0xe9f8 []	Run F1 dex
 2553 0xe9f9 []	Run F2 sin
@@ -2652,7 +2654,7 @@ ERSTES ZEICHEN NORTH ITALIC
 2575 0xea0f []	Run R4 sin
 2576 0xea10 []	Run R4 dex
 2577 0xea11 []	Run R5 sin
-2578 0xea12 []	Run R5 dex
+2578 0xea12 []	Run R5 dex (aus svg gelöscht)
 2579 0xea13 []	Run R5 dex
 2580 0xea14 []	Run R6 sin
 2581 0xea15 []	Run R6 dex
@@ -2674,10 +2676,10 @@ ERSTES ZEICHEN NORTH ITALIC
 2596 0xea24 []	Run W2 sin  [= Lat P1 sin]
 2597 0xea25 []	Run W2 dex  [= Lat P1 dex]
 2598 0xea26 []	Run H1 sin/dex  [= Raet H1 sin]
-2599 0xea27 []	Run H1 sin/dex  [= Raet H1 dex]
-2600 0xea28 []	Run H2 sin/dex  [= Raet H2 sin]
-2601 0xea29 []	Run H2 sin/dex  [= Raet H2 dex]
-2602 0xea2a []	Run H3  [= Lat H1]
+2599 0xea27 []	Run H2 sin/dex  [= Raet H1 dex]
+2600 0xea28 []	Run H3 sin/dex  [= Raet H2 sin]
+2601 0xea29 []	Run H4 sin/dex  [= Raet H2 dex]
+2602 0xea2a []	Run H5  [= Lat H1]
 2603 0xea2b []	Run N1 sin/dex  [= Raet T2 dex]
 2604 0xea2c []	Run N2 sin/dex  [= Raet T2 sin]
 2605 0xea2d []	Run N3 sin
@@ -2688,7 +2690,7 @@ ERSTES ZEICHEN NORTH ITALIC
 2610 0xea32 []	Run J3
 2611 0xea33 []	Run J4
 2612 0xea34 []	Run J5
-2613 0xea35 []	Run J6
+2613 0xea35 []	Run J6 sin/dex
 2614 0xea36 []	Run J7
 2615 0xea37 []	Run ɨ1 sin/dex
 2616 0xea38 []	Run ɨ2 sin/dex
@@ -2743,7 +2745,7 @@ ERSTES ZEICHEN NORTH ITALIC
 2663 0xea67 []	Run ŋ2
 2664 0xea68 []	Run ŋ3
 2665 0xea69 []	Run ŋ4
-2666 0xea6a []	Run D1  [= Lep San1]
+2666 0xea6a []	Run D1  [= Lep Ð1]
 2667 0xea6b []	Run D2  [= Lep San6 = Raet San2 = Run M1]
 2668 0xea6c []	Run D3
 2669 0xea6d []	Run D4
@@ -2751,9 +2753,9 @@ ERSTES ZEICHEN NORTH ITALIC
 2671 0xea6f []	Run O2  [= Lep O8]
 2672 0xea70 []	Run O3
 2673 0xea71 []	Run O4
-2674 0xea72 []	Run N3 sin/dex  [= Raet L4 sin  (0) = LepCam N? (0, FdN)
-2675 0xea73 []
-2676 0xea74 []
+2674 0xea72 []	Run N4 sin/dex  [= Raet L4 sin  (0) = LepCam N? (0, FdN)
+2675 0xea73 []	Run I2  [= Raet I2]
+2676 0xea74 []	Run J8 sin/dex
 2677 0xea75 []
 2678 0xea76 []
 2679 0xea77 []
@@ -2766,11 +2768,11 @@ ERSTES ZEICHEN NORTH ITALIC
 2686 0xea7e []
 2687 0xea7f []
 
-2688 0xea80 []
-2689 0xea81 []
-2690 0xea82 []
-2691 0xea83 []
-2692 0xea84 []
+2688 0xea80 []	EtrLem Ž1 dex  (de Simone 1996)  [= Run ɨ2 sin/dex] 109
+2689 0xea81 []	EtrLem Ž1 sin  (de Simone 1996)  [= Run ɨ1 sin/dex] 110
+2690 0xea82 []	EtrLem Ž2 sin  (de Simone 1996) 111
+2691 0xea83 []	EtrLem Ž3 sin  (de Simone 1996) 112
+2692 0xea84 []	EtrLem dʒ1  (de Simone 1996)  [= Run Z] 113
 2693 0xea85 []
 2694 0xea86 []
 2695 0xea87 []
