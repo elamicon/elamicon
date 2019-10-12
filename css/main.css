@@ -24,6 +24,11 @@ body {
     unicode-bidi: bidi-override;
 }
 
+.lepontic {
+    font-family: NorthItalicLiberationSerif;
+    unicode-bidi: bidi-override;
+}
+
 .elam input, .elam textarea {
     font-family: ElamiconLiberationMono;
 }

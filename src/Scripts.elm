@@ -3,6 +3,7 @@ module Scripts exposing (dedupe, initialScript, normalization, normalizer, scrip
 import Byblos as Byblos
 import Elam as Elam
 import Raetic as Raetic
+import Lepontic as Lepontic
 
 import Dict exposing (Dict)
 import List
@@ -17,7 +18,7 @@ import WritingDirections exposing (..)
 
 scripts : List Script
 scripts =
-    [ Byblos.byblos, Elam.elam, Raetic.raetic ]
+    [ Byblos.byblos, Elam.elam, Raetic.raetic, Lepontic.lepontic ]
 
 
 initialScript =
