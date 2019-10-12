@@ -892,6 +892,12 @@ byblos =
     , title = "Byblicon"
     , font = "Byblicon"
     , description = """
+#### Introduction
+The Byblos Syllabary is an undeciphered syllabic writing system with inscriptions found in Lebanon (the major part) and Italy (some single tablets and seals). Accoring to latest research run by the Byblicon research group (Universität Bern / Rheinische Friedrich-Wilhelms-Universität Bonn), the corpus consists of 18 inscriptions certainly written in Byblos Script (<sup>BYBL</sup>a – <sup>BYBL</sup>s), and 14 inscriptions potentially belonging to the Byblos corpus (<sup>BYBL?</sup>t – <sup>BYBL?</sup>d').
+ 
+Images and drawings of every inscription can be viewed by enlarging the picture attached to the digitalized texts (tab "Inscriptions"). In the "search" tab, the search box can be used for simple searches or RegEx searches. Please adjust the settings (tab "settings") for your specified investigation and report possible interesting findings to the Byblicon research team. Download the copyleft [BybliconLiberation Unicode font](fonts/Byblicon-Fonts.zip) and pick the characters from the "signs" tab.
+ 
+Feel free to contact the [Byblicon research team](mailto:michael.maeder@isw.unibe.ch).
 """
     , sources = """
 #### Sources
