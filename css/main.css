@@ -29,6 +29,16 @@ body {
     unicode-bidi: bidi-override;
 }
 
+.etruscan {
+    font-family: NorthItalicLiberationSerif;
+    unicode-bidi: bidi-override;
+}
+
+.runic {
+    font-family: NorthItalicLiberationSerif;
+    unicode-bidi: bidi-override;
+}
+
 .elam input, .elam textarea {
     font-family: ElamiconLiberationMono;
 }
@@ -42,6 +52,18 @@ body {
 }
 
 .raetic input, .raetic textarea {
+    font-family: NorthItalicLiberationMono;
+}
+
+.lepontic input, .lepontic textarea {
+    font-family: NorthItalicLiberationMono;
+}
+
+.etruscan input, .etruscan textarea {
+    font-family: NorthItalicLiberationMono;
+}
+
+.runic input, .runic textarea {
     font-family: NorthItalicLiberationMono;
 }
 
