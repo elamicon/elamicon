@@ -61,6 +61,10 @@ lepontic =
     , description = """
 #### Content
 The collection of Lepontic sign variants contains signs from inscriptions which are understood – be it on linguistic or palaeographic grounds – as Lepontic, Cisalpine Gaulish or Camunic, or appear on the rock inscriptions from the sources of the Brembo river. Sign variants that occur only in Camunic have the siglum LepCam, sign variants that occur only in the Brembo inscriptions have LepBrem, all others have Lep.
+
+#### Terminology used for labelling the sign variants
+**Writing direction:** sin = sinistroverse; dex = dextroverse; sin/dex = used in this exact shape (i.e. without mirroring the sign) in both writing directions.
+**Sub-numeration of the signs:** For Lepontic, the sub-numeration is taken from the respective main source. Supplementary sign variants added by us and not present in the main source have been labelled with further sub-numbers. We have labelled the sign variants with sub-numbers according to the frequency of occurrence, i.e.: Lep A₁ is the most frequent Lepontic sign variant with the sound value A, Lep A₂ is the second most frequent Lepontic sign variant with the sound value A etc. (There are exceptions from this basic rule, due to the iterative compilation of the sub-corpora.)
 """
     , sources = """
 #### Main source

@@ -105,8 +105,27 @@ etruscan =
     , title = "Etruricon"
     , font = "NorthItalic"
     , description = """
+#### Introduction
+The sign corpus of Etruscicon contains all sign variants from inscriptions certainly or possibly belonging to the Etruscan, Venetic or Lemnotic scripts. Signs that occur only in Venetic inscriptions are labelled "EtrVen", signs that occur only on Lemnos are labeled "EtrLem". Signs that occur only or also in Etruscan are labeled "Etr".
+ 
+If no "Further source" reference (see below) is indicated in the sign name, the sign variant is attested in the main source.
+
+#### Terminology used for labelling the sign variants
+**Writing direction:** sin = sinistroverse; dex = dextroverse; sin/dex = used in this exact shape (i.e. without mirroring the sign) in both writing directions.
+**Sub-numeration of the signs:** We have labelled the sign variants with sub-numbers according to the frequency of occurrence, i.e.: Etr A₁ is the most frequent Etruscan sign variant with the sound value A, Etr A₂ is the second most frequent Etruscan sign variant with the sound value A etc. (There are exceptions from this basic rule, due to the iterative compilation of the sub-corpora.)
 """
     , sources = """
+#### Main Source
+**Morandi, A. (2004):** Epigrafia e lingua dei Celti d’Italia. A cura di Paola Piana Agostinetti. Popoli e civiltà dell’Italia antica 12, 2 vol.: II. Roma 2004. Table at p. 476.
+
+#### Further Sources
+- **Bonfante, Giuliano & Bonfante, Larissa (2002):** The Etruscan Language. Manchester: Manchester University Press.
+- **Buffa, Mario (1935):** Nuova Raccolta di Iscrizioni Etrusche. Firenze: Rinascimento del Libro.
+- **CIE: Corpus Inscriptionum Etruscarum** academiis litterarum borussica et saxonica (1893-2017)
+- **De Simone, Carlo (1996):** I Tirreni a Lemnos: evidenza linguistica e tradizioni storiche. Firenze: Olschki.
+- **Lejeune, Michel (1974):** Manuel de la langue vénète. Heidelberg: C. Winter.
+- **Prosdocimi, Aldo L. & Scardigli, Piergiuseppe (1976):** "Negau", in: Vittore Pisani, Ciro Santoro (Eds), Italia linguistica nuova ed antica. Studi linguistici in memoria di Oronzo Parlangèli, Galatina. S. 179–229.
+- **Rix, Helmut (1998):** Rätisch und Etruskisch. Innsbruck: Institut für Sprachwissenschaft der Universität.
     """
     , tokens = tokens
     , seperatorChars = ""

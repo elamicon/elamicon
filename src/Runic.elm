@@ -59,8 +59,19 @@ runic =
     , title = "Runicon"
     , font = "NorthItalic"
     , description = """
+#### Introduction
+All the sign variants of the Runes of the oldest period (150 – 700 A.D) are depicted according to Odenstedt 1990.
+
+#### Terminology used for labelling the sign variants
+**Writing direction:** sin = sinistroverse; dex = dextroverse; sin/dex = used in this exact shape (i.e. without mirroring the sign) in both writing directions.
+**Sub-numeration of the signs:** We have labelled the sign variants with sub-numbers according to the frequency of occurrence, i.e.: Run A₁ is the most frequent Elder Futhark Rune with the sound value A, Run A₂ is the second most frequent Elder Futhark Rune with the sound value A etc. (There are exceptions from this basic rule, due to the iterative compilation of the sub-corpora.)
 """
     , sources = """
+#### Main Source
+Odenstedt, Bengt (1990): On the Origin and Early History of the Runic Script: Typology and Graphic Variation in the Older Futhark. Acta Academiae Regiae Gustavi Adolphi 59. Uppsala.
+
+#### Further Sources:
+None
 """
     , tokens = tokens
     , seperatorChars = ""
