@@ -1094,11 +1094,13 @@ view model =
 
         contact =
             div [ class "footer" ]
-                [ h2 [] [ text "Contact the research-team" ]
-                , text "For detailed information about Elamicon: Online Corpus of Linear Elamite Inscriptions (OCLEI), and possibilities for collaboration please contact "
+                [ h2 [] [ text "Contact the research team" ]
+                , text "For detailed information about "
+                , text model.script.title
+                , text ", and possibilities for collaboration please contact "
                 , strong [] [ text "michael.maeder[ätt]isw.unibe.ch" ]
                 , text ". "
-                , text "We can help you with tips on how to contribute to the decipherment of Linear Elamite and tell you what we've discovered so far."
+                , text "We can help you with tips on how to contribute to the decipherment and tell you what we've discovered so far."
                 , br [] []
                 , br [] []
                 , text " Thank you for your interest and have fun puzzling over the inscriptions. Your "
