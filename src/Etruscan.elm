@@ -37,6 +37,52 @@ syllables = Dict.empty
 syllableMap = String.trim """
 """
 
+letterGroupSyllabary =
+    { id = "group"
+    , name = "By Letter"
+    , syllabary = String.trim """
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        """
+    }
+
 codepointSyllabary =
     { id = "splitting"
     , name = "Codepoint order"
@@ -44,7 +90,7 @@ codepointSyllabary =
     }
 
 syllabaries : List SyllabaryDef
-syllabaries = [ codepointSyllabary ]
+syllabaries = [ letterGroupSyllabary, codepointSyllabary ]
 
 
 fragments : List FragmentDef
@@ -69,7 +115,7 @@ etruscan =
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
-    , initialSyllabary = codepointSyllabary
+    , initialSyllabary = letterGroupSyllabary
     , groups = []
     , fragments = fragments
     , decorations = { headline = ("", "")
