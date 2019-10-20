@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+import urllib.request
+import json
+import os
+import sys
+import time
+
+
+def fail(messagte):
+    print(message, file=sys.stderr)
+    sys.exit(1)
+
+
+def travis_request(url, body=None):
+    request = urllib.request.Request(url)
+    request.add_header("Content-Type", "application/json; charset=utf-8")
+    request.add_header("Accept", "application/json")
+    request.add_header("Travis-API-Version", "3")
+    request.add_header("Authorization", "token " + os.environ['TRAVIS_TOKEN'])
+    body_bytes = None
+    if body:
+        body_bytes = json.dumps(body).encode('utf-8')
+    try:
+        response = urllib.request.urlopen(request, body_bytes)
+    except Exception as err:
+        fail("\n".join([url, err]))
+    return json.loads(response.read().decode('utf-8'))
+
+
+trigger_response = travis_request(
+    "https://api.travis-ci.com/repo/elamicon%2Fzeas-site/requests",
+    {"request": {"branch": "master"}})
+
+build_request_id = trigger_response['request']['id']
+status_request = "https://api.travis-ci.com/repo/elamicon%2Fzeas-site/request/{}".format(build_request_id)
+
+while True:
+    time.sleep(5)
+    status_response = travis_request(status_request)
+    trigger_state = status_response['state']
+    if trigger_state == "pending":
+        print("request pending .".format(build_number))
+        continue
+    if trigger_state != "finished":
+        fail("{}\ntrigger build state {}".format(status_response, trigger_state))
+        
+    build = status_response['builds'][0]
+    build_state = build['state']
+    build_number = build['number']
+
+    if build_state == "passed":
+        print("build #{} PASSED.".format(build_number))
+        sys.exit(0)
+    if build_state in ["created", "started"]:
+        print("build #{} {}...".format(build_number, build_state))
+        continue
+    fail("{}\nbuild #{} state {}".format(build, build_number, build_state))
+
+
+    
