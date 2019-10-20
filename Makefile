@@ -1,6 +1,5 @@
 OFONTS = $(wildcard fonts/original/Liberation*.ttf)
 EFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
-CFONTS = $(subst fonts/original/,fonts/Cypricon,$(OFONTS))
 BFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
 IFONTS = $(subst fonts/original/,fonts/NorthItalic,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
