@@ -11,9 +11,9 @@ import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 import Specialchars exposing (..)
 import Tokens 
-import EtruscanTokens
+import Generated.Etruscan
 
-rawTokens = Tokens.toList EtruscanTokens.tokens
+rawTokens = Tokens.toList Generated.Etruscan.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens

@@ -6,7 +6,7 @@ TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
 all: elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
 
-build: build/elamicon.js
+build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
 	cp -r plates build
 	cp -r css build
 	cp -r index.html build
@@ -14,16 +14,14 @@ build: build/elamicon.js
 	cp -r fonts/*Liberation* build/fonts
 	cp -r fonts/*.zip build/fonts
 
-src/RaeticTokens.elm: fonts/original/north-italic.txt
-	bin/extract_script_chars Raet RaeticTokens < $^ > "$@"
-src/LeponticTokens.elm: fonts/original/north-italic.txt
-	bin/extract_script_chars Lep LeponticTokens < $^ > "$@"
-src/EtruscanTokens.elm: fonts/original/north-italic.txt
-	bin/extract_script_chars Etr EtruscanTokens < $^ > "$@"
-src/RunicTokens.elm: fonts/original/north-italic.txt
-	bin/extract_script_chars Run RunicTokens < $^ > "$@"
+src/Generated: fonts/original/north-italic.txt
+	mkdir -p "$@"
+	bin/extract_script_chars Raet Generated.Raetic < $^ > src/Generated/Raetic.elm
+	bin/extract_script_chars Lep Generated.Lepontic < $^ > src/Generated/Lepontic.elm
+	bin/extract_script_chars Etr Generated.Etruscan < $^ > src/Generated/Etruscan.elm
+	bin/extract_script_chars Run Generated.Runic < $^ > src/Generated/Runic.elm
 
-elms := $(wildcard *.elm src/*.elm) src/RaeticTokens.elm src/LeponticTokens.elm src/EtruscanTokens.elm src/RunicTokens.elm
+elms := $(wildcard *.elm src/*.elm) src/Generated
 
 elamicon.js: $(elms)
 	elm make --output="$@" elamicon.elm
@@ -142,7 +140,7 @@ clean:
 	rm -f fonts/*.ttf
 	rm -f fonts/*.zip
 	rm -rf build
-	rm -f src/*?Tokens.elm
+	rm -rf src/Generated
 
 live: $(MFONTS)
 	elm-live elamicon.elm --output elamicon.js --open

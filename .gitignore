@@ -7,3 +7,4 @@ fonts/*.ttf
 fonts/*.svg
 fonts/*.zip
 build
+src/Generated

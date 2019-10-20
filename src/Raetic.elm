@@ -11,9 +11,9 @@ import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 import Specialchars exposing (..)
 import Tokens 
-import RaeticTokens
+import Generated.Raetic
 
-rawTokens = Tokens.toList RaeticTokens.tokens
+rawTokens = Tokens.toList Generated.Raetic.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens

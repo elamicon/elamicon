@@ -11,9 +11,9 @@ import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 import Specialchars exposing (..)
 import Tokens 
-import LeponticTokens
+import Generated.Lepontic
 
-rawTokens = Tokens.toList LeponticTokens.tokens
+rawTokens = Tokens.toList Generated.Lepontic.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens

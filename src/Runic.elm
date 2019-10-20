@@ -11,9 +11,9 @@ import WritingDirections exposing (..)
 import ScriptDefs exposing (..)
 import Specialchars exposing (..)
 import Tokens 
-import RunicTokens
+import Generated.Runic
 
-rawTokens = Tokens.toList RunicTokens.tokens
+rawTokens = Tokens.toList Generated.Runic.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
