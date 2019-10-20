@@ -4,7 +4,15 @@ BFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
 IFONTS = $(subst fonts/original/,fonts/NorthItalic,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
-all: build/elamicon.zip fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
+all: elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
+
+build: build/elamicon.js
+	cp -r plates build
+	cp -r css build
+	cp -r index.html build
+	mkdir -p build/fonts
+	cp -r fonts/*Liberation* build/fonts
+	cp -r fonts/*.zip build/fonts
 
 src/RaeticTokens.elm: fonts/original/north-italic.txt
 	bin/extract_script_chars Raet RaeticTokens < $^ > "$@"
@@ -17,10 +25,11 @@ src/RunicTokens.elm: fonts/original/north-italic.txt
 
 elms := $(wildcard *.elm src/*.elm) src/RaeticTokens.elm src/LeponticTokens.elm src/EtruscanTokens.elm src/RunicTokens.elm
 
-dev: $(elms)
-	elm make --output=elamicon.js elamicon.elm
+elamicon.js: $(elms)
+	elm make --output="$@" elamicon.elm
 
-elamicon.min.js: $(elms)
+build/elamicon.js: $(elms)
+	mkdir -p build
 	elm make --optimize --output=elamicon.opt.js elamicon.elm
 	uglifyjs elamicon.opt.js --compress "pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe" | uglifyjs --mangle --output="$@"
 
@@ -138,10 +147,6 @@ clean:
 live: $(MFONTS)
 	elm-live elamicon.elm --output elamicon.js --open
 
-build/elamicon.zip: elamicon.min.js index.html css/main.css $(EFONTS) $(BFONTS)
-	mkdir -p build
-	rm -f "$@"
-	zip -rq "$@" $^ fonts/*Liberation*.ttf
 
 ElamiconTimes: fonts/Elamicon_Times_New_Roman.zip
 
