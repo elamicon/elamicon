@@ -859,14 +859,14 @@ view model =
 
                 buildResultLine result =
                     let
+                        -- half-width space
                         hwspace =
                             "\u{2009}"
 
-                        -- half-width space
+                        -- half-width non-breaking space
                         hwnbspace =
                             "\u{202F}"
 
-                        -- half-width non-breaking space
                         ( startLineNr, startCharNr ) =
                             result.start
 
