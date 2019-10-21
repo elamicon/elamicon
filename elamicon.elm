@@ -5,6 +5,7 @@ import Dict
 import Dict.Extra
 import Grams
 import Browser
+import Browser.Navigation
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (on, onClick, onInput, targetValue)
@@ -20,18 +21,18 @@ import Search
 import Set
 import String
 import String exposing (fromInt)
+import Url
 import WritingDirections exposing (..)
 
 main =
-    Browser.element
-        { init = \() -> ( initialModel, htmltitle initialScript.headline )
+    Browser.application
+        { init = init
         , view = view
         , update = update
         , subscriptions = \_ -> Sub.none
+        , onUrlRequest = LinkClicked
+        , onUrlChange = UrlChanged
         }
-
-
-port htmltitle : String -> Cmd a
 
 
 type alias Pos =
@@ -59,36 +60,50 @@ type alias Model =
     , selectedGroups : Set.Set String
     , collapsed : Set.Set String
     , showAllResults : Bool
+    , url : Url.Url
+    , key : Browser.Navigation.Key
     }
 
+-- Select a script based on the URL fragment
+scriptFromUrl : Url.Url -> Maybe Script
+scriptFromUrl url =
+    case url.fragment of
+        Nothing -> Nothing
+        Just scriptId ->
+            case List.filter (\s -> s.id == scriptId) Scripts.scripts of
+                [] -> Nothing
+                script :: _ -> Just script
 
-initialScript =
-    Scripts.initialScript
-
-
-initialModel =
-    updateScript initialScript
-        { script = initialScript
-        , dir = Nothing
-        , fixedBreak = True
-        , selected = Nothing
-        , normalizer = identity
-        , normalize = False
-        , removeChars = ""
-        , syllabaryId = Nothing
-        , syllabary = ""
-        , missingSyllabaryChars = ""
-        , syllableMap = initialScript.syllableMap
-        , syllabizer = Scripts.syllabizer initialScript.syllableMap
-        , syllabize = False
-        , sandbox = ""
-        , search = ""
-        , showAllResults = False
-        , bidirectionalSearch = True
-        , linesplitSearch = False
-        , selectedGroups = Set.empty
-        , collapsed = Set.fromList [ "info", "gramStats", "syllabary", "playground", "settings", "search" ]
-        }
+init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
+init _ url key =
+    let
+        script = Maybe.withDefault Scripts.initialScript (scriptFromUrl url)
+        initialModel =
+            { script = script
+            , dir = Nothing
+            , fixedBreak = True
+            , selected = Nothing
+            , normalizer = identity
+            , normalize = False
+            , removeChars = ""
+            , syllabaryId = Nothing
+            , syllabary = ""
+            , missingSyllabaryChars = ""
+            , syllableMap = script.syllableMap
+            , syllabizer = Scripts.syllabizer script.syllableMap
+            , syllabize = False
+            , sandbox = ""
+            , search = ""
+            , showAllResults = False
+            , bidirectionalSearch = True
+            , linesplitSearch = False
+            , selectedGroups = Set.empty
+            , collapsed = Set.fromList [ "info", "gramStats", "syllabary", "playground", "settings", "search" ]
+            , url = url
+            , key = key
+            }
+    in
+       ( scriptUpdate script initialModel, Cmd.none )
 
 
 type Msg
@@ -110,21 +125,23 @@ type Msg
     | LinesplitSearch Bool
     | SelectGroup String Bool
     | Toggle String
+    | LinkClicked Browser.UrlRequest
+    | UrlChanged Url.Url
 
 
-updateScript : Script -> Model -> Model
-updateScript new model =
+scriptUpdate : Script -> Model -> Model
+scriptUpdate new model =
     let
         selectedGroups =
             Set.fromList (List.map .short new.groups)
     in
-    switchSyllabary new.initialSyllabary
-        { model
-            | script = new
-            , selectedGroups = selectedGroups
-            , syllableMap = new.syllableMap
-            , search = ""
-        }
+        switchSyllabary new.initialSyllabary
+            { model
+                | script = new
+                , selectedGroups = selectedGroups
+                , syllableMap = new.syllableMap
+                , search = ""
+            }
 
 
 setSyllabary : String -> Model -> Model
@@ -164,12 +181,13 @@ regex pat = Maybe.withDefault Regex.never (Regex.fromString pat)
 zeroWidthSpace =
     "\u{200B}"
 
-
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         SetScript script ->
-            ( updateScript script model, htmltitle script.headline )
+            ( scriptUpdate script model
+            , Browser.Navigation.pushUrl model.key ("#" ++ script.id)
+            )
 
         SetSandbox str ->
             ( { model | sandbox = str }, Cmd.none )
@@ -282,6 +300,20 @@ update msg model =
               }
             , Cmd.none
             )
+
+        LinkClicked urlRequest ->
+            case urlRequest of
+                Browser.Internal url ->
+                    ( model, Browser.Navigation.pushUrl model.key (Url.toString url) )
+
+                Browser.External href ->
+                    ( model, Browser.Navigation.load href )
+
+        UrlChanged url ->
+            let
+                new = Maybe.withDefault Scripts.initialScript (scriptFromUrl url)
+            in
+                ( scriptUpdate new { model | url = url } , Cmd.none )
 
 
 dirStr dir =
@@ -408,7 +440,7 @@ roman num =
     Maybe.withDefault "" <| Array.get num romanNumerals
 
 
-view : Model -> Html Msg
+view : Model -> Browser.Document Msg
 view model =
     let
         effectiveDir original =
@@ -1133,6 +1165,13 @@ view model =
 
         groupedScripts : List (String, List Script)
         groupedScripts = Dict.toList (Dict.Extra.groupBy (.group) scripts)
+        selectionDropdown =
+            div []
+                [ label []
+                    [ text "Choose script "
+                    , scriptSelect
+                    ]
+                ]
         scriptSelect =
             Html.select
                 [ on "change" (Json.Decode.map SetScript scriptDecoder) ]
@@ -1146,23 +1185,20 @@ view model =
                 [ value script.id, selected (model.script.id == script.id) ]
                 [ text script.name ]
     in
-    div [ class model.script.id ]
-        ([ div []
-            [ label []
-                [ text "Choose script "
-                , scriptSelect
+        { title = model.script.headline
+        , body =
+            [ div [ class model.script.id ] (
+                [ selectionDropdown
+                , h1 [ class "secondary" ] [ text (decorate .headline model.script.headline) ]
+                , h1 [] [ text (decorate .title model.script.title) ]
                 ]
-            ]
-         , h1 [ class "secondary" ] [ text (decorate .headline model.script.headline) ]
-         , h1 [] [ text (decorate .title model.script.title) ]
-         ]
-            ++ info
-            ++ syllabary
-            ++ playground
-            ++ settings
-            ++ searchView
-            ++ [ h2 [] [ text (decorate .inscriptions "Inscriptions") ]
-               ]
-            ++ [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments) ]
-            ++ [ contact, small [] [ footer ] ]
-        )
+                ++ info
+                ++ syllabary
+                ++ playground
+                ++ settings
+                ++ searchView
+                ++ [ h2 [] [ text (decorate .inscriptions "Inscriptions") ] ]
+                ++ [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments) ]
+                ++ [ contact, small [] [ footer ] ]
+            )]
+        }
