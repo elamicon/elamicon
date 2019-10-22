@@ -559,7 +559,7 @@ view model =
                 build ()
 
         syllabary =
-            collapsibleTitle "syllabary" "Signs" .signs
+            collapsibleTitle "syllabary" "Character Picker" .signs
                 ++ ifExpanded "syllabary" syllabaryView
 
         syllabaryView =
