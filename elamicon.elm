@@ -304,7 +304,9 @@ update msg model =
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    ( model, Browser.Navigation.pushUrl model.key (Url.toString url) )
+                    -- So far we don't use internal links, but some static
+                    -- files look like they're internal to this router.
+                    ( model, Browser.Navigation.load (Url.toString url) )
 
                 Browser.External href ->
                     ( model, Browser.Navigation.load href )
