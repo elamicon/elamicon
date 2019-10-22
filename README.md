@@ -37,7 +37,7 @@ Another focus of this project is effortless inclusion of the glyphs in publicati
 Multiple writing systems have been entered to varying extents:
 
 Script|Font|Grouping|Corpus
-------|----|--------|------
+:-----|:--:|:------:|:----:
 [Byblos](https://center-for-decipherment.ch/tool/#byblos)|✓|(✓)|✓
 [Linear-Elam](https://center-for-decipherment.ch/tool/#elam)|✓|✓|✓
 [Raetic](https://center-for-decipherment.ch/tool/#raetic)|✓|✓|-
