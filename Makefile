@@ -6,13 +6,14 @@ TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
 all: elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
 
-build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
+build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip fonts/copyright
 	cp -r plates build
 	cp -r css build
 	cp -r index.html build
 	mkdir -p build/fonts
 	cp -r fonts/*Liberation* build/fonts
 	cp -r fonts/*.zip build/fonts
+	cp fonts/copyright build/fonts
 
 src/Generated: fonts/original/north-italic.txt
 	mkdir -p "$@"
@@ -56,8 +57,8 @@ fonts/ElamiconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf 
 fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf  fonts/elamicon-base.ttf
 	bin/addfont "Elamicon" $^ "$@"
 
-fonts/Elamicon-Fonts.zip: $(EFONTS) $(MFONTS)
-	cd fonts && zip -rq Elamicon-Fonts.zip ElamiconLiberation*.ttf
+fonts/Elamicon-Fonts.zip: $(EFONTS) $(MFONTS) fonts/copyright
+	cd fonts && zip -rq Elamicon-Fonts.zip ElamiconLiberation*.ttf copyright
 
 
 
@@ -93,8 +94,8 @@ fonts/BybliconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf 
 fonts/BybliconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/byblos-base.ttf
 		bin/addfont "Byblicon" $^ "$@"
 
-fonts/Byblicon-Fonts.zip: $(BFONTS)
-		cd fonts && zip -rq Byblicon-Fonts.zip BybliconLiberation*.ttf
+fonts/Byblicon-Fonts.zip: $(BFONTS) fonts/copyright
+		cd fonts && zip -rq Byblicon-Fonts.zip BybliconLiberation*.ttf copyright
 
 
 
@@ -130,8 +131,8 @@ fonts/NorthItalicLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.t
 fonts/NorthItalicLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/north-italic-base.ttf
 		bin/addfont "NorthItalic" $^ "$@"
 
-fonts/NorthItalic-Fonts.zip: $(IFONTS)
-		cd fonts && zip -rq NorthItalic-Fonts.zip NorthItalicLiberation*.ttf
+fonts/NorthItalic-Fonts.zip: $(IFONTS) fonts/copyright
+		cd fonts && zip -rq NorthItalic-Fonts.zip NorthItalicLiberation*.ttf copyright
 
 
 

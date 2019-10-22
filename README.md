@@ -82,5 +82,5 @@ this out to us and we will gladly remove all traces of the forgery.
 
 The compiled fonts are derivatives of the
 [Liberation Fonts](https://fedorahosted.org/liberation-fonts/). They are
-licensed under the SIL Open Font License, Version 1.1.
+licensed under a GPL2 license with additional clauses. See fonts/copyright.
 
