@@ -16,7 +16,7 @@
    sodipodi:docname="north-italic.svg"
    version="1.1"
    id="svg3746"
-   inkscape:version="0.92.1 r15371"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    enable-background="new">
   <sodipodi:namedview
      id="base"
@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.60094863"
-     inkscape:cx="-64.32274"
+     inkscape:cx="-125.89206"
      inkscape:cy="396.40674"
      inkscape:document-units="px"
-     inkscape:current-layer="layer554"
+     inkscape:current-layer="layer655"
      showgrid="false"
      showguides="true"
-     inkscape:window-width="1534"
-     inkscape:window-height="1438"
-     inkscape:window-x="1920"
+     inkscape:window-width="1078"
+     inkscape:window-height="1918"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      showborder="true"
@@ -3081,7 +3081,7 @@
          glyph-name="Etr K2  (Buffa 4)  [= Lep K2 sin]"
          id="glyph3728"
          unicode=""
-         d="m 260.2168,923.04297 -53.16016,-59.7832 315.86524,-280.86524 -295.50782,-258.19531 52.63672,-60.24414 329.68164,288.05273 0.26172,60.01367 z m 384.63281,-7.89258 V 272.07617 h 80 v 643.07422 z" />
+         d="m 238.2168,923.04297 -53.16016,-59.7832 315.86524,-280.86524 -295.50782,-258.19531 52.63672,-60.24414 329.68164,288.05273 0.26172,60.01367 z m 406.63281,-7.89258 V 272.07617 h 80 v 643.07422 z" />
       <glyph
          glyph-name="Etr L1  [= Lep L1 sin = Raet L2 sin]"
          id="glyph3735"
@@ -4212,7 +4212,299 @@
          id="glyph4052"
          unicode=""
          d="M 450.53125,918.44336 V 515.46289 L 262.7207,327.65234 319.28906,271.08398 450.53125,402.32617 V 273.93359 h 80 v 129.82618 l 131.95898,-131.95899 56.56836,56.57031 -188.52734,188.52539 v 401.54688 z" />
+      <glyph
+         glyph-name="EtrVen X5  (Pellegrini &amp; Prosdocimi 1967:438, Od 4)"
+         id="glyph3962"
+         unicode=""
+         d="M 452.55469,917.58789 V 650.08984 L 212.58984,475.72656 298.97266,258.80664 373.29688,288.4043 309.91797,447.55664 452.55469,551.19922 V 273.60547 h 80 V 550.87891 L 674.90234,447.44727 611.52148,288.29492 685.8457,258.69727 772.22852,475.61523 532.55469,649.76758 v 267.82031 z" />
+      <glyph
+         glyph-name="EtrVen ?1  (Pellegrini &amp; Prosdocimi 1967:623, Gt 13)"
+         id="glyph3987"
+         unicode=""
+         d="M 537.39611,943.70379 474.54064,910.87762 V 343.97723 l -143.35937,95.92578 -44.48828,-66.48828 205.60351,-137.57422 62.24414,33.24414 v 565.20508 l 131.44727,-91.51367 45.70898,65.65429 z" />
+      <glyph
+         glyph-name="Etr P4  (Aprile 1979: Fig. 25)  [= Lep V3 = Run P sin]"
+         id="glyph4006"
+         d="m 611.41182,942.55845 -264.11914,-66.0293 19.40234,-77.61327 214.41797,53.60546 V 353.04283 l -233.81445,-58.41017 19.39062,-77.61523 264.11914,65.98243 30.30469,38.80664 v 581.9453 z"
+         unicode="" />
+      <glyph
+         glyph-name="Etr EI1  (Pellegrini &amp; Prosdocimi 1967:639)  [= Lat EI1]"
+         id="glyph4009"
+         unicode=""
+         d="M 651.32617,917.58789 V 273.60547 h 80 V 917.58789 Z M 236.90234,915.92383 V 273.60547 h 80 v 642.31836 z m 210.03516,0 v -640.6543 h 80 v 640.6543 z" />
+      <glyph
+         glyph-name="Etr A1 dex  [= Lep A14 dex]"
+         id="glyph3983"
+         unicode=""
+         d="M 330.375,951.69922 281.27344,912.75 V 271.10938 h 80 V 510.36719 L 689.70312,346.75391 c 5.41866,-22.78234 10.73432,-45.75156 16.04297,-68.82422 l 77.96289,17.93945 C 751.69848,434.99456 719.70909,577.27687 655.07227,697.24805 590.43545,817.21922 489.17426,914.59743 330.375,951.69922 Z m 30.89844,-92.11524 C 468.47663,822.05001 534.68836,752.0218 584.64258,659.30273 617.88526,597.60162 642.58279,525.75096 663.73242,449.06836 L 361.27344,599.74414 Z" />
+      <glyph
+         glyph-name="Etr A2 dex (Buffa 5)  [= Lep A24 dex = Raet A11 dex]"
+         id="glyph4008"
+         unicode=""
+         d="m 568.97461,926.21484 -76.11523,-0.79882 -230.48829,-639.14258 76.41407,-26.78711 84.33007,233.84961 283.35547,-149.3418 33.63868,-87.33789 75.8164,28.38867 z M 532.31836,796.1543 662.6543,457.75586 450.58984,569.52344 Z" />
+      <glyph
+         glyph-name="Etr A3 sin (Buffa 6)  [= Lep A22 sin = Raet A1 sin]"
+         id="glyph4030"
+         unicode=""
+         d="m 534.05664,923.47461 -235.02539,-642.29688 72.15625,-28.4375 197.75781,540.44532 60.29883,-176 -116.67969,-334.56446 72.57617,-27.25781 84.7793,243.09375 83.21289,-242.88281 72.72461,26.83398 -219.35937,640.26563 z" />
+      <glyph
+         glyph-name="Etr A6 dex (Buffa 226)"
+         id="glyph4050"
+         unicode=""
+         d="m 321.99219,935.92383 -40,-40 V 273.57422 h 80 v 294.4707 h 371.01562 l 40,40 v 287.87891 l -40,40 z m 40,-80 H 693.00781 V 648.04492 H 361.99219 Z" />
+      <glyph
+         glyph-name="Etr C1 dex"
+         id="glyph4069"
+         unicode=""
+         d="m 607.54688,956.13672 c -33.64086,0.10637 -67.05126,-3.53628 -97.87696,-18.68164 -32.88075,-16.15505 -60.09365,-48.13426 -70.98437,-89.9336 l -1.29297,-4.95898 V 273.32812 h 80 v 558.37891 c 5.92657,19.76797 13.92172,27.24908 27.55469,33.94727 14.62618,7.18616 38.43684,10.92753 67.9707,10.42578 l 1.35937,79.98828 c -2.24407,0.0381 -4.48773,0.0613 -6.73046,0.0684 z" />
+      <glyph
+         glyph-name="Etr C2 dex  [= Lep U11 dex = Run K1]"
+         id="glyph4088"
+         unicode=""
+         d="M 607.11132,788.95508 657.55859,726.86719 482.99218,585.03125 655.71875,446.30664 605.62304,383.93359 394.29101,553.66406 l -0.17773,62.23242 z" />
+      <glyph
+         glyph-name="Etr C3 dex  [Lat C dex]"
+         id="glyph4095"
+         unicode=""
+         d="M 599.70703,804.30469 C 475.67152,762.60391 404.99354,675.23396 406.52344,583.05273 c 1.5299,-92.18124 74.77812,-175.8983 194.64648,-211.14062 l 22.56641,76.75 c -96.62645,28.409 -136.37685,84.75416 -137.22266,135.7168 -0.84581,50.96264 36.72534,109.81794 138.6875,144.09765 z" />
+      <glyph
+         glyph-name="Etr E1 dex  [=Lep E1 dex = Raet E1 dex]"
+         id="glyph4140"
+         unicode=""
+         d="M 449.28711,950.7207 388.05664,916.82031 V 275.17969 h 80 v 87.00781 l 194.64844,-110.06836 39.06836,69.08789 -233.7168,132.16211 V 582.86719 L 665.9375,473.69141 704.28125,543.18555 468.05664,673.51367 v 171.0586 l 222.98633,-139.64844 42.46094,67.80273 z" />
+      <glyph
+         glyph-name="Etr E2 dex (Buffa 3)"
+         id="glyph4159"
+         unicode=""
+         d="M 649.03711,929.77344 C 486.39495,884.98841 386.05555,751.30316 378.28516,609.03125 370.51476,466.75934 457.9072,317.67878 645.45312,246.44141 l 28.40626,74.78711 c -133.70563,50.78671 -197.79911,137.55916 -212.6504,227.125 H 626.375 v 80 H 460.57617 c 14.71372,99.14611 87.45274,190.62929 209.69922,224.29101 z" />
+      <glyph
+         glyph-name="Etr V1 dex  [= Raet V1 dex = Lep V1 dex]"
+         id="glyph4188"
+         unicode=""
+         d="M 462.42188,950.35352 399.7168,917.42383 V 275.7832 h 80 V 560.9668 L 671.3457,442.70508 713.35938,510.7832 479.7168,654.97461 v 186.2832 L 689.74414,696.44922 735.1543,762.3125 Z" />
+      <glyph
+         glyph-name="Etr V2 dex  [= Raet V2 dex]"
+         id="glyph4192"
+         unicode=""
+         d="M 363.10938,932.04883 V 290.4082 l 62.70507,-32.92968 272.73243,188.04101 -45.41016,65.86328 -210.02734,-144.80859 v 186.2832 l 233.64257,144.19141 -42.01367,68.07812 -191.6289,-118.26172 v 285.1836 z" />
+      <glyph
+         glyph-name="Etr Z2 dex"
+         id="glyph4214"
+         unicode=""
+         d="m 413.45703,958.14258 -40,-69.2832 108.80274,-62.81641 V 430.44141 l -69.29883,40.00976 -40,-69.28125 265.2539,-153.14453 40,69.28125 -115.95507,66.94727 v 395.59961 l 76.45117,-44.13868 40,69.28321 z" />
+      <glyph
+         glyph-name="Etr Z3 dex (ab 4. Jh.)"
+         id="glyph4252"
+         unicode=""
+         d="M 418.99609,926.58789 V 284.26953 l 60,-34.64062 183.73243,106.07812 -40,69.28125 -123.73243,-71.4375 v 328.9707 l 166.95899,79.84961 -34.51758,72.16993 -132.44141,-63.3418 v 155.38867 z" />
+      <glyph
+         glyph-name="Etr H1 dex (bis 4. Jh.)"
+         id="glyph4273"
+         unicode=""
+         d="M 377.9375,975.36133 327.58594,936.72461 V 371.36914 l 29.64648,-38.63672 343.125,-91.93945 50.35352,38.73242 -1.35352,565.7168 -29.64648,38.54101 z m 29.64844,-90.76758 261.8457,-70.16016 0.12891,-54.28515 -261.97461,70.19726 z m 0,-137.07227 262.17383,-70.24804 0.50195,-210.42578 -262.67578,70.38672 z m 0,-293.11132 262.875,-70.43555 0.125,-52.38281 -263,70.4707 z" />
+      <glyph
+         glyph-name="Etr H3 dex (ab 4. Jh.)"
+         id="glyph4295"
+         unicode=""
+         d="m 507.53125,880.79492 c -163.01081,0 -296.01563,-133.00481 -296.01563,-296.01562 0,-163.01081 133.00482,-296.01368 296.01563,-296.01368 163.01081,-1e-5 296.01563,133.00287 296.01563,296.01368 -10e-6,163.01081 -133.00482,296.01562 -296.01563,296.01562 z m 0,-80 c 119.7756,0 216.01563,-96.24002 216.01563,-216.01562 -10e-6,-46.64867 -14.60078,-89.72427 -39.50196,-124.9375 L 382.5957,761.29297 c 35.21335,24.90061 78.28746,39.50195 124.93555,39.50195 z M 326.97656,703.77344 626.52539,404.22461 c -34.0706,-22.42473 -74.936,-35.45899 -118.99414,-35.45899 -119.7756,0 -216.01563,96.23808 -216.01563,216.01368 0,44.05852 13.03551,84.92336 35.46094,118.99414 z" />
+      <glyph
+         glyph-name="Etr H4 dex (ab 4. Jh.)"
+         id="glyph4319"
+         unicode=""
+         d="m 494.21875,875.80273 c -65.61628,0 -123.13953,-37.58189 -161.81055,-91.74218 -38.67103,-54.16028 -60.98632,-125.85924 -60.98632,-204.27344 0,-78.41421 22.31529,-150.11315 60.98632,-204.27344 38.67102,-54.16029 96.19427,-91.74023 161.81055,-91.74023 65.61628,0 123.13953,37.57994 161.81055,91.74023 38.67102,54.16029 60.98632,125.85923 60.98632,204.27344 0,78.4142 -22.3153,150.11316 -60.98632,204.27344 -38.67102,54.16029 -96.19427,91.74218 -161.81055,91.74218 z m 0,-80 c 35.33998,0 69.21447,-19.72958 96.70313,-58.22851 27.48865,-38.49894 46.09374,-94.80811 46.09374,-157.78711 10e-6,-18.04343 -1.53371,-35.53442 -4.35937,-52.2207 -41.7587,72.55192 -116.10125,143.40954 -246.6582,191.88671 3.62835,6.39888 7.47377,12.45761 11.51757,18.1211 27.48865,38.49893 61.36316,58.22851 96.70313,58.22851 z M 358.18164,644.53906 c 162.76733,-59.27579 211.43727,-141.77283 232.8418,-222.39258 -0.034,-0.0476 -0.0676,-0.0969 -0.10156,-0.14453 -27.48864,-38.49893 -61.36315,-58.22851 -96.70313,-58.22851 -35.33997,0 -69.21447,19.72958 -96.70313,58.22851 -27.48865,38.49893 -46.09374,94.80615 -46.09374,157.78516 -10e-6,22.61867 2.41052,44.36999 6.75976,64.75195 z" />
+      <glyph
+         glyph-name="Etr K1 dex [= Lep K1 dex = Raet K1 dex]"
+         id="glyph4342"
+         unicode=""
+         d="M 728.16406,922.64453 443.53125,669.54883 v 245.20312 h -80 V 271.67773 h 80 V 494.91992 L 708.33008,263.55664 760.9668,323.80078 465.45898,581.99609 781.32422,862.86133 Z" />
+      <glyph
+         glyph-name="Etr K2 dex (Buffa 4)  [= Lep K2 dex]"
+         id="glyph4370"
+         unicode=""
+         d="M 757.54883,924.30859 407.77148,613.28711 408.0332,553.27344 737.71484,265.2207 790.35156,325.46484 494.84375,583.66016 810.70898,864.52539 Z M 270.91602,916.41602 V 273.3418 h 80 v 643.07422 z" />
+      <glyph
+         glyph-name="Etr L1 dex [= Lep L1 dex = Raet L2 dex]"
+         id="glyph4392"
+         unicode=""
+         d="M 361.44531,923.72852 V 282.08789 L 424.15039,249.1582 696.88281,437.19922 651.47266,503.0625 441.44531,358.25391 v 565.47461 z" />
+      <glyph
+         glyph-name="Etr M1 dex [= Lep M1 dex]"
+         id="glyph4427"
+         unicode=""
+         d="m 733.62109,920.58203 -75.875,-104.375 -76.08007,101.58789 -65.17383,-1.60156 -63.08789,-93.48633 -70.14258,90.26758 v 2.37305 h -1.84375 l -0.11133,0.14257 -0.18359,-0.14257 H 303.26172 V 272.27344 h 80 V 782.5918 l 40.83789,-52.55469 64.74219,2.16797 62.5039,92.61914 74.86328,-99.96289 64.3711,0.45703 107.75,148.22266 z" />
+      <glyph
+         glyph-name="Etr N1 dex [= Lep N1 dex = Raet N1 dex]"
+         id="glyph4432"
+         unicode=""
+         d="m 457.25977,917.78906 -3.16993,-2.97656 H 381.63867 V 271.73828 h 80 v 524.5 l 69.35547,-73.8789 58.33594,0.0117 130.625,139.23633 -58.3457,54.73633 L 560.14844,808.18945 461.63867,913.125 v 1.6875 h -1.58398 z" />
+      <glyph
+         glyph-name="Etr N2 dex (Buffa 163)  [= Lep N4 dex]"
+         id="glyph4485"
+         unicode=""
+         d="m 366.13867,946.97656 -65.27344,-31.0039 v -643.4668 h 80 V 831.75977 L 684.11719,584.57227 V 273.91992 h 80 v 642.05274 h -80 V 687.7832 Z" />
+      <glyph
+         glyph-name="Etr P1 dex [= Lep P1 dex....]"
+         id="glyph4507"
+         unicode=""
+         d="M 420.82227,947.02539 358.11719,914.0957 V 272.45508 h 80 v 565.47461 l 210.02734,-144.8086 45.41016,65.86329 z" />
+      <glyph
+         glyph-name="Etr R1 dex [= Raet P1 dex]"
+         id="glyph4529"
+         unicode=""
+         d="m 453.49219,944.68359 -64.5586,-31.57421 V 271.46875 h 80 v 262.02344 l 216.94532,167.05859 0.15429,63.26758 z m 15.4414,-113.35937 127.18555,-98.92188 -127.18555,-97.93945 z" />
+      <glyph
+         glyph-name="Etr R2 dex (bis 4. Jh.)  [= Lep Q1 dex]"
+         id="glyph4551"
+         unicode=""
+         d="m 524.17188,935.7207 c -92.99396,0 -169.3086,-76.31269 -169.3086,-169.30664 0,-4.8115 0.21491,-9.57512 0.61524,-14.28906 V 270.44727 h 80 v 351.99609 c 25.84914,-16.04191 56.25325,-25.33789 88.69336,-25.33789 92.99394,0 169.30664,76.31464 169.30664,169.30859 0,92.99395 -76.3127,169.30664 -169.30664,169.30664 z m 0,-86.50195 c 46.24427,0 82.80468,-36.56041 82.80468,-82.80469 0,-46.24428 -36.56041,-82.80664 -82.80468,-82.80664 -46.24429,0 -82.80469,36.56236 -82.80469,82.80664 0,46.24428 36.5604,82.80469 82.80469,82.80469 z" />
+      <glyph
+         glyph-name="Etr R3 dex (ab 4. Jh.)  [= Lep R1 dex]"
+         id="glyph4570"
+         unicode=""
+         d="M 416.20312,962.98437 362.67188,925.3418 V 282.26758 l 48.51562,-39.08203 c 145.55606,31.71532 255.76712,168.92316 277.58984,320.5664 21.82273,151.64324 -55.57039,321.23067 -272.57422,399.23242 z m 26.46876,-97.82226 C 587.91578,794.14354 625.06548,682.65752 609.59375,575.14648 595.08707,474.34144 526.63874,379.76692 442.67188,338.68945 Z" />
+      <glyph
+         glyph-name="Etr R4 dex (Mäder 2020)  [=Lep R3 dex = Ven]"
+         id="glyph4590"
+         unicode=""
+         d="M 430.16797,938.88086 358.75586,914.11719 V 271.04102 l 69.46875,-27.04883 272.73242,297.13672 1.94336,51.8125 z M 438.75586,798.77148 619,570.14453 438.75586,373.77344 Z" />
+      <glyph
+         glyph-name="Etr R5 dex (Mäder 2019)"
+         id="glyph4609"
+         unicode=""
+         d="m 527.13477,922.05469 c -9.04875,0.007 -17.88194,-0.96493 -26.3125,-2.8711 -25.69315,-5.80933 -47.7634,-18.09851 -65.10938,-33.8789 -17.34597,-15.78039 -31.42781,-34.96797 -34.38477,-61.18555 l -0.25195,-4.48437 V 275.49609 l 71.49219,-24.66211 108.16211,138.11524 -62.98438,49.32422 -36.66992,-46.82422 v 188.93555 c 93.0012,17.24031 146.26884,50.56805 169.91602,98.33984 26.19457,52.91802 13.29277,104.9241 11.41601,142.88672 l -5.13086,17.71094 c -31.43983,55.60656 -81.15287,81.24322 -126.25195,82.66992 -1.30093,0.0412 -2.59794,0.0615 -3.89062,0.0625 z m 7.75585,-78.86914 c 15.20063,-0.23287 30.84063,-8.31455 48.23829,-36.07227 2.39511,-41.13337 5.76946,-73.49763 -3.83399,-92.89844 -8.81427,-17.80647 -30.85415,-38.27162 -98.21875,-52.43945 v 153.16797 c 0.75138,1.23716 3.14456,6.34012 8.47071,11.18555 7.10911,6.46746 17.98236,12.55084 28.91796,15.02343 5.4678,1.23629 10.92097,2.11751 16.42578,2.03321 z" />
+      <glyph
+         glyph-name="Etr S1 dex (bis 4. Jh.)  [Lep S1 sin = Raet S1 dex]"
+         id="glyph4628"
+         unicode=""
+         d="M 533.93555,937.35352 397.58984,701.19727 511.55664,493.82422 394.53516,300.21094 463,258.83008 603.88672,491.92578 489.4082,700.23047 603.2168,897.35352 Z" />
+      <glyph
+         glyph-name="Etr S4 dex (Buffa 6) (ab 4. Jh.)"
+         id="glyph4669"
+         unicode=""
+         d="M 288.48242,946.31055 240.24219,886.90234 597.33984,357.14062 320.79102,464.13867 291.92383,389.52734 687.2793,236.5625 l 47.60156,59.66406 -354.90039,526.5 294.89258,-119.95703 30.14453,74.10352 z" />
+      <glyph
+         glyph-name="Etr T2 dex (ab 4. Jh.) [= Lep T5 sin]"
+         id="glyph4691"
+         unicode=""
+         d="M 360.39453,917.66016 308.79297,856.52734 553.05078,650.35156 V 271.86914 h 80 v 640.63867 h -80 V 755.04102 Z" />
+      <glyph
+         glyph-name="Etr T3 dex (ab 4. Jh.) [= Raet T1 dex]"
+         id="glyph4713"
+         unicode=""
+         d="M 352.49805,918.99023 314.00781,848.85938 451.15039,773.58984 V 273.86523 h 80 v 455.81836 l 91.47656,-50.20507 38.49024,70.13086 -129.9668,71.33007 v 94.56446 h -80 V 864.8457 Z" />
+      <glyph
+         glyph-name="Etr T4 dex"
+         id="glyph4738"
+         unicode=""
+         d="M 345.8418,918.99023 307.35156,848.85938 436.49414,777.98242 V 273.86523 h 80 v 460.20899 l 99.47656,-54.5957 38.49024,70.13086 z" />
+      <glyph
+         glyph-name="Etr T5 dex (Buffa 163)  [= Raet T2 sin]"
+         id="glyph4760"
+         unicode=""
+         d="m 457.62305,913.91992 v -269.4668 l -131.9668,-72.42773 38.49023,-70.13281 93.47657,51.30469 V 272.28125 h 80 v 324.82227 l 135.14257,74.17187 -38.49023,70.13086 -96.65234,-53.04687 v 225.56054 z" />
+      <glyph
+         glyph-name="EtrVen A7 dex"
+         id="glyph4780"
+         unicode=""
+         d="m 393.70508,950.7168 -60,-34.64063 V 272.09375 h 80 v 283.16602 l 270.88672,-156.39649 60,34.64258 v 291.5332 l -20,34.64063 z m 20,-103.92383 L 664.5918,701.94336 V 502.78711 L 413.70508,647.63672 Z" />
+      <glyph
+         glyph-name="EtrVen D1 dex"
+         id="glyph4783"
+         unicode=""
+         d="M 313.09375,915.0918 V 747.10156 l -118.95898,68.68164 -40,-69.28125 158.95898,-91.77539 V 272.77344 h 80 V 608.53906 L 637.16602,467.62305 V 271.10938 h 80 v 150.32617 l 107.08984,-61.82813 40,69.28125 -147.08984,84.92188 V 915.0918 h -80 V 560 L 393.09375,700.91406 V 915.0918 Z" />
+      <glyph
+         glyph-name="EtrVen D2 dex"
+         id="glyph4820"
+         unicode=""
+         d="M 314.08203,928 257.51367,871.43164 508.46289,620.48242 318.55078,291.54297 l 69.28125,-40 363.05859,628.83398 -69.2832,40 L 549.875,692.20898 Z" />
+      <glyph
+         glyph-name="EtrVen H7 dex"
+         id="glyph4847"
+         unicode=""
+         d="M 653.19141,918.68359 V 675.89062 l -294.64844,115.1504 v 126.20703 h -80 V 274.17383 h 80 V 528.33984 L 653.19141,413.18945 V 274.17383 h 80 V 918.68359 Z M 358.54297,705.14844 653.19141,590 V 499.08203 L 358.54297,614.23047 Z" />
+      <glyph
+         glyph-name="EtrVen J2 dex  [= Lep K2 sin = Etr Kx dex]"
+         id="glyph4872"
+         unicode=""
+         d="M 734.90039,924.30859 385.12305,613.28711 385.38477,553.27344 715.06641,265.2207 767.70312,325.46484 472.19531,583.66016 788.06055,864.52539 Z M 270.26758,916.41602 V 273.3418 h 80 v 643.07422 z" />
+      <glyph
+         glyph-name="EtrVen J3 dex  [= Etr C2 = Lep U11 sin = Run K1]"
+         id="glyph4900"
+         unicode=""
+         d="M 590.4707,763.99414 377.47266,590.93555 377.65039,528.70312 588.98242,358.97266 639.07812,421.3457 466.35156,560.07031 640.91797,701.90625 Z" />
+      <glyph
+         glyph-name="EtrVen J4 dex"
+         id="glyph4920"
+         unicode=""
+         d="M 480.64453,750.68359 267.64648,577.62305 267.82227,515.39062 479.15625,345.66016 529.25195,408.0332 356.52539,546.75781 531.0918,688.59375 Z m 196.35547,0 -212.99609,-173.06054 0.17578,-62.23243 211.33203,-169.73046 50.0957,62.37304 -172.72461,138.72461 174.56446,141.83594 z" />
+      <glyph
+         glyph-name="EtrVen L2 dex  [= ..."
+         id="glyph4942"
+         unicode=""
+         d="M 449.10938,948.68945 386.4043,915.75977 V 274.11914 h 80 v 565.47461 l 210.02734,-144.80859 45.41016,65.86328 z" />
+      <glyph
+         glyph-name="EtrVen L3 dex  [= ..."
+         id="glyph5009"
+         unicode=""
+         d="M 346.46875,925.39258 V 283.75195 l 62.70508,-32.92968 272.73242,188.04101 -45.41016,65.86328 -210.02734,-144.80859 v 565.47461 z" />
+      <glyph
+         glyph-name="EtrVen L4 dex  [= LatGraff L1 dex]"
+         id="glyph5028"
+         unicode=""
+         d="M 352.63086,914.64453 V 272.32617 h 80 v 139.42578 l 189.41211,-153.50976 50.37109,62.15234 -239.7832,194.33399 v 399.91601 z" />
+      <glyph
+         glyph-name="EtrVen M2 dex [= Lep M4 dex = Raet M1 dex]"
+         id="glyph5059"
+         unicode=""
+         d="m 652.72656,919.98828 -61.92578,-0.51172 -81.11523,-100.875 -78.09961,95.1211 v 2.21875 h -1.82227 l -0.80469,0.98047 -1.19336,-0.98047 H 351.58594 V 272.86719 h 80 V 787.6543 l 47.50781,-57.86328 62.08789,0.3164 81.3125,101.1211 89.30078,-107.375 61.50781,51.15625 z" />
+      <glyph
+         glyph-name="EtrVen San2 dex"
+         id="glyph5078"
+         unicode=""
+         d="M 681.93555,949.22461 537.22266,837.46484 392.85938,947.69336 328.58398,915.90234 V 273.58398 h 80 V 637.04297 L 537.5,736.60156 666.38477,638.19141 V 275.24805 h 80 V 657.97656 L 730.6582,689.76758 603.03711,787.21289 730.83398,885.9082 Z M 408.58398,835.0332 471.68555,786.85352 408.58398,738.12109 Z" />
+      <glyph
+         glyph-name="EtrVen F6 dex"
+         id="glyph5103"
+         unicode=""
+         d="M 646.53516,918.68359 V 675.89062 l -294.64844,115.1504 v 126.20703 h -80 V 274.17383 h 80 V 528.33984 L 646.53516,413.18945 V 274.17383 h 80 V 918.68359 Z M 351.88672,705.14844 646.53516,590 V 499.08203 L 351.88672,614.23047 Z" />
+      <glyph
+         glyph-name="Etr P3 dex (CIE 2312)"
+         id="glyph5122"
+         unicode=""
+         d="m 461.75,957.53516 c -15.93739,-0.008 -32.33562,-1.21368 -49.10156,-3.73047 l -34.0625,-39.55664 V 271.92969 h 80 v 297.29687 c 81.21597,5.25062 142.11893,25.56239 185.03515,58.16992 51.84198,39.38926 73.36514,99.29384 63.90235,153.79493 -16.5599,95.37689 -112.54261,173.61882 -238.97071,176.27343 -2.25764,0.0474 -4.52596,0.0714 -6.80273,0.0703 z m 3.00195,-80.07813 c 0.68,0.0107 1.35448,0.0113 2.01953,-0.004 93.81383,-2.14472 153.47015,-61.22445 161.92969,-109.94726 4.83402,-27.84161 -1.99747,-52.49103 -33.47851,-76.41016 -25.34395,-19.2562 -69.77152,-36.11441 -136.63672,-41.38476 V 877.2793 c 2.03606,0.0242 4.12601,0.14493 6.16601,0.17773 z" />
+      <glyph
+         glyph-name="EtrVen O4 dex (Prosdocimi 1976:217)"
+         id="glyph5141"
+         unicode=""
+         d="M 539.17969,939.93945 480.61328,939.46289 282.5918,723.13867 283.8125,667.8457 463.80469,487.85547 299.41406,310.6543 358.0625,256.24414 742.45508,670.58984 742.19141,725.2793 Z M 510.5957,853.73633 658.32422,697.53125 518.25195,546.54492 367.44336,697.35156 Z" />
+      <glyph
+         glyph-name="EtrLem Ž2 dex  (de Simone 1996)"
+         id="glyph5160"
+         unicode=""
+         d="m 476.00195,958.68164 -194.30078,-135.27539 45.70899,-65.6543 131.44726,91.51367 V 668.01758 l -142.02148,-87.39649 41.92773,-68.13281 100.09375,61.5957 V 284.06055 l 62.24414,-33.24414 205.60352,137.57421 -44.48828,66.48829 -143.35938,-95.92579 v 566.9004 z" />
+      <glyph
+         glyph-name="EtrLem Ž3 dex  (de Simone 1996)"
+         id="glyph5179"
+         unicode=""
+         d="M 521.54297,944.52734 467.80859,944.14062 272.58984,764.54883 326.75195,705.67188 454.89062,823.55273 V 271.62695 h 80 v 1.13672 l 0.47266,-0.59961 173.0586,136.45117 -48.97461,62.11524 -124.55665,-98.20703 v 452.78711 l 134.30665,-120.02539 53.30664,59.65039 z" />
+      <glyph
+         glyph-name="EtrVen ?1 dex  (Pellegrini &amp; Prosdocimi 1967:623, Gt 13) [= EtrLem Z = Run]"
+         id="glyph5200"
+         unicode=""
+         d="M 504.29102,953.6875 309.99023,818.41406 355.69922,752.75977 487.14648,844.27344 V 279.06836 l 62.24414,-33.24414 205.60352,137.57422 -44.48828,66.48828 -143.35938,-95.92578 v 566.90039 z" />
+      <glyph
+         glyph-name="Etr P4 dex (Aprile 1979: Fig. 25)  [= Lep V3 = Run P dex]"
+         id="glyph5219"
+         unicode=""
+         d="M 396.99414,959.19922 347.29297,920.39258 V 338.44727 l 30.30469,-38.80665 264.11914,-65.98242 19.39062,77.61524 -233.81445,58.41015 v 499.47852 l 214.41797,-53.60547 19.40234,77.61328 z" />
     </font>
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern-8" />
   </defs>
   <metadata
      id="metadata7">
@@ -6271,8 +6563,75 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer655"
+     inkscape:label="Etr EI1  (Pellegrini &amp; Prosdocimi 1967:639)  [= Lat EI1]"
+     style="display:inline">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 651.32617,106.41211 v 643.98242 h 80 V 106.41211 Z m -414.42383,1.66406 v 642.31836 h 80 V 108.07617 Z m 210.03516,0 v 640.6543 h 80 v -640.6543 z"
+       id="path4011"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer710"
+     inkscape:label="Etr P4 dex (Aprile 1979: Fig. 25)  [= Lep V3 = Run P dex]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 396.99414,64.800781 -49.70117,38.806639 v 581.94531 l 30.30469,38.80665 264.11914,65.98242 19.39062,-77.61524 -233.81445,-58.41015 V 154.83789 l 214.41797,53.60547 19.40234,-77.61328 z"
+       id="path3762-5-9-6"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer654"
+     inkscape:label="Etr P4  (Aprile 1979: Fig. 25)  [= Lep V3 = Run P sin]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 611.41182,81.441551 -264.11914,66.029299 19.40234,77.61327 214.41797,-53.60546 v 499.47851 l -233.81445,58.41017 19.39062,77.61523 264.11914,-65.98243 30.30469,-38.80664 V 120.2482 Z"
+       id="path3762-5-9"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer709"
+     inkscape:label="EtrVen ?1 dex  (Pellegrini &amp; Prosdocimi 1967:623, Gt 13) [= EtrLem Z = Run]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 504.29102,70.3125 -194.30079,135.27344 45.70899,65.65429 131.44726,-91.51367 v 565.20508 l 62.24414,33.24414 205.60352,-137.57422 -44.48828,-66.48828 -143.35938,95.92578 V 103.13867 Z"
+       id="path3924-5-2"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer653"
+     inkscape:label="EtrVen ?1  (Pellegrini &amp; Prosdocimi 1967:623, Gt 13) [= EtrLem Z = Run]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 537.39611,80.296207 474.54064,113.12238 V 680.02277 L 331.18127,584.09699 286.69299,650.58527 492.2965,788.15949 554.54064,754.91535 V 189.71027 l 131.44727,91.51367 45.70898,-65.65429 z"
+       id="path3924-5"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer652"
+     inkscape:label="EtrVen X5  (Pellegrini &amp; Prosdocimi 1967:438, Od 4)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 452.55469,106.41211 V 373.91016 L 212.58984,548.27344 298.97266,765.19336 373.29688,735.5957 309.91797,576.44336 452.55469,472.80078 v 277.59375 h 80 V 473.12109 L 674.90234,576.55273 611.52148,735.70508 685.8457,765.30273 772.22852,548.38477 532.55469,374.23242 V 106.41211 Z"
+       id="path3943"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer649"
-     inkscape:label="EtrLem X4  (de Simone 1996)  [= Run Z]"
+     inkscape:label="EtrLem dʒ1  (de Simone 1996)  [= Run Z]"
      style="display:none">
     <g
        transform="matrix(1,0,0,-1,-11.641199,855.78972)"
@@ -6288,6 +6647,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer708"
+     inkscape:label="EtrLem Ž3 dex  (de Simone 1996)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 521.54297,79.472656 -53.73438,0.386719 -195.21875,179.591795 54.16211,58.87695 128.13867,-117.88085 v 551.92578 h 80 v -1.13672 l 0.47266,0.59961 173.0586,-136.45117 -48.97461,-62.11524 -124.55665,98.20703 V 198.68945 l 134.30665,120.02539 53.30664,-59.65039 z"
+       id="path6437-7-3-5-7"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer651"
      inkscape:label="EtrLem Ž3 sin  (de Simone 1996)"
      style="display:none">
@@ -6295,6 +6665,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="M 461.90234,79.472656 260.94141,259.06445 314.24805,318.71484 448.55469,198.68945 v 452.78711 l -124.55664,-98.20703 -48.97461,62.11524 173.05859,136.45117 0.47266,-0.59961 v 1.13672 h 80 V 200.44727 L 656.69336,318.32812 710.85547,259.45117 515.63672,79.859375 Z"
        id="path6437-7-3-5"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer707"
+     inkscape:label="EtrLem Ž2 dex  (de Simone 1996)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#00000e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 476.00195,65.318359 -194.30078,135.275391 45.70899,65.6543 131.44726,-91.51367 v 181.24804 l -142.02148,87.39649 41.92773,68.13281 100.09375,-61.5957 V 739.93945 L 521.10156,773.18359 726.70508,635.60938 682.2168,569.12109 538.85742,665.04688 V 98.146484 Z"
+       id="path3924-0-8-4-1"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -6329,6 +6710,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="M 474.33762,68.646978 280.03683,203.92238 325.74582,269.57667 457.19308,178.063 V 743.26808 L 519.43723,776.51222 725.04074,638.938 680.55246,572.44972 537.19308,668.3755 V 101.47511 Z"
        id="path3924-0-2"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer706"
+     inkscape:label="EtrVen O4 dex (Prosdocimi 1976:217)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 539.17969,84.060547 480.61328,84.537109 282.5918,300.86133 283.8125,356.1543 463.80469,536.14453 299.41406,713.3457 358.0625,767.75586 742.45508,353.41016 742.19141,298.7207 Z M 510.5957,170.26367 658.32422,326.46875 518.25195,477.45508 367.44336,326.64844 Z"
+       id="path4298-1"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -6527,13 +6919,45 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer554"
-     inkscape:label="Etr P3 (CIE 2312)"
-     style="display:inline">
+     id="layer705"
+     inkscape:label="Etr P3 dex (CIE 2312)"
+     style="display:none">
     <path
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="M 567.16992 64.166016 C 564.89315 64.164916 562.62483 64.188928 560.36719 64.236328 C 433.93909 66.890945 337.95638 145.13288 321.39648 240.50977 C 311.93369 295.01086 333.45685 354.91543 385.29883 394.30469 C 428.21505 426.91222 489.11801 447.22399 570.33398 452.47461 L 570.33398 749.77148 L 650.33398 749.77148 L 650.33398 107.45312 L 616.27148 67.896484 C 599.50554 65.37969 583.10731 64.173901 567.16992 64.166016 z M 564.16797 144.24414 C 566.20797 144.27694 568.29792 144.39766 570.33398 144.42188 L 570.33398 371.99023 C 503.46878 366.71988 459.04122 349.86167 433.69727 330.60547 C 402.21623 306.68634 395.38473 282.03692 400.21875 254.19531 C 408.67829 205.4725 468.33461 146.39278 562.14844 144.24805 C 562.81349 144.23285 563.48797 144.23334 564.16797 144.24414 z "
-       id="path3589-0" />
+       d="m 461.75,66.464844 c -15.93739,0.0079 -32.33562,1.213674 -49.10156,3.730468 l -34.0625,39.556638 v 642.31836 h 80 V 454.77344 c 81.21597,-5.25062 142.11893,-25.56239 185.03515,-58.16992 51.84198,-39.38926 73.36514,-99.29384 63.90235,-153.79493 C 690.96354,147.4317 594.98083,69.189773 468.55273,66.535156 c -2.25764,-0.0474 -4.52596,-0.07141 -6.80273,-0.07031 z m 3.00195,80.078126 c 0.68,-0.0107 1.35448,-0.0113 2.01953,0.004 93.81383,2.14472 153.47015,61.22445 161.92969,109.94726 4.83402,27.84161 -1.99747,52.49103 -33.47851,76.41016 -25.34395,19.2562 -69.77152,36.11441 -136.63672,41.38476 V 146.7207 c 2.03606,-0.0242 4.12601,-0.14493 6.16601,-0.17773 z"
+       id="path3589-0-2"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer554"
+     inkscape:label="Etr P3 (CIE 2312)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 567.16992,64.166016 c -2.27677,-0.0011 -4.54509,0.02291 -6.80273,0.07031 -126.4281,2.654617 -222.41081,80.896554 -238.97071,176.273444 -9.46279,54.50109 12.06037,114.40566 63.90235,153.79492 42.91622,32.60753 103.81918,52.9193 185.03515,58.16992 v 297.29687 h 80 V 107.45312 L 616.27148,67.896484 C 599.50554,65.37969 583.10731,64.173901 567.16992,64.166016 Z m -3.00195,80.078124 c 2.04,0.0328 4.12995,0.15352 6.16601,0.17774 v 227.56835 c -66.8652,-5.27035 -111.29276,-22.12856 -136.63671,-41.38476 -31.48104,-23.91913 -38.31254,-48.56855 -33.47852,-76.41016 8.45954,-48.72281 68.11586,-107.80253 161.92969,-109.94726 0.66505,-0.0152 1.33953,-0.0147 2.01953,-0.004 z"
+       id="path3589-0"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer704"
+     inkscape:label="EtrVen F6 dex"
+     style="display:none">
+    <g
+       style="display:inline"
+       transform="matrix(-1,0,0,1,1012.3797,-0.4083152)"
+       id="g2782-4-0-8">
+      <g
+         id="g2841-40-8">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="M 646.53516,105.31641 V 348.10938 L 351.88672,232.95898 V 106.75195 h -80 v 643.07422 h 80 V 495.66016 l 294.64844,115.15039 v 139.01562 h 80 V 105.31641 Z M 351.88672,318.85156 646.53516,434 v 90.91797 L 351.88672,409.76953 Z"
+           transform="matrix(-1,0,0,1,1012.3797,0.4083152)"
+           id="path2773-45-7-8"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -6768,12 +7192,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer703"
+     inkscape:label="EtrVen San2 dex"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 681.93555,74.775391 537.22266,186.53516 392.85938,76.306641 328.58398,108.09766 v 642.31836 h 80 V 386.95703 L 537.5,287.39844 666.38477,385.80859 v 362.94336 h 80 V 366.02344 L 730.6582,334.23242 603.03711,236.78711 730.83398,138.0918 Z M 408.58398,188.9668 l 63.10157,48.17968 -63.10157,48.73243 z"
+       id="path7187-0"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer597"
      inkscape:label="EtrVen San2"
      style="display:none">
     <path
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="M 345.60742,76.417969 296.70898,139.73438 424.50586,238.42969 296.88477,335.875 281.1582,367.66602 v 382.72851 h 80 V 387.45117 l 128.88477,-98.41015 128.91601,99.55859 v 363.45898 h 80 V 109.74023 L 634.68359,77.949219 490.32031,188.17773 Z M 618.95898,190.60938 v 96.9121 l -63.10156,-48.73242 z"
+       d="m 345.60742,73.089898 -48.89844,63.316412 127.79688,98.69531 -127.62109,97.44531 -15.72657,31.79102 v 382.72851 h 80 V 384.1231 l 128.88477,-98.41015 128.91601,99.55859 v 363.45898 h 80 V 106.41216 L 634.68359,74.621148 490.32031,184.84966 Z M 618.95898,187.28131 v 96.9121 l -63.10156,-48.73242 z"
        id="path7187"
        inkscape:connector-curvature="0" />
   </g>
@@ -6813,6 +7248,34 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer702"
+     inkscape:label="EtrVen M2 dex [= Lep M4 dex = Raet M1 dex]"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,1048.2962,0.89659428)"
+       style="display:inline"
+       id="g3488-4-4-2">
+      <g
+         id="g3042-5-7-3-53-8"
+         transform="translate(9.3304495,-1.7737684e-6)"
+         style="display:inline">
+        <g
+           id="g3079-53-6-6-2">
+          <g
+             id="g3384-2-0-6">
+            <path
+               style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+               d="m 652.72656,104.01172 -61.92578,0.51172 -81.11523,100.875 -78.09961,-95.1211 v -2.21875 h -1.82227 l -0.80469,-0.98047 -1.19336,0.98047 h -76.17968 v 643.07422 h 80 V 236.3457 l 47.50781,57.86328 62.08789,-0.3164 81.3125,-101.1211 89.30078,107.375 61.50781,-51.15625 z"
+               transform="matrix(-1,0,0,1,1038.9658,-0.89659251)"
+               id="path3036-8-86-3-5-8"
+               inkscape:connector-curvature="0" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer593"
      inkscape:label="EtrVen M2  [= Lep M4 sin = Raet M1 sin]"
      style="display:none">
@@ -6841,6 +7304,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer701"
+     inkscape:label="EtrVen L4 dex  [= LatGraff L1 dex]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 352.63086,109.35547 v 642.31836 h 80 V 612.24805 L 622.04297,765.75781 672.41406,703.60547 432.63086,509.27148 V 109.35547 Z"
+       id="path7080-9"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer592"
      inkscape:label="EtrVen L4  [= LatGraff L1 sin]"
      style="display:none">
@@ -6849,6 +7323,41 @@
        d="m 540.74805,108.07617 v 399.91602 l -239.78321,194.33398 50.3711,62.15235 189.41211,-153.50977 v 139.42578 h 80 V 108.07617 Z"
        id="path7080"
        inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer700"
+     inkscape:label="EtrVen L3 dex  [= ..."
+     style="display:none">
+    <text
+       id="text4955"
+       y="450.86819"
+       x="480.75604"
+       style="font-style:normal;font-variant:normal;font-weight:400;font-size:16.0625px;line-height:125%;font-family:'NorthItalicLiberation Serif';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         id="tspan4953"
+         y="450.86819"
+         x="480.75604"
+         sodipodi:role="line"><tspan
+           id="tspan4949"
+           style="font-style:normal;font-variant:normal;font-weight:400;font-size:16.0625px;font-family:'NorthItalicLiberation Serif';fill:#000000"
+           dy="0"
+           dx="0"></tspan><tspan
+           id="tspan4951"
+           style="font-style:normal;font-variant:normal;font-weight:400;font-size:16.0625px;font-family:'Times New Roman';fill:#000000"
+           dy="0"
+           dx="0"> </tspan></tspan></text>
+    <g
+       style="display:inline"
+       id="g2393-11-3-3-9-3"
+       transform="rotate(-180,491.80369,425.13751)">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 346.46875,98.607422 V 740.24805 L 409.17383,773.17773 681.90625,585.13672 636.49609,519.27344 426.46875,664.08203 V 98.607422 Z"
+         transform="rotate(180,491.80369,425.13751)"
+         id="path2385-3-3-96-3-1"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -6864,6 +7373,23 @@
          d="M 374.75781,110.25586 V 751.89648 L 437.46289,784.82617 710.19531,596.78516 664.78516,530.92188 454.75781,675.73047 V 110.25586 Z"
          transform="rotate(180,505.94845,430.96208)"
          id="path2385-3-3-96-3"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer699"
+     inkscape:label="EtrVen L2 dex  [= ..."
+     style="display:none">
+    <g
+       style="display:inline"
+       id="g2393-11-3-3-1-9"
+       transform="matrix(-1,0,0,1,1023.5445,-1.7890536)">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 449.10938,75.310547 386.4043,108.24023 v 641.64063 h 80 V 184.40625 l 210.02734,144.80859 45.41016,-65.86328 z"
+         transform="matrix(-1,0,0,1,1023.5445,1.7890536)"
+         id="path2385-3-3-96-6-9"
          inkscape:connector-curvature="0" />
     </g>
   </g>
@@ -6886,6 +7412,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer698"
+     inkscape:label="EtrVen J4 dex"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 480.64453,273.31641 -212.99805,173.06054 0.17579,62.23243 211.33398,169.73046 50.0957,-62.37304 L 356.52539,477.24219 531.0918,335.40625 Z m 196.35547,0 -212.99609,173.06054 0.17578,62.23243 211.33203,169.73046 50.0957,-62.37304 L 552.88281,477.24219 727.44727,335.40625 Z"
+       id="path7516-2-8-9"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer589"
      inkscape:label="EtrVen J4"
      style="display:none">
@@ -6902,6 +7439,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer697"
+     inkscape:label="EtrVen J3 dex  [= Etr C2 = Lep U11 sin = Run K1]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 590.4707,260.00586 -212.99804,173.05859 0.17773,62.23243 211.33203,169.73046 50.0957,-62.37304 L 466.35156,463.92969 640.91797,322.09375 Z"
+       id="path7516-2-46-0"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer588"
      inkscape:label="EtrVen J3  [= Etr C2 = Lep U11 sin = Run K1]"
      style="display:none">
@@ -6910,6 +7458,26 @@
        d="m 416.27148,260.00586 -50.44726,62.08789 174.5664,141.83594 -172.72656,138.72461 50.09571,62.37304 211.33203,-169.73046 0.17773,-62.23243 z"
        id="path7516-2-46"
        inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer696"
+     inkscape:label="EtrVen J2 dex  [= Lep K2 sin = Etr Kx dex]"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,963.64776,0.42501563)"
+       style="display:inline"
+       id="g3042-7-292-7">
+      <g
+         id="g4231-6-3">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="M 734.90039,99.691406 385.12305,410.71289 385.38477,470.72656 715.06641,758.7793 767.70312,698.53516 472.19531,440.33984 788.06055,159.47461 Z M 270.26758,107.58398 V 750.6582 h 80 V 107.58398 Z"
+           transform="matrix(-1,0,0,1,963.64776,-0.42501563)"
+           id="path3036-1-3-3"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -6941,6 +7509,26 @@
        d="m 252.87109,104.74805 v 645.64648 h 80 V 104.74805 Z m 292.86914,1.66406 v 643.98242 h 80 V 106.41211 Z"
        id="path7002"
        inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer695"
+     inkscape:label="EtrVen H7 dex"
+     style="display:none">
+    <g
+       style="display:inline"
+       transform="matrix(-1,0,0,1,1019.0358,-0.40831463)"
+       id="g2782-4-0-1-3">
+      <g
+         id="g2841-40-2-7">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="M 653.19141,105.31641 V 348.10938 L 358.54297,232.95898 V 106.75195 h -80 v 643.07422 h 80 V 495.66016 l 294.64844,115.15039 v 139.01562 h 80 V 105.31641 Z M 358.54297,318.85156 653.19141,434 v 90.91797 L 358.54297,409.76953 Z"
+           transform="matrix(-1,0,0,1,1019.0358,0.40831463)"
+           id="path2773-45-7-0-2"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7023,6 +7611,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer694"
+     inkscape:label="EtrVen D2 dex"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 314.08203,96 -56.56836,56.56836 250.94922,250.94922 -189.91211,328.93945 69.28125,40 363.05859,-628.83398 -69.2832,-40 L 549.875,331.79102 Z"
+       id="path6896-4"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer580"
      inkscape:label="EtrVen D2"
      style="display:none">
@@ -7030,6 +7629,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="M 658.13086,93.9375 422.33789,329.72852 290.60547,101.56055 l -69.2832,40 363.05859,628.83398 69.28125,-40 L 463.75,401.45508 714.69922,150.50586 Z"
        id="path6896"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer693"
+     inkscape:label="EtrVen D1 dex"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 313.09375,108.9082 v 167.99024 l -118.95898,-68.68164 -40,69.28125 158.95898,91.77539 v 381.95312 h 80 V 415.46094 l 244.07227,140.91601 v 196.51367 h 80 V 602.56445 l 107.08984,61.82813 40,-69.28125 -147.08984,-84.92188 V 108.9082 h -80 V 464 L 393.09375,323.08594 V 108.9082 Z"
+       id="path6889-3"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -7076,6 +7686,17 @@
          id="path6863"
          inkscape:connector-curvature="0" />
     </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer692"
+     inkscape:label="EtrVen A7 dex"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 393.70508,73.283203 -60,34.640627 v 643.98242 h 80 V 468.74023 l 270.88672,156.39649 60,-34.64258 v -291.5332 l -20,-34.64063 z m 20,103.923827 250.88672,144.84961 V 521.21289 L 413.70508,376.36328 Z"
+       id="path6860-2"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7269,6 +7890,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer691"
+     inkscape:label="Etr T5 dex (Buffa 163)  [= Raet T2 sin]"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,1000.177,2.2030174)"
+       style="display:inline"
+       id="g6937-4-9">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 457.62305,110.08008 v 269.4668 l -131.9668,72.42773 38.49023,70.13281 93.47657,-51.30469 v 280.91602 h 80 V 426.89648 l 135.14257,-74.17187 -38.49023,-70.13086 -96.65234,53.04687 V 110.08008 Z"
+         transform="matrix(-1,0,0,1,1000.177,-2.2030174)"
+         id="path3884-4-7-2-7"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer410"
      inkscape:label="Etr T5 (Buffa 163)  [= Raet T2 dex]"
      style="display:none">
@@ -7282,6 +7920,26 @@
          transform="translate(13.833459,-1.8042165)"
          id="path3884-4-7-2"
          inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer690"
+     inkscape:label="Etr T4 dex"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,984.639,1.3350336)"
+       style="display:inline"
+       id="g6896-6-5">
+      <g
+         id="g6932-7">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="m 345.8418,105.00977 -38.49024,70.13085 129.14258,70.87696 v 504.11719 h 80 V 289.92578 l 99.47656,54.5957 38.49024,-70.13086 z"
+           transform="matrix(-1,0,0,1,984.639,-1.3350336)"
+           id="path3884-7-2"
+           inkscape:connector-curvature="0" />
+      </g>
     </g>
   </g>
   <g
@@ -7306,6 +7964,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer689"
+     inkscape:label="Etr T3 dex (ab 4. Jh.) [= Raet T1 dex]"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,999.29408,1.3350341)"
+       style="display:inline"
+       id="g6896-5-2">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 352.49805,105.00977 -38.49024,70.13085 137.14258,75.26954 v 499.72461 h 80 V 294.31641 l 91.47656,50.20507 38.49024,-70.13086 -129.9668,-71.33007 v -94.56446 h -80 v 50.65821 z"
+         transform="matrix(-1,0,0,1,999.29408,-1.3350341)"
+         id="path3884-1-4"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer408"
      inkscape:label="Etr T3 (ab 4. Jh.) [= Raet T1 sin]"
      style="display:none">
@@ -7318,6 +7993,23 @@
          d="m 617.49023,105.58594 -98.65234,54.14453 v -50.6582 h -80 v 94.56445 l -129.9668,71.33008 38.49024,70.13086 91.47656,-50.20508 v 455.81836 h 80 V 250.98633 L 655.98047,175.7168 Z"
          transform="translate(29.305826,-1.9117696)"
          id="path3884-1"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer688"
+     inkscape:label="Etr T2 dex (ab 4. Jh.) [= Lep T5 sin]"
+     style="display:none">
+    <g
+       transform="translate(75.44966,3.8614924)"
+       style="display:inline"
+       id="g3179-93-1-7">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 360.39453,106.33984 -51.60156,61.13282 244.25781,206.17578 v 378.48242 h 80 V 111.49219 h -80 v 157.46679 z"
+         transform="translate(-75.44966,-3.8614924)"
+         id="path3050-5-2-2"
          inkscape:connector-curvature="0" />
     </g>
   </g>
@@ -7354,6 +8046,17 @@
          id="path3008-04"
          inkscape:connector-curvature="0" />
     </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer687"
+     inkscape:label="Etr S4 dex (Buffa 6) (ab 4. Jh.)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 288.48242,77.689453 240.24219,137.09766 597.33984,666.85938 320.79102,559.86133 291.92383,634.47266 687.2793,787.4375 l 47.60156,-59.66406 -354.90039,-526.5 294.89258,119.95703 30.14453,-74.10352 z"
+       id="path6820-3"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7402,6 +8105,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer685"
+     inkscape:label="Etr S1 dex (bis 4. Jh.)  [Lep S1 sin = Raet S1 dex]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 533.93555,86.646484 397.58984,322.80273 511.55664,530.17578 394.53516,723.78906 463,765.16992 603.88672,532.07422 489.4082,323.76953 603.2168,126.64648 Z"
+       id="path3840-8-8"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer401"
      inkscape:label="Etr S1 (bis 4. Jh.)  [Lep S1 dex = Raet S1 sin]"
      style="display:none">
@@ -7409,6 +8123,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="M 475.94141,93.591797 406.66016,133.5918 520.46875,330.71484 405.99023,539.01953 546.87695,772.11523 615.3418,730.73438 498.32031,537.12109 612.28711,329.74805 Z"
        id="path3840-8"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer684"
+     inkscape:label="Etr R5 dex (Mäder 2019)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 527.13477,101.94531 c -9.04875,-0.007 -17.88194,0.96493 -26.3125,2.8711 -25.69315,5.80933 -47.7634,18.09851 -65.10938,33.8789 -17.34597,15.78039 -31.42781,34.96797 -34.38477,61.18555 l -0.25195,4.48437 v 544.13868 l 71.49219,24.66211 108.16211,-138.11524 -62.98438,-49.32422 -36.66992,46.82422 V 443.61523 c 93.0012,-17.24031 146.26884,-50.56805 169.91602,-98.33984 26.19457,-52.91802 13.29277,-104.9241 11.41601,-142.88672 l -5.13086,-17.71094 c -31.43983,-55.60656 -81.15287,-81.24322 -126.25195,-82.66992 -1.30093,-0.0412 -2.59794,-0.0615 -3.89062,-0.0625 z m 7.75585,78.86914 c 15.20063,0.23287 30.84063,8.31455 48.23829,36.07227 2.39511,41.13337 5.76946,73.49763 -3.83399,92.89844 -8.81427,17.80647 -30.85415,38.27162 -98.21875,52.43945 V 209.05664 c 0.75138,-1.23716 3.14456,-6.34012 8.47071,-11.18555 7.10911,-6.46746 17.98236,-12.55084 28.91796,-15.02343 5.4678,-1.23629 10.92097,-2.11751 16.42578,-2.03321 z"
+       id="path5805-3"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -7424,6 +8149,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer683"
+     inkscape:label="Etr R4 dex (Mäder 2020)  [=Lep R3 dex = Ven]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 430.16797,85.119141 -71.41211,24.763669 v 643.07617 l 69.46875,27.04883 272.73242,-297.13672 1.94336,-51.8125 z M 438.75586,225.22852 619,453.85547 438.75586,650.22656 Z"
+       id="path3795-2-0-9"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer422"
      inkscape:label="Etr R4 (Mäder 2020)  [=Lep R3 sin = Ven]"
      style="display:none">
@@ -7431,6 +8167,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="m 559.55469,87.763672 -272.73242,345.939448 1.94335,51.8125 272.73243,297.13672 69.46875,-27.04882 V 112.52734 Z M 550.9668,227.87305 V 652.87109 L 370.72266,456.5 Z"
        id="path3795-2-0"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer682"
+     inkscape:label="Etr R3 dex (ab 4. Jh.)  [= Lep R1 dex]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 416.20312,61.015625 362.67188,98.658203 V 741.73242 l 48.51562,39.08203 C 556.74356,749.09913 666.95462,611.89129 688.77734,460.24805 710.60007,308.60481 633.20695,139.01738 416.20312,61.015625 Z m 26.46876,97.822265 c 145.2439,71.01857 182.3936,182.50459 166.92187,290.01563 -14.50668,100.80504 -82.95501,195.37956 -166.92187,236.45703 z"
+       id="path3795-3-2-4-9-6"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -7446,6 +8193,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer681"
+     inkscape:label="Etr R2 dex (bis 4. Jh.)  [= Lep Q1 dex]"
+     style="display:none">
+    <g
+       transform="translate(50.41417,-7.1250956)"
+       style="display:inline"
+       id="g3954-61-1-4-1">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:0.98000004;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:86.50296021;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 524.17188,88.279297 c -92.99396,0 -169.3086,76.312693 -169.3086,169.306643 0,4.8115 0.21491,9.57512 0.61524,14.28906 v 481.67773 h 80 V 401.55664 c 25.84914,16.04191 56.25325,25.33789 88.69336,25.33789 92.99394,0 169.30664,-76.31464 169.30664,-169.30859 0,-92.99395 -76.3127,-169.306643 -169.30664,-169.306643 z m 0,86.501953 c 46.24427,0 82.80468,36.56041 82.80468,82.80469 0,46.24428 -36.56041,82.80664 -82.80468,82.80664 -46.24429,0 -82.80469,-36.56236 -82.80469,-82.80664 0,-46.24428 36.5604,-82.80469 82.80469,-82.80469 z"
+         transform="translate(-50.41417,7.1250956)"
+         id="path2455-9-7-2-6-6-5"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer399"
      inkscape:label="Etr R2 (bis 4. Jh.)  [= Lep Q1 sin]"
      style="display:none">
@@ -7458,6 +8222,23 @@
          d="m 487.13281,86.097656 c -92.99395,0 -169.30664,76.312694 -169.30664,169.306644 0,92.99395 76.31269,169.30859 169.30664,169.30859 32.4401,0 62.84422,-9.29598 88.69336,-25.33789 v 351.99609 h 80 V 269.69336 c 0.40033,-4.71394 0.61524,-9.47756 0.61524,-14.28906 0,-92.99395 -76.31465,-169.306644 -169.3086,-169.306644 z m 0,86.501954 c 46.24428,0 82.80469,36.56041 82.80469,82.80469 0,46.24428 -36.56041,82.80664 -82.80469,82.80664 -46.24428,0 -82.80469,-36.56236 -82.80469,-82.80664 0,-46.24428 36.56041,-82.80469 82.80469,-82.80469 z"
          transform="matrix(-1,0,0,1,960.89088,9.3062841)"
          id="path2455-9-7-2-6-6"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer680"
+     inkscape:label="Etr R1 dex [= Raet P1 dex]"
+     style="display:none">
+    <g
+       style="display:inline"
+       id="g2393-11-99-7-9-3"
+       transform="translate(-168.20683,0.86110586)">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 453.49219,79.316406 -64.5586,31.574214 v 641.64063 h 80 V 490.50781 l 216.94532,-167.05859 0.15429,-63.26758 z m 15.4414,113.359374 127.18555,98.92188 -127.18555,97.93945 z"
+         transform="translate(168.20683,-0.86110586)"
+         id="path2385-3-5-8-0-9"
          inkscape:connector-curvature="0" />
     </g>
   </g>
@@ -7508,6 +8289,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer679"
+     inkscape:label="Etr P1 dex [= Lep P1 dex....]"
+     style="display:none">
+    <g
+       style="display:inline"
+       id="g2393-11-3-2-5-2-8"
+       transform="matrix(-1,0,0,1,995.25674,-0.12627169)">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 420.82227,76.974609 358.11719,109.9043 v 641.64062 h 80 V 186.07031 l 210.02734,144.8086 45.41016,-65.86329 z"
+         transform="matrix(-1,0,0,1,995.25674,0.12627169)"
+         id="path2385-3-3-3-9-6-8"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer395"
      inkscape:label="Etr P1  [= Lep P1 sin....]"
      style="display:none">
@@ -7520,6 +8318,23 @@
          d="m 592.14648,76.744141 -272.73242,188.041019 45.41016,65.86328 210.02734,-144.8086 v 565.47461 h 80 V 109.67383 Z"
          transform="translate(-17.71137,0.35639462)"
          id="path2385-3-3-3-9-6"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer678"
+     inkscape:label="Etr N2 dex (Buffa 163)  [= Lep N4 dex]"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,1073.4273,0.39751759)"
+       style="display:inline"
+       id="g2559-7-3">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 366.13867,77.023438 -65.27344,31.003902 v 643.4668 h 80 V 192.24023 l 303.25196,247.1875 v 310.65235 h 80 V 108.02734 h -80 V 336.2168 Z"
+         transform="matrix(-1,0,0,1,1073.4273,-0.39751759)"
+         id="path2553-2-2"
          inkscape:connector-curvature="0" />
     </g>
   </g>
@@ -7538,6 +8353,37 @@
          transform="translate(44.389986,-0.8519673)"
          id="path2553-2"
          inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer677"
+     inkscape:label="Etr N1 dex [= Lep N1 dex = Raet N1 dex]"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,1078.3482,2.0277093)"
+       style="display:inline"
+       id="g3488-5-8-8-2">
+      <g
+         id="g3042-5-7-9-8-4-1"
+         transform="translate(9.3304495,-1.7737684e-6)"
+         style="display:inline">
+        <g
+           id="g3079-53-5-5-8-3">
+          <g
+             id="g3384-1-1-36-3">
+            <g
+               id="g3522-83-1-4">
+              <path
+                 style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                 d="m 457.25977,106.21094 -3.16993,2.97656 h -72.45117 v 643.07422 h 80 v -524.5 l 69.35547,73.8789 58.33594,-0.0117 130.625,-139.23633 -58.3457,-54.73633 L 560.14844,215.81055 461.63867,110.875 v -1.6875 h -1.58398 z"
+                 transform="matrix(-1,0,0,1,1069.0178,-2.0277075)"
+                 id="path3036-8-86-0-6-49-3"
+                 inkscape:connector-curvature="0" />
+            </g>
+          </g>
+        </g>
+      </g>
     </g>
   </g>
   <g
@@ -7564,6 +8410,39 @@
                  d="m 573.60938,105.12109 -2.79493,2.97657 h -1.58398 v 1.6875 L 470.7207,214.7207 369.25977,106.56641 l -58.34571,54.73632 130.625,139.23633 58.33594,0.0117 69.35547,-73.8789 v 524.5 h 80 V 108.09766 H 576.7793 Z"
                  transform="translate(38.14958,-0.93844236)"
                  id="path3036-8-86-0-6-49"
+                 inkscape:connector-curvature="0" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer676"
+     inkscape:label="Etr M1 dex [= Lep M1 dex]"
+     style="display:none">
+    <g
+       style="display:inline"
+       id="g4692-32-8"
+       transform="matrix(-1,0,0,1,1068.4921,2.3348426)">
+      <g
+         id="g3488-4-8-41-3"
+         style="display:inline"
+         transform="translate(68.51884,-0.84447341)">
+        <g
+           style="display:inline"
+           transform="translate(9.3304495,-1.7737684e-6)"
+           id="g3042-5-7-3-1-37-6">
+          <g
+             id="g3079-53-6-3-9-0">
+            <g
+               id="g3384-2-9-8-7">
+              <path
+                 style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+                 d="m 733.62109,103.41797 -75.875,104.375 -76.08007,-101.58789 -65.17383,1.60156 -63.08789,93.48633 -70.14258,-90.26758 v -2.37305 h -1.84375 l -0.11133,-0.14257 -0.18359,0.14257 h -77.86133 v 643.07422 h 80 V 241.4082 l 40.83789,52.55469 64.74219,-2.16797 62.5039,-92.61914 74.86328,99.96289 64.3711,-0.45703 107.75,-148.22266 z"
+                 transform="matrix(-1,0,0,1,990.64281,-1.4903674)"
+                 id="path3036-8-86-3-75-7-4"
                  inkscape:connector-curvature="0" />
             </g>
           </g>
@@ -7606,6 +8485,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer675"
+     inkscape:label="Etr L1 dex [= Lep L1 dex = Raet L2 dex]"
+     style="display:none">
+    <g
+       style="display:inline"
+       id="g2393-11-3-3-8-3"
+       transform="rotate(-180,499.29201,425.97034)">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 361.44531,100.27148 V 741.91211 L 424.15039,774.8418 696.88281,586.80078 651.47266,520.9375 441.44531,665.74609 V 100.27148 Z"
+         transform="rotate(180,499.29201,425.97034)"
+         id="path2385-3-3-96-9-9"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer391"
      inkscape:label="Etr L1  [= Lep L1 sin = Raet L2 sin]"
      style="display:none">
@@ -7623,6 +8519,26 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer674"
+     inkscape:label="Etr K2 dex (Buffa 4)  [= Lep K2 dex]"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,964.29588,0.42391259)"
+       style="display:inline"
+       id="g3042-7-29-3">
+      <g
+         id="g4231-8-1">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="M 757.54883,99.691406 407.77148,410.71289 408.0332,470.72656 737.71484,758.7793 790.35156,698.53516 494.84375,440.33984 810.70898,159.47461 Z M 270.91602,107.58398 V 750.6582 h 80 V 107.58398 Z"
+           transform="matrix(-1,0,0,1,964.29588,-0.42391259)"
+           id="path3036-1-2-8"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer390"
      inkscape:label="Etr K2  (Buffa 4)  [= Lep K2 sin]"
      style="display:none">
@@ -7634,11 +8550,28 @@
          id="g4231-8">
         <path
            style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-           d="m 260.2168,100.95703 -53.16016,59.7832 315.86524,280.86524 -295.50782,258.19531 52.63672,60.24414 329.68164,-288.05273 0.26172,-60.01367 z m 384.63281,7.89258 v 643.07422 h 80 V 108.84961 Z"
+           d="m 238.2168,100.95703 -53.16016,59.7832 315.86524,280.86524 -295.50782,258.19531 52.63672,60.24414 329.68164,-288.05273 0.26172,-60.01367 z m 406.63281,7.89258 v 643.07422 h 80 V 108.84961 Z"
            transform="translate(-31.46886,-1.6891474)"
            id="path3036-1-2"
            inkscape:connector-curvature="0" />
       </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer673"
+     inkscape:label="Etr K1 dex [= Lep K1 dex = Raet K1 dex]"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,1050.9132,2.0883455)"
+       style="display:inline"
+       id="g3042-8-1-2">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 728.16406,101.35547 443.53125,354.45117 V 109.24805 h -80 v 643.07422 h 80 V 529.08008 L 708.33008,760.44336 760.9668,700.19922 465.45898,442.00391 781.32422,161.13867 Z"
+         transform="matrix(-1,0,0,1,1050.9132,-2.0883455)"
+         id="path3036-36-3-5"
+         inkscape:connector-curvature="0" />
     </g>
   </g>
   <g
@@ -7780,6 +8713,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer672"
+     inkscape:label="Etr H4 dex (ab 4. Jh.)"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,993.42891,11.64845)"
+       style="display:inline"
+       id="g7750-6-2">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:0.98000004;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 494.21875,148.19727 c -65.61628,0 -123.13953,37.58189 -161.81055,91.74218 -38.67103,54.16028 -60.98632,125.85924 -60.98632,204.27344 0,78.41421 22.31529,150.11315 60.98632,204.27344 38.67102,54.16029 96.19427,91.74023 161.81055,91.74023 65.61628,0 123.13953,-37.57994 161.81055,-91.74023 38.67102,-54.16029 60.98632,-125.85923 60.98632,-204.27344 0,-78.4142 -22.3153,-150.11316 -60.98632,-204.27344 -38.67102,-54.16029 -96.19427,-91.74218 -161.81055,-91.74218 z m 0,80 c 35.33998,0 69.21447,19.72958 96.70313,58.22851 27.48865,38.49894 46.09374,94.80811 46.09374,157.78711 10e-6,18.04343 -1.53371,35.53442 -4.35937,52.2207 -41.7587,-72.55192 -116.10125,-143.40954 -246.6582,-191.88671 3.62835,-6.39888 7.47377,-12.45761 11.51757,-18.1211 27.48865,-38.49893 61.36316,-58.22851 96.70313,-58.22851 z M 358.18164,379.46094 c 162.76733,59.27579 211.43727,141.77283 232.8418,222.39258 -0.034,0.0476 -0.0676,0.0969 -0.10156,0.14453 -27.48864,38.49893 -61.36315,58.22851 -96.70313,58.22851 -35.33997,0 -69.21447,-19.72958 -96.70313,-58.22851 -27.48865,-38.49893 -46.09374,-94.80615 -46.09374,-157.78516 -10e-6,-22.61867 2.41052,-44.36999 6.75976,-64.75195 z"
+         transform="matrix(-1,0,0,1,993.42891,-11.64845)"
+         id="path2455-9-1-8-1"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer546"
      inkscape:label="Etr H4 (ab 4. Jh.)"
      style="display:none">
@@ -7792,6 +8742,23 @@
          d="m 460.9375,144.86914 c -65.61628,0 -123.13953,37.5819 -161.81055,91.74219 -38.67102,54.16028 -60.98632,125.85924 -60.98633,204.27344 0,78.41421 22.31531,150.11314 60.98633,204.27343 38.67102,54.16029 96.19427,91.74024 161.81055,91.74024 65.61628,0 123.13953,-37.57995 161.81055,-91.74024 38.67103,-54.16029 60.98632,-125.85922 60.98633,-204.27343 0,-78.4142 -22.3153,-150.11316 -60.98633,-204.27344 -38.67102,-54.16029 -96.19427,-91.74219 -161.81055,-91.74219 z m 0,80 c 35.33997,0 69.21448,19.72959 96.70312,58.22852 4.0438,5.66349 7.88923,11.72221 11.51758,18.12109 -130.55695,48.47718 -204.8995,119.3348 -246.6582,191.88672 -2.82566,-16.68628 -4.35938,-34.17727 -4.35938,-52.2207 0,-62.979 18.6051,-119.28817 46.09376,-157.78711 27.48865,-38.49893 61.36314,-58.22852 96.70312,-58.22852 z m 136.03711,151.26367 c 4.34924,20.38196 6.75977,42.13329 6.75977,64.75196 0,62.97901 -18.6051,119.28622 -46.09376,157.78515 -27.48865,38.49893 -61.36315,58.22852 -96.70312,58.22852 -35.33998,0 -69.21448,-19.72959 -96.70312,-58.22852 -0.034,-0.0476 -0.0676,-0.0969 -0.10157,-0.14453 21.40453,-80.61975 70.07447,-163.11679 232.8418,-222.39258 z"
          transform="translate(38.272788,-8.3201781)"
          id="path2455-9-1-8"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer671"
+     inkscape:label="Etr H3 dex (ab 4. Jh.)"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,1006.7418,6.6564796)"
+       style="display:inline"
+       id="g7750-0">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:0.98000004;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 507.53125,143.20508 c -163.01081,0 -296.01563,133.00481 -296.01563,296.01562 0,163.01081 133.00482,296.01368 296.01563,296.01368 163.01081,10e-6 296.01563,-133.00287 296.01563,-296.01368 -10e-6,-163.01081 -133.00482,-296.01562 -296.01563,-296.01562 z m 0,80 c 119.7756,0 216.01563,96.24002 216.01563,216.01562 -10e-6,46.64867 -14.60078,89.72427 -39.50196,124.9375 L 382.5957,262.70703 c 35.21335,-24.90061 78.28746,-39.50195 124.93555,-39.50195 z m -180.55469,97.02148 299.54883,299.54883 c -34.0706,22.42473 -74.936,35.45899 -118.99414,35.45899 -119.7756,0 -216.01563,-96.23808 -216.01563,-216.01368 0,-44.05852 13.03551,-84.92336 35.46094,-118.99414 z"
+         transform="matrix(-1,0,0,1,1006.7418,-6.6564796)"
+         id="path2455-9-1-9"
          inkscape:connector-curvature="0" />
     </g>
   </g>
@@ -7828,6 +8795,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer670"
+     inkscape:label="Etr H1 dex (bis 4. Jh.)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 377.9375,48.638672 327.58594,87.275391 V 652.63086 l 29.64648,38.63672 343.125,91.93945 50.35352,-38.73242 -1.35352,-565.7168 -29.64648,-38.54101 z m 29.64844,90.767578 261.8457,70.16016 0.12891,54.28515 -261.97461,-70.19726 z m 0,137.07227 262.17383,70.24804 0.50195,210.42578 -262.67578,-70.38672 z m 0,293.11132 262.875,70.43555 0.125,52.38281 -263,-70.4707 z"
+       id="path7723-8"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer383"
      inkscape:label="Etr H1 (bis 4. Jh.)"
      style="display:none">
@@ -7835,6 +8813,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="m 675.56445,54.462891 -341.77343,91.578129 -29.64649,38.54101 -1.35351,565.7168 50.35351,38.73242 343.125,-91.93945 29.64649,-38.63672 V 93.099609 Z m -29.64843,90.767579 v 54.24805 l -261.97461,70.19726 0.1289,-54.28516 z m 0,137.07226 v 210.28711 l -262.67579,70.38672 0.50196,-210.42578 z m 0,293.11133 v 52.34766 l -263,70.4707 0.125,-52.38281 z"
        id="path7723"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer669"
+     inkscape:label="Etr Z3 dex (ab 4. Jh.)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 418.99609,97.412109 V 739.73047 l 60,34.64062 183.73243,-106.07812 -40,-69.28125 -123.73243,71.4375 V 341.47852 L 665.95508,261.62891 631.4375,189.45898 498.99609,252.80078 V 97.412109 Z"
+       id="path7703-2"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -7847,6 +8836,23 @@
        d="m 425.92969,106.41211 v 642.31836 l 60,34.64062 183.73242,-106.07812 -40,-69.28125 -123.73242,71.4375 v -328.9707 l 166.95898,-79.84961 -34.51758,-72.16993 -132.4414,63.3418 V 106.41211 Z"
        id="path7703"
        inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer668"
+     inkscape:label="Etr Z2 dex"
+     style="display:none">
+    <g
+       transform="matrix(-1,0,0,1,1019.806,-8.6117835)"
+       style="display:inline"
+       id="g7671-3">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 413.45703,65.857422 -40,69.283198 108.80274,62.81641 v 395.60156 l -69.29883,-40.00976 -40,69.28125 265.2539,153.14453 40,-69.28125 -115.95507,-66.94727 V 244.14648 l 76.45117,44.13868 40,-69.28321 z"
+         transform="matrix(-1,0,0,1,1019.806,8.6117835)"
+         id="path7649-7"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7884,6 +8890,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer667"
+     inkscape:label="Etr V2 dex  [= Raet V2 dex]"
+     style="display:none">
+    <g
+       style="display:inline"
+       transform="rotate(-180,500.12449,421.81054)"
+       id="g2393-1-0-0">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 363.10938,91.951172 V 733.5918 L 425.81445,766.52148 698.54688,578.48047 653.13672,512.61719 443.10938,657.42578 V 471.14258 L 676.75195,326.95117 634.73828,258.87305 443.10938,377.13477 V 91.951172 Z"
+         transform="rotate(180,500.12449,421.81054)"
+         id="path2385-1-7-3"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer378"
      inkscape:label="Etr V2  [= Raet V2 sin]"
      style="display:none">
@@ -7901,6 +8924,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer666"
+     inkscape:label="Etr V1 dex  [= Raet V1 dex = Lep V1 dex]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 462.42188,73.646484 399.7168,106.57617 V 748.2168 h 80 V 463.0332 L 671.3457,581.29492 713.35938,513.2168 479.7168,369.02539 V 182.74219 L 689.74414,327.55078 735.1543,261.6875 Z"
+       id="path2385-17-2"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer377"
      inkscape:label="Etr V1  [= Raet V1 sin = Lep V1 sin]"
      style="display:none">
@@ -7908,6 +8942,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="M 580.38066,79.095965 307.64824,267.13699 353.05839,333.00027 563.08574,188.19168 v 186.2832 l -233.64258,144.19141 42.01367,68.07812 191.62891,-118.26172 v 285.1836 h 80 V 112.02566 Z"
        id="path2385-17"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer665"
+     inkscape:label="Etr E2 dex (Buffa 3)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 649.03711,94.226562 C 486.39495,139.01159 386.05555,272.69684 378.28516,414.96875 c -7.7704,142.27191 79.62204,291.35247 267.16796,362.58984 l 28.40626,-74.78711 C 540.15375,651.98477 476.06027,565.21232 461.20898,475.64648 H 626.375 v -80 H 460.57617 c 14.71372,-99.14611 87.45274,-190.62929 209.69922,-224.29101 z"
+       id="path7618-4"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -7920,6 +8965,29 @@
        d="M 390.01953,92.808594 368.78125,169.9375 c 122.24648,33.66171 194.9855,125.14491 209.69922,224.29102 H 412.68164 v 80 h 165.16602 c -14.85129,89.56584 -78.94476,176.33829 -212.65039,227.125 l 28.40625,74.7871 C 581.14945,704.90325 668.54188,555.82269 660.77148,413.55078 653.00109,271.27887 552.66169,137.59363 390.01953,92.808594 Z"
        id="path7618"
        inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer664"
+     inkscape:label="Etr E1 dex  [=Lep E1 dex = Raet E1 dex]"
+     style="display:none">
+    <g
+       style="display:inline"
+       id="g1559-99-1-2-4"
+       transform="matrix(-1,0,0,1,1114.1955,-1.4155077)">
+      <g
+         id="g2102-8-7">
+        <g
+           id="g2096-23-8">
+          <path
+             style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+             d="m 449.28711,73.279297 -61.23047,33.900393 v 641.64062 h 80 V 661.8125 L 662.70508,771.88086 701.77344,702.79297 468.05664,570.63086 V 441.13281 L 665.9375,550.30859 704.28125,480.81445 468.05664,350.48633 v -171.0586 l 222.98633,139.64844 42.46094,-67.80273 z"
+             transform="matrix(-1,0,0,1,1114.1955,1.4155077)"
+             id="path1553-7-6-5-2"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7946,6 +9014,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer662"
+     inkscape:label="Etr C3 dex  [Lat C dex]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 599.70703,219.69531 c -124.03551,41.70078 -194.71349,129.07073 -193.18359,221.25196 1.5299,92.18124 74.77812,175.8983 194.64648,211.14062 l 22.56641,-76.75 c -96.62645,-28.409 -136.37685,-84.75416 -137.22266,-135.7168 -0.84581,-50.96264 36.72534,-109.81794 138.6875,-144.09765 z"
+       id="path7584-29"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer374"
      inkscape:label="Etr C3  [Lat C sin]"
      style="display:none">
@@ -7953,6 +9032,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="m 398.80273,251.54297 -25.49414,75.82812 c 101.96216,34.27971 139.53331,93.13502 138.6875,144.09766 -0.84581,50.96264 -40.5962,107.3078 -137.22265,135.7168 l 22.5664,76.75 C 517.2082,648.69323 590.45643,564.97616 591.98633,472.79492 593.51623,380.61369 522.83824,293.24375 398.80273,251.54297 Z"
        id="path7584"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer661"
+     inkscape:label="Etr C2 dex  [= Lep U11 dex = Run K1]"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 607.11132,235.04492 50.44727,62.08789 -174.56641,141.83594 172.72657,138.72461 -50.09571,62.37305 -211.33203,-169.73047 -0.17773,-62.23242 z"
+       id="path7516-2-2"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -7968,6 +9058,17 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer660"
+     inkscape:label="Etr C1 dex"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 607.54688,67.863281 c -33.64086,-0.106368 -67.05126,3.536278 -97.87696,18.681641 -32.88075,16.155048 -60.09365,48.134258 -70.98437,89.933598 l -1.29297,4.95898 v 569.23438 h 80 V 192.29297 c 5.92657,-19.76797 13.92172,-27.24908 27.55469,-33.94727 14.62618,-7.18616 38.43684,-10.92753 67.9707,-10.42578 l 1.35937,-79.988279 c -2.24407,-0.03812 -4.48773,-0.06126 -6.73046,-0.06836 z"
+       id="path7512-3"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer368"
      inkscape:label="Etr C1"
      style="display:none">
@@ -7975,6 +9076,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="m 412.32227,67.585938 c -2.24273,0.0071 -4.4864,0.03024 -6.73047,0.06836 l 1.35937,79.988282 c 29.53386,-0.50175 53.34453,3.23962 67.97071,10.42578 13.63297,6.69819 21.62811,14.17929 27.55468,33.94726 v 558.37891 h 80 V 181.16016 l -1.29297,-4.95899 C 570.29287,134.40183 543.07997,102.42263 510.19922,86.267578 479.37352,71.122215 445.96312,67.47957 412.32227,67.585938 Z"
        id="path7512"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer659"
+     inkscape:label="Etr A6 dex (Buffa 226)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 321.99219,88.076172 -40,39.999998 v 622.34961 h 80 v -294.4707 h 371.01562 l 40,-40 V 128.07617 l -40,-39.999998 z m 40,79.999998 H 693.00781 V 375.95508 H 361.99219 Z"
+       id="path7509-2"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -8015,6 +9127,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer658"
+     inkscape:label="Etr A3 sin (Buffa 6)  [= Lep A22 sin = Raet A1 sin]"
+     style="display:none">
+    <g
+       transform="matrix(0.96480091,0,0,1.0012686,113.7921,5.7797197)"
+       style="display:inline"
+       id="g1373-0-0-6">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:78.62924957;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 534.05664,100.52539 -235.02539,642.29688 72.15625,28.4375 197.75781,-540.44532 60.29883,176 -116.67969,334.56446 72.57617,27.25781 84.7793,-243.09375 83.21289,242.88281 72.72461,-26.83398 -219.35937,-640.26563 z"
+         transform="matrix(1.0364833,0,0,0.99873301,-117.94361,-5.7723968)"
+         id="path1363-1-1-9"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer364"
      inkscape:label="Etr A3 (Buffa 6)  [= Lep A22 dex = Raet A1 dex]"
      style="display:none">
@@ -8028,6 +9157,26 @@
          transform="matrix(-1.0364833,0,0,0.99873301,1003.1403,-2.4491833)"
          id="path1363-1-1"
          inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer657"
+     inkscape:label="Etr A2 dex (Buffa 5)  [= Lep A24 dex = Raet A11 dex]"
+     style="display:none">
+    <g
+       transform="matrix(-1.013748,0,0,0.99951102,1010.5608,3.2065462)"
+       style="display:inline"
+       id="g1373-16-2-6-6">
+      <g
+         id="g1464-5-2-0">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80.52835083;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="m 568.97461,97.785156 -76.11523,0.798828 -230.48829,639.142576 76.41407,26.78711 84.33007,-233.84961 283.35547,149.3418 33.63868,87.33789 75.8164,-28.38867 z M 532.31836,227.8457 662.6543,566.24414 450.58984,454.47656 Z"
+           transform="matrix(-0.98643844,0,0,1.0004892,996.85602,-3.2081149)"
+           id="path1363-83-0-3-1"
+           inkscape:connector-curvature="0" />
+      </g>
     </g>
   </g>
   <g
@@ -8047,6 +9196,32 @@
            transform="matrix(0.98643844,0,0,1.0004892,-30.703744,-9.8682566)"
            id="path1363-83-0-3"
            inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer656"
+     inkscape:label="Etr A1 dex  [= Lep A14 dex]"
+     style="display:none">
+    <g
+       style="display:inline"
+       id="g1559-99-3-0-3-1-1-6"
+       transform="matrix(-1,0,0,1,1007.4124,2.6561105)">
+      <g
+         id="g1661-00-0-8-0-6">
+        <g
+           id="g1734-22-8-2-4-7">
+          <g
+             id="g1887-4-97-6-4">
+            <path
+               style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+               d="M 330.375,72.300781 281.27344,111.25 v 641.64062 h 80 V 513.63281 l 328.42968,163.61328 c 5.41866,22.78234 10.73432,45.75156 16.04297,68.82422 l 77.96289,-17.93945 C 751.69848,589.00544 719.70909,446.72313 655.07227,326.75195 590.43545,206.78078 489.17426,109.40257 330.375,72.300781 Z m 30.89844,92.115239 c 107.20319,37.53397 173.41492,107.56218 223.36914,200.28125 33.24268,61.70111 57.94021,133.55177 79.08984,210.23437 L 361.27344,424.25586 Z"
+               transform="matrix(-1,0,0,1,1007.4124,-2.6561105)"
+               id="path1553-7-0-4-3-44-8-6"
+               inkscape:connector-curvature="0" />
+          </g>
+        </g>
       </g>
     </g>
   </g>

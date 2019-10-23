@@ -2773,64 +2773,64 @@ ERSTES ZEICHEN NORTH ITALIC
 2690 0xea82 []	EtrLem Ž2 sin  (de Simone 1996) 111
 2691 0xea83 []	EtrLem Ž3 sin  (de Simone 1996) 112
 2692 0xea84 []	EtrLem dʒ1  (de Simone 1996)  [= Run Z] 113
-2693 0xea85 []
-2694 0xea86 []
-2695 0xea87 []
-2696 0xea88 []
-2697 0xea89 []
-2698 0xea8a []
-2699 0xea8b []
-2700 0xea8c []
-2701 0xea8d []
-2702 0xea8e []
-2703 0xea8f []
-2704 0xea90 []
-2705 0xea91 []
-2706 0xea92 []
-2707 0xea93 []
-2708 0xea94 []
-2709 0xea95 []
-2710 0xea96 []
-2711 0xea97 []
-2712 0xea98 []
-2713 0xea99 []
-2714 0xea9a []
-2715 0xea9b []
-2716 0xea9c []
-2717 0xea9d []
-2718 0xea9e []
-2719 0xea9f []
+2693 0xea85 []	EtrVen X5  (Pellegrini & Prosdocimi 1967:438, Od 4)
+2694 0xea86 []	EtrVen ?1  (Pellegrini & Prosdocimi 1967:623, Gt 13)  [= EtrLem Z = Run]
+2695 0xea87 []	Etr P4  (Aprile 1979: Fig. 25)  [= Lep V3 = Run P sin]
+2696 0xea88 []	Etr EI1  (Pellegrini & Prosdocimi 1967:639)  [= Lat EI1]
+2697 0xea89 []	Etr A1 dex  [= Lep A14 dex]
+2698 0xea8a []	Etr A2 dex (Buffa 5)  [= Lep A24 dex = Raet A11 dex]
+2699 0xea8b []	Etr A3 sin (Buffa 6)  [= Lep A22 sin = Raet A1 sin]
+2700 0xea8c []	Etr A6 dex (Buffa 226)
+2701 0xea8d []	Etr C1 dex
+2702 0xea8e []	Etr C2 dex  [= Lep U11 dex = Run K1]
+2703 0xea8f []	Etr C3 dex  [Lat C dex]
+2704 0xea90 []	Etr E1 dex  [=Lep E1 dex = Raet E1 dex]
+2705 0xea91 []	Etr E2 dex (Buffa 3)
+2706 0xea92 []	Etr V1 dex  [= Raet V1 dex = Lep V1 dex]
+2707 0xea93 []	Etr V2 dex  [= Raet V2 dex]
+2708 0xea94 []	Etr Z2 dex
+2709 0xea95 []	Etr Z3 dex (ab 4. Jh.)
+2710 0xea96 []	Etr H1 dex (bis 4. Jh.)
+2711 0xea97 []	Etr H3 dex (ab 4. Jh.)
+2712 0xea98 []	Etr H4 dex (ab 4. Jh.)
+2713 0xea99 []	Etr K1 dex [= Lep K1 dex = Raet K1 dex]			
+2714 0xea9a []	Etr K2 dex (Buffa 4)  [= Lep K2 dex]
+2715 0xea9b []	Etr L1 dex [= Lep L1 dex = Raet L2 dex]
+2716 0xea9c []	Etr M1 dex [= Lep M1 dex]
+2717 0xea9d []	Etr N1 dex [= Lep N1 dex = Raet N1 dex]
+2718 0xea9e []	Etr N2 dex (Buffa 163)  [= Lep N4 dex]
+2719 0xea9f []	Etr P1 dex [= Lep P1 dex....]
 
-2720 0xeaa0 []
-2721 0xeaa1 []
-2722 0xeaa2 []
-2723 0xeaa3 []
-2724 0xeaa4 []
-2725 0xeaa5 []
-2726 0xeaa6 []
-2727 0xeaa7 []
-2728 0xeaa8 []
-2729 0xeaa9 []
-2730 0xeaaa []
-2731 0xeaab []
-2732 0xeaac []
-2733 0xeaad []
-2734 0xeaae []
-2735 0xeaaf []
-2736 0xeab0 []
-2737 0xeab1 []
-2738 0xeab2 []
-2739 0xeab3 []
-2740 0xeab4 []
-2741 0xeab5 []
-2742 0xeab6 []
-2743 0xeab7 []
-2744 0xeab8 []
-2745 0xeab9 []
-2746 0xeaba []
-2747 0xeabb []
-2748 0xeabc []
-2749 0xeabd []
+2720 0xeaa0 []	Etr R1 dex [= Raet P1 dex]
+2721 0xeaa1 []	Etr R2 dex (bis 4. Jh.)  [= Lep Q1 dex]
+2722 0xeaa2 []	Etr R3 dex (ab 4. Jh.)  [= Lep R1 dex]
+2723 0xeaa3 []	Etr R4 dex (Mäder 2020)  [=Lep R3 dex = Ven]
+2724 0xeaa4 []	Etr R5 dex (Mäder 2019)
+2725 0xeaa5 []	Etr S1 dex (bis 4. Jh.)  [Lep S1 sin = Raet S1 dex]
+2726 0xeaa6 []	Etr S4 dex (Buffa 6) (ab 4. Jh.)
+2727 0xeaa7 []	Etr T2 dex (ab 4. Jh.) [= Lep T5 sin]
+2728 0xeaa8 []	Etr T3 dex (ab 4. Jh.) [= Raet T1 dex]
+2729 0xeaa9 []	Etr T4 dex
+2730 0xeaaa []	Etr T5 dex (Buffa 163)  [= Raet T2 sin]
+2731 0xeaab []	EtrVen A7 dex
+2732 0xeaac []	EtrVen D1 dex
+2733 0xeaad []	EtrVen D2 dex
+2734 0xeaae []	EtrVen H7 dex
+2735 0xeaaf []	EtrVen J2 dex  [= Lep K2 sin = Etr Kx dex]
+2736 0xeab0 []	EtrVen J3 dex  [= Etr C2 = Lep U11 sin = Run K1]
+2737 0xeab1 []	EtrVen J4 dex
+2738 0xeab2 []	EtrVen L2 dex  [= ...
+2739 0xeab3 []	EtrVen L3 dex  [= ...
+2740 0xeab4 []	EtrVen L4 dex  [= LatGraff L1 dex]
+2741 0xeab5 []	EtrVen M2 dex [= Lep M4 dex = Raet M1 dex]
+2742 0xeab6 []	EtrVen San2 dex
+2743 0xeab7 []	EtrVen F6 dex
+2744 0xeab8 []	Etr P3 dex (CIE 2312)
+2745 0xeab9 []	EtrVen O4 dex (Prosdocimi 1976:217)
+2746 0xeaba []	EtrLem Ž2 dex  (de Simone 1996)
+2747 0xeabb []	EtrLem Ž3 dex  (de Simone 1996)
+2748 0xeabc []	EtrVen ?1 dex  (Pellegrini & Prosdocimi 1967:623, Gt 13) [= EtrLem Z = Run]
+2749 0xeabd []	Etr P4 dex (Aprile 1979: Fig. 25)  [= Lep V3 = Run P dex]
 2750 0xeabe []
 2751 0xeabf []
 
