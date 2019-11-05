@@ -66,7 +66,7 @@ To build your own version of the site you need `npm` and the node package
 Debian-system, the following commands install these dependencies:
 
     apt install npm python-fontforge
-    npm install -g elm elm-live
+    npm install -g elm elm-live uglify-js
     make
 
 You may find the `make live` target useful: It will open a browser window
