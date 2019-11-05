@@ -7,7 +7,7 @@ import Array
 
 numerals =
     Array.fromList
-        [ ""
+        [ "nulla"
         , "Ⅰ"
         , "Ⅱ"
         , "Ⅲ"
