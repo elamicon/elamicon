@@ -1071,6 +1071,13 @@ view model =
                 , ol fragmentAttrs lines
                 ]
 
+        fragmentsView =
+            [ h2 [] [ text (decorate .inscriptions "Inscriptions") ]
+            , div [ dirAttr LTR ] (List.map fragmentView cleanedFragments)
+            , contact, small [] [ footer ]
+            ]
+
+
         contact =
             div [ class "footer" ]
                 [ h2 [] [ text "Contact the research team" ]
@@ -1131,6 +1138,8 @@ view model =
             option
                 [ value script.id, selected (model.script.id == script.id) ]
                 [ text script.name ]
+
+        showWhenCorpus elms = if cleanedFragments == [] then [] else elms
     in
         { title = model.script.headline
         , body =
@@ -1143,9 +1152,8 @@ view model =
                 ++ syllabary
                 ++ playground
                 ++ settings
-                ++ searchView
-                ++ [ h2 [] [ text (decorate .inscriptions "Inscriptions") ] ]
-                ++ [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments) ]
+                ++ showWhenCorpus searchView
+                ++ showWhenCorpus fragmentsView
                 ++ [ contact, small [] [ footer ] ]
             )]
         }
