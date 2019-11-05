@@ -23,6 +23,7 @@ import String
 import String exposing (fromInt)
 import Url
 import WritingDirections exposing (..)
+import RomanNumerals
 
 main =
     Browser.application
@@ -383,63 +384,6 @@ type SearchPattern
     | Invalid
     | Pattern Regex.Regex
     | Fuzzy Int String
-
-
-
--- Thirty-two numerals ought to be enough for everybody (Marcus Licinius Crassus)
-
-
-romanNumerals =
-    Array.fromList
-        [ ""
-        , "Ⅰ"
-        , "Ⅱ"
-        , "Ⅲ"
-        , "Ⅳ"
-        , "Ⅴ"
-        , "Ⅵ"
-        , "Ⅶ"
-        , "Ⅷ"
-        , "Ⅸ"
-        , "Ⅹ"
-        , "Ⅺ"
-        , "Ⅻ"
-        , "Ⅻ"
-        , "ⅩⅢ"
-        , "ⅩⅣ"
-        , "ⅩⅤ"
-        , "ⅩⅥ"
-        , "ⅩⅦ"
-        , "ⅩⅧ"
-        , "ⅩⅨ"
-        , "ⅩⅩ"
-        , "ⅩⅪ"
-        , "ⅩⅫ"
-        , "ⅩⅫ"
-        , "ⅩⅩⅢ"
-        , "ⅩⅩⅣ"
-        , "ⅩⅩⅤ"
-        , "ⅩⅩⅥ"
-        , "ⅩⅩⅦ"
-        , "ⅩⅩⅧ"
-        , "ⅩⅩⅨ"
-        , "ⅩⅩⅩ"
-        , "ⅩⅩⅪ"
-        , "ⅩⅩⅫ"
-        , "ⅩⅩⅩⅢ"
-        , "ⅩⅩⅩⅣ"
-        , "ⅩⅩⅩⅤ"
-        , "ⅩⅩⅩⅥ"
-        , "ⅩⅩⅩⅦ"
-        , "ⅩⅩⅩⅧ"
-        , "ⅩⅩⅩⅨ"
-        , "ⅩⅬ"
-        , "ⅩⅬⅠ"
-        ]
-
-
-roman num =
-    Maybe.withDefault "" <| Array.get num romanNumerals
 
 
 view : Model -> Browser.Document Msg
@@ -877,13 +821,14 @@ view model =
 
                         matchTitle =
                             String.concat <|
-                                [ roman startLineNr
+                                [ RomanNumerals.fromInteger startLineNr
                                 , hwnbspace
                                 , fromInt startCharNr
                                 ]
                                     ++ (if startLineNr /= endLineNr || startCharNr /= endCharNr then
                                             (if startLineNr /= endLineNr then
-                                                [ hwnbspace, "–", hwspace, roman endLineNr, hwnbspace ]
+                                                [ hwnbspace, "–", hwspace,
+                                                  RomanNumerals.fromInteger endLineNr, hwnbspace ]
 
                                              else
                                                 [ "–" ]
