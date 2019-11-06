@@ -99,7 +99,7 @@ init _ url key =
             , bidirectionalSearch = True
             , linesplitSearch = False
             , selectedGroups = Set.empty
-            , collapsed = Set.fromList [ "info", "gramStats", "syllabary", "playground", "settings", "search" ]
+            , collapsed = Set.fromList [ "info", "gramStats", "playground", "settings", "search" ]
             , url = url
             , key = key
             }
