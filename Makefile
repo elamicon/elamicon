@@ -22,7 +22,7 @@ src/Generated: fonts/original/north-italic.txt
 	bin/extract_script_chars Etr,All Generated.Etruscan < $^ > src/Generated/Etruscan.elm
 	bin/extract_script_chars Run,All Generated.Runic < $^ > src/Generated/Runic.elm
 
-elms := $(wildcard *.elm src/*.elm src/Generated/*.elm)
+elms := $(wildcard *.elm src/*.elm src/Generated/*.elm) src/Generated
 
 elamicon.js: $(elms)
 	elm make --output="$@" elamicon.elm
