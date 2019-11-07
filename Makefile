@@ -17,12 +17,12 @@ build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts
 
 src/Generated: fonts/original/north-italic.txt
 	mkdir -p "$@"
-	bin/extract_script_chars Raet Generated.Raetic < $^ > src/Generated/Raetic.elm
-	bin/extract_script_chars Lep Generated.Lepontic < $^ > src/Generated/Lepontic.elm
-	bin/extract_script_chars Etr Generated.Etruscan < $^ > src/Generated/Etruscan.elm
-	bin/extract_script_chars Run Generated.Runic < $^ > src/Generated/Runic.elm
+	bin/extract_script_chars Raet,All Generated.Raetic < $^ > src/Generated/Raetic.elm
+	bin/extract_script_chars Lep,All Generated.Lepontic < $^ > src/Generated/Lepontic.elm
+	bin/extract_script_chars Etr,All Generated.Etruscan < $^ > src/Generated/Etruscan.elm
+	bin/extract_script_chars Run,All Generated.Runic < $^ > src/Generated/Runic.elm
 
-elms := $(wildcard *.elm src/*.elm) src/Generated
+elms := $(wildcard *.elm src/*.elm src/Generated/*.elm)
 
 elamicon.js: $(elms)
 	elm make --output="$@" elamicon.elm

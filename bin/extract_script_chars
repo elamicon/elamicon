@@ -1,10 +1,26 @@
 #!/usr/bin/python3
+# Read characters from a table and generate Elm module
+#
+# Example:
+# 
+#   echo "
+#   0061 [A] Latin Capital Letter A
+#   ...
+#   0410 [А] Cyrillic Capital Letter A
+#   0411 [Б] Cyrillic Capital Letter Be
+#   ...
+#   " | extract_script_chars Cyrillic CyrillicTokens
+
 import sys
 import re
 
-script_name = sys.argv[1]
+script_names_str = sys.argv[1]
 module_name = sys.argv[2]
-selector = re.compile(r"\[(.)\]\s+" + re.escape(script_name))
+
+script_names = script_names_str.split(",")
+script_names_escaped = map(re.escape, script_names)
+script_names_group = "({})".format("|".join(script_names))
+selector = re.compile(r"\[(.)\]\s+" + script_names_group)
 tokens = []
 
 for line in sys.stdin:
