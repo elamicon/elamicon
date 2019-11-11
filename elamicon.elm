@@ -243,7 +243,7 @@ update msg model =
 
                 -- Set of characters used in regexes
                 -- All latin chars are included to allow character classes.
-                regexMeta = String.toList "()[]^$|-*.?=!<>\\"
+                regexMeta = String.toList "()[]^$|-+*.?=!<>\\"
                 allowedRegexChars = Set.fromList (regexMeta
                                                ++ ['⏎']
                                                ++ charRange '0' '9'
