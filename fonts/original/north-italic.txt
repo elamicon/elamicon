@@ -654,9 +654,9 @@
 2680 0xea78 []	All <divider> 3p
 2681 0xea79 []	All <divider> 4p
 2682 0xea7a []	All <divider> 5p
-2683 0xea7b []
-2684 0xea7c []
-2685 0xea7d []
+2683 0xea7b []	Run K9  (Page 1987:38)
+2684 0xea7c []	Lep R4 sin  [= Run R1 sin]
+2685 0xea7d []	Lep R4 dex  [= Run R1 dex]
 2686 0xea7e []
 2687 0xea7f []
 
@@ -761,3 +761,34 @@
 
 2784 0xeae0 []	LepCam E11 (Morandi 1998:118; 122)
 2785 0xeae1 []	LepCam P7 dex (FdN)
+2786 0xeae2 []
+2787 0xeae3 []
+2788 0xeae4 []
+2789 0xeae5 []
+2790 0xeae6 []
+2791 0xeae7 []
+2792 0xeae8 []
+2793 0xeae9 []
+2794 0xeaea []
+2795 0xeaeb []
+2796 0xeaec []
+2797 0xeaed []
+2798 0xeaee []
+2799 0xeaef []
+2800 0xeaf0 []
+2801 0xeaf1 []
+2802 0xeaf2 []
+2803 0xeaf3 []
+2804 0xeaf4 []
+2805 0xeaf5 []
+2806 0xeaf6 []
+2807 0xeaf7 []
+2808 0xeaf8 []
+2809 0xeaf9 []
+2810 0xeafa []
+2811 0xeafb []
+2812 0xeafc []
+2813 0xeafd []
+2814 0xeafe []
+2815 0xeaff []
+
