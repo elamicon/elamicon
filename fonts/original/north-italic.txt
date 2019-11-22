@@ -727,11 +727,11 @@
 2751 0xeabf []	EtrVen H8 sin (Prosdocimi & Scardigli 1976:183)
 
 2752 0xeac0 []	EtrVen H8 dex (0) (Prosdocimi & Scardigli 1976:183)
-2753 0xeac1 []
-2754 0xeac2 []
-2755 0xeac3 []
-2756 0xeac4 []
-2757 0xeac5 []
+2753 0xeac1 []	Etr P5 sin (Cristofani 1995:Tav XX, L3, S9)
+2754 0xeac2 []	Etr P5 dex (Cristofani 1995:Tav XX, L3, S9)
+2755 0xeac3 []	Etr Samech1
+2756 0xeac4 []	Etr M2 sin
+2757 0xeac5 []	Etr M2 dex
 2758 0xeac6 []
 2759 0xeac7 []
 2760 0xeac8 []
@@ -761,34 +761,7 @@
 
 2784 0xeae0 []	LepCam E11 (Morandi 1998:118; 122)
 2785 0xeae1 []	LepCam P7 dex (FdN)
-2786 0xeae2 []
-2787 0xeae3 []
-2788 0xeae4 []
-2789 0xeae5 []
-2790 0xeae6 []
-2791 0xeae7 []
-2792 0xeae8 []
-2793 0xeae9 []
-2794 0xeaea []
-2795 0xeaeb []
-2796 0xeaec []
-2797 0xeaed []
-2798 0xeaee []
-2799 0xeaef []
-2800 0xeaf0 []
-2801 0xeaf1 []
-2802 0xeaf2 []
-2803 0xeaf3 []
-2804 0xeaf4 []
-2805 0xeaf5 []
-2806 0xeaf6 []
-2807 0xeaf7 []
-2808 0xeaf8 []
-2809 0xeaf9 []
-2810 0xeafa []
-2811 0xeafb []
-2812 0xeafc []
-2813 0xeafd []
-2814 0xeafe []
-2815 0xeaff []
-
+2786 0xeae2 []	LepCam N12 sin (Morandi 1998:107)
+2787 0xeae3 []	LepCam N12 dex (0, Morandi 1998:107)
+2788 0xeae4 []	LepCam N13 sin (Morandi 1998:109)
+2789 0xeae5 []	LepCam N13 dex (Morandi 1998:109)

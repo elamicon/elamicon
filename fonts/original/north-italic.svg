@@ -26,13 +26,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.60094863"
-     inkscape:cx="224.38746"
-     inkscape:cy="456.31203"
+     inkscape:cx="221.98739"
+     inkscape:cy="432.21641"
      inkscape:document-units="px"
-     inkscape:current-layer="layer686"
+     inkscape:current-layer="layer731"
      showgrid="false"
      showguides="true"
-     inkscape:window-width="1150"
+     inkscape:window-width="1188"
      inkscape:window-height="1198"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -4567,6 +4567,51 @@
          id="glyph4223"
          unicode=""
          d="m 438.04297,951.54102 -57.3125,-36.06055 V 273.0293 h 80 v 578.8789 l 132.5,-63.61132 -92.55859,-84.64454 -12.66016,-34.76367 96.58984,-397.62109 79.31055,10.49023 -93.85547,376.9375 120.85156,110.52149 -9.68164,65.57812 z" />
+      <glyph
+         glyph-name="LepCam N12 sin (Morandi 1998:107)"
+         id="glyph4280"
+         unicode=""
+         d="M 570.19141,917.16602 V 696.99023 l -99.48829,57.43946 h -40 l -122.4082,-70.67383 40,-69.28125 102.4082,59.12695 119.48829,-68.98633 v -332.2539 h 80 v 644.80469 z" />
+      <glyph
+         glyph-name="LepCam N12 dex (0, Morandi 1998:107)"
+         id="glyph4283"
+         unicode=""
+         d="M 381.51172,918.83008 V 274.02539 h 80 V 606.2793 L 581,675.26562 l 102.4082,-59.12695 40,69.28125 L 601,756.09375 H 561 L 461.51172,698.6543 v 220.17578 z" />
+      <glyph
+         glyph-name="LepCam N13 sin (Morandi 1998:109)"
+         id="glyph4285"
+         unicode=""
+         d="M 522.55273,919.40039 V 625.1543 H 422.49219 v -80 H 522.55273 V 273.45508 h 80 v 645.94531 z" />
+      <glyph
+         glyph-name="LepCam N13 dex (Morandi 1998:109)"
+         id="glyph4289"
+         unicode=""
+         d="M 439.13281,919.40039 V 273.45508 h 80 V 545.1543 h 100.06055 v 80 H 519.13281 v 294.24609 z" />
+      <glyph
+         glyph-name="Etr P5 sin (Cristofani 1995:Tav XX, L3, S9)"
+         id="glyph4262"
+         unicode=""
+         d="m 661.75781,960.10742 -437.64258,-161.41015 27.6836,-75.0586 383.79883,141.55469 V 381.01367 C 616.9292,397.91181 598.63755,411.98391 580.27734,423.12109 539.58008,447.8078 496.92115,457.89504 456.14453,452.6875 374.59129,442.27242 309.4142,383.08383 225.17578,310.57812 l 52.1875,-60.63281 c 83.81462,72.14093 143.81256,117.6266 188.91602,123.38672 22.55173,2.88006 43.59117,-1.07068 72.50781,-18.61133 28.91664,-17.54065 64.19234,-49.65967 106.04883,-100.02539 l 70.76172,25.56641 v 642.31836 z" />
+      <glyph
+         glyph-name="Etr P5 dex (Cristofani 1995:Tav XX, L3, S9)"
+         id="glyph4267"
+         unicode=""
+         d="m 312.30273,961.49414 -53.84179,-37.5293 v -642.3164 l 70.76367,-25.56641 c 41.85649,50.36572 77.13219,82.48474 106.04883,100.02539 28.91663,17.54065 49.95608,21.48944 72.50781,18.60938 45.10346,-5.76012 105.1014,-51.2458 188.91602,-123.38672 l 52.1875,60.63476 c -84.23842,72.5057 -149.41552,131.69234 -230.96875,142.10743 -40.77662,5.20754 -83.43751,-4.87971 -124.13477,-29.56641 -18.36088,-11.1376 -36.65114,-25.20845 -55.32031,-42.10742 v 484.17968 l 383.80078,-141.55273 27.68164,75.05664 z" />
+      <glyph
+         glyph-name="Etr Samech1"
+         id="glyph4244"
+         d="m 138.11523,955.92383 -39.999996,-40 v -640.6543 l 39.999996,-40 h 643.98243 l 40,40 v 640.6543 l -40,40 z m 40,-80 H 427.59375 V 654.73242 H 178.11523 Z m 329.47852,0 H 742.09766 V 654.73242 H 507.59375 Z M 178.11523,574.73242 H 427.59375 V 315.26953 H 178.11523 Z m 329.47852,0 H 742.09766 V 315.26953 H 507.59375 Z"
+         unicode="" />
+      <glyph
+         glyph-name="Etr M2 sin"
+         id="glyph4274"
+         unicode=""
+         d="M 802.40039,874.22656 600.7793,716.71094 V 839.37695 L 536.30469,871.01562 336.19922,716.2168 v 130.58398 h -80 V 273.60547 h 80 v 341.4668 L 520.7793,757.86133 V 273.60547 h 80 V 615.18945 L 787.02539,760.69531 V 273.60547 h 80 v 569.09961 z" />
+      <glyph
+         glyph-name="Etr M2 dex"
+         id="glyph4284"
+         unicode=""
+         d="m 278.39062,873.44336 -64.625,-31.52148 V 272.82227 h 80 V 759.91211 L 480.01172,614.40625 V 272.82227 h 80 V 757.07812 L 744.5918,614.28906 V 272.82227 h 80 v 573.19531 h -80 V 715.43359 L 544.48633,870.23242 480.01172,838.59375 V 715.92773 Z" />
     </font>
     <pattern
        y="0"
@@ -4915,7 +4960,7 @@
      inkscape:groupmode="layer"
      id="layer686"
      inkscape:label="Run &lt;1?&gt; (Peo 2019)"
-     style="display:inline">
+     style="display:none">
     <path
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="m 419.27344,85.037109 v 52.072271 l -134.75586,77.80078 40,69.2832 94.75586,-54.70703 v 59.77344 l -138.14649,79.75781 40,69.2832 98.14649,-56.66601 v 62.38085 l -138.14649,79.75782 40,69.2832 98.14649,-56.66602 v 60.74805 l -138.14649,79.75781 40,69.28125 98.14649,-56.66406 v 90.88086 h 80 v -87.72851 l 90.71679,53.73828 40.77344,-68.83008 -131.49023,-77.89063 v -60.14062 l 90.71679,53.73828 40.77344,-68.83008 -131.49023,-77.89062 v -61.77344 l 90.71679,53.73828 40.77344,-68.83008 -131.49023,-77.89062 V 228.67188 L 593.38281,284.41797 634.1543,215.58789 499.27344,135.6875 V 85.037109 Z"
@@ -6710,6 +6755,35 @@
   </g>
   <g
      inkscape:groupmode="layer"
+     id="layer731"
+     inkscape:label="Etr M2 dex"
+     style="display:inline">
+    <g
+       transform="matrix(-1,0,0,1,1080.7912,0.7841672)"
+       id="g4247-5">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 278.39062 150.55664 L 213.76562 182.07812 L 213.76562 751.17773 L 293.76562 751.17773 L 293.76562 264.08789 L 480.01172 409.59375 L 480.01172 751.17773 L 560.01172 751.17773 L 560.01172 266.92188 L 744.5918 409.71094 L 744.5918 751.17773 L 824.5918 751.17773 L 824.5918 177.98242 L 744.5918 177.98242 L 744.5918 308.56641 L 544.48633 153.76758 L 480.01172 185.40625 L 480.01172 308.07227 L 278.39062 150.55664 z "
+         transform="matrix(-1,0,0,1,1080.7912,-0.7841672)"
+         id="path4238-2" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer730"
+     inkscape:label="Etr M2 sin"
+     style="display:none">
+    <g
+       id="g4247">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="M 802.40039,149.77344 600.7793,307.28906 V 184.62305 L 536.30469,152.98438 336.19922,307.7832 V 177.19922 h -80 v 573.19531 h 80 V 408.92773 L 520.7793,266.13867 v 484.25586 h 80 V 408.81055 L 787.02539,263.30469 v 487.08984 h 80 V 181.29492 Z"
+         id="path4238"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
      id="layer713"
      inkscape:label="EtrVen H8 dex (0) (Prosdocimi &amp; Scardigli 1976:183)"
      style="display:none">
@@ -6728,6 +6802,17 @@
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="m 592.33398,78.076172 v 0.691406 L 592.27734,78.6875 309.57422,278.39453 V 82.412109 h -80 V 334.91016 l -0.0566,0.0391 0.0566,0.0801 v 451.36523 h 78.8418 l 0.23632,0.33399 0.47266,-0.33399 h 0.44922 v -0.31641 l 282.75976,-199.7481 v 192.40039 h 80 V 78.076172 Z m 0,98.517578 V 280.875 L 309.57422,480.62305 V 376.3418 Z m 0,202.23047 V 488.38281 L 309.57422,688.13086 V 578.57227 Z"
        id="path4237"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer729"
+     inkscape:label="Etr Samech1"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 138.11523,68.076172 98.115234,108.07617 v 640.6543 l 39.999996,40 h 643.98243 l 40,-40 v -640.6543 l -40,-39.999998 z m 40,79.999998 H 427.59375 V 369.26758 H 178.11523 Z m 329.47852,0 H 742.09766 V 369.26758 H 507.59375 Z M 178.11523,449.26758 H 427.59375 V 708.73047 H 178.11523 Z m 329.47852,0 H 742.09766 V 708.73047 H 507.59375 Z"
+       id="path4235"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -6752,6 +6837,28 @@
        id="path4011"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccccccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer728"
+     inkscape:label="Etr P5 dex (Cristofani 1995:Tav XX, L3, S9)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 312.30273,62.505859 -53.84179,37.529301 v 642.3164 l 70.76367,25.56641 c 41.85649,-50.36572 77.13219,-82.48474 106.04883,-100.02539 28.91663,-17.54065 49.95608,-21.48944 72.50781,-18.60938 45.10346,5.76012 105.1014,51.2458 188.91602,123.38672 l 52.1875,-60.63476 C 664.64635,639.52946 599.46925,580.34282 517.91602,569.92773 c -40.77662,-5.20754 -83.43751,4.87971 -124.13477,29.56641 -18.36088,11.1376 -36.65114,25.20845 -55.32031,42.10742 V 157.42188 l 383.80078,141.55273 27.68164,-75.05664 z"
+       id="path4228-6"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer727"
+     inkscape:label="Etr P5 sin (Cristofani 1995:Tav XX, L3, S9)"
+     style="display:none">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 661.75781,63.892578 -437.64258,161.410152 27.6836,75.0586 383.79883,-141.55469 V 642.98633 C 616.9292,626.08819 598.63755,612.01609 580.27734,600.87891 539.58008,576.1922 496.92115,566.10496 456.14453,571.3125 374.59129,581.72758 309.4142,640.91617 225.17578,713.42188 l 52.1875,60.63281 c 83.81462,-72.14093 143.81256,-117.6266 188.91602,-123.38672 22.55173,-2.88006 43.59117,1.07068 72.50781,18.61133 28.91664,17.54065 64.19234,49.65967 106.04883,100.02539 l 70.76172,-25.56641 V 101.41992 Z"
+       id="path4228"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -13626,6 +13733,80 @@
        d="M 438.30664,105.74609 V 454.04102 H 301.22266 l -40,40 v 256.15625 h 80 V 534.04102 h 275.34765 v 216.50976 h 80 V 494.04102 l -40,-40 H 518.30664 V 105.74609 Z"
        id="path3947"
        inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer726"
+     inkscape:label="LepCam N13 dex (Morandi 1998:109)"
+     style="display:none">
+    <g
+       style="display:inline"
+       id="g4118-8-5"
+       transform="matrix(-1,0,0,1,984.40628,-1.1261209)">
+      <g
+         id="g4122-7-1">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="m 439.13281,104.59961 v 645.94531 h 80 V 478.8457 h 100.06055 v -80 H 519.13281 V 104.59961 Z"
+           transform="matrix(-1,0,0,1,984.40628,1.1261209)"
+           id="path3017-8-0-6-1"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer725"
+     inkscape:label="LepCam N13 sin (Morandi 1998:109)"
+     style="display:none">
+    <g
+       style="display:inline"
+       id="g4118-8-2"
+       transform="translate(57.280094,-1.1261207)">
+      <g
+         id="g4122-7-5">
+        <path
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="M 522.55273,104.59961 V 398.8457 H 422.49219 v 80 h 100.06054 v 271.69922 h 80 V 104.59961 Z"
+           transform="translate(-57.280094,1.1261207)"
+           id="path3017-8-0-6-6"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer724"
+     inkscape:label="LepCam N12 dex (0, Morandi 1998:107)"
+     style="display:none">
+    <g
+       transform="rotate(-180,508.96968,427.86007)"
+       style="display:inline"
+       id="g3958-1-8">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 381.51172,105.16992 v 644.80469 h 80 V 417.7207 L 581,348.73438 l 102.4082,59.12695 40,-69.28125 L 601,267.90625 H 561 L 461.51172,325.3457 V 105.16992 Z"
+         transform="rotate(180,508.96968,427.86007)"
+         id="path3952-1-0"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer723"
+     inkscape:label="LepCam N12 sin (Morandi 1998:107)"
+     style="display:none">
+    <g
+       transform="matrix(1,0,0,-1,13.762805,857.38417)"
+       style="display:inline"
+       id="g3958-1">
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         d="m 570.19141,106.83398 v 220.17579 l -99.48829,-57.43946 h -40 l -122.4082,70.67383 40,69.28125 102.4082,-59.12695 119.48829,68.98633 v 332.2539 h 80 V 106.83398 Z"
+         transform="matrix(1,0,0,-1,-13.762805,857.38417)"
+         id="path3952-1"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
