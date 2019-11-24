@@ -5,6 +5,7 @@ import Dict
 import Dict.Extra
 import Grams
 import Browser
+import Browser.Dom as Dom
 import Browser.Navigation
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -21,6 +22,7 @@ import Search
 import Set
 import String
 import String exposing (fromInt)
+import Task
 import Url
 import WritingDirections exposing (..)
 import RomanNumerals
@@ -66,14 +68,43 @@ type alias Model =
     }
 
 -- Select a script based on the URL fragment
+-- Example "#elam&pos=example" -> "elam"
 scriptFromUrl : Url.Url -> Maybe Script
 scriptFromUrl url =
     case url.fragment of
         Nothing -> Nothing
-        Just scriptId ->
-            case List.filter (\s -> s.id == scriptId) Scripts.scripts of
-                [] -> Nothing
-                script :: _ -> Just script
+        Just fragment ->
+            let
+                params = String.split "&" fragment
+                found = List.filterMap Scripts.fromName params
+            in
+                List.head found
+
+
+-- Example "#elam&pos=example" -> "example"
+posFromUrl url =
+    case url.fragment of
+        Nothing -> Nothing
+        Just fragment ->
+            let
+                params = String.split "&" fragment
+                prefix = "pos="
+                posVal = String.dropLeft (String.length prefix)
+                maybePos s = if String.startsWith prefix s
+                    then Just (posVal s)
+                    else Nothing
+                found = List.filterMap maybePos params
+            in
+                List.head found
+
+
+scrollToPos maybePos =
+    case maybePos of
+        Nothing -> Cmd.none
+        Just pos -> Dom.getElement pos
+            |> Task.andThen (\info -> Dom.setViewport info.element.x info.element.y)
+            |> Task.attempt (\_ -> NoOp)
+
 
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
@@ -128,6 +159,7 @@ type Msg
     | Toggle String
     | LinkClicked Browser.UrlRequest
     | UrlChanged Url.Url
+    | NoOp
 
 
 scriptUpdate : Script -> Model -> Model
@@ -305,18 +337,29 @@ update msg model =
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    -- So far we don't use internal links, but some static
-                    -- files look like they're internal to this router.
-                    ( model, Browser.Navigation.load (Url.toString url) )
-
+                    case url.fragment of
+                        Just f ->
+                            -- Jump to the desired section
+                            ( model, Browser.Navigation.pushUrl model.key (Url.toString url) )
+                        Nothing ->
+                            -- Static files look like they're internal to this router.
+                            -- Hand the link to the browser.
+                            ( model, Browser.Navigation.load (Url.toString url) )
                 Browser.External href ->
                     ( model, Browser.Navigation.load href )
 
         UrlChanged url ->
             let
-                new = Maybe.withDefault Scripts.initialScript (scriptFromUrl url)
+                newScript = Maybe.withDefault Scripts.initialScript (scriptFromUrl url)
+                modelWithNewUrl = { model | url = url }
+                newModel = if newScript /= model.script
+                    then scriptUpdate newScript modelWithNewUrl
+                    else modelWithNewUrl
             in
-                ( scriptUpdate new { model | url = url } , Cmd.none )
+                ( newModel , scrollToPos (posFromUrl url) )
+
+        NoOp ->
+            (model, Cmd.none)
 
 
 dirStr dir =
@@ -421,6 +464,13 @@ view model =
 
         selectedFragments =
             List.filter (\f -> Set.member f.group model.selectedGroups) model.script.fragments
+
+        charId fragmentId index = fragmentId ++ fromInt index
+
+        charLink fragmentId index =
+            String.concat
+                [ "#", model.script.id
+                , "&pos=", fragmentId, fromInt index ]
 
         -- Normalize letters if this is enabled
         normalize =
@@ -846,7 +896,7 @@ view model =
                             Tuple.first result.location
 
                         ref =
-                            href <| String.concat [ "#", fragment.id, fromInt index ]
+                            href (charLink fragment.id index)
 
                         -- Remove spaces and ensure the guessmarks are oriented left
                         removeWhitespace = String.words >> String.concat
@@ -1024,19 +1074,25 @@ view model =
                                     else
                                         []
 
-                                titleAttr =
-                                    [ title (String.concat [ fromInt (lineNr + 1), ".", fromInt (idx - lineIdx + 1) ]) ]
-
-                                idAttr =
-                                    [ id <| String.concat [ fragment.id, fromInt idx ] ]
+                                charAttrs =
+                                    [ title (String.concat [ fromInt (lineNr + 1), ".", fromInt (idx - lineIdx + 1) ])
+                                    , id (charId fragment.id idx)
+                                    ]
 
                                 charStr = String.fromChar char
                             in
                             if indexed char then
-                                ( a (highlightClass ++ titleAttr ++ idAttr) [ text (syllabize charStr) ] :: tailElems, idx + 1 )
-
+                                ( span
+                                    (highlightClass ++ charAttrs)
+                                    [ text (syllabize charStr) ] :: tailElems
+                                , idx + 1
+                                )
                             else
-                                ( span (guessmarkClass char) [ text charStr ] :: tailElems, idx )
+                                ( span
+                                    (guessmarkClass char)
+                                    [ text charStr ] :: tailElems
+                                , idx
+                                )
 
                         ( elems, endIdx ) =
                             String.toList chars |> List.foldl charPos ( [], lineIdx )

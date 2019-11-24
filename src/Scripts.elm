@@ -1,4 +1,4 @@
-module Scripts exposing (dedupe, initialScript, normalization, normalizer, scripts, sylDict, syllabaryList, syllabizer)
+module Scripts exposing (scripts, fromName, dedupe, initialScript, normalization, normalizer, sylDict, syllabaryList, syllabizer)
 
 import Byblos as Byblos
 import Elam as Elam
@@ -22,6 +22,8 @@ scripts : List Script
 scripts =
     [ Byblos.byblos, Elam.elam, Raetic.raetic, Lepontic.lepontic, Etruscan.etruscan, Runic.runic ]
 
+fromName : String -> Maybe Script
+fromName n = List.head (List.filter (\s -> s.id == n) scripts)
 
 initialScript =
     Elam.elam
