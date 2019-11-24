@@ -9,7 +9,7 @@ all: elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthIt
 build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip fonts/copyright
 	cp -r plates build
 	cp -r css build
-	cp -r index.html build
+	cp index.html logo.png build
 	mkdir -p build/fonts
 	cp -r fonts/*Liberation* build/fonts
 	cp -r fonts/*.zip build/fonts
