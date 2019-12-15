@@ -6,5 +6,6 @@ elamicon.*.js
 fonts/*.ttf
 fonts/*.svg
 fonts/*.zip
+fonts/original/north-italic.txt
 build
 src/Generated

@@ -15,6 +15,9 @@ build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts
 	cp -r fonts/*.zip build/fonts
 	cp fonts/copyright build/fonts
 
+fonts/original/north-italic.txt: fonts/original/north-italic.docx
+	bin/docx_to_lines $^ > "$@"
+
 src/Generated: fonts/original/north-italic.txt
 	mkdir -p "$@"
 	bin/extract_script_chars Raet,All Generated.Raetic < $^ > src/Generated/Raetic.elm
