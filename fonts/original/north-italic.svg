@@ -13,10 +13,10 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    height="1000"
    width="1000"
-   sodipodi:docname="north-italic.svg"
+   sodipodi:docname="Corpu North Italic and Runes.svg"
    version="1.1"
    id="svg3746"
-   inkscape:version="0.92.1 r15371"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    enable-background="new">
   <sodipodi:namedview
      id="base"
@@ -25,18 +25,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.708"
-     inkscape:cx="249.29379"
-     inkscape:cy="432.21641"
+     inkscape:zoom="0.354"
+     inkscape:cx="273.96259"
+     inkscape:cy="487.14664"
      inkscape:document-units="px"
-     inkscape:current-layer="layer689"
+     inkscape:current-layer="layer104"
      showgrid="false"
      showguides="true"
-     inkscape:window-width="1534"
-     inkscape:window-height="1438"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
      showborder="true"
      inkscape:showpageshadow="false"
      inkscape:lockguides="true"
@@ -1571,7 +1571,7 @@
          glyph-name="Raet R1 dex"
          id="glyph4310"
          unicode=""
-         d="m 386.73047,952.75391 -53.5293,-37.64258 V 272.03711 l 48.51563,-39.08399 c 145.55606,31.71531 255.76711,168.92512 277.58984,320.56836 21.82273,151.64325 -55.57234,321.23067 -272.57617,399.23243 z m 26.4707,-97.82422 C 558.44459,783.9111 595.59476,672.4269 580.12305,564.91602 565.61636,464.11098 497.16804,369.53645 413.20117,328.45898 Z" />
+         d="M 395.22266,938.88086 323.81055,914.11719 V 271.04102 l 69.46875,-27.04883 272.73242,297.13672 1.94336,51.8125 z M 403.81055,798.77148 584.05664,570.14453 403.81055,373.77148 Z" />
       <glyph
          glyph-name="Raet R2 sin"
          id="glyph4315"
@@ -3321,7 +3321,7 @@
          glyph-name="EtrVen L3  [= ..."
          id="glyph4073"
          unicode=""
-         d="M 374.75781,913.74414 V 272.10352 l 62.70508,-32.92969 272.73242,188.04101 -45.41015,65.86328 -210.02735,-144.80859 v 565.47461 z" />
+         d="M 630.19531,913.74414 V 348.26953 l -210.02734,144.80859 -45.41016,-65.86328 272.73242,-188.04101 62.70508,32.92969 v 641.64062 z" />
       <glyph
          glyph-name="EtrVen L4  [= LatGraff L1 sin]"
          id="glyph4076"
@@ -4724,7 +4724,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -7838,7 +7838,7 @@
            id="tspan4951"
            style="font-style:normal;font-variant:normal;font-weight:400;font-size:16.0625px;font-family:'Times New Roman';fill:#000000"
            dy="0"
-           dx="0" /></tspan></text>
+           dx="0"> </tspan></tspan></text>
     <g
        style="display:inline"
        id="g2393-11-3-3-9-3"
@@ -7859,11 +7859,11 @@
     <g
        style="display:inline"
        id="g2393-11-3-3-9"
-       transform="rotate(-180,505.94845,430.96208)">
+       transform="matrix(1,0,0,-1,73.05622,861.92416)">
       <path
          style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-         d="M 374.75781,110.25586 V 751.89648 L 437.46289,784.82617 710.19531,596.78516 664.78516,530.92188 454.75781,675.73047 V 110.25586 Z"
-         transform="rotate(180,505.94845,430.96208)"
+         d="M 630.19531,110.25586 V 675.73047 L 420.16797,530.92188 374.75781,596.78516 647.49023,784.82617 710.19531,751.89648 V 110.25586 Z"
+         transform="matrix(1,0,0,-1,-73.05622,861.92416)"
          id="path2385-3-3-96-3"
          inkscape:connector-curvature="0" />
     </g>
@@ -8458,16 +8458,17 @@
      inkscape:groupmode="layer"
      id="layer689"
      inkscape:label="Etr T3 dex (ab 4. Jh.) [= Raet T1 dex]"
-     style="display:inline">
+     style="display:none">
     <g
        transform="matrix(-1,0,0,1,999.29408,1.3350341)"
        style="display:inline"
        id="g6896-5-2">
       <path
          style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-         d="M 451.15039 106.49609 L 451.15039 269.1543 L 352.49805 215.00977 L 314.00781 285.14062 L 451.15039 360.41016 L 451.15039 750.13477 L 531.15039 750.13477 L 531.15039 404.31641 L 622.62695 454.52148 L 661.11719 384.39062 L 531.15039 313.06055 L 531.15039 106.49609 L 451.15039 106.49609 z "
+         d="M 451.15039,106.49609 V 269.1543 l -98.65234,-54.14453 -38.49024,70.13085 137.14258,75.26954 v 389.72461 h 80 V 404.31641 l 91.47656,50.20507 38.49024,-70.13086 -129.9668,-71.33007 V 106.49609 Z"
          transform="matrix(-1,0,0,1,999.29408,-1.3350341)"
-         id="path3884-1-4" />
+         id="path3884-1-4"
+         inkscape:connector-curvature="0" />
     </g>
   </g>
   <g
@@ -14836,12 +14837,11 @@
      inkscape:groupmode="layer"
      id="layer104"
      inkscape:label="Raet R1 dex"
-     style="display:none">
+     style="display:inline">
     <path
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:80;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 395.22248,85.119477 272.73243,345.939453 -1.94336,51.8125 -272.73242,297.13672 -69.46875,-27.04883 V 109.88315 Z m 8.5879,140.109373 v 425 L 584.05647,453.85581 Z"
-       id="path3795-1"
-       inkscape:connector-curvature="0" />
+       d="M 395.22266 85.119141 L 323.81055 109.88281 L 323.81055 752.95898 L 393.2793 780.00781 L 666.01172 482.87109 L 667.95508 431.05859 L 395.22266 85.119141 z M 403.81055 225.22852 L 584.05664 453.85547 L 403.81055 650.22852 L 403.81055 225.22852 z "
+       id="path3795-1" />
   </g>
   <g
      inkscape:groupmode="layer"
