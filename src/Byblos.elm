@@ -497,7 +497,7 @@ alternateSyllabaries =
 codepointSyllabary =
     { id = "splitting"
     , name = "Codepoint order"
-    , syllabary = String.join " " (List.map String.fromChar tokens)
+    , syllabary = String.join "\n" (List.map String.fromChar tokens)
     }
 
 syllabaries : List SyllabaryDef
@@ -950,7 +950,6 @@ Feel free to contact the [Byblicon research team](mailto:michael.maeder@isw.unib
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
-    , initialSyllabary = initialSyllabary
     , groups = groups
     , fragments = fragments
     , decorations = { headline = ("", "")

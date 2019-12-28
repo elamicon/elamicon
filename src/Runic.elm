@@ -13,7 +13,7 @@ import Specialchars exposing (..)
 import Tokens 
 import Generated.Runic
 
-rawTokens = Tokens.toList Generated.Runic.tokens
+rawTokens = List.map .token Generated.Runic.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -37,14 +37,19 @@ syllables = Dict.empty
 syllableMap = String.trim """
 """
 
-codepointSyllabary =
-    { id = "splitting"
-    , name = "Codepoint order"
-    , syllabary = String.join " " (List.map String.fromChar tokens)
-    }
-
 syllabaries : List SyllabaryDef
-syllabaries = [ codepointSyllabary ]
+syllabaries = 
+    [ { id = "typegroups"
+      , name = "Typegroups"
+      , syllabary = Generated.Runic.syllabary
+      }
+    , { id = "codepoints"
+      , name = "Codepoint order"
+      , syllabary = String.join "\n" (List.map String.fromChar tokens)
+      }
+    ]
+    
+
 
 
 fragments : List FragmentDef
@@ -80,7 +85,6 @@ None
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
-    , initialSyllabary = codepointSyllabary
     , groups = []
     , fragments = fragments
     , decorations = { headline = ("", "")

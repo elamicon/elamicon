@@ -13,7 +13,7 @@ import Specialchars exposing (..)
 import Tokens 
 import Generated.Raetic
 
-rawTokens = Tokens.toList Generated.Raetic.tokens
+rawTokens = List.map .token Generated.Raetic.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -37,51 +37,17 @@ syllables = Dict.empty
 syllableMap = String.trim """
 """
 
-letterGroupSyllabary =
-    { id = "group"
-    , name = "By Letter"
-    , syllabary = """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-    }
-
-
-codepointSyllabary =
-    { id = "splitting"
-    , name = "Codepoint order"
-    , syllabary = String.join " " (List.map String.fromChar tokens)
-    }
-
 syllabaries : List SyllabaryDef
-syllabaries = [ letterGroupSyllabary, codepointSyllabary ]
+syllabaries = 
+    [ { id = "typegroups"
+      , name = "Typegroups"
+      , syllabary = Generated.Raetic.syllabary
+      }
+    , { id = "codepoints"
+      , name = "Codepoint order"
+      , syllabary = String.join "\n" (List.map String.fromChar tokens)
+      }
+    ]
 
 
 -- We grouped the fragments according to where they were found
@@ -123,7 +89,6 @@ None.
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
-    , initialSyllabary = letterGroupSyllabary
     , groups = groups
     , fragments = fragments
     , decorations = { headline = ("", "")

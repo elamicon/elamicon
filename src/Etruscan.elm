@@ -13,7 +13,7 @@ import Specialchars exposing (..)
 import Tokens 
 import Generated.Etruscan
 
-rawTokens = Tokens.toList Generated.Etruscan.tokens
+rawTokens = List.map .token Generated.Etruscan.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -37,60 +37,17 @@ syllables = Dict.empty
 syllableMap = String.trim """
 """
 
-letterGroupSyllabary =
-    { id = "group"
-    , name = "By Letter"
-    , syllabary = String.trim """
-A
-C
-E
-V
-Z
-H
-
-I
-K
-L
-M
-N
-P
-Ś
-Q
-R
-S
-T
-U
-X
-F
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        """
-    }
-
-codepointSyllabary =
-    { id = "splitting"
-    , name = "Codepoint order"
-    , syllabary = String.join " " (List.map String.fromChar tokens)
-    }
-
 syllabaries : List SyllabaryDef
-syllabaries = [ letterGroupSyllabary, codepointSyllabary ]
-
+syllabaries = 
+    [ { id = "typegroups"
+      , name = "Typegroups"
+      , syllabary = Generated.Etruscan.syllabary
+      }
+    , { id = "codepoints"
+      , name = "Codepoint order"
+      , syllabary = String.join "\n" (List.map String.fromChar tokens)
+      }
+    ]
 
 fragments : List FragmentDef
 fragments = [ ]
@@ -133,7 +90,6 @@ If no "Further source" reference (see below) is indicated in the sign name, the 
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
-    , initialSyllabary = letterGroupSyllabary
     , groups = []
     , fragments = fragments
     , decorations = { headline = ("", "")

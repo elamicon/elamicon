@@ -22,6 +22,7 @@ import Search
 import Set
 import String
 import String exposing (fromInt)
+import Syllabary
 import Task
 import Url
 import WritingDirections exposing (..)
@@ -48,7 +49,8 @@ type alias Model =
     , fixedBreak : Bool
     , selected : Maybe Pos
     , syllabaryId : Maybe String
-    , syllabary : String
+    , syllabary : Syllabary.Syllabary
+    , syllabaryString : String
     , missingSyllabaryChars : String
     , syllableMap : String
     , syllabizer : String -> String
@@ -119,7 +121,8 @@ init _ url key =
             , normalize = False
             , removeChars = ""
             , syllabaryId = Nothing
-            , syllabary = ""
+            , syllabary = Syllabary.fromString ""
+            , syllabaryString = ""
             , missingSyllabaryChars = ""
             , syllableMap = script.syllableMap
             , syllabizer = Scripts.syllabizer script.syllableMap
@@ -167,8 +170,13 @@ scriptUpdate new model =
     let
         selectedGroups =
             Set.fromList (List.map .short new.groups)
+
+        initialSyllabary =
+            case List.head new.syllabaries of
+                Nothing -> emptySyllabary
+                Just syl -> syl
     in
-        switchSyllabary new.initialSyllabary
+        switchSyllabary initialSyllabary
             { model
                 | script = new
                 , selectedGroups = selectedGroups
@@ -180,28 +188,22 @@ scriptUpdate new model =
 setSyllabary : String -> Model -> Model
 setSyllabary new model =
     let
-        ( deduped, missing ) =
-            Scripts.dedupe model.script.tokens model.script.indexed new
-
-        newNormalizer =
-            Scripts.normalizer (Scripts.normalization model.script.tokens deduped)
+        syllabary = Syllabary.filter model.script.indexed <| Syllabary.fromString new
+        tokensInScript = Set.fromList model.script.tokens
+        tokensInSyllabary = Syllabary.allTokens syllabary
+        missing = Set.diff tokensInScript tokensInSyllabary
     in
     { model
-        | syllabary = deduped
-        , normalizer = newNormalizer
-        , missingSyllabaryChars = missing
+        | syllabary = syllabary
+        , syllabaryString = new
+        , normalizer = Syllabary.normalize syllabary
+        , missingSyllabaryChars = String.fromList <| Set.toList missing
     }
 
 
 switchSyllabary : SyllabaryDef -> Model -> Model
 switchSyllabary new model =
     let
-        ( deduped, missing ) =
-            Scripts.dedupe model.script.tokens model.script.indexed new.syllabary
-
-        newNormalizer =
-            Scripts.normalizer (Scripts.normalization model.script.tokens deduped)
-
         updated =
             setSyllabary new.syllabary model
     in
@@ -561,42 +563,42 @@ view model =
         syllabaryView =
             \_ ->
                 [ ol [ dirAttr LTR, classList [ ( "syllabary", True ) ] ]
-                    (List.map syllabaryEntry (Scripts.syllabaryList (charFilter model.syllabary))
+                    (List.map syllabaryEntry (Syllabary.filter keepChar model.syllabary)
                         ++ List.map specialEntry specialchars
                     )
                 ]
 
-        syllabaryEntry : (Char, List Char) -> Html Msg
-        syllabaryEntry ( principal, ext ) =
+        syllabaryEntry : Syllabary.Type -> Html Msg
+        syllabaryEntry t =
             let
                 shownExt =
                     if model.normalize then
                         []
 
                     else
-                        List.map String.fromChar ext
+                        List.map String.fromChar t.tokens
 
                 maybeSyls = Dict.get
-                    principal
+                    t.representative
                     model.script.syllables
 
                 syls = Maybe.withDefault [] maybeSyls
 
-                letterEntry entryClass char =
-                    div [ classList [ ( model.script.id, True ), ( entryClass, True ) ], onClick (AddChar char) ] [ text char ]
+                letterEntry entryClass sign add =
+                    div [ classList [ ( model.script.id, True ), ( entryClass, True ) ], onClick (AddChar add) ] [ text sign ]
 
                 syllableEntry syl =
                     div [ class "syl" ] [ text syl ]
             in
             li [ class "letter" ]
-                ([ letterEntry "main" (String.fromChar principal) ]
+                ([ letterEntry "main" t.name (String.fromChar t.representative) ]
                     ++ (if shownExt /= [] || List.length syls > 0 then
-                            [ div [ class "menu" ] (List.map (letterEntry "ext") shownExt ++ List.map syllableEntry syls) ]
+                            [ div [ class "menu" ] (List.map (\ext -> letterEntry "ext" ext ext) shownExt ++ List.map syllableEntry syls) ]
 
                         else
                             []
                        )
-                    ++ List.map (letterEntry "ext") shownExt
+                    ++ List.map (\ext -> letterEntry "ext" ext ext) shownExt
                     ++ [ div [ class "clear" ] [] ]
                 )
 
@@ -772,7 +774,7 @@ view model =
                         , div []
                             ([ h4 [] [ text "Dynamic Syllabary" ]
                              , syllabarySelection
-                             , Html.textarea [ class model.script.id, value model.syllabary, onInput SetSyllabary ] []
+                             , Html.textarea [ class model.script.id, value model.syllabaryString, onInput SetSyllabary ] []
                              ]
                                 ++ (if not (String.isEmpty model.missingSyllabaryChars) then
                                         [ div [] [ text "The following signs are not listed in the syllabary: ", text model.missingSyllabaryChars ] ]

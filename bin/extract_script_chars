@@ -2,7 +2,7 @@
 # Read characters from a table and generate Elm module
 #
 # Example:
-# 
+#
 #   echo "
 #   0061 [A] Latin Capital Letter A
 #   ...
@@ -14,19 +14,81 @@
 import sys
 import re
 
+def escape(str):
+    """ I believe string literals in Elm have only the
+    backslash and double quote as special chars.
+    Prove me wrong. """
+    return str.replace("\\", "\\\\").replace("\"", "\\\"")
+
+class Types:
+    @classmethod
+    def from_tokens(cls, tokens):
+        types = cls()
+        for t in tokens:
+            types.add(t.group, t.token)
+        return types
+
+    def __init__(self):
+        self.types = {}
+
+    def add(self, name, token):
+        if name in self.types:
+            self.types[name].append(token)
+        else:
+            self.types[name] = [token]
+
+    def syllabary(self):
+        lines = []
+        for name, tokens in sorted(self.types.items()):
+            lines.append("〈{}〉{}".format(name, "".join(tokens)))
+        return "\n".join(lines)
+
+
+
+class Token:
+    @classmethod
+    def from_lines(cls, script_names, lines):
+        """ Read lines with type definitions and yield Types for
+            those that match a script in script_names. """
+        selector = re.compile(r"\[(.)\]\s+(({}).*)$".format("|".join(script_names)))
+        for nr, line in enumerate(lines):
+            match = selector.search(line)
+            if match:
+                try:
+                    yield cls.from_line(match.group(1), match.group(2))
+                except ValueError:
+                    pass
+
+    @classmethod
+    def from_line(cls, token, name_str):
+        name_words = name_str.split()
+        try:
+            name_with_variant = name_words[1]
+            group = re.sub("[0-9]+$", "", name_with_variant)
+        except IndexError:
+            raise ValueError("Need at least two words (script and name) but got '{}'"
+                             .format(name_str))
+        return cls(token, name_str, group)
+
+    def __init__(self, token, name, group):
+        self.token = token
+        self.name = name
+        self.group = group
+
+    def elm_record(self):
+        return ("""{{ token = '{}', name = "{}" }}"""
+                .format(escape(self.token), escape(self.name)))
+
+
 script_names_str = sys.argv[1]
+script_names = script_names_str.split(",")
+
 module_name = sys.argv[2]
 
-script_names = script_names_str.split(",")
-script_names_escaped = map(re.escape, script_names)
-script_names_group = "({})".format("|".join(script_names))
-selector = re.compile(r"\[(.)\]\s+" + script_names_group)
-tokens = []
+tokens = list(Token.from_lines(script_names, sys.stdin))
+token_str = "\n ,".join([t.elm_record() for t in tokens])
 
-for line in sys.stdin:
-    found = selector.search(line)
-    if found:
-        tokens.append(found.group(1))
-
-token_str = "".join(tokens)
-print('module {} exposing (tokens)\ntokens = """{}"""\n'.format(module_name, token_str))
+types = Types.from_tokens(tokens)
+type_str = types.syllabary()
+print('module {} exposing (tokens, syllabary)\ntokens =\n [{}\n ]\nsyllabary = """{}"""'
+       .format(module_name, token_str, escape(type_str)))

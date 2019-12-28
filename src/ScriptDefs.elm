@@ -1,4 +1,4 @@
-module ScriptDefs exposing (Decoration, FragmentDef, GroupDef, Script, SpecialCharDef, SyllabaryDef, Token, Type)
+module ScriptDefs exposing (Decoration, FragmentDef, GroupDef, Script, SpecialCharDef, SyllabaryDef, emptySyllabary, Token, Type)
 
 import Dict exposing (Dict)
 import Regex
@@ -15,6 +15,7 @@ type alias SpecialCharDef =
 type alias SyllabaryDef =
     { id : String, name : String, syllabary : String }
 
+emptySyllabary =  { id = "empty", name = "Empty", syllabary = "" }
 
 -- Details about a group
 --   short: ID of the group
@@ -62,7 +63,6 @@ type alias Script =
     , syllables : Dict Token (List String)
     , syllableMap : String
     , syllabaries : List SyllabaryDef
-    , initialSyllabary : SyllabaryDef
     , groups : List GroupDef
     , fragments : List FragmentDef
     , decorations :

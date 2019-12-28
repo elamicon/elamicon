@@ -13,7 +13,7 @@ import Specialchars exposing (..)
 import Tokens 
 import Generated.Lepontic
 
-rawTokens = Tokens.toList Generated.Lepontic.tokens
+rawTokens = List.map .token Generated.Lepontic.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -37,14 +37,17 @@ syllables = Dict.empty
 syllableMap = String.trim """
 """
 
-codepointSyllabary =
-    { id = "splitting"
-    , name = "Codepoint order"
-    , syllabary = String.join " " (List.map String.fromChar tokens)
-    }
-
 syllabaries : List SyllabaryDef
-syllabaries = [ codepointSyllabary ]
+syllabaries = 
+    [ { id = "typegroups"
+      , name = "Typegroups"
+      , syllabary = Generated.Lepontic.syllabary
+      }
+    , { id = "codepoints"
+      , name = "Codepoint order"
+      , syllabary = String.join "\n" (List.map String.fromChar tokens)
+      }
+    ]
 
 
 fragments : List FragmentDef
@@ -87,7 +90,6 @@ The collection of Lepontic sign variants contains signs from inscriptions which 
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
-    , initialSyllabary = codepointSyllabary
     , groups = []
     , fragments = fragments
     , decorations = { headline = ("", "")
