@@ -10,46 +10,54 @@ import String
 import Tokens
 import WritingDirections exposing (..)
 
-{-| In an undeciphered script it is unclear whether a token that doesn't
-look exactly the same as another token belongs to the same type (has
-the same meaning) or belongs to a different type. For example, the
-letters 'd' and 'b' look very similar and for somebody not trained
-in modern Latin fonts. They wouldn't be sure whether a difference is
-stylistic (the token was written differently) or whether
-the meaning is different (the token belongs to a different type).
-Similarily, they wouldn't know that 'A' and 'a' belong to the
-same type. And depending on context, we might even want to include Greek
-'α' in the type so that searching for 'a' also works in Greek text.
+{-| A **Syllabary** is an ordered list of **Types**.
 
-Undeciphered scripts are catalogued with many token variants to allow
-for the possibility that they belong to different types. Because an
-important part of the decipherment is deciding which tokens belong
-to a type, the many variants are grouped into types dynamically and the
-grouping can be changed quickly.
+We call this data structure a "syllabary". For some scripts
+"alphabetary" would fit better.
 
-Each Type has a (display) name and a Token that is representative for it.
--}
-type alias Type =
-    { name : String, representative : Token, tokens : List Token }
-
-
-{-| We call a collection of Types a "syllabary". We use the term
-for all lists of Types. For some scripts "alphabetary" would fit
-better.
-
-We want to make changes to the syllabary a cheap operation, so the
-interpretation of which types mean the same thing can be changed quickly.
-
-**Linguistic diversion:** Linguists distinguish between tokens and types and the
-distinction is useful here. [More about it on Wikipedia][t].
-
+**Definition:** Linguists distinguish between **tokens** and **types**.
+For example, in the name "Barbara" three **types** are used (B, A, and R)
+but there are seven **tokens** (Bbaaarr). In the context of syllabaries,
+**token** means a letter variant that got its own rendering. In this usage,
+ａ and 𝖆 are not the same **token** in Unicode. But they may be taken to be
+the same **type** when searching. A **type** means a collection of
+**tokens** that are assumed to mean the same thing. [More about types on
+Wikipedia][t].
+ 
 [t] https://en.wikipedia.org/wiki/Type%E2%80%93token_distinction
 -}
 type alias Syllabary = List Type
 
 
+{-| Each **Type** has a display **name** and a **Token** that is the
+**representative** for the **Type**. **tokens** is a list of **Tokens**
+that are in this **Type**.
 
+Undeciphered scripts are catalogued with many letter variants because
+it is unclear which letter variants mean the same thing. Example: Assuming you
+don't know about the Latin alphabet, how would you know whether the letters
+ａ, 𝐚, 𝑎, 𝒂, 𝒶, 𝓪, 𝔞, 𝕒, 𝖆, ⓐ, á, à, ạ, and å mean something different or
+are merely stylistic differences? If we were searching a text-corpus, we
+may want to group them together. But if we don't know the script, it is
+hard to know where to draw the line.
 
+In an undeciphered script it is unclear whether a token that doesn't
+look exactly the same as another token belongs to the same type (has
+the same meaning) or belongs to a different type. For example, the
+letters 'd' and 'b' look very similar for somebody not trained
+in modern Latin fonts. They couldn't know whether a difference is
+stylistic (the token was written differently) or whether
+the meaning is different (the token belongs to a different type).
+Similarily, they wouldn't know that 'A' and 'a' belong to the
+same **type**. And depending on context, we might even want to include Greek
+'α' in the type so that searching for 'a' also works in Greek text.
+
+An important part of the decipherment is deciding which tokens belong
+to a type, the many variants are grouped into types dynamically and the
+grouping can be changed quickly.
+-}
+type alias Type =
+    { name : String, representative : Token, tokens : List Token }
 
 
 {-| Syllabaries can be represented as a string by listing tokens together on a
@@ -83,7 +91,13 @@ leftBrackets = Set.fromList [leftBracket, '<']
 rightBrackets = Set.fromList [rightBracket, '>']
 
 
-{-|
+{-| Read text representation of a syllabary
+
+We want to make changes to the syllabary a cheap operation, so the
+interpretation of which tokens belong to the same type can be changed quickly.
+This is why there may be multiple syllabaries per script to choose from. The
+syllabary can be edited to try new combinations.
+
 Types are only allowed in one group and are dropped from subsequent
 groups if duplicate tokens show up.
 -}
@@ -151,7 +165,7 @@ fromString =
 
 {-|
 Filter a syllabary to only include accepted tokens.
-Groups with no indexed tokens are dropped.
+Groups with no indexed tokens left are dropped by the filter.
 
 Example:
 
@@ -159,7 +173,7 @@ Example:
     filter indexed (fromString "Aa \nBb\nCc")
 
 The resulting syllabary is without the "C" type.
-Note how the stray space character will be dropped because it's not an
+Note how the stray space character will also be dropped because it's not an
 indexed token.
 -}
 filter : (Token -> Bool) -> Syllabary -> Syllabary
@@ -186,6 +200,8 @@ filter accept =
     List.filterMap filterType
 
 
+{-| Extract tokens from a Syllabary.
+-}
 allTokens : Syllabary -> Set Token
 allTokens syllabary =
     let
@@ -195,12 +211,14 @@ allTokens syllabary =
     List.foldl addTokens Set.empty syllabary
 
 
-{-| When searching the corpus (and optionally when displaying it) we want to treat all
-characters in an letter group as the same character. This function builds a
-dictionary that maps all alternate versions of a type to the main type.
+{-| Normalize text by replacing all tokens found in the Syllabary
+with the representative token.
 
-This function maps all types to the representative type in the syllabary.
-Other characters not in the syllabary are left as-is.
+When searching the corpus (and maybe when displaying it) we want to treat all
+tokens as the same token. This function builds a dictionary that maps all
+alternate versions of a type to the representative type.
+
+Tokens not in the syllabary are left as-is.
 -}
 normalize : Syllabary -> String -> String
 normalize syllabary = 
