@@ -5,17 +5,35 @@ import Regex
 import Set exposing (Set)
 import WritingDirections exposing (..)
 
+
+{-| A single letter in the script
+-}
 type alias Token =
     Char
 
+
+{-| A special character used by the script
+
+**displayChar** is the string used to display the character on its own.
+**char** is the codepoint for this special char used by the text corpus.
+**description** is a string that explains usage.
+-}
 type alias SpecialCharDef =
     { displayChar : String, char : Char, description : String }
 
 
+{-| A syllabary version for the script.
+
+**id** is the internal identifier for this syllabary version. Example "search".
+**name** is a display name such as "broad lumping for searching".
+**syllabary** is the syllabary in string-format.
+-}
 type alias SyllabaryDef =
     { id : String, name : String, syllabary : String }
 
+
 emptySyllabary =  { id = "empty", name = "Empty", syllabary = "" }
+
 
 -- Details about a group
 --   short: ID of the group
