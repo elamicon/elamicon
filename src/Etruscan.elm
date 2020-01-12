@@ -61,7 +61,7 @@ etruscan =
     , description = """
 #### Introduction
 The sign corpus of Etruscicon contains all sign variants from inscriptions certainly or possibly belonging to the Etruscan, Venetic or Lemnotic scripts. Signs that occur only in Venetic inscriptions are labelled "EtrVen", signs that occur only on Lemnos are labeled "EtrLem". Signs that occur only or also in Etruscan are labeled "Etr".
- 
+
 If no "Further source" reference (see below) is indicated in the sign name, the sign variant is attested in the main source.
 
 #### Terminology used for labelling the sign variants
