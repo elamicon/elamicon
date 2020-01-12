@@ -6,9 +6,9 @@ import Regex
 import Set
 import String
 
-import ScriptDefs exposing (..)
+import Script exposing (..)
 import Specialchars exposing (..)
-import Tokens exposing (..)
+import Token exposing (..)
 import WritingDirections exposing (..)
 
 -- List of letters found in Linear-Elam writings
@@ -25,7 +25,7 @@ import WritingDirections exposing (..)
 -- Note that the letters are encoded in the Unicode private-use area and will
 -- not show their intended form unless you use the specially crafted "elamicon"
 -- font. They are listed here in codepoint order.
-rawTokens = Tokens.toList <| String.trim """
+rawTokens = Token.toList <| String.trim """
 
 """
 
@@ -35,6 +35,10 @@ seperatorChars = ""
 ignoreChars = Set.union guessMarkers <| Set.fromList [ wildcardChar, fractureMarker ]
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 tokenSet = Set.fromList tokens
+
+-- We don't have the token names in the db. So the name of the token
+-- is the token itself.
+tokenList = Token.selfNamed tokens
 
 -- These letters are counted as character positions
 -- Letter 'X' is used in places where the character has not been mapped yet.
@@ -800,7 +804,7 @@ elam =
     , font = "Elamicon"
     , description = description
     , sources = sources
-    , tokens = tokens
+    , tokens = tokenList
     , seperatorChars = seperatorChars
     , indexed = indexed
     , searchExamples = searchExamples

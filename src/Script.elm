@@ -1,15 +1,10 @@
-module ScriptDefs exposing (Decoration, FragmentDef, GroupDef, Script, SpecialCharDef, SyllabaryDef, emptySyllabary, Token, Type)
+module Script exposing (Decoration, FragmentDef, GroupDef, Script, SpecialCharDef, SyllabaryDef, emptySyllabary, Type)
 
 import Dict exposing (Dict)
 import Regex
 import Set exposing (Set)
 import WritingDirections exposing (..)
-
-
-{-| A single letter in the script
--}
-type alias Token =
-    Char
+import Token exposing (..)
 
 
 {-| A special character used by the script
@@ -32,7 +27,7 @@ type alias SyllabaryDef =
     { id : String, name : String, syllabary : String }
 
 
-emptySyllabary =  { id = "empty", name = "Empty", syllabary = "" }
+emptySyllabary = { id = "empty", name = "Empty", syllabary = "" }
 
 
 -- Details about a group
@@ -74,7 +69,7 @@ type alias Script =
     , font : String
     , description : String
     , sources : String
-    , tokens : List Token
+    , tokens : List NamedToken 
     , seperatorChars : String
     , indexed : Token -> Bool
     , searchExamples : List ( String, String )

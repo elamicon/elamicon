@@ -15,7 +15,7 @@ import List
 import Markdown
 import Markdown.Config exposing (..)
 import Regex
-import ScriptDefs exposing (..)
+import Script exposing (..)
 import Scripts exposing (..)
 import Specialchars exposing (..)
 import Search
@@ -24,6 +24,7 @@ import String
 import String exposing (fromInt)
 import Syllabary
 import Task
+import Token
 import Url
 import WritingDirections exposing (..)
 import RomanNumerals
@@ -189,7 +190,7 @@ setSyllabary : String -> Model -> Model
 setSyllabary new model =
     let
         syllabary = Syllabary.filter model.script.indexed <| Syllabary.fromString new
-        tokensInScript = Set.fromList model.script.tokens
+        tokensInScript = Set.fromList <| Token.fromNamed model.script.tokens
         tokensInSyllabary = Syllabary.allTokens syllabary
         missing = Set.diff tokensInScript tokensInSyllabary
     in
@@ -568,6 +569,8 @@ view model =
                     )
                 ]
 
+        names = Dict.fromList <| List.map (\t -> (String.fromChar t.token, t.name)) model.script.tokens
+
         syllabaryEntry : Syllabary.Type -> Html Msg
         syllabaryEntry t =
             let
@@ -585,7 +588,10 @@ view model =
                 syls = Maybe.withDefault [] maybeSyls
 
                 letterEntry entryClass sign add =
-                    div [ classList [ ( model.script.id, True ), ( entryClass, True ) ], onClick (AddChar add) ] [ text sign ]
+                    div [ classList [ ( model.script.id, True ), ( entryClass, True ) ]
+                        , onClick (AddChar add)
+                        , title (Maybe.withDefault "" <| Dict.get add names)
+                        ] [ text sign ]
 
                 syllableEntry syl =
                     div [ class "syl" ] [ text syl ]

@@ -3,11 +3,11 @@ module Syllabary exposing (Syllabary, Type, fromString, filter, allTokens, norma
 import Dict exposing (Dict)
 import List
 import Regex
-import ScriptDefs exposing (..)
+import Script exposing (..)
 import Specialchars exposing (..)
 import Set exposing (Set)
 import String
-import Tokens
+import Token exposing (..)
 import WritingDirections exposing (..)
 
 {-| A **Syllabary** is an ordered list of **Types**.

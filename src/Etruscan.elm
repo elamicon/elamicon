@@ -8,15 +8,13 @@ import Regex
 
 
 import WritingDirections exposing (..)
-import ScriptDefs exposing (..)
+import Script exposing (..)
 import Specialchars exposing (..)
-import Tokens 
+import Token
 import Generated.Etruscan
 
-rawTokens = List.map .token Generated.Etruscan.tokens
-
+tokens = Token.fromNamed Generated.Etruscan.tokens
 ignoreChars = Set.insert fractureMarker guessMarkers
-tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
 
 -- These letters are counted as character positions
 indexedTokens = Set.fromList (wildcardChar :: tokens)
@@ -38,7 +36,7 @@ syllableMap = String.trim """
 """
 
 syllabaries : List SyllabaryDef
-syllabaries = 
+syllabaries =
     [ { id = "typegroups"
       , name = "Typegroups"
       , syllabary = Generated.Etruscan.syllabary
@@ -83,7 +81,7 @@ If no "Further source" reference (see below) is indicated in the sign name, the 
 - **Prosdocimi, Aldo L. & Scardigli, Piergiuseppe (1976):** "Negau", in: Vittore Pisani, Ciro Santoro (Eds), Italia linguistica nuova ed antica. Studi linguistici in memoria di Oronzo Parlangèli, Galatina. S. 179–229.
 - **Rix, Helmut (1998):** Rätisch und Etruskisch. Innsbruck: Institut für Sprachwissenschaft der Universität.
     """
-    , tokens = tokens
+    , tokens = Generated.Etruscan.tokens
     , seperatorChars = ""
     , indexed = indexed
     , searchExamples = searchExamples

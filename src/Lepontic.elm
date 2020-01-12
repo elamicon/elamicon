@@ -8,12 +8,12 @@ import Regex
 
 
 import WritingDirections exposing (..)
-import ScriptDefs exposing (..)
+import Script exposing (..)
 import Specialchars exposing (..)
-import Tokens 
+import Token
 import Generated.Lepontic
 
-rawTokens = List.map .token Generated.Lepontic.tokens
+rawTokens = Token.fromNamed Generated.Lepontic.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -83,7 +83,7 @@ The collection of Lepontic sign variants contains signs from inscriptions which 
 - **FdN (Alfabetario di Foppe di Nadro) = Tibiletti Bruno, Maria G. (1990):** "Nuove iscrizioni camune". Quaderni Camuni 49/50, pp. 33-171.
 - **PC 10 (Alfabetario di Piancogno) = Tibiletti Bruno, Maria G. (1992):** "Gli alfabetari", Quaderni Camuni 60, pp. 309-380. 
     """
-    , tokens = tokens
+    , tokens = Generated.Lepontic.tokens
     , seperatorChars = ""
     , indexed = indexed
     , searchExamples = searchExamples

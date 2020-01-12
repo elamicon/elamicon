@@ -8,12 +8,12 @@ import Regex
 
 
 import WritingDirections exposing (..)
-import ScriptDefs exposing (..)
+import Script exposing (..)
 import Specialchars exposing (..)
-import Tokens 
+import Token 
 import Generated.Runic
 
-rawTokens = List.map .token Generated.Runic.tokens
+rawTokens = Token.fromNamed Generated.Runic.tokens
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
@@ -78,7 +78,7 @@ Odenstedt, Bengt (1990): On the Origin and Early History of the Runic Script: Ty
 #### Further Sources:
 None
 """
-    , tokens = tokens
+    , tokens = Generated.Runic.tokens
     , seperatorChars = ""
     , indexed = indexed
     , searchExamples = searchExamples

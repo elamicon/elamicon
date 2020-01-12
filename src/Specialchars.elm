@@ -4,9 +4,9 @@ import Set
 import Dict
 import String
 import List
-import Tokens
+import Token
 import WritingDirections exposing (..)
-import ScriptDefs exposing (..)
+import Script exposing (..)
 
 -- Characters that are hard to read on the originals are marked with "guessmarkers".
 -- Guessmarkers are zero-width and overlap the previous charachter. There are two
@@ -50,5 +50,5 @@ specialchars =
 -- the wrong character
 guessMarkDir dir =
     case dir of
-        LTR -> Tokens.replace guessMarkerR guessMarkerL
-        _ -> Tokens.replace guessMarkerL guessMarkerR
+        LTR -> Token.replace guessMarkerR guessMarkerL
+        _ -> Token.replace guessMarkerL guessMarkerR

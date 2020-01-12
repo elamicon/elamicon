@@ -10,11 +10,11 @@ import Runic
 import Dict exposing (Dict)
 import List
 import Regex
-import ScriptDefs exposing (..)
+import Script exposing (..)
 import Specialchars exposing (..)
 import Set exposing (Set)
 import String
-import Tokens
+import Token exposing (..)
 import WritingDirections exposing (..)
 
 
@@ -52,7 +52,7 @@ sylDict strMap =
 
                 sources : List Token
                 sources =
-                    List.concat <| List.map Tokens.toList (Maybe.withDefault [] (List.tail sylls))
+                    List.concat <| List.map Token.toList (Maybe.withDefault [] (List.tail sylls))
             in
             if List.isEmpty sylls then
                 state

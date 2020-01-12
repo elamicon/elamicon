@@ -8,16 +8,20 @@ import Regex
 
 
 import WritingDirections exposing (..)
-import ScriptDefs exposing (..)
+import Script exposing (..)
 import Specialchars exposing (..)
-import Tokens 
+import Token
 
-rawTokens = Tokens.toList <| String.trim """
+rawTokens = Token.toList <| String.trim """
 
 """
 
 ignoreChars = Set.insert fractureMarker guessMarkers
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
+
+-- Not currently reading the names for Byblos. So the name of the token
+-- is the token itself.
+tokenList = Token.selfNamed tokens
 
 -- These letters are counted as character positions
 indexedTokens = Set.fromList (wildcardChar :: tokens)
@@ -511,9 +515,9 @@ groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList 
 
 -- In the source material "s" is a guessmark and "a" marks a fracture
 -- whereas x is a placeholder for unreadable glyphs.
-replaceGuessmark = Tokens.replace 's' guessMarkerL
-replaceFracture = Tokens.replace 'a' fractureMarker
-replaceWildcard = Tokens.replace 'x' wildcardChar
+replaceGuessmark = Token.replace 's' guessMarkerL
+replaceFracture = Token.replace 'a' fractureMarker
+replaceWildcard = Token.replace 'x' wildcardChar
 replaceMarkers = replaceGuessmark >> replaceFracture >> replaceWildcard
 
 fragments : List FragmentDef
@@ -943,7 +947,7 @@ Feel free to contact the [Byblicon research team](mailto:michael.maeder@isw.unib
 - **Van den Branden, Albartus (1965):** Essai de déchiffrement des inscriptions de Deir ʿAlla. Vetus Testamentum 15, 129-152.
 - **Weippert, Manfred (1966):** Tell dēr ʿallā: Tontafeln mit einer bisher unbekannten Linearschrift (Archäologischer Jahresbericht). Zeitschrift des Deutschen Palästina-Vereins 82/3, 299-310.
     """
-    , tokens = tokens
+    , tokens = tokenList
     , seperatorChars = ""
     , indexed = indexed
     , searchExamples = searchExamples
