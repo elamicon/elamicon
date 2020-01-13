@@ -1,4 +1,4 @@
-module Grams exposing (Grams, read, register, registerInc, tally)
+module Grams exposing (Grams, read, tally)
 
 {-| Database to find repeated subsequences in character sequences
 -}
