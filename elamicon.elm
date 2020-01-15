@@ -614,11 +614,17 @@ view model =
 
         gramStats strings =
             let
-                onlyIndexed =
-                    charFilter >> model.normalizer >> String.filter indexed
+                -- Keep only indexed chars and split at wildcard chars. Because
+                -- combinations with the wildcard char are not interesting.
+                onlyIndexed = charFilter
+                            >> model.normalizer
+                            >> String.filter indexed
+                            >> String.split (String.fromChar wildcardChar)
+                            >> (++)
+                gramStrings = List.foldr onlyIndexed [] strings
 
                 tallyGrams =
-                    List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 <| List.map onlyIndexed strings
+                    List.filter (List.isEmpty >> not) <| List.map Grams.tally <| Grams.read 7 gramStrings
 
                 tallyEntry gram ts =
                     let
