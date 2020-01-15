@@ -628,6 +628,8 @@ view model =
 
                 tallyEntry gram ts =
                     let
+                        -- Grams that only occur once are considered "boring"
+                        -- and deemphasized in the view.
                         boringClass =
                             if gram.count < 2 then
                                 [ class "boring" ]
