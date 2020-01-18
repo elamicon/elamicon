@@ -638,8 +638,6 @@ view model =
                                 []
                     in
                     tr boringClass
-                        -- Use a span so that when the text is copied it
-                        -- doesn't cause a new line like a div would.
                         [ td [ class "count" ] [ text <| String.fromInt gram.count ]
                         , td [] [ text gram.seq ]
                         ]
