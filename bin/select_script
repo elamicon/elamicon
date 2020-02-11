@@ -1,0 +1,19 @@
+#!/bin/sh
+# Select matching script lines from script definition lines
+#
+# Args:
+#    scripts: partial regex that selects script names
+#              Example: "Raet|All"
+#
+# Example, get only Cyrillic:
+#
+#   echo "
+#   0061 [A] Latin Capital Letter A
+#   ...
+#   0410 [А] Cyrillic Capital Letter A
+#   0411 [Б] Cyrillic Capital Letter Be
+#   ...
+#   " | select_script Cyrillic
+
+# The script name is after the token-end bracket ]
+grep -E "]\s+($1)"

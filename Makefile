@@ -20,10 +20,10 @@ fonts/original/north-italic.txt: fonts/original/north-italic.docx
 
 src/Generated: fonts/original/north-italic.txt
 	mkdir -p "$@"
-	bin/extract_script_chars Raet,All Generated.Raetic < $^ > src/Generated/Raetic.elm
-	bin/extract_script_chars Lep,All Generated.Lepontic < $^ > src/Generated/Lepontic.elm
-	bin/extract_script_chars Etr,All Generated.Etruscan < $^ > src/Generated/Etruscan.elm
-	bin/extract_script_chars Run,All Generated.Runic < $^ > src/Generated/Runic.elm
+	bin/select_script "Raet|All" < $^ | bin/extract_script_chars Generated.Raetic > src/Generated/Raetic.elm
+	bin/select_script "Lep|All" < $^ | bin/extract_script_chars Generated.Lepontic > src/Generated/Lepontic.elm
+	bin/select_script "Etr|All" < $^ | bin/extract_script_chars Generated.Etruscan > src/Generated/Etruscan.elm
+	bin/select_script "Run|All" < $^ | bin/extract_script_chars Generated.Runic > src/Generated/Runic.elm
 
 elms := $(wildcard *.elm src/*.elm src/Generated/*.elm) src/Generated
 
@@ -34,6 +34,21 @@ build/elamicon.js: $(elms)
 	mkdir -p build
 	elm make --optimize --output=elamicon.opt.js elamicon.elm
 	uglifyjs elamicon.opt.js --compress "pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe" | uglifyjs --mangle --output="$@"
+
+
+
+
+dump/raetica:
+	bin/download_wiki_xml https://www.univie.ac.at/raetica/api.php "$@"
+
+src/Imported: dump/raetica
+	mkdir -p "$@"
+	bin/select_script "Raet" < fonts/original/north-italic.txt > dump/raetic-script.txt
+	python3 bin/import_thesaurus \
+		Imported.RaeticInscriptions \
+		dump/raetica/*-current.xml \
+		dump/raetic-script.txt > src/Imported/RaeticInscriptions.elm
+
 
 
 fonts/elamicon-base.ttf: fonts/original/elamicon.sfdir fonts/original/special.sfdir

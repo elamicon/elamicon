@@ -1130,7 +1130,7 @@ view model =
             in
             div [ classList [ ( "plate", True ), ( "fixedBreak", model.fixedBreak ), ( model.script.id, True ) ], dirAttr fragment.dir ]
                 [ h3 []
-                    ([ span [ dir "LTR" ]
+                    ([ a [ dir "LTR", href (Maybe.withDefault "" fragment.link ) ]
                         -- labels are always written LTR
                         [ sup [ class "group" ] [ text fragment.group ]
                         , text fragment.id

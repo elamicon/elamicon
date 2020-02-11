@@ -1,0 +1,184 @@
+#!/usr/bin/python3
+# Read inscriptions from wiki dump and generate Elm module
+#
+# Import is based on two sources:
+#
+# 1. A wiki dump XML where we look for articles with a metastring starting
+#    with "{{inscription"
+# 2. A list that maps token names to unicode tokens
+#
+# From these sources an Elm module is generated that includes all inscriptions
+# with the text of the inscriptions mapped according to the mapping list.
+#
+# Synopsis:
+#    import_thesaurus MODULE_NAME XML_DUMP TOKEN_LIST
+#
+# Params:
+#    MODULE_NAME    Name of the generated Elm module
+#    XML_DUMP Wiki  Dump file to search inscriptions in
+#    TOKEN_LIST     File with list of token names
+#
+# Example:
+#
+#    import_thesaurus \
+#       RaeticInscriptions raeticarum/univieacat_raetica-20200210-current.xml \
+#       raetic.txt \
+
+#       > src/Imported/RaeticInscriptions.elm
+
+import sys
+import os
+import re
+import html
+import xml.etree.ElementTree as ET
+
+from lib.tokens import Token, Types
+
+def escape(str):
+    """ I believe string literals in Elm have only the
+    backslash and double quote as special chars.
+    Prove me wrong. """
+    return str.replace("\\", "\\\\").replace("\"", "\\\"")
+
+
+class Inscription:
+    """
+    Represent Raeticarum Wiki entries.
+    """
+
+    reading_original_pattern = re.compile("\|reading_original=(.*)\n")
+
+    # Tokens are encoded as "{{NAME[|SPEC_NAME]}}" but there are also
+    # special markers [, ], and ?
+    charlist_pattern = re.compile("\{\{c\|([^}]+)}}|([][?])")
+    direction_pattern = re.compile("\|direction=(.*)\n")
+
+    @classmethod
+    def from_page(cls, id, source, types):
+        """
+        Read inscription entry from wiki source.
+
+        Params:
+            id: Unique ID of the script
+            source: Wiki source entry text.
+            types: token lookup based on names
+
+        Example of an inscription string from source:
+
+            {{inscription
+            |reading=)nuale!?&#93;n&#x0323;uale ri?ienalse!ri?ienals&#x0323;e&#x0323;
+            |reading_original={{c|E}}{{c|S||d}}{{c|L}}{{c|A|A14}}{{c|N}}{{c|E}}{{c|I}}?{{c|I}}{{c|R|R2}}{{c|E}}{{c|L}}{{c|A|A14}}{{c|U}}{{c|N}}&#91;
+            |direction=sinistroverse
+            |letter_height_min=7
+            |letter_height_max=11.5 cm
+            |letter_number_min=15
+            |line_number=1
+            |script=North Italic script
+            |alphabet=Magrè alphabet
+            |language=Raetic
+            |meaning=unknown
+            |object=AK-1 rock
+            |position=left
+            |orientation=90
+            |craftsmanship=engraved
+            |condition=damaged
+            |type_inscription=prob. votive
+            |date=unknown
+            |checklevel=0
+            |disambiguation=AK-1
+            }}
+
+        The fields we are interested in are:
+
+        - reading_original: Contains the inscription text
+        - direction: contains the reading direction
+        """
+
+        if not source:
+            raise ValueError("No text.")
+
+        if not source.startswith("{{inscription"):
+            raise ValueError("Not an inscription.")
+
+        reading_original = cls.reading_original_pattern.search(source).group(1)
+        if not reading_original:
+            raise ValueError("No field `reading_original`.")
+
+        # The text includes marker signs which are HTML-encoded
+        # Example: &#91 -> [
+        reading_decoded = html.unescape(reading_original)
+
+        # Split into individual characters.
+        char_strings = [ max(res) for res in
+                         cls.charlist_pattern.findall(reading_decoded) ]
+
+        direction = cls.direction_pattern.search(source).group(1)
+
+        if direction == "sinistroverse":
+            dir = "RTL"
+            # The text is entered reversed in the wiki to give
+            # the desired visual appearance. Undo that by reversing the raw tokens.
+            char_strings = "".join(reversed(char_strings))
+        else:
+            dir = "LTR"
+
+        text = ""
+        for char_string in char_strings:
+            # There are often two token names, the latter being more specific
+            # Example: ["H", "H3"]
+            # We want to search for the more specific first.
+            names = list(reversed(char_string.split("|")))
+            try:
+                text += types.closest(names, dir)
+            except KeyError:
+                # Signs that cannot be mapped are copied over verbatim
+                text += names[0]
+
+        return cls(id, dir, text)
+
+    def __init__(self, id, dir, text):
+        self.id = id
+        self.dir = dir
+        self.text = text
+
+    @property
+    def group(self):
+        return self.id.split("-")[0]
+
+
+    def elm_record(self, url_base):
+        return """{{ id = "{}", group = "{}", dir = {}, plate = Nothing, text = "{}", link = Just "{}" }}""".format(
+            escape(self.id),
+            escape(self.group),
+            self.dir,
+            escape(self.text),
+            escape(url_base + self.id)
+        )
+
+
+module_name = sys.argv[1]
+dump_file = sys.argv[2]
+script_file = sys.argv[3]
+
+with open(script_file) as script_lines:
+    tokens = list(Token.from_lines(script_lines))
+
+types = Types.from_tokens(tokens)
+
+inscriptions = []
+tree = ET.parse(dump_file)
+root = tree.getroot()
+xmlns = re.search(r"\{.*\}", root.tag).group()
+base_url = os.path.dirname(root.find(f"*/{xmlns}base").text) + '/'
+
+for page_elm in root.findall(f".//{xmlns}page"):
+    title = page_elm.find(f"{xmlns}title").text
+    text = page_elm.find(f".//{xmlns}text").text
+    try:
+        inscriptions.append(Inscription.from_page(title, text, types))
+    except ValueError as e:
+        pass
+
+joined_inscriptions = "\n ,".join((i.elm_record(base_url) for i in inscriptions))
+
+print(f"module {module_name} exposing (inscriptions)\nimport WritingDirections exposing (..)\ninscriptions =\n [{joined_inscriptions}\n ]\n")

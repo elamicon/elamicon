@@ -49,7 +49,12 @@ type alias GroupDef =
 --        corpus.
 --  plate: Optional name of a file with details
 type alias FragmentDef =
-    { id : String, group : String, dir : Dir, text : String, plate : Maybe String }
+    { id : String
+    , group : String
+    , dir : Dir
+    , text : String
+    , plate : Maybe String
+    , link : Maybe String }
 
 
 type alias Decoration =

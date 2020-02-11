@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+set -x
+
+# Download wiki contents
+#
+# Usage:
+#
+#   download_wiki_xml <API_URL> <DEST_DIR>
+#
+# API_URL is a Mediawiki API-URL like https://www.univie.ac.at/raetica/api.php
+# DEST_DIR store dump here, deleted everytime for a fresh run!
+
+api=$1
+dst=$2
+dl_script_name=$dst.dumpgenerator.py
+
+rm -rf "$dst"
+mkdir -p $(dirname "$dst")
+
+wget -O "$dl_script_name" https://raw.githubusercontent.com/WikiTeam/wikiteam/83af47d6c0dd8631e03d471c747ad796cc12f9c2/dumpgenerator.py
+
+python "$dl_script_name" --api="$api" --xml --curonly --path="$dst"
+
+rm "$dl_script_name"

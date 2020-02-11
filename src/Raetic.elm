@@ -12,6 +12,7 @@ import Script exposing (..)
 import Specialchars exposing (..)
 import Token 
 import Generated.Raetic
+import Imported.RaeticInscriptions
 
 rawTokens = Token.fromNamed Generated.Raetic.tokens
 
@@ -56,7 +57,7 @@ groups : List GroupDef
 groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList (Set.fromList (List.map .group fragments))
 
 fragments : List FragmentDef
-fragments = [ ]
+fragments = Imported.RaeticInscriptions.inscriptions
 
 raetic : Script
 raetic =
