@@ -76,7 +76,7 @@ fonts/byblos-scaled.ttf: fonts/byblos-fixed.svg
 fonts/byblos-base.ttf: fonts/byblos-scaled.ttf fonts/original/special.sfdir
 	bin/addfont "Byblicon" $^ "$@"
 
-fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-base.ttf 
+fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-base.ttf
 		bin/addfont "Byblicon" $^ "$@"
 
 fonts/BybliconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/byblos-base.ttf
@@ -108,12 +108,12 @@ fonts/north-italic-fixed.svg: fonts/original/north-italic.svg
 
 fonts/north-italic-scaled.ttf: fonts/north-italic-fixed.svg
 	bin/scale_font $^ 2.15 -560 "$@"
-	bin/set_bearing "$@" 200 
+	bin/set_bearing "$@" 200
 
 fonts/north-italic-base.ttf: fonts/north-italic-scaled.ttf fonts/original/special.sfdir
 	bin/addfont "NorthItalic" $^ "$@"
 
-fonts/NorthItalicLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/north-italic-base.ttf 
+fonts/NorthItalicLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/north-italic-base.ttf
 		bin/addfont "NorthItalic" $^ "$@"
 
 fonts/NorthItalicLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/north-italic-base.ttf
