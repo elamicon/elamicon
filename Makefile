@@ -183,3 +183,23 @@ fonts/Byblicon_Times_New_Roman_Bold.ttf: fonts/byblos-scaled.ttf
 
 fonts/Byblicon_Times_New_Roman.ttf: fonts/byblos-scaled.ttf
 	bin/addfont "Byblicon-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
+
+
+NorthItalicTimes: fonts/NorthItalic_Times_New_Roman.zip
+
+fonts/NorthItalic_Times_New_Roman.zip: fonts/NorthItalic_Times_New_Roman_Bold_Italic.ttf fonts/NorthItalic_Times_New_Roman_Italic.ttf fonts/NorthItalic_Times_New_Roman_Bold.ttf fonts/NorthItalic_Times_New_Roman.ttf
+	zip -rq $@ $^
+
+
+fonts/NorthItalic_Times_New_Roman_Bold_Italic.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
+
+fonts/NorthItalic_Times_New_Roman_Italic.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman_Italic.ttf $^ $@
+
+fonts/NorthItalic_Times_New_Roman_Bold.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
+
+fonts/NorthItalic_Times_New_Roman.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
+
