@@ -48,7 +48,7 @@ class Types:
         else:
             self.types[token.group] = [token.token]
 
-        # token name, but also the group name if that name has not
+        self.names[f"{token.name}-{token.dir}"] = token.token
 
         group_dir_name = f"{token.group}-{token.dir}"
         if group_dir_name not in self.names:
@@ -114,7 +114,7 @@ class Token:
         except IndexError:
             raise ValueError("Need at least two words (script and name) but got '{}'"
                              .format(name_str))
-        return cls(token, name_str, group, dir)
+        return cls(token, name_with_variant, group, dir)
 
 
     def __init__(self, token, name, group, dir):

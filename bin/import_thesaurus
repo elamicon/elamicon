@@ -118,7 +118,7 @@ class Inscription:
             dir = "RTL"
             # The text is entered reversed in the wiki to give
             # the desired visual appearance. Undo that by reversing the raw tokens.
-            char_strings = "".join(reversed(char_strings))
+            char_strings = reversed(char_strings)
         else:
             dir = "LTR"
 
@@ -132,7 +132,11 @@ class Inscription:
                 text += types.closest(names, dir)
             except KeyError:
                 # Signs that cannot be mapped are copied over verbatim
-                text += names[0]
+                name = names[0]
+                if len(name) > 1:
+                    text += "<" + name + ">"
+                else:
+                    text += name
 
         return cls(id, dir, text)
 
@@ -164,6 +168,25 @@ with open(script_file) as script_lines:
     tokens = list(Token.from_lines(script_lines))
 
 types = Types.from_tokens(tokens)
+
+# Special chars used in the wiki
+types.add(Token('', '[', 'frag', 'ambi'))
+types.add(Token('', ']', 'frag', 'ambi'))
+types.add(Token('', '?', 'guess', 'ambi'))
+types.add(Token(' ', 'space', 'space', 'ambi'))
+types.add(Token('', 'punctuation1', 'punctuation', 'ambi'))
+types.add(Token('', 'punctuation2', 'punctuation', 'ambi'))
+types.add(Token('', 'punctuation3', 'punctuation', 'ambi'))
+types.add(Token('', 'punctuation4', 'punctuation', 'ambi'))
+types.add(Token('', 'punctuation5', 'punctuation', 'ambi'))
+
+# Chars having different names
+types.add(Token('', 'Ś', 'Ś', 'ambi'))
+types.add(Token('', 'Ś2', 'Ś', 'ambi'))
+types.add(Token('', 'Ś3', 'Ś', 'ambi'))
+types.add(Token('', 'Χ1', 'Χ', 'ambi'))
+types.add(Token('', 'Χ2', 'Χ', 'ambi'))
+types.add(Token('', 'Χ3', 'Χ', 'ambi'))
 
 inscriptions = []
 tree = ET.parse(dump_file)
