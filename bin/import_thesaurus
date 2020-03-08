@@ -52,6 +52,7 @@ class Inscription:
     # special markers [, ], and ?
     charlist_pattern = re.compile("\{\{c\|([^}]+)}}|([][?])|(<br>)")
     direction_pattern = re.compile("\|direction=(.*)\n")
+    script_pattern = re.compile("\|script=(.*)\n")
 
     @classmethod
     def from_page(cls, id, source, types):
@@ -138,12 +139,15 @@ class Inscription:
                 else:
                     text += name
 
-        return cls(id, dir, text)
+        script = cls.script_pattern.search(source).group(1)
 
-    def __init__(self, id, dir, text):
+        return cls(id, dir, text, script)
+
+    def __init__(self, id, dir, text, script):
         self.id = id
         self.dir = dir
         self.text = text
+        self.script = script
 
     @property
     def group(self):
@@ -202,7 +206,12 @@ for page_elm in root.findall(f".//{xmlns}page"):
     title = page_elm.find(f"{xmlns}title").text
     text = page_elm.find(f".//{xmlns}text").text
     try:
-        inscriptions.append(Inscription.from_page(title, text, types))
+        inscription = Inscription.from_page(title, text, types)
+
+        # There are three entries in latin script in the corpus, ignore those
+        if inscription.script != "Latin script":
+            inscriptions.append(inscription)
+
     except ValueError as e:
         pass
 

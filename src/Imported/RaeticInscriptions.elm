@@ -75,7 +75,6 @@ inscriptions =
  ,{ id = "BZ-21", group = "BZ", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/BZ-21" }
  ,{ id = "BZ-22", group = "BZ", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/BZ-22" }
  ,{ id = "BZ-23", group = "BZ", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/BZ-23" }
- ,{ id = "BZ-24", group = "BZ", dir = RTL, plate = Nothing, text = """<addO3><addS1d><addS1d><addR3><addE1>""", link = Just "https://www.univie.ac.at/raetica/wiki/BZ-24" }
  ,{ id = "BZ-25.1", group = "BZ", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/BZ-25.1" }
  ,{ id = "BZ-25.2", group = "BZ", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/BZ-25.2" }
  ,{ id = "BZ-26", group = "BZ", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/BZ-26" }
@@ -317,7 +316,6 @@ inscriptions =
  ,{ id = "SZ-65.2", group = "SZ", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SZ-65.2" }
  ,{ id = "SZ-66", group = "SZ", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SZ-66" }
  ,{ id = "SZ-67", group = "SZ", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SZ-67" }
- ,{ id = "SZ-68", group = "SZ", dir = LTR, plate = Nothing, text = """<addL1d><addT1> <addA6><addL1d><addE2><addN1d><addT1><addN1d>""", link = Just "https://www.univie.ac.at/raetica/wiki/SZ-68" }
  ,{ id = "SZ-69", group = "SZ", dir = LTR, plate = Nothing, text = """<addN1>""", link = Just "https://www.univie.ac.at/raetica/wiki/SZ-69" }
  ,{ id = "SZ-7", group = "SZ", dir = LTR, plate = Nothing, text = """<symbol>  """, link = Just "https://www.univie.ac.at/raetica/wiki/SZ-7" }
  ,{ id = "SZ-70.1", group = "SZ", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SZ-70.1" }
@@ -373,9 +371,6 @@ inscriptions =
 
 d
 """, link = Just "https://www.univie.ac.at/raetica/wiki/TV-1.1" }
- ,{ id = "TV-1.2", group = "TV", dir = LTR, plate = Nothing, text = """<addR3d><addC3d><addE1d><addR3d>d
-<addA5><addR3d><addC3d><addE1d><addC3d><addR3d><addS1d><addS1d><addA5>
-<addT1><addA5><addR3d><addS1d><addA5>""", link = Just "https://www.univie.ac.at/raetica/wiki/TV-1.2" }
  ,{ id = "UG-1.1", group = "UG", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/UG-1.1" }
  ,{ id = "UG-1.2", group = "UG", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/UG-1.2" }
  ,{ id = "UG-1.3", group = "UG", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/UG-1.3" }
