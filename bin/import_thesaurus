@@ -50,7 +50,7 @@ class Inscription:
 
     # Tokens are encoded as "{{NAME[|SPEC_NAME]}}" but there are also
     # special markers [, ], and ?
-    charlist_pattern = re.compile("\{\{c\|([^}]+)}}|([][?])")
+    charlist_pattern = re.compile("\{\{c\|([^}]+)}}|([][?])|(<br>)")
     direction_pattern = re.compile("\|direction=(.*)\n")
 
     @classmethod
@@ -151,7 +151,7 @@ class Inscription:
 
 
     def elm_record(self, url_base):
-        return """{{ id = "{}", group = "{}", dir = {}, plate = Nothing, text = "{}", link = Just "{}" }}""".format(
+        return """{{ id = "{}", group = "{}", dir = {}, plate = Nothing, text = \"\"\"{}\"\"\", link = Just "{}" }}""".format(
             escape(self.id),
             escape(self.group),
             self.dir,
@@ -179,6 +179,7 @@ types.add(Token('', 'punctuation2', 'punctuation', 'ambi'))
 types.add(Token('', 'punctuation3', 'punctuation', 'ambi'))
 types.add(Token('', 'punctuation4', 'punctuation', 'ambi'))
 types.add(Token('', 'punctuation5', 'punctuation', 'ambi'))
+types.add(Token("\n", '<br>', 'br', 'ambi'))
 
 # Chars having different names
 types.add(Token('', 'Ś', 'Ś', 'ambi'))
