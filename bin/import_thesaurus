@@ -187,6 +187,9 @@ types.add(Token('', 'Ś3', 'Ś', 'ambi'))
 types.add(Token('', 'Χ1', 'Χ', 'ambi'))
 types.add(Token('', 'Χ2', 'Χ', 'ambi'))
 types.add(Token('', 'Χ3', 'Χ', 'ambi'))
+types.add(Token('', '1d', '1d', 'ambi'))
+types.add(Token('', '10d', '1d', 'ambi'))
+
 
 inscriptions = []
 tree = ET.parse(dump_file)

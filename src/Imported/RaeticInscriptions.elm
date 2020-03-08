@@ -99,7 +99,7 @@ inscriptions =
  ,{ id = "FI-1", group = "FI", dir = LTR, plate = Nothing, text = "", link = Just "https://www.univie.ac.at/raetica/wiki/FI-1" }
  ,{ id = "FP-1", group = "FP", dir = RTL, plate = Nothing, text = " ", link = Just "https://www.univie.ac.at/raetica/wiki/FP-1" }
  ,{ id = "HU-1", group = "HU", dir = LTR, plate = Nothing, text = "", link = Just "https://www.univie.ac.at/raetica/wiki/HU-1" }
- ,{ id = "HU-4.1", group = "HU", dir = LTR, plate = Nothing, text = "<1d><line v 01><1d><1d> <10d> <1d><1d> <10d> <1d><1d> <1d> <1d> <1d><1d>", link = Just "https://www.univie.ac.at/raetica/wiki/HU-4.1" }
+ ,{ id = "HU-4.1", group = "HU", dir = LTR, plate = Nothing, text = "<line v 01>       ", link = Just "https://www.univie.ac.at/raetica/wiki/HU-4.1" }
  ,{ id = "HU-4.2", group = "HU", dir = LTR, plate = Nothing, text = "<symbol4>", link = Just "https://www.univie.ac.at/raetica/wiki/HU-4.2" }
  ,{ id = "HU-4.3", group = "HU", dir = LTR, plate = Nothing, text = "", link = Just "https://www.univie.ac.at/raetica/wiki/HU-4.3" }
  ,{ id = "HU-5.1", group = "HU", dir = RTL, plate = Nothing, text = "", link = Just "https://www.univie.ac.at/raetica/wiki/HU-5.1" }
