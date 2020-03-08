@@ -25,34 +25,11 @@ def escape(str):
 
 
 class Types:
-    """
-    List of token groups that are considered one type.
-    """
-    @classmethod
-    def from_tokens(cls, tokens):
-        types = cls()
-        for t in tokens:
-            types.add(t)
-        return types
-
-    def __init__(self):
-        self.types = {}
-
-        # Keep a lookup table with key "name-dir", example key names:
-        # "H1-dex", "H1-sin", "H4-ambi"
-        self.names = {}
+    def __init__(self, tokens):
+        self.tokens = list(tokens)
 
     def add(self, token):
-        if token.group in self.types:
-            self.types[token.group].append(token.token)
-        else:
-            self.types[token.group] = [token.token]
-
-        self.names[f"{token.name}-{token.dir}"] = token.token
-
-        group_dir_name = f"{token.group}-{token.dir}"
-        if group_dir_name not in self.names:
-            self.names[group_dir_name] = token.token
+        self.tokens.append(token)
 
     def syllabary(self):
         """ Generate a syllabary string, one type per line.
@@ -64,10 +41,36 @@ class Types:
             〈Latin B〉Bb
             〈Latin C〉Cc
         """
+        types = {}
+        for token in self.tokens:
+            if token.group in types:
+                types[token.group].append(token.token)
+            else:
+                types[token.group] = [token.token]
+
         lines = []
-        for name, tokens in sorted(self.types.items()):
+        for name, tokens in sorted(types.items()):
             lines.append("〈{}〉{}".format(name, "".join(tokens)))
         return "\n".join(lines)
+
+    def lookup(self, prefix_map):
+        # Keep a lookup table with key "name-dir", example key names:
+        # "H1-dex", "H1-sin", "H4-ambi"
+        names = {}
+        for token in self.tokens:
+            names[f"{token.name}-{token.dir}"] = token.token
+
+            group_dir_name = f"{token.group}-{token.dir}"
+            if group_dir_name not in names:
+                names[group_dir_name] = token.token
+
+        return Lookup(names, prefix_map)
+
+
+class Lookup:
+    def __init__(self, names, prefix_map):
+        self.names = names
+        self.prefix_map = prefix_map
 
     def closest(self, names, dir):
         """
@@ -80,10 +83,17 @@ class Types:
             dir_name = f"{n}-{dir}"
             if dir_name in self.names:
                 return self.names[dir_name]
+
         for n in names:
             dir_name = f"{n}-ambi"
             if dir_name in self.names:
                 return self.names[dir_name]
+
+        for n in names:
+            for prefix, replacement in self.prefix_map.items():
+                if n.startswith(prefix):
+                    return replacement
+
         raise KeyError(f"None of `{names}` found.")
 
 
@@ -114,27 +124,16 @@ class Token:
         except IndexError:
             raise ValueError("Need at least two words (script and name) but got '{}'"
                              .format(name_str))
-        return cls(token, name_with_variant, group, dir)
+        return cls(token, name_with_variant, group, name_str, dir)
 
 
-    def __init__(self, token, name, group, dir):
+    def __init__(self, token, name, group, desc, dir):
         self.token = token
         self.name = name
         self.group = group
+        self.desc = desc
         self.dir = dir
 
     def elm_record(self):
         return ("""{{ token = '{}', name = "{}" }}"""
-                .format(escape(self.token), escape(self.name)))
-
-
-if __name__ == "__main__":
-    module_name = sys.argv[1]
-
-    tokens = list(Token.from_lines(sys.stdin))
-    token_str = "\n ,".join([t.elm_record() for t in tokens])
-
-    types = Types.from_tokens(tokens)
-    type_str = types.syllabary()
-    print('module {} exposing (tokens, syllabary)\ntokens =\n [{}\n ]\nsyllabary = """{}"""'
-        .format(module_name, token_str, escape(type_str)))
+                .format(escape(self.token), escape(self.desc)))

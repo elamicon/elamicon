@@ -23,7 +23,7 @@ module_name = sys.argv[1]
 tokens = list(Token.from_lines(sys.stdin))
 token_str = "\n ,".join([t.elm_record() for t in tokens])
 
-types = Types.from_tokens(tokens)
+types = Types(tokens)
 type_str = types.syllabary()
 print('module {} exposing (tokens, syllabary)\ntokens =\n [{}\n ]\nsyllabary = """{}"""'
     .format(module_name, token_str, escape(type_str)))

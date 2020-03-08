@@ -55,7 +55,7 @@ class Inscription:
     script_pattern = re.compile("\|script=(.*)\n")
 
     @classmethod
-    def from_page(cls, id, source, types):
+    def from_page(cls, id, source, lookup):
         """
         Read inscription entry from wiki source.
 
@@ -130,7 +130,7 @@ class Inscription:
             # We want to search for the more specific first.
             names = list(reversed(char_string.split("|")))
             try:
-                text += types.closest(names, dir)
+                text += lookup.closest(names, dir)
             except KeyError:
                 # Signs that cannot be mapped are copied over verbatim
                 name = names[0]
@@ -171,30 +171,39 @@ script_file = sys.argv[3]
 with open(script_file) as script_lines:
     tokens = list(Token.from_lines(script_lines))
 
-types = Types.from_tokens(tokens)
+types = Types(tokens)
 
 # Special chars used in the wiki
-types.add(Token('', '[', 'frag', 'ambi'))
-types.add(Token('', ']', 'frag', 'ambi'))
-types.add(Token('', '?', 'guess', 'ambi'))
-types.add(Token(' ', 'space', 'space', 'ambi'))
-types.add(Token('', 'punctuation1', 'punctuation', 'ambi'))
-types.add(Token('', 'punctuation2', 'punctuation', 'ambi'))
-types.add(Token('', 'punctuation3', 'punctuation', 'ambi'))
-types.add(Token('', 'punctuation4', 'punctuation', 'ambi'))
-types.add(Token('', 'punctuation5', 'punctuation', 'ambi'))
-types.add(Token("\n", '<br>', 'br', 'ambi'))
+types.add(Token('', '[', 'frag', '', 'ambi'))
+types.add(Token('', ']', 'frag', '', 'ambi'))
+types.add(Token('', '?', 'guess', '', 'ambi'))
+types.add(Token(' ', 'space', 'space', '', 'ambi'))
+types.add(Token('', 'punctuation1', 'punctuation', '', 'ambi'))
+types.add(Token('', 'punctuation2', 'punctuation', '', 'ambi'))
+types.add(Token('', 'punctuation3', 'punctuation', '', 'ambi'))
+types.add(Token('', 'punctuation4', 'punctuation', '', 'ambi'))
+types.add(Token('', 'punctuation5', 'punctuation', '', 'ambi'))
+types.add(Token("\n", '<br>', 'br', '', 'ambi'))
 
 # Chars having different names
-types.add(Token('', 'Ś', 'Ś', 'ambi'))
-types.add(Token('', 'Ś2', 'Ś', 'ambi'))
-types.add(Token('', 'Ś3', 'Ś', 'ambi'))
-types.add(Token('', 'Χ1', 'Χ', 'ambi'))
-types.add(Token('', 'Χ2', 'Χ', 'ambi'))
-types.add(Token('', 'Χ3', 'Χ', 'ambi'))
-types.add(Token('', '1d', '1d', 'ambi'))
-types.add(Token('', '10d', '1d', 'ambi'))
+types.add(Token('', 'Ś', 'Ś', '', 'ambi'))
+types.add(Token('', 'Ś2', 'Ś', '', 'ambi'))
+types.add(Token('', 'Ś3', 'Ś', '', 'ambi'))
+types.add(Token('', 'Χ1', 'Χ', '', 'ambi'))
+types.add(Token('', 'Χ2', 'Χ', '', 'ambi'))
+types.add(Token('', 'Χ3', 'Χ', '', 'ambi'))
+types.add(Token('', '1d', '1d', '', 'ambi'))
+types.add(Token('', '10d', '10d', '', 'ambi'))
 
+# Classes of chars we turn into wildcard chars because we don't
+# have the sign.
+prefix_map = {
+    'line': "",
+    'symbol': "",
+    'add': "",
+}
+
+lookup = types.lookup(prefix_map)
 
 inscriptions = []
 tree = ET.parse(dump_file)
@@ -206,7 +215,7 @@ for page_elm in root.findall(f".//{xmlns}page"):
     title = page_elm.find(f"{xmlns}title").text
     text = page_elm.find(f".//{xmlns}text").text
     try:
-        inscription = Inscription.from_page(title, text, types)
+        inscription = Inscription.from_page(title, text, lookup)
 
         # There are three entries in latin script in the corpus, ignore those
         if inscription.script != "Latin script":
