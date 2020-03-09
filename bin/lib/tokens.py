@@ -50,7 +50,8 @@ class Types:
 
         lines = []
         for name, tokens in sorted(types.items()):
-            lines.append("〈{}〉{}".format(name, "".join(tokens)))
+            cleaned_name = name.replace("<", "").replace(">", "")
+            lines.append("〈{}〉{}".format(cleaned_name, "".join(tokens)))
         return "\n".join(lines)
 
     def lookup(self, prefix_map):

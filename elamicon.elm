@@ -587,11 +587,15 @@ view model =
 
                 syls = Maybe.withDefault [] maybeSyls
 
+                -- Some entries in the syllabary have long names.
+                -- Use linguist's convention of wrapping the names in brackets.
+                signWrap s = if String.length s > 1 then "〈" ++ s ++ "〉" else s
+
                 letterEntry entryClass sign add =
                     div [ classList [ ( model.script.id, True ), ( entryClass, True ) ]
                         , onClick (AddChar add)
                         , title (Maybe.withDefault "" <| Dict.get add names)
-                        ] [ text sign ]
+                        ] [ text (signWrap sign) ]
 
                 syllableEntry syl =
                     div [ class "syl" ] [ text syl ]
