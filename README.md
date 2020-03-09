@@ -49,7 +49,7 @@ Script|Font|Grouping|Corpus
 ## Contribute
 
 You can help us transcribing text fragments from published sources.
-Send us a mail with the new texts. Similarily, if you'ce created a new
+Send us a mail with the new texts. Similarily, if you've created a new
 Glyph grouping you think would be helpful to others, send it in so we
 can include it.
 
