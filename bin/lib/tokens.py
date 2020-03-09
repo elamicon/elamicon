@@ -115,8 +115,6 @@ class Token:
         # Example:
         #   Raet T3 sin [= Raet L1 dex = Raet P2 dex = Lep L]
         # Limit to three splits so the correspondeces are not split.
-        # Otherwise the simplistic direction matcher below finds the
-        # directions of the other scripts.
         name_words = name_str.split(None, 3)
         try:
             name_with_variant = name_words[1]
@@ -125,10 +123,8 @@ class Token:
             # The writing direction is determined by either "sin" or
             # "dex" in the name. If the sign doesn't have either designation
             # we assume it can be used in both directions.
-            dir = (
-                "RTL" if "sin" in name_words else
-                "LTR" if "dex" in name_words else
-                "ambi")
+            third_word = dict(enumerate(name_words)).get(2, "")
+            dir = third_word if third_word in ["sin", "dex"] else "ambi"
         except IndexError:
             raise ValueError("Need at least two words (script and name) but got '{}'"
                              .format(name_str))

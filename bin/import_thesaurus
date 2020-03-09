@@ -50,7 +50,7 @@ class Inscription:
 
     # Tokens are encoded as "{{NAME[|SPEC_NAME]}}" but there are also
     # special markers [, ], and ?
-    charlist_pattern = re.compile("\{\{c\|([^}]+)}}|([][?])|(<br>)")
+    charlist_pattern = re.compile("\{\{([^}]+)}}|([][?])|(<br>)")
     direction_pattern = re.compile("\|direction=(.*)\n")
     script_pattern = re.compile("\|script=(.*)\n")
     alphabet_pattern = re.compile("\|alphabet=(.*)\n")
@@ -116,30 +116,49 @@ class Inscription:
 
         direction = cls.direction_pattern.search(source).group(1)
 
-        if direction == "sinistroverse":
-            dir = "RTL"
-        else:
-            dir = "LTR"
-
         tokens = []
         for char_string in char_strings:
-            # There are often two token names, the latter being more specific
-            # Example: ["H", "H3"]
-            # We want to search for the more specific first.
-            names = list(reversed(char_string.split("|")))
+            # Put character parts into dict so we can do lookups with default.
+            names = dict(enumerate(char_string.split("|")))
+
+            search_names = []
+
+            first_name = names.get(0)
+            if first_name == 'c':
+                # There are often two token names, the latter being more specific
+                # Example: {{c|L|L2}}
+                # We want to search for the more specific first.
+                specific = names.get(2, None)
+                if specific:
+                    search_names.append(specific)
+                general = names.get(1, None)
+                if general:
+                    search_names.append(general)
+            else:
+                search_names.append(first_name)
+
+
+            dir = "sin"
+            if names.get(3) == "d":
+                dir = "dex"
+
             try:
-                tokens.append(lookup.closest(names, dir))
+                tokens.append(lookup.closest(search_names, dir))
             except KeyError:
+                print(["no", search_names, dir], file=sys.stderr)
+
                 # Signs that cannot be mapped are copied over verbatim
-                name = names[0]
+                name = search_names[0]
                 if len(name) > 1:
                     tokens.append("<" + name + ">")
                 else:
                     tokens.append(name)
 
-        if dir == "LTR":
+        if direction == "dextroverse":
+            dir = "LTR"
             text = "".join(tokens)
         else:
+            dir = "RTL"
             # The text is entered reversed in the wiki to give
             # the desired visual appearance. Undo that by reversing the tokens.
             def split_by_line(tokens):
