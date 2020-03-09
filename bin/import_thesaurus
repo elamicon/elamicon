@@ -53,6 +53,7 @@ class Inscription:
     charlist_pattern = re.compile("\{\{c\|([^}]+)}}|([][?])|(<br>)")
     direction_pattern = re.compile("\|direction=(.*)\n")
     script_pattern = re.compile("\|script=(.*)\n")
+    alphabet_pattern = re.compile("\|alphabet=(.*)\n")
 
     @classmethod
     def from_page(cls, id, source, lookup):
@@ -156,18 +157,24 @@ class Inscription:
 
         script = cls.script_pattern.search(source).group(1)
 
-        return cls(id, dir, text, script)
+        alphabet_match = cls.alphabet_pattern.search(source)
+        if alphabet_match:
+            alphabet = alphabet_match.group(1)
+        else:
+            alphabet = "Unknown"
 
-    def __init__(self, id, dir, text, script):
+        # Take the first three letters of the alphabet name
+        # for a short group name.
+        group = alphabet[0:3]
+
+        return cls(id, group, dir, text, script)
+
+    def __init__(self, id, group, dir, text, script):
         self.id = id
+        self.group = group
         self.dir = dir
         self.text = text
         self.script = script
-
-    @property
-    def group(self):
-        return self.id.split("-")[0]
-
 
     def elm_record(self, url_base):
         return """{{ id = "{}", group = "{}", dir = {}, plate = Nothing, text = \"\"\"{}\"\"\", link = Just "{}" }}""".format(
