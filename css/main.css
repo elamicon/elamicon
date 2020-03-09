@@ -370,7 +370,7 @@ ul {
 .result .id {
     position: relative;
     margin-left: 1.8em;
-    width: 3.2em;
+    width: 10em;
     display: inline-block;
 }
 
@@ -389,7 +389,7 @@ sup.group {
 
 .result .pos {
     position: absolute;
-    left: 2.1em;
+    left: 5em;
     width: 6em;
     font-size: small;
     bottom: 0;
@@ -405,7 +405,7 @@ sup.group {
 .result .before {
     display: inline-block;
     text-align: right;
-    width: 6em;
+    width: 10em;
     margin-left: -6em;
 }
 
