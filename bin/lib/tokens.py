@@ -85,7 +85,6 @@ class Lookup:
             if dir_name in self.names:
                 return self.names[dir_name]
 
-        for n in names:
             dir_name = f"{n}-ambi"
             if dir_name in self.names:
                 return self.names[dir_name]
