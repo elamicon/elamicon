@@ -137,11 +137,11 @@ inscriptions =
  ,{ id = "MA-9", group = "Mag", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-9" }
  ,{ id = "MA-10", group = "Mag", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-10" }
  ,{ id = "MA-11", group = "Mag", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-11" }
- ,{ id = "MA-12", group = "Mag", dir = LTR, plate = Nothing, text = """<Rpunct2>""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-12" }
- ,{ id = "MA-13", group = "Mag", dir = RTL, plate = Nothing, text = """<Lpunct2>""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-13" }
- ,{ id = "MA-14", group = "Mag", dir = LTR, plate = Nothing, text = """<Mpunct><Rpunct2>""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-14" }
- ,{ id = "MA-16", group = "Mag", dir = LTR, plate = Nothing, text = """<Lpunct2>""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-16" }
- ,{ id = "MA-17", group = "Mag", dir = RTL, plate = Nothing, text = """<Lpunct2>""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-17" }
+ ,{ id = "MA-12", group = "Mag", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-12" }
+ ,{ id = "MA-13", group = "Mag", dir = RTL, plate = Nothing, text = """̣""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-13" }
+ ,{ id = "MA-14", group = "Mag", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-14" }
+ ,{ id = "MA-16", group = "Mag", dir = LTR, plate = Nothing, text = """̣""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-16" }
+ ,{ id = "MA-17", group = "Mag", dir = RTL, plate = Nothing, text = """̣""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-17" }
  ,{ id = "MA-18", group = "Mag", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-18" }
  ,{ id = "MA-19", group = "Mag", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-19" }
  ,{ id = "MA-20", group = "Mag", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/MA-20" }
@@ -164,14 +164,14 @@ inscriptions =
  ,{ id = "NO-12", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/NO-12" }
  ,{ id = "NO-13", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/NO-13" }
  ,{ id = "NO-14", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/NO-14" }
- ,{ id = "NO-15", group = "San", dir = RTL, plate = Nothing, text = """<punctuation7>""", link = Just "https://www.univie.ac.at/raetica/wiki/NO-15" }
+ ,{ id = "NO-15", group = "San", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/NO-15" }
  ,{ id = "NO-16", group = "San", dir = RTL, plate = Nothing, text = """
 """, link = Just "https://www.univie.ac.at/raetica/wiki/NO-16" }
  ,{ id = "NO-17", group = "San", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/NO-17" }
  ,{ id = "NO-18", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/NO-18" }
  ,{ id = "NO-19", group = "San", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/NO-19" }
- ,{ id = "PA-1", group = "Mag", dir = RTL, plate = Nothing, text = """<Lpunct2>
-<Lpunct2>""", link = Just "https://www.univie.ac.at/raetica/wiki/PA-1" }
+ ,{ id = "PA-1", group = "Mag", dir = RTL, plate = Nothing, text = """̣
+̣""", link = Just "https://www.univie.ac.at/raetica/wiki/PA-1" }
  ,{ id = "PU-1", group = "Mag", dir = LTR, plate = Nothing, text = """
 """, link = Just "https://www.univie.ac.at/raetica/wiki/PU-1" }
  ,{ id = "PU-2", group = "Unk", dir = RTL, plate = Nothing, text = """
@@ -198,7 +198,7 @@ inscriptions =
  ,{ id = "SL-2.2", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SL-2.2" }
  ,{ id = "SL-2.3", group = "Ven", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SL-2.3" }
  ,{ id = "SL-2.4", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SL-2.4" }
- ,{ id = "SR-1", group = "Mag", dir = RTL, plate = Nothing, text = """<Rpunct>
+ ,{ id = "SR-1", group = "Mag", dir = RTL, plate = Nothing, text = """
 """, link = Just "https://www.univie.ac.at/raetica/wiki/SR-1" }
  ,{ id = "SR-2", group = "Unk", dir = RTL, plate = Nothing, text = """
 """, link = Just "https://www.univie.ac.at/raetica/wiki/SR-2" }
@@ -207,11 +207,11 @@ inscriptions =
  ,{ id = "SR-4", group = "Mag", dir = RTL, plate = Nothing, text = """
  """, link = Just "https://www.univie.ac.at/raetica/wiki/SR-4" }
  ,{ id = "SR-5", group = "Mag", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-5" }
- ,{ id = "SR-6", group = "Mag", dir = RTL, plate = Nothing, text = """<Rpunct>""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-6" }
- ,{ id = "SR-7", group = "Mag", dir = RTL, plate = Nothing, text = """<Rpunct>""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-7" }
+ ,{ id = "SR-6", group = "Mag", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-6" }
+ ,{ id = "SR-7", group = "Mag", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-7" }
  ,{ id = "SR-8", group = "Mag", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-8" }
  ,{ id = "SR-9", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-9" }
- ,{ id = "SR-10", group = "Mag", dir = RTL, plate = Nothing, text = """<Lpunct>""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-10" }
+ ,{ id = "SR-10", group = "Mag", dir = RTL, plate = Nothing, text = """̣""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-10" }
  ,{ id = "SR-11", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-11" }
  ,{ id = "SR-12", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-12" }
  ,{ id = "SR-13", group = "Unk", dir = RTL, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/SR-13" }
@@ -369,7 +369,7 @@ inscriptions =
  ,{ id = "TV-1.1", group = "Mag", dir = LTR, plate = Nothing, text = """
 
 
-<Lpunct>
+̣
 """, link = Just "https://www.univie.ac.at/raetica/wiki/TV-1.1" }
  ,{ id = "UG-1.1", group = "Unk", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/UG-1.1" }
  ,{ id = "UG-1.2", group = "Unk", dir = LTR, plate = Nothing, text = """""", link = Just "https://www.univie.ac.at/raetica/wiki/UG-1.2" }
