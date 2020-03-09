@@ -69,12 +69,32 @@ raetic =
     , font = "NorthItalic"
     , description = """
 #### Introduction
-This sub-corpus includes, with minor changes, all the sign variants ocurring in [Thesaurus Inscriptionum Raeticarum](https://www.univie.ac.at/raetica/wiki/Main_Page), which on its part collects the letter forms of the Sondrio Alphabet, Magré Alphabet, Sanzeno Alphabet and others. We are grateful to the authors of the TIR for meticulously collecting the Raetic inscriptions.
-Raetic denominates, as in TIR, all North Italic inscriptions that are neither written in the Este alphabet (Venetic), nor in the Lugano alphabet (Lepontic), nor in the Sondrio / Val Camonica alphabet (Camunic), nor are clearly Etruscan. It contains all inscriptions hitherto known, including those of doubtful assignment to the script in question. Geographical and/or palaeographical division into sub-groups such as "Sondrio Alphabet", "Magré Alphabet" etc., which were claimed in older literature, are neglected, because they can not be held with the evidence available today.
+
+This sub-corpus includes, with minor changes, all the sign variants ocurring in [Thesaurus Inscriptionum Raeticarum](https://www.univie.ac.at/raetica/wiki/Main_Page), which on its part collects the letter forms of the Sondrio Alphabet, Magré Alphabet, Sanzeno Alphabet and others. We are grateful to the authors of the TIR for meticulously collecting the Raetic inscriptions and for making this great resource available to the public.
+
+Raetic denominates, as in TIR, all North Italic inscriptions that are neither written in the Este alphabet (Venetic), nor in the Lugano alphabet (Lepontic), nor in the Sondrio / Val Camonica alphabet (Camunic), nor are clearly Etruscan. It contains all inscriptions hitherto known, including those of doubtful assignment to the script in question. Geographical and/or palaeographical division into sub-groups such as "Sondrio Alphabet", "Magré Alphabet" etc., which are claimed in literature, are to be taken a grain of salt given evidence available today.
+
+
 #### Terminology used for labelling the sign variants
+
 **Writing direction:** sin = sinistroverse; dex = dextroverse; sin/dex = used in this exact shape (i.e. without mirroring the sign) in both writing directions.
 **Sub-numeration of the signs:** For Raetic and Lepontic, the sub-numeration is taken from the respective main sources. Supplementary sign variants added by us and not present in the main source have been labelled with further sub-numbers.
 We have labelled the sign variants with sub-numbers according to the frequency of occurrence, i.e.: Raet A₁ is the most frequent Raetic sign variant with the sound value A, Raet A₂ is the second most frequent Raetic sign variant with the sound value A etc. (There are exceptions from this basic rule, due to the iterative compilation of the sub-corpora.)
+
+
+#### Sigla
+
+Inscription sigla (such as RN-1) are taken from, and kept in sync with, TIR. In
+addition, the inscriptions are grouped into what TIR terms "alphabets". They are
+shown as superscript to the sigla, example: <sup>MAG</sup>AK-1.1. The superscripts
+used are:
+
+* **MAG** for Magrè
+* **SAN** for Sanzeno
+* **VEN** for Venetic
+* **UNK** for unknown, which comprises most small inscriptions
+
+
 """
     , sources = """
 #### Main source
