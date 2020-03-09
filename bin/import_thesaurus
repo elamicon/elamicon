@@ -117,27 +117,42 @@ class Inscription:
 
         if direction == "sinistroverse":
             dir = "RTL"
-            # The text is entered reversed in the wiki to give
-            # the desired visual appearance. Undo that by reversing the raw tokens.
-            char_strings = reversed(char_strings)
         else:
             dir = "LTR"
 
-        text = ""
+        tokens = []
         for char_string in char_strings:
             # There are often two token names, the latter being more specific
             # Example: ["H", "H3"]
             # We want to search for the more specific first.
             names = list(reversed(char_string.split("|")))
             try:
-                text += lookup.closest(names, dir)
+                tokens.append(lookup.closest(names, dir))
             except KeyError:
                 # Signs that cannot be mapped are copied over verbatim
                 name = names[0]
                 if len(name) > 1:
-                    text += "<" + name + ">"
+                    tokens.append("<" + name + ">")
                 else:
-                    text += name
+                    tokens.append(name)
+
+        if dir == "LTR":
+            text = "".join(tokens)
+        else:
+            # The text is entered reversed in the wiki to give
+            # the desired visual appearance. Undo that by reversing the tokens.
+            def split_by_line(tokens):
+                line = []
+                for t in tokens:
+                    if t == "\n":
+                        yield line
+                        line = []
+                    else:
+                        line.append(t)
+                if line:
+                    yield line
+            lines = ["".join(reversed(l)) for l in split_by_line(tokens)]
+            text = "\n".join(lines)
 
         script = cls.script_pattern.search(source).group(1)
 
