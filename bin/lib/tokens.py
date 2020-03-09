@@ -110,7 +110,14 @@ class Token:
 
     @classmethod
     def from_line(cls, token, name_str):
-        name_words = name_str.split()
+        # The format is
+        #   <script> <name> <direction> <correspondences>
+        # Example:
+        #   Raet T3 sin [= Raet L1 dex = Raet P2 dex = Lep L]
+        # Limit to three splits so the correspondeces are not split.
+        # Otherwise the simplistic direction matcher below finds the
+        # directions of the other scripts.
+        name_words = name_str.split(None, 3)
         try:
             name_with_variant = name_words[1]
             group = re.sub("[0-9]+$", "", name_with_variant)

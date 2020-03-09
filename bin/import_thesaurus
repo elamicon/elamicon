@@ -185,6 +185,19 @@ class Inscription:
             escape(url_base + self.id)
         )
 
+    def __lt__(self, other):
+        '''
+        sorts in human order on the token id
+        '''
+        return self._sort_words() < other._sort_words()
+
+    def _sort_words(self):
+        def atoi(text):
+            return int(text) if text.isdigit() else text
+
+        return [ atoi(c) for c in re.split(r'(\d+)', self.id) ]
+
+
 
 module_name = sys.argv[1]
 dump_file = sys.argv[2]
@@ -245,6 +258,11 @@ for page_elm in root.findall(f".//{xmlns}page"):
 
     except ValueError as e:
         pass
+
+
+
+inscriptions.sort()
+
 
 joined_inscriptions = "\n ,".join((i.elm_record(base_url) for i in inscriptions))
 
