@@ -40,7 +40,7 @@ Script|Font|Grouping|Corpus
 :-----|:--:|:------:|:----:
 [Byblos](https://center-for-decipherment.ch/tool/#byblos)|✓|(✓)|✓
 [Linear-Elam](https://center-for-decipherment.ch/tool/#elam)|✓|✓|✓
-[Raetic](https://center-for-decipherment.ch/tool/#raetic)|✓|✓|-
+[Raetic](https://center-for-decipherment.ch/tool/#raetic)|✓|✓|✓
 [Lepontic](https://center-for-decipherment.ch/tool/#lepontic)|✓|-|-
 [Etruscan](https://center-for-decipherment.ch/tool/#etruscan)|✓|✓|-
 [Runes (Elder Futhark)](https://center-for-decipherment.ch/tool/#runic)|✓|-|-
