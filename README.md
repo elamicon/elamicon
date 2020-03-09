@@ -16,20 +16,19 @@ them on [our website center-for-decipherment.ch](https://center-for-decipherment
 
 ## Our goals
 
-We want to make ancient writing systems accessible for digital processing. This includes:
+We want to make ancient writing systems accessible for digital processing. We
+offer text analysis tools that work right out of the browser. Our goals for each
+script:
 
 - Catalogue all glyphs in their variants and create a digital font
 - Transcribe all fragments into a text corpus
 - Group glyph variants together so searching one variant finds the other too
-- Offer search and counting functions that help in analyzing the corpus
+- Offer transcribing, search, and counting functions that help in analyzing the corpus
+- Provide font files that allow inclusion of the glyphs in publications
 
-We avoid permaturely narrowing the meaning of glyphs to predetermined sound values.
-This means that many variants of glyphs are represented in our fonts. Only in a second
-step these variants are grouped together. This allows
-quickly changing the grouping to test out hypotheses. The tool allows switching quickly between adjusting the grouping and searching or frequency analysis. It all works without
-installing anything.
+**Glyph variants**: To offer room for alternative decodings, we avoid permaturely mapping the glyphs present in the source material into a narrow set of glyphs. Many variants of glyphs are preserved in our fonts. Only in a second step these variants are grouped together. This allows quickly changing the grouping to test out hypotheses.
 
-Another focus of this project is effortless inclusion of the glyphs in publications. Once installed, the digital fonts we've created allow writing prose mixed with glyphs from the scripts. Sequences of glyphs in published papers can be copied into the search field to continue research immediately.
+**Fonts for publication**: Another focus of this project is effortless inclusion of the glyphs in publications. Once installed, the digital fonts we've created allow writing prose mixed with glyphs from the scripts. The desired sequences can be copied directly from the tool. At the other end, sequences of glyphs in published papers can be copied into the search field to continue research immediately.
 
 
 ## Status
@@ -53,10 +52,7 @@ Send us a mail with the new texts. Similarily, if you've created a new
 Glyph grouping you think would be helpful to others, send it in so we
 can include it.
 
-If you'd like to create a font for a new script please contact us first
-so we can talk about the codepoint range to use. We've used both
-[Fontforge](http://fontforge.github.io) and [Inkscape](https://inkscape.org)
-to create fonts. Other tools should work too.
+If you'd like to create a font for a new script, please contact us first so we can talk about the codepoint range to use. (We're using the [Unicode Private Use Area](http://unicode.org/glossary/#private_use) in the Basic Multilingual Plane.) Both [Fontforge](http://fontforge.github.io) and [Inkscape](https://inkscape.org) have been used to create fonts. Other tools should work too.
 
 
 ## Building
@@ -82,5 +78,5 @@ this out to us and we will gladly remove all traces of the forgery.
 
 The compiled fonts are derivatives of the
 [Liberation Fonts](https://fedorahosted.org/liberation-fonts/). They are
-licensed under a GPL2 license with additional clauses. See fonts/copyright.
+licensed under a GPL2 license with additional clauses. See [fonts/copyright](fonts/copyright).
 
