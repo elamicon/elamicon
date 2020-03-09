@@ -1131,17 +1131,35 @@ view model =
 
                         Just url ->
                             [ a [ href url, target "_blank", class "img" ] [ img [ src (url ++ ".thumb") ] [] ] ]
-            in
-            div [ classList [ ( "plate", True ), ( "fixedBreak", model.fixedBreak ), ( model.script.id, True ) ], dirAttr fragment.dir ]
-                [ h3 []
-                    ([ a [ dir "LTR", href (Maybe.withDefault "" fragment.link ) ]
-                        -- labels are always written LTR
+
+                fragmentLink =
+                    -- Make the title element a link if the fragment has one.
+                    -- Note on title text: it is always written LTR.
+                    -- But the ordering of the title text and thumb depends on
+                    -- the writing direction of the plate. The text comes
+                    -- first. As such, we inherit the writing direction to get
+                    -- the elements order: first title, then thumb. But
+                    -- the title text we override to LTR.
+                    case fragment.link of
+                        Nothing ->
+                         span [ dir "LTR"
+                              ]
+
+                        Just link ->
+                            a [ dir "LTR"
+                              , href (Maybe.withDefault "" fragment.link )
+                              ]
+
+                fragmentTitle =
+                    [ fragmentLink
                         [ sup [ class "group" ] [ text fragment.group ]
                         , text fragment.id
                         ]
-                     ]
-                        ++ thumb
-                    )
+                    ]
+
+            in
+            div [ classList [ ( "plate", True ), ( "fixedBreak", model.fixedBreak ), ( model.script.id, True ) ], dirAttr fragment.dir ]
+                [ h3 [] (fragmentTitle ++ thumb)
                 , ol fragmentAttrs lines
                 ]
 
