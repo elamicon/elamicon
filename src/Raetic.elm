@@ -86,7 +86,7 @@ We have labelled the sign variants with sub-numbers according to the frequency o
 #### Sigla
 
 Inscription sigla (such as RN-1) are taken from and kept in sync with TIR. In
-addition, the inscriptions are grouped into what TIR terms "alphabets". They are
+addition, the inscriptions are grouped into what TIR terms "alphabets", i.e. geographically conditioned subgroups of the Raetic script. They are
 shown as superscript to the sigla, example: <sup>MAG</sup>AK-1.1. The superscripts
 used are:
 
