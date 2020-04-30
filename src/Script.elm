@@ -83,6 +83,7 @@ type alias Script =
     , syllabaries : List SyllabaryDef
     , groups : List GroupDef
     , fragments : List FragmentDef
+    , inscriptionOverviewLink : Maybe String
     , decorations :
         { headline : Decoration
         , title : Decoration

@@ -819,6 +819,7 @@ elam =
     , syllabaries = syllabaries
     , groups = groups
     , fragments = fragments
+    , inscriptionOverviewLink = Just "https://center-for-decipherment.ch/pubs/Corpus_Statistics_and_Concordance_List_OCLEI.pdf"
     , decorations = { headline = ("", "")
                     , title = ("", "")
                     , info = ("", "")

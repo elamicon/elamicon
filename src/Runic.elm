@@ -87,6 +87,7 @@ None
     , syllabaries = syllabaries
     , groups = []
     , fragments = fragments
+    , inscriptionOverviewLink = Nothing
     , decorations = { headline = ("", "")
                     , title = ("", "")
                     , info = ("", "")

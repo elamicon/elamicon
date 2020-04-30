@@ -92,6 +92,7 @@ The collection of Lepontic sign variants contains signs from inscriptions which 
     , syllabaries = syllabaries
     , groups = []
     , fragments = fragments
+    , inscriptionOverviewLink = Nothing
     , decorations = { headline = ("", "")
                     , title = ("", "")
                     , info = ("", "")

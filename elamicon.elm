@@ -1163,12 +1163,24 @@ view model =
                 , ol fragmentAttrs lines
                 ]
 
+        overviewLink =
+            case model.script.inscriptionOverviewLink of
+                Nothing -> []
+                Just link ->
+                    [ p []
+                        [ text "For an overview, see "
+                        , a [ href link ]
+                            [ text "text corpus with concordance list" ]
+                        , text "."
+                        ]
+                    ]
+
         fragmentsView =
-            [ h2 [] [ text (decorate .inscriptions "Inscriptions") ]
-            , div [ dirAttr LTR ] (List.map fragmentView cleanedFragments)
+            [ h2 [] [ text (decorate .inscriptions "Inscriptions") ] ]
+            ++ overviewLink ++
+            [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments)
             , contact, small [] [ footer ]
             ]
-
 
         contact =
             div [ class "footer" ]

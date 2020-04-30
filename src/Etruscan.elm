@@ -90,6 +90,7 @@ If no "Further source" reference (see below) is indicated in the sign name, the 
     , syllabaries = syllabaries
     , groups = []
     , fragments = fragments
+    , inscriptionOverviewLink = Nothing
     , decorations = { headline = ("", "")
                     , title = ("", "")
                     , info = ("", "")

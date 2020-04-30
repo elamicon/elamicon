@@ -956,6 +956,7 @@ Feel free to contact the [Byblicon research team](mailto:michael.maeder@isw.unib
     , syllabaries = syllabaries
     , groups = groups
     , fragments = fragments
+    , inscriptionOverviewLink = Nothing
     , decorations = { headline = ("", "")
                     , title = ("", "")
                     , info = ("", "")
