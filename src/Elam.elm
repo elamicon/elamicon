@@ -751,6 +751,12 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 description = """
 This is a tool for computer-assisted analysis of Linear Elamite, an undeciphered syllabic writing system used in the late 3rd millennium BC. It sports a Unicode version of all the sign variants and allows for a statistical analysis of the texts. 
 
+
+#### Text Corpus and Concordances
+
+Currently, 50 Linear Elamite inscriptions and fragments are known (41 when collating the fragments of a single artefact). For the current state see the [text corpus with concordance list](https://center-for-decipherment.ch/pubs/Corpus_Statistics_and_Concordance_List_OCLEI.pdf). For detailed photographs see the plate attached to every inscription below in the Folder "Inscriptions".
+
+
 #### Dynamic Syllabary
 As it is unclear whether a sign is to be considered a separate sign type representing a certain sound value, or only a graphic variant of a sign type, we established a so-called dynamic syllabary, which can constantly get modified during the research process. As our working hypothesis ([Plachtzik et al. 2017]), we propose a syllabary with 99 different sign types (see settings).
 
