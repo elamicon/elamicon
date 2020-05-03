@@ -21,7 +21,7 @@
 # Example:
 #
 #    import_thesaurus \
-#       RaeticInscriptions raeticarum/univieacat_raetica-20200210-current.xml \
+#       Raetic raeticarum/univieacat_raetica-20200210-current.xml \
 #       raetic.txt \
 
 #       > src/Imported/RaeticInscriptions.elm
@@ -41,22 +41,136 @@ def escape(str):
     return str.replace("\\", "\\\\").replace("\"", "\\\"")
 
 
-class Inscription:
+class Raetic:
     """
-    Represent Raeticarum Wiki entries.
+    Information specific to the Raetic import
     """
+    def __init__(self, tokens):
+        self.reading_field = "reading_original"
 
-    reading_original_pattern = re.compile("\|reading_original=(.*)\n")
+        # Grouping Raetic inscriptions by alphabet seems most useful.
+        self.group_field = "alphabet"
 
-    # Tokens are encoded as "{{NAME[|SPEC_NAME]}}" but there are also
-    # special markers [, ], and ?
-    charlist_pattern = re.compile("\{\{([^}]+)}}|([][?])|(<br>)")
-    direction_pattern = re.compile("\|direction=(.*)\n")
-    script_pattern = re.compile("\|script=(.*)\n")
-    alphabet_pattern = re.compile("\|alphabet=(.*)\n")
+        types = Types(tokens)
 
-    @classmethod
-    def from_page(cls, id, source, lookup):
+        # Special chars used in the wiki
+        types.add(Token('', '[', 'frag', '', 'ambi'))
+        types.add(Token('', ']', 'frag', '', 'ambi'))
+        types.add(Token('', '?', 'guess', '', 'ambi'))
+        types.add(Token(' ', 'space', 'space', '', 'ambi'))
+        types.add(Token('', 'punctuation1', 'punctuation', '', 'ambi'))
+        types.add(Token('', 'punctuation2', 'punctuation', '', 'ambi'))
+        types.add(Token('', 'punctuation3', 'punctuation', '', 'ambi'))
+        types.add(Token('', 'punctuation4', 'punctuation', '', 'ambi'))
+        types.add(Token('', 'punctuation5', 'punctuation', '', 'ambi'))
+        # Since we don't have that sign, use divider 1
+        types.add(Token('', 'punctuation7', 'punctuation', '', 'ambi'))
+
+        # The wiki uses <br> tags for linebreaks
+        types.add(Token("\n", '<br>', 'br', '', 'ambi'))
+
+        # Chars having different names
+        types.add(Token('', 'Ś', 'Ś', '', 'ambi'))
+        types.add(Token('', 'Ś2', 'Ś', '', 'ambi'))
+        types.add(Token('', 'Ś3', 'Ś', '', 'ambi'))
+        types.add(Token('', 'Χ1', 'Χ', '', 'ambi'))
+        types.add(Token('', 'Χ2', 'Χ', '', 'ambi'))
+        types.add(Token('', 'Χ3', 'Χ', '', 'ambi'))
+        types.add(Token('', '1d', '1d', '', 'ambi'))
+        types.add(Token('', '10d', '10d', '', 'ambi'))
+
+        # The punct ligatures are approximated by adding a period after
+        # the respective sign. Using the Unicode Interpunct sign, which
+        # will be ignored when searching.
+        types.add(Token('·', 'Lpunct', 'Lpunct', '', 'sin'))
+        types.add(Token('·', 'Lpunct', 'Lpunct', '', 'dex'))
+        types.add(Token('·', 'Mpunct', 'Mpunct', '', 'sin'))
+        types.add(Token('·', 'Mpunct', 'Mpunct', '', 'dex'))
+        types.add(Token('·', 'Rpunct', 'Rpunct', '', 'sin'))
+        types.add(Token('·', 'Rpunct', 'Rpunct', '', 'dex'))
+
+        # Classes of chars we turn into wildcard chars because we don't
+        # have the sign.
+        prefix_map = {
+            'line': "",
+            'symbol': "",
+            'add': "",
+        }
+
+        self.lookup = types.lookup(prefix_map)
+
+
+class Lepontic:
+    """
+    Information specific to the Lepontic import
+    """
+    def __init__(self, tokens):
+        self.reading_field = "reading_lepontic"
+        self.group_field = "language"
+
+        types = Types(tokens)
+
+        # Special chars used in the wiki
+        types.add(Token('', '[', 'frag', '', 'ambi'))
+        types.add(Token('', ']', 'frag', '', 'ambi'))
+        types.add(Token(' ', 'space', 'space', '', 'ambi'))
+        types.add(Token('§', 'w', '§', '', 'ambi'))
+        types.add(Token('!', '!', '!', '', 'ambi'))
+
+        # The wiki uses <br> tags for linebreaks
+        types.add(Token("\n", '<br>', 'br', '', 'ambi'))
+
+        # Chars having different names
+        #
+        types.add(Token('', 'Ś', 'Ś', '', 'ambi'))   # Ð 1
+        types.add(Token('', 'Ś2', 'Ś', '', 'ambi'))  # San2
+        types.add(Token('', 'Ś3', 'Ś', '', 'ambi'))  # San3
+        types.add(Token('', 'Ś5', 'Ś', '', 'ambi'))  # San5
+        types.add(Token('', 'Ś6', 'Ś', '', 'ambi'))  # San6
+
+        # They use "Χ" and we use "X", see the difference?
+        # Hint, one of them is the Greek Chi.
+        types.add(Token('', 'Χ', 'Χ', '', 'ambi'))   # X1
+        types.add(Token('', 'Χ3', 'Χ', '', 'ambi'))  # X1
+        types.add(Token('', 'Χ4', 'Χ', '', 'ambi'))  # X4
+        types.add(Token('', 'Χ5', 'Χ', '', 'ambi'))  # X5
+        types.add(Token('', 'Χ6', 'Χ', '', 'ambi'))  # X6
+
+        types.add(Token('', 'addΦ1', 'addΦ1', '', 'ambi'))  # Q2
+        types.add(Token('', 'addA1', 'addA1', '', 'sin'))   # A9?
+        types.add(Token('', 'addA2', 'addA2', '', 'sin'))   # A6?
+        types.add(Token('', 'addΘ1', 'addΘ1', '', 'ambi'))  # Θ1
+        types.add(Token('', 'addT2', 'addT2', '', 'ambi'))  # T5 dex?
+
+        types.add(Token('', 'Pd', 'Pd', '', 'ambi'))  # P1 dex
+
+        # Couldn't find a matching short bar so I took the dot we have
+        types.add(Token('', 'separator6', 'separator', '', 'ambi'))
+
+        prefix_map = {}
+        self.lookup = types.lookup(prefix_map)
+
+
+class Reading:
+    def __init__(self, script_name, tokens):
+        try:
+            strategy_class = globals()[script_name]
+        except KeyError:
+            raise ValueError(f"No strategy for {script_name}.")
+        self.strategy = strategy_class(tokens)
+
+        self.reading_str_pattern = re.compile(
+            f"\|{self.strategy.reading_field}=(.*)\n"
+        )
+
+        # Tokens are encoded as "{{NAME[|SPEC_NAME]}}" but there are also
+        # special markers [, ], and ?
+        self.charlist_pattern = re.compile("\{\{([^}]+)}}|([][?])|(<br>)")
+        self.direction_pattern = re.compile("\|direction=(.*)\n")
+        self.script_pattern = re.compile("\|script=(.*)\n")
+        self.group_pattern = re.compile(f"\|{self.strategy.group_field}=(.*)\n")
+
+    def read(self, id, source):
         """
         Read inscription entry from wiki source.
 
@@ -92,8 +206,9 @@ class Inscription:
 
         The fields we are interested in are:
 
-        - reading_original: Contains the inscription text
+        - reading_...: Contains the inscription text
         - direction: contains the reading direction
+        - script: used to filter out "Latin" inscriptions
         """
 
         if not source:
@@ -102,19 +217,19 @@ class Inscription:
         if not source.startswith("{{inscription"):
             raise ValueError("Not an inscription.")
 
-        reading_original = cls.reading_original_pattern.search(source).group(1)
-        if not reading_original:
-            raise ValueError("No field `reading_original`.")
+        reading_str = self.reading_str_pattern.search(source).group(1)
+        if not reading_str:
+            raise ValueError("No field with reading.")
 
         # The text includes marker signs which are HTML-encoded
         # Example: &#91 -> [
-        reading_decoded = html.unescape(reading_original)
+        reading_decoded = html.unescape(reading_str)
 
         # Split into individual characters.
         char_strings = [ max(res) for res in
-                         cls.charlist_pattern.findall(reading_decoded) ]
+                         self.charlist_pattern.findall(reading_decoded) ]
 
-        direction = cls.direction_pattern.search(source).group(1)
+        direction = self.direction_pattern.search(source).group(1)
 
         tokens = []
         for char_string in char_strings:
@@ -143,9 +258,9 @@ class Inscription:
                 dir = "dex"
 
             try:
-                tokens.append(lookup.closest(search_names, dir))
+                tokens.append(self.strategy.lookup.closest(search_names, dir))
             except KeyError:
-                print(["no", search_names, dir], file=sys.stderr)
+                print(f"Missing {search_names} (writing direction {dir}) for inscription {id}", file=sys.stderr)
 
                 # Signs that cannot be mapped are copied over verbatim
                 name = search_names[0]
@@ -174,20 +289,26 @@ class Inscription:
             lines = ["".join(reversed(l)) for l in split_by_line(tokens)]
             text = "\n".join(lines)
 
-        script = cls.script_pattern.search(source).group(1)
+        script = self.script_pattern.search(source).group(1)
 
-        alphabet_match = cls.alphabet_pattern.search(source)
-        if alphabet_match:
-            alphabet = alphabet_match.group(1)
+        group_match = self.group_pattern.search(source)
+        if group_match:
+            group_str = group_match.group(1)
         else:
-            alphabet = "Unknown"
+            group_str = "Unknown"
 
         # Take the first three letters of the alphabet name
         # for a short group name.
-        group = alphabet[0:3]
+        group = group_str[0:3]
 
-        return cls(id, group, dir, text, script)
+        return Inscription(id, group, dir, text, script)
 
+
+
+class Inscription:
+    """
+    Represent Wiki entries.
+    """
     def __init__(self, id, group, dir, text, script):
         self.id = id
         self.group = group
@@ -218,60 +339,14 @@ class Inscription:
 
 
 
-module_name = sys.argv[1]
+script_name = sys.argv[1]
 dump_file = sys.argv[2]
 script_file = sys.argv[3]
 
 with open(script_file) as script_lines:
     tokens = list(Token.from_lines(script_lines))
 
-types = Types(tokens)
-
-# Special chars used in the wiki
-types.add(Token('', '[', 'frag', '', 'ambi'))
-types.add(Token('', ']', 'frag', '', 'ambi'))
-types.add(Token('', '?', 'guess', '', 'ambi'))
-types.add(Token(' ', 'space', 'space', '', 'ambi'))
-types.add(Token('', 'punctuation1', 'punctuation', '', 'ambi'))
-types.add(Token('', 'punctuation2', 'punctuation', '', 'ambi'))
-types.add(Token('', 'punctuation3', 'punctuation', '', 'ambi'))
-types.add(Token('', 'punctuation4', 'punctuation', '', 'ambi'))
-types.add(Token('', 'punctuation5', 'punctuation', '', 'ambi'))
-# Since we don't have that sign, use divider 1
-types.add(Token('', 'punctuation7', 'punctuation', '', 'ambi'))
-
-# The wiki uses <br> tags for linebreaks
-types.add(Token("\n", '<br>', 'br', '', 'ambi'))
-
-# Chars having different names
-types.add(Token('', 'Ś', 'Ś', '', 'ambi'))
-types.add(Token('', 'Ś2', 'Ś', '', 'ambi'))
-types.add(Token('', 'Ś3', 'Ś', '', 'ambi'))
-types.add(Token('', 'Χ1', 'Χ', '', 'ambi'))
-types.add(Token('', 'Χ2', 'Χ', '', 'ambi'))
-types.add(Token('', 'Χ3', 'Χ', '', 'ambi'))
-types.add(Token('', '1d', '1d', '', 'ambi'))
-types.add(Token('', '10d', '10d', '', 'ambi'))
-
-# The punct ligatures are approximated by adding a period after
-# the respective sign. Using the Unicode Interpunct sign, which
-# will be ignored when searching.
-types.add(Token('·', 'Lpunct', 'Lpunct', '', 'sin'))
-types.add(Token('·', 'Lpunct', 'Lpunct', '', 'dex'))
-types.add(Token('·', 'Mpunct', 'Mpunct', '', 'sin'))
-types.add(Token('·', 'Mpunct', 'Mpunct', '', 'dex'))
-types.add(Token('·', 'Rpunct', 'Rpunct', '', 'sin'))
-types.add(Token('·', 'Rpunct', 'Rpunct', '', 'dex'))
-
-# Classes of chars we turn into wildcard chars because we don't
-# have the sign.
-prefix_map = {
-    'line': "",
-    'symbol': "",
-    'add': "",
-}
-
-lookup = types.lookup(prefix_map)
+reading = Reading(script_name, tokens)
 
 inscriptions = []
 tree = ET.parse(dump_file)
@@ -283,20 +358,17 @@ for page_elm in root.findall(f".//{xmlns}page"):
     title = page_elm.find(f"{xmlns}title").text
     text = page_elm.find(f".//{xmlns}text").text
     try:
-        inscription = Inscription.from_page(title, text, lookup)
+        inscription = reading.read(title, text)
 
-        # There are three entries in latin script in the corpus, ignore those
+        # There are entries in latin script in the corpus, ignore those
         if inscription.script != "Latin script":
             inscriptions.append(inscription)
 
     except ValueError as e:
         pass
 
-
-
 inscriptions.sort()
-
 
 joined_inscriptions = "\n ,".join((i.elm_record(base_url) for i in inscriptions))
 
-print(f"module {module_name} exposing (inscriptions)\nimport WritingDirections exposing (..)\ninscriptions =\n [{joined_inscriptions}\n ]\n")
+print(f"module Imported.{script_name}Inscriptions exposing (inscriptions)\nimport WritingDirections exposing (..)\ninscriptions =\n [{joined_inscriptions}\n ]\n")

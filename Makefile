@@ -4,6 +4,7 @@ BFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
 IFONTS = $(subst fonts/original/,fonts/NorthItalic,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
+
 all: elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
 
 build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip fonts/copyright
@@ -36,18 +37,24 @@ build/elamicon.js: $(elms)
 	uglifyjs elamicon.opt.js --compress "pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe" | uglifyjs --mangle --output="$@"
 
 
-
-
+# The imports from Universität Wien are time consuming and are done manually.
+# The import-results are committed to source-control.
 dump/raetica:
 	bin/download_wiki_xml https://www.univie.ac.at/raetica/api.php "$@"
+	
+dump/lexlep:
+	bin/download_wiki_xml https://www.univie.ac.at/lexlep/api.php "$@"
 
-src/Imported: dump/raetica
-	mkdir -p "$@"
+src/Imported/RaeticInscriptions.elm: dump/raetica
 	bin/select_script "Raet" < fonts/original/north-italic.txt > dump/raetic-script.txt
+	python3 bin/import_thesaurus Raetic dump/raetica/*-current.xml dump/raetic-script.txt > "$@"
+
+src/Imported/LeponticInscriptions.elm: dump/lexlep
+	bin/select_script "Lep" < fonts/original/north-italic.txt > dump/lepontic-script.txt
 	python3 bin/import_thesaurus \
-		Imported.RaeticInscriptions \
-		dump/raetica/*-current.xml \
-		dump/raetic-script.txt > src/Imported/RaeticInscriptions.elm
+		Lepontic \
+		dump/lexlep/*-current.xml \
+		dump/lepontic-script.txt > "$@"
 
 
 
@@ -218,3 +225,4 @@ fonts/NorthItalic_Times_New_Roman_Bold.ttf: fonts/north-italic-base.ttf
 fonts/NorthItalic_Times_New_Roman.ttf: fonts/north-italic-base.ttf
 	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
 
+.DELETE_ON_ERROR:

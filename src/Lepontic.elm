@@ -12,6 +12,7 @@ import Script exposing (..)
 import Specialchars exposing (..)
 import Token
 import Generated.Lepontic
+import Imported.LeponticInscriptions
 
 rawTokens = Token.fromNamed Generated.Lepontic.tokens
 
@@ -50,8 +51,13 @@ syllabaries =
     ]
 
 
+-- We grouped the fragments according to where they were found
+-- Recorded means that there is a sound archaelogical paper trail
+groups : List GroupDef
+groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList (Set.fromList (List.map .group fragments))
+
 fragments : List FragmentDef
-fragments = [ ]
+fragments = Imported.LeponticInscriptions.inscriptions
 
 lepontic : Script
 lepontic =
@@ -90,7 +96,7 @@ The collection of Lepontic sign variants contains signs from inscriptions which 
     , syllables = syllables
     , syllableMap = syllableMap
     , syllabaries = syllabaries
-    , groups = []
+    , groups = groups
     , fragments = fragments
     , inscriptionOverviewLink = Nothing
     , decorations = { headline = ("", "")
