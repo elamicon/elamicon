@@ -58,19 +58,24 @@ class Raetic:
         types.add(Token('', ']', 'frag', '', 'ambi'))
         types.add(Token('', '?', 'guess', '', 'ambi'))
         types.add(Token(' ', 'space', 'space', '', 'ambi'))
-        types.add(Token('', 'punctuation1', 'punctuation', '', 'ambi'))
+        types.add(Token('', 'punctuation', 'punctuation', '', 'ambi'))
         types.add(Token('', 'punctuation2', 'punctuation', '', 'ambi'))
         types.add(Token('', 'punctuation3', 'punctuation', '', 'ambi'))
         types.add(Token('', 'punctuation4', 'punctuation', '', 'ambi'))
         types.add(Token('', 'punctuation5', 'punctuation', '', 'ambi'))
-        # Since we don't have that sign, use divider 1
+        # Since we don't have more punctuation, use divider 1
+        types.add(Token('', 'punctuation6', 'punctuation', '', 'ambi'))
         types.add(Token('', 'punctuation7', 'punctuation', '', 'ambi'))
+        types.add(Token('', 'punctuation8', 'punctuation', '', 'ambi'))
+        types.add(Token('', 'punctuation9', 'punctuation', '', 'ambi'))
+        types.add(Token('', 'punctuation10', 'punctuation', '', 'ambi'))
+        types.add(Token('', 'punctuation11', 'punctuation', '', 'ambi'))
 
         # The wiki uses <br> tags for linebreaks
         types.add(Token("\n", '<br>', 'br', '', 'ambi'))
 
         # Chars having different names
-        types.add(Token('', 'Ś', 'Ś', '', 'ambi'))
+        types.add(Token('', 'Ś1', 'Ś', '', 'ambi'))
         types.add(Token('', 'Ś2', 'Ś', '', 'ambi'))
         types.add(Token('', 'Ś3', 'Ś', '', 'ambi'))
         types.add(Token('', 'Χ1', 'Χ', '', 'ambi'))
@@ -83,11 +88,14 @@ class Raetic:
         # the respective sign. Using the Unicode Interpunct sign, which
         # will be ignored when searching.
         types.add(Token('·', 'Lpunct', 'Lpunct', '', 'sin'))
+        types.add(Token('·', 'Lpunct2', 'Lpunct', '', 'sin'))
         types.add(Token('·', 'Lpunct', 'Lpunct', '', 'dex'))
+        types.add(Token('·', 'Lpunct2', 'Lpunct', '', 'dex'))
         types.add(Token('·', 'Mpunct', 'Mpunct', '', 'sin'))
         types.add(Token('·', 'Mpunct', 'Mpunct', '', 'dex'))
         types.add(Token('·', 'Rpunct', 'Rpunct', '', 'sin'))
         types.add(Token('·', 'Rpunct', 'Rpunct', '', 'dex'))
+        types.add(Token('·', 'Rpunct2', 'Rpunct', '', 'dex'))
 
         # Classes of chars we turn into wildcard chars because we don't
         # have the sign.

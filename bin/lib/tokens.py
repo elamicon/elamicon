@@ -84,7 +84,7 @@ class Lookup:
             return self.names[dir_name]
 
         for prefix, replacement in self.prefix_map.items():
-            if n.startswith(prefix):
+            if name.startswith(prefix):
                 return replacement
 
         raise KeyError(f"`{name}` not found.")
