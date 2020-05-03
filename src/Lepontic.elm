@@ -24,15 +24,13 @@ indexedTokens = Set.fromList (wildcardChar :: tokens)
 indexed char = Set.member char indexedTokens
 
 searchExamples =
-    [ ("[]", "Search occurrences of  followed by either  or ")
-    , ("(.)\\1", "Look for sign repetitions (geminates) like ")
+    [ ("[]", "Search occurrences of  with either  or  in front")
+    , ("(.)\\1", "Look for sign repetitions (geminates) like ")
     , ("([^])\\1", "Look for sign repetitions (geminates) excluding placeholder ")
-    , ("(.).\\1", "Sign repetitions with an arbitrary sign in-between ()")
-    , ("[]", "Show all occurrences of  and ")
+    , ("(.).\\1", "Sign repetitions with an arbitrary sign in-between ()")
+    , ("[]", "Show all occurrences of  and ")
     ]
 
--- We don't know enough about the language to venture guesses about
--- syllables for the tokens.
 syllables = Dict.empty
 
 syllableMap = String.trim """
@@ -51,7 +49,6 @@ syllabaries =
     ]
 
 
--- We grouped the fragments according to where they were found
 -- Recorded means that there is a sound archaelogical paper trail
 groups : List GroupDef
 groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList (Set.fromList (List.map .group fragments))
