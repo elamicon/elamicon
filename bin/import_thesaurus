@@ -116,13 +116,23 @@ class Lepontic:
         types.add(Token(' ', 'space', 'space', '', 'ambi'))
         types.add(Token('§', 'w', '§', '', 'ambi'))
         types.add(Token('!', '!', '!', '', 'ambi'))
+        types.add(Token('', '?', 'guess', '', 'ambi'))
+
+        types.add(Token('', 'separator', 'separator', '', 'ambi'))
+        types.add(Token('', 'separator2', 'separator', '', 'ambi'))
+        types.add(Token('', 'separator3', 'separator', '', 'ambi'))
+        types.add(Token('', 'separator4', 'separator', '', 'ambi'))
+        types.add(Token('', 'separator5', 'separator', '', 'ambi'))
+        # Couldn't find a matching short bar so I took divider 1
+        types.add(Token('', 'separator6', 'separator', '', 'ambi'))
 
         # The wiki uses <br> tags for linebreaks
         types.add(Token("\n", '<br>', 'br', '', 'ambi'))
+        types.add(Token("\n", '<br />', 'br', '', 'ambi'))
 
         # Chars having different names
         #
-        types.add(Token('', 'Ś', 'Ś', '', 'ambi'))   # Ð 1
+        types.add(Token('', 'Ś1', 'Ś', '', 'ambi'))   # Ð 1
         types.add(Token('', 'Ś2', 'Ś', '', 'ambi'))  # San2
         types.add(Token('', 'Ś3', 'Ś', '', 'ambi'))  # San3
         types.add(Token('', 'Ś5', 'Ś', '', 'ambi'))  # San5
@@ -130,7 +140,7 @@ class Lepontic:
 
         # They use "Χ" and we use "X", see the difference?
         # Hint, one of them is the Greek Chi.
-        types.add(Token('', 'Χ', 'Χ', '', 'ambi'))   # X1
+        types.add(Token('', 'Χ1', 'Χ', '', 'ambi'))   # X1
         types.add(Token('', 'Χ3', 'Χ', '', 'ambi'))  # X1
         types.add(Token('', 'Χ4', 'Χ', '', 'ambi'))  # X4
         types.add(Token('', 'Χ5', 'Χ', '', 'ambi'))  # X5
@@ -142,10 +152,8 @@ class Lepontic:
         types.add(Token('', 'addΘ1', 'addΘ1', '', 'ambi'))  # Θ1
         types.add(Token('', 'addT2', 'addT2', '', 'ambi'))  # T5 dex?
 
-        types.add(Token('', 'Pd', 'Pd', '', 'ambi'))  # P1 dex
-
-        # Couldn't find a matching short bar so I took the dot we have
-        types.add(Token('', 'separator6', 'separator', '', 'ambi'))
+        types.add(Token('', 'Pd', 'P', '', 'ambi'))  # P1 dex
+        types.add(Token('', 'Rd', 'R', '', 'ambi'))  # R1 dex
 
         prefix_map = {}
         self.lookup = types.lookup(prefix_map)
@@ -165,7 +173,7 @@ class Reading:
 
         # Tokens are encoded as "{{NAME[|SPEC_NAME]}}" but there are also
         # special markers [, ], and ?
-        self.charlist_pattern = re.compile("\{\{([^}]+)}}|([][?])|(<br>)")
+        self.charlist_pattern = re.compile("\{\{([^}]+)}}|([][?])|(<br */?>)")
         self.direction_pattern = re.compile("\|direction=(.*)\n")
         self.script_pattern = re.compile("\|script=(.*)\n")
         self.group_pattern = re.compile(f"\|{self.strategy.group_field}=(.*)\n")
@@ -236,34 +244,42 @@ class Reading:
             # Put character parts into dict so we can do lookups with default.
             names = dict(enumerate(char_string.split("|")))
 
-            search_names = []
 
             first_name = names.get(0)
+            search_name = first_name
             if first_name == 'c':
                 # There are often two token names, the latter being more specific
                 # Example: {{c|L|L2}}
-                # We want to search for the more specific first.
+                # We want to search for the more specific if it's there.
+                general = names.get(1, None)
                 specific = names.get(2, None)
                 if specific:
-                    search_names.append(specific)
-                general = names.get(1, None)
-                if general:
-                    search_names.append(general)
-            else:
-                search_names.append(first_name)
+                    search_name = specific
+                elif general:
+                    # In our database the first variant is also labeled with
+                    # a number.
+                    search_name = general
+                else:
+                    raise ValueError("Incomplete c-string: names")
 
+                # In our database the first variant is also labeled with
+                # a number.
+                if len(search_name) == 1:
+                    search_name = search_name + "1"
 
+            # Some signs depend on the writing direction, the dextroverse
+            # version is marked with a "d" in the fourth position.
             dir = "sin"
             if names.get(3) == "d":
                 dir = "dex"
 
             try:
-                tokens.append(self.strategy.lookup.closest(search_names, dir))
+                tokens.append(self.strategy.lookup.closest(search_name, dir))
             except KeyError:
-                print(f"Missing {search_names} (writing direction {dir}) for inscription {id}", file=sys.stderr)
+                print(f"Missing {search_name} (writing direction {dir}) for inscription {id}", file=sys.stderr)
 
                 # Signs that cannot be mapped are copied over verbatim
-                name = search_names[0]
+                name = search_name
                 if len(name) > 1:
                     tokens.append("<" + name + ">")
                 else:

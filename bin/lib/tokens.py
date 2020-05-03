@@ -61,10 +61,6 @@ class Types:
         for token in self.tokens:
             names[f"{token.name}-{token.dir}"] = token.token
 
-            group_dir_name = f"{token.group}-{token.dir}"
-            if group_dir_name not in names:
-                names[group_dir_name] = token.token
-
         return Lookup(names, prefix_map)
 
 
@@ -73,28 +69,25 @@ class Lookup:
         self.names = names
         self.prefix_map = prefix_map
 
-    def closest(self, names, dir):
+    def closest(self, name, dir):
         """
         Search for the closest matching token for the given names.
 
-        A token for the first matching name will be returned. If the name
-        matches a group name, the first token from the group is returned.
+        A token for the first matching name will be returned.
         """
-        for n in names:
-            dir_name = f"{n}-{dir}"
-            if dir_name in self.names:
-                return self.names[dir_name]
+        dir_name = f"{name}-{dir}"
+        if dir_name in self.names:
+            return self.names[dir_name]
 
-            dir_name = f"{n}-ambi"
-            if dir_name in self.names:
-                return self.names[dir_name]
+        dir_name = f"{name}-ambi"
+        if dir_name in self.names:
+            return self.names[dir_name]
 
-        for n in names:
-            for prefix, replacement in self.prefix_map.items():
-                if n.startswith(prefix):
-                    return replacement
+        for prefix, replacement in self.prefix_map.items():
+            if n.startswith(prefix):
+                return replacement
 
-        raise KeyError(f"None of `{names}` found.")
+        raise KeyError(f"`{name}` not found.")
 
 
 class Token:

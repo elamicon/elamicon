@@ -68,6 +68,11 @@ lepontic =
     , title = "Leponticon"
     , font = "NorthItalic"
     , description = """
+#### Introduction
+
+This sub-corpus includes, with minor changes, all the sign variants ocurring in [Lexicon Leponticum](https://www.univie.ac.at/lexlep/wiki/Main_Page). We are grateful to the authors for meticulously collecting the inscriptions and for making this great resource available to the public.
+
+
 #### Content
 The collection of Lepontic sign variants contains signs from inscriptions which are understood – be it on linguistic or palaeographic grounds – as Lepontic, Cisalpine Gaulish or Camunic, or appear on the rock inscriptions from the sources of the Brembo river. Sign variants that occur only in Camunic have the siglum LepCam, sign variants that occur only in the Brembo inscriptions have LepBrem, all others have Lep.
 
