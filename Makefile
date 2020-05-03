@@ -45,11 +45,11 @@ dump/raetica:
 dump/lexlep:
 	bin/download_wiki_xml https://www.univie.ac.at/lexlep/api.php "$@"
 
-src/Imported/RaeticInscriptions.elm: dump/raetica
+src/Imported/RaeticInscriptions.elm: dump/raetica fonts/original/north-italic.txt
 	bin/select_script "Raet" < fonts/original/north-italic.txt > dump/raetic-script.txt
 	python3 bin/import_thesaurus Raetic dump/raetica/*-current.xml dump/raetic-script.txt > "$@"
 
-src/Imported/LeponticInscriptions.elm: dump/lexlep
+src/Imported/LeponticInscriptions.elm: dump/lexlep fonts/original/north-italic.txt
 	bin/select_script "Lep" < fonts/original/north-italic.txt > dump/lepontic-script.txt
 	python3 bin/import_thesaurus \
 		Lepontic \
