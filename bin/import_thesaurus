@@ -236,6 +236,9 @@ class Reading:
         reading_str = self.reading_str_pattern.search(source).group(1)
         if not reading_str:
             raise ValueError("No field with reading.")
+        if reading_str in ["unknown", "(unspecified)"]:
+            raise ValueError("No reading.")
+
 
         # The text includes marker signs which are HTML-encoded
         # Example: &#91 -> [
