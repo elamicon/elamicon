@@ -225,4 +225,27 @@ fonts/NorthItalic_Times_New_Roman_Bold.ttf: fonts/north-italic-base.ttf
 fonts/NorthItalic_Times_New_Roman.ttf: fonts/north-italic-base.ttf
 	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
 
+
+fonts/NorthItalic_Garamond.zip: fonts/NorthItalic_Garamond_Bold_Italic.ttf fonts/NorthItalic_Garamond_Italic.ttf fonts/NorthItalic_Garamond_Bold.ttf fonts/NorthItalic_Garamond.ttf fonts/NorthItalic_Garamond_Semibold.ttf fonts/NorthItalic_Garamond_Semibold_Italic.ttf
+	zip -rq $@ $^
+
+
+fonts/NorthItalic_Garamond_Bold_Italic.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Bold-Italic_2007.ttf $^ $@
+
+fonts/NorthItalic_Garamond_Bold.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Bold_2008.ttf $^ $@
+
+fonts/NorthItalic_Garamond_Italic.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Italic_2009.ttf $^ $@
+
+fonts/NorthItalic_Garamond_Semibold.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Semibold_2011.ttf $^ $@
+
+fonts/NorthItalic_Garamond_Semibold_Italic.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Semibold-Italic_2010.ttf $^ $@
+
+fonts/NorthItalic_Garamond.ttf: fonts/north-italic-base.ttf
+	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro_2012.ttf $^ $@
+
 .DELETE_ON_ERROR:
