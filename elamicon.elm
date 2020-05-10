@@ -28,6 +28,7 @@ import Token
 import Url
 import WritingDirections exposing (..)
 import RomanNumerals
+import Generated.Build exposing (build)
 
 main =
     Browser.application
@@ -1204,7 +1205,9 @@ view model =
 
         footer =
             div [ class "footer" ]
-                [ text "This site was produced with "
+                [ text "This site was produced "
+                , text build
+                , text " with "
                 , a [ href "https://fontforge.github.io/" ]
                     [ text "FontForge" ]
                 , text ", "

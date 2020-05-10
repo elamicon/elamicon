@@ -29,6 +29,7 @@ src/Generated: fonts/original/north-italic.txt
 elms := $(wildcard *.elm src/*.elm src/Generated/*.elm) src/Generated
 
 elamicon.js: $(elms)
+	echo "module Generated.Build exposing (build)\nbuild = \"$$(date -u +%Y-%m-%dT%H:%M:%SZ) (commit $$(git rev-parse --short HEAD))\"" > src/Generated/Build.elm
 	elm make --output="$@" elamicon.elm
 
 build/elamicon.js: $(elms)
