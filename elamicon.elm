@@ -1181,7 +1181,7 @@ view model =
             [ h2 [] [ text (decorate .inscriptions "Inscriptions") ] ]
             ++ overviewLink ++
             [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments)
-            , contact, small [] [ footer ]
+            , contact
             ]
 
         contact =
@@ -1262,6 +1262,6 @@ view model =
                 ++ settings
                 ++ showWhenCorpus searchView
                 ++ showWhenCorpus fragmentsView
-                ++ [ contact, small [] [ footer ] ]
+                ++ [ small [] [ footer ] ]
             )]
         }
