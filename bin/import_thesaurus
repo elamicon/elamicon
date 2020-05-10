@@ -107,6 +107,12 @@ class Raetic:
 
         self.lookup = types.lookup(prefix_map)
 
+    def accept(self, inscription):
+        # There are entries in latin script in the corpus, ignore those
+        if inscription.script == "Latin script":
+            return False, "ignored Latin inscription"
+
+
 
 class Lepontic:
     """
@@ -159,6 +165,17 @@ class Lepontic:
 
         prefix_map = {}
         self.lookup = types.lookup(prefix_map)
+
+    def accept(self, inscription):
+        # Ignore inscriptions in other languages. This is currently done by selecting by the script field. Future planned field "corpus" can be used selecting "Cisalpine Celtic".
+        accepted_scripts = ["north italic script", "lepontic script", "unknown"]
+        if inscription.script.lower() not in accepted_scripts:
+            return False, f"script {inscription.script} not in accepted scripts {accepted_scripts}"
+        return True, None
+
+
+class NotAnInscription(Exception):
+    pass
 
 
 class Reading:
@@ -222,16 +239,16 @@ class Reading:
         """
 
         if not source:
-            raise ValueError("No text.")
+            raise NotAnInscription("No text.")
 
         if not source.startswith("{{inscription"):
-            raise ValueError("Not an inscription.")
+            raise NotAnInscription("Header missing.")
 
         reading_str = self.reading_str_pattern.search(source).group(1)
         if not reading_str:
             raise ValueError("No field with reading.")
-        if reading_str in ["unknown", "(unspecified)"]:
-            raise ValueError("No reading.")
+        if reading_str in ["unknown", "(unknown)", "(unspecified)", "(indecipherable)"]:
+            raise ValueError(f"reading is {reading_str}")
 
 
         # The text includes marker signs which are HTML-encoded
@@ -322,7 +339,11 @@ class Reading:
         # for a short group name.
         group = group_str[0:3]
 
-        return Inscription(id, group, dir, text, script)
+        inscription = Inscription(id, group, dir, text, script)
+        accepted, reason = self.strategy.accept(inscription)
+        if not accepted:
+            raise ValueError(f"Not accepted: {reason}")
+        return inscription
 
 
 
@@ -380,12 +401,11 @@ for page_elm in root.findall(f".//{xmlns}page"):
     text = page_elm.find(f".//{xmlns}text").text
     try:
         inscription = reading.read(title, text)
-
-        # There are entries in latin script in the corpus, ignore those
-        if inscription.script != "Latin script":
-            inscriptions.append(inscription)
-
+        inscriptions.append(inscription)
+    except NotAnInscription:
+        pass
     except ValueError as e:
+        print(f"inscription {title} ignored: {e}", file=sys.stderr)
         pass
 
 inscriptions.sort()

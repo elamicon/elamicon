@@ -29,9 +29,6 @@ inscriptions =
  ,{ id = "BG·28.2", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BG·28.2" }
  ,{ id = "BG·31", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BG·31" }
  ,{ id = "BG·34", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BG·34" }
- ,{ id = "BG·35", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BG·35" }
- ,{ id = "BG·36.1", group = "Lat", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BG·36.1" }
- ,{ id = "BG·36.2", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BG·36.2" }
  ,{ id = "BG·41.1", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BG·41.1" }
  ,{ id = "BG·41.2", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BG·41.2" }
  ,{ id = "BG·41.3", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BG·41.3" }
@@ -71,14 +68,6 @@ inscriptions =
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/BI·5" }
  ,{ id = "BI·7", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BI·7" }
  ,{ id = "BS·1", group = "unk", dir = LTR, plate = Nothing, text = """ """, link = Just "http://www.univie.ac.at/lexlep/wiki/BS·1" }
- ,{ id = "BS·2", group = "Cel", dir = LTR, plate = Nothing, text = """
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·2" }
- ,{ id = "BS·3.1", group = "Lat", dir = LTR, plate = Nothing, text = """
-
-
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·3.1" }
- ,{ id = "BS·3.2", group = "unk", dir = LTR, plate = Nothing, text = """
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·3.2" }
  ,{ id = "BS·5", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·5" }
  ,{ id = "BS·7", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·7" }
  ,{ id = "BS·9", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·9" }
@@ -92,8 +81,6 @@ inscriptions =
  ,{ id = "BS·18", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·18" }
  ,{ id = "BS·19", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·19" }
  ,{ id = "BS·20", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·20" }
- ,{ id = "BS·21", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·21" }
- ,{ id = "BS·22", group = "unk", dir = RTL, plate = Nothing, text = """<SO>""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·22" }
  ,{ id = "BS·23", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·23" }
  ,{ id = "BS·24", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·24" }
  ,{ id = "BS·25", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/BS·25" }
@@ -175,7 +162,6 @@ inscriptions =
  ,{ id = "GR·1", group = "Lep", dir = LTR, plate = Nothing, text = """ """, link = Just "http://www.univie.ac.at/lexlep/wiki/GR·1" }
  ,{ id = "GR·3", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/GR·3" }
  ,{ id = "JU·1", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/JU·1" }
- ,{ id = "Li 1.1", group = "Etr", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/Li 1.1" }
  ,{ id = "MI·1", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MI·1" }
  ,{ id = "MI·2", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MI·2" }
  ,{ id = "MI·3", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MI·3" }
@@ -191,9 +177,6 @@ inscriptions =
  ,{ id = "MI·11", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MI·11" }
  ,{ id = "MI·12", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MI·12" }
  ,{ id = "MI·14", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MI·14" }
- ,{ id = "MI·16", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MI·16" }
- ,{ id = "MI·17", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MI·17" }
- ,{ id = "MN·2", group = "Etr", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MN·2" }
  ,{ id = "MS·1", group = "Lig", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MS·1" }
  ,{ id = "MS·2", group = "Lig", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MS·2" }
  ,{ id = "MS·3", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/MS·3" }
@@ -202,12 +185,7 @@ inscriptions =
  ,{ id = "NO·4", group = "unk", dir = RTL, plate = Nothing, text = """
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/NO·4" }
  ,{ id = "NO·8", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/NO·8" }
- ,{ id = "NO·9", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/NO·9" }
- ,{ id = "NO·11", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/NO·11" }
- ,{ id = "NO·12", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/NO·12" }
  ,{ id = "NO·15.2", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/NO·15.2" }
- ,{ id = "NO·17.1", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/NO·17.1" }
- ,{ id = "NO·17.2", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/NO·17.2" }
  ,{ id = "NO·20", group = "unk", dir = LTR, plate = Nothing, text = """
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/NO·20" }
  ,{ id = "NO·21.1", group = "Cis", dir = LTR, plate = Nothing, text = """
@@ -226,37 +204,20 @@ inscriptions =
  ,{ id = "NO·26", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/NO·26" }
  ,{ id = "PD·1", group = "Cel", dir = RTL, plate = Nothing, text = """<addZ1>""", link = Just "http://www.univie.ac.at/lexlep/wiki/PD·1" }
  ,{ id = "PD·2", group = "Cel", dir = RTL, plate = Nothing, text = """<addZ2>""", link = Just "http://www.univie.ac.at/lexlep/wiki/PD·2" }
- ,{ id = "PG·1.1", group = "Lat", dir = LTR, plate = Nothing, text = """
-
-
-
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/PG·1.1" }
  ,{ id = "PG·1.2", group = "Cis", dir = LTR, plate = Nothing, text = """
 
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/PG·1.2" }
- ,{ id = "PG·1.3", group = "Lat", dir = LTR, plate = Nothing, text = """
-
-
-
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/PG·1.3" }
  ,{ id = "PG·1.4", group = "Cis", dir = LTR, plate = Nothing, text = """
 
 
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/PG·1.4" }
  ,{ id = "PV·1", group = "Cel", dir = RTL, plate = Nothing, text = """  """, link = Just "http://www.univie.ac.at/lexlep/wiki/PV·1" }
  ,{ id = "PV·4", group = "Cis", dir = RTL, plate = Nothing, text = """ """, link = Just "http://www.univie.ac.at/lexlep/wiki/PV·4" }
- ,{ id = "PV·5", group = "Lat", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/PV·5" }
- ,{ id = "PV·6.1", group = "Lat", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/PV·6.1" }
- ,{ id = "PV·6.2", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/PV·6.2" }
- ,{ id = "Pa 1.2", group = "Etr", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/Pa 1.2" }
  ,{ id = "SP·1", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/SP·1" }
  ,{ id = "SP·2", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/SP·2" }
  ,{ id = "TI·1", group = "Lep", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·1" }
  ,{ id = "TI·2", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·2" }
- ,{ id = "TI·3", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·3" }
- ,{ id = "TI·4", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·4" }
  ,{ id = "TI·5", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·5" }
- ,{ id = "TI·6", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·6" }
  ,{ id = "TI·7", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·7" }
  ,{ id = "TI·8", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·8" }
  ,{ id = "TI·9", group = "Cel", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·9" }
@@ -266,7 +227,6 @@ inscriptions =
  ,{ id = "TI·13", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·13" }
  ,{ id = "TI·14", group = "Cel", dir = RTL, plate = Nothing, text = """   """, link = Just "http://www.univie.ac.at/lexlep/wiki/TI·14" }
  ,{ id = "TI·15", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·15" }
- ,{ id = "TI·16", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·16" }
  ,{ id = "TI·17", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·17" }
  ,{ id = "TI·18.1", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·18.1" }
  ,{ id = "TI·18.2", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·18.2" }
@@ -280,9 +240,7 @@ inscriptions =
  ,{ id = "TI·27.1", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·27.1" }
  ,{ id = "TI·27.2", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·27.2" }
  ,{ id = "TI·28", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·28" }
- ,{ id = "TI·29", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·29" }
  ,{ id = "TI·30", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·30" }
- ,{ id = "TI·31", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·31" }
  ,{ id = "TI·32", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·32" }
  ,{ id = "TI·33", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·33" }
  ,{ id = "TI·34.1", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·34.1" }
@@ -295,7 +253,6 @@ inscriptions =
  ,{ id = "TI·36.3", group = "Lep", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·36.3" }
  ,{ id = "TI·37", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·37" }
  ,{ id = "TI·38", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·38" }
- ,{ id = "TI·39", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·39" }
  ,{ id = "TI·40", group = "Cel", dir = RTL, plate = Nothing, text = """
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/TI·40" }
  ,{ id = "TI·41", group = "Cel", dir = LTR, plate = Nothing, text = """
@@ -308,12 +265,10 @@ inscriptions =
  ,{ id = "TI·46", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·46" }
  ,{ id = "TI·47", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·47" }
  ,{ id = "TI·48.1", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·48.1" }
- ,{ id = "TI·48.2", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·48.2" }
  ,{ id = "TI·49", group = "Cel", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·49" }
  ,{ id = "TI·50", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·50" }
  ,{ id = "TI·51", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·51" }
  ,{ id = "TI·52", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·52" }
- ,{ id = "TI·53", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/TI·53" }
  ,{ id = "TV·1", group = "unk", dir = RTL, plate = Nothing, text = """
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/TV·1" }
  ,{ id = "UD·1", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/UD·1" }
@@ -330,7 +285,6 @@ inscriptions =
  ,{ id = "VA·8", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·8" }
  ,{ id = "VA·10", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·10" }
  ,{ id = "VA·11", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·11" }
- ,{ id = "VA·12", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·12" }
  ,{ id = "VA·13", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·13" }
  ,{ id = "VA·14", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·14" }
  ,{ id = "VA·15", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·15" }
@@ -340,11 +294,8 @@ inscriptions =
  ,{ id = "VA·19", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·19" }
  ,{ id = "VA·20", group = "unk", dir = RTL, plate = Nothing, text = """§""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·20" }
  ,{ id = "VA·21", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·21" }
- ,{ id = "VA·22", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·22" }
  ,{ id = "VA·23", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·23" }
  ,{ id = "VA·24", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·24" }
- ,{ id = "VA·25", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·25" }
- ,{ id = "VA·26", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·26" }
  ,{ id = "VA·27", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·27" }
  ,{ id = "VA·28.1", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·28.1" }
  ,{ id = "VA·28.2", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VA·28.2" }
@@ -362,44 +313,16 @@ inscriptions =
  ,{ id = "VB·6", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·6" }
  ,{ id = "VB·7", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·7" }
  ,{ id = "VB·8", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·8" }
- ,{ id = "VB·11", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·11" }
- ,{ id = "VB·13", group = "Lat", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·13" }
- ,{ id = "VB·15", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·15" }
  ,{ id = "VB·16", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·16" }
- ,{ id = "VB·17", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·17" }
- ,{ id = "VB·18", group = "Lep", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·18" }
  ,{ id = "VB·19", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·19" }
- ,{ id = "VB·20", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·20" }
- ,{ id = "VB·21", group = "unk", dir = LTR, plate = Nothing, text = """
-
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·21" }
  ,{ id = "VB·22", group = "unk", dir = RTL, plate = Nothing, text = """
  !""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·22" }
  ,{ id = "VB·23", group = "unk", dir = LTR, plate = Nothing, text = """
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/VB·23" }
- ,{ id = "VB·24", group = "Lat", dir = LTR, plate = Nothing, text = """
-
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·24" }
- ,{ id = "VB·25", group = "unk", dir = LTR, plate = Nothing, text = """
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·25" }
  ,{ id = "VB·27", group = "Lep", dir = LTR, plate = Nothing, text = """
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/VB·27" }
  ,{ id = "VB·28", group = "unk", dir = LTR, plate = Nothing, text = """
 """, link = Just "http://www.univie.ac.at/lexlep/wiki/VB·28" }
- ,{ id = "VB·29", group = "Lat", dir = LTR, plate = Nothing, text = """
-
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·29" }
- ,{ id = "VB·30", group = "Lat", dir = LTR, plate = Nothing, text = """
-
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/VB·30" }
- ,{ id = "VC·1.1", group = "Lat", dir = LTR, plate = Nothing, text = """
-
-
-
-
-
-
-""", link = Just "http://www.univie.ac.at/lexlep/wiki/VC·1.1" }
  ,{ id = "VC·1.2", group = "Cis", dir = LTR, plate = Nothing, text = """
 
 
@@ -407,11 +330,8 @@ inscriptions =
  ,{ id = "VR·1", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·1" }
  ,{ id = "VR·3.2", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·3.2" }
  ,{ id = "VR·5", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·5" }
- ,{ id = "VR·7", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·7" }
  ,{ id = "VR·8", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·8" }
- ,{ id = "VR·9.2", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·9.2" }
  ,{ id = "VR·10", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·10" }
- ,{ id = "VR·11", group = "unk", dir = LTR, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·11" }
  ,{ id = "VR·12", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·12" }
  ,{ id = "VR·13", group = "unk", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·13" }
  ,{ id = "VR·14", group = "Lep", dir = RTL, plate = Nothing, text = """""", link = Just "http://www.univie.ac.at/lexlep/wiki/VR·14" }
