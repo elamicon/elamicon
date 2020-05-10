@@ -94,7 +94,7 @@ class Token:
     @classmethod
     def from_lines(cls, lines):
         """ Read lines with type definitions and yield Types. """
-        selector = re.compile(r"\[(.)\]\s+(\S.*)$")
+        selector = re.compile(r"\[(.)\]\s*(\S.*)$")
         for nr, line in enumerate(lines):
             match = selector.search(line)
             if match:

@@ -16,4 +16,4 @@
 #   " | select_script Cyrillic
 
 # The script name is after the token-end bracket ]
-grep -E "]\s+($1)"
+grep -E "]\s*($1)"

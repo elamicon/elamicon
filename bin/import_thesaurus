@@ -123,7 +123,6 @@ class Lepontic:
         types.add(Token('', ']', 'frag', '', 'ambi'))
         types.add(Token(' ', 'space', 'space', '', 'ambi'))
         types.add(Token('§', 'w', '§', '', 'ambi'))
-        types.add(Token('!', '!', '!', '', 'ambi'))
         types.add(Token('', '?', 'guess', '', 'ambi'))
 
         types.add(Token('', 'separator', 'separator', '', 'ambi'))
@@ -139,12 +138,7 @@ class Lepontic:
         types.add(Token("\n", '<br />', 'br', '', 'ambi'))
 
         # Chars having different names
-        #
         types.add(Token('', 'Ś1', 'Ś', '', 'ambi'))   # Ð 1
-        types.add(Token('', 'Ś2', 'Ś', '', 'ambi'))  # San2
-        types.add(Token('', 'Ś3', 'Ś', '', 'ambi'))  # San3
-        types.add(Token('', 'Ś5', 'Ś', '', 'ambi'))  # San5
-        types.add(Token('', 'Ś6', 'Ś', '', 'ambi'))  # San6
 
         # They use "Χ" and we use "X", see the difference?
         # Hint, one of them is the Greek Chi.
