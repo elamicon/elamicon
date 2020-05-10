@@ -109,6 +109,7 @@ None.
     , tokens = Generated.Raetic.tokens
     , seperatorChars = ""
     , indexed = indexed
+    , searchBidirectionalPreset = False
     , searchExamples = searchExamples
     , syllables = syllables
     , syllableMap = syllableMap

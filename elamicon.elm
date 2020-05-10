@@ -61,7 +61,7 @@ type alias Model =
     , removeChars : String
     , sandbox : String
     , search : String
-    , bidirectionalSearch : Bool
+    , searchBidirectional : Bool
     , linesplitSearch : Bool
     , selectedGroups : Set.Set String
     , collapsed : Set.Set String
@@ -130,8 +130,8 @@ init _ url key =
             , syllabize = False
             , sandbox = ""
             , search = ""
+            , searchBidirectional = True
             , showAllResults = False
-            , bidirectionalSearch = True
             , linesplitSearch = False
             , selectedGroups = Set.empty
             , collapsed = Set.fromList [ "info", "gramStats", "playground", "settings", "search" ]
@@ -183,6 +183,7 @@ scriptUpdate new model =
                 , selectedGroups = selectedGroups
                 , syllableMap = new.syllableMap
                 , search = ""
+                , searchBidirectional = new.searchBidirectionalPreset
             }
 
 
@@ -302,7 +303,7 @@ update msg model =
             ( { model | showAllResults = True }, Cmd.none )
 
         BidirectionalSearch new ->
-            ( { model | bidirectionalSearch = new }, Cmd.none )
+            ( { model | searchBidirectional = new }, Cmd.none )
 
         LinesplitSearch new ->
             ( { model | linesplitSearch = new }, Cmd.none )
@@ -840,7 +841,7 @@ view model =
         search =
             let
                 applyBidirectional =
-                    if model.bidirectionalSearch then
+                    if model.searchBidirectional then
                         Search.bidirectional
 
                     else
@@ -981,7 +982,7 @@ view model =
                                        )
                                 )
                             , label []
-                                [ input [ type_ "checkbox", checked model.bidirectionalSearch, Html.Events.onCheck BidirectionalSearch ] []
+                                [ input [ type_ "checkbox", checked model.searchBidirectional, Html.Events.onCheck BidirectionalSearch ] []
                                 , text "also search in reverse direction"
                                 ]
                             , label []

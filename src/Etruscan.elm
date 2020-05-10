@@ -84,6 +84,7 @@ If no "Further source" reference (see below) is indicated in the sign name, the 
     , tokens = Generated.Etruscan.tokens
     , seperatorChars = ""
     , indexed = indexed
+    , searchBidirectionalPreset = False
     , searchExamples = searchExamples
     , syllables = syllables
     , syllableMap = syllableMap

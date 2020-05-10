@@ -78,6 +78,7 @@ type alias Script =
     , seperatorChars : String
     , indexed : Token -> Bool
     , searchExamples : List ( String, String )
+    , searchBidirectionalPreset : Bool
     , syllables : Dict Token (List String)
     , syllableMap : String
     , syllabaries : List SyllabaryDef

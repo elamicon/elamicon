@@ -813,6 +813,7 @@ elam =
     , tokens = tokenList
     , seperatorChars = seperatorChars
     , indexed = indexed
+    , searchBidirectionalPreset = True
     , searchExamples = searchExamples
     , syllables = syllables
     , syllableMap = syllableMap

@@ -94,6 +94,7 @@ The collection of Lepontic sign variants contains signs from inscriptions which 
     , tokens = Generated.Lepontic.tokens
     , seperatorChars = ""
     , indexed = indexed
+    , searchBidirectionalPreset = False
     , searchExamples = searchExamples
     , syllables = syllables
     , syllableMap = syllableMap

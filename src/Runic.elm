@@ -81,6 +81,7 @@ None
     , tokens = Generated.Runic.tokens
     , seperatorChars = ""
     , indexed = indexed
+    , searchBidirectionalPreset = False
     , searchExamples = searchExamples
     , syllables = syllables
     , syllableMap = syllableMap

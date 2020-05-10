@@ -950,6 +950,7 @@ Feel free to contact the [Byblicon research team](mailto:michael.maeder@isw.unib
     , tokens = tokenList
     , seperatorChars = ""
     , indexed = indexed
+    , searchBidirectionalPreset = True
     , searchExamples = searchExamples
     , syllables = syllables
     , syllableMap = syllableMap
