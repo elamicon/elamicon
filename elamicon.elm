@@ -1205,17 +1205,20 @@ view model =
 
         footer =
             div [ class "footer" ]
-                [ text "This site was produced "
+                [ text "This site was last updated "
                 , text build
-                , text " with "
+                , text ". It is built with "
                 , a [ href "https://fontforge.github.io/" ]
                     [ text "FontForge" ]
                 , text ", "
+                , a [ href "https://inkscape.org" ]
+                    [ text "Inkscape" ]
+                , text ", and "
                 , a [ href "http://elm-lang.org/" ]
                     [ text "Elm" ]
-                , text " and "
-                , a [ href "https://unicode.org" ] [ text "Unicode ♥" ]
-                , text ".  "
+                , text ". We use a "
+                , a [ href "http://www.unicode.org/faq/private_use.html" ] [ text "Unicode Private Use Area ♥" ]
+                , text ". "
                 , br [] []
                 , a [ href ("fonts/" ++ model.script.font ++ "-Fonts.zip") ]
                     [ text ("Download the " ++ model.script.font ++ " fonts.") ]
