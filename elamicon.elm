@@ -470,12 +470,19 @@ view model =
         selectedFragments =
             List.filter (\f -> Set.member f.group model.selectedGroups) model.script.fragments
 
-        charId fragmentId index = fragmentId ++ fromInt index
+        notAlphanum = Maybe.withDefault Regex.never (Regex.fromString "\\W+")
+
+        charId idString posNr =
+            let
+                cleanId = Regex.replace notAlphanum (\_ -> "_") idString
+                nrString = String.fromInt posNr
+            in
+                cleanId ++ "." ++ nrString
 
         charLink fragmentId index =
             String.concat
                 [ "#", model.script.id
-                , "&pos=", fragmentId, fromInt index ]
+                , "&pos=", charId fragmentId index ]
 
         -- Normalize letters if this is enabled
         normalize =
