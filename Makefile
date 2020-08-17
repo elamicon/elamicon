@@ -197,6 +197,25 @@ fonts/Elamicon_Times_New_Roman_Bold.ttf: fonts/original/elamicon.sfdir
 fonts/Elamicon_Times_New_Roman.ttf: fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
 
+
+
+fonts/Elamicon_Calibri.zip: fonts/Elamicon_Calibri_Bold_Italic.ttf fonts/Elamicon_Calibri_Italic.ttf fonts/Elamicon_Calibri_Bold.ttf fonts/Elamicon_Calibri.ttf
+	zip -rq fonts/Elamicon_Calibri.zip $^
+
+fonts/Elamicon_Calibri_Bold_Italic.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" fonts/original/calibri/Calibri_Bold_Italic.ttf $^ $@
+
+fonts/Elamicon_Calibri_Italic.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" fonts/original/calibri/Calibri_Italic.ttf $^ $@
+
+fonts/Elamicon_Calibri_Bold.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" fonts/original/calibri/Calibri_Bold.ttf $^ $@
+
+fonts/Elamicon_Calibri.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" fonts/original/calibri/Calibri.ttf $^ $@
+
+
+
 BybliconTimes: fonts/Byblicon_Times_New_Roman.zip
 
 fonts/Byblicon_Times_New_Roman.zip: fonts/Byblicon_Times_New_Roman_Bold_Italic.ttf fonts/Byblicon_Times_New_Roman_Italic.ttf fonts/Byblicon_Times_New_Roman_Bold.ttf fonts/Byblicon_Times_New_Roman.ttf
