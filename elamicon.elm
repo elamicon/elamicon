@@ -977,17 +977,15 @@ view model =
                 ++ collapsibleTitle "search" "Search" .search
                 ++ ifExpanded "search"
                     (\_ ->
-                        [ label [] (
+                         label [] (
                             [ text "Search "
                             , div [ class "searchInput" ]
-                                ([ Html.input [ scriptClass, dirAttr LTR, value model.search, onInput SetSearch ] []
-                                 ]
-                                    ++ (if searchPattern == Invalid then
+                                ( Html.input [ scriptClass, dirAttr LTR, value model.search, onInput SetSearch ] []
+                                  :: (if searchPattern == Invalid then
                                             [ div [ class "invalidPattern" ] [ text "Invalid pattern" ] ]
-
-                                        else
+                                      else
                                             []
-                                       )
+                                     )
                                 )
                             , label []
                                 [ input [ type_ "checkbox", checked model.searchBidirectional, Html.Events.onCheck BidirectionalSearch ] []
@@ -1004,30 +1002,30 @@ view model =
                                 else
                                     []
                                )
-                        )]
-                            ++ (case results of
-                                    Just res ->
-                                        if List.length res.items == 0 then
-                                            [ div [ class "noresult" ] [ text "No results" ] ]
+                        )
+                        :: (case results of
+                                Just res ->
+                                    if List.length res.items == 0 then
+                                        [ div [ class "noresult" ] [ text "No results" ] ]
 
-                                        else
-                                            [ ol [ class "result" ] resultLines ]
-                                                ++ (if res.more then
-                                                        [ text (String.concat [ "Only showing ", fromInt maxResults, " of ", fromInt (List.length res.raw), " results. " ])
-                                                        , button [ type_ "button", onClick ShowAllResults ] [ text "Show all!" ]
-                                                        ]
+                                    else
+                                        ol [ class "result" ] resultLines
+                                            :: (if res.more then
+                                                    [ text (String.concat [ "Only showing ", fromInt maxResults, " of ", fromInt (List.length res.raw), " results. " ])
+                                                    , button [ type_ "button", onClick ShowAllResults ] [ text "Show all!" ]
+                                                    ]
 
-                                                    else
-                                                        []
-                                                   )
+                                                else
+                                                    []
+                                                )
 
-                                    Nothing ->
-                                        [ div [ class "searchExamples" ]
-                                            [ h3 [] [ text "Examples of search patterns" ]
-                                            , searchExamplesList model.script.searchExamples
-                                            ]
+                                Nothing ->
+                                    [ div [ class "searchExamples" ]
+                                        [ h3 [] [ text "Examples of search patterns" ]
+                                        , searchExamplesList model.script.searchExamples
                                         ]
-                               )
+                                    ]
+                            )
                     )
 
         fragmentView fragment =
