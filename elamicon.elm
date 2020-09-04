@@ -29,7 +29,8 @@ import Url
 import WritingDirections exposing (..)
 import RomanNumerals
 import Generated.Build exposing (build)
-
+import Sections.Glyphs
+import State exposing (..)
 main =
     Browser.application
         { init = init
@@ -41,35 +42,6 @@ main =
         }
 
 
-type alias Pos =
-    ( String, Int, Int )
-
-
-type alias Model =
-    { script : Script
-    , dir : Maybe Dir
-    , fixedBreak : Bool
-    , selected : Maybe Pos
-    , syllabaryId : Maybe String
-    , syllabary : Syllabary.Syllabary
-    , syllabaryString : String
-    , missingSyllabaryChars : String
-    , syllableMap : String
-    , syllabizer : String -> String
-    , syllabize : Bool
-    , normalizer : String -> String
-    , normalize : Bool
-    , removeChars : String
-    , sandbox : String
-    , search : String
-    , searchBidirectional : Bool
-    , linesplitSearch : Bool
-    , selectedGroups : Set.Set String
-    , collapsed : Set.Set String
-    , showAllResults : Bool
-    , url : Url.Url
-    , key : Browser.Navigation.Key
-    }
 
 -- Select a script based on the URL fragment
 -- Example "#elam&pos=example" -> "elam"
@@ -141,30 +113,6 @@ init _ url key =
             }
     in
        ( scriptUpdate script initialModel, Cmd.none )
-
-
-type Msg
-    = Select ( String, Int, Int )
-    | SetScript Script
-    | SetBreaking Bool
-    | SetDir (Maybe Dir)
-    | SetNormalize Bool
-    | SetSandbox String
-    | ChooseSyllabary String
-    | SetSyllabary String
-    | SetSyllableMap String
-    | SetSyllabize Bool
-    | SetRemoveChars String
-    | AddChar String
-    | SetSearch String
-    | ShowAllResults
-    | BidirectionalSearch Bool
-    | LinesplitSearch Bool
-    | SelectGroup String Bool
-    | Toggle String
-    | LinkClicked Browser.UrlRequest
-    | UrlChanged Url.Url
-    | NoOp
 
 
 scriptUpdate : Script -> Model -> Model
@@ -367,15 +315,6 @@ update msg model =
             (model, Cmd.none)
 
 
-dirStr dir =
-    case dir of
-        RTL ->
-            "RTL"
-
-        _ ->
-            "LTR"
-
-
 scriptDecoder : Json.Decode.Decoder Script
 scriptDecoder =
     Html.Events.targetValue
@@ -568,62 +507,7 @@ view model =
 
         syllabary =
             collapsibleTitle "syllabary" "Character Picker" .signs
-                ++ ifExpanded "syllabary" syllabaryView
-
-        syllabaryView =
-            \_ ->
-                [ ol [ dirAttr LTR, classList [ ( "syllabary", True ) ] ]
-                    (List.map syllabaryEntry (Syllabary.filter keepChar model.syllabary)
-                        ++ List.map specialEntry specialchars
-                    )
-                ]
-
-        names = Dict.fromList <| List.map (\t -> (String.fromChar t.token, t.name)) model.script.tokens
-
-        syllabaryEntry : Syllabary.Type -> Html Msg
-        syllabaryEntry t =
-            let
-                shownExt =
-                    if model.normalize then
-                        []
-
-                    else
-                        List.map String.fromChar t.tokens
-
-                maybeSyls = Dict.get
-                    t.representative
-                    model.script.syllables
-
-                syls = Maybe.withDefault [] maybeSyls
-
-                -- Some entries in the syllabary have long names.
-                -- Use linguist's convention of wrapping the names in brackets.
-                signWrap s = if String.length s > 1 then "〈" ++ s ++ "〉" else s
-
-                letterEntry entryClass sign add =
-                    div [ classList [ ( model.script.id, True ), ( entryClass, True ) ]
-                        , onClick (AddChar add)
-                        , title (Maybe.withDefault "" <| Dict.get add names)
-                        ] [ text (signWrap sign) ]
-
-                syllableEntry syl =
-                    div [ class "syl" ] [ text syl ]
-            in
-            li [ class "letter" ]
-                ([ letterEntry "main" t.name (String.fromChar t.representative) ]
-                    ++ (if shownExt /= [] || List.length syls > 0 then
-                            [ div [ class "menu" ] (List.map (\ext -> letterEntry "ext" ext ext) shownExt ++ List.map syllableEntry syls) ]
-
-                        else
-                            []
-                       )
-                    ++ List.map (\ext -> letterEntry "ext" ext ext) shownExt
-                    ++ [ div [ class "clear" ] [] ]
-                )
-
-        specialEntry { displayChar, char, description } =
-            li [ class "letter" ]
-                [ div [ classList [ ( model.script.id, True ), ( "main", True ) ], onClick (AddChar (String.fromChar char)), title description ] [ text (guessMarkDir LTR displayChar) ] ]
+                ++ ifExpanded "syllabary" (\_ -> Sections.Glyphs.html model)
 
         gramStats strings =
             let

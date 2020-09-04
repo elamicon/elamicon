@@ -11,3 +11,11 @@ type Dir
     | RTL       -- assumed to be written right-to-left
     | BoustroR  -- assumed to be written boustrophedon, first line right-to-left
     | TDR       -- assumed to be written top-down, first column right
+
+dirStr dir =
+    case dir of
+        RTL ->
+            "RTL"
+
+        _ ->
+            "LTR"
