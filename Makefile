@@ -177,7 +177,9 @@ clean:
 	rm -rf src/Generated
 
 live: $(MFONTS)
-	elm-live elamicon.elm --output elamicon.js --open
+	elm-live elamicon.elm --start-page=index.html -- --output=elamicon.js
+
+
 
 
 ElamiconTimes: fonts/Elamicon_Times_New_Roman.zip
