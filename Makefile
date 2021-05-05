@@ -217,6 +217,38 @@ fonts/Elamicon_Calibri.ttf: fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon-" fonts/original/calibri/Calibri.ttf $^ $@
 
 
+fonts/Elamicon_Cambria.zip: fonts/Elamicon_Cambria_Bold_Italic.ttf fonts/Elamicon_Cambria_Italic.ttf fonts/Elamicon_Cambria_Bold.ttf fonts/Elamicon_Cambria.ttf
+	zip -rq fonts/Elamicon_Cambria.zip $^
+
+fonts/Elamicon_Cambria_Bold_Italic.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" fonts/original/cambria/Cambria-Bold-Italic.ttf $^ $@
+
+fonts/Elamicon_Cambria_Italic.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" fonts/original/cambria/Cambria-Italic.ttf $^ $@
+
+fonts/Elamicon_Cambria_Bold.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" fonts/original/cambria/Cambria-Bold.ttf $^ $@
+
+fonts/Elamicon_Cambria.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" fonts/original/cambria/Cambria.ttf $^ $@
+
+
+fonts/Elamicon_Verdana.zip: fonts/Elamicon_Verdana_Bold_Italic.ttf fonts/Elamicon_Verdana_Italic.ttf fonts/Elamicon_Verdana_Bold.ttf fonts/Elamicon_Verdana.ttf
+	zip -rq fonts/Elamicon_Verdana.zip $^
+
+fonts/Elamicon_Verdana_Bold_Italic.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana_Bold_Italic.ttf $^ $@
+
+fonts/Elamicon_Verdana_Italic.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana_Italic.ttf $^ $@
+
+fonts/Elamicon_Verdana_Bold.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana_Bold.ttf $^ $@
+
+fonts/Elamicon_Verdana.ttf: fonts/original/elamicon.sfdir
+	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana.ttf $^ $@
+
+
 
 BybliconTimes: fonts/Byblicon_Times_New_Roman.zip
 
