@@ -42,7 +42,7 @@ build/elamicon.js: $(elms)
 # The import-results are committed to source-control.
 dump/raetica:
 	bin/download_wiki_xml https://www.univie.ac.at/raetica/api.php "$@"
-	
+
 dump/lexlep:
 	bin/download_wiki_xml https://www.univie.ac.at/lexlep/api.php "$@"
 
@@ -200,7 +200,6 @@ fonts/Elamicon_Times_New_Roman.ttf: fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
 
 
-
 fonts/Elamicon_Calibri.zip: fonts/Elamicon_Calibri_Bold_Italic.ttf fonts/Elamicon_Calibri_Italic.ttf fonts/Elamicon_Calibri_Bold.ttf fonts/Elamicon_Calibri.ttf
 	zip -rq fonts/Elamicon_Calibri.zip $^
 
@@ -308,5 +307,6 @@ fonts/NorthItalic_Garamond_Semibold_Italic.ttf: fonts/north-italic-base-garamond
 
 fonts/NorthItalic_Garamond.ttf: fonts/north-italic-base-garamond.ttf
 	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro_2012.ttf $^ $@
+
 
 .DELETE_ON_ERROR:
