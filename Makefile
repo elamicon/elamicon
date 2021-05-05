@@ -232,20 +232,24 @@ fonts/Elamicon_Cambria.ttf: fonts/original/elamicon.sfdir
 	bin/addfont "Elamicon-" fonts/original/cambria/Cambria.ttf $^ $@
 
 
+fonts/elamicon-scaled.ttf: fonts/original/elamicon.sfdir
+	bin/scale_font $^ 1.3 0 "$@"
+	bin/set_bearing "$@" 130
+
 fonts/Elamicon_Verdana.zip: fonts/Elamicon_Verdana_Bold_Italic.ttf fonts/Elamicon_Verdana_Italic.ttf fonts/Elamicon_Verdana_Bold.ttf fonts/Elamicon_Verdana.ttf
 	zip -rq fonts/Elamicon_Verdana.zip $^
 
-fonts/Elamicon_Verdana_Bold_Italic.ttf: fonts/original/elamicon.sfdir
+fonts/Elamicon_Verdana_Bold_Italic.ttf: fonts/elamicon-scaled.ttf
 	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana_Bold_Italic.ttf $^ $@
 
-fonts/Elamicon_Verdana_Italic.ttf: fonts/original/elamicon.sfdir
+fonts/Elamicon_Verdana_Italic.ttf: fonts/elamicon-scaled.ttf
 	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana_Italic.ttf $^ $@
 
-fonts/Elamicon_Verdana_Bold.ttf: fonts/original/elamicon.sfdir
+fonts/Elamicon_Verdana_Bold.ttf: fonts/elamicon-scaled.ttf
 	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana_Bold.ttf $^ $@
 
-fonts/Elamicon_Verdana.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana.ttf $^ $@
+fonts/Elamicon_Verdana.ttf: fonts/elamicon-scaled.ttf
+	bin/addfont "Elamicon-"  /usr/share/fonts/truetype/msttcorefonts/Verdana.ttf $^ $@
 
 
 
