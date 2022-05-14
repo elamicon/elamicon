@@ -39,6 +39,7 @@ Script|Font|Grouping|Corpus
 :-----|:--:|:------:|:----:
 [Byblos](https://center-for-decipherment.ch/tool/#byblos)|✓|(✓)|✓
 [Linear-Elam](https://center-for-decipherment.ch/tool/#elam)|✓|✓|✓
+[Deir Alla](https://center-for-decipherment.ch/tool/#deiralla)|✓|✓|-
 [Raetic](https://center-for-decipherment.ch/tool/#raetic)|✓|✓|✓
 [Lepontic](https://center-for-decipherment.ch/tool/#lepontic)|✓|✓|✓
 [Etruscan](https://center-for-decipherment.ch/tool/#etruscan)|✓|✓|-
