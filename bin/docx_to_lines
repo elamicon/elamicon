@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # Read docx and output paragraphs as lines
 #
 # docx_to_lines fontlist.docx
@@ -12,19 +12,13 @@ import re
 # Module that extract text from MS XML Word document (.docx).
 # (Inspired by python-docx <https://github.com/mikemaccana/python-docx>)
 
-WORD_NAMESPACE = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
-PARA = WORD_NAMESPACE + 'p'
-TEXT = WORD_NAMESPACE + 't'
-
 with zipfile.ZipFile(sys.argv[1]) as document:
     xml_content = document.read('word/document.xml')
     document.close()
     tree = XML(xml_content)
-
-    paragraphs = []
-    for paragraph in tree.getiterator(PARA):
+    for paragraph in tree.findall(".//{*}p"):
         texts = [node.text
-                 for node in paragraph.getiterator(TEXT)
+                 for node in paragraph.findall(".//{*}t")
                  if node.text]
         if texts:
             print(''.join(texts))

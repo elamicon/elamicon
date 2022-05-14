@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 # Change the bearing of all glyphs to the one given in argument
 #

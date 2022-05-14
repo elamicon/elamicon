@@ -6,6 +6,7 @@ import Raetic as Raetic
 import Lepontic as Lepontic
 import Etruscan
 import Runic
+import DeirAlla
 
 import Dict exposing (Dict)
 import List
@@ -20,7 +21,7 @@ import WritingDirections exposing (..)
 
 scripts : List Script
 scripts =
-    [ Byblos.byblos, Elam.elam, Raetic.raetic, Lepontic.lepontic, Etruscan.etruscan, Runic.runic ]
+    [ Byblos.byblos, Elam.elam, DeirAlla.deiralla, Raetic.raetic, Lepontic.lepontic, Etruscan.etruscan, Runic.runic ]
 
 fromName : String -> Maybe Script
 fromName n = List.head (List.filter (\s -> s.id == n) scripts)

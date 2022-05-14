@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # Read characters from a table and generate Elm module
 #
 # Args:

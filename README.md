@@ -58,10 +58,10 @@ If you'd like to create a font for a new script, please contact us first so we c
 ## Building
 
 To build your own version of the site you need `npm` and the node package
-`elm`. To build the fonts, you need the `python-fontforge` bindings. On a
+`elm`. To build the fonts, you need the `python3-fontforge` bindings. On a
 Debian-system, the following commands install these dependencies:
 
-    apt install npm python-fontforge
+    apt install npm python3-fontforge
     npm install -g elm elm-live uglify-js
     make
 

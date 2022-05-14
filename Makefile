@@ -2,12 +2,13 @@ OFONTS = $(wildcard fonts/original/Liberation*.ttf)
 EFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
 BFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
 IFONTS = $(subst fonts/original/,fonts/NorthItalic,$(OFONTS))
+DFONTS = $(subst fonts/original/,fonts/DeirAlla,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
 
-all: elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip
+all: elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip fonts/DeirAlla-Fonts.zip
 
-build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip fonts/copyright
+build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip fonts/DeirAlla-Fonts.zip fonts/copyright
 	cp -r plates build
 	cp -r css build
 	cp index.html logo.png build
@@ -16,21 +17,25 @@ build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts
 	cp -r fonts/*.zip build/fonts
 	cp fonts/copyright build/fonts
 
+fonts/original/deir-alla.txt: fonts/original/deir-alla.docx
+	bin/docx_to_lines $^ > "$@"
+
 fonts/original/north-italic.txt: fonts/original/north-italic.docx
 	bin/docx_to_lines $^ > "$@"
 
-src/Generated: fonts/original/north-italic.txt
+src/Generated: fonts/original/north-italic.txt fonts/original/deir-alla.txt
 	mkdir -p "$@"
-	bin/select_script "Raet|All" < $^ | bin/extract_script_chars Generated.Raetic > src/Generated/Raetic.elm
-	bin/select_script "Lep|All" < $^ | bin/extract_script_chars Generated.Lepontic > src/Generated/Lepontic.elm
-	bin/select_script "Etr|All" < $^ | bin/extract_script_chars Generated.Etruscan > src/Generated/Etruscan.elm
-	bin/select_script "Run|All" < $^ | bin/extract_script_chars Generated.Runic > src/Generated/Runic.elm
+	bin/select_script "Raet|All" < fonts/original/north-italic.txt | bin/extract_script_chars Generated.Raetic > src/Generated/Raetic.elm
+	bin/select_script "Lep|All" < fonts/original/north-italic.txt | bin/extract_script_chars Generated.Lepontic > src/Generated/Lepontic.elm
+	bin/select_script "Etr|All" < fonts/original/north-italic.txt | bin/extract_script_chars Generated.Etruscan > src/Generated/Etruscan.elm
+	bin/select_script "Run|All" < fonts/original/north-italic.txt | bin/extract_script_chars Generated.Runic > src/Generated/Runic.elm
+	bin/extract_script_chars Generated.DeirAlla < fonts/original/deir-alla.txt > src/Generated/DeirAlla.elm
 
 elms := $(wildcard *.elm src/*.elm src/Generated/*.elm) src/Generated
 
 elamicon.js: $(elms)
 	echo "module Generated.Build exposing (build)\nbuild = \"$$(date -u +%Y-%m-%dT%H:%M:%SZ) (commit $$(git rev-parse --short HEAD))\"" > src/Generated/Build.elm
-	elm make --output="$@" elamicon.elm
+	elm make --output="$@" src/Main.elm
 
 build/elamicon.js: $(elms)
 	mkdir -p build
@@ -166,6 +171,51 @@ fonts/NorthItalicLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regul
 
 fonts/NorthItalic-Fonts.zip: $(IFONTS) fonts/copyright
 		cd fonts && zip -rq NorthItalic-Fonts.zip NorthItalicLiberation*.ttf copyright
+
+
+
+fonts/deir-alla-fixed.svg: fonts/original/deir-alla.svg
+	cp $^ "$@"
+	bin/fix_glyph_names "$@"
+
+fonts/deir-alla-scaled.ttf: fonts/deir-alla-fixed.svg
+	bin/scale_font $^ 2.5 -800 "$@"
+	bin/set_bearing "$@" 200
+
+fonts/deir-alla-base.ttf: fonts/deir-alla-scaled.ttf fonts/original/special.sfdir
+	bin/addfont "DeirAlla" $^ "$@"
+
+fonts/DeirAllaLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/deir-alla-base.ttf
+		bin/addfont "DeirAlla" $^ "$@"
+
+fonts/DeirAllaLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/deir-alla-base.ttf
+		bin/addfont "DeirAlla" $^ "$@"
+
+fonts/DeirAllaLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/deir-alla-base.ttf
+		bin/addfont "DeirAlla" $^ "$@"
+
+fonts/DeirAllaLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/deir-alla-base.ttf
+		bin/addfont "DeirAlla" $^ "$@"
+
+fonts/DeirAllaLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/deir-alla-base.ttf
+		bin/addfont "DeirAlla" $^ "$@"
+
+fonts/DeirAllaLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/deir-alla-base.ttf
+		bin/addfont "DeirAlla" $^ "$@"
+
+fonts/DeirAllaLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/deir-alla-base.ttf
+		bin/addfont "DeirAlla" $^ "$@"
+
+fonts/DeirAlla-Fonts.zip: $(DFONTS) fonts/copyright
+		cd fonts && zip -rq DeirAlla-Fonts.zip DeirAllaLiberation*.ttf copyright
+
+
+
+
+
+
+
+
 
 
 

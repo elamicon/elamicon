@@ -9,6 +9,11 @@ body {
     unicode-bidi: bidi-override;
 }
 
+.deiralla {
+    font-family: DeirAllaLiberationSerif;
+    unicode-bidi: bidi-override;
+}
+
 .cypro {
     font-family: CypriconLiberationSerif;
     unicode-bidi: bidi-override;
@@ -41,6 +46,10 @@ body {
 
 .elam input, .elam textarea {
     font-family: ElamiconLiberationMono;
+}
+
+.deiralla input, .deiralla textarea {
+    font-family: DeirAllaLiberationMono;
 }
 
 .cypro input, .cypro textarea {
@@ -124,6 +133,23 @@ body, h1, h2, label, input, select {
 @font-face {
     font-family: 'ElamiconLiberationMono';
     src: url('../fonts/ElamiconLiberationMono-Regular.ttf');
+}
+
+
+@font-face {
+    font-family: 'DeirAllaLiberationSerif';
+    src: url('../fonts/DeirAllaLiberationSerif-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'DeirAllaLiberationSerif';
+    src: url('../fonts/DeirAllaLiberationSerif-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'DeirAllaLiberationMono';
+    src: url('../fonts/DeirAllaLiberationMono-Regular.ttf');
 }
 
 

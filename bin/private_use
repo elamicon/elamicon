@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 # Output all chars in the Unicode Private Use Area grouped in chunks of 32
 

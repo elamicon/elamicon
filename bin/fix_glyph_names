@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Because fontforge can't deal with the glyph names
 given in the byblos.svg, this script replaces each

@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # Read inscriptions from wiki dump and generate Elm module
 #
 # Import is based on two sources:
