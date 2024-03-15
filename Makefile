@@ -96,6 +96,27 @@ fonts/GEAS-Fonts.zip: $(FONTS) fonts/copyright
 	cd fonts && zip -rq GEAS-Fonts.zip GEASLiberation*.ttf copyright
 
 
+fonts/GEASRedditSans-Regular.ttf: fonts/original/RedditSans/RedditSans-Regular.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
+
+fonts/GEASRedditSans-Bold.ttf: fonts/original/RedditSans/RedditSans-Bold.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
+
+fonts/GEASRedditSans-Italic.ttf: fonts/original/RedditSans/RedditSans-Italic.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
+
+fonts/GEASRedditSansCondensed-Regular.ttf: fonts/original/RedditSansCondensed/RedditSansCondensed-Regular.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
+
+fonts/GEASRedditSansCondensed-Bold.ttf: fonts/original/RedditSansCondensed/RedditSansCondensed-Bold.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
+
+webfonts: \
+	fonts/GEASRedditSans-Regular.ttf \
+	fonts/GEASRedditSans-Bold.ttf \
+	fonts/GEASRedditSans-Italic.ttf \
+	fonts/GEASRedditSansCondensed-Regular.ttf \
+	fonts/GEASRedditSansCondensed-Bold.ttf
 
 fonts/byblos-fixed.svg: fonts/original/byblos.svg
 	cp $^ "$@"
