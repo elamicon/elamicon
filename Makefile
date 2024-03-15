@@ -5,12 +5,13 @@ TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
 all: elamicon.js fonts/GEAS-Fonts.zip
 
-build: build/elamicon.js fonts/GEAS-Fonts.zip
+build: build/elamicon.js fonts/GEAS-Fonts.zip webfonts
 	cp -r plates build
 	cp -r css build
 	cp index.html logo.png build
 	mkdir -p build/fonts
 	cp -r fonts/*Liberation* build/fonts
+	cp -r fonts/*Reddit* build/fonts
 	cp -r fonts/*.zip build/fonts
 	cp fonts/copyright build/fonts
 
