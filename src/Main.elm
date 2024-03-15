@@ -1075,21 +1075,27 @@ view model =
 
         contact =
             div [ class "footer" ]
-                [ h2 [] [ text "Contact the research team" ]
-                , text "For detailed information about "
-                , text model.script.title
-                , text ", and possibilities for collaboration please contact "
-                , strong [] [ text "michael.maeder[ätt]isw.unibe.ch" ]
-                , text ". "
-                , text "We can help you with tips on how to contribute to the decipherment and tell you what we've discovered so far."
-                , br [] []
-                , br [] []
-                , text " Thank you for your interest and have fun puzzling over the inscriptions. Your "
-                , text model.script.title
-                , text " team, Institut für Sprachwissenschaft, Universität Bern."
-                , br [] []
+                [ h2 [] [ text "Resources" ]
+                , text "Visit "
                 , a [ href "https://center-for-decipherment.ch/" ]
                     [ text "center-for-decipherment.ch" ]
+                , text " for more information and read the "
+                , a [ href "https://center-for-decipherment.ch/tool-introduction" ]
+                    [ text " tool introduction" ]
+                , text " on how to use this tool."
+                , br [] []
+                , text "For criticism, specific questions, and possibilities for collaboration, please contact "
+                , strong [] [ text "m.maeder[ätt]geass.ch" ]
+                , text ". "
+                , text "We can help you with tips on how to contribute to the decipherments."
+                , br [] []
+                , br [] []
+                , text " Thank you for your interest and have fun puzzling over the inscriptions. Your GEAS"
+                , text " team, Institut für Sprachwissenschaft, Universität Bern."
+                , br [] []
+                , a [ href ("fonts/GEAS-Fonts.zip") ]
+                    [ text ("Download the GEAS truetype font collection.") ]
+                , text " "
                 ]
 
         footer =
@@ -1108,10 +1114,6 @@ view model =
                 , text ". We use a "
                 , a [ href "http://www.unicode.org/faq/private_use.html" ] [ text "Unicode Private Use Area ♥" ]
                 , text ". "
-                , br [] []
-                , a [ href ("fonts/" ++ model.script.font ++ "-Fonts.zip") ]
-                    [ text ("Download the " ++ model.script.font ++ " fonts.") ]
-                , text " "
                 , br [] []
                 , a [ href "https://github.com/elamicon/elamicon/" ]
                     [ text "The project on Github." ]

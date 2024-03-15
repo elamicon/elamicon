@@ -62,7 +62,6 @@ runic =
     , group = "North Italic and Runic Alphabets"
     , headline = "Collection of Sign Variants in the Elder Futhark"
     , title = "Runicon"
-    , font = "NorthItalic"
     , description = """
 #### Introduction
 All the sign variants of the Runes of the oldest period (150 – 700 A.D) are depicted according to Odenstedt 1990.

@@ -58,7 +58,6 @@ deiralla =
     , group = "Ancient Near Eastern Scripts"
     , headline = "Deir Alla Alphabet"
     , title = "Deir Alla"
-    , font = "DeirAlla"
     , description = ""
     , sources = ""
     , tokens = Generated.DeirAlla.tokens

@@ -71,7 +71,6 @@ type alias Script =
     , group : String
     , headline : String
     , title : String
-    , font : String
     , description : String
     , sources : String
     , tokens : List NamedToken 

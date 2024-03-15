@@ -1,14 +1,11 @@
 OFONTS = $(wildcard fonts/original/Liberation*.ttf)
-EFONTS = $(subst fonts/original/,fonts/Elamicon,$(OFONTS))
-BFONTS = $(subst fonts/original/,fonts/Byblicon,$(OFONTS))
-IFONTS = $(subst fonts/original/,fonts/NorthItalic,$(OFONTS))
-DFONTS = $(subst fonts/original/,fonts/DeirAlla,$(OFONTS))
+FONTS = $(subst fonts/original/,fonts/GEAS,$(OFONTS))
 TIMESPATH = /usr/share/fonts/truetype/msttcorefonts/
 
 
-all: elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip fonts/DeirAlla-Fonts.zip
+all: elamicon.js fonts/GEAS-Fonts.zip
 
-build: build/elamicon.js fonts/Elamicon-Fonts.zip fonts/Byblicon-Fonts.zip fonts/NorthItalic-Fonts.zip fonts/DeirAlla-Fonts.zip fonts/copyright
+build: build/elamicon.js fonts/GEAS-Fonts.zip
 	cp -r plates build
 	cp -r css build
 	cp index.html logo.png build
@@ -64,32 +61,39 @@ src/Imported/LeponticInscriptions.elm: dump/lexlep fonts/original/north-italic.t
 
 
 
-fonts/elamicon-base.ttf: fonts/original/elamicon.sfdir fonts/original/special.sfdir
-	bin/addfont "Elamicon" $^ "$@"
+fonts/geas-base.ttf: \
+	fonts/original/elamicon.sfdir \
+	fonts/byblos-scaled.ttf \
+	fonts/deir-alla-scaled.ttf \
+	fonts/north-italic-scaled.ttf \
+	fonts/original/special.sfdir
+	bin/addfont "GEAS" $^ "$@"
 
-fonts/ElamiconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf  fonts/elamicon-base.ttf
-	bin/addfont "Elamicon" $^ "$@"
+fonts/GEASLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
 
-fonts/ElamiconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf  fonts/elamicon-base.ttf
-	bin/addfont "Elamicon" $^ "$@"
+fonts/GEASLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
 
-fonts/ElamiconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf  fonts/elamicon-base.ttf
-	bin/addfont "Elamicon" $^ "$@"
+fonts/GEASLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
 
-fonts/ElamiconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf  fonts/elamicon-base.ttf
-	bin/addfont "Elamicon" $^ "$@"
+fonts/GEASLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
 
-fonts/ElamiconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf  fonts/elamicon-base.ttf
-	bin/addfont "Elamicon" $^ "$@"
+fonts/GEASLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
 
-fonts/ElamiconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf  fonts/elamicon-base.ttf
-	bin/addfont "Elamicon" $^ "$@"
+fonts/GEASLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
 
-fonts/ElamiconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf  fonts/elamicon-base.ttf
-	bin/addfont "Elamicon" $^ "$@"
+fonts/GEASLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/geas-base.ttf
+		bin/addfont "GEAS" $^ "$@"
 
-fonts/Elamicon-Fonts.zip: $(EFONTS) $(MFONTS) fonts/copyright
-	cd fonts && zip -rq Elamicon-Fonts.zip ElamiconLiberation*.ttf copyright
+
+
+fonts/GEAS-Fonts.zip: $(FONTS) fonts/copyright
+	cd fonts && zip -rq GEAS-Fonts.zip GEASLiberation*.ttf copyright
 
 
 
@@ -100,33 +104,6 @@ fonts/byblos-fixed.svg: fonts/original/byblos.svg
 fonts/byblos-scaled.ttf: fonts/byblos-fixed.svg
 	bin/scale_font $^ 2 0 "$@"
 	bin/set_bearing "$@" 200
-
-fonts/byblos-base.ttf: fonts/byblos-scaled.ttf fonts/original/special.sfdir
-	bin/addfont "Byblicon" $^ "$@"
-
-fonts/BybliconLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/byblos-base.ttf
-		bin/addfont "Byblicon" $^ "$@"
-
-fonts/BybliconLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/byblos-base.ttf
-		bin/addfont "Byblicon" $^ "$@"
-
-fonts/BybliconLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/byblos-base.ttf
-		bin/addfont "Byblicon" $^ "$@"
-
-fonts/BybliconLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/byblos-base.ttf
-		bin/addfont "Byblicon" $^ "$@"
-
-fonts/BybliconLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/byblos-base.ttf
-		bin/addfont "Byblicon" $^ "$@"
-
-fonts/BybliconLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/byblos-base.ttf
-		bin/addfont "Byblicon" $^ "$@"
-
-fonts/BybliconLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/byblos-base.ttf
-		bin/addfont "Byblicon" $^ "$@"
-
-fonts/Byblicon-Fonts.zip: $(BFONTS) fonts/copyright
-		cd fonts && zip -rq Byblicon-Fonts.zip BybliconLiberation*.ttf copyright
 
 
 
@@ -142,35 +119,8 @@ fonts/north-italic-scaled-garamond.ttf: fonts/north-italic-fixed.svg
 	bin/scale_font $^ 1.02 -280 "$@"
 	bin/set_bearing "$@" 200
 
-fonts/north-italic-base.ttf: fonts/north-italic-scaled.ttf fonts/original/special.sfdir
-	bin/addfont "NorthItalic" $^ "$@"
-
 fonts/north-italic-base-garamond.ttf: fonts/north-italic-scaled-garamond.ttf fonts/original/special.sfdir
 	bin/addfont "NorthItalic" $^ "$@"
-
-fonts/NorthItalicLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/north-italic-base.ttf
-		bin/addfont "NorthItalic" $^ "$@"
-
-fonts/NorthItalicLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/north-italic-base.ttf
-		bin/addfont "NorthItalic" $^ "$@"
-
-fonts/NorthItalicLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/north-italic-base.ttf
-		bin/addfont "NorthItalic" $^ "$@"
-
-fonts/NorthItalicLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/north-italic-base.ttf
-		bin/addfont "NorthItalic" $^ "$@"
-
-fonts/NorthItalicLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/north-italic-base.ttf
-		bin/addfont "NorthItalic" $^ "$@"
-
-fonts/NorthItalicLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/north-italic-base.ttf
-		bin/addfont "NorthItalic" $^ "$@"
-
-fonts/NorthItalicLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/north-italic-base.ttf
-		bin/addfont "NorthItalic" $^ "$@"
-
-fonts/NorthItalic-Fonts.zip: $(IFONTS) fonts/copyright
-		cd fonts && zip -rq NorthItalic-Fonts.zip NorthItalicLiberation*.ttf copyright
 
 
 
@@ -182,41 +132,6 @@ fonts/deir-alla-scaled.ttf: fonts/deir-alla-fixed.svg
 	bin/scale_font $^ 2.5 -800 "$@"
 	bin/set_bearing "$@" 200
 
-fonts/deir-alla-base.ttf: fonts/deir-alla-scaled.ttf fonts/original/special.sfdir
-	bin/addfont "DeirAlla" $^ "$@"
-
-fonts/DeirAllaLiberationSans-Regular.ttf: fonts/original/LiberationSans-Regular.ttf fonts/deir-alla-base.ttf
-		bin/addfont "DeirAlla" $^ "$@"
-
-fonts/DeirAllaLiberationSans-Bold.ttf: fonts/original/LiberationSans-Bold.ttf fonts/deir-alla-base.ttf
-		bin/addfont "DeirAlla" $^ "$@"
-
-fonts/DeirAllaLiberationSans-Italic.ttf: fonts/original/LiberationSans-Italic.ttf fonts/deir-alla-base.ttf
-		bin/addfont "DeirAlla" $^ "$@"
-
-fonts/DeirAllaLiberationSans-BoldItalic.ttf: fonts/original/LiberationSans-BoldItalic.ttf fonts/deir-alla-base.ttf
-		bin/addfont "DeirAlla" $^ "$@"
-
-fonts/DeirAllaLiberationSerif-Regular.ttf: fonts/original/LiberationSerif-Regular.ttf fonts/deir-alla-base.ttf
-		bin/addfont "DeirAlla" $^ "$@"
-
-fonts/DeirAllaLiberationSerif-Bold.ttf: fonts/original/LiberationSerif-Bold.ttf fonts/deir-alla-base.ttf
-		bin/addfont "DeirAlla" $^ "$@"
-
-fonts/DeirAllaLiberationMono-Regular.ttf: fonts/original/LiberationMono-Regular.ttf fonts/deir-alla-base.ttf
-		bin/addfont "DeirAlla" $^ "$@"
-
-fonts/DeirAlla-Fonts.zip: $(DFONTS) fonts/copyright
-		cd fonts && zip -rq DeirAlla-Fonts.zip DeirAllaLiberation*.ttf copyright
-
-
-
-
-
-
-
-
-
 
 
 clean:
@@ -226,7 +141,7 @@ clean:
 	rm -rf build
 	rm -rf src/Generated
 
-live: $(MFONTS)
+live: $(FONTS)
 	elm-live elamicon.elm --start-page=index.html -- --output=elamicon.js
 
 

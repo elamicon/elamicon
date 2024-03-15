@@ -57,7 +57,6 @@ etruscan =
     , group = "North Italic and Runic Alphabets"
     , headline = "Collection of Sign Variants in Etruscan Inscriptions"
     , title = "Etruricon"
-    , font = "NorthItalic"
     , description = """
 #### Introduction
 The sign corpus of Etruscicon contains all sign variants from inscriptions certainly or possibly belonging to the Etruscan, Venetic or Lemnotic scripts. Signs that occur only in Venetic inscriptions are labelled "EtrVen", signs that occur only on Lemnos are labeled "EtrLem". Signs that occur only or also in Etruscan are labeled "Etr".

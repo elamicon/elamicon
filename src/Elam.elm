@@ -804,7 +804,6 @@ elam =
     , group = "Ancient Near Eastern Scripts"
     , headline = "Online Corpus of Linear Elamite Inscriptions OCLEI"
     , title = "Elamicon"
-    , font = "Elamicon"
     , description = description
     , sources = sources
     , tokens = tokenList

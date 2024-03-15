@@ -2,79 +2,15 @@ body {
     padding: 1em;
     background-color: #eed;
     font-size: large;
-}
-
-.elam {
-    font-family: ElamiconLiberationSerif;
+    font-family: GEASLiberationSerif;
     unicode-bidi: bidi-override;
 }
 
-.deiralla {
-    font-family: DeirAllaLiberationSerif;
-    unicode-bidi: bidi-override;
+
+input, textarea {
+    font-family: GEASLiberationMono;
 }
 
-.cypro {
-    font-family: CypriconLiberationSerif;
-    unicode-bidi: bidi-override;
-}
-
-.byblos {
-    font-family: BybliconLiberationSerif;
-    unicode-bidi: bidi-override;
-}
-
-.raetic {
-    font-family: NorthItalicLiberationSerif;
-    unicode-bidi: bidi-override;
-}
-
-.lepontic {
-    font-family: NorthItalicLiberationSerif;
-    unicode-bidi: bidi-override;
-}
-
-.etruscan {
-    font-family: NorthItalicLiberationSerif;
-    unicode-bidi: bidi-override;
-}
-
-.runic {
-    font-family: NorthItalicLiberationSerif;
-    unicode-bidi: bidi-override;
-}
-
-.elam input, .elam textarea {
-    font-family: ElamiconLiberationMono;
-}
-
-.deiralla input, .deiralla textarea {
-    font-family: DeirAllaLiberationMono;
-}
-
-.cypro input, .cypro textarea {
-    font-family: ElamiconLiberationMono;
-}
-
-.byblos input, .byblos textarea {
-    font-family: BybliconLiberationMono;
-}
-
-.raetic input, .raetic textarea {
-    font-family: NorthItalicLiberationMono;
-}
-
-.lepontic input, .lepontic textarea {
-    font-family: NorthItalicLiberationMono;
-}
-
-.etruscan input, .etruscan textarea {
-    font-family: NorthItalicLiberationMono;
-}
-
-.runic input, .runic textarea {
-    font-family: NorthItalicLiberationMono;
-}
 
 h1, h2 {
     text-align: center
@@ -120,89 +56,20 @@ body, h1, h2, label, input, select {
 }
 
 @font-face {
-    font-family: 'ElamiconLiberationSerif';
-    src: url('../fonts/ElamiconLiberationSerif-Regular.ttf');
+    font-family: 'GEASLiberationSerif';
+    src: url('../fonts/GEASLiberationSerif-Regular.ttf');
 }
 
 @font-face {
-    font-family: 'ElamiconLiberationSerif';
-    src: url('../fonts/ElamiconLiberationSerif-Bold.ttf');
+    font-family: 'GEASLiberationSerif';
+    src: url('../fonts/GEASLiberationSerif-Bold.ttf');
     font-weight: bold;
 }
 
 @font-face {
-    font-family: 'ElamiconLiberationMono';
-    src: url('../fonts/ElamiconLiberationMono-Regular.ttf');
+    font-family: 'GEASLiberationMono';
+    src: url('../fonts/GEASLiberationMono-Regular.ttf');
 }
-
-
-@font-face {
-    font-family: 'DeirAllaLiberationSerif';
-    src: url('../fonts/DeirAllaLiberationSerif-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'DeirAllaLiberationSerif';
-    src: url('../fonts/DeirAllaLiberationSerif-Bold.ttf');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: 'DeirAllaLiberationMono';
-    src: url('../fonts/DeirAllaLiberationMono-Regular.ttf');
-}
-
-
-@font-face {
-    font-family: 'CypriconLiberationSerif';
-    src: url('../fonts/CypriconLiberationSerif-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'CypriconLiberationSerif';
-    src: url('../fonts/CypriconLiberationSerif-Bold.ttf');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: 'CypriconLiberationMono';
-    src: url('../fonts/CypriconLiberationMono-Regular.ttf');
-}
-
-
-@font-face {
-    font-family: 'BybliconLiberationSerif';
-    src: url('../fonts/BybliconLiberationSerif-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'BybliconLiberationSerif';
-    src: url('../fonts/BybliconLiberationSerif-Bold.ttf');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: 'BybliconLiberationMono';
-    src: url('../fonts/BybliconLiberationMono-Regular.ttf');
-}
-
-
-@font-face {
-    font-family: 'NorthItalicLiberationSerif';
-    src: url('../fonts/NorthItalicLiberationSerif-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'NorthItalicLiberationSerif';
-    src: url('../fonts/NorthItalicLiberationSerif-Bold.ttf');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: 'NorthItalicLiberationMono';
-    src: url('../fonts/NorthItalicLiberationMono-Regular.ttf');
-}
-
 
 
 .syllabary {

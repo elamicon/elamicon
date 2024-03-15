@@ -66,7 +66,6 @@ raetic =
     , group = "North Italic and Runic Alphabets"
     , headline = "Collection of Sign Variants in Raetic Inscriptions"
     , title = "Raeticon"
-    , font = "NorthItalic"
     , description = """
 #### Introduction
 

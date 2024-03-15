@@ -63,7 +63,6 @@ lepontic =
     , group = "North Italic and Runic Alphabets"
     , headline = "Collection of Sign Variants in Lepontic, Camunic, and Brembonic Inscriptions"
     , title = "Leponticon"
-    , font = "NorthItalic"
     , description = """
 #### Introduction
 
