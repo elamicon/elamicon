@@ -138,8 +138,7 @@ fonts/north-italic-scaled.ttf: fonts/north-italic-fixed.svg
 	bin/set_bearing "$@" 200
 
 fonts/geas-base-garamond.ttf: fonts/geas-base.ttf
-	bin/scale_font $^ 0.6 -70 "$@"
-	bin/set_bearing "$@" 150
+	bin/scale_font $^ 0.6 -30 "$@"
 
 
 
