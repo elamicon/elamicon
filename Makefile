@@ -137,12 +137,9 @@ fonts/north-italic-scaled.ttf: fonts/north-italic-fixed.svg
 	bin/scale_font $^ 2.15 -560 "$@"
 	bin/set_bearing "$@" 200
 
-fonts/north-italic-scaled-garamond.ttf: fonts/north-italic-fixed.svg
-	bin/scale_font $^ 1.02 -280 "$@"
-	bin/set_bearing "$@" 200
-
-fonts/north-italic-base-garamond.ttf: fonts/north-italic-scaled-garamond.ttf fonts/original/special.sfdir
-	bin/addfont "NorthItalic" $^ "$@"
+fonts/geas-base-garamond.ttf: fonts/geas-base.ttf
+	bin/scale_font $^ 0.6 -70 "$@"
+	bin/set_bearing "$@" 150
 
 
 
@@ -281,23 +278,20 @@ fonts/NorthItalic_Garamond.zip: fonts/NorthItalic_Garamond_Bold_Italic.ttf fonts
 	zip -rq $@ $^
 
 
-fonts/NorthItalic_Garamond_Bold_Italic.ttf: fonts/north-italic-base-garamond.ttf
-	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Bold-Italic_2007.ttf $^ $@
+fonts/GEAS_Garamond_Bold_Italic.ttf: fonts/geas-base-garamond.ttf
+	bin/addfont "GEAS-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Bold-Italic_2007.ttf $^ $@
 
-fonts/NorthItalic_Garamond_Bold.ttf: fonts/north-italic-base-garamond.ttf
-	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Bold_2008.ttf $^ $@
+fonts/GEAS_Garamond_Bold.ttf: fonts/geas-base-garamond.ttf
+	bin/addfont "GEAS-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Bold_2008.ttf $^ $@
 
-fonts/NorthItalic_Garamond_Italic.ttf: fonts/north-italic-base-garamond.ttf
-	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Italic_2009.ttf $^ $@
+fonts/GEAS_Garamond_Italic.ttf: fonts/geas-base-garamond.ttf
+	bin/addfont "GEAS-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Italic_2009.ttf $^ $@
 
-fonts/NorthItalic_Garamond_Semibold.ttf: fonts/north-italic-base-garamond.ttf
-	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Semibold_2011.ttf $^ $@
+fonts/GEAS_Garamond.ttf: fonts/geas-base-garamond.ttf
+	bin/addfont "GEAS-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro_2012.ttf $^ $@
 
-fonts/NorthItalic_Garamond_Semibold_Italic.ttf: fonts/north-italic-base-garamond.ttf
-	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro-Semibold-Italic_2010.ttf $^ $@
-
-fonts/NorthItalic_Garamond.ttf: fonts/north-italic-base-garamond.ttf
-	bin/addfont "NorthItalic-" fonts/original/adobe-garamond-pro/Adobe-Garamond-Pro_2012.ttf $^ $@
+fonts/GEAS_Garamond.zip: fonts/GEAS_Garamond_Bold_Italic.ttf fonts/GEAS_Garamond_Bold.ttf fonts/GEAS_Garamond_Italic.ttf fonts/GEAS_Garamond.ttf
+	zip -rq $@ $^
 
 
 .DELETE_ON_ERROR:
