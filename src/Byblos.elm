@@ -35,13 +35,36 @@ searchExamples =
     , ("[]", "Show all occurrences of  and ")
     ]
 
--- We don't know enough about the language to venture guesses about
--- syllables for the tokens.
-syllables = Dict.empty
+syllables = Dict.fromList
+    [ ( '', [ "me" ] )
+    , ( '', [ "pa" ] )
+    , ( '', [ "ATON" ] )
+    , ( '', [ "AMUN" ] )
+    , ( '', [ "AMUN" ] )
+    , ( '', [ "i" ] )
+    , ( '', [ "o" ] )
+    , ( '', [ "ḥ" ] )
+    , ( '', [ "m" ] )
+    , ( '', [ "b" ] )
+    , ( '', [ "ś" ] )
+    , ( '', [ "h" ] )
+    , ( '', [ "aleph" ] )
+    ]
 
 syllableMap = String.trim """
+me 
+pa 
+ATON 
+AMUN 
+i 
+o 
+ḥ 
+m 
+b 
+ś 
+h 
+aleph 
 """
-
 
 initialSyllabary : SyllabaryDef
 initialSyllabary =

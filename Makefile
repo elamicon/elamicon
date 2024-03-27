@@ -165,116 +165,23 @@ live: $(FONTS)
 
 
 
-ElamiconTimes: fonts/Elamicon_Times_New_Roman.zip
 
-fonts/Elamicon_Times_New_Roman.zip: fonts/Elamicon_Times_New_Roman_Bold_Italic.ttf fonts/Elamicon_Times_New_Roman_Italic.ttf fonts/Elamicon_Times_New_Roman_Bold.ttf fonts/Elamicon_Times_New_Roman.ttf
-	zip -rq fonts/Elamicon_Times_New_Roman.zip $^
+fonts/GEAS_Times_New_Roman_Bold_Italic.ttf: fonts/geas-base.ttf
+	bin/addfont "GEAS-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
 
-fonts/Elamicon_Times_New_Roman_Bold_Italic.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
+fonts/GEAS_Times_New_Roman_Italic.ttf: fonts/geas-base.ttf
+	bin/addfont "GEAS-" $(TIMESPATH)Times_New_Roman_Italic.ttf $^ $@
 
-fonts/Elamicon_Times_New_Roman_Italic.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Italic.ttf $^ $@
+fonts/GEAS_Times_New_Roman_Bold.ttf: fonts/geas-base.ttf
+	bin/addfont "GEAS-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
 
-fonts/Elamicon_Times_New_Roman_Bold.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
+fonts/GEAS_Times_New_Roman.ttf: fonts/geas-base.ttf
+	bin/addfont "GEAS-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
 
-fonts/Elamicon_Times_New_Roman.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
-
-
-fonts/Elamicon_Calibri.zip: fonts/Elamicon_Calibri_Bold_Italic.ttf fonts/Elamicon_Calibri_Italic.ttf fonts/Elamicon_Calibri_Bold.ttf fonts/Elamicon_Calibri.ttf
-	zip -rq fonts/Elamicon_Calibri.zip $^
-
-fonts/Elamicon_Calibri_Bold_Italic.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" fonts/original/calibri/Calibri_Bold_Italic.ttf $^ $@
-
-fonts/Elamicon_Calibri_Italic.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" fonts/original/calibri/Calibri_Italic.ttf $^ $@
-
-fonts/Elamicon_Calibri_Bold.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" fonts/original/calibri/Calibri_Bold.ttf $^ $@
-
-fonts/Elamicon_Calibri.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" fonts/original/calibri/Calibri.ttf $^ $@
+fonts/GEAS_Times_New_Roman.zip: fonts/GEAS_Times_New_Roman_Bold_Italic.ttf fonts/GEAS_Times_New_Roman_Italic.ttf fonts/GEAS_Times_New_Roman_Bold.ttf fonts/GEAS_Times_New_Roman.ttf
+	zip -rq fonts/GEAS_Times_New_Roman.zip $^
 
 
-fonts/Elamicon_Cambria.zip: fonts/Elamicon_Cambria_Bold_Italic.ttf fonts/Elamicon_Cambria_Italic.ttf fonts/Elamicon_Cambria_Bold.ttf fonts/Elamicon_Cambria.ttf
-	zip -rq fonts/Elamicon_Cambria.zip $^
-
-fonts/Elamicon_Cambria_Bold_Italic.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" fonts/original/cambria/Cambria-Bold-Italic.ttf $^ $@
-
-fonts/Elamicon_Cambria_Italic.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" fonts/original/cambria/Cambria-Italic.ttf $^ $@
-
-fonts/Elamicon_Cambria_Bold.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" fonts/original/cambria/Cambria-Bold.ttf $^ $@
-
-fonts/Elamicon_Cambria.ttf: fonts/original/elamicon.sfdir
-	bin/addfont "Elamicon-" fonts/original/cambria/Cambria.ttf $^ $@
-
-
-fonts/elamicon-scaled.ttf: fonts/original/elamicon.sfdir
-	bin/scale_font $^ 1.3 0 "$@"
-	bin/set_bearing "$@" 130
-
-fonts/Elamicon_Verdana.zip: fonts/Elamicon_Verdana_Bold_Italic.ttf fonts/Elamicon_Verdana_Italic.ttf fonts/Elamicon_Verdana_Bold.ttf fonts/Elamicon_Verdana.ttf
-	zip -rq fonts/Elamicon_Verdana.zip $^
-
-fonts/Elamicon_Verdana_Bold_Italic.ttf: fonts/elamicon-scaled.ttf
-	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana_Bold_Italic.ttf $^ $@
-
-fonts/Elamicon_Verdana_Italic.ttf: fonts/elamicon-scaled.ttf
-	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana_Italic.ttf $^ $@
-
-fonts/Elamicon_Verdana_Bold.ttf: fonts/elamicon-scaled.ttf
-	bin/addfont "Elamicon-" /usr/share/fonts/truetype/msttcorefonts/Verdana_Bold.ttf $^ $@
-
-fonts/Elamicon_Verdana.ttf: fonts/elamicon-scaled.ttf
-	bin/addfont "Elamicon-"  /usr/share/fonts/truetype/msttcorefonts/Verdana.ttf $^ $@
-
-
-
-BybliconTimes: fonts/Byblicon_Times_New_Roman.zip
-
-fonts/Byblicon_Times_New_Roman.zip: fonts/Byblicon_Times_New_Roman_Bold_Italic.ttf fonts/Byblicon_Times_New_Roman_Italic.ttf fonts/Byblicon_Times_New_Roman_Bold.ttf fonts/Byblicon_Times_New_Roman.ttf
-	zip -rq fonts/Byblicon_Times_New_Roman.zip $^
-
-fonts/Byblicon_Times_New_Roman_Bold_Italic.ttf: fonts/byblos-scaled.ttf
-	bin/addfont "Byblicon-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
-
-fonts/Byblicon_Times_New_Roman_Italic.ttf: fonts/byblos-scaled.ttf
-	bin/addfont "Byblicon-" $(TIMESPATH)Times_New_Roman_Italic.ttf $^ $@
-
-fonts/Byblicon_Times_New_Roman_Bold.ttf: fonts/byblos-scaled.ttf
-	bin/addfont "Byblicon-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
-
-fonts/Byblicon_Times_New_Roman.ttf: fonts/byblos-scaled.ttf
-	bin/addfont "Byblicon-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
-
-
-NorthItalicTimes: fonts/NorthItalic_Times_New_Roman.zip
-
-fonts/NorthItalic_Times_New_Roman.zip: fonts/NorthItalic_Times_New_Roman_Bold_Italic.ttf fonts/NorthItalic_Times_New_Roman_Italic.ttf fonts/NorthItalic_Times_New_Roman_Bold.ttf fonts/NorthItalic_Times_New_Roman.ttf
-	zip -rq $@ $^
-
-
-fonts/NorthItalic_Times_New_Roman_Bold_Italic.ttf: fonts/north-italic-base.ttf
-	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
-
-fonts/NorthItalic_Times_New_Roman_Italic.ttf: fonts/north-italic-base.ttf
-	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman_Italic.ttf $^ $@
-
-fonts/NorthItalic_Times_New_Roman_Bold.ttf: fonts/north-italic-base.ttf
-	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
-
-fonts/NorthItalic_Times_New_Roman.ttf: fonts/north-italic-base.ttf
-	bin/addfont "NorthItalic-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
-
-
-fonts/NorthItalic_Garamond.zip: fonts/NorthItalic_Garamond_Bold_Italic.ttf fonts/NorthItalic_Garamond_Italic.ttf fonts/NorthItalic_Garamond_Bold.ttf fonts/NorthItalic_Garamond.ttf fonts/NorthItalic_Garamond_Semibold.ttf fonts/NorthItalic_Garamond_Semibold_Italic.ttf
-	zip -rq $@ $^
 
 
 fonts/GEAS_Garamond_Semibold.ttf: fonts/geas-base-garamond.ttf
