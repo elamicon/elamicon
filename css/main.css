@@ -446,6 +446,9 @@ h2 {
 textarea {
     width: 100%;
     height: 5em;
+}
+
+textarea.sandbox {
     font-size: 200%;
 }
 

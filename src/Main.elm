@@ -683,7 +683,7 @@ view model =
                         , div []
                             ([ h4 [] [ text "Dynamic Syllabary" ]
                              , syllabarySelection
-                             , Html.textarea [ class model.script.id, value model.syllabaryString, onInput SetSyllabary ] []
+                             , Html.textarea [ class "sandbox", value model.syllabaryString, onInput SetSyllabary ] []
                              ]
                                 ++ (if not (String.isEmpty model.missingSyllabaryChars) then
                                         [ div [] [ text "The following signs are not listed in the syllabary: ", text model.missingSyllabaryChars ] ]
