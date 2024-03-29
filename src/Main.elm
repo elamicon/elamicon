@@ -403,9 +403,6 @@ view model =
         dirAttr original =
             lineDirAttr 0 original
 
-        scriptClass =
-            class model.script.id
-
         selectedFragments =
             List.filter (\f -> Set.member f.group model.selectedGroups) model.script.fragments
 
@@ -570,7 +567,7 @@ view model =
                 ++ ifExpanded "playground"
                     (\_ ->
                         [ textarea
-                            [ class model.script.id
+                            [ class "sandbox"
                             , dirAttr LTR
                             , on "input" (Json.Decode.map SetSandbox Html.Events.targetValue)
                             , onInput SetSandbox
@@ -683,7 +680,7 @@ view model =
                         , div []
                             ([ h4 [] [ text "Dynamic Syllabary" ]
                              , syllabarySelection
-                             , Html.textarea [ class "sandbox", value model.syllabaryString, onInput SetSyllabary ] []
+                             , Html.textarea [ value model.syllabaryString, onInput SetSyllabary ] []
                              ]
                                 ++ (if not (String.isEmpty model.missingSyllabaryChars) then
                                         [ div [] [ text "The following signs are not listed in the syllabary: ", text model.missingSyllabaryChars ] ]
@@ -695,7 +692,7 @@ view model =
                         , div []
                             [ label []
                                 [ h4 [] [ text "Assumed sound values" ]
-                                , Html.textarea [ scriptClass, value model.syllableMap, onInput SetSyllableMap ] []
+                                , Html.textarea [ value model.syllableMap, onInput SetSyllableMap ] []
                                 ]
                             ]
                         , div [ class "groups" ]
@@ -864,7 +861,7 @@ view model =
                          label [] (
                             [ text "Search "
                             , div [ class "searchInput" ]
-                                ( Html.input [ scriptClass, dirAttr LTR, value model.search, onInput SetSearch ] []
+                                ( Html.input [ dirAttr LTR, value model.search, onInput SetSearch ] []
                                   :: (if searchPattern == Invalid then
                                             [ div [ class "invalidPattern" ] [ text "Invalid pattern" ] ]
                                       else
