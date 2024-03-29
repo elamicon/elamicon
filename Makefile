@@ -32,10 +32,10 @@ src/Generated: fonts/original/north-italic.txt fonts/original/deir-alla.txt
 elms := $(wildcard *.elm src/*.elm src/Generated/*.elm) src/Generated
 
 elamicon.js: $(elms)
-	echo "module Generated.Build exposing (build)\nbuild = \"$$(date -u +%Y-%m-%dT%H:%M:%SZ) (commit $$(git rev-parse --short HEAD))\"" > src/Generated/Build.elm
 	elm make --output="$@" src/Main.elm
 
 build/elamicon.js: $(elms)
+	echo "module Generated.Build exposing (build)\nbuild = \"$$(date -u +%Y-%m-%dT%H:%M:%SZ) (commit $$(git rev-parse --short HEAD))\"" > src/Generated/Build.elm
 	mkdir -p build
 	elm make --optimize --output=elamicon.opt.js src/Main.elm
 	uglifyjs elamicon.opt.js --compress "pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe" | uglifyjs --mangle --output "$@"
