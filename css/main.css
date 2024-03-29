@@ -1,0 +1,467 @@
+body {
+    padding: 1em;
+    background-color: #eed;
+    font-size: large;
+    font-family: GEASLiberationSerif;
+    unicode-bidi: bidi-override;
+}
+
+
+input, textarea {
+    font-family: GEASLiberationMono;
+}
+
+
+h1, h2 {
+    text-align: center
+}
+
+h1.secondary {
+    font-size: 120%;
+}
+
+.collapsible {
+    position: relative;
+    cursor: pointer;
+}
+
+.collapsible .toggle {
+    position: absolute;
+    right: 0;
+}
+
+.collapsed {
+    margin-bottom: -1.5em;
+}
+
+h3, h4 {
+    margin: 1ex 0 0.5ex 0;
+}
+
+h4 {
+    margin-top: 2ex;
+    font-size: 120%;
+}
+
+sup {
+  font-size: 50%;
+}
+
+p {
+    margin: 0.5ex 0;
+}
+
+body, h1, h2, label, input, select {
+    color: #445;
+}
+
+@font-face {
+    font-family: 'GEASLiberationSerif';
+    src: url('../fonts/GEASLiberationSerif-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'GEASLiberationSerif';
+    src: url('../fonts/GEASLiberationSerif-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'GEASLiberationMono';
+    src: url('../fonts/GEASLiberationMono-Regular.ttf');
+}
+
+
+.syllabary {
+    padding: 0;
+    list-style-type: none;
+}
+
+.syllabary li {
+    margin: 0.2em;
+    display: inline-block;
+    background-color: #eed;
+    border-left: 0.3em solid #ffffe8;
+    border-top: 0.3em solid #ffffe8;
+    border-right: 0.3em solid #d0d0c8;
+    border-bottom: 0.3em solid #d0d0c8;
+}
+
+.syllabary div {
+    padding: 0.3em;
+
+    color: rgba(100, 100, 100, 0.8);
+    text-shadow: #eed 0.03ex 0.03ex 0.05ex, #000 0 0 0;
+}
+
+.letter {
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+}
+
+.letter .main {
+    font-size: 300%;
+    cursor: pointer;
+}
+
+
+.letter .ext {
+    font-size: 80%;
+    display: inline;
+}
+
+.letter .menu {
+    float: left;
+    text-align: center;
+
+    display: none;
+}
+
+.letter:hover .menu {
+    display: block;
+    position: absolute;
+    left: -0.3em;
+    right: -0.3em;
+
+    z-index: 1;
+    background-color: #eed;
+    border-left: 0.3em solid #ffffe8;
+    border-right: 0.3em solid #d0d0c8;
+    border-bottom: 0.3em solid #d0d0c8;
+}
+
+.letter .menu .ext {
+    display: inline-block;
+    font-size: 200%;
+
+    cursor: pointer;
+}
+
+
+.syllabarySelection {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.syllabarySelection li {
+    float: left;
+}
+
+.syllabarySelection button {
+    background-color: #eed;
+    border-left: 0.3em solid #ffffe8;
+    border-top: 0.3em solid #ffffe8;
+    border-right: 0.3em solid #d0d0c8;
+    border-bottom: 0.3em solid #d0d0c8;
+}
+
+.syllabarySelection button.active, .syllabarySelection button:active {
+    background-color: #e0e0d0;
+    border-left: 0.3em solid #d0d0c8;
+    border-top: 0.3em solid #d0d0c8;
+    border-right: 0.3em solid #ffffe8;
+    border-bottom: 0.3em solid #ffffe8;
+}
+
+
+input[type=text] {
+    width: 100%;
+}
+
+.groups label {
+    position: relative;
+}
+
+.groups .recordWarn {
+    position: absolute;
+    left: -1em;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tallyGrams > li {
+    float: left;
+    margin: 0 1em;
+    height: 15em;
+    overflow-y: scroll;
+    border-left: 0.3em solid #ffffe8;
+    border-top: 0.3em solid #ffffe8;
+    border-right: 0.3em solid #d0d0c8;
+    border-bottom: 0.3em solid #d0d0c8;
+    margin-bottom: 1em;
+}
+
+.tallyGram ul {
+}
+
+.tallyGram {
+    margin-left: 2em;
+    position: relative;
+}
+
+.tallyGram .count {
+    position: absolute;
+    left: -2em;
+    width: 1.7em;
+    text-align: right;
+}
+
+.tallyGrams .boring {
+    color: gray;
+}
+
+
+.searchInput {
+    display: inline-block;
+    position: relative;
+}
+
+.invalidPattern {
+    position: absolute;
+    bottom: -1.1em;
+    background-color: #ffffe8;
+}
+
+.searchExamples dl {
+    margin-left: 5em;
+    position: relative;
+}
+
+.searchExamples dt {
+    padding: 0.2em;
+    border: 0.06em solid black;
+    background-color: #ffffe8;
+    position: absolute;
+    left: -5em;
+}
+
+.searchExamples dd {
+    padding: 0.4em;
+    background-color: #ffffe8;
+}
+
+.searchCodeExample {
+    padding: 0.2em;
+    border: 0.06em solid black;
+    background-color: #ffffe8;
+}
+
+.noresult {
+    margin: 1em;
+}
+
+.result {
+    position: relative;
+}
+
+.result .id {
+    position: relative;
+    margin-left: 1.8em;
+    width: 10em;
+    display: inline-block;
+}
+
+.result sup.group {
+    position: absolute;
+    left: -4em;
+    width: 4em;
+}
+
+sup.group {
+    text-align: right;
+    vertical-align: super;
+    font-size: 0.7em;
+    font-variant: small-caps;
+}
+
+.result .pos {
+    position: absolute;
+    left: 5em;
+    width: 6em;
+    font-size: small;
+    bottom: 0;
+}
+
+
+.result .match {
+    margin: 0 4em;
+    display: inline-block;
+    unicode-bidi: bidi-override;
+}
+
+.result .before {
+    display: inline-block;
+    text-align: right;
+    width: 10em;
+    margin-left: -6em;
+}
+
+.plate {
+    vertical-align: top;
+    margin: 0 2em;
+    display: inline-block;
+}
+
+h2 {
+    margin-top: 2em;
+}
+
+h1, h2, .fragment {
+    /* horizontal rules between the lines */
+    line-height: 1em;
+    background-color: #ffffe8;
+}
+
+.elam h1, .elam h2, .elam .fragment {
+    /* Linear Elam gets horizontal rules between the lines */
+    background: linear-gradient(to bottom, #445 0%, #445 6%, #ffffe8 6%) 0 0;
+    background-size: 100% 1em;
+    padding-bottom: 0.06em; /* so the bottom rule is visible */
+}
+
+.fragment {
+    font-size: 200%;
+    margin-top: 0;
+    padding-top: 0;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+}
+
+.fragment[dir=RTL] {
+    text-align: right;
+}
+
+.fragment.tdr {
+    margin: 0;
+    margin-top: 1ex; /* for the column counter*/
+    text-align: left;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+.plate .img {
+    margin: 0 1em;
+    display: inline-block;
+    height: 3em;
+    opacity: 0.5;
+}
+
+.plate img {
+    height: 100%;
+}
+
+
+.fixedBreak {
+    /* custom line counter */
+    position: relative;
+    list-style: none;
+    counter-reset: lines;
+}
+
+.fixedBreak[dir=LTR] {
+    /* custom line counter */
+    margin-left: 4em;
+}
+
+.fixedBreak[dir=RTL] {
+    /* custom line counter */
+    margin-right: 4em;
+}
+
+
+
+.line {
+    unicode-bidi: bidi-override; /* not inherited through display: block */
+    counter-increment: lines;
+    display: inline-block;
+    line-height: 1em;
+}
+.highlight {
+    color: #c2bfc4;
+    background: #685771; /* fallback */
+    text-decoration: none;
+}
+
+.elam .fragment .highlight {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 6%, #c2bfc4 6%,  #c2bfc4 12%, #685771 12%) 0 0;
+}
+
+.guessmark {
+    opacity: 0.7;
+    z-index: 1;
+    position: absolute;
+}
+
+.tdr .guessmark {
+    margin-top: -1em; /* HACK to overlay it on the glyph above*/
+}
+
+.fixedBreak .line {
+    display: block;
+    padding: 0;
+}
+
+.fixedBreak .fragment.tdr .line {
+    position: relative; /* column counter above */
+}
+
+/* custom line counter */
+.fixedBreak .line:before {
+    content: counter(lines, upper-roman);
+    position: absolute;
+    font-size: 30%;
+    user-select: none;
+    width: 4em;
+}
+
+.fixedBreak .fragment[dir=LTR] .line:before {
+    text-align: right;
+    left: -4.5em;
+}
+
+.fixedBreak .fragment[dir=RTL] .line:before {
+    text-align: left;
+    right: -4.5em;
+}
+
+.fixedBreak .fragment.tdr .line:before {
+    writing-mode: horizontal-tb;
+    text-align: center;
+    top: -5ex;
+    right: 0;
+    left: 0;
+}
+
+h2 {
+    clear: both;
+}
+
+
+textarea {
+    width: 100%;
+    height: 10em;
+}
+
+textarea.sandbox {
+    font-size: 200%;
+    height: 5em;
+}
+
+select {
+    background-color: #ffffe8;
+}
+
+.clear {
+    clear: both;
+}
+
+.footer {
+    padding: 1em;
+    text-align: center;
+}
