@@ -324,7 +324,8 @@ syllabaries =
 -- Recorded means that there is a sound archaelogical paper trail
 groups : List GroupDef
 groups =
-    [ { short = "Susa", name = "Susa", recorded = True }
+    [ { short = "Susa", name = "Susa (reign of Puzur-Inšušinak)", recorded = True }
+    , { short = "Susa-inter", name = "Susa (intermediate state; cf. Mäder 2022:4)", recorded = True }
     , { short = "Sha", name = "Shahdad", recorded = True }
     , { short = "Mah", name = "Mahboubian", recorded = False }
     , { short = "Pers", name = "Persepolis", recorded = False }
@@ -336,7 +337,6 @@ groups =
     , { short = "Chris", name = "Christie's Catalogue", recorded = False }
     , { short = "Time", name = "Timelineauctions Catalogue", recorded = False }
     , { short = "Gonur", name = "Gonur Tepe", recorded = True }
-    , { short = "Div", name = "Divers", recorded = False }
     ]
 
 
@@ -419,13 +419,13 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "J", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/j.jpg", link = Nothing, text =
+    , { id = "J", group = "Susa-inter", dir = RTL, plate = Just "plates/linear-elam/j.jpg", link = Nothing, text =
         """
 
 
         """
       }
-    , { id = "K", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/k.jpg", link = Nothing, text =
+    , { id = "K", group = "Susa-inter", dir = RTL, plate = Just "plates/linear-elam/k.jpg", link = Nothing, text =
         """
 
 
@@ -435,7 +435,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "L", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/l.jpg", link = Nothing, text =
+    , { id = "L", group = "Susa-inter", dir = RTL, plate = Just "plates/linear-elam/l.jpg", link = Nothing, text =
         """
 
 
@@ -443,7 +443,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "M", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/m.jpg", link = Nothing, text =
+    , { id = "M", group = "Susa-inter", dir = RTL, plate = Just "plates/linear-elam/m.jpg", link = Nothing, text =
         """
 
 
@@ -452,7 +452,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "N", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/n.jpg", link = Nothing, text =
+    , { id = "N", group = "Susa-inter", dir = RTL, plate = Just "plates/linear-elam/n.jpg", link = Nothing, text =
         """
 
 
@@ -462,7 +462,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "O", group = "Div", dir = RTL, plate = Nothing, link = Nothing, text =
+    , { id = "O", group = "Susa-inter", dir = RTL, plate = Just "plates/linear-elam/o.jpg", link = Nothing, text =
         """
 
 
@@ -474,7 +474,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "Or", group = "Div", dir = RTL, plate = Nothing, link = Nothing, text =
+    , { id = "Or", group = "Susa-inter", dir = RTL, plate = Nothing, link = Nothing, text =
         """
 
         """
@@ -489,14 +489,14 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 ​​​
         """
       }
-    , { id = "R", group = "Susa", dir = RTL, plate = Just "plates/linear-elam/r.jpg", link = Nothing, text =
+    , { id = "R", group = "Susa-inter", dir = RTL, plate = Just "plates/linear-elam/r.jpg", link = Nothing, text =
         """
 
 
 
         """
       }
-    , { id = "Rr", group = "Susa", dir = RTL, plate = Nothing, link = Nothing, text =
+    , { id = "Rr", group = "Susa-inter", dir = RTL, plate = Nothing, link = Nothing, text =
         """
 
         """
