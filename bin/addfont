@@ -22,13 +22,6 @@ f.fullname = prefix + f.fullname
 f.familyname =  prefix + f.familyname
 f.fontname = prefix + f.fontname
 
-# Clear glyphs in the Unicode Private Use Area range
-# Otherwise they would be preserved instead of
-# being replaced by the new glyphs.
-for codepoint in range(0xE000, 0xF8FF + 1):
-    if codepoint in f:
-        f[codepoint].clear()
-
 for addfont in addfonts:
     f.mergeFonts(addfont)
 f.generate(outfont)

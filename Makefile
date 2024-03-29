@@ -164,19 +164,29 @@ live: $(FONTS)
 
 
 
+fonts/Times_New_Roman_Bold-cleared.ttf: $(TIMESPATH)Times_New_Roman_Bold.ttf
+	bin/clear_font $^ $@
 
+fonts/Times_New_Roman_Bold_Italic-cleared.ttf: $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf
+	bin/clear_font $^ $@
 
-fonts/GEAS_Times_New_Roman_Bold_Italic.ttf: fonts/geas-base.ttf
-	bin/addfont "GEAS-" $(TIMESPATH)Times_New_Roman_Bold_Italic.ttf $^ $@
+fonts/Times_New_Roman_Italic-cleared.ttf: $(TIMESPATH)Times_New_Roman_Italic.ttf
+	bin/clear_font $^ $@
 
-fonts/GEAS_Times_New_Roman_Italic.ttf: fonts/geas-base.ttf
-	bin/addfont "GEAS-" $(TIMESPATH)Times_New_Roman_Italic.ttf $^ $@
+fonts/Times_New_Roman-cleared.ttf: $(TIMESPATH)Times_New_Roman.ttf
+	bin/clear_font $^ $@
 
-fonts/GEAS_Times_New_Roman_Bold.ttf: fonts/geas-base.ttf
-	bin/addfont "GEAS-" $(TIMESPATH)Times_New_Roman_Bold.ttf $^ $@
+fonts/GEAS_Times_New_Roman_Bold_Italic.ttf: fonts/Times_New_Roman_Bold_Italic-cleared.ttf fonts/geas-base.ttf
+	bin/addfont "GEAS-"   $^ $@
 
-fonts/GEAS_Times_New_Roman.ttf: fonts/geas-base.ttf
-	bin/addfont "GEAS-" $(TIMESPATH)Times_New_Roman.ttf $^ $@
+fonts/GEAS_Times_New_Roman_Italic.ttf: fonts/Times_New_Roman_Italic-cleared.ttf fonts/geas-base.ttf
+	bin/addfont "GEAS-"   $^ $@
+
+fonts/GEAS_Times_New_Roman_Bold.ttf: fonts/Times_New_Roman_Bold-cleared.ttf fonts/geas-base.ttf
+	bin/addfont "GEAS-"   $^ $@
+
+fonts/GEAS_Times_New_Roman.ttf: fonts/Times_New_Roman-cleared.ttf fonts/geas-base.ttf
+	bin/addfont "GEAS-"   $^ $@
 
 fonts/GEAS_Times_New_Roman.zip: fonts/GEAS_Times_New_Roman_Bold_Italic.ttf fonts/GEAS_Times_New_Roman_Italic.ttf fonts/GEAS_Times_New_Roman_Bold.ttf fonts/GEAS_Times_New_Roman.ttf
 	zip -rq fonts/GEAS_Times_New_Roman.zip $^
