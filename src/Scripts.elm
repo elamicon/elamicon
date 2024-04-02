@@ -1,4 +1,4 @@
-module Scripts exposing (scripts, fromName, initialScript, sylDict, syllabizer)
+module Scripts exposing (scripts, fromName, initialScript, sylDict)
 
 import Byblos as Byblos
 import Elam as Elam
@@ -8,12 +8,10 @@ import Etruscan
 import Runic
 import DeirAlla
 
-import Dict exposing (Dict)
+import Dict
 import List
-import Regex
 import Script exposing (..)
 import Specialchars exposing (..)
-import Set exposing (Set)
 import String
 import Token exposing (..)
 import WritingDirections exposing (..)
@@ -31,7 +29,14 @@ initialScript =
 
 
 -- Digest the mapping from letters to "spoken sound" into a dictionary
-
+-- Replaces letters with their "spoken sound" based on a
+-- mapping given as string. Each line defines a mapping from letters to spoken
+-- sound. The first word of each line is the spoken sound, separated from
+-- the letters that are expected to sound like that.
+-- Based on the mapping
+--     why Yy
+--     oh Oo
+-- this dict would turn "Y o y" into "why oh why".
 
 sylDict : String -> Dict.Dict Token String
 sylDict strMap =
@@ -65,28 +70,3 @@ sylDict strMap =
                     sources
     in
     List.foldl addLine Dict.empty lines
-
-
-
--- Function that replaces letters with their "spoken sound" based on a
--- mapping given as string. Each line defines a mapping from letters to spoken
--- sound. The first word of each line is the spoken sound, separated from
--- the letters that are expected to sound like that.
--- Based on the mapping
---     why Yy
---     oh Oo
--- this function would turn "Y o y" into "why oh why".
-
-
-syllabizer : String -> String -> String
-syllabizer strMap =
-    let
-        map =
-            sylDict strMap
-
-        replacer char =
-            Maybe.withDefault (String.fromChar char) (Dict.get char map)
-    in
-    String.toList >> List.map replacer >> String.concat
-
-

@@ -99,8 +99,7 @@ init _ url key =
             , syllabaryString = ""
             , missingSyllabaryChars = ""
             , syllableMap = script.syllableMap
-            , syllabizer = Scripts.syllabizer script.syllableMap
-            , syllabize = False
+            , phoneticize = False
             , sandbox = ""
             , search = ""
             , searchBidirectional = True
@@ -215,10 +214,10 @@ update msg model =
             ( setSyllabary new model, Cmd.none )
 
         SetSyllableMap new ->
-            ( { model | syllableMap = new, syllabizer = Scripts.syllabizer new }, Cmd.none )
+            ( { model | syllableMap = new }, Cmd.none )
 
-        SetSyllabize syllabize ->
-            ( { model | syllabize = syllabize }, Cmd.none )
+        SetPhoneticize phoneticize ->
+            ( { model | phoneticize = phoneticize }, Cmd.none )
 
         SetSearch new ->
             let
@@ -427,6 +426,8 @@ view model =
 
             else
                 identity
+
+        phoneticReplacements = sylDict model.script.syllableMap
 
         -- Build filter that removes undesired chars
         removeCharSet =
@@ -657,9 +658,9 @@ view model =
                         , div []
                             [ label []
                                 [ text "Sign with assumed sound value: "
-                                , Html.select [ on "change" (Json.Decode.map SetSyllabize boolDecoder) ]
-                                    [ option (boolOptAttrs "false" (not model.syllabize)) [ text "keep original sign" ]
-                                    , option (boolOptAttrs "true" model.syllabize) [ text "replace with sound value" ]
+                                , Html.select [ on "change" (Json.Decode.map SetPhoneticize boolDecoder) ]
+                                    [ option (boolOptAttrs "false" (not model.phoneticize)) [ text "keep original sign" ]
+                                    , option (boolOptAttrs "true" model.phoneticize) [ text "replace with sound value" ]
                                     ]
                                 ]
                             ]
@@ -911,13 +912,6 @@ view model =
 
         fragmentView fragment =
             let
-                syllabize =
-                    if model.syllabize then
-                        model.syllabizer
-
-                    else
-                        identity
-
                 -- Insert a zero-width space after the "" separator so that long
                 -- lines can be broken by the browser
                 seperatorMatch =
@@ -968,7 +962,7 @@ view model =
                         lineNr =
                             List.length prevLines
 
-                        charPos char ( tailElems, idx ) =
+                        charPos char ( tailElems, idx, prevPhoneticReplaced ) =
                             let
                                 within ( index, length ) =
                                     (idx >= index) && (idx < index + length)
@@ -980,28 +974,60 @@ view model =
                                     else
                                         []
 
+                                (phoneticStr, phoneticReplaced) =
+                                        case Dict.get char phoneticReplacements of
+                                            Just replacement ->
+                                                (replacement, True)
+                                            Nothing ->
+                                                (String.fromChar char, False)
+
+                                idStr = "Line " ++ String.fromInt (lineNr + 1) ++ " position " ++ String.fromInt (idx - lineIdx + 1)
+
+                                phoneticTitleStr =
+                                    if phoneticReplaced then
+                                        " Phonetic: " ++ phoneticStr
+                                    else
+                                        ""
+
                                 charAttrs =
-                                    [ title (String.concat [ fromInt (lineNr + 1), ".", fromInt (idx - lineIdx + 1) ])
+                                    [ title (idStr ++ phoneticTitleStr)
                                     , id (charId fragment.id idx)
                                     ]
 
-                                charStr = String.fromChar char
+                                joiner =
+                                    if model.phoneticize && prevPhoneticReplaced && phoneticReplaced then
+                                        text "-"
+                                    else
+                                        text ""
+
+                                showText =
+                                    if model.phoneticize then
+                                        phoneticStr
+                                    else
+                                        String.fromChar char
+
                             in
                             if indexed char then
-                                ( span
-                                    (highlightClass ++ charAttrs)
-                                    [ text (syllabize charStr) ] :: tailElems
+                                (
+                                    (span
+                                        (highlightClass ++ charAttrs)
+                                        [text showText]
+                                    ) :: joiner :: tailElems
                                 , idx + 1
+                                , phoneticReplaced
                                 )
                             else
-                                ( span
-                                    (guessmarkClass char)
-                                    [ text charStr ] :: tailElems
+                                (
+                                    (span
+                                        (guessmarkClass char)
+                                        [text showText]
+                                    ) :: tailElems
                                 , idx
+                                , prevPhoneticReplaced
                                 )
 
-                        ( elems, endIdx ) =
-                            String.toList chars |> List.foldl charPos ( [], lineIdx )
+                        ( elems, endIdx, _ ) =
+                            String.toList chars |> List.foldl charPos ( [], lineIdx, False )
 
                         elemLine =
                             li [ class "line", lineDirAttr lineNr fragment.dir ] (List.reverse elems)

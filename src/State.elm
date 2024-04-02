@@ -21,8 +21,7 @@ type alias Model =
     , syllabaryString : String
     , missingSyllabaryChars : String
     , syllableMap : String
-    , syllabizer : String -> String
-    , syllabize : Bool
+    , phoneticize : Bool
     , normalizer : String -> String
     , normalize : Bool
     , removeChars : String
@@ -47,7 +46,7 @@ type Msg
     | ChooseSyllabary String
     | SetSyllabary String
     | SetSyllableMap String
-    | SetSyllabize Bool
+    | SetPhoneticize Bool
     | SetRemoveChars String
     | AddChar String
     | SetSearch String
