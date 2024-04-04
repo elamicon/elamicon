@@ -679,23 +679,23 @@ view model =
                                 )
                             ]
                         , div []
-                            ([ h4 [] [ text "Dynamic Syllabary" ]
+                            [ label []
+                                [ h4 [] [ text "Syllabary (current state of decipherment)" ]
+                                , Html.textarea [ value model.syllableMap, onInput SetSyllableMap ] []
+                                ]
+                            ]
+                        , div []
+                            ([ h4 [] [ text "Dynamic Syllabary (editable grouping)" ]
                              , syllabarySelection
                              , Html.textarea [ value model.syllabaryString, onInput SetSyllabary ] []
                              ]
                                 ++ (if not (String.isEmpty model.missingSyllabaryChars) then
-                                        [ div [] [ text "The following signs are not listed in the syllabary: ", text model.missingSyllabaryChars ] ]
+                                        [ div [] [ text "The following signs are not listed in the selected syllabary: ", text model.missingSyllabaryChars ] ]
 
                                     else
                                         []
                                    )
                             )
-                        , div []
-                            [ label []
-                                [ h4 [] [ text "Assumed sound values" ]
-                                , Html.textarea [ value model.syllableMap, onInput SetSyllableMap ] []
-                                ]
-                            ]
                         , div [ class "groups" ]
                             (h4 [] [ text "Groups" ] :: groupSelection)
                         ]
