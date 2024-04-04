@@ -166,6 +166,10 @@ body, h1, h2, label, input, select {
 }
 
 
+.groups small {
+    font-size: 80%;
+}
+
 input[type=text] {
     width: 100%;
 }
