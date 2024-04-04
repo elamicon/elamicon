@@ -199,31 +199,31 @@ syllabaries =
 groups : List GroupDef
 groups =
     [ { id = "Susa-Inter"
-      , name = "Western Elamite: Susa Intermediate state (Early Linear Elamite) (Susa-InterJ, K, L, M, N, O, R, T)"
-      , extra = "23. century BC ante quem, cf. Stève 2000:75; Mäder 2022:4; Desset et al. 2022; stratigraphical Dates by Mirko Surdi, Gent University"
+      , name = "1 (Western Elamite; 23rd century BC ante quem): Susa Intermediate state (Early Linear Elamite) (Susa-InterJ, K, L, M, N, O, R, T)"
+      , extra = "(Stève 2000:75; Mäder 2022:4; Desset et al. 2022; stratigraphical Dates by Mirko Surdi, Gent University)"
       }
     , { id = "Susa-Puzur"
-      , name = "Western Elamite: Susian Texts authored by Puzur-Inšušinak (Susa-PuzurA, B, C, D, E, F, G, H, I, P )"
-      , extra = "22. century BC"
+      , name = "2 (Western Elamite; 22nd century BC): Susian Texts authored by Puzur-Inšušinak (Susa-PuzurA, B, C, D, E, F, G, H, I, P )"
+      , extra = ""
       }
     , { id = "Pers"
-      , name = "Central Elamite: Marv Dasht Vessel"
-      , extra = "21. century BC"
+      , name = "3 (Central Elamite; 21st century BC): Marv Dasht Vessel"
+      , extra = ""
       }
     , { id = "KamFirouz"
-      , name = "Central Elamite: Kam Firouz Texts authored by Itatu I (MahZ), Temti-Agun & Pala-Išan (SchøF’, MahI’, MahK’ MahL’), Eparti & Šilhaha (MahX, MahJ’, MahH’), others (MahY, MahP’, MahQ’, MahR’,)"
-      , extra = "19. century BC"
+      , name = "4 (Central Elamite; 19th century BC): Kam Firouz Texts authored by Itatu I (MahZ), Temti-Agun & Pala-Išan (SchøF’, MahI’, MahK’ MahL’), Eparti & Šilhaha (MahX, MahJ’, MahH’), others (MahY, MahP’, MahQ’, MahR’,)"
+      , extra = ""
       }
     , { id = "ShaJir"
-      , name = "Eastern Elamite: Name Inscriptions from Shahdad (ShaS) and Jiroft (JirB’ – E’)"
+      , name = "5 (Eastern Elamite; 23rd–19th century BC): Name Inscriptions from Shahdad (ShaS) and Jiroft (JirB’ – E’)"
       , extra = ""
       }
     , { id = "Kerman"
-      , name = "Eastern Elamite: Metal Vessels from private collections, probably Kerman) (PhoeW, PhoeA’, KermanN’, KermanO’)"
+      , name = "6 (Eastern Elamite; 23rd–19th century BC): Metal Vessels from private collections, probably Kerman) (PhoeW, PhoeA’, KermanN’, KermanO’)"
       , extra = ""
       }
     , { id = "Bactrian"
-      , name = "Eastern Elamite: Bactrian Seals & Sherds (LigaV, ChrisG’, GonurP’)"
+      , name = "7 (Eastern Elamite; 23rd–19th century BC): Bactrian Seals & Sherds (LigaV, ChrisG’, GonurP’)"
       , extra = ""
       }
     ]
