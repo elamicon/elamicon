@@ -1,7 +1,6 @@
 module Script exposing (Decoration, FragmentDef, GroupDef, Script, SpecialCharDef, SyllabaryDef, emptySyllabary, Type)
 
 import Dict exposing (Dict)
-import Regex
 import Set exposing (Set)
 import WritingDirections exposing (..)
 import Token exposing (..)
@@ -31,17 +30,19 @@ emptySyllabary = { id = "empty", name = "Empty", syllabary = "" }
 
 
 -- Details about a group
---   short: ID of the group
+--   id: ID of the group
 --   name: Descriptive name for the group
---   recorded: whether there is an archaelogical paper trail fro
---             fragments in this group.
+--   extra: extra information about the group
 type alias GroupDef =
-    { short : String, name : String, recorded : Bool }
+    { id : String
+    , name : String
+    , extra : String }
 
 
 -- Fragement of the text body
 --  id: catalogue ID, unique within the corpus.
 --  group: group ID.
+--  source: where the fragment comes from
 --  dir: Writing direction. This may be a guess.
 --  text: Text body. The character order is always in the expected
 --        read order. So an inscription that should look like "123" when
@@ -51,6 +52,7 @@ type alias GroupDef =
 type alias FragmentDef =
     { id : String
     , group : String
+    , source : String
     , dir : Dir
     , text : String
     , plate : Maybe String
@@ -73,7 +75,7 @@ type alias Script =
     , title : String
     , description : String
     , sources : String
-    , tokens : List NamedToken 
+    , tokens : List NamedToken
     , seperatorChars : String
     , indexed : Token -> Bool
     , searchExamples : List ( String, String )

@@ -4,8 +4,6 @@ import Dict
 import String
 import List
 import Set
-import Regex
-
 
 import WritingDirections exposing (..)
 import Script exposing (..)
@@ -37,7 +35,7 @@ syllableMap = String.trim """
 """
 
 syllabaries : List SyllabaryDef
-syllabaries = 
+syllabaries =
     [ { id = "typegroups"
       , name = "Typegroups"
       , syllabary = Generated.Lepontic.syllabary
@@ -51,7 +49,7 @@ syllabaries =
 
 -- Recorded means that there is a sound archaelogical paper trail
 groups : List GroupDef
-groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList (Set.fromList (List.map .group fragments))
+groups = List.map (\f -> { id = f, name = f, extra = ""}) <| Set.toList (Set.fromList (List.map .group fragments))
 
 fragments : List FragmentDef
 fragments = Imported.LeponticInscriptions.inscriptions
@@ -88,7 +86,7 @@ The collection of Lepontic sign variants contains signs from inscriptions which 
 - **Marchesini, Simona & Stifter, David (2018):** "Inscriptions from Italo-Celtic burials in the Seminario Maggiore (Verona)", in: Jacopo Tabolli (ed.), From Invisible to Visible. New Methods and Data for the Archaeology of Infant and Child Burials in Pre-Roman Italy and Beyond [= Studies in Mediterranean Archaeology 149], Nicosia: 2018.
 - **Morandi, Alessandro (1998):** "Epigrafia camuna. Osservazioni su alcuni aspetti della documentazione". Antiquité - Oudheid, Revue belge de philologie et d'histoire 76, pp. 99-124.
 - **FdN (Alfabetario di Foppe di Nadro) = Tibiletti Bruno, Maria G. (1990):** "Nuove iscrizioni camune". Quaderni Camuni 49/50, pp. 33-171.
-- **PC 10 (Alfabetario di Piancogno) = Tibiletti Bruno, Maria G. (1992):** "Gli alfabetari", Quaderni Camuni 60, pp. 309-380. 
+- **PC 10 (Alfabetario di Piancogno) = Tibiletti Bruno, Maria G. (1992):** "Gli alfabetari", Quaderni Camuni 60, pp. 309-380.
     """
     , tokens = Generated.Lepontic.tokens
     , seperatorChars = ""

@@ -118,7 +118,7 @@ scriptUpdate : Script -> Model -> Model
 scriptUpdate new model =
     let
         selectedGroups =
-            Set.fromList (List.map .short new.groups)
+            Set.fromList (List.map .id new.groups)
 
         initialSyllabary =
             case List.head new.syllabaries of
@@ -609,16 +609,10 @@ view model =
                 groupSelectionEntry group =
                     div []
                         [ label []
-                            ([ input [ type_ "checkbox", checked (Set.member group.short model.selectedGroups), Html.Events.onCheck (SelectGroup group.short) ] []
-                             , text group.name
-                             ]
-                                ++ (if group.recorded then
-                                        []
-
-                                    else
-                                        [ span [ class "recordWarn", title "Undocumented finds" ] [ text "⚠" ] ]
-                                   )
-                            )
+                            [ input [ type_ "checkbox", checked (Set.member group.id model.selectedGroups), Html.Events.onCheck (SelectGroup group.id) ] []
+                            , text group.name
+                            , small [] [ text (" " ++ group.extra) ]
+                            ]
                         ]
 
                 groupSelection =
@@ -1066,7 +1060,7 @@ view model =
 
                 fragmentTitle =
                     [ fragmentLink
-                        [ sup [ class "group" ] [ text fragment.group ]
+                        [ sup [ class "group" ] [ text fragment.source ]
                         , text fragment.id
                         ]
                     ]

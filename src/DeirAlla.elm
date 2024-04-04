@@ -46,7 +46,7 @@ syllabaries =
 
 -- Recorded means that there is a sound archaelogical paper trail
 groups : List GroupDef
-groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList (Set.fromList (List.map .group fragments))
+groups = []
 
 fragments : List FragmentDef
 fragments = []

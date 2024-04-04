@@ -10,7 +10,7 @@ import Regex
 import WritingDirections exposing (..)
 import Script exposing (..)
 import Specialchars exposing (..)
-import Token 
+import Token
 import Generated.Raetic
 import Imported.RaeticInscriptions
 
@@ -39,7 +39,7 @@ syllableMap = String.trim """
 """
 
 syllabaries : List SyllabaryDef
-syllabaries = 
+syllabaries =
     [ { id = "typegroups"
       , name = "Typegroups"
       , syllabary = Generated.Raetic.syllabary
@@ -54,7 +54,7 @@ syllabaries =
 -- We grouped the fragments according to where they were found
 -- Recorded means that there is a sound archaelogical paper trail
 groups : List GroupDef
-groups = List.map (\f -> { short = f, name = f, recorded = True}) <| Set.toList (Set.fromList (List.map .group fragments))
+groups = List.map (\f -> { id = f, name = f, extra = ""}) <| Set.toList (Set.fromList (List.map .group fragments))
 
 fragments : List FragmentDef
 fragments = Imported.RaeticInscriptions.inscriptions
@@ -76,7 +76,7 @@ Raetic denominates, as in TIR, all North Italic inscriptions that are neither wr
 
 #### Terminology used for labelling the sign variants
 
-**Writing direction:** The indications are: sin = sinistroverse; dex = dextroverse; when there is no indication, the sign is used in both writing directions. 
+**Writing direction:** The indications are: sin = sinistroverse; dex = dextroverse; when there is no indication, the sign is used in both writing directions.
 
 **Sub-numeration of the signs:** For Raetic and Lepontic, the sub-numeration is taken from the respective main sources. Supplementary sign variants added by us and not present in the main source have been labelled with further sub-numbers.
 We have labelled the sign variants with sub-numbers according to the frequency of occurrence, i.e.: Raet A₁ is the most frequent Raetic sign variant with the sound value A, Raet A₂ is the second most frequent Raetic sign variant with the sound value A etc. (There are exceptions from this basic rule, due to the iterative compilation of the sub-corpora.)
