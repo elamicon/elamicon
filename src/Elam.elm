@@ -102,22 +102,22 @@ h 			Mäder et al. 2018:Tab. 21
 h2				Desset et al. 2022
 ha				Mäder et al. 2018:Tab. 21; Desset 2018:138
 hi				Vallat 2011:188
-hi2				Desset et al. 2022
+hi₂				Desset et al. 2022
 hu				Desset et al. 2022
-hu2				Frank 1912
+hu₂				Frank 1912
 i			Bork 1924; Desset et al. 2022
 k				Bork 1905:327
 k2				Bork 1905:327
 ka 				Mäder et al. 2018:84; Desset et al. 2022;
 ki				Desset et al. 2022
-ki2				Desset et al. 2022
+ki₂				Desset et al. 2022
 ku				Desset et al. 2022
 ko				Desset et al. 2022
 l				Desset 2018:132
 la				Desset et al. 2022
 li				Desset et al. 2022
-li2				Desset et al. 2022
-li3				Desset et al. 2022
+li₂				Desset et al. 2022
+li₃				Desset et al. 2022
 lu				Desset et al. 2022
 m			Desset et al. 2022
 me			Desset et al. 2022
@@ -130,19 +130,19 @@ ne				Desset et al. 2022
 ni				Bork 1905:327; Desset et al. 2022
 nu				Desset et al. 2022
 p				Desset et al. 2022
-p2				Desset et al. 2022
+p₂				Desset et al. 2022
 pa				Desset et al. 2022
 pe				Desset et al. 2022
 pi	 		Mäder et al. 2018:62
-pi2 				Desset 2018:138
+pi₂ 				Desset 2018:138
 pu				Meriggi 1971:206
 po				Desset et al. 2022
 r				Meriggi 1971:205
 ra/maš				Desset et al. 2022; Mäder 2019:422
 ri			Hinz 1962; Desset 2018:133
-ri2/KI				Desset et al. 2022; Mäder 2019:422
+ri₂/KI				Desset et al. 2022; Mäder 2019:422
 ru				Hinz 1962
-ru2				Desset et al. 2022
+ru₂				Desset et al. 2022
 s				Mäder et al. 2018:62
 sa				Desset et al. 2022
 si				Desset et al. 2022
