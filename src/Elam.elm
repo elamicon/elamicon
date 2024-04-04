@@ -543,7 +543,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
     , { id = "Y", group = "Mah", dir = RTL, plate = Just "plates/linear-elam/y.jpg", link = Nothing, text =
         """
-            
+            
                  
                   
         """
@@ -715,11 +715,6 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
         """
             
             
-        """
-      }
-    , { id = "M'", group = "Time", dir = RTL, plate = Just "plates/linear-elam/mprim.jpg", link = Nothing, text =
-        """
-
         """
       }
     , { id = "N'", group = "Mah", dir = LTR, plate = Just "plates/linear-elam/nprim.jpg", link = Nothing, text =
