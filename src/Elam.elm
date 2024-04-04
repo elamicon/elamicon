@@ -80,39 +80,6 @@ syllables = Dict.fromList
     , ( '', [ "piš ?" ] )
     ]
 
--- This is our best guess at the syllable mapping for letters where it makes sense
--- to try.
-syllableMap = String.trim """
-in  Bork 1905:327
-šu  Bork 1905:327
-ši  Bork 1905:327
-na  Bork 1905:327
-k  Bork 1905:327
-š  Meriggi 1971:207
-pu  Meriggi 1971:206
-zu  Meriggi 1971:206
-ša  Desset 2018:138
-me  Hinz 1962:6
-ni  Hinz 1962:6
-še  Bork 1905:327
-en  Bork 1905:327
-HAL  Mäder 2019
-maš  Mäder 2019
-KI  Mäder 2019
-ri  Meriggi 1971:205
-ri  Desset 2018:133
-ha    Desset 2018:138
-p  Mäder et al. 2018:62
-pi  Desset 2018:138
-e  Mäder et al. 2018:96, but see Desset 2018:138 for  = u
-ia  Desset 2018:132
-b  Desset 2018:132
-t  Desset 2018:132
-l  Desset 2018:132
-ih 
-ta  Mäder et al. 2018:84
-ki  Mäder et al. 2018:84
-"""
 
 -- Syllabary definitions
 --
@@ -121,200 +88,107 @@ ki  Mäder et al. 2018:84
 -- the syllabary a cheap operation, so the interpretation of which letters
 -- mean the same thing can be changed quickly.
 --
--- Letter are separated by whitespaces, letters following another letter without
--- a space are grouped with that letter
+-- Each line has these fields, separated by whitespace:
+--   - sound value: how the letter is pronounced or transliterated
+--   - letter variants: the letters that are presumed to be the same sound
+--   - source: where the sound value comes from.
+--             This is just for reference and has no effect on the syllabary.
+
+syllableMap = String.trim """
+_	
+a				Desset et al. 2022; Mäder et al. 2018:62
+e				Mäder et al. 2018:66; Desset 2018:132
+h 			Mäder et al. 2018:Tab. 21
+h2				Desset et al. 2022
+ha				Mäder et al. 2018:Tab. 21; Desset 2018:138
+hi				Vallat 2011:188
+hi2				Desset et al. 2022
+hu				Desset et al. 2022
+hu2				Frank 1912
+i			Bork 1924; Desset et al. 2022
+k				Bork 1905:327
+k2				Bork 1905:327
+ka 				Mäder et al. 2018:84; Desset et al. 2022;
+ki				Desset et al. 2022
+ki2				Desset et al. 2022
+ku				Desset et al. 2022
+ko				Desset et al. 2022
+l				Desset 2018:132
+la				Desset et al. 2022
+li				Desset et al. 2022
+li2				Desset et al. 2022
+li3				Desset et al. 2022
+lu				Desset et al. 2022
+m			Desset et al. 2022
+me			Desset et al. 2022
+mi			Desset et al. 2022
+mo				Desset et al. 2022
+mu				Desset et al. 2022
+n		Bork 1905:327; Frank 1912
+na				Bork 1905:327
+ne				Desset et al. 2022
+ni				Bork 1905:327; Desset et al. 2022
+nu				Desset et al. 2022
+p				Desset et al. 2022
+p2				Desset et al. 2022
+pa				Desset et al. 2022
+pe				Desset et al. 2022
+pi	 		Mäder et al. 2018:62
+pi2 				Desset 2018:138
+pu				Meriggi 1971:206
+po				Desset et al. 2022
+r				Meriggi 1971:205
+ra/maš				Desset et al. 2022; Mäder 2019:422
+ri			Hinz 1962; Desset 2018:133
+ri2/KI				Desset et al. 2022; Mäder 2019:422
+ru				Hinz 1962
+ru2				Desset et al. 2022
+s				Mäder et al. 2018:62
+sa				Desset et al. 2022
+si				Desset et al. 2022
+su				Bork 1905:327
+so				Desset et al. 2022
+š				Meriggi 1971:207
+ša				Desset 2018:138; Mäder 2022:28
+še				Bork 1905:327
+ši				Bork 1905:327
+šu				Desset et al. 2022
+t				Desset et al. 2022
+ta				Desset et al. 2022
+te				Desset et al. 2022
+ti				Desset 2018:132
+tu				Desset et al. 2022
+o				Mäder et al. 2018:66; Desset 2018:138
+u				Desset et al. 2022
+wa			Corsini 1986
+we				Desset et al. 2022
+z				Desset et al. 2022
+za/HAL				Desset et al. 2022; Mäder 2019:422
+ze			Desset et al. 2022
+zu				Meriggi 1971:206
+zo				Desset et al. 2022
+"""
+
 initialSyllabary =
-    { id = "lumping", name = "Broad groups ideal for searching"
-      , syllabary = String.trim
-            """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            """
-      }
+  syllableMap
+    |> String.lines
+    |> List.filterMap keepSecondField
+    |> String.join "\n"
+keepSecondField line =
+  case String.words line of
+      _ :: second :: _ ->
+          Just second
+
+      _ ->
+          Nothing
+
+
+
 
 syllabaries : List SyllabaryDef
 syllabaries =
-    [ initialSyllabary
-    , { id = "realistic", name = "Realistic according to latest research (working hypothesis)"
-      , syllabary = String.trim
-            """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            """
-      }
+    [ { id = "current", name = "Current state of decipherment"
+      , syllabary = initialSyllabary }
     , { id = "splitting", name = "Each sign separately"
       , syllabary = String.join "\n" (List.map String.fromChar tokens)
       }
