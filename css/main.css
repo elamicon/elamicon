@@ -170,6 +170,10 @@ body, h1, h2, label, input, select {
     font-size: 80%;
 }
 
+.groups input[type=checkbox] {
+    margin-right: 0.5em;
+}
+
 input[type=text] {
     width: 100%;
 }
