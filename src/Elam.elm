@@ -735,7 +735,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
     , { id = "P'", group = "Gonur", dir = RTL, plate = Just "plates/linear-elam/pprim.jpg", link = Nothing, text =
         """
-
+
         """
       }
     ]
