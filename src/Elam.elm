@@ -34,7 +34,6 @@ seperatorChars = ""
 
 ignoreChars = Set.union guessMarkers <| Set.fromList [ wildcardChar, fractureMarker ]
 tokens = List.filter (\c -> not (Set.member c ignoreChars)) rawTokens
-tokenSet = Set.fromList tokens
 
 -- We don't have the token names in the db. So the name of the token
 -- is the token itself.
