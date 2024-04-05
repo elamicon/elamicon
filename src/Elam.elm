@@ -107,7 +107,7 @@ hu				Desset et al. 2022
 hu₂				Frank 1912
 i			Bork 1924; Desset et al. 2022
 k				Bork 1905:327
-k2				Bork 1905:327
+k₂				Bork 1905:327
 ka 				Mäder et al. 2018:84; Desset et al. 2022;
 ki				Desset et al. 2022
 ki₂				Desset et al. 2022
