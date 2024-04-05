@@ -97,7 +97,7 @@ syllableMap = String.trim """
 a				Desset et al. 2022; Mäder et al. 2018:62
 e				Mäder et al. 2018:66; Desset 2018:132
 h 			Mäder et al. 2018:Tab. 21
-h2				Desset et al. 2022
+h₂				Desset et al. 2022
 ha				Mäder et al. 2018:Tab. 21; Desset 2018:138
 hi				Vallat 2011:188
 hi₂				Desset et al. 2022
