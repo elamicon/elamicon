@@ -4,9 +4,11 @@ import Url
 import Syllabary
 import Set
 import Script
+import Scripts
 import Browser
 import Browser.Navigation
 import WritingDirections
+import Url.Parser exposing (fragment)
 
 type alias Pos =
     ( String, Int, Int )
@@ -58,3 +60,62 @@ type Msg
     | LinkClicked Browser.UrlRequest
     | UrlChanged Url.Url
     | NoOp
+
+urlFragmentFromState : Model -> String
+urlFragmentFromState model =
+    let
+        dirStr =
+            case model.dir of
+                Nothing ->
+                    Nothing
+                Just dir ->
+                    Just (dir |> WritingDirections.dirStr)
+
+        groups =
+            if model.selectedGroups == Set.fromList (List.map .id model.script.groups) then
+                Nothing
+            else
+                Just (model.selectedGroups |> Set.toList |> String.join ",")
+    in
+        [ Maybe.map (\s -> "script=" ++ s) (Just model.script.id)
+        , Maybe.map (\d -> "dir=" ++ d) dirStr
+        , Maybe.map (\g -> "groups=" ++ g) groups
+        ]
+        |> List.filterMap identity
+        |> String.join "&"
+
+updateStateFromUrlFragment : String -> Model -> Model
+updateStateFromUrlFragment fragment model =
+    let
+        fragmentParams : List (String, String)
+        fragmentParams =
+            fragment
+                |> String.split "&"
+                |> List.map (String.split "=")
+                |> List.filterMap (\parts ->
+                    case parts of
+                        [ key, value ] ->
+                            Just (key, value)
+                        _ ->
+                            Nothing
+                )
+        updateModelWithParam (key, value) m =
+            case key of
+                "script" ->
+                    case Scripts.fromName value of
+                        Just script ->
+                            { m | script = script }
+                        Nothing ->
+                            m
+                "dir" ->
+                    case WritingDirections.dirFromString value of
+                        Just dir ->
+                            { m | dir = Just dir }
+                        Nothing ->
+                            m
+                "groups" ->
+                    { m | selectedGroups = value |> String.split "," |> Set.fromList }
+                _ ->
+                    m
+    in
+    List.foldl updateModelWithParam model fragmentParams

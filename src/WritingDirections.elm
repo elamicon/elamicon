@@ -19,3 +19,14 @@ dirStr dir =
 
         _ ->
             "LTR"
+
+
+dirFromString : String -> Maybe Dir
+dirFromString str =
+    case str of
+        "LTR" ->
+            Just LTR
+        "RTL" ->
+            Just RTL
+        _ ->
+            Nothing

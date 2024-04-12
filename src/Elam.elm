@@ -361,7 +361,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "Or", group = "Susa-inter", source = "Susa-Inter", dir = RTL, plate = Nothing, link = Nothing, text =
+    , { id = "Or", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Nothing, link = Nothing, text =
         """
 
         """

@@ -31,6 +31,8 @@ import RomanNumerals
 import Generated.Build exposing (build)
 import Sections.Glyphs
 import State exposing (..)
+import Browser.Navigation as Navigation
+
 main =
     Browser.application
         { init = init
@@ -40,21 +42,6 @@ main =
         , onUrlRequest = LinkClicked
         , onUrlChange = UrlChanged
         }
-
-
-
--- Select a script based on the URL fragment
--- Example "#elam&pos=example" -> "elam"
-scriptFromUrl : Url.Url -> Maybe Script
-scriptFromUrl url =
-    case url.fragment of
-        Nothing -> Nothing
-        Just fragment ->
-            let
-                params = String.split "&" fragment
-                found = List.filterMap Scripts.fromName params
-            in
-                List.head found
 
 
 -- Example "#elam&pos=example" -> "example"
@@ -85,7 +72,7 @@ scrollToPos maybePos =
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
     let
-        script = Maybe.withDefault Scripts.initialScript (scriptFromUrl url)
+        script = Scripts.initialScript
         initialModel =
             { script = script
             , dir = Nothing
@@ -110,28 +97,40 @@ init _ url key =
             , url = url
             , key = key
             }
+        fragment =
+            Maybe.withDefault "" url.fragment
+        loadedModel =
+            State.updateStateFromUrlFragment fragment initialModel
     in
-       ( scriptUpdate script initialModel, Cmd.none )
+       ( scriptUpdate loadedModel, Cmd.none )
 
 
-scriptUpdate : Script -> Model -> Model
-scriptUpdate new model =
+scriptUpdate : Model -> Model
+scriptUpdate model =
     let
+        allGroups =
+            Set.fromList (List.map .id model.script.groups)
+
         selectedGroups =
-            Set.fromList (List.map .id new.groups)
+            Set.intersect allGroups model.selectedGroups
+
+        selectedGroupsFailsafe =
+            if Set.isEmpty selectedGroups then
+                allGroups
+            else
+                selectedGroups
 
         initialSyllabary =
-            case List.head new.syllabaries of
+            case List.head model.script.syllabaries of
                 Nothing -> emptySyllabary
                 Just syl -> syl
     in
         switchSyllabary initialSyllabary
             { model
-                | script = new
-                , selectedGroups = selectedGroups
-                , syllableMap = new.syllableMap
+                | selectedGroups = selectedGroupsFailsafe
+                , syllableMap = model.script.syllableMap
                 , search = ""
-                , searchBidirectional = new.searchBidirectionalPreset
+                , searchBidirectional = model.script.searchBidirectionalPreset
             }
 
 
@@ -161,18 +160,37 @@ switchSyllabary new model =
         | syllabaryId = Just new.id
     }
 
-regex pat = Maybe.withDefault Regex.never (Regex.fromString pat)
-
 zeroWidthSpace =
     "\u{200B}"
+
+updateUrlFromState : Model -> ( Model, Cmd Msg )
+updateUrlFromState model =
+    let
+        fragment =
+            State.urlFragmentFromState model
+    in
+    ( model, Navigation.replaceUrl model.key ("#" ++ fragment) )
+
+newUrlFromState : Model -> ( Model, Cmd Msg )
+newUrlFromState model =
+    let
+        fragment =
+            State.urlFragmentFromState model
+    in
+    ( model, Navigation.replaceUrl model.key ("#" ++ fragment) )
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         SetScript script ->
-            ( scriptUpdate script model
-            , Browser.Navigation.pushUrl model.key ("#" ++ script.id)
-            )
+            let
+                scriptUpdatedModel =
+                    scriptUpdate { model |
+                        script = script,
+                        dir = Nothing
+                    }
+            in
+            newUrlFromState (scriptUpdate scriptUpdatedModel)
 
         SetSandbox str ->
             ( { model | sandbox = str }, Cmd.none )
@@ -198,7 +216,7 @@ update msg model =
             ( { model | removeChars = chars }, Cmd.none )
 
         SetDir dir ->
-            ( { model | dir = dir }, Cmd.none )
+            updateUrlFromState { model | dir = dir }
 
         ChooseSyllabary id ->
             ( case List.head <| List.filter (.id >> (==) id) model.script.syllabaries of
@@ -245,7 +263,7 @@ update msg model =
                                    || Set.member c allowedRegexChars
                 cleanSearch = String.filter indexedOrRegex new
             in
-            ( { model | search = cleanSearch, showAllResults = False }, Cmd.none )
+            updateUrlFromState { model | search = cleanSearch, showAllResults = False }
 
         ShowAllResults ->
             ( { model | showAllResults = True }, Cmd.none )
@@ -257,7 +275,7 @@ update msg model =
             ( { model | linesplitSearch = new }, Cmd.none )
 
         SelectGroup group include ->
-            ( { model
+            updateUrlFromState { model
                 | selectedGroups =
                     (if include then
                         Set.insert
@@ -268,8 +286,6 @@ update msg model =
                         group
                         model.selectedGroups
               }
-            , Cmd.none
-            )
 
         Toggle section ->
             ( { model
@@ -302,13 +318,14 @@ update msg model =
 
         UrlChanged url ->
             let
-                newScript = Maybe.withDefault Scripts.initialScript (scriptFromUrl url)
                 modelWithNewUrl = { model | url = url }
-                newModel = if newScript /= model.script
-                    then scriptUpdate newScript modelWithNewUrl
-                    else modelWithNewUrl
+                newModel = State.updateStateFromUrlFragment (Maybe.withDefault "" url.fragment) modelWithNewUrl
+                scriptUpdatedModel =
+                    if newModel.script /= model.script
+                        then scriptUpdate newModel
+                        else newModel
             in
-                ( newModel , scrollToPos (posFromUrl url) )
+                ( scriptUpdatedModel , scrollToPos (posFromUrl url) )
 
         NoOp ->
             (model, Cmd.none)
