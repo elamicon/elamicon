@@ -1145,7 +1145,7 @@ view model =
                 , text ", and "
                 , a [ href "http://elm-lang.org/" ]
                     [ text "Elm" ]
-                , text ". We use a "
+                , text ". We use the "
                 , a [ href "http://www.unicode.org/faq/private_use.html" ] [ text "Unicode Private Use Area ♥" ]
                 , text ". "
                 , br [] []
