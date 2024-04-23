@@ -927,7 +927,7 @@ In the "search" tab, the search box can be used for simple searches or RegEx sea
 Please adjust the settings (tab "settings") for your specified investigation and report possible interesting findings to the Byblicon research team.
 If you install the copyleft [GEAS Unicode font](fonts/GEAS-Fonts.zip) you can copy signs from this site into your own documents.
 
-Feel free to contact the [Byblicon research team](mailto:michael.maeder@isw.unibe.ch).
+Feel free to contact the Byblicon research team: mailto:m.maeder[ätt]geass.ch.
 """
     , sources = """
 #### Sources
