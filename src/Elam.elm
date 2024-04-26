@@ -197,8 +197,8 @@ syllabaries =
 groups : List GroupDef
 groups =
     [ { id = "Susa-Early-LE"
-      , name = "Group 1 (Western Elamite; 23rd century BC ante quem): Susa Intermediate state (Early Linear Elamite) (J, K, L, M, N, O, R, T)"
-      , extra = "(Stève 2000:75; Mäder 2022:4; Desset et al. 2022; stratigraphical Dates by Mirko Surdi, Gent University)"
+      , name = "Group 1 (Western Elamite; 24th century BC ante quem): Susa Intermediate state (Early Linear Elamite) (J, K, L, M, N, O, R, T, S’)"
+      , extra = "(Stève 2000:75; Mäder 2022:4; Desset et al. 2022; stratigraphical Dating by Mirko Surdi, Gent University)"
       }
     , { id = "Susa-Puzur"
       , name = "Group 2 (Western Elamite; 22nd century BC): Susian Texts authored by Puzur-Inšušinak (A, B, C, D, E, F, G, H, I, P )"
@@ -213,7 +213,7 @@ groups =
       , extra = ""
       }
     , { id = "ShaJir"
-      , name = "Group 5 (Eastern Elamite; 23rd–19th century BC): Name Inscriptions from Shahdad (S) and Jiroft (B’ – E’)"
+      , name = "Group 5 (Eastern Elamite; 23rd–19th century BC): Name Inscriptions from Shahdad (S, T’) and Jiroft (B’ – E’)"
       , extra = ""
       }
     , { id = "Kerman"
@@ -221,7 +221,7 @@ groups =
       , extra = ""
       }
     , { id = "Bactrian"
-      , name = "Group 7 (Eastern Elamite; 23rd–19th century BC): Bactrian Seals & Sherds (V, G’, P’)"
+      , name = "Group 7 (Eastern Elamite; 23rd–19th century BC): Bactrian Seals & Sherds (V, G’, Gonur-P’)"
       , extra = ""
       }
     ]
