@@ -196,7 +196,7 @@ syllabaries =
 -- Recorded means that there is a sound archaelogical paper trail
 groups : List GroupDef
 groups =
-    [ { id = "Susa-Inter"
+    [ { id = "Susa-Early-LE"
       , name = "Group 1 (Western Elamite; 23rd century BC ante quem): Susa Intermediate state (Early Linear Elamite) (J, K, L, M, N, O, R, T)"
       , extra = "(Stève 2000:75; Mäder 2022:4; Desset et al. 2022; stratigraphical Dates by Mirko Surdi, Gent University)"
       }
@@ -306,13 +306,13 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "J", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Just "plates/linear-elam/j.jpg", link = Nothing, text =
+    , { id = "J", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/j.jpg", link = Nothing, text =
         """
 
 
         """
       }
-    , { id = "K", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Just "plates/linear-elam/k.jpg", link = Nothing, text =
+    , { id = "K", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/k.jpg", link = Nothing, text =
         """
 
 
@@ -322,7 +322,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "L", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Just "plates/linear-elam/l.jpg", link = Nothing, text =
+    , { id = "L", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/l.jpg", link = Nothing, text =
         """
 
 
@@ -330,7 +330,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "M", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Just "plates/linear-elam/m.jpg", link = Nothing, text =
+    , { id = "M", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/m.jpg", link = Nothing, text =
         """
 
 
@@ -339,7 +339,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "N", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Just "plates/linear-elam/n.jpg", link = Nothing, text =
+    , { id = "N", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/n.jpg", link = Nothing, text =
         """
 
 
@@ -349,7 +349,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "O", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Just "plates/linear-elam/o.jpg", link = Nothing, text =
+    , { id = "O", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/o.jpg", link = Nothing, text =
         """
 
 
@@ -361,7 +361,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "Or", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Nothing, link = Nothing, text =
+    , { id = "Or", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Nothing, link = Nothing, text =
         """
 
         """
@@ -376,14 +376,14 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "R", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Just "plates/linear-elam/r.jpg", link = Nothing, text =
+    , { id = "R", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/r.jpg", link = Nothing, text =
         """
 
 
 
         """
       }
-    , { id = "Rr", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Nothing, link = Nothing, text =
+    , { id = "Rr", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Nothing, link = Nothing, text =
         """
 
         """
@@ -393,7 +393,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "T", group = "Susa-Inter", source = "Susa-Inter", dir = RTL, plate = Just "plates/linear-elam/t.jpg", link = Nothing, text =
+    , { id = "T", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/t.jpg", link = Nothing, text =
         """
 
         """
