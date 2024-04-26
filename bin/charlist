@@ -14,6 +14,6 @@ glyphs = sorted(f.glyphs(), key=lambda g: g.unicode)
 for glyph in glyphs:
     codepoint = glyph.unicode
     if codepoint > 0:
-        print(unichr(codepoint).encode('utf-8'), end="")
+        print(chr(codepoint), end="")
 print()
 f.close()
