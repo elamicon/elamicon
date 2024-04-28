@@ -2,7 +2,6 @@ module Elam exposing (elam)
 
 import Dict
 import List
-import Regex
 import Set
 import String
 
@@ -53,8 +52,6 @@ searchExamples =
     , ("[]", "Show sequences, with  or ")
     ]
 
--- The syllable mapping is short as of now and will likely never become
--- comprehensive. All of this is guesswork.
 syllables = Dict.fromList
     [ ( '', [ "na" ] )
     , ( '', [ "uk ?" ] )
@@ -94,14 +91,15 @@ syllables = Dict.fromList
 --             This is just for reference and has no effect on the syllabary.
 
 syllableMap = String.trim """
+[divid]	
 a				Desset et al. 2022; Mäder et al. 2018:62
 e				Mäder et al. 2018:66; Desset 2018:132
-h 			Mäder et al. 2018:Tab. 21
+h 			Mäder et al. 2018:Tab. 21
 h₂				Desset et al. 2022
-ha				Mäder et al. 2018:Tab. 21; Desset 2018:138
+ha				Mäder et al. 2018:Tab. 21; Desset 2018:138
 hi				Vallat 2011:188
 hi₂				Desset et al. 2022
-hu				Desset et al. 2022
+hu			Desset et al. 2022
 hu₂				Frank 1912
 i			Bork 1924; Desset et al. 2022
 k				Bork 1905:327
@@ -117,15 +115,16 @@ li				Desset et al. 2022
 li₂				Desset et al. 2022
 li₃				Desset et al. 2022
 lu				Desset et al. 2022
-m			Desset et al. 2022
+m			Desset et al. 2022
+ma			Desset et al. 2022
 me			Desset et al. 2022
 mi			Desset et al. 2022
 mo				Desset et al. 2022
-mu				Desset et al. 2022
+mu₂				Desset et al. 2022
 n		Bork 1905:327; Frank 1912
 na				Bork 1905:327
-ne				Desset et al. 2022
-ni				Bork 1905:327; Desset et al. 2022
+ne				Desset et al. 2022
+ni				Bork 1905:327; Desset et al. 2022
 nu				Desset et al. 2022
 p				Desset et al. 2022
 p₂				Desset et al. 2022
@@ -148,21 +147,21 @@ su				Bork 1905:327
 so				Desset et al. 2022
 š				Meriggi 1971:207
 ša				Desset 2018:138; Mäder 2022:28
-še				Bork 1905:327
+še				Bork 1905:327
 ši				Bork 1905:327
-šu				Desset et al. 2022
+šu				Desset et al. 2022
 t				Desset et al. 2022
 ta				Desset et al. 2022
 te				Desset et al. 2022
 ti				Desset 2018:132
-tu				Desset et al. 2022
+tu				Desset et al. 2022
 o				Mäder et al. 2018:66; Desset 2018:138
 u				Desset et al. 2022
-wa			Corsini 1986
+wa			Corsini 1986
 we				Desset et al. 2022
 z				Desset et al. 2022
 za/HAL				Desset et al. 2022; Mäder 2019:422
-ze			Desset et al. 2022
+ze			Desset et al. 2022
 zu				Meriggi 1971:206
 zo				Desset et al. 2022
 """
@@ -236,7 +235,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
     [ { id = "A", group = "Susa-Puzur", source = "Susa-Puzur", dir = RTL, plate = Just "plates/linear-elam/a.jpg", link = Nothing, text =
         """
 
-​
+
 
 
 
@@ -264,20 +263,27 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
 
 
-
+
         """
       }
     , { id = "E", group = "Susa-Puzur", source = "Susa-Puzur", dir = RTL, plate = Just "plates/linear-elam/e.jpg", link = Nothing, text =
         """
 
-
+
 
-
+
+	 """
+      }
+    , { id = "F//G//H", group = "Susa-Puzur", source = "Composite", dir = LTR, plate = Just "plates/linear-elam/fgh.jpg", link = Nothing, text =
+        """
+
+
+
         """
       }
     , { id = "F", group = "Susa-Puzur", source = "Susa-Puzur", dir = LTR, plate = Just "plates/linear-elam/f.jpg", link = Nothing, text =
         """
-
+
 
 
 
@@ -292,7 +298,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
     , { id = "H", group = "Susa-Puzur", source = "Susa-Puzur", dir = LTR, plate = Just "plates/linear-elam/h.jpg", link = Nothing, text =
         """
-
+
 
 
 
@@ -330,13 +336,14 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "M", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/m.jpg", link = Nothing, text =
+    , { id = "M", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = LTR, plate = Just "plates/linear-elam/m.jpg", link = Nothing, text =
         """
-
-
-
-
-
+
+
+
+
+
+
         """
       }
     , { id = "N", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/n.jpg", link = Nothing, text =
@@ -361,7 +368,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "Or", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Nothing, link = Nothing, text =
+    , { id = "Or", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/o.jpg", link = Nothing, text =
         """
 
         """
@@ -383,19 +390,19 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "Rr", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Nothing, link = Nothing, text =
+    , { id = "Rr", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/r.jpg", link = Nothing, text =
         """
 
         """
       }
     , { id = "S", group = "ShaJir", source = "Sha", dir = RTL, plate = Just "plates/linear-elam/s.jpg", link = Nothing, text =
         """
-
+
         """
       }
     , { id = "T", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/t.jpg", link = Nothing, text =
         """
-
+
         """
       }
     , { id = "U", group = "Susa-Puzur", source = "Susa-Puzur", dir = RTL, plate = Just "plates/linear-elam/u.jpg", link = Nothing, text =
@@ -423,26 +430,26 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
      , { id = "X", group = "KamFirouz", source = "Mah", dir= RTL, plate = Just "plates/linear-elam/x.jpg", link = Nothing, text =
         """
-            
+            
             
             
         """
       }
-    , { id = "Y", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/y.jpg", link = Nothing, text =
+    , { id = "Y2", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/y2.jpg", link = Nothing, text =
         """
             
                  
                   
         """
       }
-    , { id = "Yb", group = "KamFirouz", source = "Mah", dir = LTR, plate = Just "plates/linear-elam/y.jpg", link = Nothing, text =
+    , { id = "Y1", group = "KamFirouz", source = "Mah", dir = LTR, plate = Just "plates/linear-elam/y1.jpg", link = Nothing, text =
         """
-        
+        
         """
       }
     , { id = "Z", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/z.jpg", link = Nothing, text =
         """
-            ​
+            
             ​​
             ​​
             ​​ 
@@ -503,7 +510,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
     , { id = "E′", group = "ShaJir", source = "Jir", dir = RTL, plate = Just "plates/linear-elam/eprim.jpg", link = Nothing, text =
         """
 
-
+
         """
       }
     , { id = "F′", group = "KamFirouz", source="Schø", dir = RTL, plate = Just "plates/linear-elam/fprim.jpg", link = Nothing, text =
@@ -518,93 +525,22 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "H′a", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/hprim_a.jpg", link = Nothing, text =
+    , { id = "H′", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/hprim_a.jpg", link = Nothing, text =
         """
-            
-            
-            
-            
-        """
-      }
-    , { id = "H′b", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/hprim_b.jpg", link = Nothing, text =
-        """
-            
-            
+
+
+
+
         """
       }
-    , { id = "I′a", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/iprim.jpg", link = Nothing, text =
+    , { id = "I′", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/hprim_a.jpg", link = Nothing, text =
         """
-
-        """
-      }
-    , { id = "I′b", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/iprim.jpg", link = Nothing, text =
-        """
-
-​​
-
+
+
+
         """
       }
-    , { id = "I′c", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/iprim.jpg", link = Nothing, text =
-        """
-
-
-
-        """
-      }
-    , { id = "J′", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/jprim.jpg", link = Nothing, text =
-        """
-            
-            
-        """
-      }
-    , { id = "K′a", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/kprim.jpg", link = Nothing, text =
-        """
-            
-            
-        """
-      }
-    , { id = "K′b", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/kprim.jpg", link = Nothing, text =
-        """
-            
-            ​​
-            
-        """
-      }
-    , { id = "K′c", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/kprim.jpg", link = Nothing, text =
-        """
-            
-            
-        """
-      }
-    , { id = "K′d", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/kprim.jpg", link = Nothing, text =
-        """
-            
-            
-        """
-      }
-    , { id = "L′a", group = "KamFirouz", source = "Mah",dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
-        """
-            
-        """
-      }
-    , { id = "L′b", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
-        """
-            
-        """
-      }
-    , { id = "L′c", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
-        """
-            
-            
-        """
-      }
-    , { id = "L′d", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
-        """
-            
-            
-        """
-      }
-    , { id = "N'", group = "Kerman", source = "Kerman", dir = LTR, plate = Just "plates/linear-elam/nprim.jpg", link = Nothing, text =
+    , { id = "J'", group = " KamFirouz", source = "Mah", dir = LTR, plate = Just "plates/linear-elam/nprim.jpg", link = Nothing, text =
         """
 
 
@@ -613,19 +549,118 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
      
      
+
         """
       }
-    , { id = "O'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/oprim.jpg", link = Nothing, text =
+    , { id = "K'", group = " KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/oprim.jpg", link = Nothing, text =
         """
 
         """
       }
-    , { id = "P'", group = "Bactrian", source = "Gonur", dir = RTL, plate = Just "plates/linear-elam/pprim.jpg", link = Nothing, text =
+    , { id = "L′1", group = "KamFirouz", source = "Mah",dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+            
+        """
+      }
+    , { id = "L′2", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+            
+        """
+      }
+    , { id = "L′3", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+            
+        """
+      }
+    , { id = "L′4", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+
+
+        """
+      }
+    , { id = "L′5", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+
+
+        """
+      }
+    , { id = "L′6", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+
+
+        """
+      }
+    , { id = "L′7", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+
+
+        """
+      }
+    , { id = "L′8", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+
+
+        """
+      }
+    , { id = "L′9", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+
+
+        """
+      }
+    , { id = "L′10", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+
+        """
+      }
+    , { id = "L′11", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/lprim.jpg", link = Nothing, text =
+        """
+
+
+        """
+      }
+   , { id = "M'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/mprim.jpg", link = Nothing, text =
+        """
+to be published...
+        """
+      }
+    , { id = "N'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/nprim.jpg", link = Nothing, text =
+        """
+to be published...
+        """
+      }
+    , { id = "O'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/oprim.jpg", link = Nothing, text =
+        """
+to be published...
+        """
+      }
+    , { id = "P'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/pprim.jpg", link = Nothing, text =
+        """
+to be published...
+        """
+      }
+    , { id = "P'", group = "Bactrian", source = "Gonur", dir = RTL, plate = Just "plates/linear-elam/pprimgonur.jpg", link = Nothing, text =
         """
 
         """
       }
+    , { id = "Q'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/qprim.jpg", link = Nothing, text =
+        """
+to be published...
+        """
+      }
+    , { id = "R'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/rprim.jpg", link = Nothing, text =
+        """
+to be published...
+        """
+      }
+    , { id = "S'", group = "Bactrian", source = "Sha", dir = RTL, plate = Just "plates/linear-elam/sprim.jpg", link = Nothing, text =
+        """
+
+        """
+      }
     ]
+
 
 description = """
 This is a tool for computer-assisted analysis of Linear Elamite, an undeciphered syllabic writing system used in the late 3rd millennium BC. It sports a Unicode version of all the sign variants and allows for a statistical analysis of the texts.
