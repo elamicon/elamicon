@@ -794,7 +794,6 @@ view model =
                     case results of
                         Just res ->
                             List.map buildResultLine res.items
-
                         Nothing ->
                             []
 
@@ -1031,7 +1030,7 @@ view model =
 
                         Just link ->
                             a [ dir "LTR"
-                              , href (Maybe.withDefault "" fragment.link )
+                              , href link
                               ]
 
                 fragmentTitle =
@@ -1060,8 +1059,8 @@ view model =
                     ]
 
         fragmentsView =
-            [ h2 [] [ text (decorate .inscriptions "Inscriptions") ] ]
-            ++ overviewLink ++
+            h2 [] [ text (decorate .inscriptions "Inscriptions") ]
+            :: overviewLink ++
             [ div [ dirAttr LTR ] (List.map fragmentView cleanedFragments)
             , contact
             ]
