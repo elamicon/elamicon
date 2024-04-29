@@ -460,3 +460,41 @@ select {
     padding: 1em;
     text-align: center;
 }
+
+
+.settings-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background: #c2bfc4;
+    color: #685771;
+    margin-left: 10px;
+}
+
+.settings-button {
+    float: right;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 200%;
+}
+
+.settings-box {
+    min-width: 160px;
+    z-index: 1;
+    right: 0;
+    top: 100%;
+    margin: 1em;
+}
+
+@media (max-width: 600px) {
+    .settings-box {
+        width: 100%;
+        right: 0;
+        top: 100%;
+    }
+}
