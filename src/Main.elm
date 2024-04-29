@@ -243,7 +243,10 @@ update msg model =
             ( { model | syllableMap = new }, Cmd.none )
 
         SetPhoneticize phoneticize ->
-            ( { model | phoneticize = phoneticize }, Cmd.none )
+            updateUrlFromState { model
+                | phoneticize = phoneticize
+                , dir = if phoneticize then Just LTR else model.dir
+            }
 
         SetSearch new ->
             let
