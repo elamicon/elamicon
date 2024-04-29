@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+# Remove all glyphs from the font that are in the Unicode Private Use Area
+#
+# Synopsis
+#  addfont <FONT> <OUTFONT>
+
+
+import fontforge
+import sys
+import os
+
+basefont = sys.argv[1]
+outfont = sys.argv[2]
+
+f = fontforge.open(basefont)
+# Clear glyphs in the Unicode Private Use Area range
+# Otherwise they would be preserved instead of
+# being replaced by the new glyphs.
+for codepoint in range(0xE000, 0xF8FF + 1):
+    if codepoint in f:
+        f[codepoint].clear()
+
+f.generate(outfont)
+f.close()
