@@ -41,32 +41,11 @@ initialScript =
 sylDict : String -> Dict.Dict Token String
 sylDict strMap =
     let
-        lines =
-            String.lines strMap
-
-        addRepl : String -> Char -> Dict.Dict Token String -> Dict.Dict Token String
-        addRepl target source state =
-            Dict.insert source target state
-
         addLine line state =
-            let
-                sylls =
-                    String.words line
-
-                target =
-                    Maybe.withDefault "" (List.head sylls)
-
-                sources : List Token
-                sources =
-                    List.concat <| List.map Token.toList (Maybe.withDefault [] (List.tail sylls))
-            in
-            if List.isEmpty sylls then
-                state
-
-            else
-                List.foldr
-                    (addRepl target)
+            case String.words line of
+                target :: sourceTokens :: _ ->
+                    List.foldl (\k -> Dict.insert k target) state (Token.toList sourceTokens)
+                _ ->
                     state
-                    sources
     in
-    List.foldl addLine Dict.empty lines
+    List.foldl addLine Dict.empty (String.lines strMap)

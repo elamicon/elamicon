@@ -68,12 +68,7 @@ type Msg
 urlFragmentFromState : Model -> String
 urlFragmentFromState model =
     let
-        dirStr =
-            case model.dir of
-                Nothing ->
-                    Nothing
-                Just dir ->
-                    Just (dir |> WritingDirections.dirStr)
+        dirStr = Maybe.map WritingDirections.dirStr model.dir
 
         groups =
             if model.selectedGroups == Set.fromList (List.map .id model.script.groups) then
@@ -81,17 +76,21 @@ urlFragmentFromState model =
             else
                 Just (model.selectedGroups |> Set.toList |> String.join ",")
     in
-        [ Maybe.map (\s -> "script=" ++ s) (Just model.script.id)
+        [ Just ("script=" ++ model.script.id)
         , Maybe.map (\d -> "dir=" ++ d) dirStr
         , Maybe.map (\g -> "groups=" ++ g) groups
+        , if model.phoneticize then Just "phoneticize" else Nothing
         ]
         |> List.filterMap identity
         |> String.join "&"
 
+type UrlParam
+    = KeyValueParam String String
+    | KeyParam String
+
 updateStateFromUrlFragment : String -> Model -> Model
 updateStateFromUrlFragment fragment model =
     let
-        fragmentParams : List (String, String)
         fragmentParams =
             fragment
                 |> String.split "&"
@@ -99,26 +98,30 @@ updateStateFromUrlFragment fragment model =
                 |> List.filterMap (\parts ->
                     case parts of
                         [ key, value ] ->
-                            Just (key, value)
+                            Just (KeyValueParam key value)
+                        [ key ] ->
+                            Just (KeyParam key)
                         _ ->
                             Nothing
                 )
-        updateModelWithParam (key, value) m =
-            case key of
-                "script" ->
+        updateModelWithParam param m =
+            case param of
+                KeyValueParam "script" value ->
                     case Scripts.fromName value of
                         Just script ->
                             { m | script = script }
                         Nothing ->
                             m
-                "dir" ->
+                KeyValueParam "dir" value ->
                     case WritingDirections.dirFromString value of
                         Just dir ->
                             { m | dir = Just dir }
                         Nothing ->
                             m
-                "groups" ->
+                KeyValueParam "groups" value ->
                     { m | selectedGroups = value |> String.split "," |> Set.fromList }
+                KeyParam "phoneticize" ->
+                    { m | phoneticize = True }
                 _ ->
                     m
     in
