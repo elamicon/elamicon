@@ -46,6 +46,9 @@ font.weight = "Regular"
 
 image_files = sorted(Path(image_dir).glob("*.svg"), key=natural_sort_filename)
 
+signlist = open("signlist.txt", "w")
+signlist_simple = open("signlist_simple.txt", "w")
+
 for n, img in enumerate(image_files):
     img_name = img.stem
     codepoint = codepoint_start + n
@@ -56,7 +59,8 @@ for n, img in enumerate(image_files):
     glyph.right_side_bearing = 100
     glyph.glyphname = img_name
     if codepoint % 32 == 0:
-        print()
-    print(f"{codepoint:06X} [{chr(codepoint)}] {img_name}")
+        print("", file=signlist)
+    print(f"{codepoint:06X} [{chr(codepoint)}] {img_name}", file=signlist)
+    print(f"{img_name} {chr(codepoint)}", file=signlist_simple)
 
 font.generate(font_file)

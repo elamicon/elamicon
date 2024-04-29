@@ -88,12 +88,14 @@ init _ url key =
             , syllableMap = script.syllableMap
             , phoneticize = False
             , sandbox = ""
+            , sandboxReplace = False
+            , sandboxReplacement = ""
             , search = ""
             , searchBidirectional = True
             , showAllResults = False
             , linesplitSearch = False
             , selectedGroups = Set.empty
-            , collapsed = Set.fromList [ "info", "gramStats", "playground", "syllabary", "settings", "search" ]
+            , collapsed = Set.fromList [ "info", "gramStats", "sandbox", "syllabary", "settings", "search" ]
             , url = url
             , key = key
             }
@@ -192,16 +194,22 @@ update msg model =
             in
             newUrlFromState (scriptUpdate scriptUpdatedModel)
 
-        SetSandbox str ->
-            ( { model | sandbox = str }, Cmd.none )
-
         AddChar char ->
             ( { model
                 | sandbox = model.sandbox ++ char
-                , collapsed = Set.remove "playground" model.collapsed
+                , collapsed = Set.remove "sandbox" model.collapsed
               }
             , Cmd.none
             )
+
+        SetSandbox str ->
+            ( { model | sandbox = str }, Cmd.none )
+
+        SetSandboxReplace replace ->
+            ( { model | sandboxReplace = replace }, Cmd.none )
+
+        SetSandboxReplacement replacement ->
+            ( { model | sandboxReplacement = replacement }, Cmd.none )
 
         Select pos ->
             ( { model | selected = Just pos }, Cmd.none )
@@ -529,9 +537,27 @@ view model =
             collapsibleTitle "info" "Intro & Sources" .info
                 ++ ifExpanded "info" (\_ -> Markdown.toHtml (Just markdownOptions) (model.script.description ++ model.script.sources))
 
-        playground =
-            collapsibleTitle "playground" "Sandbox" .sandbox
-                ++ ifExpanded "playground"
+        replaceWords str replacement =
+            let
+                replacementWords =
+                    String.lines replacement
+                    |> List.map String.words
+                    |> List.filter (List.length >> (==) 2)
+                repl words =
+                    case words of
+                        s :: r :: [] ->
+                            Just (String.replace s r)
+                        _ ->
+                            Nothing
+                rs =
+                    List.filterMap repl replacementWords
+            in
+                List.foldr (\r acc -> r acc) str rs
+
+
+        sandbox =
+            collapsibleTitle "sandbox" "Sandbox" .sandbox
+                ++ ifExpanded "sandbox"
                     (\_ ->
                         [ textarea
                             [ class "sandbox"
@@ -542,7 +568,39 @@ view model =
                             ]
                             []
                         , gramStats [ model.sandbox ]
+                        , br [class "clear"] []
+                        , div [ class "sandboxReplace" ]
+                            [ label []
+                                [ input [ type_ "checkbox", checked model.sandboxReplace, Html.Events.onCheck SetSandboxReplace ] []
+                                , text "Replace text in the sandbox"
+                                ]
+                            ]
                         ]
+                        ++ (if model.sandboxReplace then
+                                [ div [ class "sandboxReplacement" ]
+                                    [ text "word pair per line: first word gets replaced with second word"
+                                    , textarea
+                                        [ class "sandbox"
+                                        , dirAttr LTR
+                                        , on "input" (Json.Decode.map SetSandbox Html.Events.targetValue)
+                                        , onInput SetSandboxReplacement
+                                        , value model.sandboxReplacement
+                                        ]
+                                        []
+                                    , h3 [] [ text "Result" ]
+                                    , textarea
+                                        [ class "sandbox"
+                                        , dirAttr LTR
+                                        , value (replaceWords model.sandbox model.sandboxReplacement)
+                                        ]
+                                        []
+                                    ]
+
+                                ]
+
+                            else
+                                []
+                           )
                     )
 
         syllabarySettings =
@@ -1055,7 +1113,7 @@ view model =
                 ]
                 ++ info
                 ++ charpicker
-                ++ playground
+                ++ sandbox
                 ++ syllabarySettings
                 ++ showWhenCorpus searchView
                 ++ showWhenCorpus fragmentsView

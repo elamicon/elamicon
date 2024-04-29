@@ -13,6 +13,7 @@ import Html.Events exposing (onInput, onClick, on)
 import State exposing (..)
 import Scripts exposing (scripts)
 import Script exposing (Script)
+import Html exposing (br)
 
 
 scriptDecoder : Json.Decode.Decoder Script
@@ -157,7 +158,9 @@ settings model =
                             , text " from the corpus."
                             ]
                             ++ (if not (String.isEmpty model.removeChars) then
-                                    [ small [] [ text "Caution: Sign enumeration within line changes as signs are removed!" ] ]
+                                    [ br [] []
+                                    , small [] [ text "Caution: Sign enumeration within line changes as signs are removed!" ]
+                                    ]
                                 else
                                     []
                                 )

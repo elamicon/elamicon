@@ -28,6 +28,8 @@ type alias Model =
     , normalize : Bool
     , removeChars : String
     , sandbox : String
+    , sandboxReplace : Bool
+    , sandboxReplacement : String
     , search : String
     , searchBidirectional : Bool
     , linesplitSearch : Bool
@@ -45,6 +47,8 @@ type Msg
     | SetDir (Maybe WritingDirections.Dir)
     | SetNormalize Bool
     | SetSandbox String
+    | SetSandboxReplace Bool
+    | SetSandboxReplacement String
     | ChooseSyllabary String
     | SetSyllabary String
     | SetSyllableMap String

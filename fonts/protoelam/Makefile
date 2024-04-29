@@ -14,10 +14,10 @@ named_images: sign_names.txt extracted_images
 	python3 name_images.py extracted_images $@ < $<
 
 ProtoElamite.ttf: named_images
-	python3 bitmaps2font $< 100000 ProtoElamite $@ > signlist.txt
+	python3 bitmaps2font $< 100000 ProtoElamite $@
 
 clean:
-	rm -rf extracted_images named_images signlist ProtoElamite.ttf signlist.txt sign_names.txt
+	rm -rf extracted_images named_images signlist ProtoElamite.ttf signlist.txt signlist_simple.txt sign_names.txt
 
 .DELETE_ON_ERROR:
 
