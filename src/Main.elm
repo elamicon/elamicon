@@ -393,7 +393,7 @@ view model =
             else
                 identity
 
-        phoneticReplacements = sylDict model.script.syllableMap
+        phoneticReplacements = sylDict model.syllableMap
 
         -- Build filter that removes undesired chars
         removeCharSet =
