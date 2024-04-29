@@ -1004,7 +1004,14 @@ view model =
                             []
 
                         Just url ->
-                            [ a [ href url, target "_blank", class "img" ] [ img [ src (url ++ ".thumb") ] [] ] ]
+                            let
+                                imgUrl =
+                                    if String.endsWith ".pdf" url then
+                                        (String.dropRight 4 url) ++ ".jpg"
+                                    else
+                                        url ++ ".thumb"
+                            in
+                            [ a [ href url, target "_blank", class "img" ] [ img [ src imgUrl ] [] ] ]
 
                 fragmentLink =
                     -- Make the title element a link if the fragment has one.

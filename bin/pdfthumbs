@@ -1,0 +1,6 @@
+#!/bin/sh
+full_imgs=plates/*/*.pdf
+
+for t in $full_imgs;
+do convert -resize x100 "$t" "${t%.*}.jpg"
+done
