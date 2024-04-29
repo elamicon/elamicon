@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+# Generate bitmap font from images
+#
+# Preparation:
+#
+#     apt install imagemagick potrace
+#     for f in *.jpg; do convert -threshold 99% -- "$f" "${f%.*}.bmp"; done
+#     for f in *.bmp; do potrace --svg --alphamax 0.9 --flat "$f"; done
+#
+# Synopsis:
+#
+#     bitmaps2font IMAGE_DIR CODEPOINT_START_HEX FONT_NAME FONT_FILE
+#
+# Example:
+#
+#     bitmaps2font . 100000 ProtoElamite protoelamite.ttf
+#
+
+import fontforge
+from pathlib import Path
+import fontforge
+import sys
+import re
+
+
+def natural_sort_filename(f):
+    # HACK sort extra version (.) before tilde before plus
+    def sort_special(t):
+        return t.replace(".", " ").replace("~", "  ").replace("+", "   ")
+    return [
+        int(t) if t.isdigit() else sort_special(t)
+        for t in re.split(r'(\d+)', f.stem)]
+
+
+image_dir = sys.argv[1]
+codepoint_start = int(sys.argv[2], 16)
+font_name = sys.argv[3]
+font_file = sys.argv[4]
+
+font = fontforge.font()
+font.fontname = font_name
+font.familyname = font_name
+font.fullname = font_name
+font.weight = "Regular"
+
+image_files = sorted(Path(image_dir).glob("*.svg"), key=natural_sort_filename)
+
+for n, img in enumerate(image_files):
+    img_name = img.stem
+    codepoint = codepoint_start + n
+    glyph = font.createChar(codepoint)
+    glyph.importOutlines(str(img))
+    glyph.width = 100
+    glyph.left_side_bearing = 100
+    glyph.right_side_bearing = 100
+    glyph.glyphname = img_name
+    if codepoint % 32 == 0:
+        print()
+    print(f"{codepoint:06X} [{chr(codepoint)}] {img_name}")
+
+font.generate(font_file)
