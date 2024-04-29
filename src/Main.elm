@@ -7,7 +7,7 @@ import Browser.Dom as Dom
 import Browser.Navigation
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (on, onClick, onInput, targetValue)
+import Html.Events exposing (on, onClick, onInput)
 import Json.Decode
 import List
 import Markdown
@@ -581,11 +581,13 @@ view model =
                         [ div []
                             [ label []
                                 [ h4 [] [ text "Syllabary (current state of decipherment)" ]
+                                , div [] [ text "Map types to sound values. The first word on a line is the sound value, the following word is a list of types that have this sound value. Any other text on the line is ignored." ]
                                 , Html.textarea [ value model.syllableMap, onInput SetSyllableMap ] []
                                 ]
                             ]
                         , div []
                             ([ h4 [] [ text "Dynamic Syllabary (editable grouping)" ]
+                             , div [] [ text "Types listed below in the same word (not separated by whitespace) are grouped together. Searching for one of these types will find occurrences of all the types it is grouped with." ]
                              , syllabarySelection
                              , Html.textarea [ value model.syllabaryString, onInput SetSyllabary ] []
                              ]
