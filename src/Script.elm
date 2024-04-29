@@ -92,7 +92,7 @@ type alias Script =
         , info : Decoration
         , signs : Decoration
         , sandbox : Decoration
-        , settings : Decoration
+        , syllabary : Decoration
         , grams : Decoration
         , search : Decoration
         , inscriptions : Decoration

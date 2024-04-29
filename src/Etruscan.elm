@@ -96,7 +96,7 @@ If no "Further source" reference (see below) is indicated in the sign name, the 
                     , info = ("", "")
                     , signs = ("", "")
                     , sandbox = ("", "")
-                    , settings = ("", "")
+                    , syllabary = ("", "")
                     , grams = ("", "")
                     , search = ("", "")
                     , inscriptions = ("", "")

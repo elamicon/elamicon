@@ -989,7 +989,7 @@ Feel free to contact the Byblicon research team: mailto:m.maeder[ätt]geass.ch.
                     , info = ("", "")
                     , signs = ("", "")
                     , sandbox = ("", "")
-                    , settings = ("", "")
+                    , syllabary = ("", "")
                     , grams = ("", "")
                     , search = ("", "")
                     , inscriptions = ("", "")

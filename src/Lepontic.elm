@@ -104,7 +104,7 @@ The collection of Lepontic sign variants contains signs from inscriptions which 
                     , info = ("", "")
                     , signs = ("", "")
                     , sandbox = ("", "")
-                    , settings = ("", "")
+                    , syllabary = ("", "")
                     , grams = ("", "")
                     , search = ("", "")
                     , inscriptions = ("", "")

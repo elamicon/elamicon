@@ -121,7 +121,7 @@ None.
                     , info = ("", "")
                     , signs = ("", "")
                     , sandbox = ("", "")
-                    , settings = ("", "")
+                    , syllabary = ("", "")
                     , grams = ("", "")
                     , search = ("", "")
                     , inscriptions = ("", "")

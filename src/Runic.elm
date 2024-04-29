@@ -10,7 +10,7 @@ import Regex
 import WritingDirections exposing (..)
 import Script exposing (..)
 import Specialchars exposing (..)
-import Token 
+import Token
 import Generated.Runic
 
 rawTokens = Token.fromNamed Generated.Runic.tokens
@@ -38,7 +38,7 @@ syllableMap = String.trim """
 """
 
 syllabaries : List SyllabaryDef
-syllabaries = 
+syllabaries =
     [ { id = "typegroups"
       , name = "Typegroups"
       , syllabary = Generated.Runic.syllabary
@@ -48,7 +48,7 @@ syllabaries =
       , syllabary = String.join "\n" (List.map String.fromChar tokens)
       }
     ]
-    
+
 
 
 
@@ -93,7 +93,7 @@ None
                     , info = ("", "")
                     , signs = ("", "")
                     , sandbox = ("", "")
-                    , settings = ("", "")
+                    , syllabary = ("", "")
                     , grams = ("", "")
                     , search = ("", "")
                     , inscriptions = ("", "")
