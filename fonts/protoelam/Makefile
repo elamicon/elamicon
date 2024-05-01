@@ -3,7 +3,8 @@ all: ProtoElamite.ttf
 extracted_images: signlist.pdf
 	mkdir -p extracted_images
 	pdfimages -all $< $@/sign
-	for f in $@/*.jpg; do convert -threshold 99% -- "$$f" "$${f%.*}.bmp"; done
+	# rotate 90 clockwise
+	for f in $@/*.jpg; do convert -threshold 99% -rotate 90 -- "$$f" "$${f%.*}.bmp"; done
 	for f in $@/*.bmp; do potrace --svg --alphamax 0.9 --flat "$$f"; done
 
 sign_names.txt: signlist.pdf
