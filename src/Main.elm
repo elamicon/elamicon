@@ -542,20 +542,25 @@ view model =
 
         replaceWords str replacement =
             let
+                pickValidReplacement words =
+                    case words of
+                        s :: r :: [] ->
+                            Just (s, r)
+                        _ ->
+                            Nothing
                 replacementWords =
                     String.lines replacement
                     |> List.map String.words
-                    |> List.filter (List.length >> (==) 2)
-                repl words =
-                    case words of
-                        s :: r :: [] ->
-                            Just (String.replace s r)
-                        _ ->
-                            Nothing
-                rs =
-                    List.filterMap repl replacementWords
+                    |> List.filterMap pickValidReplacement
+
+                -- Prevent short replacements cannibalizing longer ones by performing longest-first search
+                orderLongestSearchTermFirst =
+                    List.sortBy (Tuple.first >> String.length) >> List.reverse
+
+                transform (s, r) =
+                    String.replace s r
             in
-                List.foldr (\r acc -> r acc) str rs
+                List.foldl transform str (orderLongestSearchTermFirst replacementWords)
 
 
         sandbox =
