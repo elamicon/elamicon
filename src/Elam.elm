@@ -191,8 +191,6 @@ syllabaries =
       }
     ]
 
--- We grouped the fragments according to where they were found
--- Recorded means that there is a sound archaelogical paper trail
 groups : List GroupDef
 groups =
     [ { id = "Susa-Early-LE"
@@ -223,13 +221,13 @@ groups =
       , name = "Group 7 (Eastern Elamite; 23rd–19th century BC): Bactrian Seals & Sherds (V, G’, Gonur-P’)"
       , extra = ""
       }
+    , { id = "Composite"
+      , name = "Composite inscription (F//G//H)."
+      , extra = "Exclude this group for frequency analysis."
+      }
     ]
 
 
--- Linear Elam body as read by us. The majority of the fragments is written RTL.
--- There is speculation that at least one of the fragemnts is written in
--- boustrophedon meaning alternating writing direction per line.
--- The writing direction is only a guess for many fragments.
 fragments : List FragmentDef
 fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
     [ { id = "A", group = "Susa-Puzur", source = "Susa-Puzur", dir = RTL, plate = Just "plates/linear-elam/a.pdf", link = Nothing, text =
@@ -274,7 +272,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
 	 """
       }
-    , { id = "F//G//H", group = "Susa-Puzur", source = "Composite", dir = LTR, plate = Just "plates/linear-elam/fgh.pdf", link = Nothing, text =
+    , { id = "F//G//H", group = "Composite", source = "Susa-Puzur", dir = LTR, plate = Just "plates/linear-elam/fgh.pdf", link = Nothing, text =
         """
 
 
