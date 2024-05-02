@@ -540,7 +540,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "J'", group = " KamFirouz", source = "Mah", dir = LTR, plate = Just "plates/linear-elam/nprim.pdf", link = Nothing, text =
+    , { id = "J'", group = "KamFirouz", source = "Mah", dir = LTR, plate = Just "plates/linear-elam/nprim.pdf", link = Nothing, text =
         """
 
 
@@ -552,7 +552,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "K'", group = " KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/oprim.pdf", link = Nothing, text =
+    , { id = "K'", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/oprim.pdf", link = Nothing, text =
         """
 
         """
