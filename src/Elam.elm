@@ -91,7 +91,7 @@ syllables = Dict.fromList
 --             This is just for reference and has no effect on the syllabary.
 
 syllableMap = String.trim """
-[divid]	
+	
 a				Desset et al. 2022; Mäder et al. 2018:62
 e				Mäder et al. 2018:66; Desset 2018:132
 h 			Mäder et al. 2018:Tab. 21
@@ -100,30 +100,31 @@ ha				Mäder et al. 2018:Tab. 21; Desset 2018:138
 hi				Vallat 2011:188
 hi₂				Desset et al. 2022
 hu			Desset et al. 2022
+hu/ha   		Desset et al. 2022
 hu₂				Frank 1912
-i			Bork 1924; Desset et al. 2022
+i			Bork 1924; Desset et al. 2022
 k				Bork 1905:327
 k₂				Bork 1905:327
 ka 				Mäder et al. 2018:84; Desset et al. 2022;
-ki				Desset et al. 2022
+ki				Desset et al. 2022
 ki₂				Desset et al. 2022
 ku				Desset et al. 2022
 ko				Desset et al. 2022
 l				Desset 2018:132
 la				Desset et al. 2022
 li				Desset et al. 2022
-li₂				Desset et al. 2022
+li₂				Desset et al. 2022
 li₃				Desset et al. 2022
 lu				Desset et al. 2022
-m			Desset et al. 2022
-ma			Desset et al. 2022
+m			Desset et al. 2022
+m₂			Desset et al. 2022; Mäder, Review Desset et al. 2022
 me			Desset et al. 2022
 mi			Desset et al. 2022
 mo				Desset et al. 2022
 mu₂				Desset et al. 2022
-n		Bork 1905:327; Frank 1912
+n		Bork 1905:327; Frank 1912
 na				Bork 1905:327
-ne				Desset et al. 2022
+ne				Desset et al. 2022
 ni				Bork 1905:327; Desset et al. 2022
 nu				Desset et al. 2022
 p				Desset et al. 2022
@@ -135,11 +136,11 @@ pi₂ 				Desset 2018:138
 pu				Meriggi 1971:206
 po				Desset et al. 2022
 r				Meriggi 1971:205
-ra/maš				Desset et al. 2022; Mäder 2019:422
+ra				Desset et al. 2022; Mäder 2019:422
 ri			Hinz 1962; Desset 2018:133
-ri₂/KI				Desset et al. 2022; Mäder 2019:422
+ri₂				Desset et al. 2022; Mäder 2019:422
 ru				Hinz 1962
-ru₂				Desset et al. 2022
+ru₂				Desset et al. 2022
 s				Mäder et al. 2018:62
 sa				Desset et al. 2022
 si				Desset et al. 2022
@@ -149,19 +150,19 @@ so				Desset et al. 2022
 ša				Desset 2018:138; Mäder 2022:28
 še				Bork 1905:327
 ši				Bork 1905:327
-šu				Desset et al. 2022
+šu				Desset et al. 2022
 t				Desset et al. 2022
 ta				Desset et al. 2022
 te				Desset et al. 2022
 ti				Desset 2018:132
 tu				Desset et al. 2022
 o				Mäder et al. 2018:66; Desset 2018:138
-u				Desset et al. 2022
+w				Desset et al. 2022
 wa			Corsini 1986
-we				Desset et al. 2022
+we	[see mʷӕ]			Desset et al. 2022; Mäder, Review Desset et al. 2022
 z				Desset et al. 2022
-za/HAL				Desset et al. 2022; Mäder 2019:422
-ze			Desset et al. 2022
+za				Desset et al. 2022; Mäder 2019:422
+ze			Desset et al. 2022
 zu				Meriggi 1971:206
 zo				Desset et al. 2022
 """
@@ -235,7 +236,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
 
 
-
+
 
         """
       }
@@ -243,7 +244,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
         """
 
 ​
-
+
         """
       }
     , { id = "C", group = "Susa-Puzur", source = "Susa-Puzur", dir = RTL, plate = Just "plates/linear-elam/c.pdf", link = Nothing, text =
@@ -260,8 +261,8 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
         """
 
 
-
-
+
+
         """
       }
     , { id = "E", group = "Susa-Puzur", source = "Susa-Puzur", dir = RTL, plate = Just "plates/linear-elam/e.pdf", link = Nothing, text =
@@ -269,14 +270,14 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
 
 
-
+
 	 """
       }
     , { id = "F//G//H", group = "Composite", source = "Susa-Puzur", dir = LTR, plate = Just "plates/linear-elam/fgh.pdf", link = Nothing, text =
         """
 
-
-
+​​
+
         """
       }
     , { id = "F", group = "Susa-Puzur", source = "Susa-Puzur", dir = LTR, plate = Just "plates/linear-elam/f.pdf", link = Nothing, text =
@@ -296,7 +297,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
     , { id = "H", group = "Susa-Puzur", source = "Susa-Puzur", dir = LTR, plate = Just "plates/linear-elam/h.pdf", link = Nothing, text =
         """
-
+
 
 
 
@@ -319,19 +320,19 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
     , { id = "K", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/k.pdf", link = Nothing, text =
         """
 
-
+
 
 
 
 
         """
       }
-    , { id = "L", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/l.pdf", link = Nothing, text =
+    , { id = "L", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = LTR, plate = Just "plates/linear-elam/l.pdf", link = Nothing, text =
         """
 
-
+
 
-
+
         """
       }
     , { id = "M", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = LTR, plate = Just "plates/linear-elam/m.pdf", link = Nothing, text =
@@ -371,14 +372,14 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "P", group = "Susa-Puzur", source = "Susa-Puzur", dir = LTR, plate = Just "plates/linear-elam/p.pdf", link = Nothing, text =
+    , { id = "P", group = "Susa-Puzur", source = "Susa-Puzur", dir = RTL, plate = Just "plates/linear-elam/p.pdf", link = Nothing, text =
         """
-
+
         """
       }
     , { id = "Q", group = "Pers", source = "Pers", dir = RTL, plate = Just "plates/linear-elam/q.pdf", link = Nothing, text =
         """
-
+
         """
       }
     , { id = "R", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/r.pdf", link = Nothing, text =
@@ -405,7 +406,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
     , { id = "U", group = "Susa-Puzur", source = "Susa-Puzur", dir = RTL, plate = Just "plates/linear-elam/u.pdf", link = Nothing, text =
         """
-
+​
 
         """
       }
@@ -428,7 +429,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
      , { id = "X", group = "KamFirouz", source = "Mah", dir= RTL, plate = Just "plates/linear-elam/x.pdf", link = Nothing, text =
         """
-            
+            
             
             
         """
@@ -448,14 +449,14 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
     , { id = "Z", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/z.pdf", link = Nothing, text =
         """
             
-            ​​
+            ​​
             ​​
             ​​ 
              ​
             ​ 
              
             ​
-            
+            
         """
       }
     , { id = "A′", group = "Kerman", source = "Phoe", dir = RTL, plate = Just "plates/linear-elam/aprim.pdf", link = Nothing, text =
@@ -491,9 +492,9 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "C′r", group = "ShaJir", source = "Jir", dir = LTR, plate = Just "plates/linear-elam/cprim.pdf", link = Nothing, text =
+    , { id = "C′r", group = "ShaJir", source = "Jir", dir = RTL, plate = Just "plates/linear-elam/cprim.pdf", link = Nothing, text =
         """
-
+​
         """
       }
     , { id = "D′", group = "ShaJir", source = "Jir", dir = BoustroR, plate = Just "plates/linear-elam/dprim.pdf", link = Nothing, text =
@@ -513,7 +514,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
     , { id = "F′", group = "KamFirouz", source="Schø", dir = RTL, plate = Just "plates/linear-elam/fprim.pdf", link = Nothing, text =
         """
-
+
 
         """
       }
@@ -538,7 +539,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "J'", group = "KamFirouz", source = "Mah", dir = LTR, plate = Just "plates/linear-elam/nprim.pdf", link = Nothing, text =
+    , { id = "J'", group = "KamFirouz", source = "Mah", dir = LTR, plate = Just "plates/linear-elam/jprim.pdf", link = Nothing, text =
         """
 
 
@@ -550,7 +551,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "K'", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/oprim.pdf", link = Nothing, text =
+    , { id = "K'", group = "KamFirouz", source = "Mah", dir = RTL, plate = Just "plates/linear-elam/kprim.pdf", link = Nothing, text =
         """
 
         """
@@ -617,22 +618,22 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-   , { id = "M'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/mprim.pdf", link = Nothing, text =
+   , { id = "M'", group = "Kerman", source = "Kerman", dir = LTR, plate = Just "plates/linear-elam/mprim.pdf", link = Nothing, text =
         """
 to be published...
         """
       }
-    , { id = "N'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/nprim.pdf", link = Nothing, text =
+    , { id = "N'", group = "Kerman", source = "Kerman", dir = LTR, plate = Just "plates/linear-elam/nprim.pdf", link = Nothing, text =
         """
 to be published...
         """
       }
-    , { id = "O'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/oprim.pdf", link = Nothing, text =
+    , { id = "O'", group = "Kerman", source = "Kerman", dir = LTR, plate = Just "plates/linear-elam/oprim.pdf", link = Nothing, text =
         """
 to be published...
         """
       }
-    , { id = "P'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/pprimMah.pdf", link = Nothing, text =
+    , { id = "P'", group = "Kerman", source = "Kerman", dir = LTR, plate = Just "plates/linear-elam/pprimMah.pdf", link = Nothing, text =
         """
 to be published...
         """
@@ -642,12 +643,12 @@ to be published...
 
         """
       }
-    , { id = "Q'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/qprim.pdf", link = Nothing, text =
+    , { id = "Q'", group = "Kerman", source = "Kerman", dir = LTR, plate = Just "plates/linear-elam/qprim.pdf", link = Nothing, text =
         """
 to be published...
         """
       }
-    , { id = "R'", group = "Kerman", source = "Kerman", dir = RTL, plate = Just "plates/linear-elam/rprim.pdf", link = Nothing, text =
+    , { id = "R'", group = "Kerman", source = "Kerman", dir = LTR, plate = Just "plates/linear-elam/rprim.pdf", link = Nothing, text =
         """
 to be published...
         """
@@ -684,32 +685,40 @@ Regarding the fact that the authenticity had been doubtful for a good part of th
 """
 
 sources = """
-#### Plate sources
+#### Plate sources and further Literature
 - **Aitken, G. & Delaloye, L. (2011):** Antiquities including Property from the Collection of Baron Edouard Jean Empain. London: Christie's.
 - **André, B. & Salvini, M. (1989):** Réflexions sur Puzur-Inšušinak, Iranica Antiqua 24, 53-72.
 - **Caubet, A. (1994):** La cité royale de Suse. Découvertes archéologiques en Iran conservées au musée du Louvre, Paris.
 - **De Mecquenem, R. (1949):** Epigraphie proto-élamite. Mémoires de la Mission Archéologie en Iran, 31. Paris.
 - **Desset, F. (2018):** "Nine Linear Elamite Texts Inscribed on Silver “Gunagi” Vessels (X, Y, Z, F’, H’, I’, J’, K’and L’): New Data on Linear Elamite Writing and the History of the Sukkalmah Dynasty." Iran 56/2, S. 105-143.
+- **Desset, François (2018):** Nine Linear Elamite Texts Inscribed on Silver “Gunagi” Vessels (X, Y, Z, F’, H’, I’, J’, K’ and L’): New Data on Linear Elamite Writing and the History of the Sukkalmah Dynasty. Iran 56, 105-143.
+- **Desset, F.; Tabibzadeh; M. Kervran; G. P. Basello, G. Marchesi (2022):** The Decipherment of Linear Elamite Writing. ZA 112(1), 11-60.
+- **Desset, François (2022):** "Bronze Age writing phenomenon in South-Eastern Iran (ca. 3300-1880 BCE)." Corpus of Indus Seals and Inscriptions (Indo-Iranian Borderlands) 3.3, p-XIX.
 - **Frank, C. (1912):** Zur Entzifferung der altelamischen Inschriften. Abhandlungen der königl.-preuss. Ak. d. Wissenschaften. Berlin.
 - **Hakemi, A. (1976):** Ecriture pictographique decouverte dans les fouilles de Shahdad. Reproduction inédite. Paris.
 - **Hakemi, A. (1997):** Archaeological Excavations of a Bronze Age Center in Iran. Istituto Italiano per il Medio ed Estremo Oriente, Roma.
 - **Hinz, W. (1969):** "Eine neugefundene altelamische Silbervase", in: Altiranische Funde und Forschungen 1, S. 11-44.
 - **Hinz, W. (1971):** "Eine altelamische Tonkrug-Aufschrift vom Rande der Lut", Archäologische Mitteilungen aus Iran 4, 21-24.
+- **Jusifov, Jusif B. (1968):** Èlam. Sozial’no-èkonomičeskaja istorija. Moskva: Akademija Nauk.
+- **Kločkov, Igor’ S. (1995):** "Znaki na čerepke s Gonura: K voprosu o margianskoj pis’mennosti". VDI 2(213), 54-60.
 - **Klochkov, I. S. (1998):** "Signs on a potsherd from Gonur (On the question of the script used in Margiana)." Ancient Civilizations from Scythia to Siberia 5/2. S. 165-175.
 - **Mäder, Michael; Balmer, Stephan; Plachtzik, Simon & Rawyler, Nicolai (2018)**: "Sequenzanalysen zur elamischen Strichschrift", in: B. Mofidi-Nasrabadi, D. Prechel, A. Pruß (eds.), Elam and its Neighbors. Recent Research and New Perspectives. Proceedings of the international congress held at Johannes Gutenberg University Mainz, September 21-23, 2016 (Elamica 8). S. 49-104.
+- **Mäder, M. (2021):** Proto- und Linear-Elamisch: Formaler Vergleich, Berechnung des Jaccard-Index und Identifikation einer Übergangsphase. Begleitpapiere zum Entzifferungstool – Alice Kober Gesellschaft für die Entzifferung antiker Schriftsysteme (GEAS) 2021/1. https://center-for-decipherment.ch/journal/2021_01__Maeder__Proto-und-Linear-Elamisch.pdf.
+- **Mäder, M. (2020):** "Sprache und Schriften in Elam." Antike Welt 4/20, 6-7.
+- **Mäder, M. (2021):** "Linear Elamite." In: Daniel T. Potts, Ethan Harkness, Jason Neelis, Roderick J. McIntosh (eds.): Encyclopedia of Ancient History: Asia and Africa. New Jersey: Wiley Publishers (s. v.), 1-9. https://doi.org/10.1002/9781119399919.eahaa00064
+- **Mäder, M. (2021):** "Ein baktrisches Siegel mit elamischer Strichschrift und die Suche nach Šimaški." Archiv für Orientforschung 54, 416-425.
+- **Mäder, M. (2022):** "Bronze Age Sceptres and Staffs from Elam and Margiana, and Their Possible Names in Cuneiform and Linear  Elamite", in: Baumer, C.; Novák, M.; Rutishauser, S. (Ed.): Cultures in Contact – Central Asia as Focus of Trade, Cultural Exchange and Knowledge Transmission. Second International Conference on Central Asian Archaeology. Wiesbaden: Harrassowitz. 317-334.
+- **Mäder, M. (2023):** "Tradition und Nationalgefühl in der elamischen Konföderation", in: Tavernier, J.; E. Gorris; K. De Graef (Ed.): Susa and Elam II. History, Language, Religion and Culture. Mémoires de la Délégation en Perse 59, 3–47.
 - **Madjidzadeh, Y. (2011):** Jiroft Tablets and the Origin of the Linear Elamite Writing System, in: T. Osada/M. Witzel (eds.), Cultural Relations Between the Indus and the Iranian Plateau During the Third Millennium BCE. Harvard.
 - **Mahboubian, H. (2004):** Elam – Art and Civilization of Ancient Iran, 3000-2000 BC. Salisbury.
 - **[MCEI: Mahboubian Collection of Elamite Inscriptions](https://mahboubiancollection.com/collections/elemite-inscription-3?view=nano)**
 - **Meriggi, P. (1972):** La scrittura proto-elamica. Parte Ia: La scrittura e il contenuto dei testi, Roma: Accademia Nazionale dei Lincei.
 - **Sarrāf. M. R. (2013):** Mazhab-e qūm-e Īlām 5000-2600 sāl-e pīš (Die Religion Elams vor 5000-2600 Jahren). Sāzemān-e moṭāleʿe wa tadwīn. Tehrān.
 - **Scheil, V. (1905):** Documents archaïques en écriture proto-élamite. Mémoires de la Délégation en Perse VI, S. 57-128. Paris.
+- **Stève, M.-J. (2000): Le syllabaire proto-élamite linéaire. In: Viers, R. (Hrsg.), Des signes pictographiques a l'alphabet: La communication écrite en Méditerranée : actes du colloque, 14 et 15 mai 1996, Villa grecque Kérylos, Fondation Théodore Reinach (Beaulieu-sur-Mer), Paris.
 - **Vallat 2011**: "Textes historiques élamites et achéménides", in: A. George et al. (eds.), Cuneiform Royal Inscriptions and Related Texts in the Schøyen Collection, Bethesda, 187-188.
 - **Winkelmann, Sylvia (1999):** "Ein Stempelsiegel mit alt-elamischer Strichschrift", Archäologische Mitteilungen aus Iran 31, 23-32.
 - **Winkelmann, Sylvia (2004):** Seals of the Oasis from the Ligabue Collection. With an Introduction by Pierre Amiet. Venezia. S. 25-181.
-
-#### Further literature
-- [Mäder et al. 2018](https://center-for-decipherment.ch/pubs/maeder-et-al-2018__sequenzanalysen-zur-elamischen-strichschrift/)
-- [Plachtzik et al. 2017](https://center-for-decipherment.ch/pubs/plachtzik-et-al-2017__das-syllabar-der-elamischen-strichschrift/)
 """
 
 elam : Script
