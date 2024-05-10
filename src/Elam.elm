@@ -10,13 +10,12 @@ import Specialchars exposing (..)
 import Token exposing (..)
 import WritingDirections exposing (..)
 
--- List of letters found in Linear-Elam writings
+-- List of graphemes found in Linear-Elamite writings
 --
 -- Many letters are present in variations that only differ in small details.
 -- Most of these variations are likely style differences as the writing
 -- developed over the centuries. The differences may also be ornamental or
--- idiosyncratic. There are not enough samples to decide, maybe there never will
--- be.
+-- idiosyncratic.
 --
 -- We were very conservative when it came to lumping glyphs into letters and
 -- many variants are preserved to allow alternative interpretations.
@@ -102,7 +101,7 @@ hi₂				Desset et al. 2022
 hu			Desset et al. 2022
 hu/ha   		Desset et al. 2022
 hu₂				Frank 1912
-i			Bork 1924; Desset et al. 2022
+i			Bork 1924; Desset et al. 2022
 k				Bork 1905:327
 k₂				Bork 1905:327
 ka 				Mäder et al. 2018:84; Desset et al. 2022;
@@ -116,7 +115,7 @@ li				Desset et al. 2022
 li₂				Desset et al. 2022
 li₃				Desset et al. 2022
 lu				Desset et al. 2022
-m			Desset et al. 2022
+m			Desset et al. 2022
 mʷӕ			Desset et al. 2022; Mäder, Review Desset et al. 2022
 me			Desset et al. 2022
 mi			Desset et al. 2022
@@ -162,7 +161,7 @@ wa			Corsini 1986
 we	[see mʷӕ]			Desset et al. 2022; Mäder, Review Desset et al. 2022
 z				Desset et al. 2022
 za				Desset et al. 2022; Mäder 2019:422
-ze			Desset et al. 2022
+ze			Desset et al. 2022
 zu				Meriggi 1971:206
 zo				Desset et al. 2022
 """
@@ -211,7 +210,7 @@ groups =
       , extra = ""
       }
     , { id = "ShaJir"
-      , name = "Group 5 (Eastern Elamite; 23rd–19th century BC): Name Inscriptions from Shahdad (S, T’) and Jiroft (B’ – E’)"
+      , name = "Group 5 (Eastern Elamite; 23rd–19th century BC): Name Inscriptions from Shahdad (S, S’), Shahr-e Sokhte (T') and Jiroft (B’ – E’)"
       , extra = ""
       }
     , { id = "Kerman"
@@ -261,7 +260,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
         """
 
 
-
+
 
         """
       }
@@ -282,7 +281,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
     , { id = "F", group = "Susa-Puzur", source = "Susa-Puzur", dir = LTR, plate = Just "plates/linear-elam/f.pdf", link = Nothing, text =
         """
-
+
 
 
 
@@ -297,7 +296,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
       }
     , { id = "H", group = "Susa-Puzur", source = "Susa-Puzur", dir = LTR, plate = Just "plates/linear-elam/h.pdf", link = Nothing, text =
         """
-
+
 
 
 
@@ -314,7 +313,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
     , { id = "J", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/j.pdf", link = Nothing, text =
         """
 
-
+
         """
       }
     , { id = "K", group = "Susa-Early-LE", source = "Susa-Early-LE", dir = RTL, plate = Just "plates/linear-elam/k.pdf", link = Nothing, text =
@@ -653,9 +652,14 @@ to be published...
 to be published...
         """
       }
-    , { id = "S'", group = "Bactrian", source = "Sha", dir = RTL, plate = Just "plates/linear-elam/sprimSha.pdf", link = Nothing, text =
+    , { id = "S'", group = "ShaJir", source = "Sha", dir = RTL, plate = Just "plates/linear-elam/sprimSha.pdf", link = Nothing, text =
         """
 
+        """
+      }
+    , { id = "T'", group = "ShaJir", source = "ShSo", dir = RTL, plate = Just "plates/linear-elam/tprim.pdf", link = Nothing, text =
+        """
+
         """
       }
     ]
@@ -715,7 +719,8 @@ sources = """
 - **Meriggi, P. (1972):** La scrittura proto-elamica. Parte Ia: La scrittura e il contenuto dei testi, Roma: Accademia Nazionale dei Lincei.
 - **Sarrāf. M. R. (2013):** Mazhab-e qūm-e Īlām 5000-2600 sāl-e pīš (Die Religion Elams vor 5000-2600 Jahren). Sāzemān-e moṭāleʿe wa tadwīn. Tehrān.
 - **Scheil, V. (1905):** Documents archaïques en écriture proto-élamite. Mémoires de la Délégation en Perse VI, S. 57-128. Paris.
-- **Stève, M.-J. (2000): Le syllabaire proto-élamite linéaire. In: Viers, R. (Hrsg.), Des signes pictographiques a l'alphabet: La communication écrite en Méditerranée : actes du colloque, 14 et 15 mai 1996, Villa grecque Kérylos, Fondation Théodore Reinach (Beaulieu-sur-Mer), Paris.
+- **Seyyed Soğādi, Seyyed M. (2003):** نشانه سفالگران در شهر سوخته Nešāne-ye sofālgārān dar šahr-e soxte [Töpfermarken in Šahr-e Soxte]. Nāme-ye pažuhešgāh-e mirās-e farhangi 1/5, S. 17-47.
+- **Stève, M.-J. (2000):** Le syllabaire proto-élamite linéaire. In: Viers, R. (Hrsg.), Des signes pictographiques a l'alphabet: La communication écrite en Méditerranée : actes du colloque, 14 et 15 mai 1996, Villa grecque Kérylos, Fondation Théodore Reinach (Beaulieu-sur-Mer), Paris.
 - **Vallat 2011**: "Textes historiques élamites et achéménides", in: A. George et al. (eds.), Cuneiform Royal Inscriptions and Related Texts in the Schøyen Collection, Bethesda, 187-188.
 - **Winkelmann, Sylvia (1999):** "Ein Stempelsiegel mit alt-elamischer Strichschrift", Archäologische Mitteilungen aus Iran 31, 23-32.
 - **Winkelmann, Sylvia (2004):** Seals of the Oasis from the Ligabue Collection. With an Introduction by Pierre Amiet. Venezia. S. 25-181.
