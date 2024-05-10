@@ -117,7 +117,7 @@ li₂				Desset et al. 2022
 li₃				Desset et al. 2022
 lu				Desset et al. 2022
 m			Desset et al. 2022
-m₂			Desset et al. 2022; Mäder, Review Desset et al. 2022
+mʷӕ			Desset et al. 2022; Mäder, Review Desset et al. 2022
 me			Desset et al. 2022
 mi			Desset et al. 2022
 mo				Desset et al. 2022
