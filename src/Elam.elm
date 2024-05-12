@@ -158,7 +158,7 @@ tu				Desset et al. 2022
 o				Mäder et al. 2018:66; Desset 2018:138
 w				Desset et al. 2022
 wa			Corsini 1986
-we	[see mʷӕ]			Desset et al. 2022; Mäder, Review Desset et al. 2022
+we	[cf. mʷӕ]			Desset et al. 2022; Mäder, Review Desset et al. 2022
 z				Desset et al. 2022
 za				Desset et al. 2022; Mäder 2019:422
 ze			Desset et al. 2022
