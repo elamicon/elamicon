@@ -389,7 +389,7 @@ fragments = List.map (\f -> { f | text = String.trim f.text, link = Nothing })
 
         """
       }
-    , { id = "W", group = "Kerman", source = "Phoe", dir = RTL, plate = Just "plates/linear-elam/w.pdf", link = Nothing, text =
+    , { id = "W (Assumed Fake)", group = "Kerman", source = "Phoe", dir = RTL, plate = Just "plates/linear-elam/w.pdf", link = Nothing, text =
         """
             
             
