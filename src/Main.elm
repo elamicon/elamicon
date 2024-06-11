@@ -77,7 +77,6 @@ init _ url key =
         initialModel =
             { script = script
             , dir = Nothing
-            , fixedBreak = True
             , selected = Nothing
             , normalizer = identity
             , normalize = False
@@ -214,9 +213,6 @@ update msg model =
 
         Select pos ->
             ( { model | selected = Just pos }, Cmd.none )
-
-        SetBreaking breaking ->
-            ( { model | fixedBreak = breaking }, Cmd.none )
 
         SetNormalize normalize ->
             ( { model | normalize = normalize }, Cmd.none )
@@ -1047,7 +1043,7 @@ view model =
                     ]
 
             in
-            div [ classList [ ( "plate", True ), ( "fixedBreak", model.fixedBreak ), ( model.script.id, True ) ], dirAttr fragment.dir ]
+            div [ classList [ ( "plate", True ), ( "fixedBreak", True), ( model.script.id, True ) ], dirAttr fragment.dir ]
                 [ h3 [] (fragmentTitle ++ thumb)
                 , ol fragmentAttrs lines
                 ]

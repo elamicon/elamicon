@@ -93,9 +93,6 @@ settings model =
         dirOptAttrs val dir =
             [ value val, selected (dir == model.dir) ]
 
-        breakOptAttrs val break =
-            [ value val, selected (break == model.fixedBreak) ]
-
         boolOptAttrs val sel =
             [ value val, selected sel ]
 
@@ -121,15 +118,6 @@ settings model =
                             [ option (dirOptAttrs "Original" Nothing) [ text "original ⇔" ]
                             , option (dirOptAttrs "LTR" (Just WritingDirections.LTR)) [ text "everything ⇒ from left ⇒ to right" ]
                             , option (dirOptAttrs "RTL" (Just WritingDirections.RTL)) [ text "everything ⇐ to left ⇐ from right" ]
-                            ]
-                        ]
-                    ]
-                , div []
-                    [ label []
-                        [ text "Line breaks: "
-                        , Html.select [ on "change" (Json.Decode.map SetBreaking boolDecoder) ]
-                            [ option (breakOptAttrs "true" True) [ text "original" ]
-                            , option (breakOptAttrs "false" False) [ text "remove" ]
                             ]
                         ]
                     ]

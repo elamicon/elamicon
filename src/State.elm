@@ -16,7 +16,6 @@ type alias Pos =
 type alias Model =
     { script : Script.Script
     , dir : Maybe WritingDirections.Dir
-    , fixedBreak : Bool
     , selected : Maybe Pos
     , syllabaryId : Maybe String
     , syllabary : Syllabary.Syllabary
@@ -43,7 +42,6 @@ type alias Model =
 type Msg
     = Select ( String, Int, Int )
     | SetScript Script.Script
-    | SetBreaking Bool
     | SetDir (Maybe WritingDirections.Dir)
     | SetNormalize Bool
     | SetSandbox String
