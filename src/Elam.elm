@@ -66,7 +66,6 @@ searchExamples =
 --             This is just for reference and has no effect on the syllabary.
 
 syllableMap = String.trim """
-	
 a				Desset et al. 2022; Mäder et al. 2018:62
 e				Mäder et al. 2018:66; Desset 2018:132
 h 			Mäder et al. 2018:Tab. 21
