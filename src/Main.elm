@@ -630,17 +630,6 @@ view model =
                 syllabarySelection =
                     ol [ class "syllabarySelection" ] (List.map syllabaryButton model.script.syllabaries)
 
-                groupSelectionEntry group =
-                    div []
-                        [ label []
-                            [ input [ type_ "checkbox", checked (Set.member group.id model.selectedGroups), Html.Events.onCheck (SelectGroup group.id) ] []
-                            , text group.name
-                            , small [] [ text (" " ++ group.extra) ]
-                            ]
-                        ]
-
-                groupSelection =
-                    List.map groupSelectionEntry model.script.groups
             in
             collapsibleTitle "syllabary" "Syllabary" .syllabary
                 ++ ifExpanded "syllabary"
@@ -665,8 +654,6 @@ view model =
                                         []
                                    )
                             )
-                        , div [ class "groups" ]
-                            (h4 [] [ text "Groups" ] :: groupSelection)
                         ]
                     )
 
@@ -821,14 +808,27 @@ view model =
                             [ dt [] [ text t ], dd [] [ text e ] ]
                     in
                     dl [] (List.concatMap def examples)
+                groupSelectionEntry group =
+                    div []
+                        [ label []
+                            [ input [ type_ "checkbox", checked (Set.member group.id model.selectedGroups), Html.Events.onCheck (SelectGroup group.id) ] []
+                            , text group.name
+                            , small [] [ text (" " ++ group.extra) ]
+                            ]
+                        ]
+
+                groupSelection =
+                    List.map groupSelectionEntry model.script.groups
             in
             collapsibleTitle "gramStats" "Frequency Analysis" .grams
                 ++ ifExpanded "gramStats" stats
-                ++ collapsibleTitle "search" "Search" .search
+                ++ collapsibleTitle "search" "Corpus Search" .search
                 ++ ifExpanded "search"
                     (\_ ->
                          label [] (
-                            [ text "Search "
+                            [ div [ class "groups" ]
+                                (h4 [] [ text "Groups" ] :: groupSelection)
+                            , text "Search "
                             , div [ class "searchInput" ]
                                 ( Html.input [ dirAttr LTR, value model.search, onInput SetSearch ] []
                                   :: (if searchPattern == Invalid then
