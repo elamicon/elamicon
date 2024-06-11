@@ -22,7 +22,7 @@ but there are seven **tokens** (Bbaaarr). In the context of syllabaries,
 the same **type** when searching. A **type** means a collection of
 **tokens** that are assumed to mean the same thing. [More about types on
 Wikipedia][t].
- 
+
 [t] https://en.wikipedia.org/wiki/Type%E2%80%93token_distinction
 -}
 type alias Syllabary = List Type
@@ -68,7 +68,7 @@ Example with Latin and Greek tokens:
     BbΒβ
 
 The type group can be named by starting the group with a name enclosed in
-angle brackets. 
+angle brackets.
 
 Example:
 
@@ -126,35 +126,35 @@ fromString =
                             }
                         else
                             state
-        
+
         parse = String.foldr readChar { inBrackets = False
                                       , tokens = []
                                       , name = []
                                       , seen = Set.empty
-                                      } 
-        
+                                      }
+
         toTypeGroup line =
             let
                 { tokens, name } = parse line
             in
             case (tokens, name) of
-                (t :: _, []) -> 
+                (t :: _, []) ->
                     -- When the group doesn't have a name, use the first token
                     -- as name.
-                    Just 
+                    Just
                         { name = String.fromChar t
                         , representative = t
                         , tokens = tokens
                         }
 
                 (t :: _, _) ->
-                    Just 
+                    Just
                         { name = String.fromList (name)
                         , representative = t
                         , tokens =  tokens
                         }
-    
-                _ -> 
+
+                _ ->
                     -- When there are no indexed tokens on that line, ignore it.
                     Nothing
 
@@ -181,12 +181,12 @@ filter accept =
         filterType t =
             let
                 filteredTokens = List.filter accept t.tokens
-                rep = if accept t.representative 
+                rep = if accept t.representative
                         then Just t.representative
                         else List.head filteredTokens
             in
                 case (filteredTokens, rep) of
-                    ([], _) -> 
+                    ([], _) ->
                         Nothing
 
                     (ts, Just r) ->
@@ -220,7 +220,7 @@ alternate versions of a type to the representative type.
 Tokens not in the syllabary are left as-is.
 -}
 normalize : Syllabary -> String -> String
-normalize syllabary = 
+normalize syllabary =
     let
         ins group dict =
             List.foldl (insLetter group.representative) dict group.tokens
