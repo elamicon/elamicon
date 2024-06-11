@@ -636,7 +636,7 @@ view model =
                     (\_ ->
                         [ div []
                             [ label []
-                                [ h4 [] [ text "Syllabary (current state of decipherment)" ]
+                                [ h4 [] [ text "Sound values (current state of decipherment)" ]
                                 , div [] [ text "Map types to sound values. The first word on a line is the sound value, the following word is a list of types that have this sound value. Any other text on the line is ignored." ]
                                 , Html.textarea [ value model.syllableMap, onInput SetSyllableMap ] []
                                 ]
