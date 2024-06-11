@@ -1,6 +1,5 @@
 module Elam exposing (elam)
 
-import Dict
 import List
 import Set
 import String
@@ -9,6 +8,7 @@ import Script exposing (..)
 import Specialchars exposing (..)
 import Token exposing (..)
 import WritingDirections exposing (..)
+import Syllabary exposing (sylDict)
 
 -- List of graphemes found in Linear-Elamite writings
 --
@@ -49,30 +49,6 @@ searchExamples =
     , ("([^]).\\1", "Sign repetitions with an arbitrary sign in-between ()")
     , ("[^]+", "Look for \"words\", assuming the vertical bar separates words")
     , ("[]", "Show sequences, with  or ")
-    ]
-
-syllables = Dict.fromList
-    [ ( '', [ "na" ] )
-    , ( '', [ "uk ?" ] )
-    , ( '', [ "NAP"] )
-    , ( '', [ "NAP"] )
-    , ( '', [ "en ?", "im ?"] )
-    , ( '', [ "šu" ] )
-    , ( '', [ "ša ?" ] )
-    , ( '', [ "in" ] )
-    , ( '', [ "ki" ] )
-    , ( '', [ "iš ?", "uš ?" ] )
-    , ( '', [ "tu ?" ] )
-    , ( '', [ "hu ?"] )
-    , ( '', [ "me ?" ] )
-    , ( '', [ "me ?" ] )
-    , ( '', [ "ši" ] )
-    , ( '', [ "še ?", "si ?" ] )
-    , ( '', [ "ak", "ik"] )
-    , ( '', [ "hal ?" ] )
-    , ( '', [ "ú" ] )
-    , ( '', [ "ni ?" ] )
-    , ( '', [ "piš ?" ] )
     ]
 
 
@@ -740,7 +716,7 @@ elam =
     , indexed = indexed
     , searchBidirectionalPreset = True
     , searchExamples = searchExamples
-    , syllables = syllables
+    , syllables = sylDict syllableMap
     , syllableMap = syllableMap
     , syllabaries = syllabaries
     , groups = groups

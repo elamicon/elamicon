@@ -57,11 +57,15 @@ html model =
                     else
                         List.map String.fromChar t.tokens
 
-                maybeSyls = Dict.get
+                maybeSyl = Dict.get
                     t.representative
                     model.script.syllables
 
-                syls = Maybe.withDefault [] maybeSyls
+                syls = case maybeSyl of
+                    Just syl ->
+                        [ syl ]
+                    Nothing ->
+                        []
 
                 -- Some entries in the syllabary have long names.
                 -- Use linguist's convention of wrapping the names in brackets.
@@ -77,8 +81,8 @@ html model =
                     div [ class "syl" ] [ text syl ]
             in
             li [ class "letter" ]
-                ([ letterEntry "main" t.name (String.fromChar t.representative) ]
-                    ++ (if shownExt /= [] || List.length syls > 0 then
+                (letterEntry "main" t.name (String.fromChar t.representative)
+                    :: (if shownExt /= [] || List.length syls > 0 then
                             [ div [ class "menu" ] (List.map (\ext -> letterEntry "ext" ext ext) shownExt ++ List.map syllableEntry syls) ]
 
                         else

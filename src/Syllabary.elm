@@ -1,8 +1,7 @@
-module Syllabary exposing (Syllabary, Type, fromString, filter, allTokens, normalize)
+module Syllabary exposing (Syllabary, Type, fromString, filter, allTokens, normalize, sylDict)
 
 import Dict exposing (Dict)
 import List
-import Regex
 import Script exposing (..)
 import Specialchars exposing (..)
 import Set exposing (Set)
@@ -236,3 +235,26 @@ normalize syllabary =
             Maybe.withDefault letter (Dict.get letter normalization)
     in
     String.map repl
+
+
+-- Digest the mapping from letters to "spoken sound" into a dictionary
+-- Replaces letters with their "spoken sound" based on a
+-- mapping given as string. Each line defines a mapping from letters to spoken
+-- sound. The first word of each line is the spoken sound, separated from
+-- the letters that are expected to sound like that.
+-- Based on the mapping
+--     why Yy
+--     oh Oo
+-- this dict would turn "Y o y" into "why oh why".
+
+sylDict : String -> Dict.Dict Token String
+sylDict strMap =
+    let
+        addLine line state =
+            case String.words line of
+                target :: sourceTokens :: _ ->
+                    List.foldl (\k -> Dict.insert k target) state (Token.toList sourceTokens)
+                _ ->
+                    state
+    in
+    List.foldl addLine Dict.empty (String.lines strMap)

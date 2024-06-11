@@ -15,6 +15,7 @@ import Markdown.Config exposing (..)
 import Regex
 import Script exposing (..)
 import Scripts exposing (..)
+import Syllabary exposing (sylDict)
 import Specialchars exposing (..)
 import Search
 import Set

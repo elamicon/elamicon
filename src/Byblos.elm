@@ -11,6 +11,7 @@ import WritingDirections exposing (..)
 import Script exposing (..)
 import Specialchars exposing (..)
 import Token
+import Syllabary exposing (sylDict)
 
 rawTokens = Token.toList <| String.trim """
 
@@ -35,21 +36,6 @@ searchExamples =
     , ("[]", "Show all occurrences of  and ")
     ]
 
-syllables = Dict.fromList
-    [ ( '', [ "me" ] )
-    , ( '', [ "pa" ] )
-    , ( '', [ "ATON" ] )
-    , ( '', [ "AMUN" ] )
-    , ( '', [ "AMUN" ] )
-    , ( '', [ "i" ] )
-    , ( '', [ "o" ] )
-    , ( '', [ "ḥ" ] )
-    , ( '', [ "m" ] )
-    , ( '', [ "b" ] )
-    , ( '', [ "ś" ] )
-    , ( '', [ "h" ] )
-    , ( '', [ "aleph" ] )
-    ]
 
 syllableMap = String.trim """
 me 
@@ -978,7 +964,7 @@ Feel free to contact the Byblicon research team: mailto:m.maeder[ätt]geass.ch.
     , indexed = indexed
     , searchBidirectionalPreset = True
     , searchExamples = searchExamples
-    , syllables = syllables
+    , syllables = sylDict syllableMap
     , syllableMap = syllableMap
     , syllabaries = syllabaries
     , groups = groups
