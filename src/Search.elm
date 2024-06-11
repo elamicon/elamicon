@@ -188,7 +188,7 @@ extract indexed limit contextLen fragments search =
                             case List.head matchReversed of
                                 Just s ->
                                     case String.uncons s of
-                                        Just (headChar, rest) -> 
+                                        Just (headChar, rest) ->
                                             ( String.fromChar headChar, rest )
                                         _ ->
                                             ( "", "" )
