@@ -1,10 +1,8 @@
-module Byblos exposing (byblos)
+module Scripts.Byblos exposing (byblos)
 
-import Dict
 import String
 import List
 import Set
-import Regex
 
 
 import WritingDirections exposing (..)

@@ -1,11 +1,9 @@
-module Runic exposing (runic)
+module Scripts.Runic exposing (runic)
 
 import Dict
 import String
 import List
 import Set
-import Regex
-
 
 import WritingDirections exposing (..)
 import Script exposing (..)

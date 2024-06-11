@@ -1,4 +1,4 @@
-module Lepontic exposing (lepontic)
+module Scripts.Lepontic exposing (lepontic)
 
 import Dict
 import String

@@ -1,11 +1,9 @@
-module Etruscan exposing (etruscan)
+module Scripts.Etruscan exposing (etruscan)
 
 import Dict
 import String
 import List
 import Set
-import Regex
-
 
 import WritingDirections exposing (..)
 import Script exposing (..)

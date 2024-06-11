@@ -1,4 +1,4 @@
-module DeirAlla exposing (deiralla)
+module Scripts.DeirAlla exposing (deiralla)
 
 import Dict
 import String

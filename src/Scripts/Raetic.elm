@@ -1,10 +1,9 @@
-module Raetic exposing (raetic)
+module Scripts.Raetic exposing (raetic)
 
 import Dict
 import String
 import List
 import Set
-import Regex
 
 
 import WritingDirections exposing (..)

@@ -14,7 +14,7 @@ import Markdown
 import Markdown.Config exposing (..)
 import Regex
 import Script exposing (..)
-import Scripts exposing (..)
+import Scriptlist exposing (..)
 import Syllabary exposing (sylDict)
 import Specialchars exposing (..)
 import Search
@@ -73,7 +73,7 @@ scrollToPos maybePos =
 init : () -> Url.Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init _ url key =
     let
-        script = Scripts.initialScript
+        script = Scriptlist.initialScript
         initialModel =
             { script = script
             , dir = Nothing

@@ -3,7 +3,7 @@ module Search exposing (MatchContext, MatchLoc, MatchResults, Search, bidirectio
 import Levenshtein
 import Regex
 import Script exposing (..)
-import Scripts exposing (..)
+import Scriptlist exposing (..)
 import Set
 
 

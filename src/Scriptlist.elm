@@ -1,12 +1,12 @@
-module Scripts exposing (scripts, fromName, initialScript)
+module Scriptlist exposing (scripts, fromName, initialScript)
 
-import Byblos as Byblos
-import Elam as Elam
-import Raetic as Raetic
-import Lepontic as Lepontic
-import Etruscan
-import Runic
-import DeirAlla
+import Scripts.Byblos as Byblos
+import Scripts.Elam as Elam
+import Scripts.Raetic as Raetic
+import Scripts.Lepontic as Lepontic
+import Scripts.Etruscan as Etruscan
+import Scripts.Runic as Runic
+import Scripts.DeirAlla as DeirAlla
 
 import List
 import Script exposing (..)

@@ -1,4 +1,4 @@
-module Elam exposing (elam)
+module Scripts.Elam exposing (elam)
 
 import List
 import Set

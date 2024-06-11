@@ -4,7 +4,7 @@ import Url
 import Syllabary
 import Set
 import Script
-import Scripts
+import Scriptlist
 import Browser
 import Browser.Navigation
 import WritingDirections
@@ -105,7 +105,7 @@ updateStateFromUrlFragment fragment model =
         updateModelWithParam param m =
             case param of
                 KeyValueParam "script" value ->
-                    case Scripts.fromName value of
+                    case Scriptlist.fromName value of
                         Just script ->
                             { m | script = script }
                         Nothing ->

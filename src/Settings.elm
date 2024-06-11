@@ -11,7 +11,7 @@ import Html.Attributes exposing (value, selected, class, title)
 import Html.Events exposing (onInput, onClick, on)
 
 import State exposing (..)
-import Scripts exposing (scripts)
+import Scriptlist exposing (scripts)
 import Script exposing (Script)
 import Html exposing (br)
 
